@@ -1,0 +1,20 @@
+{
+  "scope": "A",
+  "version": 1,
+  "restricted": false,
+  "overridable": true,
+  "files": [
+    "mobile-phone--arrow.png"
+  ],
+  "attributes": {
+    "width": 16,
+    "format": "PNG",
+    "lastModification": {
+      "actor": "8.3-migration",
+      "timestamp": "2026-01-07T14:49:07Z"
+    },
+    "size": 629,
+    "lastModificationSignature": "a206b1fd1ddb2c9530a0eb77d611114c64cae653d4a3f0da651acd72b43dda06",
+    "height": 16
+  }
+}

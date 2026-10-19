@@ -1,0 +1,20 @@
+{
+  "scope": "A",
+  "version": 1,
+  "restricted": false,
+  "overridable": true,
+  "files": [
+    "Valve 22.png"
+  ],
+  "attributes": {
+    "width": 90,
+    "format": "PNG",
+    "lastModification": {
+      "actor": "8.3-migration",
+      "timestamp": "2026-01-07T14:49:07Z"
+    },
+    "size": 4225,
+    "lastModificationSignature": "d0731735991464cfd282dda48e31fda8b6f1cbc601da7091a8a0dca1ebb6f678",
+    "height": 78
+  }
+}

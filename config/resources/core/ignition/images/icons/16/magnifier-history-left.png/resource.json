@@ -1,0 +1,20 @@
+{
+  "scope": "A",
+  "version": 1,
+  "restricted": false,
+  "overridable": true,
+  "files": [
+    "magnifier-history-left.png"
+  ],
+  "attributes": {
+    "width": 16,
+    "format": "PNG",
+    "lastModification": {
+      "actor": "8.3-migration",
+      "timestamp": "2026-01-07T14:49:07Z"
+    },
+    "size": 726,
+    "lastModificationSignature": "e5b1214663309947fedc0517efc1def98ac5ab4b0b3dfbbc7e8d20a65d6f2d67",
+    "height": 16
+  }
+}

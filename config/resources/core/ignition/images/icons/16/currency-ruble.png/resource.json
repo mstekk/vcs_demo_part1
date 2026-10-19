@@ -1,0 +1,20 @@
+{
+  "scope": "A",
+  "version": 1,
+  "restricted": false,
+  "overridable": true,
+  "files": [
+    "currency-ruble.png"
+  ],
+  "attributes": {
+    "width": 16,
+    "format": "PNG",
+    "lastModification": {
+      "actor": "8.3-migration",
+      "timestamp": "2026-01-07T14:49:07Z"
+    },
+    "size": 545,
+    "lastModificationSignature": "6610d6ee156195504b2da01fabe744ce21b7f591c7c08998634a727428377cb6",
+    "height": 16
+  }
+}

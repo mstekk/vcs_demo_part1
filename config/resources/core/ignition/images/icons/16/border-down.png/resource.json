@@ -1,0 +1,20 @@
+{
+  "scope": "A",
+  "version": 1,
+  "restricted": false,
+  "overridable": true,
+  "files": [
+    "border-down.png"
+  ],
+  "attributes": {
+    "width": 16,
+    "format": "PNG",
+    "lastModification": {
+      "actor": "8.3-migration",
+      "timestamp": "2026-01-07T14:49:07Z"
+    },
+    "size": 437,
+    "lastModificationSignature": "474ed948a7fe244d7fa02a1f3bd11683e8641e47651b81bf96a6dae5c1680d2a",
+    "height": 16
+  }
+}

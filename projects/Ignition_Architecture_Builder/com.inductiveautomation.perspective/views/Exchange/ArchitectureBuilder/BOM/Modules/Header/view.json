@@ -1,0 +1,641 @@
+{
+  "custom": {},
+  "params": {
+    "UUID": "I06ac5707",
+    "expanded": true,
+    "type": "Standard",
+    "vendor": "CL"
+  },
+  "propConfig": {
+    "params.UUID": {
+      "paramDirection": "input",
+      "persistent": true
+    },
+    "params.expanded": {
+      "paramDirection": "inout",
+      "persistent": true
+    },
+    "params.type": {
+      "paramDirection": "input",
+      "persistent": true
+    },
+    "params.vendor": {
+      "paramDirection": "input",
+      "persistent": true
+    }
+  },
+  "props": {
+    "defaultSize": {
+      "height": 40
+    }
+  },
+  "root": {
+    "children": [
+      {
+        "events": {
+          "dom": {
+            "onClick": {
+              "config": {
+                "script": "\t# Determine new value\n\tisExpanded \u003d not self.view.params.expanded\n\n\tif self.session.custom.audit.bom:\n\t\t# Log Ignition Modules section expanded or collapsed\n\t\tif isExpanded:\n\t\t\taction \u003d \"Expanded\"\n\t\telse:\n\t\t\taction \u003d \"Collapsed\"\n\t\tsystem.util.audit(action\u003daction, actionTarget\u003d\"BOM\", actionValue\u003d\"Ignition Modules\", originatingSystem\u003d[\"uuid\",self.view.params.UUID,\"vendor\",self.view.params.vendor])\n\n\t# Send message (Exchange/ArchitectureBuilder/BOM/BillOfMaterials \u0026 Exchange/ArchitectureBuilder/BOM/Ignition/Body have handler)\n\tpayload \u003d {\u0027source\u0027: self.view.params.vendor, \u0027uuid\u0027: self.view.params.UUID, \u0027value\u0027: isExpanded}\n\tsystem.perspective.sendMessage(\"toggleExpansion\", payload)"
+              },
+              "scope": "G",
+              "type": "script"
+            }
+          }
+        },
+        "meta": {
+          "name": "Toggle",
+          "tooltip": {
+            "enabled": true,
+            "text": "Expand/Collapse"
+          }
+        },
+        "position": {
+          "basis": "30px",
+          "shrink": 0
+        },
+        "propConfig": {
+          "props.path": {
+            "binding": {
+              "config": {
+                "path": "view.params.expanded"
+              },
+              "transforms": [
+                {
+                  "fallback": "material/expand_more",
+                  "inputType": "scalar",
+                  "mappings": [
+                    {
+                      "input": true,
+                      "output": "material/expand_less"
+                    }
+                  ],
+                  "outputType": "scalar",
+                  "type": "map"
+                }
+              ],
+              "type": "property"
+            }
+          }
+        },
+        "props": {
+          "style": {
+            "cursor": "pointer"
+          }
+        },
+        "type": "ia.display.icon"
+      },
+      {
+        "meta": {
+          "name": "Vendor"
+        },
+        "position": {
+          "shrink": 0
+        },
+        "propConfig": {
+          "props.text": {
+            "binding": {
+              "config": {
+                "expression": "case({view.params.vendor},\r\n\t\u0027IA\u0027, case({view.params.type},\r\n\t\t\u0027Standard\u0027, \u0027Inductive Automation Modules\u0027,\r\n\t\t\u0027Cloud\u0027, \u0027Cloud Functionality\u0027,\r\n\t\t\u0027Edge Functionality\u0027),\r\n\t\u0027CL\u0027, \u0027Cirrus Link Modules\u0027,\r\n\t\u0027SS\u0027, \u0027Sepasoft Modules\u0027,\r\n\t\u0027TPM\u0027, \u0027Third Party Modules\u0027,\r\n\t\u0027Error\u0027)"
+              },
+              "type": "expr"
+            }
+          }
+        },
+        "props": {
+          "style": {
+            "marginLeft": "6px"
+          }
+        },
+        "type": "ia.display.label"
+      },
+      {
+        "meta": {
+          "name": "Warning",
+          "tooltip": {
+            "enabled": true
+          }
+        },
+        "position": {
+          "basis": "30px"
+        },
+        "propConfig": {
+          "meta.tooltip.text": {
+            "binding": {
+              "config": {
+                "path": "../price.custom.retailTotal.msg"
+              },
+              "type": "property"
+            }
+          },
+          "position.display": {
+            "binding": {
+              "config": {
+                "expression": "len({../price.custom.retailTotal.msg}) \u003e 0"
+              },
+              "type": "expr"
+            }
+          }
+        },
+        "props": {
+          "path": "material/warning",
+          "style": {
+            "marginRight": "6px"
+          }
+        },
+        "type": "ia.display.icon"
+      },
+      {
+        "events": {
+          "dom": {
+            "onClick": {
+              "config": {
+                "draggable": true,
+                "id": "modules",
+                "modal": false,
+                "overlayDismiss": false,
+                "resizable": false,
+                "showCloseIcon": true,
+                "title": "Module Selection",
+                "type": "open",
+                "viewParams": {
+                  "gatewayUUID": "{view.params.UUID}",
+                  "providerFlag": "{view.params.vendor}"
+                },
+                "viewPath": "Exchange/ArchitectureBuilder/Modules/ModuleSelection",
+                "viewportBound": true
+              },
+              "scope": "C",
+              "type": "popup"
+            }
+          }
+        },
+        "meta": {
+          "name": "Module-IA-Icon"
+        },
+        "position": {
+          "basis": "24px"
+        },
+        "props": {
+          "elements": [
+            {
+              "elements": [
+                {
+                  "elements": [
+                    {
+                      "name": "stop",
+                      "offset": "0",
+                      "stopColor": "#fcb81a",
+                      "type": "stop"
+                    },
+                    {
+                      "name": "stop",
+                      "offset": "0",
+                      "stopColor": "#fcb81a",
+                      "type": "stop"
+                    },
+                    {
+                      "name": "stop",
+                      "offset": "0.11",
+                      "stopColor": "#f8a01d",
+                      "type": "stop"
+                    },
+                    {
+                      "name": "stop",
+                      "offset": "0.22",
+                      "stopColor": "#f68f1f",
+                      "type": "stop"
+                    },
+                    {
+                      "name": "stop",
+                      "offset": "0.35",
+                      "stopColor": "#f48520",
+                      "type": "stop"
+                    },
+                    {
+                      "name": "stop",
+                      "offset": "0.5",
+                      "stopColor": "#f48220",
+                      "type": "stop"
+                    },
+                    {
+                      "name": "stop",
+                      "offset": "0.65",
+                      "stopColor": "#f48520",
+                      "type": "stop"
+                    },
+                    {
+                      "name": "stop",
+                      "offset": "0.78",
+                      "stopColor": "#f68f1f",
+                      "type": "stop"
+                    },
+                    {
+                      "name": "stop",
+                      "offset": "0.89",
+                      "stopColor": "#f8a01d",
+                      "type": "stop"
+                    },
+                    {
+                      "name": "stop",
+                      "offset": "1",
+                      "stopColor": "#fcb81a",
+                      "type": "stop"
+                    },
+                    {
+                      "name": "stop",
+                      "offset": "1",
+                      "stopColor": "#fcb81a",
+                      "type": "stop"
+                    }
+                  ],
+                  "gradientTransform": "translate(1061 1086) rotate(-90)",
+                  "gradientUnits": "userSpaceOnUse",
+                  "id": "linear-gradient",
+                  "name": "linear-gradient",
+                  "type": "linearGradient",
+                  "x1": "1022.71",
+                  "x2": "1065.89",
+                  "y1": "-1061.15",
+                  "y2": "-987.84"
+                },
+                {
+                  "elements": [
+                    {
+                      "name": "stop",
+                      "offset": "0",
+                      "stopColor": "#f1c81e",
+                      "type": "stop"
+                    },
+                    {
+                      "name": "stop",
+                      "offset": "0.54",
+                      "stopColor": "#ef9120",
+                      "type": "stop"
+                    },
+                    {
+                      "name": "stop",
+                      "offset": "1",
+                      "stopColor": "#ed5f22",
+                      "type": "stop"
+                    }
+                  ],
+                  "gradientUnits": "userSpaceOnUse",
+                  "id": "linear-gradient-2",
+                  "name": "linear-gradient-2",
+                  "type": "linearGradient",
+                  "x1": "17.83",
+                  "x2": "54.68",
+                  "y1": "3.05",
+                  "y2": "39.89"
+                },
+                {
+                  "elements": [
+                    {
+                      "name": "stop",
+                      "offset": "0",
+                      "stopColor": "#ed5f22",
+                      "type": "stop"
+                    },
+                    {
+                      "name": "stop",
+                      "offset": "0.24",
+                      "stopColor": "#ee7421",
+                      "type": "stop"
+                    },
+                    {
+                      "name": "stop",
+                      "offset": "0.74",
+                      "stopColor": "#f0a91f",
+                      "type": "stop"
+                    },
+                    {
+                      "name": "stop",
+                      "offset": "1",
+                      "stopColor": "#f1c81e",
+                      "type": "stop"
+                    }
+                  ],
+                  "gradientUnits": "userSpaceOnUse",
+                  "id": "linear-gradient-3",
+                  "name": "linear-gradient-3",
+                  "type": "linearGradient",
+                  "x1": "54",
+                  "x2": "54",
+                  "y1": "83.86",
+                  "y2": "20.04"
+                },
+                {
+                  "elements": [
+                    {
+                      "name": "stop",
+                      "offset": "0",
+                      "stopColor": "#f6901f",
+                      "type": "stop"
+                    },
+                    {
+                      "name": "stop",
+                      "offset": "0.12",
+                      "stopColor": "#f3801d",
+                      "type": "stop"
+                    },
+                    {
+                      "name": "stop",
+                      "offset": "0.36",
+                      "stopColor": "#ef6819",
+                      "type": "stop"
+                    },
+                    {
+                      "name": "stop",
+                      "offset": "0.5",
+                      "stopColor": "#ed5f18",
+                      "type": "stop"
+                    },
+                    {
+                      "name": "stop",
+                      "offset": "0.64",
+                      "stopColor": "#ef6819",
+                      "type": "stop"
+                    },
+                    {
+                      "name": "stop",
+                      "offset": "0.87",
+                      "stopColor": "#f3801d",
+                      "type": "stop"
+                    },
+                    {
+                      "name": "stop",
+                      "offset": "1",
+                      "stopColor": "#f6901f",
+                      "type": "stop"
+                    }
+                  ],
+                  "gradientUnits": "userSpaceOnUse",
+                  "id": "linear-gradient-4",
+                  "name": "linear-gradient-4",
+                  "type": "linearGradient",
+                  "x1": "43.91",
+                  "x2": "-7.91",
+                  "y1": "74.14",
+                  "y2": "30.65"
+                }
+              ],
+              "name": "defs",
+              "type": "defs"
+            },
+            {
+              "elements": [
+                {
+                  "fill": {
+                    "url": "url(#linear-gradient)"
+                  },
+                  "name": "polygon",
+                  "points": "0 21.21 0 62.78 36 83.57 72 62.78 72 21.21 36 0.43 0 21.21",
+                  "style": {
+                    "classes": ""
+                  },
+                  "type": "polygon"
+                },
+                {
+                  "fill": {
+                    "url": "url(#linear-gradient-2)"
+                  },
+                  "name": "polygon",
+                  "points": "36 0.43 0 21.21 36 42 72 21.21 36 0.43",
+                  "style": {
+                    "classes": ""
+                  },
+                  "type": "polygon"
+                },
+                {
+                  "fill": {
+                    "url": "url(#linear-gradient-3)"
+                  },
+                  "name": "polygon",
+                  "points": "36 42 36 83.57 72 62.78 72 21.21 36 42",
+                  "style": {
+                    "classes": ""
+                  },
+                  "type": "polygon"
+                },
+                {
+                  "fill": {
+                    "url": "url(#linear-gradient-4)"
+                  },
+                  "name": "polygon",
+                  "points": "0 21.21 36 42 36 83.57 0 62.78 0 21.21",
+                  "style": {
+                    "classes": ""
+                  },
+                  "type": "polygon"
+                }
+              ],
+              "id": "BG",
+              "name": "BG",
+              "type": "group"
+            },
+            {
+              "dominant-baseline": "middle",
+              "style": {
+                "classes": "",
+                "fill": "var(--neutral-50)",
+                "fontFamily": "Noto Sans",
+                "fontSize": 75,
+                "textAlign": "center"
+              },
+              "text": "+",
+              "text-anchor": "middle",
+              "type": "text",
+              "x": "45%",
+              "y": "54%"
+            },
+            {
+              "dominant-baseline": "middle",
+              "style": {
+                "classes": "",
+                "fill": "var(--neutral-100)",
+                "fontFamily": "Noto Sans",
+                "fontSize": 75,
+                "textAlign": "center"
+              },
+              "text": "+",
+              "text-anchor": "middle",
+              "type": "text",
+              "x": "50%",
+              "y": "60%"
+            }
+          ],
+          "style": {
+            "cursor": "pointer",
+            "marginLeft": "6px"
+          },
+          "viewBox": "0 0 72 84"
+        },
+        "type": "ia.shapes.svg"
+      },
+      {
+        "meta": {
+          "name": "price",
+          "tooltip": {}
+        },
+        "position": {
+          "grow": 1,
+          "shrink": 0
+        },
+        "propConfig": {
+          "custom.price": {
+            "binding": {
+              "config": {
+                "struct": {
+                  "config": "{session.custom.structure.configs}",
+                  "discount": "{session.custom.discount}",
+                  "eamUnlimited": "{session.custom.eamUnlimited}",
+                  "instance": "property(\"session.custom.structure.configs.\" + {view.params.UUID})",
+                  "type": "{view.params.type}",
+                  "vendor": "{view.params.vendor}"
+                },
+                "waitOnAll": true
+              },
+              "transforms": [
+                {
+                  "code": "\tlogger \u003d system.util.getLogger(\"BOM/Headers/ModuleVendor\")\n\tlogger.info(\"Evaulating price.custom.retailTotal\")\n\n\tif value[\u0027type\u0027] \u003d\u003d \u0027Cloud\u0027:\n\t\treturn {\u0027msg\u0027:\u0027See Provider\u0027, \u0027total\u0027:0}\n\tif value[\u0027vendor\u0027] in value[\u0027instance\u0027][\u0027config\u0027][\u0027modules\u0027]:\n\t\t# Build list of selected modules\n\t\tselectedModules \u003d []\n\t\tmoduleVendors \u003d value[\u0027instance\u0027][\u0027config\u0027][\u0027modules\u0027][value[\u0027vendor\u0027]]\n\t\tfor m in moduleVendors:\n\t\t\tif \"selection\" in m.keys() and m[\"selection\"] not in (None, \"\"):\n\t\t\t\tselectedModules.append({\"name\": m[\"name\"], \"selection\": m[\"selection\"]})\n\t\t\telse:\n\t\t\t\tselectedModules.append(m[\"name\"])\n\t\tlogger.info(\"Calling \u0027getRetailTotal\u0027 for modules: \" + str(selectedModules))\n\n\t\tcost \u003d exchange.architecturebuilder.modules.getRetailTotal({value[\u0027vendor\u0027]: selectedModules}, gwType\u003dvalue[\u0027type\u0027])\n\n\t\tif value[\"eamUnlimited\"][\"selected\"] and value[\"vendor\"] \u003d\u003d \"IA\":\n\t\t\tif len(filter(lambda module: module \u003d\u003d \"EAM\", selectedModules)) \u003e 0:\n\t\t\t\tfor module in selectedModules:\n\t\t\t\t\tif module \u003d\u003d \"EAM\":\n\t\t\t\t\t\tselectedModules.remove(module)\n\t\t\t\t\t\tbreak\n\t\t\tif value[\"eamUnlimited\"][\"UUID\"] \u003d\u003d self.view.params.UUID:\n\t\t\t\teamCost \u003d exchange.architecturebuilder.modules.getEamUnlimited()\n\t\t\t\tcost[\u0027total\u0027] +\u003d eamCost\n\t\treturn cost",
+                  "type": "script"
+                }
+              ],
+              "type": "expr-struct"
+            }
+          },
+          "meta.textOriginal": {
+            "binding": {
+              "config": {
+                "expression": "\"Price after discount. (\" + numberFormat(coalesce({this.custom.price.total}, 0), \"$#,##0.00\") + \" Retail)\""
+              },
+              "type": "expr"
+            }
+          },
+          "meta.tooltip.enabled": {
+            "binding": {
+              "config": {
+                "expression": "{session.custom.discount} \u003e 0"
+              },
+              "type": "expr"
+            }
+          },
+          "meta.tooltip.text": {
+            "binding": {
+              "config": {
+                "expression": "{this.custom.price}"
+              },
+              "type": "expr"
+            }
+          },
+          "props.text": {
+            "binding": {
+              "config": {
+                "expression": "if({view.params.vendor} \u003d \u0027IA\u0027 || {view.params.vendor} \u003d \u0027CL\u0027,\r\n\tif(len({this.custom.price.msg}) \u003e 0,\r\n\t\tnumberFormat({this.custom.price.total} * (1 - ({session.custom.discount} / 100.0)), \u0027$#,##0.00+\u0027),\r\n\t\tnumberFormat({this.custom.price.total} * (1 - ({session.custom.discount} / 100.0)), \u0027$#,##0.00\u0027)),\r\n\t\u0027Quote Required\u0027)"
+              },
+              "type": "expr"
+            }
+          },
+          "props.textStyle.fontStyle": {
+            "binding": {
+              "config": {
+                "expression": "len({this.custom.price.msg}) \u003e 0"
+              },
+              "transforms": [
+                {
+                  "fallback": "normal",
+                  "inputType": "scalar",
+                  "mappings": [
+                    {
+                      "input": true,
+                      "output": "italic"
+                    }
+                  ],
+                  "outputType": "scalar",
+                  "type": "map"
+                }
+              ],
+              "type": "expr"
+            }
+          }
+        },
+        "props": {
+          "style": {
+            "marginLeft": "8px",
+            "marginRight": 8,
+            "textAlign": "right"
+          }
+        },
+        "scripts": {
+          "customMethods": [],
+          "extensionFunctions": null,
+          "messageHandlers": [
+            {
+              "messageType": "priceRefresh",
+              "pageScope": true,
+              "script": "\tlogger \u003d system.util.getLogger(\"BOM/Headers/ModuleVendor\")\n\n\tif payload[\u0027uuid\u0027] \u003d\u003d self.view.params.UUID:\n\t\tif payload[\u0027vendor\u0027] in (\u0027Standard\u0027, \u0027Edge\u0027, \u0027Cloud\u0027):\n\t\t\tpayloadVendor \u003d \u0027IA\u0027\n\t\telse:\n\t\t\tpayloadVendor \u003d payload[\u0027vendor\u0027]\n\n\t\tlogger.info(\"payload[\u0027vendor\u0027] \u003d \" + payloadVendor)\n\t\tif payloadVendor \u003d\u003d self.view.params.vendor: \n\t\t\tself.refreshBinding(\"custom.price\")",
+              "sessionScope": false,
+              "viewScope": false
+            }
+          ]
+        },
+        "type": "ia.display.label"
+      }
+    ],
+    "meta": {
+      "name": "root"
+    },
+    "propConfig": {
+      "props.style.background": {
+        "binding": {
+          "config": {
+            "expression": "if({view.params.vendor} \u003d \u0027IA\u0027,\r\n\t{view.params.type},\r\n\t{view.params.vendor})"
+          },
+          "transforms": [
+            {
+              "fallback": "#AAAAAA",
+              "inputType": "scalar",
+              "mappings": [
+                {
+                  "input": "Standard",
+                  "output": "--standard"
+                },
+                {
+                  "input": "Edge",
+                  "output": "--edge"
+                },
+                {
+                  "input": "Panel",
+                  "output": "--panel"
+                },
+                {
+                  "input": "CL",
+                  "output": "--cirrusLink"
+                },
+                {
+                  "input": "SS",
+                  "output": "--sepasoft"
+                },
+                {
+                  "input": "Cloud",
+                  "output": "--cloud"
+                }
+              ],
+              "outputType": "scalar",
+              "type": "map"
+            }
+          ],
+          "type": "expr"
+        }
+      }
+    },
+    "props": {
+      "style": {
+        "cursor": "auto"
+      },
+      "wrap": "wrap"
+    },
+    "type": "ia.container.flex"
+  }
+}

@@ -1,0 +1,25 @@
+{
+  "scope": "G",
+  "version": 1,
+  "restricted": false,
+  "overridable": true,
+  "files": [
+    "tags.json"
+  ],
+  "attributes": {
+    "config": {
+      "readOnly": false,
+      "dataType": "Int4",
+      "writePermissions": {
+        "type": "AllOf",
+        "securityLevels": []
+      },
+      "readPermissions": {
+        "type": "AllOf",
+        "securityLevels": []
+      },
+      "tagGroup": "Default",
+      "enabled": true
+    }
+  }
+}

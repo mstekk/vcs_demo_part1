@@ -1,0 +1,1613 @@
+{
+  "custom": {},
+  "params": {},
+  "props": {
+    "defaultSize": {
+      "height": 1030,
+      "width": 1770
+    }
+  },
+  "root": {
+    "children": [
+      {
+        "meta": {
+          "name": "Title"
+        },
+        "position": {
+          "basis": "30pt"
+        },
+        "props": {
+          "text": "EDB REMOVAL SYSTEM",
+          "textStyle": {
+            "classes": "Header"
+          }
+        },
+        "type": "ia.display.label"
+      },
+      {
+        "children": [
+          {
+            "meta": {
+              "name": "Label_12"
+            },
+            "position": {
+              "height": 46,
+              "width": 102.14,
+              "x": 907.27,
+              "y": 128.486
+            },
+            "props": {
+              "text": "Water Softener",
+              "textStyle": {
+                "classes": "ComponentName"
+              }
+            },
+            "type": "ia.display.label"
+          },
+          {
+            "meta": {
+              "name": "Label_46"
+            },
+            "position": {
+              "height": 32.07,
+              "width": 115.18,
+              "x": 172.797,
+              "y": 739.452
+            },
+            "props": {
+              "text": "Brine P-1",
+              "textStyle": {
+                "classes": "ComponentName"
+              }
+            },
+            "type": "ia.display.label"
+          },
+          {
+            "meta": {
+              "name": "IE Vessel 20"
+            },
+            "position": {
+              "height": 47.05,
+              "width": 48.17,
+              "x": 213.007,
+              "y": 763.513
+            },
+            "props": {
+              "params": {
+                "displayName": false,
+                "displayStatus": false,
+                "tagPath": "[default]Demo/Tank"
+              },
+              "path": "Devices/Pump"
+            },
+            "type": "ia.display.view"
+          },
+          {
+            "meta": {
+              "name": "LinearScale_0"
+            },
+            "position": {
+              "height": 148.97,
+              "width": 99.97,
+              "x": 306.09,
+              "y": 457.025
+            },
+            "propConfig": {
+              "props.indicators[1].label": {
+                "binding": {
+                  "config": {
+                    "path": "this.props.indicators[1].value"
+                  },
+                  "transforms": [
+                    {
+                      "expression": "numberFormat({value}, \"#00.0\u0027ft\u0027\")",
+                      "type": "expression"
+                    }
+                  ],
+                  "type": "property"
+                }
+              },
+              "props.indicators[1].value": {
+                "binding": {
+                  "config": {
+                    "fallbackDelay": 2.5,
+                    "mode": "direct",
+                    "tagPath": "[RCSD]WTF/Anita-B-Smith/BT-LIT/TempValue"
+                  },
+                  "type": "tag"
+                }
+              }
+            },
+            "props": {
+              "fineTicks": {
+                "length": 2,
+                "span": 0
+              },
+              "indicators": [
+                {
+                  "color": "#FF0000",
+                  "extent": 20,
+                  "indicatorStyle": "range",
+                  "label": "",
+                  "labelAngle": 0,
+                  "labelColor": "",
+                  "length": 15,
+                  "opacity": 0.5,
+                  "stroke": 1.5,
+                  "value": 130
+                },
+                {
+                  "color": "#4747FF",
+                  "extent": 4,
+                  "indicatorStyle": "wedge",
+                  "labelAngle": -30,
+                  "labelColor": "",
+                  "length": 20,
+                  "opacity": 1,
+                  "stroke": 2
+                }
+              ],
+              "labels": {
+                "style": {
+                  "fontSize": "12px"
+                }
+              },
+              "majorTicks": {
+                "length": 10,
+                "span": 50
+              },
+              "maxValue": 150,
+              "minorTicks": {
+                "length": 5
+              },
+              "mirror": true
+            },
+            "type": "ia.display.linear-scale"
+          },
+          {
+            "meta": {
+              "name": "IE Vessel 18"
+            },
+            "position": {
+              "height": 200.03,
+              "width": 149.95,
+              "x": 155.41,
+              "y": 428.965
+            },
+            "props": {
+              "params": {
+                "displayName": false,
+                "tagPath": "[default]Demo/Tank"
+              },
+              "path": "Devices/Tank"
+            },
+            "type": "ia.display.view"
+          },
+          {
+            "meta": {
+              "name": "Label_5"
+            },
+            "position": {
+              "height": 64.99,
+              "width": 149.95,
+              "x": 155.41,
+              "y": 365.034
+            },
+            "props": {
+              "text": "Brine Tank",
+              "textStyle": {
+                "classes": "ComponentName"
+              }
+            },
+            "type": "ia.display.label"
+          },
+          {
+            "meta": {
+              "name": "Label_45"
+            },
+            "position": {
+              "height": 32.07,
+              "width": 115.18,
+              "x": 172.797,
+              "y": 860.573
+            },
+            "props": {
+              "text": "Brine P-1",
+              "textStyle": {
+                "classes": "ComponentName"
+              }
+            },
+            "type": "ia.display.label"
+          },
+          {
+            "meta": {
+              "name": "Sparkline_1"
+            },
+            "position": {
+              "height": 147.07,
+              "width": 148.14,
+              "x": 156.14,
+              "y": 454.915
+            },
+            "propConfig": {
+              "props.points": {
+                "binding": {
+                  "config": {
+                    "avoidScanClassValidation": true,
+                    "dateRange": {
+                      "mostRecent": "1",
+                      "mostRecentUnits": "MIN"
+                    },
+                    "enableValueCache": true,
+                    "ignoreBadQuality": false,
+                    "polling": {
+                      "enabled": true,
+                      "rate": "1"
+                    },
+                    "preventInterpolation": false,
+                    "returnFormat": "Wide",
+                    "returnSize": {
+                      "type": "RAW"
+                    },
+                    "tags": [
+                      {
+                        "path": "[RCSD]WTF/Anita-B-Smith/BT-LIT/TempValue"
+                      }
+                    ],
+                    "valueFormat": "DATASET"
+                  },
+                  "type": "tag-history"
+                }
+              }
+            },
+            "props": {
+              "desired": {
+                "fill": {
+                  "color": "#DBEEFF",
+                  "opacity": 1
+                },
+                "high": 120,
+                "low": 20,
+                "stroke": {
+                  "width": 0
+                }
+              },
+              "range": {
+                "high": 150,
+                "low": 0
+              },
+              "width": 1
+            },
+            "type": "ia.display.sparkline"
+          },
+          {
+            "meta": {
+              "name": "IE Vessel 19"
+            },
+            "position": {
+              "height": 47.05,
+              "width": 48.17,
+              "x": 211.917,
+              "y": 884.623
+            },
+            "props": {
+              "params": {
+                "displayName": false,
+                "displayStatus": false,
+                "tagPath": "[default]Demo/Tank"
+              },
+              "path": "Devices/Pump"
+            },
+            "type": "ia.display.view"
+          },
+          {
+            "meta": {
+              "name": "DB_001"
+            },
+            "position": {
+              "height": 30,
+              "width": 170,
+              "x": 1590,
+              "y": 882.625
+            },
+            "props": {
+              "elements": [
+                {
+                  "d": "M0.5 0.5V9.5H31.0869L35.3145 5L31.0869 0.5H0.5Z",
+                  "fill": "white",
+                  "name": "path",
+                  "stroke": {
+                    "paint": "#2B2B2B",
+                    "width": ".75"
+                  },
+                  "type": "path"
+                }
+              ],
+              "fill": {
+                "paint": "transparent"
+              },
+              "preserveAspectRatio": "none",
+              "viewBox": "0 0 36 10"
+            },
+            "type": "ia.shapes.svg"
+          },
+          {
+            "meta": {
+              "name": "db_001",
+              "tooltip": {
+                "text": "To Nitrate Removal Vessels"
+              }
+            },
+            "position": {
+              "height": 30,
+              "width": 135,
+              "x": 1605.9,
+              "y": 882.625
+            },
+            "props": {
+              "style": {
+                "cursor": "pointer"
+              },
+              "text": "Dilute Brine"
+            },
+            "type": "ia.display.label"
+          },
+          {
+            "meta": {
+              "name": "Softener"
+            },
+            "position": {
+              "height": 401,
+              "width": 221,
+              "x": 784.648,
+              "y": 192.539
+            },
+            "props": {
+              "elements": [
+                {
+                  "fill": "#F0F0F0",
+                  "height": "345.281",
+                  "name": "rect",
+                  "stroke": {
+                    "paint": "black",
+                    "width": 2
+                  },
+                  "type": "rect",
+                  "width": "220",
+                  "x": "0.5",
+                  "y": "28.0908"
+                },
+                {
+                  "d": "M220.5 27.6292C220.5 12.6462 171.251 0.5 110.5 0.5C49.7487 0.5 0.5 12.6462 0.5 27.6292",
+                  "fill": "#F0F0F0",
+                  "name": "path",
+                  "stroke": {
+                    "paint": "black",
+                    "width": 2
+                  },
+                  "type": "path"
+                },
+                {
+                  "d": "M220.5 373.371C220.5 388.354 171.251 400.5 110.5 400.5C49.7487 400.5 0.5 388.354 0.5 373.371",
+                  "fill": "#F0F0F0",
+                  "name": "path",
+                  "stroke": {
+                    "paint": "black",
+                    "width": 2
+                  },
+                  "type": "path"
+                },
+                {
+                  "d": "M110.5 0.5L110.5 150.5",
+                  "name": "path",
+                  "stroke": {
+                    "paint": "black"
+                  },
+                  "type": "path"
+                },
+                {
+                  "d": "M14.5 14.5L110.5 14.5",
+                  "name": "path",
+                  "stroke": {
+                    "paint": "black"
+                  },
+                  "type": "path"
+                },
+                {
+                  "d": "M53.5 125.5L170.5 125.5",
+                  "name": "path",
+                  "stroke": {
+                    "paint": "black"
+                  },
+                  "type": "path"
+                },
+                {
+                  "d": "M49.5 275.5L170.5 275.5",
+                  "name": "path",
+                  "stroke": {
+                    "paint": "black"
+                  },
+                  "type": "path"
+                },
+                {
+                  "d": "M0.5 125.5L45.5 125.5",
+                  "name": "path",
+                  "stroke": {
+                    "paint": "black"
+                  },
+                  "type": "path"
+                },
+                {
+                  "d": "M170.5 200.5L220.5 200.5",
+                  "name": "path",
+                  "stroke": {
+                    "paint": "black"
+                  },
+                  "type": "path"
+                },
+                {
+                  "d": "M110.5 250.5L110.5 400.5",
+                  "name": "path",
+                  "stroke": {
+                    "paint": "black"
+                  },
+                  "type": "path"
+                },
+                {
+                  "d": "M170.5 125.5L170.5 275.5",
+                  "name": "path",
+                  "stroke": {
+                    "paint": "black"
+                  },
+                  "type": "path"
+                },
+                {
+                  "d": "M49.5 14.5L49.5 275.5",
+                  "name": "path",
+                  "stroke": {
+                    "paint": "black"
+                  },
+                  "type": "path"
+                },
+                {
+                  "fill": {
+                    "paint": "white"
+                  },
+                  "height": "14.2857",
+                  "name": "rect",
+                  "stroke": {
+                    "paint": "black"
+                  },
+                  "transform": "rotate(-90 100.215 72.0713)",
+                  "type": "rect",
+                  "width": "7.14286",
+                  "x": "100.215",
+                  "y": "72.0713"
+                },
+                {
+                  "fill": {
+                    "paint": "white"
+                  },
+                  "height": "4.28571",
+                  "name": "rect",
+                  "stroke": {
+                    "paint": "black"
+                  },
+                  "transform": "rotate(-90 95.9297 69.2139)",
+                  "type": "rect",
+                  "width": "1.42857",
+                  "x": "95.9297",
+                  "y": "69.2139"
+                },
+                {
+                  "fill": {
+                    "paint": "white"
+                  },
+                  "height": "1.42857",
+                  "name": "rect",
+                  "stroke": {
+                    "paint": "black"
+                  },
+                  "transform": "rotate(-90 94.5 74.2139)",
+                  "type": "rect",
+                  "width": "11.4286",
+                  "x": "94.5",
+                  "y": "74.2139"
+                },
+                {
+                  "fill": {
+                    "paint": "white"
+                  },
+                  "height": "8.57143",
+                  "name": "rect",
+                  "stroke": {
+                    "paint": "black"
+                  },
+                  "transform": "rotate(-90 105.93 60.6426)",
+                  "type": "rect",
+                  "width": "2.14286",
+                  "x": "105.93",
+                  "y": "60.6426"
+                },
+                {
+                  "fill": {
+                    "paint": "white"
+                  },
+                  "height": "8.57143",
+                  "name": "rect",
+                  "stroke": {
+                    "paint": "black"
+                  },
+                  "transform": "rotate(-90 105.93 78.5)",
+                  "type": "rect",
+                  "width": "2.14286",
+                  "x": "105.93",
+                  "y": "78.5"
+                },
+                {
+                  "d": "M106.645 64.9287L107.359 60.643H113.073L113.787 64.9287H106.645Z",
+                  "fill": {
+                    "paint": "white"
+                  },
+                  "name": "path",
+                  "stroke": {
+                    "paint": "black"
+                  },
+                  "type": "path"
+                },
+                {
+                  "d": "M106.645 72.0713L107.359 76.357H113.073L113.787 72.0713H106.645Z",
+                  "fill": {
+                    "paint": "white"
+                  },
+                  "name": "path",
+                  "stroke": {
+                    "paint": "black"
+                  },
+                  "type": "path"
+                },
+                {
+                  "fill": {
+                    "paint": "white"
+                  },
+                  "height": "14.2857",
+                  "name": "rect",
+                  "stroke": {
+                    "paint": "black"
+                  },
+                  "transform": "rotate(-90 160.215 154.071)",
+                  "type": "rect",
+                  "width": "7.14286",
+                  "x": "160.215",
+                  "y": "154.071"
+                },
+                {
+                  "fill": {
+                    "paint": "white"
+                  },
+                  "height": "4.28571",
+                  "name": "rect",
+                  "stroke": {
+                    "paint": "black"
+                  },
+                  "transform": "rotate(-90 155.93 151.214)",
+                  "type": "rect",
+                  "width": "1.42857",
+                  "x": "155.93",
+                  "y": "151.214"
+                },
+                {
+                  "fill": {
+                    "paint": "white"
+                  },
+                  "height": "1.42857",
+                  "name": "rect",
+                  "stroke": {
+                    "paint": "black"
+                  },
+                  "transform": "rotate(-90 154.5 156.214)",
+                  "type": "rect",
+                  "width": "11.4286",
+                  "x": "154.5",
+                  "y": "156.214"
+                },
+                {
+                  "fill": {
+                    "paint": "white"
+                  },
+                  "height": "8.57143",
+                  "name": "rect",
+                  "stroke": {
+                    "paint": "black"
+                  },
+                  "transform": "rotate(-90 165.93 142.643)",
+                  "type": "rect",
+                  "width": "2.14286",
+                  "x": "165.93",
+                  "y": "142.643"
+                },
+                {
+                  "fill": {
+                    "paint": "white"
+                  },
+                  "height": "8.57143",
+                  "name": "rect",
+                  "stroke": {
+                    "paint": "black"
+                  },
+                  "transform": "rotate(-90 165.93 160.5)",
+                  "type": "rect",
+                  "width": "2.14286",
+                  "x": "165.93",
+                  "y": "160.5"
+                },
+                {
+                  "d": "M166.645 146.929L167.359 142.643H173.073L173.787 146.929H166.645Z",
+                  "fill": {
+                    "paint": "white"
+                  },
+                  "name": "path",
+                  "stroke": {
+                    "paint": "black"
+                  },
+                  "type": "path"
+                },
+                {
+                  "d": "M166.645 154.071L167.359 158.357H173.073L173.787 154.071H166.645Z",
+                  "fill": {
+                    "paint": "white"
+                  },
+                  "name": "path",
+                  "stroke": {
+                    "paint": "black"
+                  },
+                  "type": "path"
+                },
+                {
+                  "fill": {
+                    "paint": "white"
+                  },
+                  "height": "14.2857",
+                  "name": "rect",
+                  "stroke": {
+                    "paint": "black"
+                  },
+                  "transform": "rotate(-90 160.215 254.072)",
+                  "type": "rect",
+                  "width": "7.14286",
+                  "x": "160.215",
+                  "y": "254.072"
+                },
+                {
+                  "fill": {
+                    "paint": "white"
+                  },
+                  "height": "4.28571",
+                  "name": "rect",
+                  "stroke": {
+                    "paint": "black"
+                  },
+                  "transform": "rotate(-90 155.93 251.215)",
+                  "type": "rect",
+                  "width": "1.42857",
+                  "x": "155.93",
+                  "y": "251.215"
+                },
+                {
+                  "fill": {
+                    "paint": "white"
+                  },
+                  "height": "1.42857",
+                  "name": "rect",
+                  "stroke": {
+                    "paint": "black"
+                  },
+                  "transform": "rotate(-90 154.5 256.215)",
+                  "type": "rect",
+                  "width": "11.4286",
+                  "x": "154.5",
+                  "y": "256.215"
+                },
+                {
+                  "fill": {
+                    "paint": "white"
+                  },
+                  "height": "8.57143",
+                  "name": "rect",
+                  "stroke": {
+                    "paint": "black"
+                  },
+                  "transform": "rotate(-90 165.93 242.643)",
+                  "type": "rect",
+                  "width": "2.14286",
+                  "x": "165.93",
+                  "y": "242.643"
+                },
+                {
+                  "fill": {
+                    "paint": "white"
+                  },
+                  "height": "8.57143",
+                  "name": "rect",
+                  "stroke": {
+                    "paint": "black"
+                  },
+                  "transform": "rotate(-90 165.93 260.5)",
+                  "type": "rect",
+                  "width": "2.14286",
+                  "x": "165.93",
+                  "y": "260.5"
+                },
+                {
+                  "d": "M166.645 246.928L167.359 242.642H173.073L173.787 246.928H166.645Z",
+                  "fill": {
+                    "paint": "white"
+                  },
+                  "name": "path",
+                  "stroke": {
+                    "paint": "black"
+                  },
+                  "type": "path"
+                },
+                {
+                  "d": "M166.645 254.072L167.359 258.358H173.073L173.787 254.072H166.645Z",
+                  "fill": {
+                    "paint": "white"
+                  },
+                  "name": "path",
+                  "stroke": {
+                    "paint": "black"
+                  },
+                  "type": "path"
+                },
+                {
+                  "fill": {
+                    "paint": "white"
+                  },
+                  "height": "14.2857",
+                  "name": "rect",
+                  "stroke": {
+                    "paint": "black"
+                  },
+                  "transform": "rotate(-90 39.2148 254.072)",
+                  "type": "rect",
+                  "width": "7.14286",
+                  "x": "39.2148",
+                  "y": "254.072"
+                },
+                {
+                  "fill": {
+                    "paint": "white"
+                  },
+                  "height": "4.28571",
+                  "name": "rect",
+                  "stroke": {
+                    "paint": "black"
+                  },
+                  "transform": "rotate(-90 34.9297 251.215)",
+                  "type": "rect",
+                  "width": "1.42857",
+                  "x": "34.9297",
+                  "y": "251.215"
+                },
+                {
+                  "fill": {
+                    "paint": "white"
+                  },
+                  "height": "1.42857",
+                  "name": "rect",
+                  "stroke": {
+                    "paint": "black"
+                  },
+                  "transform": "rotate(-90 33.5 256.215)",
+                  "type": "rect",
+                  "width": "11.4286",
+                  "x": "33.5",
+                  "y": "256.215"
+                },
+                {
+                  "fill": {
+                    "paint": "white"
+                  },
+                  "height": "8.57143",
+                  "name": "rect",
+                  "stroke": {
+                    "paint": "black"
+                  },
+                  "transform": "rotate(-90 44.9297 242.643)",
+                  "type": "rect",
+                  "width": "2.14286",
+                  "x": "44.9297",
+                  "y": "242.643"
+                },
+                {
+                  "fill": {
+                    "paint": "white"
+                  },
+                  "height": "8.57143",
+                  "name": "rect",
+                  "stroke": {
+                    "paint": "black"
+                  },
+                  "transform": "rotate(-90 44.9297 260.5)",
+                  "type": "rect",
+                  "width": "2.14286",
+                  "x": "44.9297",
+                  "y": "260.5"
+                },
+                {
+                  "d": "M45.6445 246.928L46.3588 242.642H52.0731L52.7874 246.928H45.6445Z",
+                  "fill": {
+                    "paint": "white"
+                  },
+                  "name": "path",
+                  "stroke": {
+                    "paint": "black"
+                  },
+                  "type": "path"
+                },
+                {
+                  "d": "M45.6445 254.072L46.3588 258.358H52.0731L52.7874 254.072H45.6445Z",
+                  "fill": {
+                    "paint": "white"
+                  },
+                  "name": "path",
+                  "stroke": {
+                    "paint": "black"
+                  },
+                  "type": "path"
+                },
+                {
+                  "fill": {
+                    "paint": "white"
+                  },
+                  "height": "14.2857",
+                  "name": "rect",
+                  "stroke": {
+                    "paint": "black"
+                  },
+                  "transform": "rotate(-90 100.215 332.072)",
+                  "type": "rect",
+                  "width": "7.14286",
+                  "x": "100.215",
+                  "y": "332.072"
+                },
+                {
+                  "fill": {
+                    "paint": "white"
+                  },
+                  "height": "4.28571",
+                  "name": "rect",
+                  "stroke": {
+                    "paint": "black"
+                  },
+                  "transform": "rotate(-90 95.9297 329.215)",
+                  "type": "rect",
+                  "width": "1.42857",
+                  "x": "95.9297",
+                  "y": "329.215"
+                },
+                {
+                  "fill": {
+                    "paint": "white"
+                  },
+                  "height": "1.42857",
+                  "name": "rect",
+                  "stroke": {
+                    "paint": "black"
+                  },
+                  "transform": "rotate(-90 94.5 334.215)",
+                  "type": "rect",
+                  "width": "11.4286",
+                  "x": "94.5",
+                  "y": "334.215"
+                },
+                {
+                  "fill": {
+                    "paint": "white"
+                  },
+                  "height": "8.57143",
+                  "name": "rect",
+                  "stroke": {
+                    "paint": "black"
+                  },
+                  "transform": "rotate(-90 105.93 320.643)",
+                  "type": "rect",
+                  "width": "2.14286",
+                  "x": "105.93",
+                  "y": "320.643"
+                },
+                {
+                  "fill": {
+                    "paint": "white"
+                  },
+                  "height": "8.57143",
+                  "name": "rect",
+                  "stroke": {
+                    "paint": "black"
+                  },
+                  "transform": "rotate(-90 105.93 338.5)",
+                  "type": "rect",
+                  "width": "2.14286",
+                  "x": "105.93",
+                  "y": "338.5"
+                },
+                {
+                  "d": "M106.645 324.928L107.359 320.642H113.073L113.787 324.928H106.645Z",
+                  "fill": {
+                    "paint": "white"
+                  },
+                  "name": "path",
+                  "stroke": {
+                    "paint": "black"
+                  },
+                  "type": "path"
+                },
+                {
+                  "d": "M106.645 332.072L107.359 336.358H113.073L113.787 332.072H106.645Z",
+                  "fill": {
+                    "paint": "white"
+                  },
+                  "name": "path",
+                  "stroke": {
+                    "paint": "black"
+                  },
+                  "type": "path"
+                },
+                {
+                  "d": "M117.499 139.5C120.535 141.781 122.5 145.41 122.5 149.5C122.5 156.404 116.904 162 110 162C103.096 162 97.5 156.404 97.5 149.5C97.5 145.411 99.4641 141.781 102.5 139.5C102.783 139.713 103.077 139.911 103.378 140.1C100.428 142.182 98.5 145.615 98.5 149.5C98.5 155.851 103.649 161 110 161C116.351 161 121.5 155.851 121.5 149.5C121.5 145.615 119.571 142.181 116.621 140.1C116.922 139.911 117.216 139.713 117.499 139.5Z",
+                  "fill": {
+                    "paint": "black"
+                  },
+                  "name": "path",
+                  "type": "path"
+                },
+                {
+                  "d": "M117.499 262C120.535 259.719 122.5 256.09 122.5 252C122.5 245.096 116.904 239.5 110 239.5C103.096 239.5 97.5 245.096 97.5 252C97.5 256.089 99.4641 259.719 102.5 262C102.783 261.787 103.077 261.589 103.378 261.4C100.428 259.318 98.5 255.885 98.5 252C98.5 245.649 103.649 240.5 110 240.5C116.351 240.5 121.5 245.649 121.5 252C121.5 255.885 119.571 259.319 116.621 261.4C116.922 261.589 117.216 261.787 117.499 262Z",
+                  "fill": {
+                    "paint": "black"
+                  },
+                  "name": "path",
+                  "type": "path"
+                }
+              ],
+              "fill": {
+                "paint": "transparent"
+              },
+              "viewBox": "0 0 221 401"
+            },
+            "type": "ia.shapes.svg"
+          },
+          {
+            "meta": {
+              "name": "BT_001"
+            },
+            "position": {
+              "height": 30,
+              "rotate": {
+                "angle": "180deg"
+              },
+              "width": 170,
+              "x": 1590,
+              "y": 29
+            },
+            "props": {
+              "elements": [
+                {
+                  "d": "M0.5 0.5V9.5H31.0869L35.3145 5L31.0869 0.5H0.5Z",
+                  "fill": "white",
+                  "name": "path",
+                  "stroke": {
+                    "paint": "#2B2B2B",
+                    "width": ".75"
+                  },
+                  "type": "path"
+                }
+              ],
+              "fill": {
+                "paint": "transparent"
+              },
+              "preserveAspectRatio": "none",
+              "viewBox": "0 0 36 10"
+            },
+            "type": "ia.shapes.svg"
+          },
+          {
+            "meta": {
+              "name": "bt_001",
+              "tooltip": {
+                "text": "From Nitrate Removal Vessels"
+              }
+            },
+            "position": {
+              "height": 30,
+              "width": 135,
+              "x": 1616,
+              "y": 29
+            },
+            "props": {
+              "style": {
+                "cursor": "pointer"
+              },
+              "text": "Displacement"
+            },
+            "type": "ia.display.label"
+          },
+          {
+            "meta": {
+              "name": "WT_002"
+            },
+            "position": {
+              "height": 30,
+              "width": 170,
+              "x": 1590,
+              "y": 377.63
+            },
+            "props": {
+              "elements": [
+                {
+                  "d": "M0.5 0.5V9.5H31.0869L35.3145 5L31.0869 0.5H0.5Z",
+                  "fill": "white",
+                  "name": "path",
+                  "stroke": {
+                    "paint": "#2B2B2B",
+                    "width": ".75"
+                  },
+                  "type": "path"
+                }
+              ],
+              "fill": {
+                "paint": "transparent"
+              },
+              "preserveAspectRatio": "none",
+              "viewBox": "0 0 36 10"
+            },
+            "type": "ia.shapes.svg"
+          },
+          {
+            "meta": {
+              "name": "wt_002",
+              "tooltip": {
+                "text": "To Waste Tank"
+              }
+            },
+            "position": {
+              "height": 30,
+              "width": 135,
+              "x": 1606,
+              "y": 377.63
+            },
+            "props": {
+              "style": {
+                "cursor": "pointer"
+              },
+              "text": "Backwash/Rinse"
+            },
+            "type": "ia.display.label"
+          },
+          {
+            "meta": {
+              "name": "Blended_Water"
+            },
+            "position": {
+              "height": 30,
+              "width": 170,
+              "x": 1590,
+              "y": 159.63
+            },
+            "props": {
+              "elements": [
+                {
+                  "d": "M0.5 0.5V9.5H31.0869L35.3145 5L31.0869 0.5H0.5Z",
+                  "fill": "white",
+                  "name": "path",
+                  "stroke": {
+                    "paint": "#2B2B2B",
+                    "width": ".75"
+                  },
+                  "type": "path"
+                }
+              ],
+              "fill": {
+                "paint": "transparent"
+              },
+              "preserveAspectRatio": "none",
+              "viewBox": "0 0 36 10"
+            },
+            "type": "ia.shapes.svg"
+          },
+          {
+            "meta": {
+              "name": "blended_water",
+              "tooltip": {
+                "text": "To Plant Use"
+              }
+            },
+            "position": {
+              "height": 30,
+              "width": 135,
+              "x": 1606,
+              "y": 159.63
+            },
+            "props": {
+              "style": {
+                "cursor": "pointer"
+              },
+              "text": "Blended Water"
+            },
+            "type": "ia.display.label"
+          },
+          {
+            "meta": {
+              "name": "BW_002"
+            },
+            "position": {
+              "height": 30,
+              "rotate": {
+                "angle": "180deg"
+              },
+              "width": 170,
+              "x": 1590,
+              "y": 80
+            },
+            "props": {
+              "elements": [
+                {
+                  "d": "M0.5 0.5V9.5H31.0869L35.3145 5L31.0869 0.5H0.5Z",
+                  "fill": "white",
+                  "name": "path",
+                  "stroke": {
+                    "paint": "#2B2B2B",
+                    "width": ".75"
+                  },
+                  "type": "path"
+                }
+              ],
+              "fill": {
+                "paint": "transparent"
+              },
+              "preserveAspectRatio": "none",
+              "viewBox": "0 0 36 10"
+            },
+            "type": "ia.shapes.svg"
+          },
+          {
+            "meta": {
+              "name": "bw_002",
+              "tooltip": {
+                "text": "From EDB Removal System"
+              }
+            },
+            "position": {
+              "height": 30,
+              "width": 135,
+              "x": 1616,
+              "y": 80
+            },
+            "props": {
+              "style": {
+                "cursor": "pointer"
+              },
+              "text": "Blended Water"
+            },
+            "type": "ia.display.label"
+          },
+          {
+            "meta": {
+              "name": "NR-V6-1"
+            },
+            "position": {
+              "height": 28.81,
+              "rotate": {
+                "angle": "270deg"
+              },
+              "width": 40,
+              "x": 867.6,
+              "y": 814.64
+            },
+            "props": {
+              "params": {
+                "deviceName": "NR-V1-1",
+                "dimension": {
+                  "height": 100,
+                  "width": 100
+                },
+                "displayLabel": false,
+                "displayValue": false,
+                "isTelemetered": false,
+                "tagPath": "[RCSD]WTF/Anita-B-Smith/NR-V6-1"
+              },
+              "path": "Devices/Valve_Control"
+            },
+            "type": "ia.display.view"
+          },
+          {
+            "meta": {
+              "name": "NR-V6-3"
+            },
+            "position": {
+              "height": 29,
+              "rotate": {
+                "angle": "00deg"
+              },
+              "width": 40,
+              "x": 732.386,
+              "y": 688
+            },
+            "props": {
+              "params": {
+                "deviceName": "NR-V1-1",
+                "dimension": {
+                  "height": 100,
+                  "width": 100
+                },
+                "displayLabel": false,
+                "displayValue": false,
+                "isTelemetered": false,
+                "tagPath": "[RCSD]WTF/Anita-B-Smith/NR-V6-1"
+              },
+              "path": "Devices/Valve_Control"
+            },
+            "type": "ia.display.view"
+          },
+          {
+            "meta": {
+              "name": "NR-V6-4"
+            },
+            "position": {
+              "height": 29,
+              "rotate": {
+                "angle": "00deg"
+              },
+              "width": 40,
+              "x": 500,
+              "y": 875
+            },
+            "props": {
+              "params": {
+                "deviceName": "NR-V1-1",
+                "dimension": {
+                  "height": 100,
+                  "width": 100
+                },
+                "displayLabel": false,
+                "displayValue": false,
+                "isTelemetered": false,
+                "tagPath": "[RCSD]WTF/Anita-B-Smith/NR-V6-1"
+              },
+              "path": "Devices/Valve_Control"
+            },
+            "type": "ia.display.view"
+          },
+          {
+            "meta": {
+              "name": "NR-V6-5"
+            },
+            "position": {
+              "height": 29,
+              "rotate": {
+                "angle": "00deg"
+              },
+              "width": 40,
+              "x": 210.76168389892578,
+              "y": 295.0340555114746
+            },
+            "props": {
+              "params": {
+                "deviceName": "NR-V1-1",
+                "dimension": {
+                  "height": 100,
+                  "width": 100
+                },
+                "displayLabel": false,
+                "displayValue": false,
+                "isTelemetered": false,
+                "tagPath": "[RCSD]WTF/Anita-B-Smith/NR-V6-1"
+              },
+              "path": "Devices/Valve_Control"
+            },
+            "type": "ia.display.view"
+          }
+        ],
+        "meta": {
+          "name": "CoordinateContainer"
+        },
+        "position": {
+          "basis": "200px",
+          "grow": 1
+        },
+        "props": {
+          "pipes": [
+            {
+              "appearance": "p\u0026id",
+              "end": "arrowOutward",
+              "fill": "",
+              "flanges": true,
+              "lineVariant": "solid",
+              "name": "pipe_5",
+              "origin": {
+                "connections": [
+                  {
+                    "connections": [
+                      {
+                        "connections": [
+                          {
+                            "connections": [
+                              {
+                                "connections": [
+                                  {
+                                    "x": 885.15,
+                                    "y": 710.45
+                                  }
+                                ],
+                                "x": 707.9,
+                                "y": 710.45
+                              }
+                            ],
+                            "x": 707.9,
+                            "y": 95
+                          },
+                          {
+                            "x": 895.15,
+                            "y": 192.54
+                          }
+                        ],
+                        "x": 895.15,
+                        "y": 95
+                      },
+                      {
+                        "connections": [
+                          {
+                            "x": 1616,
+                            "y": 172.54
+                          }
+                        ],
+                        "x": 1232,
+                        "y": 172.54
+                      }
+                    ],
+                    "x": 1232,
+                    "y": 95
+                  }
+                ],
+                "x": 1605.9,
+                "y": 95
+              },
+              "start": "none",
+              "stroke": "#2B2B2B",
+              "visible": true,
+              "width": 2
+            },
+            {
+              "appearance": "p\u0026id",
+              "end": "arrowOutward",
+              "fill": "",
+              "flanges": true,
+              "lineVariant": "solid",
+              "name": "pipe_2",
+              "origin": {
+                "connections": [
+                  {
+                    "connections": [
+                      {
+                        "x": 172.8,
+                        "y": 476
+                      }
+                    ],
+                    "x": 55.9,
+                    "y": 476
+                  },
+                  {
+                    "x": 1606,
+                    "y": 44
+                  }
+                ],
+                "x": 55.9,
+                "y": 44
+              },
+              "start": "none",
+              "stroke": "#2B2B2B",
+              "visible": true,
+              "width": 2
+            },
+            {
+              "appearance": "p\u0026id",
+              "end": "arrowOutward",
+              "fill": "",
+              "flanges": true,
+              "lineVariant": "solid",
+              "name": "pipe_0",
+              "origin": {
+                "connections": [
+                  {
+                    "connections": [
+                      {
+                        "x": 895.15,
+                        "y": 897.12
+                      },
+                      {
+                        "connections": [
+                          {
+                            "connections": [
+                              {
+                                "x": 287.8,
+                                "y": 601.91
+                              }
+                            ],
+                            "x": 287.8,
+                            "y": 638
+                          }
+                        ],
+                        "x": 576.09,
+                        "y": 638
+                      }
+                    ],
+                    "x": 895.15,
+                    "y": 638
+                  }
+                ],
+                "x": 895.15,
+                "y": 515.47
+              },
+              "start": "none",
+              "stroke": "#2B2B2B",
+              "visible": true,
+              "width": 2
+            },
+            {
+              "appearance": "p\u0026id",
+              "end": "none",
+              "fill": "",
+              "flanges": true,
+              "lineVariant": "solid",
+              "name": "pipe_1",
+              "origin": {
+                "connections": [
+                  {
+                    "connections": [
+                      {
+                        "connections": [
+                          {
+                            "x": 1605.9,
+                            "y": 898.12
+                          },
+                          {
+                            "connections": [],
+                            "x": 261.01,
+                            "y": 898.12
+                          }
+                        ],
+                        "x": 406.09,
+                        "y": 898.12
+                      }
+                    ],
+                    "x": 406.09,
+                    "y": 777.01
+                  }
+                ],
+                "x": 261.01,
+                "y": 777.01
+              },
+              "start": "none",
+              "stroke": "#2B2B2B",
+              "visible": true,
+              "width": 2
+            },
+            {
+              "appearance": "p\u0026id",
+              "end": "arrowOutward",
+              "fill": "",
+              "flanges": true,
+              "lineVariant": "midArrow",
+              "name": "pipe",
+              "origin": {
+                "connections": [
+                  {
+                    "connections": [
+                      {
+                        "connections": [
+                          {
+                            "connections": [
+                              {
+                                "x": 213.01,
+                                "y": 898.12
+                              }
+                            ],
+                            "x": 98.8,
+                            "y": 898.12
+                          },
+                          {
+                            "x": 213.01,
+                            "y": 777.01
+                          }
+                        ],
+                        "x": 98.8,
+                        "y": 777.01
+                      },
+                      {
+                        "connections": [
+                          {
+                            "x": 784.65,
+                            "y": 318
+                          }
+                        ],
+                        "x": 98.8,
+                        "y": 318
+                      }
+                    ],
+                    "x": 98.8,
+                    "y": 565
+                  }
+                ],
+                "x": 155.41,
+                "y": 565
+              },
+              "start": "none",
+              "stroke": "#2B2B2B",
+              "visible": true,
+              "width": 2
+            },
+            {
+              "appearance": "p\u0026id",
+              "end": "arrowOutward",
+              "fill": "",
+              "flanges": true,
+              "lineVariant": "solid",
+              "name": "pipe_3",
+              "origin": {
+                "connections": [
+                  {
+                    "connections": [
+                      {
+                        "x": 620,
+                        "y": 313
+                      }
+                    ],
+                    "x": 620,
+                    "y": 208.49
+                  }
+                ],
+                "x": 807,
+                "y": 208.49
+              },
+              "start": "none",
+              "stroke": "#2B2B2B",
+              "visible": true,
+              "width": 2
+            },
+            {
+              "appearance": "p\u0026id",
+              "end": "arrowOutward",
+              "fill": "",
+              "flanges": true,
+              "lineVariant": "solid",
+              "name": "pipe_4",
+              "origin": {
+                "connections": [
+                  {
+                    "x": 1605.9,
+                    "y": 393.04
+                  }
+                ],
+                "x": 1005.65,
+                "y": 393.04
+              },
+              "start": "none",
+              "stroke": "#2B2B2B",
+              "visible": true,
+              "width": 2
+            }
+          ]
+        },
+        "type": "ia.container.coord"
+      }
+    ],
+    "meta": {
+      "name": "root"
+    },
+    "props": {
+      "direction": "column"
+    },
+    "type": "ia.container.flex"
+  }
+}

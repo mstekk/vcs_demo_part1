@@ -1,0 +1,20 @@
+{
+  "scope": "A",
+  "version": 1,
+  "restricted": false,
+  "overridable": true,
+  "files": [
+    "meter_pipes_blue.png"
+  ],
+  "attributes": {
+    "width": 131,
+    "format": "PNG",
+    "lastModification": {
+      "actor": "8.3-migration",
+      "timestamp": "2026-01-07T14:49:07Z"
+    },
+    "size": 5799,
+    "lastModificationSignature": "86137da0e5971c0d79b8be283c9773b333cb9665088c4be3bd3c70eacf4cabe1",
+    "height": 89
+  }
+}

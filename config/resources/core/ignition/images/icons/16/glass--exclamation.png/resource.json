@@ -1,0 +1,20 @@
+{
+  "scope": "A",
+  "version": 1,
+  "restricted": false,
+  "overridable": true,
+  "files": [
+    "glass--exclamation.png"
+  ],
+  "attributes": {
+    "width": 16,
+    "format": "PNG",
+    "lastModification": {
+      "actor": "8.3-migration",
+      "timestamp": "2026-01-07T14:49:07Z"
+    },
+    "size": 791,
+    "lastModificationSignature": "9dea56f358d139d2a4c0faab715d9babd3ea6adc4243d5247390e45c4e9d21ff",
+    "height": 16
+  }
+}

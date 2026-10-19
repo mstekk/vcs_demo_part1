@@ -1,0 +1,20 @@
+{
+  "scope": "A",
+  "version": 1,
+  "restricted": false,
+  "overridable": true,
+  "files": [
+    "Button 12 Up.png"
+  ],
+  "attributes": {
+    "width": 80,
+    "format": "PNG",
+    "lastModification": {
+      "actor": "8.3-migration",
+      "timestamp": "2026-01-07T14:49:07Z"
+    },
+    "size": 5186,
+    "lastModificationSignature": "2b83d1dd4bf70886fd4b759b79303d73fbe6873049a857683a167741936ea446",
+    "height": 80
+  }
+}

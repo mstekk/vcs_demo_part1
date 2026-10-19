@@ -1,0 +1,20 @@
+{
+  "scope": "A",
+  "version": 1,
+  "restricted": false,
+  "overridable": true,
+  "files": [
+    "report-word.png"
+  ],
+  "attributes": {
+    "width": 16,
+    "format": "PNG",
+    "lastModification": {
+      "actor": "8.3-migration",
+      "timestamp": "2026-01-07T14:49:07Z"
+    },
+    "size": 632,
+    "lastModificationSignature": "5d8ed596bcc1f0cc6cbcadbd4a5469bc92ed75637fbdc73cc7e5c15fe44c545b",
+    "height": 16
+  }
+}

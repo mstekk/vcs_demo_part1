@@ -1,0 +1,20 @@
+{
+  "scope": "A",
+  "version": 1,
+  "restricted": false,
+  "overridable": true,
+  "files": [
+    "network-status-away.png"
+  ],
+  "attributes": {
+    "width": 16,
+    "format": "PNG",
+    "lastModification": {
+      "actor": "8.3-migration",
+      "timestamp": "2026-01-07T14:49:07Z"
+    },
+    "size": 1468,
+    "lastModificationSignature": "e3983470cbc4f015ebe43c6c3f5ffc2e0cd6078fe9fe34eba0befa0383cc5094",
+    "height": 16
+  }
+}

@@ -1,0 +1,20 @@
+{
+  "scope": "A",
+  "version": 1,
+  "restricted": false,
+  "overridable": true,
+  "files": [
+    "bandaid--plus.png"
+  ],
+  "attributes": {
+    "width": 16,
+    "format": "PNG",
+    "lastModification": {
+      "actor": "8.3-migration",
+      "timestamp": "2026-01-07T14:49:07Z"
+    },
+    "size": 935,
+    "lastModificationSignature": "2cd4e86f2f297bd3a45361b2443e7400b66b9b7ec37304469aa63b4f7d7345a9",
+    "height": 16
+  }
+}

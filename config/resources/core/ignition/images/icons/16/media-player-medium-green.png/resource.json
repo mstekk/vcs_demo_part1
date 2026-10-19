@@ -1,0 +1,20 @@
+{
+  "scope": "A",
+  "version": 1,
+  "restricted": false,
+  "overridable": true,
+  "files": [
+    "media-player-medium-green.png"
+  ],
+  "attributes": {
+    "width": 16,
+    "format": "PNG",
+    "lastModification": {
+      "actor": "8.3-migration",
+      "timestamp": "2026-01-07T14:49:07Z"
+    },
+    "size": 504,
+    "lastModificationSignature": "ea95460b8caee9098a405c7cee7ba92b75b4d49c0f4f47e15ba0707df4681866",
+    "height": 16
+  }
+}

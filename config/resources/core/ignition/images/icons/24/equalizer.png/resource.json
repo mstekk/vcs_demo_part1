@@ -1,0 +1,20 @@
+{
+  "scope": "A",
+  "version": 1,
+  "restricted": false,
+  "overridable": true,
+  "files": [
+    "equalizer.png"
+  ],
+  "attributes": {
+    "width": 24,
+    "format": "PNG",
+    "lastModification": {
+      "actor": "8.3-migration",
+      "timestamp": "2026-01-07T14:49:07Z"
+    },
+    "size": 551,
+    "lastModificationSignature": "0ad14c68f4fe762f1293eb74616a25ea57a01da58550f138ea19a782b5d0317a",
+    "height": 24
+  }
+}

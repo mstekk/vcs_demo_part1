@@ -1,0 +1,32 @@
+{
+  "base": {
+    "animation": {
+      "direction": "normal",
+      "iterationCount": "1",
+      "timingFunction": "ease-in-out",
+      "fillMode": "forwards",
+      "keyframes": {
+        "0%": {
+          "backgroundColor": "var(--neutral-40)",
+          "outlineStyle": "solid",
+          "outlineWidth": "2px"
+        },
+        "20%": {
+          "backgroundColor": "transparent"
+        },
+        "40%": {
+          "backgroundColor": "var(--neutral-40)"
+        },
+        "60%": {
+          "backgroundColor": "transparent"
+        },
+        "80%": {
+          "backgroundColor": "var(--neutral-40)"
+        },
+        "100%": {
+          "backgroundColor": "transparent"
+        }
+      }
+    }
+  }
+}

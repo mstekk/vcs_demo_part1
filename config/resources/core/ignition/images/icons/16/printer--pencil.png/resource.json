@@ -1,0 +1,20 @@
+{
+  "scope": "A",
+  "version": 1,
+  "restricted": false,
+  "overridable": true,
+  "files": [
+    "printer--pencil.png"
+  ],
+  "attributes": {
+    "width": 16,
+    "format": "PNG",
+    "lastModification": {
+      "actor": "8.3-migration",
+      "timestamp": "2026-01-07T14:49:07Z"
+    },
+    "size": 826,
+    "lastModificationSignature": "2475362ff8b6dbc7e0b6a76fa07ff1ecca6ebf7d83c08ade1ae583247aa1865e",
+    "height": 16
+  }
+}

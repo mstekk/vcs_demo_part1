@@ -1,0 +1,20 @@
+{
+  "scope": "A",
+  "version": 1,
+  "restricted": false,
+  "overridable": true,
+  "files": [
+    "script-globe.png"
+  ],
+  "attributes": {
+    "width": 16,
+    "format": "PNG",
+    "lastModification": {
+      "actor": "8.3-migration",
+      "timestamp": "2026-01-07T14:49:07Z"
+    },
+    "size": 632,
+    "lastModificationSignature": "569a5140c4dd43a7be2863df76da0a59f9396fb7500f02ab9adfa26ec14520bc",
+    "height": 16
+  }
+}

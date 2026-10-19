@@ -1,0 +1,20 @@
+{
+  "scope": "A",
+  "version": 1,
+  "restricted": false,
+  "overridable": true,
+  "files": [
+    "videoplayer9.png"
+  ],
+  "attributes": {
+    "width": 16,
+    "format": "PNG",
+    "lastModification": {
+      "actor": "8.3-migration",
+      "timestamp": "2026-01-07T14:49:07Z"
+    },
+    "size": 322,
+    "lastModificationSignature": "86aac2fd99df020d281e2da7669e0ab0ecd3615a55bbef1d90113119f5cfbef2",
+    "height": 16
+  }
+}

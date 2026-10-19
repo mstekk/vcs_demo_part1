@@ -1,0 +1,20 @@
+{
+  "scope": "A",
+  "version": 1,
+  "restricted": false,
+  "overridable": true,
+  "files": [
+    "broom--plus.png"
+  ],
+  "attributes": {
+    "width": 16,
+    "format": "PNG",
+    "lastModification": {
+      "actor": "8.3-migration",
+      "timestamp": "2026-01-07T14:49:07Z"
+    },
+    "size": 926,
+    "lastModificationSignature": "2b0a1c86a8f5f68900075b66075351807fe2cea3e938f273fda03b2b3d15f98d",
+    "height": 16
+  }
+}

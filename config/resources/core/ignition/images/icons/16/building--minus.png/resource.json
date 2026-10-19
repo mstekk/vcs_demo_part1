@@ -1,0 +1,20 @@
+{
+  "scope": "A",
+  "version": 1,
+  "restricted": false,
+  "overridable": true,
+  "files": [
+    "building--minus.png"
+  ],
+  "attributes": {
+    "width": 16,
+    "format": "PNG",
+    "lastModification": {
+      "actor": "8.3-migration",
+      "timestamp": "2026-01-07T14:49:07Z"
+    },
+    "size": 813,
+    "lastModificationSignature": "ac7bd51612f5750e72c12c4add64718a2c3b07d4742295fab0932cc6ad2a7a7b",
+    "height": 16
+  }
+}

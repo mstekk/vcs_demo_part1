@@ -1,0 +1,577 @@
+{
+  "custom": {},
+  "params": {},
+  "props": {
+    "defaultSize": {
+      "height": 1526,
+      "width": 649
+    },
+    "inputBehavior": "merge"
+  },
+  "root": {
+    "children": [
+      {
+        "meta": {
+          "name": "Label"
+        },
+        "position": {
+          "basis": "50px"
+        },
+        "props": {
+          "text": "OVERVIEW",
+          "textStyle": {
+            "classes": "Header"
+          }
+        },
+        "type": "ia.display.label"
+      },
+      {
+        "children": [
+          {
+            "meta": {
+              "name": "FlexRepeater"
+            },
+            "position": {
+              "basis": "100px",
+              "shrink": 0
+            },
+            "props": {
+              "direction": "column",
+              "instances": [
+                {
+                  "Label": "Well 1",
+                  "instancePosition": {},
+                  "instanceStyle": {
+                    "classes": ""
+                  },
+                  "parameters": {
+                    "displayLabel": false,
+                    "one_TagPath": "[RCSD]WTF/Anita-B-Smith/NR-FIT-1",
+                    "quantity": 1,
+                    "three_TagPath": "[RCSD]WTF/Anita-B-Smith/RP-PIT-1-1",
+                    "two_TagPath": "[RCSD]WTF/Anita-B-Smith/RP-PIT-1-1"
+                  }
+                },
+                {
+                  "Label": "Well 2",
+                  "instancePosition": {},
+                  "instanceStyle": {
+                    "classes": ""
+                  },
+                  "parameters": {
+                    "displayLabel": false,
+                    "one_TagPath": "[RCSD]WTF/Anita-B-Smith/NR-FIT-2",
+                    "quantity": 1,
+                    "three_TagPath": "[RCSD]WTF/Anita-B-Smith/RP-PIT-2-1",
+                    "two_TagPath": "[RCSD]WTF/Anita-B-Smith/RP-PIT-1-1"
+                  }
+                }
+              ],
+              "justify": "space-between",
+              "path": "Screens/WTF/Anita Smith/Mobile/Overview-Select",
+              "useDefaultViewWidth": false
+            },
+            "type": "ia.display.flex-repeater"
+          }
+        ],
+        "meta": {
+          "name": "Wells"
+        },
+        "position": {
+          "shrink": 0
+        },
+        "props": {
+          "direction": "column",
+          "style": {
+            "borderBottomLeftRadius": 5,
+            "borderBottomRightRadius": 5,
+            "borderColor": "#808080",
+            "borderStyle": "solid",
+            "borderTopLeftRadius": 5,
+            "borderTopRightRadius": 5,
+            "borderWidth": 3,
+            "margin": 5,
+            "paddingBottom": 10,
+            "paddingLeft": 10,
+            "paddingRight": 10,
+            "paddingTop": 10
+          }
+        },
+        "type": "ia.container.flex"
+      },
+      {
+        "children": [
+          {
+            "meta": {
+              "name": "EmbeddedView"
+            },
+            "position": {
+              "basis": "50px",
+              "shrink": 0
+            },
+            "props": {
+              "params": {
+                "Label": "Raw pH",
+                "parameters": {
+                  "displayLabel": false,
+                  "one_TagPath": "[RCSD]WTF/Anita-B-Smith/RW-pHIT",
+                  "quantity": 1,
+                  "three_TagPath": "[RCSD]WTF/Anita-B-Smith/RP-PIT-1-1",
+                  "two_TagPath": "[RCSD]WTF/Anita-B-Smith/RP-PIT-1-1"
+                }
+              },
+              "path": "Screens/WTF/Anita Smith/Mobile/Overview-Select",
+              "style": {
+                "marginBottom": 5,
+                "marginRight": 5
+              }
+            },
+            "type": "ia.display.view"
+          },
+          {
+            "meta": {
+              "name": "Accordion"
+            },
+            "position": {
+              "grow": 1,
+              "shrink": 0
+            },
+            "props": {
+              "items": [
+                {
+                  "body": {
+                    "height": "auto",
+                    "style": {
+                      "classes": "",
+                      "margin": "16px",
+                      "marginLeft": "20%",
+                      "marginRight": 0
+                    },
+                    "useDefaultViewHeight": true,
+                    "useDefaultViewWidth": false,
+                    "viewParams": {
+                      "displayLabel": false,
+                      "label": "label",
+                      "one_TagPath": "[RCSD]WTF/Anita-B-Smith/NR-FIT-1",
+                      "quantity": 3,
+                      "three_TagPath": "[RCSD]WTF/Anita-B-Smith/BT-LIT",
+                      "two_TagPath": "[RCSD]WTF/Anita-B-Smith/RP-PIT-1-1"
+                    },
+                    "viewPath": "Templates/Analog Display"
+                  },
+                  "expanded": false,
+                  "header": {
+                    "content": {
+                      "style": {
+                        "classes": ""
+                      },
+                      "text": "Vessel 1",
+                      "type": "view",
+                      "useDefaultViewHeight": true,
+                      "useDefaultViewWidth": false,
+                      "viewParams": {
+                        "Label": "Vessel 1",
+                        "parameters": {
+                          "displayLabel": false,
+                          "one_TagPath": "[RCSD]WTF/Anita-B-Smith/NR-pHIT-1",
+                          "quantity": 1,
+                          "three_TagPath": "[RCSD]WTF/Anita-B-Smith/RP-PIT-1-1",
+                          "two_TagPath": "[RCSD]WTF/Anita-B-Smith/RP-PIT-1-1"
+                        }
+                      },
+                      "viewPath": "Screens/WTF/Anita Smith/Mobile/Overview-Select"
+                    },
+                    "height": "40px",
+                    "reverse": false,
+                    "style": {
+                      "classes": "",
+                      "paddingBottom": 5,
+                      "paddingTop": 5
+                    },
+                    "toggle": {
+                      "collapsedIcon": {
+                        "color": "",
+                        "path": "material/expand_more",
+                        "style": {
+                          "classes": ""
+                        }
+                      },
+                      "enabled": true,
+                      "expandedIcon": {
+                        "color": "",
+                        "path": "material/expand_less",
+                        "style": {
+                          "classes": ""
+                        }
+                      }
+                    }
+                  }
+                },
+                {
+                  "body": {
+                    "height": "auto",
+                    "style": {
+                      "classes": "",
+                      "marginLeft": "20%",
+                      "marginRight": 0
+                    },
+                    "useDefaultViewHeight": true,
+                    "useDefaultViewWidth": false,
+                    "viewParams": {
+                      "displayLabel": false,
+                      "label": "label",
+                      "one_TagPath": "[RCSD]WTF/Anita-B-Smith/NR-FIT-2",
+                      "quantity": 3,
+                      "three_TagPath": "[RCSD]WTF/Anita-B-Smith/BT-LIT",
+                      "two_TagPath": "[RCSD]WTF/Anita-B-Smith/RP-PIT-1-1"
+                    },
+                    "viewPath": "Templates/Analog Display"
+                  },
+                  "expanded": false,
+                  "header": {
+                    "content": {
+                      "style": {
+                        "classes": ""
+                      },
+                      "text": "Vessel 1",
+                      "type": "view",
+                      "useDefaultViewHeight": true,
+                      "useDefaultViewWidth": false,
+                      "viewParams": {
+                        "Label": "Vessel 2",
+                        "parameters": {
+                          "displayLabel": false,
+                          "one_TagPath": "[RCSD]WTF/Anita-B-Smith/NR-pHIT-2",
+                          "quantity": 1,
+                          "three_TagPath": "[RCSD]WTF/Anita-B-Smith/RP-PIT-1-1",
+                          "two_TagPath": "[RCSD]WTF/Anita-B-Smith/RP-PIT-1-1"
+                        }
+                      },
+                      "viewPath": "Screens/WTF/Anita Smith/Mobile/Overview-Select"
+                    },
+                    "height": "40px",
+                    "reverse": false,
+                    "style": {
+                      "classes": "",
+                      "paddingBottom": 5,
+                      "paddingTop": 5
+                    },
+                    "toggle": {
+                      "collapsedIcon": {
+                        "color": "",
+                        "path": "material/expand_more",
+                        "style": {
+                          "classes": ""
+                        }
+                      },
+                      "enabled": true,
+                      "expandedIcon": {
+                        "color": "",
+                        "path": "material/expand_less",
+                        "style": {
+                          "classes": ""
+                        }
+                      }
+                    }
+                  }
+                },
+                {
+                  "body": {
+                    "height": "auto",
+                    "style": {
+                      "classes": "",
+                      "marginLeft": "20%",
+                      "marginRight": 0
+                    },
+                    "useDefaultViewHeight": true,
+                    "useDefaultViewWidth": false,
+                    "viewParams": {
+                      "displayLabel": false,
+                      "label": "label",
+                      "one_TagPath": "[RCSD]WTF/Anita-B-Smith/NR-FIT-3",
+                      "quantity": 3,
+                      "three_TagPath": "[RCSD]WTF/Anita-B-Smith/BT-LIT",
+                      "two_TagPath": "[RCSD]WTF/Anita-B-Smith/RP-PIT-1-1"
+                    },
+                    "viewPath": "Templates/Analog Display"
+                  },
+                  "expanded": false,
+                  "header": {
+                    "content": {
+                      "style": {
+                        "classes": ""
+                      },
+                      "text": "Vessel 1",
+                      "type": "view",
+                      "useDefaultViewHeight": true,
+                      "useDefaultViewWidth": false,
+                      "viewParams": {
+                        "Label": "Vessel 3",
+                        "parameters": {
+                          "displayLabel": false,
+                          "one_TagPath": "[RCSD]WTF/Anita-B-Smith/NR-pHIT-3",
+                          "quantity": 1,
+                          "three_TagPath": "[RCSD]WTF/Anita-B-Smith/RP-PIT-1-1",
+                          "two_TagPath": "[RCSD]WTF/Anita-B-Smith/RP-PIT-1-1"
+                        }
+                      },
+                      "viewPath": "Screens/WTF/Anita Smith/Mobile/Overview-Select"
+                    },
+                    "height": "40px",
+                    "reverse": false,
+                    "style": {
+                      "classes": "",
+                      "paddingBottom": 5,
+                      "paddingTop": 5
+                    },
+                    "toggle": {
+                      "collapsedIcon": {
+                        "color": "",
+                        "path": "material/expand_more",
+                        "style": {
+                          "classes": ""
+                        }
+                      },
+                      "enabled": true,
+                      "expandedIcon": {
+                        "color": "",
+                        "path": "material/expand_less",
+                        "style": {
+                          "classes": ""
+                        }
+                      }
+                    }
+                  }
+                }
+              ],
+              "style": {
+                "overflow": "auto",
+                "paddingRight": 5
+              }
+            },
+            "type": "ia.display.accordion"
+          }
+        ],
+        "meta": {
+          "name": "IER"
+        },
+        "props": {
+          "direction": "column",
+          "style": {
+            "borderBottomLeftRadius": 5,
+            "borderBottomRightRadius": 5,
+            "borderColor": "#808080",
+            "borderStyle": "solid",
+            "borderTopLeftRadius": 5,
+            "borderTopRightRadius": 5,
+            "borderWidth": 3,
+            "margin": 5,
+            "paddingBottom": 10,
+            "paddingLeft": 10,
+            "paddingRight": 5,
+            "paddingTop": 10
+          }
+        },
+        "type": "ia.container.flex"
+      },
+      {
+        "children": [
+          {
+            "meta": {
+              "name": "FlexRepeater"
+            },
+            "position": {
+              "basis": "155px"
+            },
+            "props": {
+              "direction": "column",
+              "instances": [
+                {
+                  "Label": "Booster P1",
+                  "instancePosition": {},
+                  "instanceStyle": {
+                    "classes": ""
+                  },
+                  "parameters": {
+                    "displayLabel": false,
+                    "one_TagPath": "[RCSD]WTF/Anita-B-Smith/Pump sample",
+                    "quantity": 1,
+                    "three_TagPath": "[RCSD]WTF/Anita-B-Smith/RP-PIT-1-1",
+                    "two_TagPath": "[RCSD]WTF/Anita-B-Smith/RP-PIT-1-1"
+                  }
+                },
+                {
+                  "Label": "Booster P2",
+                  "instancePosition": {},
+                  "instanceStyle": {
+                    "classes": ""
+                  },
+                  "parameters": {
+                    "displayLabel": false,
+                    "one_TagPath": "[RCSD]WTF/Anita-B-Smith/Pump sample",
+                    "quantity": 1,
+                    "three_TagPath": "[RCSD]WTF/Anita-B-Smith/RP-PIT-1-1",
+                    "two_TagPath": "[RCSD]WTF/Anita-B-Smith/RP-PIT-1-1"
+                  }
+                },
+                {
+                  "Label": "Booster P3",
+                  "instancePosition": {},
+                  "instanceStyle": {
+                    "classes": ""
+                  },
+                  "parameters": {
+                    "displayLabel": false,
+                    "one_TagPath": "[RCSD]WTF/Anita-B-Smith/Pump sample",
+                    "quantity": 1,
+                    "three_TagPath": "[RCSD]WTF/Anita-B-Smith/RP-PIT-1-1",
+                    "two_TagPath": "[RCSD]WTF/Anita-B-Smith/RP-PIT-1-1"
+                  }
+                }
+              ],
+              "justify": "space-between",
+              "path": "Screens/WTF/Anita Smith/Mobile/Overview-Select",
+              "useDefaultViewWidth": false
+            },
+            "type": "ia.display.flex-repeater"
+          }
+        ],
+        "meta": {
+          "name": "EDB"
+        },
+        "position": {
+          "shrink": 0
+        },
+        "props": {
+          "direction": "column",
+          "style": {
+            "borderBottomLeftRadius": 5,
+            "borderBottomRightRadius": 5,
+            "borderColor": "#808080",
+            "borderStyle": "solid",
+            "borderTopLeftRadius": 5,
+            "borderTopRightRadius": 5,
+            "borderWidth": 3,
+            "margin": 5,
+            "paddingBottom": 10,
+            "paddingLeft": 10,
+            "paddingRight": 10,
+            "paddingTop": 10
+          }
+        },
+        "type": "ia.container.flex"
+      },
+      {
+        "children": [
+          {
+            "meta": {
+              "name": "FlexRepeater"
+            },
+            "position": {
+              "basis": "210px"
+            },
+            "props": {
+              "direction": "column",
+              "instances": [
+                {
+                  "Label": "Brine Tank",
+                  "instancePosition": {},
+                  "instanceStyle": {
+                    "classes": ""
+                  },
+                  "parameters": {
+                    "displayLabel": false,
+                    "one_TagPath": "[RCSD]WTF/Anita-B-Smith/BT-LIT",
+                    "quantity": 1,
+                    "three_TagPath": "[RCSD]WTF/Anita-B-Smith/RP-PIT-1-1",
+                    "two_TagPath": "[RCSD]WTF/Anita-B-Smith/RP-PIT-1-1"
+                  }
+                },
+                {
+                  "Label": "% Conc.",
+                  "instancePosition": {},
+                  "instanceStyle": {
+                    "classes": ""
+                  },
+                  "parameters": {
+                    "displayLabel": false,
+                    "one_TagPath": "[RCSD]WTF/Anita-B-Smith/BRI-CIT",
+                    "quantity": 1,
+                    "three_TagPath": "[RCSD]WTF/Anita-B-Smith/RP-PIT-1-1",
+                    "two_TagPath": "[RCSD]WTF/Anita-B-Smith/RP-PIT-1-1"
+                  }
+                },
+                {
+                  "Label": "Brine",
+                  "instancePosition": {},
+                  "instanceStyle": {
+                    "classes": ""
+                  },
+                  "parameters": {
+                    "displayLabel": false,
+                    "one_TagPath": "[RCSD]WTF/Anita-B-Smith/BRI-FIT",
+                    "quantity": 1,
+                    "three_TagPath": "[RCSD]WTF/Anita-B-Smith/RP-PIT-1-1",
+                    "two_TagPath": "[RCSD]WTF/Anita-B-Smith/RP-PIT-1-1"
+                  }
+                },
+                {
+                  "Label": "Dilute H2O",
+                  "instancePosition": {},
+                  "instanceStyle": {
+                    "classes": ""
+                  },
+                  "parameters": {
+                    "displayLabel": false,
+                    "one_TagPath": "[RCSD]WTF/Anita-B-Smith/DW-FIT",
+                    "quantity": 1,
+                    "three_TagPath": "[RCSD]WTF/Anita-B-Smith/RP-PIT-1-1",
+                    "two_TagPath": "[RCSD]WTF/Anita-B-Smith/RP-PIT-1-1"
+                  }
+                }
+              ],
+              "justify": "space-between",
+              "path": "Screens/WTF/Anita Smith/Mobile/Overview-Select",
+              "useDefaultViewWidth": false
+            },
+            "type": "ia.display.flex-repeater"
+          }
+        ],
+        "meta": {
+          "name": "EDB_0"
+        },
+        "position": {
+          "shrink": 0
+        },
+        "props": {
+          "direction": "column",
+          "style": {
+            "borderBottomLeftRadius": 5,
+            "borderBottomRightRadius": 5,
+            "borderColor": "#808080",
+            "borderStyle": "solid",
+            "borderTopLeftRadius": 5,
+            "borderTopRightRadius": 5,
+            "borderWidth": 3,
+            "margin": 5,
+            "paddingBottom": 10,
+            "paddingLeft": 10,
+            "paddingRight": 10,
+            "paddingTop": 10
+          }
+        },
+        "type": "ia.container.flex"
+      }
+    ],
+    "meta": {
+      "name": "root"
+    },
+    "position": {
+      "basis": "auto"
+    },
+    "props": {
+      "direction": "column"
+    },
+    "type": "ia.container.flex"
+  }
+}

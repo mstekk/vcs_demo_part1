@@ -1,0 +1,8 @@
+[
+  {
+    "valueSource": "memory",
+    "name": "SP Test",
+    "defaultValue": 22,
+    "tagType": "AtomicTag"
+  }
+]

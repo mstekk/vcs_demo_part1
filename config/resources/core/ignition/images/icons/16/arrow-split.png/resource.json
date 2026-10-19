@@ -1,0 +1,20 @@
+{
+  "scope": "A",
+  "version": 1,
+  "restricted": false,
+  "overridable": true,
+  "files": [
+    "arrow-split.png"
+  ],
+  "attributes": {
+    "width": 16,
+    "format": "PNG",
+    "lastModification": {
+      "actor": "8.3-migration",
+      "timestamp": "2026-01-07T14:49:07Z"
+    },
+    "size": 827,
+    "lastModificationSignature": "c687e8a35c4794d1bcf3dcab6ac23eaeea1e856f020db54ae92c98fc0b9fb1a0",
+    "height": 16
+  }
+}

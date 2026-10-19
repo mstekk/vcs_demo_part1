@@ -1,0 +1,20 @@
+{
+  "scope": "A",
+  "version": 1,
+  "restricted": false,
+  "overridable": true,
+  "files": [
+    "infocard-small.png"
+  ],
+  "attributes": {
+    "width": 16,
+    "format": "PNG",
+    "lastModification": {
+      "actor": "8.3-migration",
+      "timestamp": "2026-01-07T14:49:07Z"
+    },
+    "size": 388,
+    "lastModificationSignature": "ae09fa4937426a64943a7b4c9dcd8208328286aff1ba90e5ddf495ba1368518d",
+    "height": 16
+  }
+}

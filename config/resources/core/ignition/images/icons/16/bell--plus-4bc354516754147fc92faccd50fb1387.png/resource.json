@@ -1,0 +1,20 @@
+{
+  "scope": "A",
+  "version": 1,
+  "restricted": false,
+  "overridable": true,
+  "files": [
+    "bell--plus-4bc354516754147fc92faccd50fb1387.png"
+  ],
+  "attributes": {
+    "width": 16,
+    "format": "PNG",
+    "lastModification": {
+      "actor": "8.3-migration",
+      "timestamp": "2026-01-07T14:49:07Z"
+    },
+    "size": 821,
+    "lastModificationSignature": "8180477541c3b496b2dc54174ce059cf7b2d2e5513d265c45e149bd677895d9e",
+    "height": 16
+  }
+}

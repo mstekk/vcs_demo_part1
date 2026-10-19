@@ -1,0 +1,20 @@
+{
+  "scope": "A",
+  "version": 1,
+  "restricted": false,
+  "overridable": true,
+  "files": [
+    "flag-white.png"
+  ],
+  "attributes": {
+    "width": 16,
+    "format": "PNG",
+    "lastModification": {
+      "actor": "8.3-migration",
+      "timestamp": "2026-01-07T14:49:07Z"
+    },
+    "size": 690,
+    "lastModificationSignature": "e7ea2a1d1fff38def6bc34e2661e85333c773c31ece5795dcb75dc01f8dead4f",
+    "height": 16
+  }
+}

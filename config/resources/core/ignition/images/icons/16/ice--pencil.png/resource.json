@@ -1,0 +1,20 @@
+{
+  "scope": "A",
+  "version": 1,
+  "restricted": false,
+  "overridable": true,
+  "files": [
+    "ice--pencil.png"
+  ],
+  "attributes": {
+    "width": 16,
+    "format": "PNG",
+    "lastModification": {
+      "actor": "8.3-migration",
+      "timestamp": "2026-01-07T14:49:07Z"
+    },
+    "size": 747,
+    "lastModificationSignature": "e99e6316fad2f1a4fac599e0bedfe163042d05a8876e84ff95beb3602b9a3076",
+    "height": 16
+  }
+}

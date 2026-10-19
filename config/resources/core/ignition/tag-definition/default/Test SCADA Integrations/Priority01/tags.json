@@ -1,0 +1,92 @@
+[
+  {
+    "valueSource": "memory",
+    "readOnly": false,
+    "dataType": "Boolean",
+    "writePermissions": {
+      "type": "AllOf",
+      "securityLevels": []
+    },
+    "alarms": [
+      {
+        "mode": "Equality",
+        "setpointA": 1.0,
+        "activePipeline": "PipelineForTestAlarms",
+        "timeOnDelaySeconds": 2.0,
+        "name": "(Fake) Turbo Fan High Amps",
+        "CustomEmailSubject": "Turbo Fan High Amps",
+        "displayPath": "",
+        "priority": "Critical"
+      }
+    ],
+    "name": "Bool_Test",
+    "defaultValue": true,
+    "readPermissions": {
+      "type": "AllOf",
+      "securityLevels": []
+    },
+    "tagGroup": "Default",
+    "tagType": "AtomicTag",
+    "enabled": true
+  },
+  {
+    "eventScripts": [
+      {
+        "eventid": "valueChanged",
+        "script": "\tif currentValue.value \u003d\u003d True:\n\t\tsystem.report.executeAndDistribute(path\u003d\"TestReport\", project\u003d\"Specialty\", action\u003d\"email\")"
+      }
+    ],
+    "valueSource": "memory",
+    "readOnly": false,
+    "dataType": "Boolean",
+    "writePermissions": {
+      "type": "AllOf",
+      "securityLevels": []
+    },
+    "name": "Bool_Trigger_Report1",
+    "defaultValue": false,
+    "readPermissions": {
+      "type": "AllOf",
+      "securityLevels": []
+    },
+    "tagGroup": "Default",
+    "tagType": "AtomicTag",
+    "enabled": true
+  },
+  {
+    "valueSource": "opc",
+    "opcItemPath": "ns\u003d2;s\u003dQuantum1.Quantum1.LU-MIL-TURBO-02-HIGH-FAN-AMP-ALM",
+    "writePermissions": {
+      "type": "AllOf",
+      "securityLevels": []
+    },
+    "alarms": [
+      {
+        "mode": "Equality",
+        "setpointA": 1.0,
+        "activePipeline": "PipelineForTestAlarms",
+        "timeOnDelaySeconds": 2.0,
+        "name": "Turbo Fan High Amps",
+        "CustomEmailSubject": "Turbo Fan High Amps",
+        "displayPath": "TURBO-02",
+        "priority": "Critical"
+      }
+    ],
+    "historicalDeadbandStyle": "Discrete",
+    "historyTagGroup": "Default Historical",
+    "tagGroup": "Default",
+    "tagType": "AtomicTag",
+    "enabled": true,
+    "readOnly": false,
+    "historyProvider": "MySQL",
+    "dataType": "Boolean",
+    "name": "LU-MIL-TURBO-02-HIGH-FAN-AMP-ALM",
+    "historyEnabled": true,
+    "readPermissions": {
+      "type": "AllOf",
+      "securityLevels": []
+    },
+    "sampleMode": "TagGroup",
+    "opcServer": "Kepware"
+  }
+]

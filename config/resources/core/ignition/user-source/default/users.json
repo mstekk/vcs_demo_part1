@@ -1,0 +1,145 @@
+{
+  "users": [
+    {
+      "uuid": "2",
+      "username": "S-TEKK",
+      "schedule": "Always",
+      "language": "en",
+      "password": "[6D2679D3]078f232519addddfbe971c6323ed11c84d01b15c794babe4e03f7c6513f9eb05",
+      "passwordDate": "20260127.125632105-0500",
+      "passwordHistory": [],
+      "createdDate": "20260107.094954355-0500",
+      "lastModifiedDate": "20260127.125639345-0500",
+      "roles": [
+        "94e813e4-c922-4dbe-a2bb-3c519cb80ef1"
+      ],
+      "extraProps": [
+        {
+          "propertyKey": "user.pin",
+          "propertyValue": ""
+        }
+      ],
+      "scheduleAdjustments": [],
+      "contactInfos": []
+    },
+    {
+      "uuid": "0f22bf48-579c-4d09-b1bb-ac40585105f5",
+      "username": "User2",
+      "firstName": "",
+      "lastName": "",
+      "schedule": "Always",
+      "description": "",
+      "password": "[94F010B3]d62ea10e82bf740b103e0a38b5fdb7858ee0cdb70615f3431366f17d08d005f7",
+      "passwordDate": "20260127.135837239-0500",
+      "passwordHistory": [],
+      "badge": "",
+      "createdDate": "20260127.135837239-0500",
+      "lastModifiedDate": "20260127.135846319-0500",
+      "roles": [
+        "d7d1f56d-aed9-4fe4-99c1-b269c0a8f82d"
+      ],
+      "extraProps": [
+        {
+          "propertyKey": "user.pin",
+          "propertyValue": ""
+        }
+      ],
+      "scheduleAdjustments": [],
+      "contactInfos": []
+    },
+    {
+      "uuid": "ed8daab5-b709-4e87-887c-1c9e7a6eb973",
+      "username": "User3",
+      "firstName": "",
+      "lastName": "",
+      "schedule": "Always",
+      "description": "",
+      "password": "[94FE8E25]c2e3d4a34d9446f150dbbadb82906eb025b2b80f0d0fa9a1cd3a5286b48ae1e0",
+      "passwordDate": "20260127.143921756-0500",
+      "passwordHistory": [],
+      "badge": "",
+      "createdDate": "20260127.143921756-0500",
+      "lastModifiedDate": "20260127.143921756-0500",
+      "roles": [],
+      "extraProps": [
+        {
+          "propertyKey": "user.pin",
+          "propertyValue": ""
+        }
+      ],
+      "scheduleAdjustments": [],
+      "contactInfos": []
+    },
+    {
+      "uuid": "3574d75f-8e28-41e9-90f4-4b0008f480a2",
+      "username": "User1",
+      "firstName": "User First Name",
+      "lastName": "User Last Name",
+      "schedule": "Always",
+      "description": "",
+      "password": "[54149C34]055feb231c62a98f92904c317028c804984c9cc341fc196261a79bd736fc3205",
+      "passwordDate": "20260127.133904783-0500",
+      "passwordHistory": [],
+      "badge": "",
+      "createdDate": "20260127.133904783-0500",
+      "lastModifiedDate": "20260131.080338632-0500",
+      "roles": [
+        "d7d1f56d-aed9-4fe4-99c1-b269c0a8f82d"
+      ],
+      "extraProps": [
+        {
+          "propertyKey": "user.pin",
+          "propertyValue": ""
+        }
+      ],
+      "scheduleAdjustments": [],
+      "contactInfos": []
+    },
+    {
+      "uuid": "0",
+      "username": "admin",
+      "schedule": "Always",
+      "password": "[B71437C3]97db933b4a2099c4d18e7f530d10af9bc58e60ec9a50afea25d4b871dadb6281",
+      "passwordDate": "20241223.140828136-0500",
+      "passwordHistory": [],
+      "createdDate": "20260107.094954355-0500",
+      "lastModifiedDate": "20260321.002443440-0400",
+      "roles": [
+        "94e813e4-c922-4dbe-a2bb-3c519cb80ef1"
+      ],
+      "extraProps": [
+        {
+          "propertyKey": "user.pin",
+          "propertyValue": ""
+        }
+      ],
+      "scheduleAdjustments": [],
+      "contactInfos": [
+        {
+          "contactType": "whatsapp",
+          "value": "+17063940811",
+          "order": 0
+        },
+        {
+          "contactType": "sms",
+          "value": "+17063940811",
+          "order": 1
+        }
+      ]
+    }
+  ],
+  "roles": [
+    {
+      "uuid": "94e813e4-c922-4dbe-a2bb-3c519cb80ef1",
+      "rolename": "Administrator",
+      "createdDate": "20260107.094954355-0500",
+      "lastModifiedDate": "20260127.125639093-0500"
+    },
+    {
+      "uuid": "d7d1f56d-aed9-4fe4-99c1-b269c0a8f82d",
+      "rolename": "Operator",
+      "createdDate": "20260107.094954355-0500",
+      "lastModifiedDate": "20260127.135846242-0500"
+    }
+  ]
+}

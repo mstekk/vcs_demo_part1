@@ -1,0 +1,20 @@
+{
+  "scope": "A",
+  "version": 1,
+  "restricted": false,
+  "overridable": true,
+  "files": [
+    "star-empty.png"
+  ],
+  "attributes": {
+    "width": 16,
+    "format": "PNG",
+    "lastModification": {
+      "actor": "8.3-migration",
+      "timestamp": "2026-01-07T14:49:07Z"
+    },
+    "size": 648,
+    "lastModificationSignature": "beabf7bfd712f8dd99abd6ee7e58b0a16f119c3b7aefb0e11187b6fd245ae21d",
+    "height": 16
+  }
+}

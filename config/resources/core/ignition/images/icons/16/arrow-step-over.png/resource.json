@@ -1,0 +1,20 @@
+{
+  "scope": "A",
+  "version": 1,
+  "restricted": false,
+  "overridable": true,
+  "files": [
+    "arrow-step-over.png"
+  ],
+  "attributes": {
+    "width": 16,
+    "format": "PNG",
+    "lastModification": {
+      "actor": "8.3-migration",
+      "timestamp": "2026-01-07T14:49:07Z"
+    },
+    "size": 865,
+    "lastModificationSignature": "67ffcde9778a9b76aae247468a6b1dd4b1dd8aed0ce694f45e62a55337decf1a",
+    "height": 16
+  }
+}

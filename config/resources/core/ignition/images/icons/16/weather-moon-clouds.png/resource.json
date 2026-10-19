@@ -1,0 +1,20 @@
+{
+  "scope": "A",
+  "version": 1,
+  "restricted": false,
+  "overridable": true,
+  "files": [
+    "weather-moon-clouds.png"
+  ],
+  "attributes": {
+    "width": 16,
+    "format": "PNG",
+    "lastModification": {
+      "actor": "8.3-migration",
+      "timestamp": "2026-01-07T14:49:07Z"
+    },
+    "size": 726,
+    "lastModificationSignature": "f69498c8bfd1e1b61fa61b4d7456c07ff64cb107930c4f613e975928b2d6e8da",
+    "height": 16
+  }
+}

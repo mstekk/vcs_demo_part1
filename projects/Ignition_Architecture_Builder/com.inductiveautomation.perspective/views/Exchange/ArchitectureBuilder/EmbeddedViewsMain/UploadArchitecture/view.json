@@ -1,0 +1,115 @@
+{
+  "custom": {
+    "filename": "",
+    "uploadedVal": ""
+  },
+  "params": {},
+  "propConfig": {
+    "custom.uploadedVal": {
+      "persistent": true
+    }
+  },
+  "props": {
+    "defaultSize": {
+      "height": 207,
+      "width": 473
+    }
+  },
+  "root": {
+    "children": [
+      {
+        "events": {
+          "component": {
+            "onFileReceived": {
+              "config": {
+                "script": "\tself.view.custom.uploadedVal\u003devent.file.getString()\n\tself.view.custom.filename\u003devent.file.name"
+              },
+              "scope": "G",
+              "type": "script"
+            },
+            "onUploadsCleared": {
+              "config": {
+                "script": "\tself.view.custom.uploadedVal\u003d\u0027\u0027\n\tself.view.custom.filename\u003d\u0027\u0027"
+              },
+              "scope": "G",
+              "type": "script"
+            }
+          }
+        },
+        "meta": {
+          "name": "FileUpload"
+        },
+        "position": {
+          "basis": "145px"
+        },
+        "props": {
+          "style": {
+            "classes": "",
+            "margin": "8px"
+          },
+          "supportedFileTypes": [
+            "json"
+          ]
+        },
+        "type": "ia.input.fileupload"
+      },
+      {
+        "events": {
+          "component": {
+            "onActionPerformed": {
+              "config": {
+                "script": "\tdata\u003dself.view.custom.uploadedVal\n\tsystem.perspective.sendMessage(\u0027uploadArchitecture\u0027, {\u0027data\u0027:data}, scope\u003d\u0027session\u0027)\n\tsystem.perspective.closePopup(\u0027uploadArch\u0027)\n\t"
+              },
+              "scope": "G",
+              "type": "script"
+            }
+          }
+        },
+        "meta": {
+          "name": "Button"
+        },
+        "position": {
+          "shrink": 0
+        },
+        "propConfig": {
+          "props.enabled": {
+            "binding": {
+              "config": {
+                "expression": "{view.custom.uploadedVal}!\u003d\u0027\u0027"
+              },
+              "type": "expr"
+            }
+          },
+          "props.text": {
+            "binding": {
+              "config": {
+                "path": "view.custom.filename"
+              },
+              "transforms": [
+                {
+                  "code": "\treturn \u0027Load: {}\u0027.format(value)",
+                  "type": "script"
+                }
+              ],
+              "type": "property"
+            }
+          }
+        },
+        "props": {
+          "style": {
+            "margin": "8px",
+            "overflow": "auto"
+          }
+        },
+        "type": "ia.input.button"
+      }
+    ],
+    "meta": {
+      "name": "root"
+    },
+    "props": {
+      "direction": "column"
+    },
+    "type": "ia.container.flex"
+  }
+}

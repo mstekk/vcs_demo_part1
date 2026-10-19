@@ -1,0 +1,185 @@
+[
+  {
+    "rawHigh": 9999.0,
+    "valueSource": "opc",
+    "opcItemPath": "ns\u003d2:s\u003dQuantum1.Quantum1.004341",
+    "engHigh": 9999.0,
+    "writePermissions": {
+      "type": "AllOf",
+      "securityLevels": []
+    },
+    "historicalDeadbandStyle": "Discrete",
+    "tooltip": "1RM_HIGH_DRIVE_AMP_WARNING",
+    "historyTagGroup": "Default Historical",
+    "tagGroup": "Default",
+    "tagType": "AtomicTag",
+    "enabled": true,
+    "engUnit": "",
+    "scaledHigh": 9999.0,
+    "scaleMode": "Linear",
+    "readOnly": false,
+    "historyProvider": "MySQL",
+    "dataType": "Boolean",
+    "name": "high drive amp warning",
+    "historyEnabled": true,
+    "deadband": 0.0,
+    "readPermissions": {
+      "type": "AllOf",
+      "securityLevels": []
+    },
+    "sampleMode": "TagGroup",
+    "opcServer": "Kepware"
+  },
+  {
+    "rawHigh": 9999.0,
+    "valueSource": "opc",
+    "opcItemPath": "ns\u003d2:s\u003dQuantum1.Quantum1.004329",
+    "engHigh": 9999.0,
+    "writePermissions": {
+      "type": "AllOf",
+      "securityLevels": []
+    },
+    "historicalDeadbandStyle": "Discrete",
+    "tooltip": "1RM_DUE_FOR_LUBE_REMINDER",
+    "historyTagGroup": "Default Historical",
+    "tagGroup": "Default",
+    "tagType": "AtomicTag",
+    "enabled": true,
+    "engUnit": "",
+    "scaledHigh": 9999.0,
+    "scaleMode": "Linear",
+    "readOnly": false,
+    "historyProvider": "MySQL",
+    "dataType": "Boolean",
+    "name": "lube reminder",
+    "historyEnabled": true,
+    "deadband": 0.0,
+    "readPermissions": {
+      "type": "AllOf",
+      "securityLevels": []
+    },
+    "sampleMode": "TagGroup",
+    "opcServer": "Kepware"
+  },
+  {
+    "rawHigh": 60000.0,
+    "valueSource": "opc",
+    "opcItemPath": "ns\u003d2:s\u003dQuantum1.Quantum1.406815",
+    "engHigh": 9999.0,
+    "writePermissions": {
+      "type": "AllOf",
+      "securityLevels": []
+    },
+    "tooltip": "1RM_LUBE_REMINDER_TIMER",
+    "historyTagGroup": "Default Historical",
+    "tagGroup": "Default",
+    "tagType": "AtomicTag",
+    "enabled": true,
+    "engUnit": "HOURS",
+    "scaledHigh": 60000.0,
+    "scaleMode": "Linear",
+    "readOnly": false,
+    "historyProvider": "MySQL",
+    "dataType": "Float4",
+    "name": "lube reminder timer",
+    "historyEnabled": true,
+    "deadband": 0.0,
+    "readPermissions": {
+      "type": "AllOf",
+      "securityLevels": []
+    },
+    "sampleMode": "TagGroup",
+    "opcServer": "Kepware"
+  },
+  {
+    "rawHigh": 9999.0,
+    "valueSource": "opc",
+    "opcItemPath": "ns\u003d2:s\u003dQuantum1.Quantum1.004330",
+    "engHigh": 9999.0,
+    "writePermissions": {
+      "type": "AllOf",
+      "securityLevels": []
+    },
+    "historicalDeadbandStyle": "Discrete",
+    "tooltip": "WW_1RM_LUBE_TIMER_RESET",
+    "historyTagGroup": "Default Historical",
+    "tagGroup": "Default",
+    "tagType": "AtomicTag",
+    "enabled": true,
+    "engUnit": "",
+    "scaledHigh": 9999.0,
+    "scaleMode": "Linear",
+    "readOnly": false,
+    "historyProvider": "MySQL",
+    "dataType": "Boolean",
+    "name": "lube reminder timer reset",
+    "historyEnabled": true,
+    "deadband": 0.0,
+    "readPermissions": {
+      "type": "AllOf",
+      "securityLevels": []
+    },
+    "sampleMode": "TagGroup",
+    "opcServer": "Kepware"
+  },
+  {
+    "rawHigh": 4095.0,
+    "valueSource": "opc",
+    "opcItemPath": "ns\u003d2:s\u003dQuantum1.Quantum1.300181",
+    "engHigh": 9999.0,
+    "writePermissions": {
+      "type": "AllOf",
+      "securityLevels": []
+    },
+    "tooltip": "1RM_TEA_FLOW_RATE_INPUT",
+    "historyTagGroup": "Default Historical",
+    "tagGroup": "Default",
+    "tagType": "AtomicTag",
+    "enabled": true,
+    "engUnit": "ML/MIN",
+    "scaledHigh": 200.0,
+    "scaleMode": "Linear",
+    "readOnly": false,
+    "historyProvider": "MySQL",
+    "dataType": "Int4",
+    "name": "tea flow rate input",
+    "historyEnabled": true,
+    "deadband": 0.0,
+    "readPermissions": {
+      "type": "AllOf",
+      "securityLevels": []
+    },
+    "sampleMode": "TagGroup",
+    "opcServer": "Kepware"
+  },
+  {
+    "rawHigh": 4095.0,
+    "valueSource": "opc",
+    "opcItemPath": "ns\u003d2:s\u003dQuantum1.Quantum1.404051",
+    "engHigh": 9999.0,
+    "writePermissions": {
+      "type": "AllOf",
+      "securityLevels": []
+    },
+    "tooltip": "1RM_TEA_FLOW_RATE_OUTPUT",
+    "historyTagGroup": "Default Historical",
+    "tagGroup": "Default",
+    "tagType": "AtomicTag",
+    "enabled": true,
+    "engUnit": "ML/MIN",
+    "scaledHigh": 55.0,
+    "scaleMode": "Linear",
+    "readOnly": false,
+    "historyProvider": "MySQL",
+    "dataType": "Int4",
+    "name": "tea flow rate output",
+    "historyEnabled": true,
+    "deadband": 0.0,
+    "readPermissions": {
+      "type": "AllOf",
+      "securityLevels": []
+    },
+    "sampleMode": "TagGroup",
+    "opcServer": "Kepware"
+  }
+]

@@ -1,0 +1,20 @@
+{
+  "scope": "A",
+  "version": 1,
+  "restricted": false,
+  "overridable": true,
+  "files": [
+    "Valve 14.png"
+  ],
+  "attributes": {
+    "width": 45,
+    "format": "PNG",
+    "lastModification": {
+      "actor": "8.3-migration",
+      "timestamp": "2026-01-07T14:49:07Z"
+    },
+    "size": 4624,
+    "lastModificationSignature": "587b29ddb2448ea02250deacb16522887e74cf3a852354bfb9642538bb3e4564",
+    "height": 87
+  }
+}

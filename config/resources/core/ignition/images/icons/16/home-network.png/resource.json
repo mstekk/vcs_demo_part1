@@ -1,0 +1,20 @@
+{
+  "scope": "A",
+  "version": 1,
+  "restricted": false,
+  "overridable": true,
+  "files": [
+    "home-network.png"
+  ],
+  "attributes": {
+    "width": 16,
+    "format": "PNG",
+    "lastModification": {
+      "actor": "8.3-migration",
+      "timestamp": "2026-01-07T14:49:07Z"
+    },
+    "size": 755,
+    "lastModificationSignature": "a65f1f066c7352ad5f5e46a0c09e28209f83ed90bc9f6796a4d5381498ef4c77",
+    "height": 16
+  }
+}

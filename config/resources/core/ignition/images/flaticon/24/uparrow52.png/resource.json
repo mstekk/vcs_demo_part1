@@ -1,0 +1,20 @@
+{
+  "scope": "A",
+  "version": 1,
+  "restricted": false,
+  "overridable": true,
+  "files": [
+    "uparrow52.png"
+  ],
+  "attributes": {
+    "width": 24,
+    "format": "PNG",
+    "lastModification": {
+      "actor": "8.3-migration",
+      "timestamp": "2026-01-07T14:49:07Z"
+    },
+    "size": 358,
+    "lastModificationSignature": "1d46b63a0473eff99dadfd2e1b5d319a3ab76e41f6343a52a373d13516af26c7",
+    "height": 24
+  }
+}

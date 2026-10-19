@@ -1,0 +1,20 @@
+{
+  "scope": "A",
+  "version": 1,
+  "restricted": false,
+  "overridable": true,
+  "files": [
+    "book--minus.png"
+  ],
+  "attributes": {
+    "width": 16,
+    "format": "PNG",
+    "lastModification": {
+      "actor": "8.3-migration",
+      "timestamp": "2026-01-07T14:49:07Z"
+    },
+    "size": 607,
+    "lastModificationSignature": "f8cd2c3a5c872ec87e50a1389b62bc129d2335c05df334a4b9f2470c489aa37d",
+    "height": 16
+  }
+}

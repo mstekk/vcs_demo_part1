@@ -1,0 +1,190 @@
+{
+  "custom": {
+    "weatherLink": "https://api.weather.gov/points/33.9992057,-117.4051512"
+  },
+  "params": {},
+  "propConfig": {
+    "custom.weatherLink": {
+      "binding": {
+        "config": {
+          "expression": "\u0027https://api.weather.gov/points/\u0027+{/root/Map.props.init.center.lat}+\u0027,\u0027+{/root/Map.props.init.center.lng}"
+        },
+        "type": "expr"
+      },
+      "persistent": true
+    }
+  },
+  "props": {},
+  "root": {
+    "children": [
+      {
+        "meta": {
+          "name": "Label"
+        },
+        "position": {
+          "basis": "32px"
+        },
+        "propConfig": {
+          "props.text": {
+            "binding": {
+              "config": {
+                "connectTimeout": 60000,
+                "enableCookies": true,
+                "enableValueCache": true,
+                "polling": {
+                  "enabled": false,
+                  "rate": "30"
+                },
+                "request": {
+                  "auth": {
+                    "type": "None",
+                    "value": ""
+                  },
+                  "method": "GET",
+                  "url": "{view.custom.weatherLink}"
+                },
+                "socketTimeout": 60000
+              },
+              "transforms": [
+                {
+                  "expression": "{value}[\u0027properties\u0027][\u0027forecast\u0027]",
+                  "type": "expression"
+                }
+              ],
+              "type": "http"
+            }
+          }
+        },
+        "type": "ia.display.label"
+      },
+      {
+        "meta": {
+          "name": "Map"
+        },
+        "position": {
+          "basis": "400px"
+        },
+        "props": {
+          "init": {
+            "center": {
+              "lat": 33.9992057,
+              "lng": -117.4051512
+            },
+            "zoom": 13
+          },
+          "layers": {
+            "raster": {
+              "tile": [
+                {
+                  "WMS": {
+                    "format": "image/jpeg",
+                    "layers": "",
+                    "styles": "",
+                    "transparent": false,
+                    "uppercase": false,
+                    "version": "1.1.1"
+                  },
+                  "options": {
+                    "attribution": "Map data \u0026copy; \u003ca href\u003d\u0027https://www.openstreetmap.org/\u0027\u003eOpenStreetMap\u003c/a\u003e contributors, \u003ca href\u003d\u0027https://creativecommons.org/licenses/by-sa/2.0/\u0027\u003eCC-BY-SA\u003c/a\u003e",
+                    "crossOrigin": false,
+                    "detectRetina": false,
+                    "errorTileUrl": "",
+                    "opacity": 1,
+                    "subdomains": [
+                      "a",
+                      "b",
+                      "c"
+                    ],
+                    "tileSize": {
+                      "height": 256,
+                      "width": 256
+                    },
+                    "tms": false,
+                    "update": {
+                      "interval": 200,
+                      "whenIdle": false,
+                      "whenZooming": true
+                    },
+                    "zIndex": 1,
+                    "zoom": {
+                      "max": 18,
+                      "min": 0,
+                      "native": {
+                        "max": null,
+                        "min": null
+                      },
+                      "offset": 0,
+                      "reverse": false
+                    }
+                  },
+                  "url": "https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png",
+                  "urlTemplateParams": {}
+                }
+              ]
+            }
+          }
+        },
+        "type": "ia.display.map"
+      },
+      {
+        "meta": {
+          "name": "Label_0"
+        },
+        "position": {
+          "basis": "32px"
+        },
+        "propConfig": {
+          "props.text": {
+            "binding": {
+              "config": {
+                "connectTimeout": 60000,
+                "enableCookies": true,
+                "enableValueCache": true,
+                "polling": {
+                  "enabled": false,
+                  "rate": "30"
+                },
+                "request": {
+                  "auth": {
+                    "type": "None",
+                    "value": ""
+                  },
+                  "method": "GET",
+                  "url": "{../Label.props.text}"
+                },
+                "socketTimeout": 60000
+              },
+              "transforms": [
+                {
+                  "expression": "{value}[\u0027properties\u0027][\u0027periods\u0027][0][\u0027temperature\u0027]+\u0027°\u0027+{value}[\u0027properties\u0027][\u0027periods\u0027][0][\u0027temperatureUnit\u0027]+\", \"+{value}[\u0027properties\u0027][\u0027periods\u0027][0][\u0027shortForecast\u0027]",
+                  "type": "expression"
+                }
+              ],
+              "type": "http"
+            }
+          }
+        },
+        "type": "ia.display.label"
+      },
+      {
+        "meta": {
+          "name": "Image"
+        },
+        "position": {
+          "basis": "100px"
+        },
+        "props": {
+          "source": "https://api.weather.gov/icons/land/night/sct?size\u003dmedium"
+        },
+        "type": "ia.display.image"
+      }
+    ],
+    "meta": {
+      "name": "root"
+    },
+    "props": {
+      "direction": "column"
+    },
+    "type": "ia.container.flex"
+  }
+}

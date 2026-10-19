@@ -1,0 +1,20 @@
+{
+  "scope": "A",
+  "version": 1,
+  "restricted": false,
+  "overridable": true,
+  "files": [
+    "Valve 26.png"
+  ],
+  "attributes": {
+    "width": 90,
+    "format": "PNG",
+    "lastModification": {
+      "actor": "8.3-migration",
+      "timestamp": "2026-01-07T14:49:07Z"
+    },
+    "size": 3354,
+    "lastModificationSignature": "8469bca47cd643fca4a83b9ba024723d4f30180b5a3f5f366dd70bc43dddf06d",
+    "height": 160
+  }
+}

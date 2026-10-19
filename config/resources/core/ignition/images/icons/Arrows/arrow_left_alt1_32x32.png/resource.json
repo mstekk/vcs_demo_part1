@@ -1,0 +1,20 @@
+{
+  "scope": "A",
+  "version": 1,
+  "restricted": false,
+  "overridable": true,
+  "files": [
+    "arrow_left_alt1_32x32.png"
+  ],
+  "attributes": {
+    "width": 32,
+    "format": "PNG",
+    "lastModification": {
+      "actor": "8.3-migration",
+      "timestamp": "2026-01-07T14:49:07Z"
+    },
+    "size": 361,
+    "lastModificationSignature": "af19f9e3ec9ad0c6a8924b4325891293ad37abc6e36b21c72479ddabc2289922",
+    "height": 32
+  }
+}

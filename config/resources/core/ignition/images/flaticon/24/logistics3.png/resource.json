@@ -1,0 +1,20 @@
+{
+  "scope": "A",
+  "version": 1,
+  "restricted": false,
+  "overridable": true,
+  "files": [
+    "logistics3.png"
+  ],
+  "attributes": {
+    "width": 24,
+    "format": "PNG",
+    "lastModification": {
+      "actor": "8.3-migration",
+      "timestamp": "2026-01-07T14:49:07Z"
+    },
+    "size": 523,
+    "lastModificationSignature": "bd3e9fd4f44ce3f9986e8a899746f606eb13100c9e502ed5e74b9a69f0d54b78",
+    "height": 24
+  }
+}

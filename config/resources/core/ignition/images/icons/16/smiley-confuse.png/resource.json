@@ -1,0 +1,20 @@
+{
+  "scope": "A",
+  "version": 1,
+  "restricted": false,
+  "overridable": true,
+  "files": [
+    "smiley-confuse.png"
+  ],
+  "attributes": {
+    "width": 16,
+    "format": "PNG",
+    "lastModification": {
+      "actor": "8.3-migration",
+      "timestamp": "2026-01-07T14:49:07Z"
+    },
+    "size": 751,
+    "lastModificationSignature": "ba2f771f27a918447841c17a809280ad1a7fe25664310017832d5a49bb72b8b6",
+    "height": 16
+  }
+}

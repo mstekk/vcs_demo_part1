@@ -1,0 +1,20 @@
+{
+  "scope": "A",
+  "version": 1,
+  "restricted": false,
+  "overridable": true,
+  "files": [
+    "disc-blue.png"
+  ],
+  "attributes": {
+    "width": 16,
+    "format": "PNG",
+    "lastModification": {
+      "actor": "8.3-migration",
+      "timestamp": "2026-01-07T14:49:07Z"
+    },
+    "size": 757,
+    "lastModificationSignature": "48a0f3ee6233666b685856dd4302963c10a7a64235bd94d53efe07ef540cd5a4",
+    "height": 16
+  }
+}

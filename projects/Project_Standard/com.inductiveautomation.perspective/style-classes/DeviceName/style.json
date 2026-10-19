@@ -1,0 +1,10 @@
+{
+  "base": {
+    "style": {
+      "fontFamily": "calibri",
+      "fontSize": "14pt",
+      "fontWeight": "bold",
+      "textAlign": "center"
+    }
+  }
+}

@@ -1,0 +1,20 @@
+{
+  "scope": "A",
+  "version": 1,
+  "restricted": false,
+  "overridable": true,
+  "files": [
+    "valve_blue.png"
+  ],
+  "attributes": {
+    "width": 736,
+    "format": "PNG",
+    "lastModification": {
+      "actor": "8.3-migration",
+      "timestamp": "2026-01-07T14:49:07Z"
+    },
+    "size": 18083,
+    "lastModificationSignature": "1ff059d45147bc6cfc46ec901b4b823ab31808fc89825b45b2a44b50a8478863",
+    "height": 746
+  }
+}

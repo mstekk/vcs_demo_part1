@@ -1,0 +1,20 @@
+{
+  "scope": "A",
+  "version": 1,
+  "restricted": false,
+  "overridable": true,
+  "files": [
+    "traffic-light--exclamation.png"
+  ],
+  "attributes": {
+    "width": 16,
+    "format": "PNG",
+    "lastModification": {
+      "actor": "8.3-migration",
+      "timestamp": "2026-01-07T14:49:07Z"
+    },
+    "size": 758,
+    "lastModificationSignature": "e07e2ae81e900d869d7ce97263ac64020d8427c3bb5cd8297aa430cbd6c83935",
+    "height": 16
+  }
+}

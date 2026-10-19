@@ -1,0 +1,20 @@
+{
+  "scope": "A",
+  "version": 1,
+  "restricted": false,
+  "overridable": true,
+  "files": [
+    "status-busy.png"
+  ],
+  "attributes": {
+    "width": 16,
+    "format": "PNG",
+    "lastModification": {
+      "actor": "8.3-migration",
+      "timestamp": "2026-01-07T14:49:07Z"
+    },
+    "size": 407,
+    "lastModificationSignature": "470b6aa5c201ef098e773bb30ac35dccb4e41a968532d0291702150691d5f5ba",
+    "height": 16
+  }
+}

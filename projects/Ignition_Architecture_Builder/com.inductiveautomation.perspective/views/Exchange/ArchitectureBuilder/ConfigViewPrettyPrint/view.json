@@ -1,0 +1,86 @@
+{
+  "custom": {},
+  "params": {},
+  "props": {
+    "defaultSize": {
+      "height": 356,
+      "width": 362
+    }
+  },
+  "root": {
+    "children": [
+      {
+        "meta": {
+          "name": "Markdown"
+        },
+        "position": {
+          "basis": "329px",
+          "display": false,
+          "grow": 1
+        },
+        "propConfig": {
+          "props.source": {
+            "binding": {
+              "config": {
+                "path": "session.custom.structure"
+              },
+              "transforms": [
+                {
+                  "code": "\timport json\n\tjsonv\u003dsystem.util.jsonDecode(system.util.jsonEncode(value))\t\n\treturn json.dumps(jsonv, indent\u003d3)\n",
+                  "type": "script"
+                }
+              ],
+              "type": "property"
+            }
+          }
+        },
+        "props": {
+          "markdown": {
+            "escapeHtml": false,
+            "skipHtml": true,
+            "sourcePos": true
+          }
+        },
+        "type": "ia.display.markdown"
+      },
+      {
+        "meta": {
+          "name": "TextArea"
+        },
+        "position": {
+          "grow": 1,
+          "shrink": 0
+        },
+        "propConfig": {
+          "props.text": {
+            "binding": {
+              "config": {
+                "path": "session.custom.structure.configs"
+              },
+              "transforms": [
+                {
+                  "code": "\timport json\n\tjsonv\u003dsystem.util.jsonDecode(system.util.jsonEncode(value))\t\n\treturn json.dumps(jsonv, indent\u003d3)\n",
+                  "type": "script"
+                }
+              ],
+              "type": "property"
+            }
+          }
+        },
+        "props": {
+          "style": {
+            "fontSize": 10
+          }
+        },
+        "type": "ia.input.text-area"
+      }
+    ],
+    "meta": {
+      "name": "root"
+    },
+    "props": {
+      "direction": "column"
+    },
+    "type": "ia.container.flex"
+  }
+}

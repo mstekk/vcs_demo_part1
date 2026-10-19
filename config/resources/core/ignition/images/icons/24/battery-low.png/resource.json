@@ -1,0 +1,20 @@
+{
+  "scope": "A",
+  "version": 1,
+  "restricted": false,
+  "overridable": true,
+  "files": [
+    "battery-low.png"
+  ],
+  "attributes": {
+    "width": 24,
+    "format": "PNG",
+    "lastModification": {
+      "actor": "8.3-migration",
+      "timestamp": "2026-01-07T14:49:07Z"
+    },
+    "size": 516,
+    "lastModificationSignature": "4217e754995993e737cf66cd062ae3fa7cfda2bba72f1d08bdcfd48779107a48",
+    "height": 24
+  }
+}

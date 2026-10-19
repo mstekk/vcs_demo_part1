@@ -1,0 +1,20 @@
+{
+  "scope": "A",
+  "version": 1,
+  "restricted": false,
+  "overridable": true,
+  "files": [
+    "address-book--plus.png"
+  ],
+  "attributes": {
+    "width": 16,
+    "format": "PNG",
+    "lastModification": {
+      "actor": "8.3-migration",
+      "timestamp": "2026-01-07T14:49:07Z"
+    },
+    "size": 879,
+    "lastModificationSignature": "6deae34d67eda1d05491a51ffbd6fddff0a33950e859f34737b0b8c8d1c11cb4",
+    "height": 16
+  }
+}

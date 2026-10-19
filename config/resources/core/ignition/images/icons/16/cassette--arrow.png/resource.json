@@ -1,0 +1,20 @@
+{
+  "scope": "A",
+  "version": 1,
+  "restricted": false,
+  "overridable": true,
+  "files": [
+    "cassette--arrow.png"
+  ],
+  "attributes": {
+    "width": 16,
+    "format": "PNG",
+    "lastModification": {
+      "actor": "8.3-migration",
+      "timestamp": "2026-01-07T14:49:07Z"
+    },
+    "size": 664,
+    "lastModificationSignature": "4889bdd4d3aab6af3fae9537ab955989afde85fd65c03373a571a7927ae49058",
+    "height": 16
+  }
+}

@@ -1,0 +1,119 @@
+{
+  "custom": {},
+  "params": {
+    "Label": "value",
+    "parameters": {
+      "displayLabel": false,
+      "one_TagPath": "[RCSD]WTF/Anita-B-Smith/NR-FIT-1",
+      "quantity": 1,
+      "three_TagPath": "[RCSD]WTF/Anita-B-Smith/RP-PIT-1-1",
+      "two_TagPath": "[RCSD]WTF/Anita-B-Smith/RP-PIT-1-1"
+    }
+  },
+  "propConfig": {
+    "params.Label": {
+      "paramDirection": "input",
+      "persistent": true
+    },
+    "params.parameters": {
+      "paramDirection": "input",
+      "persistent": true
+    }
+  },
+  "props": {
+    "defaultSize": {
+      "height": 45,
+      "width": 717
+    }
+  },
+  "root": {
+    "children": [
+      {
+        "meta": {
+          "name": "Label"
+        },
+        "position": {
+          "basis": "35%"
+        },
+        "propConfig": {
+          "props.text": {
+            "binding": {
+              "config": {
+                "path": "view.params.Label"
+              },
+              "type": "property"
+            }
+          }
+        },
+        "props": {
+          "textStyle": {
+            "classes": "Text/Labels",
+            "textAlign": "start"
+          }
+        },
+        "type": "ia.display.label"
+      },
+      {
+        "meta": {
+          "name": "EmbeddedView"
+        },
+        "position": {
+          "basis": "65%"
+        },
+        "propConfig": {
+          "props.params.displayLabel": {
+            "binding": {
+              "config": {
+                "path": "view.params.parameters.displayLabel"
+              },
+              "type": "property"
+            }
+          },
+          "props.params.one_TagPath": {
+            "binding": {
+              "config": {
+                "path": "view.params.parameters.one_TagPath"
+              },
+              "type": "property"
+            }
+          },
+          "props.params.quantity": {
+            "binding": {
+              "config": {
+                "path": "view.params.parameters.quantity"
+              },
+              "type": "property"
+            }
+          },
+          "props.params.three_TagPath": {
+            "binding": {
+              "config": {
+                "path": "view.params.parameters.three_TagPath"
+              },
+              "type": "property"
+            }
+          },
+          "props.params.two_TagPath": {
+            "binding": {
+              "config": {
+                "path": "view.params.parameters.two_TagPath"
+              },
+              "type": "property"
+            }
+          }
+        },
+        "props": {
+          "params": {
+            "label": "label"
+          },
+          "path": "Templates/Analog Display"
+        },
+        "type": "ia.display.view"
+      }
+    ],
+    "meta": {
+      "name": "root"
+    },
+    "type": "ia.container.flex"
+  }
+}

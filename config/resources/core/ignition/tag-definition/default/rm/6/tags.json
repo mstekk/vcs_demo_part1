@@ -1,0 +1,592 @@
+[
+  {
+    "rawHigh": 9999.0,
+    "valueSource": "opc",
+    "opcItemPath": "ns\u003d2:s\u003dQuantum1.Quantum1.009932",
+    "engHigh": 9999.0,
+    "writePermissions": {
+      "type": "AllOf",
+      "securityLevels": []
+    },
+    "documentation": "DAMPER FAILED TIMED CLOSURE ON SHUTDOWN ",
+    "historicalDeadbandStyle": "Discrete",
+    "tooltip": "6RM_DAMPER_FAILED_TIMED_CLOSE",
+    "historyTagGroup": "Default Historical",
+    "tagGroup": "Default",
+    "tagType": "AtomicTag",
+    "enabled": true,
+    "engUnit": "",
+    "scaledHigh": 9999.0,
+    "scaleMode": "Linear",
+    "readOnly": false,
+    "historyProvider": "MySQL",
+    "dataType": "Boolean",
+    "name": "damper failed timed close",
+    "historyEnabled": true,
+    "deadband": 0.0,
+    "readPermissions": {
+      "type": "AllOf",
+      "securityLevels": []
+    },
+    "sampleMode": "TagGroup",
+    "opcServer": "Kepware"
+  },
+  {
+    "rawHigh": 9999.0,
+    "valueSource": "opc",
+    "opcItemPath": "ns\u003d2:s\u003dQuantum1.Quantum1.009931",
+    "engHigh": 9999.0,
+    "writePermissions": {
+      "type": "AllOf",
+      "securityLevels": []
+    },
+    "documentation": "6 RM DAMPER NOT CLOSED ON STARTUP ALARM",
+    "historicalDeadbandStyle": "Discrete",
+    "tooltip": "6RM_DAMPER_NOT_CLOSED_ALARM",
+    "historyTagGroup": "Default Historical",
+    "tagGroup": "Default",
+    "tagType": "AtomicTag",
+    "enabled": true,
+    "engUnit": "",
+    "scaledHigh": 9999.0,
+    "scaleMode": "Linear",
+    "readOnly": false,
+    "historyProvider": "MySQL",
+    "dataType": "Boolean",
+    "name": "damper not closed alarm",
+    "historyEnabled": true,
+    "deadband": 0.0,
+    "readPermissions": {
+      "type": "AllOf",
+      "securityLevels": []
+    },
+    "sampleMode": "TagGroup",
+    "opcServer": "Kepware"
+  },
+  {
+    "rawHigh": 9999.0,
+    "valueSource": "opc",
+    "opcItemPath": "ns\u003d2:s\u003dQuantum1.Quantum1.005771",
+    "engHigh": 9999.0,
+    "writePermissions": {
+      "type": "AllOf",
+      "securityLevels": []
+    },
+    "historicalDeadbandStyle": "Discrete",
+    "tooltip": "6RM_DRIVE_MOTOR_FAILED",
+    "historyTagGroup": "Default Historical",
+    "tagGroup": "Default",
+    "tagType": "AtomicTag",
+    "enabled": true,
+    "engUnit": "",
+    "scaledHigh": 9999.0,
+    "scaleMode": "Linear",
+    "readOnly": false,
+    "historyProvider": "MySQL",
+    "dataType": "Boolean",
+    "name": "drive motor failed",
+    "historyEnabled": true,
+    "deadband": 0.0,
+    "readPermissions": {
+      "type": "AllOf",
+      "securityLevels": []
+    },
+    "sampleMode": "TagGroup",
+    "opcServer": "Kepware"
+  },
+  {
+    "rawHigh": 4095.0,
+    "valueSource": "opc",
+    "opcItemPath": "ns\u003d2:s\u003dQuantum1.Quantum1.300310",
+    "engHigh": 9999.0,
+    "writePermissions": {
+      "type": "AllOf",
+      "securityLevels": []
+    },
+    "tooltip": "6RM_FEEDBIN_LEVEL",
+    "historyTagGroup": "Default Historical",
+    "tagGroup": "Default",
+    "tagType": "AtomicTag",
+    "enabled": true,
+    "engUnit": " ",
+    "scaledHigh": 4095.0,
+    "scaleMode": "Linear",
+    "readOnly": false,
+    "historyProvider": "MySQL",
+    "dataType": "Int4",
+    "name": "feedbin level",
+    "historyEnabled": true,
+    "deadband": 0.0,
+    "readPermissions": {
+      "type": "AllOf",
+      "securityLevels": []
+    },
+    "sampleMode": "TagGroup",
+    "opcServer": "Kepware"
+  },
+  {
+    "rawHigh": 9999.0,
+    "valueSource": "opc",
+    "opcItemPath": "ns\u003d2:s\u003dQuantum1.Quantum1.005788",
+    "engHigh": 9999.0,
+    "writePermissions": {
+      "type": "AllOf",
+      "securityLevels": []
+    },
+    "historicalDeadbandStyle": "Discrete",
+    "tooltip": "6RM_HIGH_DRIVE_AMP_WARNING",
+    "historyTagGroup": "Default Historical",
+    "tagGroup": "Default",
+    "tagType": "AtomicTag",
+    "enabled": true,
+    "engUnit": "",
+    "scaledHigh": 9999.0,
+    "scaleMode": "Linear",
+    "readOnly": false,
+    "historyProvider": "MySQL",
+    "dataType": "Boolean",
+    "name": "high drive amp warning",
+    "historyEnabled": true,
+    "deadband": 0.0,
+    "readPermissions": {
+      "type": "AllOf",
+      "securityLevels": []
+    },
+    "sampleMode": "TagGroup",
+    "opcServer": "Kepware"
+  },
+  {
+    "rawHigh": 9999.0,
+    "valueSource": "opc",
+    "opcItemPath": "ns\u003d2:s\u003dQuantum1.Quantum1.005789",
+    "engHigh": 9999.0,
+    "writePermissions": {
+      "type": "AllOf",
+      "securityLevels": []
+    },
+    "historicalDeadbandStyle": "Discrete",
+    "tooltip": "6RM_LOW_DRIVE_AMP_WARNING",
+    "historyTagGroup": "Default Historical",
+    "tagGroup": "Default",
+    "tagType": "AtomicTag",
+    "enabled": true,
+    "engUnit": "",
+    "scaledHigh": 9999.0,
+    "scaleMode": "Linear",
+    "readOnly": false,
+    "historyProvider": "MySQL",
+    "dataType": "Boolean",
+    "name": "low drive amp warning",
+    "historyEnabled": true,
+    "deadband": 0.0,
+    "readPermissions": {
+      "type": "AllOf",
+      "securityLevels": []
+    },
+    "sampleMode": "TagGroup",
+    "opcServer": "Kepware"
+  },
+  {
+    "rawHigh": 9999.0,
+    "valueSource": "opc",
+    "opcItemPath": "ns\u003d2:s\u003dQuantum1.Quantum1.005783",
+    "engHigh": 9999.0,
+    "writePermissions": {
+      "type": "AllOf",
+      "securityLevels": []
+    },
+    "historicalDeadbandStyle": "Discrete",
+    "tooltip": "6RM_DUE_FOR_LUBE_REMINDER",
+    "historyTagGroup": "Default Historical",
+    "tagGroup": "Default",
+    "tagType": "AtomicTag",
+    "enabled": true,
+    "engUnit": "",
+    "scaledHigh": 9999.0,
+    "scaleMode": "Linear",
+    "readOnly": false,
+    "historyProvider": "MySQL",
+    "dataType": "Boolean",
+    "name": "lube reminder",
+    "historyEnabled": true,
+    "deadband": 0.0,
+    "readPermissions": {
+      "type": "AllOf",
+      "securityLevels": []
+    },
+    "sampleMode": "TagGroup",
+    "opcServer": "Kepware"
+  },
+  {
+    "rawHigh": 60000.0,
+    "valueSource": "opc",
+    "opcItemPath": "ns\u003d2:s\u003dQuantum1.Quantum1.406819",
+    "engHigh": 9999.0,
+    "writePermissions": {
+      "type": "AllOf",
+      "securityLevels": []
+    },
+    "tooltip": "6RM_LUBE_REMINDER_TIMER",
+    "historyTagGroup": "Default Historical",
+    "tagGroup": "Default",
+    "tagType": "AtomicTag",
+    "enabled": true,
+    "engUnit": "HOURS",
+    "scaledHigh": 60000.0,
+    "scaleMode": "Linear",
+    "readOnly": false,
+    "historyProvider": "MySQL",
+    "dataType": "Float4",
+    "name": "lube reminder timer",
+    "historyEnabled": true,
+    "deadband": 0.0,
+    "readPermissions": {
+      "type": "AllOf",
+      "securityLevels": []
+    },
+    "sampleMode": "TagGroup",
+    "opcServer": "Kepware"
+  },
+  {
+    "rawHigh": 4095.0,
+    "valueSource": "opc",
+    "scaledLow": -12.5,
+    "opcItemPath": "ns\u003d2:s\u003dQuantum1.Quantum1.300305",
+    "engHigh": 9999.0,
+    "writePermissions": {
+      "type": "AllOf",
+      "securityLevels": []
+    },
+    "documentation": "RM6 MILL FAN INLET PRESSURE -12.5 \" TO +12.5\" W.C.",
+    "tooltip": "6RM_MILL_PRESSURE",
+    "historyTagGroup": "Default Historical",
+    "tagGroup": "Default",
+    "tagType": "AtomicTag",
+    "enabled": true,
+    "scaledHigh": 12.5,
+    "scaleMode": "Linear",
+    "readOnly": false,
+    "historyProvider": "MySQL",
+    "dataType": "Float4",
+    "name": "pressure",
+    "historyEnabled": true,
+    "deadband": 0.0,
+    "readPermissions": {
+      "type": "AllOf",
+      "securityLevels": []
+    },
+    "sampleMode": "TagGroup",
+    "opcServer": "Kepware"
+  },
+  {
+    "rawHigh": 9999.0,
+    "valueSource": "opc",
+    "opcItemPath": "ns\u003d2:s\u003dQuantum1.Quantum1.009933",
+    "engHigh": 9999.0,
+    "writePermissions": {
+      "type": "AllOf",
+      "securityLevels": []
+    },
+    "historicalDeadbandStyle": "Discrete",
+    "tooltip": "6RM_MILL_PRESSURE_ALARM",
+    "historyTagGroup": "Default Historical",
+    "tagGroup": "Default",
+    "tagType": "AtomicTag",
+    "enabled": true,
+    "engUnit": "",
+    "scaledHigh": 9999.0,
+    "scaleMode": "Linear",
+    "readOnly": false,
+    "historyProvider": "MySQL",
+    "dataType": "Boolean",
+    "name": "pressure alarm",
+    "historyEnabled": true,
+    "deadband": 0.0,
+    "readPermissions": {
+      "type": "AllOf",
+      "securityLevels": []
+    },
+    "sampleMode": "TagGroup",
+    "opcServer": "Kepware"
+  },
+  {
+    "rawHigh": 9999.0,
+    "valueSource": "opc",
+    "opcItemPath": "ns\u003d2:s\u003dQuantum1.Quantum1.009934",
+    "engHigh": 9999.0,
+    "writePermissions": {
+      "type": "AllOf",
+      "securityLevels": []
+    },
+    "historicalDeadbandStyle": "Discrete",
+    "tooltip": "6RM_MILL_PRESSURE_POSITIVE",
+    "historyTagGroup": "Default Historical",
+    "tagGroup": "Default",
+    "tagType": "AtomicTag",
+    "enabled": true,
+    "engUnit": "",
+    "scaledHigh": 9999.0,
+    "scaleMode": "Linear",
+    "readOnly": false,
+    "historyProvider": "MySQL",
+    "dataType": "Boolean",
+    "name": "pressure positive",
+    "historyEnabled": true,
+    "deadband": 0.0,
+    "readPermissions": {
+      "type": "AllOf",
+      "securityLevels": []
+    },
+    "sampleMode": "TagGroup",
+    "opcServer": "Kepware"
+  },
+  {
+    "rawHigh": 9999.0,
+    "valueSource": "opc",
+    "opcItemPath": "ns\u003d2:s\u003dQuantum1.Quantum1.009933",
+    "engHigh": 9999.0,
+    "writePermissions": {
+      "type": "AllOf",
+      "securityLevels": []
+    },
+    "historicalDeadbandStyle": "Discrete",
+    "tooltip": "6RM_MILL_PRESSURE_POSITIVE_ALARM",
+    "historyTagGroup": "Default Historical",
+    "tagGroup": "Default",
+    "tagType": "AtomicTag",
+    "enabled": true,
+    "engUnit": "",
+    "scaledHigh": 9999.0,
+    "scaleMode": "Linear",
+    "readOnly": false,
+    "historyProvider": "MySQL",
+    "dataType": "Boolean",
+    "name": "pressure positive alarm",
+    "historyEnabled": true,
+    "deadband": 0.0,
+    "readPermissions": {
+      "type": "AllOf",
+      "securityLevels": []
+    },
+    "sampleMode": "TagGroup",
+    "opcServer": "Kepware"
+  },
+  {
+    "rawHigh": 9999.0,
+    "valueSource": "opc",
+    "opcItemPath": "ns\u003d2:s\u003dQuantum1.Quantum1.002781",
+    "engHigh": 9999.0,
+    "writePermissions": {
+      "type": "AllOf",
+      "securityLevels": []
+    },
+    "historicalDeadbandStyle": "Discrete",
+    "tooltip": "6RM_PUMP_ROT_VS_DRIVE",
+    "historyTagGroup": "Default Historical",
+    "tagGroup": "Default",
+    "tagType": "AtomicTag",
+    "enabled": true,
+    "engUnit": "",
+    "scaledHigh": 9999.0,
+    "scaleMode": "Linear",
+    "readOnly": false,
+    "historyProvider": "MySQL",
+    "dataType": "Boolean",
+    "name": "pump rot vs drive",
+    "historyEnabled": true,
+    "deadband": 0.0,
+    "readPermissions": {
+      "type": "AllOf",
+      "securityLevels": []
+    },
+    "sampleMode": "TagGroup",
+    "opcServer": "Kepware"
+  },
+  {
+    "rawHigh": 9999.0,
+    "valueSource": "opc",
+    "opcItemPath": "ns\u003d2:s\u003dQuantum1.Quantum1.008611",
+    "engHigh": 9999.0,
+    "writePermissions": {
+      "type": "AllOf",
+      "securityLevels": []
+    },
+    "historicalDeadbandStyle": "Discrete",
+    "tooltip": "6RM_PUMPING_MAINTENANCE_CLEAR",
+    "historyTagGroup": "Default Historical",
+    "tagGroup": "Default",
+    "tagType": "AtomicTag",
+    "enabled": true,
+    "engUnit": "",
+    "scaledHigh": 9999.0,
+    "scaleMode": "Linear",
+    "readOnly": false,
+    "historyProvider": "MySQL",
+    "dataType": "Boolean",
+    "name": "pumping maintenance clear",
+    "historyEnabled": true,
+    "deadband": 0.0,
+    "readPermissions": {
+      "type": "AllOf",
+      "securityLevels": []
+    },
+    "sampleMode": "TagGroup",
+    "opcServer": "Kepware"
+  },
+  {
+    "rawHigh": 9999.0,
+    "valueSource": "opc",
+    "opcItemPath": "ns\u003d2:s\u003dQuantum1.Quantum1.008609",
+    "engHigh": 9999.0,
+    "writePermissions": {
+      "type": "AllOf",
+      "securityLevels": []
+    },
+    "historicalDeadbandStyle": "Discrete",
+    "tooltip": "6RM_PUMPING_MAINTENANCE_SET",
+    "historyTagGroup": "Default Historical",
+    "tagGroup": "Default",
+    "tagType": "AtomicTag",
+    "enabled": true,
+    "engUnit": "",
+    "scaledHigh": 9999.0,
+    "scaleMode": "Linear",
+    "readOnly": false,
+    "historyProvider": "MySQL",
+    "dataType": "Boolean",
+    "name": "pumping maintenance set",
+    "historyEnabled": true,
+    "deadband": 0.0,
+    "readPermissions": {
+      "type": "AllOf",
+      "securityLevels": []
+    },
+    "sampleMode": "TagGroup",
+    "opcServer": "Kepware"
+  },
+  {
+    "rawHigh": 9999.0,
+    "valueSource": "opc",
+    "opcItemPath": "ns\u003d2:s\u003dQuantum1.Quantum1.008610",
+    "engHigh": 9999.0,
+    "writePermissions": {
+      "type": "AllOf",
+      "securityLevels": []
+    },
+    "historicalDeadbandStyle": "Discrete",
+    "tooltip": "6RM_PUMPING_MAINTENANCE_WORK",
+    "historyTagGroup": "Default Historical",
+    "tagGroup": "Default",
+    "tagType": "AtomicTag",
+    "enabled": true,
+    "engUnit": "",
+    "scaledHigh": 9999.0,
+    "scaleMode": "Linear",
+    "readOnly": false,
+    "historyProvider": "MySQL",
+    "dataType": "Boolean",
+    "name": "pumping maintenance work",
+    "historyEnabled": true,
+    "deadband": 0.0,
+    "readPermissions": {
+      "type": "AllOf",
+      "securityLevels": []
+    },
+    "sampleMode": "TagGroup",
+    "opcServer": "Kepware"
+  },
+  {
+    "rawHigh": 9999.0,
+    "valueSource": "opc",
+    "opcItemPath": "ns\u003d2:s\u003dQuantum1.Quantum1.008627",
+    "engHigh": 9999.0,
+    "writePermissions": {
+      "type": "AllOf",
+      "securityLevels": []
+    },
+    "documentation": "6 RAYMOND MILL SHUTDOWN",
+    "historicalDeadbandStyle": "Discrete",
+    "tooltip": "6RM_SHUTDOWN",
+    "historyTagGroup": "Default Historical",
+    "tagGroup": "Default",
+    "tagType": "AtomicTag",
+    "enabled": true,
+    "engUnit": "",
+    "scaledHigh": 9999.0,
+    "scaleMode": "Linear",
+    "readOnly": false,
+    "historyProvider": "MySQL",
+    "dataType": "Boolean",
+    "name": "shutdown",
+    "historyEnabled": true,
+    "deadband": 0.0,
+    "readPermissions": {
+      "type": "AllOf",
+      "securityLevels": []
+    },
+    "sampleMode": "TagGroup",
+    "opcServer": "Kepware"
+  },
+  {
+    "rawHigh": 9999.0,
+    "valueSource": "opc",
+    "opcItemPath": "ns\u003d2:s\u003dQuantum1.Quantum1.002803",
+    "engHigh": 9999.0,
+    "writePermissions": {
+      "type": "AllOf",
+      "securityLevels": []
+    },
+    "historicalDeadbandStyle": "Discrete",
+    "tooltip": "6RM_TEA_PUMP",
+    "historyTagGroup": "Default Historical",
+    "tagGroup": "Default",
+    "tagType": "AtomicTag",
+    "enabled": true,
+    "engUnit": "",
+    "scaledHigh": 9999.0,
+    "scaleMode": "Linear",
+    "readOnly": false,
+    "historyProvider": "MySQL",
+    "dataType": "Boolean",
+    "name": "tea pump",
+    "historyEnabled": true,
+    "deadband": 0.0,
+    "readPermissions": {
+      "type": "AllOf",
+      "securityLevels": []
+    },
+    "sampleMode": "TagGroup",
+    "opcServer": "Kepware"
+  },
+  {
+    "rawHigh": 9999.0,
+    "valueSource": "opc",
+    "opcItemPath": "ns\u003d2:s\u003dQuantum1.Quantum1.002769",
+    "engHigh": 9999.0,
+    "writePermissions": {
+      "type": "AllOf",
+      "securityLevels": []
+    },
+    "historicalDeadbandStyle": "Discrete",
+    "tooltip": "6RM_WHIZZER_START",
+    "historyTagGroup": "Default Historical",
+    "tagGroup": "Default",
+    "tagType": "AtomicTag",
+    "enabled": true,
+    "engUnit": "",
+    "scaledHigh": 9999.0,
+    "scaleMode": "Linear",
+    "readOnly": false,
+    "historyProvider": "MySQL",
+    "dataType": "Boolean",
+    "name": "whizzer start",
+    "historyEnabled": true,
+    "deadband": 0.0,
+    "readPermissions": {
+      "type": "AllOf",
+      "securityLevels": []
+    },
+    "sampleMode": "TagGroup",
+    "opcServer": "Kepware"
+  }
+]

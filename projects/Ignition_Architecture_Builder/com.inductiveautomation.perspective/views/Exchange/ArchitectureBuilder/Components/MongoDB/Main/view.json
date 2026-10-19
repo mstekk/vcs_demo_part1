@@ -1,0 +1,332 @@
+{
+  "custom": {
+    "allowedConnections": [
+      "Database"
+    ]
+  },
+  "params": {
+    "config": {},
+    "desc": "",
+    "name": "MongoDB",
+    "type": "MongoDB",
+    "uuid": ""
+  },
+  "propConfig": {
+    "custom.allowedConnections": {
+      "persistent": true
+    },
+    "params.config": {
+      "paramDirection": "input",
+      "persistent": true
+    },
+    "params.desc": {
+      "paramDirection": "input",
+      "persistent": true
+    },
+    "params.name": {
+      "paramDirection": "input",
+      "persistent": true
+    },
+    "params.type": {
+      "paramDirection": "input",
+      "persistent": true
+    },
+    "params.uuid": {
+      "paramDirection": "input",
+      "persistent": true
+    }
+  },
+  "props": {
+    "defaultSize": {
+      "height": 300,
+      "width": 300
+    }
+  },
+  "root": {
+    "children": [
+      {
+        "children": [
+          {
+            "meta": {
+              "name": "Mongo"
+            },
+            "position": {
+              "height": 0.8266,
+              "width": 0.9795,
+              "x": 0.0138,
+              "y": 0.1512
+            },
+            "props": {
+              "elements": [
+                {
+                  "cx": "512",
+                  "cy": "512",
+                  "fill": {
+                    "paint": "#13aa52"
+                  },
+                  "name": "circle",
+                  "r": "512",
+                  "type": "circle"
+                },
+                {
+                  "d": "M648.86 449.44c-32.34-142.73-108.77-189.66-117-207.59-9-12.65-18.12-35.15-18.12-35.15-.15-.38-.39-1.05-.67-1.7-.93 12.65-1.41 17.53-13.37 30.29-18.52 14.48-113.54 94.21-121.27 256.37-7.21 151.24 109.25 241.36 125 252.85l1.79 1.27v-.11c.1.76 5 36 8.44 73.34H526a726.68 726.68 0 0 1 13-78.53l1-.65a204.48 204.48 0 0 0 20.11-16.45l.72-.65c33.48-30.93 93.67-102.47 93.08-216.53a347.07 347.07 0 0 0-5.05-56.76zM512.35 659.12s0-212.12 7-212.08c5.46 0 12.53 273.61 12.53 273.61-9.72-1.17-19.53-45.03-19.53-61.53z",
+                  "fill": {
+                    "paint": "#fff"
+                  },
+                  "name": "path",
+                  "type": "path"
+                }
+              ],
+              "style": {
+                "classes": "componentShadow"
+              },
+              "viewBox": "0 0 1024 1024"
+            },
+            "type": "ia.shapes.svg"
+          },
+          {
+            "children": [
+              {
+                "meta": {
+                  "contextMenu": {
+                    "enabled": true,
+                    "items": [
+                      {
+                        "children": [],
+                        "icon": {
+                          "color": "",
+                          "path": "",
+                          "style": {}
+                        },
+                        "link": {
+                          "target": "self",
+                          "url": ""
+                        },
+                        "message": {
+                          "payload": {},
+                          "scope": "page",
+                          "type": ""
+                        },
+                        "method": {
+                          "name": "gatewayConfig",
+                          "params": {}
+                        },
+                        "style": {
+                          "classes": ""
+                        },
+                        "text": "Gateway Config",
+                        "type": "method"
+                      },
+                      {
+                        "children": [],
+                        "icon": {
+                          "color": "",
+                          "path": "",
+                          "style": {}
+                        },
+                        "link": {
+                          "target": "self",
+                          "url": ""
+                        },
+                        "message": {
+                          "payload": {},
+                          "scope": "page",
+                          "type": ""
+                        },
+                        "method": {
+                          "name": "moduleConfig",
+                          "params": {}
+                        },
+                        "style": {
+                          "classes": ""
+                        },
+                        "text": "Module Config",
+                        "type": "method"
+                      }
+                    ]
+                  },
+                  "name": "Icon"
+                },
+                "position": {
+                  "shrink": 0
+                },
+                "propConfig": {
+                  "meta.contextMenu.items[0].method.params.presets": {
+                    "binding": {
+                      "config": {
+                        "path": "view.params.config"
+                      },
+                      "type": "property"
+                    }
+                  },
+                  "meta.contextMenu.items[0].method.params.uuid": {
+                    "binding": {
+                      "config": {
+                        "path": "view.params.uuid"
+                      },
+                      "type": "property"
+                    }
+                  },
+                  "meta.contextMenu.items[1].method.params.gatewayUUID": {
+                    "binding": {
+                      "config": {
+                        "path": "view.params.uuid"
+                      },
+                      "type": "property"
+                    }
+                  },
+                  "meta.contextMenu.items[1].method.params.preselected": {
+                    "binding": {
+                      "config": {
+                        "path": "view.params.config.modules"
+                      },
+                      "type": "property"
+                    }
+                  }
+                },
+                "props": {
+                  "color": "white",
+                  "path": "material/settings",
+                  "style": {
+                    "classes": "iconRotate",
+                    "cursor": "pointer"
+                  }
+                },
+                "type": "ia.display.icon"
+              },
+              {
+                "meta": {
+                  "name": "HeaderText"
+                },
+                "propConfig": {
+                  "props.text": {
+                    "binding": {
+                      "config": {
+                        "path": "view.params.name"
+                      },
+                      "type": "property"
+                    }
+                  }
+                },
+                "props": {
+                  "alignVertical": "top",
+                  "style": {
+                    "filter": "drop-shadow(2px 2px 2px #000000)"
+                  },
+                  "textStyle": {
+                    "fontSize": "0.6em",
+                    "whiteSpace": "pre-wrap"
+                  }
+                },
+                "type": "ia.display.label"
+              }
+            ],
+            "events": {
+              "dom": {
+                "onClick": {
+                  "config": {
+                    "script": "\tself.openConfig()"
+                  },
+                  "scope": "G",
+                  "type": "script"
+                }
+              }
+            },
+            "meta": {
+              "name": "Header"
+            },
+            "position": {
+              "height": 0.15,
+              "width": 0.9,
+              "x": 0.0025,
+              "y": 0.0025
+            },
+            "props": {
+              "style": {
+                "cursor": "pointer",
+                "overflow": "visible"
+              }
+            },
+            "scripts": {
+              "customMethods": [
+                {
+                  "name": "openConfig",
+                  "params": [],
+                  "script": "\tuuid\u003dself.view.params.uuid\n\tpath\u003d\u0027Exchange/ArchitectureBuilder/Components/MongoDB/Config\u0027\n\tparams\u003d{\u0027uuid\u0027:uuid}\n\ttitle\u003d\u0027MongoDB Configuration\u0027\n\tsystem.perspective.sendMessage(\u0027openPopup\u0027, {\u0027uuid\u0027:uuid, \u0027path\u0027:path,\u0027params\u0027:params,\u0027title\u0027:title},scope\u003d\u0027session\u0027)"
+                }
+              ],
+              "extensionFunctions": null,
+              "messageHandlers": []
+            },
+            "type": "ia.container.flex"
+          },
+          {
+            "meta": {
+              "name": "Label"
+            },
+            "position": {
+              "height": 0.1,
+              "width": 0.5,
+              "x": 0.25,
+              "y": 0.9
+            },
+            "propConfig": {
+              "meta.visible": {
+                "binding": {
+                  "config": {
+                    "path": "session.custom.showUUID"
+                  },
+                  "type": "property"
+                }
+              },
+              "props.text": {
+                "binding": {
+                  "config": {
+                    "path": "view.params.uuid"
+                  },
+                  "type": "property"
+                }
+              }
+            },
+            "props": {
+              "style": {
+                "filter": "drop-shadow(2px 2px 2px #000000)"
+              },
+              "textStyle": {
+                "fontSize": "0.5em",
+                "textAlign": "center"
+              }
+            },
+            "type": "ia.display.label"
+          }
+        ],
+        "meta": {
+          "name": "CoordinateContainer"
+        },
+        "position": {
+          "basis": "200px",
+          "grow": 1
+        },
+        "props": {
+          "mode": "percent",
+          "style": {
+            "padding": "4px"
+          }
+        },
+        "type": "ia.container.coord"
+      }
+    ],
+    "meta": {
+      "name": "root"
+    },
+    "props": {
+      "direction": "column",
+      "style": {
+        "borderStyle": "none",
+        "classes": "Exchange/ArchitectureBuilder/componentBackground",
+        "overflow": "hidden"
+      }
+    },
+    "type": "ia.container.flex"
+  }
+}

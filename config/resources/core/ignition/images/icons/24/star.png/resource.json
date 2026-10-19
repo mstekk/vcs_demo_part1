@@ -1,0 +1,20 @@
+{
+  "scope": "A",
+  "version": 1,
+  "restricted": false,
+  "overridable": true,
+  "files": [
+    "star.png"
+  ],
+  "attributes": {
+    "width": 24,
+    "format": "PNG",
+    "lastModification": {
+      "actor": "8.3-migration",
+      "timestamp": "2026-01-07T14:49:07Z"
+    },
+    "size": 1155,
+    "lastModificationSignature": "79f6626938b9a53805b4d7cc6274374f9116cf4d114cac2c807d9c48b4e4b314",
+    "height": 24
+  }
+}

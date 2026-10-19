@@ -1,0 +1,20 @@
+{
+  "scope": "A",
+  "version": 1,
+  "restricted": false,
+  "overridable": true,
+  "files": [
+    "Flange Left.png"
+  ],
+  "attributes": {
+    "width": 109,
+    "format": "PNG",
+    "lastModification": {
+      "actor": "8.3-migration",
+      "timestamp": "2026-01-07T14:49:07Z"
+    },
+    "size": 5038,
+    "lastModificationSignature": "1621c04a603fae33d2c45b88d3009ac4069733634e25fad055af3e8b72aea917",
+    "height": 120
+  }
+}

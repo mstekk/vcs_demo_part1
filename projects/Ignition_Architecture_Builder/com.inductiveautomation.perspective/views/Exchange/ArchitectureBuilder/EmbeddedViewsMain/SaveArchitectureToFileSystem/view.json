@@ -1,0 +1,463 @@
+{
+  "custom": {
+    "date": {
+      "$": [
+        "ts",
+        192,
+        1717422943588
+      ],
+      "$ts": 1717422943588
+    },
+    "fileSystem": {},
+    "lastSave": "",
+    "newFilename": "Architecture_240603065543"
+  },
+  "params": {
+    "lastLoad": {
+      "canvasSize": {
+        "height": 220,
+        "width": 380
+      },
+      "collection": "",
+      "connector": "",
+      "filename": "",
+      "id": "",
+      "meetingId": "",
+      "saveDate": {
+        "$": [
+          "ts",
+          192,
+          1718038271354
+        ],
+        "$ts": 1717441029114
+      }
+    }
+  },
+  "propConfig": {
+    "custom.date": {
+      "persistent": true
+    },
+    "custom.fileSystem": {
+      "persistent": true
+    },
+    "custom.fileSystem.basePath": {
+      "binding": {
+        "config": {
+          "path": ""
+        },
+        "transforms": [
+          {
+            "code": "\tfrom com.inductiveautomation.ignition.gateway import IgnitionGateway\n\tcontext \u003d IgnitionGateway.get()\n\tprojectParentFolder \u003d str(context.systemManager.dataDir.absoluteFile).replace(\u0027\\\\\u0027,\u0027/\u0027)\n\treturn projectParentFolder\n",
+            "type": "script"
+          }
+        ],
+        "type": "property"
+      }
+    },
+    "custom.fileSystem.directories": {
+      "binding": {
+        "config": {
+          "path": "view.custom.fileSystem.path"
+        },
+        "transforms": [
+          {
+            "code": "\timport os\n\t\n\tdef list_directories(directory):\n\t    try:\n\t        # Get a list of all items in the directory\n\t        items \u003d os.listdir(directory)\n\t        # Filter out directories from the list\n\t        directories \u003d [item for item in items if os.path.isdir(os.path.join(directory, item))]\n\t        return directories\n\t    except OSError as e:\n\t        print(\"Error listing directories: {}\".format(e))\n\t        return []\n\t\n\t# Specify the directory to browse\n\tdirectories\u003d[]\n\tdirectory \u003d value\n\t\n\t# Get the list of all directories in the directory\n\tdirectory_list \u003d list_directories(directory)\n\t\n\t# Print the directory list\n\tfor directory_name in directory_list:\n\t    directories.append(directory_name)\n\t\n\treturn directories",
+            "type": "script"
+          }
+        ],
+        "type": "property"
+      }
+    },
+    "custom.fileSystem.filename": {
+      "binding": {
+        "config": {
+          "path": "/root/TextInput.props.params.text"
+        },
+        "type": "property"
+      }
+    },
+    "custom.fileSystem.filesInSelectedDir": {
+      "binding": {
+        "config": {
+          "struct": {
+            "arch": "{view.custom.fileSystem.path}",
+            "folder": "{view.custom.fileSystem.selectedDir}"
+          },
+          "waitOnAll": true
+        },
+        "transforms": [
+          {
+            "code": "\timport os\n\t\n\tdef list_files(directory):\n\t    try:\n\t        # Get a list of all files in the directory\n\t        files \u003d os.listdir(directory)\n\t        # Filter out directories from the list\n\t        files \u003d [file for file in files if os.path.isfile(os.path.join(directory, file))]\n\t        return files\n\t    except OSError as e:\n\t        print(\"Error listing files: {}\".format(e))\n\t        return []\n\t        \n\tif value[\u0027folder\u0027] is not None:\n\t\tdirectory\u003d\u0027{}/{}\u0027.format(value[\u0027arch\u0027],value[\u0027folder\u0027])\n\telse:\n\t\tdirectory\u003dvalue[\u0027arch\u0027]\n\t\n\tfile_list \u003d list_files(directory)\n\tfileList\u003d[]\n\t# Print the file list\n\tfor file_name in file_list:\n\t    fileList.append(file_name)\n\treturn fileList",
+            "type": "script"
+          }
+        ],
+        "type": "expr-struct"
+      }
+    },
+    "custom.fileSystem.fullSavePath": {
+      "binding": {
+        "config": {
+          "struct": {
+            "dir": "{view.custom.fileSystem.selectedDir}",
+            "filename": "{/root/TextInput.props.params.text}",
+            "path": "{view.custom.fileSystem.path}"
+          },
+          "waitOnAll": true
+        },
+        "transforms": [
+          {
+            "code": "\tif value[\u0027dir\u0027] is not None:\n\t\treturn \u0027{}/{}\u0027.format(value[\u0027path\u0027],value[\u0027dir\u0027])\n\telse:\n\t\treturn \u0027{}\u0027.format(value[\u0027path\u0027])",
+            "type": "script"
+          }
+        ],
+        "type": "expr-struct"
+      }
+    },
+    "custom.fileSystem.path": {
+      "binding": {
+        "config": {
+          "path": "view.custom.fileSystem.basePath"
+        },
+        "transforms": [
+          {
+            "code": "\treturn value+\u0027/savedFiles/Architecture\u0027\n",
+            "type": "script"
+          }
+        ],
+        "type": "property"
+      }
+    },
+    "custom.fileSystem.selectedDir": {
+      "binding": {
+        "config": {
+          "path": "/root/DropDown.props.params.value"
+        },
+        "type": "property"
+      }
+    },
+    "custom.newFilename": {
+      "binding": {
+        "config": {
+          "path": "view.custom.date"
+        },
+        "transforms": [
+          {
+            "formatType": "datetime",
+            "formatValue": "YYMMddHHmmss",
+            "type": "format"
+          },
+          {
+            "code": "\treturn \u0027Architecture_{}\u0027.format(value)",
+            "type": "script"
+          }
+        ],
+        "type": "property"
+      },
+      "persistent": true
+    },
+    "params.lastLoad": {
+      "paramDirection": "input",
+      "persistent": true
+    }
+  },
+  "props": {
+    "defaultSize": {
+      "height": 502,
+      "width": 449
+    }
+  },
+  "root": {
+    "children": [
+      {
+        "meta": {
+          "name": "DropDown"
+        },
+        "position": {
+          "basis": "34px",
+          "shrink": 0
+        },
+        "propConfig": {
+          "props.params.options": {
+            "binding": {
+              "config": {
+                "path": "view.custom.fileSystem.directories"
+              },
+              "type": "property"
+            }
+          },
+          "props.params.value": {
+            "binding": {
+              "config": {
+                "struct": {
+                  "lastload": "{view.params.lastLoad}",
+                  "path": "{view.custom.fileSystem.path}"
+                },
+                "waitOnAll": true
+              },
+              "transforms": [
+                {
+                  "code": "\tlastload\u003dvalue[\u0027lastload\u0027]\n\tpath\u003dvalue[\u0027path\u0027]\n\tif len(lastload.keys())\u003d\u003d0 or lastload[\u0027collection\u0027]\u003d\u003d\u0027\u0027 or lastload[\u0027collection\u0027] is None:\n\t\treturn \u0027\u0027\n\telse:\n\t\treturn lastload[\u0027collection\u0027].replace(path,\u0027\u0027).strip(\u0027/\u0027)",
+                  "type": "script"
+                }
+              ],
+              "type": "expr-struct"
+            },
+            "persistent": true
+          }
+        },
+        "props": {
+          "params": {
+            "label": "Folder: ",
+            "labelSize": 125,
+            "value": ""
+          },
+          "path": "Exchange/ArchitectureBuilder/General/DropDown",
+          "style": {
+            "margin": "8px",
+            "overflow": "auto"
+          }
+        },
+        "type": "ia.display.view"
+      },
+      {
+        "meta": {
+          "name": "TextInput"
+        },
+        "position": {
+          "basis": "34px",
+          "shrink": 0
+        },
+        "propConfig": {
+          "props.params.text": {
+            "binding": {
+              "config": {
+                "path": "view.params.lastLoad.filename"
+              },
+              "transforms": [
+                {
+                  "code": "\tif value is None or value\u003d\u003d\u0027\u0027:\n\t\treturn self.view.custom.newFilename\n\telse:\n\t\treturn value",
+                  "type": "script"
+                }
+              ],
+              "type": "property"
+            }
+          }
+        },
+        "props": {
+          "params": {
+            "label": "Filename:",
+            "labelSize": 125
+          },
+          "path": "Exchange/ArchitectureBuilder/General/TextInput",
+          "style": {
+            "marginBottom": "8px",
+            "marginLeft": "8px",
+            "marginRight": "8px",
+            "marginTop": "0px",
+            "overflow": "auto"
+          }
+        },
+        "type": "ia.display.view"
+      },
+      {
+        "meta": {
+          "name": "Label"
+        },
+        "position": {
+          "shrink": 0
+        },
+        "props": {
+          "style": {
+            "marginLeft": "125px"
+          },
+          "text": "Architectures:"
+        },
+        "type": "ia.display.label"
+      },
+      {
+        "meta": {
+          "name": "Tree"
+        },
+        "position": {
+          "basis": "300px",
+          "shrink": 0
+        },
+        "propConfig": {
+          "props.items": {
+            "binding": {
+              "config": {
+                "struct": {
+                  "collection": "{view.params.lastLoad.collection}",
+                  "directories": "{view.custom.fileSystem.directories}",
+                  "parent": "{view.custom.fileSystem.path}"
+                },
+                "waitOnAll": true
+              },
+              "transforms": [
+                {
+                  "code": "\timport os\n\t\n\tdef list_files(directory):\n\t    try:\n\t        # Get a list of all files in the directory\n\t        files \u003d os.listdir(directory)\n\t        # Filter out directories from the list\n\t        files \u003d [file for file in files if os.path.isfile(os.path.join(directory, file))]\n\t        return files\n\t    except OSError as e:\n\t        print(\"Error listing files: {}\".format(e))\n\t        return []\n\t\n\tdef createTreeItem(filename, directory\u003dNone):\n\t\treturn {\n\t\t  \"label\": filename,\n\t\t  \"expanded\": True,\n\t\t  \"data\": {\u0027filename\u0027: filename, \u0027directory\u0027:directory},\n\t\t  \"items\": []\n\t\t}\n\t\n\tdef createDirItem(directory,parentPath,lastLoadFolder):\n\t\tlisted_files\u003dlist_files(\u0027{}/{}\u0027.format(parentPath,directory))\n\t\titems\u003d[]\n\t\texpand\u003dFalse\n\t\tfor filename in listed_files:\n\t\t\titems.append(createTreeItem(filename,directory))\n\t\tif directory\u003d\u003dlastLoadFolder:\n\t\t\texpand\u003dTrue\n\t\treturn {\n\t\t\t  \"label\": directory,\n\t\t\t  \"expanded\": expand,\n\t\t\t  \"data\": {\u0027directory\u0027:directory},\n\t\t\t  \"icon\": {\"path\": \"material/folder_open\",\"color\": \"\",\"style\": {}},\n\t\t\t  \"items\": items\n\t\t\t}\n\t\n\tfileStructure\u003d[]\n\tparentPath\u003dvalue[\u0027parent\u0027]\n\t\n\tlastLoadFolder\u003d\u0027\u0027\n\tif value[\u0027collection\u0027] is not None:\n\t\tlastLoadFolder\u003dvalue[\u0027collection\u0027].replace(value[\u0027parent\u0027]+\u0027/\u0027,\u0027\u0027).strip(\u0027/\u0027)\n\tdirectories\u003dvalue[\u0027directories\u0027]\n\tfor directory in directories:\n\t\tfileStructure.append(createDirItem(directory,parentPath,lastLoadFolder))\n\tparentFiles\u003dlist_files(parentPath)\t\n\t\n\tfor filename in parentFiles:\n\t\tfileStructure.append(createTreeItem(filename))\n\t\n\treturn fileStructure\n#\treturn [{\n#\t\t\t  \"label\": \u0027Architectures\u0027,\n#\t\t\t  \"expanded\": True,\n#\t\t\t  \"data\": {\u0027directory\u0027:None},\n#\t\t\t  \"items\": fileStructure\n#\t\t\t}]",
+                  "type": "script"
+                }
+              ],
+              "type": "expr-struct"
+            }
+          },
+          "props.selectionData": {
+            "onChange": {
+              "enabled": null,
+              "script": "\tselection\u003dself.props.selectionData[0].value\t\n\n\tif \u0027directory\u0027 in selection.keys() and \u0027filename\u0027 in selection.keys():\n\t\tself.getSibling(\"TextInput\").props.params.text\u003dselection[\u0027filename\u0027]\n\t\tself.getSibling(\"DropDown\").props.params.value\u003dselection[\u0027directory\u0027]\n\telif \u0027directory\u0027 in selection.keys():\n\t\tself.getSibling(\"DropDown\").props.params.value\u003dselection[\u0027directory\u0027]\n\t\tself.getSibling(\"TextInput\").props.params.text\u003d\u0027\u0027"
+            }
+          }
+        },
+        "props": {
+          "appearance": {
+            "defaultNodeIcons": {
+              "collapsed": {
+                "path": "material/folder"
+              },
+              "empty": {
+                "color": "--standard",
+                "path": "material/insert_drive_file"
+              },
+              "expanded": {
+                "path": "material/folder_open"
+              }
+            },
+            "expandIcons": {
+              "collapsed": {
+                "path": "material/arrow_right"
+              },
+              "expanded": {
+                "path": "material/arrow_drop_down"
+              }
+            },
+            "selectedStyle": {
+              "color": "--edge"
+            }
+          },
+          "selection": [
+            "0/0"
+          ],
+          "selectionData": [
+            {
+              "itemPath": "0/0",
+              "value": {
+                "directory": "Architectures",
+                "filename": "Architecture_240603065543.json"
+              }
+            }
+          ],
+          "style": {
+            "marginLeft": "125px",
+            "marginRight": "8px"
+          }
+        },
+        "type": "ia.display.tree"
+      },
+      {
+        "events": {
+          "component": {
+            "onActionPerformed": {
+              "config": {
+                "script": "\timport json\n\timport os\n\tfrom exchange.architecturebuilder.viewCanvas.auditEvents import insertAuditEvent\n\t# Data to be written to the JSON file\n\t\n\tcollection\u003dself.view.custom.fileSystem.fullSavePath\n\tcomponents\u003dsystem.util.jsonDecode(system.util.jsonEncode(self.session.custom.components))\n\tconnections\u003dsystem.util.jsonDecode(system.util.jsonEncode(self.session.custom.connections))\n\tcontainers\u003dsystem.util.jsonDecode(system.util.jsonEncode(self.session.custom.containers))\n\tconfig\u003dsystem.util.jsonDecode(system.util.jsonEncode(self.session.custom.structure.configs))\n\tcanvasSize\u003dsystem.util.jsonDecode(system.util.jsonEncode(self.session.custom.canvasSize))\n\tsaveDate\u003dsystem.date.toMillis(system.date.now())\n\tfilename\u003dself.view.custom.fileSystem.filename\n\t\n\tdirectory_path \u003d self.view.custom.fileSystem.fullSavePath\n\tfile_name \u003d filename.replace(\u0027.json\u0027,\u0027\u0027)\n\t\n\tdata\u003d{\n\t\t\t\u0027filename\u0027:file_name,\n\t\t\t\u0027meetingId\u0027:\u0027\u0027,\n\t\t\t\u0027saveDate\u0027:saveDate,\n\t\t\t\u0027components\u0027:components,\n\t\t\t\u0027connections\u0027:connections,\n\t\t\t\u0027containers\u0027:containers,\n\t\t\t\u0027config\u0027:config,\n\t\t\t\"canvasSize\":canvasSize}\n\n\n\texchange.architecturebuilder.files.save_file_to_directory(file_name, directory_path, data)\n\tcomponentCount\u003dlen(components)+len(connections)+len(containers)\n\t\n\toriginatingSystem\u003d[\u0027componentCount\u0027,str(componentCount)]\n\tinsertAuditEvent(self.session.custom.audit.layout, \"Saved\", \"Architecture\", actionValue\u003dfile_name, originatingSystem\u003doriginatingSystem)\n\t    \n\tself.view.refreshBinding(\u0027custom.fileSystem.directories\u0027)\n\tself.view.refreshBinding(\u0027custom.fileSystem.filesInSelectedDir\u0027)\n\n\t\n\tmongoLast\u003d{\u0027filename\u0027:file_name+\u0027.json\u0027, \u0027id\u0027:\u0027\u0027, \u0027saveDate\u0027:saveDate,\t\u0027connector\u0027:\u0027\u0027, \u0027collection\u0027:collection, \u0027meetingId\u0027:\u0027\u0027,\u0027canvasSize\u0027:canvasSize}\n\tsystem.perspective.sendMessage(\u0027updateLastMongo\u0027, mongoLast, scope\u003d\u0027session\u0027)\n\tmessage\u003d\u0027Architecture ({}) Updated Successfully\u0027.format(file_name)\n\tsystem.perspective.sendMessage(\"Toast\", {\"message\": message, \"delay\": 3, \"color\": \"--success\"}, scope\u003d\"session\")\n\tsystem.perspective.closePopup(\u0027saveArchitecture\u0027)"
+              },
+              "scope": "G",
+              "type": "script"
+            }
+          }
+        },
+        "meta": {
+          "name": "Update"
+        },
+        "position": {
+          "shrink": 0
+        },
+        "propConfig": {
+          "props.enabled": {
+            "binding": {
+              "config": {
+                "struct": {
+                  "filename": "{../TextInput.props.params.text}",
+                  "files": "{view.custom.fileSystem.filesInSelectedDir}"
+                },
+                "waitOnAll": true
+              },
+              "transforms": [
+                {
+                  "code": "\tfilename\u003dvalue[\u0027filename\u0027].replace(\u0027.json\u0027,\u0027\u0027)\n\treturn filename+\u0027.json\u0027 in value[\u0027files\u0027] ",
+                  "type": "script"
+                }
+              ],
+              "type": "expr-struct"
+            }
+          }
+        },
+        "props": {
+          "style": {
+            "margin": "8px",
+            "marginTop": "8px",
+            "overflow": "auto"
+          },
+          "text": "Update/Save"
+        },
+        "type": "ia.input.button"
+      },
+      {
+        "events": {
+          "component": {
+            "onActionPerformed": {
+              "config": {
+                "script": "\timport json\n\timport os\n\tfrom exchange.architecturebuilder.viewCanvas.auditEvents import insertAuditEvent\n\t# Data to be written to the JSON file\n\t\n\tcollection\u003dself.view.custom.fileSystem.fullSavePath\n\tcomponents\u003dsystem.util.jsonDecode(system.util.jsonEncode(self.session.custom.components))\n\tconnections\u003dsystem.util.jsonDecode(system.util.jsonEncode(self.session.custom.connections))\n\tcontainers\u003dsystem.util.jsonDecode(system.util.jsonEncode(self.session.custom.containers))\n\tconfig\u003dsystem.util.jsonDecode(system.util.jsonEncode(self.session.custom.structure.configs))\n\tcanvasSize\u003dsystem.util.jsonDecode(system.util.jsonEncode(self.session.custom.canvasSize))\n\tsaveDate\u003dsystem.date.toMillis(system.date.now())\n\tfilename\u003dself.view.custom.fileSystem.filename\n\t\n\tdirectory_path \u003d self.view.custom.fileSystem.fullSavePath\n\tfile_name \u003d filename.replace(\u0027.json\u0027,\u0027\u0027)\n\t\n\tdata\u003d{\n\t\t\t\u0027filename\u0027:file_name,\n\t\t\t\u0027meetingId\u0027:\u0027\u0027,\n\t\t\t\u0027saveDate\u0027:saveDate,\n\t\t\t\u0027components\u0027:components,\n\t\t\t\u0027connections\u0027:connections,\n\t\t\t\u0027containers\u0027:containers,\n\t\t\t\u0027config\u0027:config,\n\t\t\t\"canvasSize\":canvasSize}\n\n\texchange.architecturebuilder.files.save_file_to_directory(file_name, directory_path, data)\n\tcomponentCount\u003dlen(components)+len(connections)+len(containers)\n\t\n\toriginatingSystem\u003d[\u0027componentCount\u0027,str(componentCount)]\n\tinsertAuditEvent(self.session.custom.audit.layout, \"Saved\", \"Architecture\", actionValue\u003dfile_name, originatingSystem\u003doriginatingSystem)\n\t\n\t\n\t\n\tself.view.refreshBinding(\u0027custom.fileSystem.directories\u0027)\n\tself.view.refreshBinding(\u0027custom.fileSystem.filesInSelectedDir\u0027)\n\tmongoLast\u003d{\u0027filename\u0027:file_name+\u0027.json\u0027, \u0027id\u0027:\u0027\u0027, \u0027saveDate\u0027:saveDate,\t\u0027connector\u0027:\u0027\u0027, \u0027collection\u0027:collection, \u0027meetingId\u0027:\u0027\u0027,\u0027canvasSize\u0027:canvasSize}\n\tsystem.perspective.sendMessage(\u0027updateLastMongo\u0027, mongoLast, scope\u003d\u0027session\u0027)\n\tmessage\u003d\u0027Architecture ({}) Saved Successfully\u0027.format(file_name)\n\tsystem.perspective.sendMessage(\"Toast\", {\"message\": message, \"delay\": 3, \"color\": \"--success\"}, scope\u003d\"session\")\n\tsystem.perspective.closePopup(\u0027saveArchitecture\u0027)\n\t"
+              },
+              "scope": "G",
+              "type": "script"
+            }
+          }
+        },
+        "meta": {
+          "name": "Save"
+        },
+        "position": {
+          "shrink": 0
+        },
+        "propConfig": {
+          "props.enabled": {
+            "binding": {
+              "config": {
+                "struct": {
+                  "filename": "{../TextInput.props.params.text}",
+                  "files": "{view.custom.fileSystem.filesInSelectedDir}"
+                },
+                "waitOnAll": true
+              },
+              "transforms": [
+                {
+                  "code": "\tfilename\u003dvalue[\u0027filename\u0027].replace(\u0027.json\u0027,\u0027\u0027)\n\treturn filename +\u0027.json\u0027 not in value[\u0027files\u0027] and value[\u0027filename\u0027]!\u003d\u0027\u0027",
+                  "type": "script"
+                }
+              ],
+              "type": "expr-struct"
+            }
+          }
+        },
+        "props": {
+          "style": {
+            "backgroundColor": "--success",
+            "margin": "8px",
+            "marginTop": "0px",
+            "overflow": "auto"
+          },
+          "text": "Save As"
+        },
+        "type": "ia.input.button"
+      }
+    ],
+    "meta": {
+      "name": "root"
+    },
+    "props": {
+      "direction": "column"
+    },
+    "type": "ia.container.flex"
+  }
+}

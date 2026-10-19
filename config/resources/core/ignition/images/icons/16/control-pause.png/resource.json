@@ -1,0 +1,20 @@
+{
+  "scope": "A",
+  "version": 1,
+  "restricted": false,
+  "overridable": true,
+  "files": [
+    "control-pause.png"
+  ],
+  "attributes": {
+    "width": 16,
+    "format": "PNG",
+    "lastModification": {
+      "actor": "8.3-migration",
+      "timestamp": "2026-01-07T14:49:07Z"
+    },
+    "size": 378,
+    "lastModificationSignature": "d9e06218c193121c9a6d03033c950009869cb624f7842b3f2818df4a11b7e3a4",
+    "height": 16
+  }
+}

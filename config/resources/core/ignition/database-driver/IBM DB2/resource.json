@@ -1,0 +1,20 @@
+{
+  "scope": "A",
+  "description": "The official IBM DB2 JDBC Driver.",
+  "version": 1,
+  "restricted": false,
+  "overridable": true,
+  "files": [
+    "config.json",
+    "db2jcc4.jar"
+  ],
+  "attributes": {
+    "lastModification": {
+      "actor": "8.3-migration",
+      "timestamp": "2026-01-07T14:49:07Z"
+    },
+    "uuid": "d42e1868-003e-4792-ae28-9eafeb00f5c7",
+    "lastModificationSignature": "d4477f8f15ab5ad92a55765c622705d79a85edaff692ae999ce371d4e20f0258",
+    "enabled": true
+  }
+}

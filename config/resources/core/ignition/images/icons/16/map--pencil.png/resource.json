@@ -1,0 +1,20 @@
+{
+  "scope": "A",
+  "version": 1,
+  "restricted": false,
+  "overridable": true,
+  "files": [
+    "map--pencil.png"
+  ],
+  "attributes": {
+    "width": 16,
+    "format": "PNG",
+    "lastModification": {
+      "actor": "8.3-migration",
+      "timestamp": "2026-01-07T14:49:07Z"
+    },
+    "size": 811,
+    "lastModificationSignature": "019b1bc9a8b024ee049cf31e54be801e96bfbf51c80a26a74ad8c8b1584f9d34",
+    "height": 16
+  }
+}

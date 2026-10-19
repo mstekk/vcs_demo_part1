@@ -1,0 +1,20 @@
+{
+  "scope": "A",
+  "version": 1,
+  "restricted": false,
+  "overridable": true,
+  "files": [
+    "shortcut.png"
+  ],
+  "attributes": {
+    "width": 16,
+    "format": "PNG",
+    "lastModification": {
+      "actor": "8.3-migration",
+      "timestamp": "2026-01-07T14:49:07Z"
+    },
+    "size": 546,
+    "lastModificationSignature": "289fa55cb24b94fd6a64f6137c464ef487a2b8cd8eaa94e714cc671704050ce9",
+    "height": 16
+  }
+}

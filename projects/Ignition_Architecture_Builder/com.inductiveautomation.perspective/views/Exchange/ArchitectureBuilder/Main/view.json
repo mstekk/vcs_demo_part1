@@ -1,0 +1,768 @@
+{
+  "custom": {
+    "archIDTrigger": true,
+    "lastMongoLoadID": {},
+    "loadmeeting": false,
+    "startup": {
+      "$": [
+        "ts",
+        192,
+        1728583022521
+      ],
+      "$ts": 1728583022521
+    },
+    "structure": {
+      "configs": {},
+      "source": "layout",
+      "structure": []
+    }
+  },
+  "events": {
+    "system": {
+      "onStartup": {
+        "config": {
+          "script": "\t#viewCanvas\u003dself.getChild(\"root\").getChild(\"SplitContainer\").getChild(\"ViewCanvas\")\n\t#viewCanvas.custom.adjustLocation\u003dFalse\n\t#viewCanvas.custom.adjustSize\u003dFalse\n\t#viewCanvas.custom.autoConnection\u003d{}\n\t#viewCanvas.custom.connection\u003d[]\n\t#viewCanvas.custom.copyComponent\u003d[]\n\t#viewCanvas.custom.panCanvas.offsetX\u003d0\n\t#viewCanvas.custom.panCanvas.offsetY\u003d0\n\tself.custom.lastMongoLoadID\u003d{}\n\tself.getChild(\"root\").getChild(\"EmbeddedView\").props.params.dataForIframe.action\u003d\u0027Pan\u0027\n\tself.custom.startup\u003dsystem.date.now()\n\t"
+        },
+        "scope": "G",
+        "type": "script"
+      }
+    }
+  },
+  "params": {
+    "archID": null,
+    "meetingID": null
+  },
+  "propConfig": {
+    "custom.archIDTrigger": {
+      "binding": {
+        "config": {
+          "expression": "dateIsAfter(now(),dateArithmetic({view.custom.startup},5,\u0027sec\u0027))"
+        },
+        "type": "expr"
+      },
+      "persistent": true
+    },
+    "custom.lastMongoLoadID": {
+      "persistent": true
+    },
+    "custom.loadmeeting": {
+      "binding": {
+        "config": {
+          "struct": {
+            "archID": "{view.params.archID}",
+            "trigger": "{view.custom.archIDTrigger}"
+          },
+          "waitOnAll": true
+        },
+        "transforms": [
+          {
+            "code": "\tif value[\u0027trigger\u0027] and value[\u0027archID\u0027] is not None and not self.session.custom.public and self.session.custom.mongo.mongoArchs.collection not in [None, \u0027\u0027] and self.session.custom.mongo.mongoArchs.connector not in [None, \u0027\u0027]:\n\t\tconnector\u003dself.session.custom.mongo.mongoArchs.connector\n\t\tcollection\u003dself.session.custom.mongo.mongoArchs.collection\n\t\tload\u003dTrue\n\t\tdocId\u003dself.params.archID\n\t\tself.params.archID\u003dNone\n\t\tsystem.perspective.sendMessage(\u0027loadArchitecture\u0027, {\u0027connector\u0027:connector, \u0027collection\u0027:collection,\u0027id\u0027:docId, \u0027load\u0027:load}, scope\u003d\u0027session\u0027)\n\t\treturn True\n\treturn False",
+            "type": "script"
+          }
+        ],
+        "type": "expr-struct"
+      },
+      "persistent": true
+    },
+    "custom.startup": {
+      "persistent": true
+    },
+    "custom.structure": {
+      "binding": {
+        "config": {
+          "path": "session.custom.structure"
+        },
+        "type": "property"
+      },
+      "persistent": true
+    },
+    "params.archID": {
+      "onChange": {
+        "enabled": null,
+        "script": "\timport time\n\tif not self.session.custom.public and self.session.custom.mongo.mongoArchs.collection not in [None, \u0027\u0027] and self.session.custom.mongo.mongoArchs.connector not in [None, \u0027\u0027]:\n\t\ttime.sleep(3)\n\t\tfrom exchange.architecturebuilder.viewCanvas.auditEvents import insertAuditEvent\n\t\tif currentValue.value is not None and currentValue.value is not \"\":\n\t\t\tconnector\u003dself.session.custom.mongo.mongoArchs.connector\n\t\t\tcollection\u003dself.session.custom.mongo.mongoArchs.collection\n\t\t\tload\u003dTrue\n\t\t\tdocId\u003dself.params.archID\n\t\t\tsystem.perspective.sendMessage(\u0027loadArchitecture\u0027, {\u0027connector\u0027:connector, \u0027collection\u0027:collection,\u0027id\u0027:docId, \u0027load\u0027:load}, scope\u003d\u0027session\u0027)\n\t\t\n\t\t\n\t\t"
+      },
+      "paramDirection": "input",
+      "persistent": true
+    },
+    "params.meetingID": {
+      "onChange": {
+        "enabled": null,
+        "script": "\tfrom system.mongodb.types import ObjectId\n\tfrom exchange.architecturebuilder.viewCanvas.auditEvents import insertAuditEvent\n\tlogger \u003d system.util.getLogger(\"saveMongo\")\n\t\n\tdef saveArchitecture(connector,collection,meetingId,filename):\n\t\t# Deep copy session data for saving\n\t\tcomponents\u003dsystem.util.jsonDecode(system.util.jsonEncode(self.session.custom.components))\n\t\tconnections\u003dsystem.util.jsonDecode(system.util.jsonEncode(self.session.custom.connections))\n\t\tcontainers\u003dsystem.util.jsonDecode(system.util.jsonEncode(self.session.custom.containers))\n\t\tconfig\u003dsystem.util.jsonDecode(system.util.jsonEncode(self.session.custom.structure.configs))\n\t\tcanvasSize\u003dsystem.util.jsonDecode(system.util.jsonEncode(self.session.custom.canvasSize))\n\t\tsaveDate\u003dsystem.date.now()\n\t\t\n\t\t# Construct dictionary of items to save\n\t\tsaveItems\u003d{\n\t\t\t\t\u0027filename\u0027:filename,\n\t\t\t\t\u0027meetingId\u0027:meetingId,\n\t\t\t\t\u0027saveDate\u0027:saveDate,\n\t\t\t\t\u0027components\u0027:components,\n\t\t\t\t\u0027connections\u0027:connections,\n\t\t\t\t\u0027containers\u0027:containers,\n\t\t\t\t\u0027config\u0027:config,\n\t\t\t\t\"canvasSize\":canvasSize}\n\t\t\t\t\n\t\t# Log saveItems dictionary\n\t\tlogger \u003d system.util.getLogger(\"saveMongo\")\n\t\tlogger.info(str(saveItems))\t\n\t\t\n\t\t# Determine whether to insert or update in MongoDB\n\t\tmongoid\u003dsystem.mongodb.insertOne(connector, collection, saveItems)\n\n\t\t\t\n\t\t# Update lastMongoLoadID in the view context\t\n\t\tlastSave\u003d{\u0027filename\u0027:filename, \u0027id\u0027:mongoid, \u0027saveDate\u0027:saveDate, \u0027connector\u0027:connector, \u0027collection\u0027:collection,\u0027meetingId\u0027:meetingId}\n\t\tself.view.custom.lastMongoLoadID\u003dlastSave\n\t\t# Send message \u0027lastSave\u0027 with details of the last save operation\n\t\tsystem.perspective.sendMessage(\u0027lastSave\u0027, lastSave, scope\u003d\u0027session\u0027)\n\t\treturn mongoid\n\t\t\n\t\t\n\tif currentValue.value is not None and currentValue.value is not \"\" and not self.session.custom.public and self.session.custom.mongo.mongoArchs.collection not in [None, \u0027\u0027] and self.session.custom.mongo.mongoArchs.connector not in [None, \u0027\u0027]:\n\n\t\tconnector\u003dself.session.custom.mongo.mongoArchs.connector\n\t\tcollection\u003dself.session.custom.mongo.mongoArchs.collection\n\t\t\n\t\tdefault\u003dexchange.architecturebuilder.viewCanvas.senotes.getDefaultTemplate()\n\t\tself.session.custom.canvasSize\u003ddefault[\"canvasSize\"]\n\t\tself.session.custom.components\u003ddefault[\"components\"]\n\t\tself.session.custom.connections\u003ddefault[\"connections\"]\n\t\tself.session.custom.containers\u003ddefault[\"containers\"]\n\t\tself.session.custom.structure.configs\u003ddefault[\"configs\"]\n\n\t\tmeetingId\u003dself.params.meetingID\n\t\tfilter \u003d {\"_id\":ObjectId(meetingId)}\n\t\tproject\u003d {\"accountName\":1, \"startDate\":1}\n\t\tdoc\u003dsystem.mongodb.findOne(self.session.custom.mongo.mongoNotes.connector, self.session.custom.mongo.mongoNotes.collection, filter, project)\n\t\taccount\u003ddoc[\u0027accountName\u0027]\n\t\tmeetingDate\u003ddoc[\u0027startDate\u0027]\n\n\t\tnowDate\u003dsystem.date.format(system.date.now(),\"dd-HHmmss\")\n\t\tfilename\u003d\u0027{}-{}-{}\u0027.format(account,system.date.format(meetingDate,\"MM/dd/yy-HH:mm\"),nowDate)\n\t\tlogger.info(filename)\n\t\tsaveArchitecture(connector,collection,meetingId,filename)\n\n\t\tsystem.perspective.navigate(\"/\")\n\t\t\n\n\t\t\n"
+      },
+      "paramDirection": "input",
+      "persistent": true
+    }
+  },
+  "props": {
+    "defaultSize": {
+      "height": 732,
+      "width": 1224
+    }
+  },
+  "root": {
+    "children": [
+      {
+        "meta": {
+          "name": "EmbeddedView"
+        },
+        "position": {
+          "grow": 1
+        },
+        "propConfig": {
+          "props.params.inputs.height": {
+            "binding": {
+              "config": {
+                "path": "session.custom.canvasSize.height"
+              },
+              "transforms": [
+                {
+                  "code": "\treturn \u0027{}px\u0027.format(value)",
+                  "type": "script"
+                }
+              ],
+              "type": "property"
+            }
+          },
+          "props.params.inputs.width": {
+            "binding": {
+              "config": {
+                "path": "session.custom.canvasSize.width"
+              },
+              "transforms": [
+                {
+                  "code": "\treturn \u0027{}px\u0027.format(value)",
+                  "type": "script"
+                }
+              ],
+              "type": "property"
+            }
+          }
+        },
+        "props": {
+          "params": {
+            "dataForIframe": {
+              "action": "Pan",
+              "fit": 0,
+              "zoomin": 0,
+              "zoomout": 0
+            },
+            "inputs": {
+              "detailedBreakpoint": 1.1,
+              "targetDetailedURL": "/viewCanvas",
+              "targetURL": "/viewCanvas"
+            }
+          },
+          "path": "Exchange/PanZoomiFrame/PanZoomiFrame",
+          "style": {
+            "backgroundColor": "--neutral-20",
+            "overflow": "hidden"
+          }
+        },
+        "scripts": {
+          "customMethods": [],
+          "extensionFunctions": null,
+          "messageHandlers": [
+            {
+              "messageType": "panInteract",
+              "pageScope": true,
+              "script": "\t# implement your handler here\n\t#system.perspective.sendMessage(\u0027panInteract\u0027, {\u0027action\u0027:\u0027Pan\u0027},scope\u003d\u0027session\u0027)\n\tcurrentAction\u003dself.props.params.dataForIframe.action\n\tif payload[\u0027action\u0027]\u003d\u003d\u0027toggle\u0027:\n\t\tif currentAction\u003d\u003d\u0027Pan\u0027:\n\t\t\tsetV\u003d\u0027Interact\u0027\n\t\telse:\n\t\t\tsetV\u003d\u0027Pan\u0027\n\telse:\n\t\tsetV\u003dpayload[\u0027action\u0027]\n\tself.props.params.dataForIframe.action\u003dsetV\n\tself.props.params.dataForIframe.fit\u003d0\n\tself.props.params.dataForIframe.zoomin\u003d0\n\tself.props.params.dataForIframe.zoomout\u003d0\n\tlogger \u003d system.util.getLogger(\"PanAction\")\n\tlogger.info(\u0027Action: {}\u0027.format(setV))\n\tself.view.getChild(\"root\").focus()",
+              "sessionScope": true,
+              "viewScope": false
+            }
+          ]
+        },
+        "type": "ia.display.view"
+      },
+      {
+        "meta": {
+          "name": "Control"
+        },
+        "position": {
+          "basis": "52px",
+          "shrink": 0
+        },
+        "propConfig": {
+          "props.params.lastLoad": {
+            "binding": {
+              "config": {
+                "path": "view.custom.lastMongoLoadID"
+              },
+              "type": "property"
+            }
+          },
+          "props.params.newArch": {
+            "binding": {
+              "config": {
+                "path": "view.params.meetingID"
+              },
+              "transforms": [
+                {
+                  "fallback": true,
+                  "inputType": "scalar",
+                  "mappings": [
+                    {
+                      "input": null,
+                      "output": false
+                    },
+                    {
+                      "input": "",
+                      "output": false
+                    }
+                  ],
+                  "outputType": "scalar",
+                  "type": "map"
+                }
+              ],
+              "type": "property"
+            }
+          }
+        },
+        "props": {
+          "params": {
+            "connect": false
+          },
+          "path": "Exchange/ArchitectureBuilder/EmbeddedViewsMain/ChartControl",
+          "style": {
+            "left": "4px",
+            "overflow": "visible",
+            "position": "absolute",
+            "top": "4px"
+          },
+          "useDefaultViewWidth": true
+        },
+        "type": "ia.display.view"
+      },
+      {
+        "children": [
+          {
+            "events": {
+              "dom": {
+                "onClick": {
+                  "config": {
+                    "script": "\tcurrent\u003dself.parent.parent.getChild(\"EmbeddedView\").props.params.dataForIframe.action\n\tif current \u003d\u003d \u0027Interact\u0027:\n\t\taction \u003d\u0027Pan\u0027\n\telse:\n\t\taction \u003d \u0027Interact\u0027\n\tself.parent.parent.getChild(\"EmbeddedView\").props.params.dataForIframe.action\u003daction\n\tself.parent.parent.getChild(\"EmbeddedView\").props.params.dataForIframe.fit\u003d0\n\tself.parent.parent.getChild(\"EmbeddedView\").props.params.dataForIframe.zoomin\u003d0\n\tself.parent.parent.getChild(\"EmbeddedView\").props.params.dataForIframe.zoomout\u003d0"
+                  },
+                  "scope": "G",
+                  "type": "script"
+                }
+              }
+            },
+            "meta": {
+              "name": "PanInteract"
+            },
+            "position": {
+              "basis": "42px",
+              "shrink": 0
+            },
+            "propConfig": {
+              "props.path": {
+                "binding": {
+                  "config": {
+                    "path": ".../EmbeddedView.props.params.dataForIframe.action"
+                  },
+                  "transforms": [
+                    {
+                      "fallback": "material/touch_app",
+                      "inputType": "scalar",
+                      "mappings": [
+                        {
+                          "input": "Pan",
+                          "output": "material/pan_tool"
+                        }
+                      ],
+                      "outputType": "scalar",
+                      "type": "map"
+                    }
+                  ],
+                  "type": "property"
+                }
+              }
+            },
+            "props": {
+              "color": "black",
+              "style": {
+                "borderBottomLeftRadius": "4px",
+                "borderBottomRightRadius": "4px",
+                "borderTopLeftRadius": "4px",
+                "borderTopRightRadius": "4px",
+                "classes": "controlIconHover",
+                "height": "42px",
+                "margin": "4px",
+                "padding": "4px"
+              }
+            },
+            "type": "ia.display.icon"
+          },
+          {
+            "events": {
+              "dom": {
+                "onClick": {
+                  "config": {
+                    "script": "\tself.parent.parent.getChild(\"EmbeddedView\").props.params.dataForIframe.action\u003d\"Pan\"\n\tself.parent.parent.getChild(\"EmbeddedView\").props.params.dataForIframe.fit\u003dsystem.date.toMillis(system.date.now())\n\tself.parent.parent.getChild(\"EmbeddedView\").props.params.dataForIframe.zoomin\u003d0\n\tself.parent.parent.getChild(\"EmbeddedView\").props.params.dataForIframe.zoomout\u003d0"
+                  },
+                  "scope": "G",
+                  "type": "script"
+                }
+              }
+            },
+            "meta": {
+              "name": "Fit"
+            },
+            "position": {
+              "basis": "42px",
+              "shrink": 0
+            },
+            "props": {
+              "color": "black",
+              "path": "material/zoom_out_map",
+              "style": {
+                "borderBottomLeftRadius": "4px",
+                "borderBottomRightRadius": "4px",
+                "borderTopLeftRadius": "4px",
+                "borderTopRightRadius": "4px",
+                "classes": "controlIconHover",
+                "height": "42px",
+                "margin": "4px",
+                "padding": "4px"
+              }
+            },
+            "type": "ia.display.icon"
+          },
+          {
+            "events": {
+              "dom": {
+                "onClick": {
+                  "config": {
+                    "script": "\tself.parent.parent.getChild(\"EmbeddedView\").props.params.dataForIframe.zoomout\u003dsystem.date.toMillis(system.date.now())\n\tself.parent.parent.getChild(\"EmbeddedView\").props.params.dataForIframe.zoomin\u003d0\n\tself.parent.parent.getChild(\"EmbeddedView\").props.params.dataForIframe.fit\u003d0"
+                  },
+                  "scope": "G",
+                  "type": "script"
+                }
+              }
+            },
+            "meta": {
+              "name": "ZoomOut"
+            },
+            "position": {
+              "basis": "42px",
+              "shrink": 0
+            },
+            "props": {
+              "color": "black",
+              "path": "material/zoom_out",
+              "style": {
+                "borderBottomLeftRadius": "4px",
+                "borderBottomRightRadius": "4px",
+                "borderTopLeftRadius": "4px",
+                "borderTopRightRadius": "4px",
+                "classes": "controlIconHover",
+                "height": "42px",
+                "margin": "4px",
+                "padding": "4px"
+              }
+            },
+            "type": "ia.display.icon"
+          },
+          {
+            "events": {
+              "dom": {
+                "onClick": {
+                  "config": {
+                    "script": "\tself.parent.parent.getChild(\"EmbeddedView\").props.params.dataForIframe.zoomin\u003dsystem.date.toMillis(system.date.now())\n\tself.parent.parent.getChild(\"EmbeddedView\").props.params.dataForIframe.zoomout\u003d0\n\tself.parent.parent.getChild(\"EmbeddedView\").props.params.dataForIframe.fit\u003d0"
+                  },
+                  "scope": "G",
+                  "type": "script"
+                }
+              }
+            },
+            "meta": {
+              "name": "ZoomIn"
+            },
+            "position": {
+              "basis": "42px",
+              "shrink": 0
+            },
+            "props": {
+              "color": "black",
+              "path": "material/zoom_in",
+              "style": {
+                "borderBottomLeftRadius": "4px",
+                "borderBottomRightRadius": "4px",
+                "borderTopLeftRadius": "4px",
+                "borderTopRightRadius": "4px",
+                "classes": "controlIconHover",
+                "height": "42px",
+                "margin": "4px",
+                "padding": "4px"
+              }
+            },
+            "type": "ia.display.icon"
+          },
+          {
+            "meta": {
+              "name": "Label"
+            },
+            "position": {
+              "basis": "50px"
+            },
+            "propConfig": {
+              "props.text": {
+                "binding": {
+                  "config": {
+                    "path": ".../EmbeddedView.props.params.dataForIframe.action"
+                  },
+                  "transforms": [
+                    {
+                      "fallback": "Interacting",
+                      "inputType": "scalar",
+                      "mappings": [
+                        {
+                          "input": "Pan",
+                          "output": "Panning/Zooming"
+                        }
+                      ],
+                      "outputType": "scalar",
+                      "type": "map"
+                    }
+                  ],
+                  "type": "property"
+                }
+              }
+            },
+            "props": {
+              "style": {
+                "left": 10,
+                "overflow": "visible",
+                "pointer-events": "none",
+                "position": "absolute",
+                "top": "100%",
+                "transform": "translateY(10px)"
+              }
+            },
+            "type": "ia.display.label"
+          }
+        ],
+        "meta": {
+          "name": "PanZoomControls"
+        },
+        "position": {
+          "shrink": 0
+        },
+        "props": {
+          "alignItems": "center",
+          "justify": "space-evenly",
+          "style": {
+            "background-color": "lightgray",
+            "border-radius": "8px",
+            "height": "56px",
+            "margin": "4px",
+            "overflow": "visible",
+            "position": "absolute",
+            "right": "4px",
+            "width": "230px"
+          }
+        },
+        "type": "ia.container.flex"
+      },
+      {
+        "meta": {
+          "name": "RenderingPreview"
+        },
+        "position": {
+          "basis": "52px"
+        },
+        "props": {
+          "path": "Exchange/ArchitectureBuilder/EmbeddedViewsMain/EmbeddedViews/RenderingPreview",
+          "style": {
+            "bottom": "4px",
+            "overflow": "hidden",
+            "position": "absolute",
+            "right": "4px"
+          },
+          "useDefaultViewWidth": true
+        },
+        "type": "ia.display.view"
+      },
+      {
+        "meta": {
+          "name": "PipeLegend"
+        },
+        "position": {
+          "basis": "52px"
+        },
+        "props": {
+          "path": "Exchange/ArchitectureBuilder/EmbeddedViewsMain/PipeLegend",
+          "style": {
+            "bottom": "4px",
+            "left": "4px",
+            "overflow": "hidden",
+            "position": "absolute",
+            "width": "280px"
+          }
+        },
+        "type": "ia.display.view"
+      },
+      {
+        "meta": {
+          "name": "ChartConfig"
+        },
+        "position": {
+          "basis": "320px"
+        },
+        "propConfig": {
+          "props.style.classes": {
+            "binding": {
+              "config": {
+                "path": "session.custom.requestConnection"
+              },
+              "transforms": [
+                {
+                  "fallback": "fly-in",
+                  "inputType": "scalar",
+                  "mappings": [
+                    {
+                      "input": false,
+                      "output": "fly-out"
+                    },
+                    {
+                      "input": true,
+                      "output": "fly-in"
+                    }
+                  ],
+                  "outputType": "scalar",
+                  "type": "map"
+                }
+              ],
+              "type": "property"
+            }
+          }
+        },
+        "props": {
+          "path": "Exchange/ArchitectureBuilder/EmbeddedViewsMain/EmbeddedViews/Connections",
+          "style": {
+            "left": 0,
+            "position": "absolute",
+            "top": "90px",
+            "width": "300px"
+          }
+        },
+        "type": "ia.display.view"
+      },
+      {
+        "children": [
+          {
+            "meta": {
+              "name": "Label"
+            },
+            "position": {
+              "shrink": 0
+            },
+            "props": {
+              "style": {
+                "marginLeft": "8px",
+                "marginRight": "8px",
+                "min-height": "24px"
+              },
+              "text": "This Interface is Not Designed to be Drag and Drop  \n \n  Click a component \n Then click the design canvas to drop it on screen!",
+              "textStyle": {
+                "fontSize": "14px",
+                "textAlign": "center",
+                "whiteSpace": "pre"
+              }
+            },
+            "type": "ia.display.label"
+          }
+        ],
+        "custom": {
+          "delay": 4,
+          "timer": {
+            "$": [
+              "ts",
+              192,
+              1725361074464
+            ],
+            "$ts": 1725361074464
+          }
+        },
+        "meta": {
+          "name": "ToastNotification"
+        },
+        "position": {
+          "shrink": 0
+        },
+        "propConfig": {
+          "custom.show": {
+            "binding": {
+              "config": {
+                "expression": "dateIsBefore(now(),dateArithmetic({this.custom.timer},{this.custom.delay},\u0027sec\u0027))"
+              },
+              "type": "expr"
+            }
+          },
+          "props.style.classes": {
+            "binding": {
+              "config": {
+                "path": "this.custom.show"
+              },
+              "transforms": [
+                {
+                  "fallback": "fly-in-bot",
+                  "inputType": "scalar",
+                  "mappings": [
+                    {
+                      "input": false,
+                      "output": "fly-out-bot"
+                    },
+                    {
+                      "input": true,
+                      "output": "fly-in-bot"
+                    }
+                  ],
+                  "outputType": "scalar",
+                  "type": "map"
+                }
+              ],
+              "type": "property"
+            },
+            "persistent": true
+          }
+        },
+        "props": {
+          "style": {
+            "backgroundColor": "orange",
+            "borderBottomLeftRadius": "16px",
+            "borderBottomRightRadius": "16px",
+            "borderTopLeftRadius": "16px",
+            "borderTopRightRadius": "16px",
+            "bottom": "4px",
+            "classes": "fly-out-bot",
+            "color": "Black",
+            "left": "50%",
+            "min-height": "40px",
+            "opacity": 0.9,
+            "overflow": "hidden",
+            "padding": "4px",
+            "position": "absolute"
+          }
+        },
+        "scripts": {
+          "customMethods": [],
+          "extensionFunctions": null,
+          "messageHandlers": [
+            {
+              "messageType": "Toast",
+              "pageScope": false,
+              "script": "\t#system.perspective.sendMessage(\"Toast\", {\"message\": message, \"delay\": 5, \"color\": \"--success\", \"textColor\": \"Black\"}, scope\u003d\"session\")\n\tself.custom.timer\u003dsystem.date.now()\n\tif \u0027delay\u0027 in payload.keys():\n\t\tself.custom.delay\u003dpayload[\u0027delay\u0027]\n\telse:\n\t\tself.custom.delay\u003d3\n\tif \u0027color\u0027 in payload.keys():\n\t\tself.props.style.backgroundColor\u003dpayload[\u0027color\u0027]\n\telse:\n\t\tself.props.style.backgroundColor\u003d\u0027--success\u0027\t\n\tif \u0027textColor\u0027 in payload.keys():\n\t\tself.props.style.color\u003dpayload[\u0027textColor\u0027]\n\telse:\n\t\tself.props.style.color\u003d\u0027--neutral-100\u0027\t\n\t\n\tself.getChild(\"Label\").props.text\u003dpayload[\u0027message\u0027]",
+              "sessionScope": true,
+              "viewScope": false
+            }
+          ]
+        },
+        "type": "ia.container.flex"
+      },
+      {
+        "meta": {
+          "name": "TrialTimer"
+        },
+        "position": {
+          "basis": "320px"
+        },
+        "propConfig": {
+          "position.display": {
+            "binding": {
+              "config": {
+                "path": "this.props.params.trial"
+              },
+              "type": "property"
+            }
+          }
+        },
+        "props": {
+          "params": {
+            "trial": false
+          },
+          "path": "Exchange/ArchitectureBuilder/EmbeddedViewsMain/TrialTimer",
+          "style": {
+            "bottom": "16px",
+            "overflow": "hidden",
+            "position": "absolute",
+            "right": "56px"
+          }
+        },
+        "type": "ia.display.view"
+      }
+    ],
+    "meta": {
+      "name": "root"
+    },
+    "props": {
+      "justify": "space-evenly",
+      "style": {
+        "overflow": "hidden",
+        "pointer-events": "auto"
+      }
+    },
+    "scripts": {
+      "customMethods": [],
+      "extensionFunctions": null,
+      "messageHandlers": [
+        {
+          "messageType": "openPopup",
+          "pageScope": true,
+          "script": "\t#system.perspective.sendMessage(\u0027openPopup\u0027, {\u0027uuid\u0027:self.view.params.uuid, \u0027path\u0027:\u0027Exchange/ArchitectureBuilder/Modules/ModuleSelection\u0027,\u0027params\u0027:{\u0027gatewayUUID\u0027:self.view.params.uuid, \u0027preselected\u0027:self.view.params.config.modules, \u0027name\u0027:name, \u0027gwType\u0027: gwType.lower()},title:\u0027Module Selection\u0027})\n\tpage\u003d\u0027\u0027\n\tif \u0027page\u0027 in payload:\n\t\tpage\u003dpayload[\u0027page\u0027]\n\t\n\t\n\tsystem.perspective.openPopup(payload[\u0027uuid\u0027], payload[\u0027path\u0027], params\u003dpayload[\u0027params\u0027], title\u003dpayload[\u0027title\u0027], pageId\u003dpage, viewportBound\u003dTrue, resizable\u003dFalse, modal\u003dTrue, position\u003d{\u0027width\u0027: \u0027auto\u0027})",
+          "sessionScope": true,
+          "viewScope": false
+        },
+        {
+          "messageType": "loadArchitecture",
+          "pageScope": false,
+          "script": "\t# implement your handler here\n\tif payload[\u0027load\u0027]:\n\t\tconnector\u003dpayload[\u0027connector\u0027]\n\t\tcollection\u003dpayload[\u0027collection\u0027]\n\t\tdocId\u003dpayload[\u0027id\u0027]\n\t\tfrom system.mongodb.types import ObjectId\n\t\tfilter \u003d {\"_id\":ObjectId(docId)}\n\t\tdoc\u003dsystem.mongodb.findOne(connector, collection, filter)\n\t\tif \u0027meetingId\u0027 in doc.keys():\n\t\t\tmeetingId\u003ddoc[\u0027meetingId\u0027]\n\t\telse:\n\t\t\tmeetingId\u003d\u0027\u0027\n\t\tif \u0027canvasSize\u0027 in doc.keys():\n\t\t\tcanvasSize\u003ddoc[\u0027canvasSize\u0027]\n\t\telse:\n\t\t\tcanvasSize\u003d{\u0027height\u0027:25000,\u0027width\u0027:25000}\n\t\tmongoLast\u003d{\u0027filename\u0027:doc[\u0027filename\u0027], \u0027id\u0027:doc[\u0027_id\u0027], \u0027saveDate\u0027:doc[\u0027saveDate\u0027],\t\u0027connector\u0027:connector, \u0027collection\u0027:collection, \u0027meetingId\u0027:meetingId,\u0027canvasSize\u0027:canvasSize}\n\t\tself.view.custom.lastMongoLoadID\u003dmongoLast\n\t\tsystem.perspective.sendMessage(\u0027updateLastMongo\u0027, mongoLast, scope\u003d\u0027page\u0027)",
+          "sessionScope": false,
+          "viewScope": false
+        },
+        {
+          "messageType": "clearCenterComponents",
+          "pageScope": true,
+          "script": "\t# implement your handler here\n\tif not payload:\n\t\tmongoLast\u003d{}\n\t\tself.view.custom.lastMongoLoadID\u003dmongoLast\n\t\tsystem.perspective.sendMessage(\u0027updateLastMongo\u0027, mongoLast, scope\u003d\u0027page\u0027)\n\t\tself.view.params.archID\u003dNone\n\t\tself.view.params.meetingID\u003dNone",
+          "sessionScope": true,
+          "viewScope": false
+        },
+        {
+          "messageType": "requestSave",
+          "pageScope": true,
+          "script": "\t#system.perspective.sendMessage(\u0027requestSave\u0027, True, scope\u003d\u0027session\u0027)\n\tsystem.perspective.sendMessage(\u0027cancelConfigs\u0027, True, scope\u003d\u0027session\u0027)\n\tif self.session.custom.saveToMongo:\n\t\tview\u003d\u0027Exchange/ArchitectureBuilder/EmbeddedViewsMain/SaveArchitectureToMongo\u0027\n\telse:\n\t\tview\u003d\u0027Exchange/ArchitectureBuilder/EmbeddedViewsMain/SaveArchitectureToFileSystem\u0027\n\tsystem.perspective.openPopup(\u0027saveArchitecture\u0027, view, params\u003d{\u0027lastLoad\u0027: self.view.custom.lastMongoLoadID}, title\u003d\u0027Save Architecture\u0027)",
+          "sessionScope": true,
+          "viewScope": false
+        },
+        {
+          "messageType": "lastSave",
+          "pageScope": true,
+          "script": "\t#system.perspective.sendMessage(\u0027lastSave\u0027, lastSave)\n\tself.view.custom.lastMongoLoadID\u003dpayload\n\tsystem.perspective.sendMessage(\u0027updateLastMongo\u0027, payload, scope\u003d\u0027page\u0027)",
+          "sessionScope": true,
+          "viewScope": false
+        },
+        {
+          "messageType": "canvasSize",
+          "pageScope": true,
+          "script": "\t#system.perspective.sendMessage(\u0027canvasSize\u0027, {\u0027dir\u0027:self.view.params.param,\u0027value\u0027:self.getSibling(\"NumericInput\").props.params.value}, scope\u003d\u0027session\u0027)\n\tlastMongoLoadID\u003dsystem.util.jsonDecode(system.util.jsonEncode(self.view.custom.lastMongoLoadID))\n\tlastMongoLoadID[\u0027canvasSize\u0027]\u003dpayload\n\tself.view.custom.lastMongoLoadID\u003dlastMongoLoadID\n\tsystem.perspective.sendMessage(\u0027updateLastMongo\u0027, lastMongoLoadID, scope\u003d\u0027page\u0027)\n",
+          "sessionScope": true,
+          "viewScope": false
+        },
+        {
+          "messageType": "updateLastMongo",
+          "pageScope": true,
+          "script": "\tself.view.custom.lastMongoLoadID\u003dpayload",
+          "sessionScope": true,
+          "viewScope": false
+        },
+        {
+          "messageType": "clearFromSENotes",
+          "pageScope": false,
+          "script": "\t#system.perspective.sendMessage(\u0027clearFromSENotes\u0027, True, scope\u003d\u0027session\u0027)\n\tself.view.params.archID\u003dNone\n\tself.view.params.meetingID\u003dNone",
+          "sessionScope": true,
+          "viewScope": false
+        }
+      ]
+    },
+    "type": "ia.container.flex"
+  }
+}

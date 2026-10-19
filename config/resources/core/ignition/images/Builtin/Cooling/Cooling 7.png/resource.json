@@ -1,0 +1,20 @@
+{
+  "scope": "A",
+  "version": 1,
+  "restricted": false,
+  "overridable": true,
+  "files": [
+    "Cooling 7.png"
+  ],
+  "attributes": {
+    "width": 158,
+    "format": "PNG",
+    "lastModification": {
+      "actor": "8.3-migration",
+      "timestamp": "2026-01-07T14:49:07Z"
+    },
+    "size": 5915,
+    "lastModificationSignature": "b9a43c3944c31fffcefe3f7d7df249aec216aaf443cda36f4a6024b1eb21d0d7",
+    "height": 115
+  }
+}

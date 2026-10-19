@@ -1,0 +1,20 @@
+{
+  "scope": "A",
+  "version": 1,
+  "restricted": false,
+  "overridable": true,
+  "files": [
+    "image-reflection.png"
+  ],
+  "attributes": {
+    "width": 16,
+    "format": "PNG",
+    "lastModification": {
+      "actor": "8.3-migration",
+      "timestamp": "2026-01-07T14:49:07Z"
+    },
+    "size": 656,
+    "lastModificationSignature": "a589fe4639310ec4617f2afa322e2184027d006673e0a3f11e1021a2f806c361",
+    "height": 16
+  }
+}

@@ -1,0 +1,20 @@
+{
+  "scope": "A",
+  "version": 1,
+  "restricted": false,
+  "overridable": true,
+  "files": [
+    "metronome--minus.png"
+  ],
+  "attributes": {
+    "width": 16,
+    "format": "PNG",
+    "lastModification": {
+      "actor": "8.3-migration",
+      "timestamp": "2026-01-07T14:49:07Z"
+    },
+    "size": 778,
+    "lastModificationSignature": "c0fe1fd1d56467894ca6029a4216d3d3bff1342c76919803e4f575d23dbd915e",
+    "height": 16
+  }
+}

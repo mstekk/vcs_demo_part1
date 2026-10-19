@@ -1,0 +1,133 @@
+{
+  "custom": {
+    "message": "",
+    "success": false
+  },
+  "params": {
+    "output": {}
+  },
+  "propConfig": {
+    "custom.message": {
+      "persistent": true
+    },
+    "params.output": {
+      "paramDirection": "output",
+      "persistent": true
+    }
+  },
+  "props": {
+    "defaultSize": {
+      "height": 232,
+      "width": 260
+    }
+  },
+  "root": {
+    "children": [
+      {
+        "events": {
+          "component": {
+            "onFileReceived": {
+              "config": {
+                "script": "\tmessage\u003d\u0027\u0027\n\thasFile\u003dFalse\n\toutput\u003d{}\n\timport json\n\tfrom zipfile import ZipFile\n\tfileType \u003d str(event.file.name)[-3:].lower()\n\tif fileType \u003d\u003d \"zip\":\n\t\tzipFilePath \u003d system.file.getTempFile(\"zip\")\n\t\tevent.file.copyTo(zipFilePath)\n\t\twith ZipFile(zipFilePath, \u0027r\u0027) as zipRef:\n\t\t\tfor name in zipRef.namelist():\n\t\t\t\tif \u0027gateway-info.json\u0027 \u003d\u003d name:\n\t\t\t\t\twith zipRef.open(name) as infoFileRef:\n\t\t\t\t\t\toutput\u003dsystem.util.jsonDecode(infoFileRef.read())\n\t\t\t\t\tmessage\u003d\u0027Found \"gateway-info.json\"\u0027\n\t\t\t\t\thasFile\u003dTrue\n\t\t\t\t\tbreak\n\t\t\t\t\n\t\t\tif not hasFile:\n\t\t\t\tmessage\u003d\u0027ZIP files does NOT contain \"gateway-info.json\"\u0027\n\t\t\t\t\n\telse:\n\t\tmessage\u003d\u0027File upload NOT a ZIP\u0027\n\tself.view.custom.message\u003dmessage\n\tself.view.custom.success\u003dhasFile\n\tself.view.params.output\u003doutput"
+              },
+              "scope": "G",
+              "type": "script"
+            },
+            "onUploadsCleared": {
+              "config": {
+                "script": "\tself.view.custom.success\u003dFalse\n\tself.view.custom.message\u003d\u0027\u0027\n\tself.view.params.output\u003d{}"
+              },
+              "scope": "G",
+              "type": "script"
+            }
+          }
+        },
+        "meta": {
+          "name": "FileUpload",
+          "tooltip": {
+            "enabled": true,
+            "text": "Gateway Diagnostic Upload"
+          }
+        },
+        "position": {
+          "basis": "150px"
+        },
+        "props": {
+          "fileSizeLimit": 1000,
+          "maxUploads": 1,
+          "supportedFileTypes": [
+            "zip"
+          ]
+        },
+        "type": "ia.input.fileupload"
+      },
+      {
+        "meta": {
+          "name": "Label"
+        },
+        "position": {
+          "shrink": 0
+        },
+        "propConfig": {
+          "position.display": {
+            "binding": {
+              "config": {
+                "path": "view.custom.success"
+              },
+              "enabled": false,
+              "type": "property"
+            }
+          },
+          "props.text": {
+            "binding": {
+              "config": {
+                "path": "view.custom.message"
+              },
+              "type": "property"
+            }
+          },
+          "props.textStyle.color": {
+            "binding": {
+              "config": {
+                "path": "view.custom.success"
+              },
+              "transforms": [
+                {
+                  "fallback": "#FF0000",
+                  "inputType": "scalar",
+                  "mappings": [
+                    {
+                      "input": true,
+                      "output": "#00FF00"
+                    }
+                  ],
+                  "outputType": "scalar",
+                  "type": "map"
+                }
+              ],
+              "type": "property"
+            }
+          }
+        },
+        "props": {
+          "textStyle": {
+            "fontSize": "10px",
+            "textAlign": "center",
+            "textShadow": "white 2px 2px 5px"
+          }
+        },
+        "type": "ia.display.label"
+      }
+    ],
+    "meta": {
+      "name": "root"
+    },
+    "props": {
+      "direction": "column",
+      "style": {
+        "overflow": "hidden"
+      }
+    },
+    "type": "ia.container.flex"
+  }
+}

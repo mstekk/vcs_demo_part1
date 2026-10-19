@@ -1,0 +1,20 @@
+{
+  "scope": "A",
+  "version": 1,
+  "restricted": false,
+  "overridable": true,
+  "files": [
+    "palette-color.png"
+  ],
+  "attributes": {
+    "width": 16,
+    "format": "PNG",
+    "lastModification": {
+      "actor": "8.3-migration",
+      "timestamp": "2026-01-07T14:49:07Z"
+    },
+    "size": 838,
+    "lastModificationSignature": "dac727d66b5d082c4699e19577aa5d6593e1a6b0efc86d1b1c2777e80b006929",
+    "height": 16
+  }
+}

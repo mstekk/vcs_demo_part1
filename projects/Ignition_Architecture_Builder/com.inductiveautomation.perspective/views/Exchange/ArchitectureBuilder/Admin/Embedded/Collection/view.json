@@ -1,0 +1,84 @@
+{
+  "custom": {},
+  "params": {
+    "allow": false,
+    "name": "Architecture"
+  },
+  "propConfig": {
+    "params.allow": {
+      "paramDirection": "inout",
+      "persistent": true
+    },
+    "params.name": {
+      "paramDirection": "input",
+      "persistent": true
+    }
+  },
+  "props": {
+    "defaultSize": {
+      "height": 56
+    }
+  },
+  "root": {
+    "children": [
+      {
+        "meta": {
+          "name": "Checkbox"
+        },
+        "position": {
+          "basis": "36px"
+        },
+        "propConfig": {
+          "props.selected": {
+            "binding": {
+              "config": {
+                "bidirectional": true,
+                "path": "view.params.allow"
+              },
+              "type": "property"
+            }
+          },
+          "props.text": {
+            "binding": {
+              "config": {
+                "path": "view.params.name"
+              },
+              "type": "property"
+            }
+          }
+        },
+        "props": {
+          "checkedIcon": {
+            "path": "material/visibility"
+          },
+          "style": {
+            "fontSize": 12
+          },
+          "uncheckedIcon": {
+            "color": {
+              "enabled": "--neutral-100"
+            },
+            "path": "material/visibility_off"
+          }
+        },
+        "type": "ia.input.checkbox"
+      }
+    ],
+    "meta": {
+      "name": "root"
+    },
+    "props": {
+      "direction": "column",
+      "style": {
+        "backgroundColor": "--neutral-10",
+        "borderBottomLeftRadius": "8px",
+        "borderBottomRightRadius": "8px",
+        "borderTopLeftRadius": "8px",
+        "borderTopRightRadius": "8px",
+        "margin": "2px",
+        "paddingLeft": "8px"
+      }
+    },
+    "type": "ia.container.flex"
+  }
+}

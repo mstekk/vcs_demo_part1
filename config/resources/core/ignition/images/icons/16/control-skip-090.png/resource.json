@@ -1,0 +1,20 @@
+{
+  "scope": "A",
+  "version": 1,
+  "restricted": false,
+  "overridable": true,
+  "files": [
+    "control-skip-090.png"
+  ],
+  "attributes": {
+    "width": 16,
+    "format": "PNG",
+    "lastModification": {
+      "actor": "8.3-migration",
+      "timestamp": "2026-01-07T14:49:07Z"
+    },
+    "size": 484,
+    "lastModificationSignature": "1daa898138554a786d9585031a0b4e2b953d5b010ccfe5a8a87392fe5fa051d7",
+    "height": 16
+  }
+}

@@ -1,0 +1,20 @@
+{
+  "scope": "A",
+  "version": 1,
+  "restricted": false,
+  "overridable": true,
+  "files": [
+    "building-old-18c55451f35fb14de99bfda94b425e2b.png"
+  ],
+  "attributes": {
+    "width": 16,
+    "format": "PNG",
+    "lastModification": {
+      "actor": "8.3-migration",
+      "timestamp": "2026-01-07T14:49:07Z"
+    },
+    "size": 666,
+    "lastModificationSignature": "a22dc143e16fb63bfb22a9ea09ee56bba4b119eaf492d251e52dcca86543542e",
+    "height": 16
+  }
+}

@@ -1,0 +1,113 @@
+{
+  "custom": {
+    "key": null
+  },
+  "params": {},
+  "propConfig": {
+    "custom.key": {
+      "onChange": {
+        "enabled": null,
+        "script": "\tif self.custom.key!\u003dNone:\n\t\tuuid\u003dself.custom.key\n\t\tpath\u003d\u0027Exchange/ArchitectureBuilder/Frames/EmbeddedViews/PipeConfig\u0027\n\t\tparams\u003d{\u0027uuid\u0027:uuid}\n\t\ttitle\u003d\u0027Connection Configuration\u0027\n\t\tsystem.perspective.sendMessage(\u0027openPopup\u0027, {\u0027uuid\u0027:uuid, \u0027path\u0027:path,\u0027params\u0027:params,\u0027title\u0027:title},scope\u003d\u0027session\u0027)\n\t\tself.custom.key\u003dNone"
+      },
+      "persistent": true
+    }
+  },
+  "props": {
+    "defaultSize": {
+      "height": 1228,
+      "width": 2435
+    }
+  },
+  "root": {
+    "children": [
+      {
+        "meta": {
+          "name": "svg-path (11)"
+        },
+        "position": {
+          "height": 570,
+          "width": 520
+        },
+        "propConfig": {
+          "props.elements": {
+            "binding": {
+              "config": {
+                "struct": {
+                  "components": "{session.custom.components}",
+                  "configs": "{session.custom.structure.configs}",
+                  "connections": "{session.custom.connections}",
+                  "render": "{session.custom.rendering}",
+                  "showConnections": "{session.custom.showConnections}"
+                },
+                "waitOnAll": true
+              },
+              "transforms": [
+                {
+                  "code": "\timport math\n\tdef is_opposite_vertical(x1, y1, x2, y2):\n\t\t# Calculate the angle of the line between (x1, y1) and (x2, y2)\n\t\tangle_radians \u003d math.atan2(y2 - y1, x2 - x1)\n\t\t\n\t\t# Calculate sine and cosine of the angle\n\t\tsin_theta \u003d math.sin(angle_radians)\n\t\tcos_theta \u003d math.cos(angle_radians)\n\t\t\n\t\t# Determine if the opposite side (vertical component) is larger\n\t\tif abs(sin_theta) \u003e abs(cos_theta):\n\t\t\treturn True\n\t\telse:\n\t\t\treturn False\n\t\n\t\n\tdef dire(lat,lng, meX, meY, oX, oY):\n\t\tif lat in [0,1] and lng in [0,1]:\n\t\t\tif abs(meX-oX)\u003eabs(meY-oY):\n\t\t\t\treturn \u0027vert\u0027\n\t\t\telse:\n\t\t\t\treturn \u0027horz\u0027\n\t\t\n\t\tif lat\u003d\u003d0 or lat\u003d\u003d1:\n\t\t\treturn \u0027horz\u0027\n\t\telif lng\u003d\u003d0 or lng\u003d\u003d1:\n\t\t\treturn \u0027vert\u0027\t\t\n\t\n\tdef deployArrow(x, y, direction, latlng, seg):\n\t\tif latlng\u003d\u003d\u0027horz\u0027:\n\t\t\tif direction\u003d\u003d1:\n\t\t\t\tcx\u003dx+11\n\t\t\t\tcy\u003dy\n\t\t\telse:\n\t\t\t\tcx\u003dx-11\n\t\t\t\tcy\u003dy\n\t\telse:\n\t\t\tif direction\u003d\u003d1:\n\t\t\t\tcy\u003dy+11\n\t\t\t\tcx\u003dx\n\t\t\telse:\n\t\t\t\tcy\u003dy-11\n\t\t\t\tcx\u003dx\t\n\t\tpoints\u003d\u0027{},{} {},{} {},{} {},{}\u0027.format(-7+cx,0+cy, 7+cx,-7+cy, 7+cx,7+cy, -7+cx,0+cy)\n\t\treturn [points,[cx,cy]]\n\t\t\n\tdef arrowRotation(exit, uuid, cuuid, lat, lng):\n\t\tif exit \u003d\u003d\u0027vert\u0027:\n\t\t\tif cuuid\u003d\u003duuid:\n\t\t\t\tif lng\u003e0.5:\n\t\t\t\t\treturn 90\n\t\t\t\telse:\n\t\t\t\t\treturn 270\n\t\t\telse:\n\t\t\t\tif lng\u003c0.5:\n\t\t\t\t\treturn 90\n\t\t\t\telse:\n\t\t\t\t\treturn 270\n\t\telif exit \u003d\u003d\u0027horz\u0027:\n\t\t\tif cuuid\u003d\u003duuid:\n\t\t\t\tif lat\u003e0.5:\n\t\t\t\t\treturn 180\n\t\t\t\telse:\n\t\t\t\t\treturn 0\n\t\t\telse:\n\t\t\t\tif lat\u003c0.5:\n\t\t\t\t\treturn 180\n\t\t\t\telse:\n\t\t\t\t\treturn 0\n\tdef rotate_point(x, y, x0, y0, theta):\n\t\t# Calculate new x and y based on rotation matrix\n\t\tx_new \u003d x0 + (x - x0) * math.cos(theta) - (y - y0) * math.sin(theta)\n\t\ty_new \u003d y0 + (x - x0) * math.sin(theta) + (y - y0) * math.cos(theta)\n\t\treturn [x_new, y_new]\n\t\t\n\tdef distance_between_points(x1, y1, x2, y2):\n\t\treturn math.sqrt((x2 - x1)**2 + (y2 - y1)**2)\n\t\t\t\t\t\n\tangle1\u003d0\n\tangle2\u003d0\t\t\t\t\t\n\t\t\t\t\t\n\tpipes\u003d[]\n\tboarders\u003d[]\n\tgroups\u003d[]\n\tarrow1points\u003d\u0027\u0027\n\tarrow1Origin\u003d\u00270px 0px\u0027\n\tarrow2points\u003d\u0027\u0027\n\tarrow2Origin\u003d\u00270px 0px\u0027\n\tarrow1rotate\u003d\u00270deg\u0027\n\tarrow2rotate\u003d\u00270deg\u0027\n\trotate1\u003d0\n\trotate2\u003d0\n\txs\u003d[]\n\tys\u003d[]\n\tconfigs\u003dvalue[\u0027configs\u0027]\n\tconnections\u003dvalue[\u0027connections\u0027]\n\t#return connections\n\tcomponents\u003dvalue[\u0027components\u0027]\n\tif len(connections.keys()) \u003e 0:\n\t\tfor pipe in connections:\n\t\t\tarrow1points\u003d\u0027\u0027\n\t\t\tarrow2points\u003d\u0027\u0027\n\t\t\tconnectionType\u003dconfigs[pipe][\u0027config\u0027][\u0027connectionType\u0027]\n\t\t\tif connectionType not in value[\u0027render\u0027][\u0027Connections\u0027].keys() or value[\u0027render\u0027][\u0027Connections\u0027][connectionType]:\n\t\t\t\tlineType\u003dconfigs[pipe][\u0027config\u0027][\u0027lineType\u0027]\n\t\t\t\tif \u0027adjust\u0027 in configs[pipe][\u0027config\u0027]:\n\t\t\t\t\tadjust\u003dconfigs[pipe][\u0027config\u0027][\u0027adjust\u0027]\n\t\t\t\telse:\n\t\t\t\t\tadjust\u003d0\n\t\t\t\tcompUuids\u003dconnections[pipe].keys()\n\t\t\t\t\n\t\t\t\tlat1\u003dconnections[pipe][compUuids[0]][\u0027x\u0027]\n\t\t\t\tlng1\u003dconnections[pipe][compUuids[0]][\u0027y\u0027]\n\t\t\t\tlat2\u003dconnections[pipe][compUuids[1]][\u0027x\u0027]\n\t\t\t\tlng2\u003dconnections[pipe][compUuids[1]][\u0027y\u0027]\n\t\t\t\t#return ((1-connections[pipe][compUuids[0]][\u0027y\u0027])*components[compUuids[0]][\u0027height\u0027])\n\t\t\t\tx1\u003dcomponents[compUuids[0]][\u0027left\u0027]+(lat1*components[compUuids[0]][\u0027width\u0027])\n\t\t\t\ty1\u003dcomponents[compUuids[0]][\u0027top\u0027]+((1-lng1)*components[compUuids[0]][\u0027height\u0027])\n\t\t\t\tx2\u003dcomponents[compUuids[1]][\u0027left\u0027]+(lat2*components[compUuids[1]][\u0027width\u0027])\n\t\t\t\ty2\u003dcomponents[compUuids[1]][\u0027top\u0027]+((1-lng2)*components[compUuids[1]][\u0027height\u0027])\n\t\t\t\txs+\u003d[x1,x2]\n\t\t\t\tys+\u003d[y1,y2]\n\t\t\t\texit1\u003ddire(lat1,lng1, x1, y1, x2, y2)\n\t\t\t\texit2\u003ddire(lat2,lng2, x2, y2, x1, y1)\n\t\t\t\tarrow1\u003d\u0027\u0027\n\t\t\t\tarrow2\u003d\u0027\u0027\n\t\t\t\tif connectionType \u003d\u003d \"Gateway Network\":\n\t\t\t\t\tdirection1\u003d-1\n\t\t\t\t\tif exit1\u003d\u003d\u0027horz\u0027:\n\t\t\t\t\t\tif lat1\u003d\u003d1:\n\t\t\t\t\t\t\tdirection1\u003d1\n\t\t\t\t\t\telif lat1\u003d\u003d0:\n\t\t\t\t\t\t\tdirection1\u003d-1\n\t\t\t\t\telse:\n\t\t\t\t\t\tif lng1\u003d\u003d0:\n\t\t\t\t\t\t\tdirection1\u003d1\n\t\t\t\t\t\telif lng1\u003d\u003d1:\n\t\t\t\t\t\t\tdirection1\u003d-1\t\n\n\t\t\t\t\tdirection2\u003d-1\n\t\t\t\t\tif exit2\u003d\u003d\u0027horz\u0027:\n\t\t\t\t\t\tif lat2\u003d\u003d0:\n\t\t\t\t\t\t\tdirection2\u003d-1\n\t\t\t\t\t\telif lat2\u003d\u003d1:\n\t\t\t\t\t\t\tdirection2\u003d1\n\t\t\t\t\telse:\n\t\t\t\t\t\tif lng2\u003d\u003d0:\n\t\t\t\t\t\t\tdirection2\u003d1\n\t\t\t\t\t\telif lng2\u003d\u003d1:\n\t\t\t\t\t\t\tdirection2\u003d-1\t\t\t\t\t\t\t\n\t\t\t\t\toutgoing\u003dconfigs[pipe][\u0027config\u0027][\u0027Outgoing\u0027]\n\n\t\t\t\t\tc1UUID\u003dcompUuids[0]\n\t\t\t\t\tc2UUID\u003dcompUuids[1]\n\t\t\t\t\t\n\t\t\t\t\t\t\n\t\t\t\t\tarrow1\u003ddeployArrow(x1, y1, direction1, exit1, 0)\n\t\t\t\t\tarrow2\u003ddeployArrow(x2, y2, direction2, exit2, 0)\n\t\t\t\t\t\n\t\t\t\t\t\n\t\t\t\t\tarrow1points\u003darrow1[0]\n\t\t\t\t\tarrow1Origin\u003d\u0027{}px {}px\u0027.format(arrow1[1][0],arrow1[1][1])\n\t\t\t\t\tarrow2points\u003darrow2[0]\n\t\t\t\t\tarrow2Origin\u003d\u0027{}px {}px\u0027.format(arrow2[1][0],arrow2[1][1])\n\t\t\t\t\trotate1\u003darrowRotation(exit1, outgoing, c1UUID, lat1, lng1)\n\t\t\t\t\trotate2\u003darrowRotation(exit2, outgoing, c2UUID, lat2, lng2)\n\t\t\t\t\tarrow1rotate\u003drotate1\n\t\t\t\t\tarrow2rotate\u003drotate2\n\t\t\t\t\t\n\t\t\t\tif lineType\u003d\u003d\u0027Segmented\u0027:\n\t\t\t\t\tpoints\u003d\u0027\u0027\n\t\t\t\t\tif exit1\u003d\u003dexit2:\n\t\t\t\t\t\tsegment\u003d4\n\t\t\t\t\telse:\n\t\t\t\t\t\tsegment\u003d3\n\t\t\t\t\tif segment\u003d\u003d3:\n\t\t\t\t\t\tpoints+\u003d\u0027{},{} \u0027.format(x1,y1)\n\t\t\t\t\t\tif exit1\u003d\u003d\u0027horz\u0027:\n\t\t\t\t\t\t\tpoints+\u003d\u0027{},{} \u0027.format(x2,y1)\n\t\t\t\t\t\telse:\n\t\t\t\t\t\t\tpoints+\u003d\u0027{},{} \u0027.format(x1,y2)\n\t\t\t\t\t\tpoints+\u003d\u0027{},{} \u0027.format(x2,y2)\n\t\t\t\t\telse:\n\t\t\t\t\t\tpoints+\u003d\u0027{},{} \u0027.format(x1,y1)\n\t\t\t\t\t\tmidx\u003dfloat((x1+x2))/2\n\t\t\t\t\t\tmidy\u003dfloat((y1+y2))/2\n\t\t\t\t\t\tif exit1\u003d\u003d\u0027horz\u0027:\n\t\t\t\t\t\t\tpoints+\u003d\u0027{},{} \u0027.format(midx+adjust,y1)\n\t\t\t\t\t\t\tpoints+\u003d\u0027{},{} \u0027.format(midx+adjust,y2)\n\t\t\t\t\t\telse:\n\t\t\t\t\t\t\tpoints+\u003d\u0027{},{} \u0027.format(x1,midy+adjust)\n\t\t\t\t\t\t\tpoints+\u003d\u0027{},{} \u0027.format(x2,midy+adjust)\n\t\t\t\t\t\t\t\n\t\t\t\t\t\tpoints+\u003d\u0027{},{} \u0027.format(x2,y2)\n\t\t\t\t\tangle1\u003d0\n\t\t\t\t\t\n\t\t\t\t\ttry:\n\t\t\t\t\t\tnewpoint1\u003drotate_point(arrow1[1][0],arrow1[1][1], x1,y1,angle1)\n\t\t\t\t\t\tif x1!\u003dx2 and y2!\u003d y1 and distance_between_points(newpoint1[0],newpoint1[1], x2, y2) \u003e distance_between_points(x1, y1, x2, y2):\n\t\t\t\t\t\t\tangle1+\u003dmath.pi\t\t\n\t\t\t\t\texcept:\n\t\t\t\t\t\tpass\n\t\t\t\t\t\t\n\t\t\t\t\tangle2\u003d0\n\t\t\t\t\ttry:\n\t\t\t\t\t\t\n\t\t\t\t\t\tnewpoint2\u003drotate_point(arrow2[1][0],arrow2[1][1], x2,y2,angle2)\n\t\t\t\t\t\t\n\t\t\t\t\t\tif x1!\u003dx2 and y2!\u003d y1 and distance_between_points(newpoint2[0],newpoint2[1], x1, y1) \u003e distance_between_points(x2, y2, x1, y1):\n\t\t\t\t\t\t\tangle2+\u003dmath.pi\n\t\t\t\t\texcept:\n\t\t\t\t\t\tpass\n\t\t\t\t\t\t\n\t\t\t\telif lineType\u003d\u003d\u0027Direct\u0027:\n\t\t\t\t\tpoints\u003d\"{},{} {},{}\".format(x1,y1,x2,y2)\n\t\t\t\t\t\n\t\t\t\t\ttry:\n\t\t\t\t\t\t\n\t\t\t\t\t\t\n\t\t\t\t\t\tif y1\u003d\u003darrow1[1][1]:\n\t\t\t\t\t\t\tangle1\u003dmath.atan((y2-y1)/(x2-x1))\n\t\t\t\t\t\telse:\n\t\t\t\t\t\t\tangle1\u003d-math.atan((x1-x2)/(y1-y2))\n\t\t\t\t\t\t\n\t\t\t\t\t\tnewpoint1\u003drotate_point(arrow1[1][0],arrow1[1][1], x1,y1,angle1)\n\t\t\t\t\t\t\n\t\t\t\t\t\tif distance_between_points(newpoint1[0],newpoint1[1], x2, y2) \u003e distance_between_points(x1, y1, x2, y2):\n\t\t\t\t\t\t\tangle1+\u003dmath.pi\t\t\t\t\t\t\n\t\t\t\t\t\t\n\t\t\t\t\t\t\n\t\t\t\t\t\t\n\t\t\t\t\t\tif y2\u003d\u003darrow2[1][1]:\n\t\t\t\t\t\t\tangle2\u003dmath.atan((y2-y1)/(x2-x1))\n\t\t\t\t\t\telse:\n\t\t\t\t\t\t\tangle2\u003d-math.atan((x1-x2)/(y1-y2))\n\t\t\t\t\t\t\t\n\t\t\t\t\t\tnewpoint2\u003drotate_point(arrow2[1][0],arrow2[1][1], x2,y2,angle2)\n\t\t\t\t\t\t\n\t\t\t\t\t\tif distance_between_points(newpoint2[0],newpoint2[1], x1, y1) \u003e distance_between_points(x2, y2, x1, y1):\n\t\t\t\t\t\t\tangle2+\u003dmath.pi\n\t\t\t\t\t\t\n\t\t\t\t\t\t\n\t\t\t\t\t\t\n\t\t\t\t\texcept:\n\t\t\t\t\t\tpass\n\t\t\t\t\n\t\t\t\tcolor \u003dexchange.architecturebuilder.viewCanvas.connectionRules.getConnectionColor(configs[pipe][\u0027config\u0027][\u0027connectionType\u0027])\n\t\t\t\tdashed\u003d\"\"\n\t\t\t\tif \"dashed\" in configs[pipe][\u0027config\u0027].keys() and configs[pipe][\u0027config\u0027][\u0027dashed\u0027]:\n\t\t\t\t\tdashed\u003d\"5, 10\"\n\t\t\t\tif value[\u0027showConnections\u0027]\u003d\u003dFalse or value[\u0027showConnections\u0027] in compUuids:\n\t\t\t\t\tprimaryWidth\u003d4\n\t\t\t\t\tbackgroundWidth\u003d6\n\t\t\t\t\tbackgroundColor\u003d\"var(--neutral-30)\"\n\t\t\t\t\topacity\u003d1.0\n\t\t\t\t\tstyle\u003d{\n\t\t\t\t\t\t\t\"classes\": \"pipehover Exchange/ArchitectureBuilder/hoverIcons/pipeHover\",\n\t\t\t\t\t\t\t\"stroke\": color,\n\t\t\t\t\t\t\t\"stroke-width\": primaryWidth,\n\t\t\t\t\t\t\t\"pointer-events\": \u0027auto\u0027,\n\t\t\t\t\t\t\t\"stroke-linecap\": \u0027round\u0027,\n\t\t\t\t\t\t\t\"stroke-linejoin\": \u0027round\u0027,\n\t\t\t\t\t\t\t\"opacity\": 1.0,\n\t\t\t\t\t\t\t\"stroke-dasharray\": dashed\n\t\t\t\t\t\t}\n\t\t\t\telse:\n\t\t\t\t\tprimaryWidth\u003d4*0.50\n\t\t\t\t\tbackgroundWidth\u003d6*0.50\n\t\t\t\t\tbackgroundColor\u003d\"transparent\"\n\t\t\t\t\topacity\u003d0.40\n\t\t\t\t\tstyle\u003d{\n\t\t\t\t\t\t\t\"classes\": \"pipehover Exchange/ArchitectureBuilder/hoverIcons/pipeHover\",\n\t\t\t\t\t\t\t\"stroke\": color,\n\t\t\t\t\t\t\t\"stroke-width\": primaryWidth,\n\t\t\t\t\t\t\t\"pointer-events\": \u0027auto\u0027,\n\t\t\t\t\t\t\t\"stroke-linecap\": \u0027round\u0027,\n\t\t\t\t\t\t\t\"stroke-linejoin\": \u0027round\u0027,\n\t\t\t\t\t\t\t\"opacity\": 0.4,\n\t\t\t\t\t\t\t\"filter\": \"grayscale(80%)\",\n\t\t\t\t\t\t\t\"stroke-dasharray\": dashed\n\t\t\t\t\t\t}\n\t\t\t\t\t\n\t\t\t\tgroups.append(\n\t\t\t\t\t{\n\t\t\t\t\t\t\"type\": \"group\",\n\t\t\t\t\t\t\"name\": pipe,\n\t\t\t\t\t\t\"style\": style,\n\t\t\t\t\t\t\"elements\": [\n\t\t\t\t\t\t\t{\n\t\t\t\t\t\t\t\"type\": \"polyline\",\n\t\t\t\t\t\t\t\"fill\": \"transparent\",\n\t\t\t\t\t\t\t\"points\": points,\n\t\t\t\t\t\t\t\"style\": {\n\t\t\t\t\t\t\t\t\"stroke\": backgroundColor,\n\t\t\t\t\t\t\t\t\"stroke-width\": backgroundWidth,\n\t\t\t\t\t\t\t\t\"pointer-events\": \"none\",\n\t\t\t\t\t\t\t\t\"stroke-linecap\": \u0027round\u0027,\n\t\t\t\t\t\t\t\t\"stroke-linejoin\": \u0027round\u0027\n\t\t\t\t\t\t\t},\n\t\t\t\t\t\t\t\"name\": pipe,\n\t\t\t\t\t\t\t\"id\": \"border\"\n\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t},\n\t\t\t\t\t\t\t{\n\t\t\t\t\t\t\t\"type\": \"polyline\",\n\t\t\t\t\t\t\t\"fill\": \u0027transparent\u0027,\n\t\t\t\t\t\t\t\"name\": pipe,\n\t\t\t\t\t\t\t\"id\": \"pipe\",\n\t\t\t\t\t\t\t\"points\": points\n\t\t\t\t\t\t\t},\n\t\t\t\t\t\t\t{\n\t\t\t\t\t\t\t\"type\": \"group\",\n\t\t\t\t\t\t\t\"id\": \"arrow1\",\n\t\t\t\t\t\t\t\"name\": pipe,\n\t\t\t\t\t\t\t\"elements\": [\n\t\t\t\t\t\t\t\t\t{\n\t\t\t\t\t\t\t\t\t  \"type\": \"polyline\",\n\t\t\t\t\t\t\t\t\t  \"id\": \"arrow1\",\n\t\t\t\t\t\t\t\t\t  \"style\": {\n\t\t\t\t\t\t\t\t\t    \"classes\": \"pipehover Exchange/ArchitectureBuilder/hoverIcons/pipeHover\",\n\t\t\t\t\t\t\t\t\t    \"fill\": color,\n\t\t\t\t\t\t\t\t\t    \"transform\": \"rotate({}deg)\".format(arrow1rotate),\n\t\t\t\t\t\t\t\t\t    \"transform-origin\": arrow1Origin,\n\t\t\t\t\t\t\t\t\t    \"stroke-width\": 1.5,\n\t\t\t\t\t\t\t\t\t    \"stroke\": \"var(--neutral-30)\",\n\t\t\t\t\t\t\t\t\t    \"stroke-dasharray\": \"0, 0\"\n\t\t\t\t\t\t\t\t\t  },\n\t\t\t\t\t\t\t\t\t  \"name\": pipe,\n\t\t\t\t\t\t\t\t\t  \"points\": arrow1points\n\t\t\t\t\t\t\t\t\t}\n\t\t\t\t\t\t\t\t],\n\t\t\t\t\t\t\t\t\"style\": {\n\t\t\t\t\t\t\t\t\t\"classes\": \"\",\n\t\t\t\t\t\t\t\t\t\"transform\": \"rotate({}rad)\".format(angle1),\n\t\t\t\t\t\t\t\t\t\"transform-origin\": \"{}px {}px\".format(x1,y1)\n\t\t\t\t\t\t\t\t}\n\t\t\t\t\t\t\t},\n\t\t\t\t\t\t\t{\n\t\t\t\t\t\t\t\"type\": \"group\",\n\t\t\t\t\t\t\t\"id\": \"arrow2\",\n\t\t\t\t\t\t\t\"name\": pipe,\n\t\t\t\t\t\t\t\"elements\": [\n\t\t\t\t\t\t\t\t\t{\n\t\t\t\t\t\t\t\t\t  \"type\": \"polyline\",\n\t\t\t\t\t\t\t\t\t  \"id\": \"arrow2\",\n\t\t\t\t\t\t\t\t\t  \"style\": {\n\t\t\t\t\t\t\t\t\t    \"classes\": \"pipehover Exchange/ArchitectureBuilder/hoverIcons/pipeHover\",\n\t\t\t\t\t\t\t\t\t    \"fill\": color,\n\t\t\t\t\t\t\t\t\t    \"transform\": \"rotate({}deg)\".format(arrow2rotate),\n\t\t\t\t\t\t\t\t\t    \"transform-origin\": arrow2Origin,\n\t\t\t\t\t\t\t\t\t    \"stroke-width\": 1.5,\n\t\t\t\t\t\t\t\t\t    \"stroke\": \"var(--neutral-30)\",\n\t\t\t\t\t\t\t\t\t    \"stroke-dasharray\": \"0, 0\"\n\t\t\t\t\t\t\t\t\t  },\n\t\t\t\t\t\t\t\t\t  \"name\": pipe,\n\t\t\t\t\t\t\t\t\t  \"points\": arrow2points\n\t\t\t\t\t\t\t\t\t}\n\t\t\t\t\t\t\t\t],\n\t\t\t\t\t\t\t\t\"style\": {\n\t\t\t\t\t\t\t\t\t\"classes\": \"\",\n\t\t\t\t\t\t\t\t\t\"transform\": \"rotate({}rad)\".format(angle2),\n\t\t\t\t\t\t\t\t\t\"transform-origin\": \"{}px {}px\".format(x2,y2)\n\t\t\t\t\t\t\t\t}\n\t\t\t\t\t\t\t}\n\t\t\t\t\t\t]\n\t\t\t\t\t}\n\t\t\t\t)\n\n\t\tif len(xs)\u003e0 and len(ys)\u003e0:\n\t\t\tself.props.viewBox\u003d\u00270 0 {} {}\u0027.format(max(xs),max(ys))\n\t\t\tself.position.height\u003dmax(ys)\n\t\t\tself.position.width\u003dmax(xs)\n\t\treturn groups\n\treturn []",
+                  "type": "script"
+                }
+              ],
+              "type": "expr-struct"
+            }
+          }
+        },
+        "props": {
+          "preserveAspectRatio": "xMinYMin",
+          "style": {
+            "filter": "drop-shadow(8px 8px 5px #00000060)",
+            "overflow": "visible"
+          },
+          "viewBox": "0 0 520 570.0"
+        },
+        "type": "ia.shapes.svg"
+      },
+      {
+        "meta": {
+          "name": "Markdown",
+          "visible": false
+        },
+        "position": {
+          "height": 326,
+          "width": 283,
+          "x": -5,
+          "y": -4
+        },
+        "propConfig": {
+          "props.source": {
+            "binding": {
+              "config": {
+                "expression": "\"key\""
+              },
+              "transforms": [
+                {
+                  "code": "\t#make the value the key to write too.\n\tcode \u003d  \"\u003cimg style\u003d\u0027display:none\u0027 src\u003d\u0027/favicon.ico\u0027 onload\u003d\\\"const view \u003d [...window.__client.page.views._data.values()].find(view \u003d\u003e view.value.mountPath \u003d\u003d this.parentNode.parentNode.parentNode.getAttributeNode(\u0027data-component-path\u0027).value.split(\u0027.\u0027)[0]).value; this.parentNode.parentNode.parentNode.parentNode.addEventListener(\u0027mouseup\u0027,function(event){let elNode \u003d event.target; while(!(elNode.hasAttribute(\u0027name\u0027)) \u0026\u0026 !elNode.hasAttribute(\u0027data-component-path\u0027) ){elNode\u003delNode.parentNode;}; view.custom.write(\u0027\"+value+\"\u0027,elNode.getAttribute(\u0027name\u0027))},false);\\\"\u003e\u003c/img\u003e\"\n\treturn code\n\t",
+                  "type": "script"
+                }
+              ],
+              "type": "expr"
+            }
+          }
+        },
+        "props": {
+          "markdown": {
+            "escapeHtml": false
+          }
+        },
+        "type": "ia.display.markdown"
+      }
+    ],
+    "meta": {
+      "name": "root"
+    },
+    "props": {
+      "style": {
+        "classes": "pipe",
+        "overflow": "hidden",
+        "paddingBottom": 100,
+        "paddingRight": 100,
+        "pointer-events": "none"
+      }
+    },
+    "type": "ia.container.coord"
+  }
+}

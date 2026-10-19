@@ -1,0 +1,124 @@
+{
+  "custom": {},
+  "params": {},
+  "props": {
+    "defaultSize": {
+      "height": 663,
+      "width": 503
+    }
+  },
+  "root": {
+    "children": [
+      {
+        "meta": {
+          "name": "Label"
+        },
+        "position": {
+          "basis": "32px",
+          "shrink": 0
+        },
+        "props": {
+          "style": {
+            "fontWeight": "bolder",
+            "marginLeft": "16px"
+          },
+          "text": "Keyboard Shortcuts"
+        },
+        "type": "ia.display.label"
+      },
+      {
+        "meta": {
+          "name": "FlexRepeater"
+        },
+        "position": {
+          "shrink": 0
+        },
+        "props": {
+          "direction": "column",
+          "elementPosition": {
+            "basis": "40px",
+            "grow": 0,
+            "shrink": 0
+          },
+          "elementStyle": {
+            "margin": "4px"
+          },
+          "instances": [
+            {
+              "description": "Initializes Saving the Architecture",
+              "icon": "material/save",
+              "label": "ctrl + s"
+            },
+            {
+              "description": "Toggles Pan/Interact Function",
+              "icon": "material/touch_app",
+              "label": "ctrl + i"
+            },
+            {
+              "description": "Copies when hovering over component",
+              "icon": "material/content_copy",
+              "label": "ctrl + shift + C"
+            },
+            {
+              "description": "Pastes a copied component on the in the build area ",
+              "icon": "material/content_paste",
+              "label": "ctrl + shift + V"
+            },
+            {
+              "description": "Initiates the creation of a \"container\" in the build area ",
+              "icon": "material/format_shapes",
+              "label": "ctrl + a"
+            },
+            {
+              "description": "Initializes individual component movement when hovering over",
+              "icon": "material/drag_indicator",
+              "label": "ctrl + m"
+            },
+            {
+              "description": "Initializes container movement when hovering over. Double clicking components will also initial movement.",
+              "icon": "material/move_to_inbox",
+              "label": "alt + m"
+            },
+            {
+              "description": "Initializes individual component resizing when hovering over",
+              "icon": "material/photo_size_select_small",
+              "label": "ctrl + r"
+            },
+            {
+              "description": "Initializes the creation and completion of connections",
+              "icon": "material/timeline",
+              "label": "ctrl + Shift + p"
+            },
+            {
+              "description": "Initializes a request to Snap the components",
+              "icon": "material/align_vertical_top",
+              "label": "ctrl + shift + S"
+            },
+            {
+              "description": "Exits out of all commands",
+              "icon": "material/cancel_presentation",
+              "label": "escape"
+            }
+          ],
+          "path": "Exchange/ArchitectureBuilder/General/TextDescription",
+          "style": {
+            "marginBottom": "8px"
+          },
+          "useDefaultViewHeight": false,
+          "useDefaultViewWidth": false
+        },
+        "type": "ia.display.flex-repeater"
+      }
+    ],
+    "meta": {
+      "name": "root"
+    },
+    "props": {
+      "direction": "column",
+      "style": {
+        "opacity": 1
+      }
+    },
+    "type": "ia.container.flex"
+  }
+}

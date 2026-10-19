@@ -1,0 +1,20 @@
+{
+  "scope": "A",
+  "version": 1,
+  "restricted": false,
+  "overridable": true,
+  "files": [
+    "navigation-000-white.png"
+  ],
+  "attributes": {
+    "width": 16,
+    "format": "PNG",
+    "lastModification": {
+      "actor": "8.3-migration",
+      "timestamp": "2026-01-07T14:49:07Z"
+    },
+    "size": 682,
+    "lastModificationSignature": "1c1b9d1c8fdc0f0868d7d791ee8fbe47ce6a07c8a46c4687e4499696b05bd379",
+    "height": 16
+  }
+}

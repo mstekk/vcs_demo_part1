@@ -1,0 +1,541 @@
+{
+  "custom": {},
+  "params": {
+    "displayName": true,
+    "displayStatus": true,
+    "isVFD": false,
+    "tagPath": "[RCSD]WTF/Anita-B-Smith/RP-PIT-1-1"
+  },
+  "propConfig": {
+    "params.displayName": {
+      "paramDirection": "input",
+      "persistent": true
+    },
+    "params.displayStatus": {
+      "paramDirection": "input",
+      "persistent": true
+    },
+    "params.isVFD": {
+      "paramDirection": "input",
+      "persistent": true
+    },
+    "params.tagPath": {
+      "paramDirection": "input",
+      "persistent": true
+    }
+  },
+  "props": {
+    "defaultSize": {
+      "height": 130,
+      "width": 150
+    }
+  },
+  "root": {
+    "children": [
+      {
+        "meta": {
+          "name": "Device Name"
+        },
+        "position": {
+          "basis": "30px"
+        },
+        "propConfig": {
+          "meta.visible": {
+            "binding": {
+              "config": {
+                "path": "view.params.displayName"
+              },
+              "type": "property"
+            }
+          },
+          "props.text": {
+            "binding": {
+              "config": {
+                "fallbackDelay": 2.5,
+                "mode": "indirect",
+                "references": {
+                  "1": "{view.params.tagPath}"
+                },
+                "tagPath": "{1}/Parameters.DeviceID"
+              },
+              "type": "tag"
+            }
+          }
+        },
+        "props": {
+          "textStyle": {
+            "classes": "Text/Labels",
+            "textAlign": "center"
+          }
+        },
+        "type": "ia.display.label"
+      },
+      {
+        "children": [
+          {
+            "meta": {
+              "name": "Label"
+            },
+            "position": {
+              "height": "auto",
+              "width": "auto",
+              "x": 51,
+              "y": -12
+            },
+            "propConfig": {
+              "meta.visible": {
+                "binding": {
+                  "config": {
+                    "path": "view.params.displayStatus"
+                  },
+                  "type": "property"
+                }
+              },
+              "props.text": {
+                "binding": {
+                  "config": {
+                    "expression": "if(\r\n  !{/root.custom.isLocal},\r\n  \"\",\r\n  if({/root.custom.isLocal}, \"L\", \"R\")\r\n  +\r\n  if({/root.custom.isAuto}, \"A\", \"M\")\r\n)"
+                  },
+                  "type": "expr"
+                }
+              }
+            },
+            "props": {
+              "textStyle": {
+                "classes": "Text/ProcessVariable"
+              }
+            },
+            "type": "ia.display.label"
+          },
+          {
+            "events": {
+              "dom": {
+                "onClick": [
+                  {
+                    "config": {
+                      "script": "\twindow \u003d \u0027Popups/Pump\u0027\n\t\n\tsystem.perspective.openPopup(id\u003d\u0027pump\u0027, view\u003dwindow, params\u003d{\u0027isVFD\u0027:self.view.params.isVFD}, modal\u003dTrue, showCloseIcon\u003dFalse, viewportBound\u003dTrue, draggable\u003dFalse)"
+                    },
+                    "scope": "G",
+                    "type": "script"
+                  },
+                  {
+                    "config": {
+                      "draggable": false,
+                      "id": "popup",
+                      "modal": true,
+                      "overlayDismiss": false,
+                      "position": {
+                        "bottom": 100,
+                        "left": 100,
+                        "right": 100,
+                        "top": 100
+                      },
+                      "positionType": "exact",
+                      "resizable": false,
+                      "showCloseIcon": false,
+                      "type": "open",
+                      "viewPath": "Popups/Demo/Popup",
+                      "viewportBound": true
+                    },
+                    "enabled": false,
+                    "scope": "C",
+                    "type": "popup"
+                  }
+                ]
+              }
+            },
+            "meta": {
+              "name": "Pump"
+            },
+            "position": {
+              "height": 50,
+              "width": 50,
+              "x": -1,
+              "y": -3.5
+            },
+            "propConfig": {
+              "custom.stroke": {
+                "binding": {
+                  "config": {
+                    "path": "session.props.theme"
+                  },
+                  "transforms": [
+                    {
+                      "expression": "if(indexOf({value},\u0027ight\u0027)\u003e0, \u0027#2D2D2D\u0027,\u0027#808080\u0027)",
+                      "type": "expression"
+                    }
+                  ],
+                  "type": "property"
+                }
+              },
+              "props.elements[0].style.classes": {
+                "binding": {
+                  "config": {
+                    "path": "/root.custom.classStyle"
+                  },
+                  "type": "property"
+                }
+              },
+              "props.elements[0].style.stroke": {
+                "binding": {
+                  "config": {
+                    "path": "this.custom.stroke"
+                  },
+                  "type": "property"
+                },
+                "persistent": false
+              },
+              "props.elements[1].style.classes": {
+                "binding": {
+                  "config": {
+                    "path": "/root.custom.classStyle"
+                  },
+                  "type": "property"
+                }
+              },
+              "props.elements[1].style.stroke": {
+                "binding": {
+                  "config": {
+                    "path": "this.custom.stroke"
+                  },
+                  "type": "property"
+                }
+              },
+              "props.elements[2].style.classes": {
+                "binding": {
+                  "config": {
+                    "path": "/root.custom.classStyle"
+                  },
+                  "type": "property"
+                }
+              },
+              "props.elements[2].style.stroke": {
+                "binding": {
+                  "config": {
+                    "path": "this.custom.stroke"
+                  },
+                  "type": "property"
+                }
+              },
+              "props.elements[3].style.classes": {
+                "binding": {
+                  "config": {
+                    "path": "/root.custom.classStyle"
+                  },
+                  "type": "property"
+                }
+              },
+              "props.elements[3].style.stroke": {
+                "binding": {
+                  "config": {
+                    "path": "this.custom.stroke"
+                  },
+                  "type": "property"
+                }
+              },
+              "props.elements[4].style.classes": {
+                "binding": {
+                  "config": {
+                    "path": "/root.custom.classStyle"
+                  },
+                  "type": "property"
+                }
+              },
+              "props.elements[4].style.stroke": {
+                "binding": {
+                  "config": {
+                    "path": "this.custom.stroke"
+                  },
+                  "type": "property"
+                }
+              },
+              "props.elements[5].fill.paint": {
+                "binding": {
+                  "config": {
+                    "path": "this.custom.stroke"
+                  },
+                  "type": "property"
+                }
+              },
+              "props.elements[6].style.classes": {
+                "binding": {
+                  "config": {
+                    "path": "/root.custom.classStyle"
+                  },
+                  "type": "property"
+                }
+              },
+              "props.elements[6].style.stroke": {
+                "binding": {
+                  "config": {
+                    "path": "this.custom.stroke"
+                  },
+                  "type": "property"
+                }
+              }
+            },
+            "props": {
+              "elements": [
+                {
+                  "d": "M206.443 184H147.233L191.782 274.435H227.872L206.443 184Z",
+                  "name": "path",
+                  "style": {},
+                  "type": "path"
+                },
+                {
+                  "d": "M25.4286 184H84.6391L40.0902 274.435H4L25.4286 184Z",
+                  "name": "path",
+                  "style": {},
+                  "type": "path"
+                },
+                {
+                  "d": "M189.019 17.6084L189.035 17.6113L189.078 17.6191L235.093 25.8594L281.519 29.6924V20.9189H309.075V105.05H281.519V94.9053L230.837 102.388L228.393 102.748L228.003 100.308C222.377 65.0551 199.709 35.3258 168.493 19.4521L167 18.707L168.534 14L189.019 17.6084Z",
+                  "name": "path",
+                  "style": {},
+                  "type": "path"
+                },
+                {
+                  "cx": "117",
+                  "cy": "116",
+                  "name": "circle",
+                  "r": "113",
+                  "style": {},
+                  "type": "circle"
+                },
+                {
+                  "cx": "117",
+                  "cy": "115",
+                  "name": "circle",
+                  "r": "85",
+                  "style": {},
+                  "type": "circle"
+                },
+                {
+                  "d": "M119 106.772L172.092 53.5596L175.623 57.0996L120.849 112H201.173V117H122.924L179.154 173.361L175.623 176.9L119 120.146V201.565H114V118.864L56 177L52.4688 173.46L108.797 117H32V112H110.872L56 57L59.5312 53.46L114 108.055V32H119V106.772Z",
+                  "fill": {},
+                  "name": "path",
+                  "type": "path"
+                },
+                {
+                  "cx": "117",
+                  "cy": "116",
+                  "name": "circle",
+                  "r": "28",
+                  "style": {},
+                  "type": "circle"
+                }
+              ],
+              "fill": {
+                "paint": "transparent"
+              },
+              "style": {
+                "classes": "HoverSelect"
+              },
+              "viewBox": "0 0 312 277"
+            },
+            "type": "ia.shapes.svg"
+          }
+        ],
+        "meta": {
+          "name": "CoordinateContainer"
+        },
+        "position": {
+          "basis": "45px"
+        },
+        "props": {
+          "style": {
+            "overflow": "visible"
+          }
+        },
+        "type": "ia.container.coord"
+      },
+      {
+        "meta": {
+          "name": "Status"
+        },
+        "propConfig": {
+          "position.display": {
+            "binding": {
+              "config": {
+                "path": "view.params.displayStatus"
+              },
+              "type": "property"
+            }
+          },
+          "props.text": {
+            "binding": {
+              "config": {
+                "path": "parent.custom.status"
+              },
+              "transforms": [
+                {
+                  "fallback": "Non-Telemetered",
+                  "inputType": "scalar",
+                  "mappings": [
+                    {
+                      "input": 0,
+                      "output": "Stopped"
+                    },
+                    {
+                      "input": 1,
+                      "output": "Running"
+                    },
+                    {
+                      "input": 2,
+                      "output": "Non-Telemetered"
+                    },
+                    {
+                      "input": 10,
+                      "output": "Failed"
+                    },
+                    {
+                      "input": 11,
+                      "output": "Warning"
+                    },
+                    {
+                      "input": 12,
+                      "output": "Notice"
+                    },
+                    {
+                      "input": 20,
+                      "output": "Failed"
+                    },
+                    {
+                      "input": 21,
+                      "output": "Warning"
+                    },
+                    {
+                      "input": 22,
+                      "output": "Notice"
+                    }
+                  ],
+                  "outputType": "scalar",
+                  "type": "map"
+                }
+              ],
+              "type": "property"
+            }
+          }
+        },
+        "props": {
+          "textStyle": {
+            "classes": "Text/ProcessVariable",
+            "textAlign": "center"
+          }
+        },
+        "type": "ia.display.label"
+      },
+      {
+        "meta": {
+          "name": "Speed"
+        },
+        "propConfig": {
+          "position.display": {
+            "binding": {
+              "config": {
+                "path": "view.params.displayStatus"
+              },
+              "transforms": [
+                {
+                  "expression": "{value}\r\n\u0026\u0026\r\n{view.params.isVFD}",
+                  "type": "expression"
+                }
+              ],
+              "type": "property"
+            }
+          }
+        },
+        "props": {
+          "text": "100%",
+          "textStyle": {
+            "classes": "Text/ProcessVariable",
+            "textAlign": "center"
+          }
+        },
+        "type": "ia.display.label"
+      }
+    ],
+    "meta": {
+      "name": "root"
+    },
+    "propConfig": {
+      "custom.classStyle": {
+        "binding": {
+          "config": {
+            "path": "this.custom.status"
+          },
+          "transforms": [
+            {
+              "fallback": "Status/NonTelemetered",
+              "inputType": "scalar",
+              "mappings": [
+                {
+                  "input": 0,
+                  "output": "Status/Stopped"
+                },
+                {
+                  "input": 1,
+                  "output": "Status/Running"
+                },
+                {
+                  "input": 2,
+                  "output": "Status/NonTelemetered"
+                }
+              ],
+              "outputType": "scalar",
+              "type": "map"
+            }
+          ],
+          "type": "property"
+        }
+      },
+      "custom.isAuto": {
+        "binding": {
+          "config": {
+            "fallbackDelay": 2.5,
+            "mode": "indirect",
+            "references": {
+              "1": "{view.params.tagPath}"
+            },
+            "tagPath": "{1}/Auto"
+          },
+          "type": "tag"
+        }
+      },
+      "custom.isLocal": {
+        "binding": {
+          "config": {
+            "fallbackDelay": 2.5,
+            "mode": "indirect",
+            "references": {
+              "1": "{view.params.tagPath}"
+            },
+            "tagPath": "{1}/LOR"
+          },
+          "type": "tag"
+        }
+      },
+      "custom.status": {
+        "binding": {
+          "config": {
+            "fallbackDelay": 2.5,
+            "mode": "indirect",
+            "references": {
+              "1": "{view.params.tagPath}"
+            },
+            "tagPath": "{1}/Value"
+          },
+          "type": "tag"
+        }
+      }
+    },
+    "props": {
+      "alignItems": "center",
+      "direction": "column",
+      "style": {
+        "overflow": "visible"
+      }
+    },
+    "type": "ia.container.flex"
+  }
+}

@@ -1,0 +1,20 @@
+{
+  "scope": "A",
+  "version": 1,
+  "restricted": false,
+  "overridable": true,
+  "files": [
+    "map.png"
+  ],
+  "attributes": {
+    "width": 16,
+    "format": "PNG",
+    "lastModification": {
+      "actor": "8.3-migration",
+      "timestamp": "2026-01-07T14:49:07Z"
+    },
+    "size": 660,
+    "lastModificationSignature": "43c098d8bbf5ad04d4a17ff6d15b4ec87e2952a4bc509883ea13f2303e43592b",
+    "height": 16
+  }
+}

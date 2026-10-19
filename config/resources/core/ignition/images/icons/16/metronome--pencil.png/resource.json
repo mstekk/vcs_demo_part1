@@ -1,0 +1,20 @@
+{
+  "scope": "A",
+  "version": 1,
+  "restricted": false,
+  "overridable": true,
+  "files": [
+    "metronome--pencil.png"
+  ],
+  "attributes": {
+    "width": 16,
+    "format": "PNG",
+    "lastModification": {
+      "actor": "8.3-migration",
+      "timestamp": "2026-01-07T14:49:07Z"
+    },
+    "size": 859,
+    "lastModificationSignature": "6aba129a997a4544094cd7fa6543a5d050c56f08bfc15153d02c0a07ae6d9bbb",
+    "height": 16
+  }
+}

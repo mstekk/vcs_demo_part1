@@ -1,0 +1,20 @@
+{
+  "scope": "A",
+  "version": 1,
+  "restricted": false,
+  "overridable": true,
+  "files": [
+    "cross-small.png"
+  ],
+  "attributes": {
+    "width": 16,
+    "format": "PNG",
+    "lastModification": {
+      "actor": "8.3-migration",
+      "timestamp": "2026-01-07T14:49:07Z"
+    },
+    "size": 296,
+    "lastModificationSignature": "3a08319e2062c9f8575d2fb815c581357835ba5fdd91fcfa7c3023dd38101ebb",
+    "height": 16
+  }
+}

@@ -1,0 +1,20 @@
+{
+  "scope": "A",
+  "version": 1,
+  "restricted": false,
+  "overridable": true,
+  "files": [
+    "gear68.png"
+  ],
+  "attributes": {
+    "width": 24,
+    "format": "PNG",
+    "lastModification": {
+      "actor": "8.3-migration",
+      "timestamp": "2026-01-07T14:49:07Z"
+    },
+    "size": 453,
+    "lastModificationSignature": "e7c30d9df0f63c2d402a2858a27bc92568389deb00376d6486c983bd633eb137",
+    "height": 24
+  }
+}

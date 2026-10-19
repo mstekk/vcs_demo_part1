@@ -1,0 +1,19 @@
+{
+  "scope": "A",
+  "description": "Built-in SQLTags provider",
+  "version": 1,
+  "restricted": false,
+  "overridable": true,
+  "files": [
+    "config.json"
+  ],
+  "attributes": {
+    "lastModification": {
+      "actor": "8.3-migration",
+      "timestamp": "2026-01-07T14:49:54Z"
+    },
+    "uuid": "b6bff625-fd29-4f9b-a18d-cc8dc537b326",
+    "lastModificationSignature": "8b88c169a0211ef28194c2822d105aa8ec5dcda4e966ca2ff713a431b82f5c3e",
+    "enabled": true
+  }
+}

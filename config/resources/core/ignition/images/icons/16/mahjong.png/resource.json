@@ -1,0 +1,20 @@
+{
+  "scope": "A",
+  "version": 1,
+  "restricted": false,
+  "overridable": true,
+  "files": [
+    "mahjong.png"
+  ],
+  "attributes": {
+    "width": 16,
+    "format": "PNG",
+    "lastModification": {
+      "actor": "8.3-migration",
+      "timestamp": "2026-01-07T14:49:07Z"
+    },
+    "size": 509,
+    "lastModificationSignature": "ca5b8e9a684063bb371cf96eb51e059dc49e7b41c7b17494bfb3ec17d32c8628",
+    "height": 16
+  }
+}

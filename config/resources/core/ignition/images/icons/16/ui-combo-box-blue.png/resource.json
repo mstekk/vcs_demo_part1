@@ -1,0 +1,20 @@
+{
+  "scope": "A",
+  "version": 1,
+  "restricted": false,
+  "overridable": true,
+  "files": [
+    "ui-combo-box-blue.png"
+  ],
+  "attributes": {
+    "width": 16,
+    "format": "PNG",
+    "lastModification": {
+      "actor": "8.3-migration",
+      "timestamp": "2026-01-07T14:49:07Z"
+    },
+    "size": 429,
+    "lastModificationSignature": "acc7336f21b03af28115ecb9576ec0a1d43fd101674f6e9f1242c23f47475edc",
+    "height": 16
+  }
+}

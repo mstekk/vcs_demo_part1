@@ -1,0 +1,20 @@
+{
+  "scope": "A",
+  "version": 1,
+  "restricted": false,
+  "overridable": true,
+  "files": [
+    "bell83.png"
+  ],
+  "attributes": {
+    "width": 16,
+    "format": "PNG",
+    "lastModification": {
+      "actor": "8.3-migration",
+      "timestamp": "2026-01-07T14:49:07Z"
+    },
+    "size": 351,
+    "lastModificationSignature": "3dea712869a75daa7624cb05aee71dfaf41163db5f7afc65d2dcdc04ee6c83b7",
+    "height": 16
+  }
+}

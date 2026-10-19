@@ -1,0 +1,20 @@
+{
+  "scope": "A",
+  "version": 1,
+  "restricted": false,
+  "overridable": true,
+  "files": [
+    "vessel_vert-round.png"
+  ],
+  "attributes": {
+    "width": 180,
+    "format": "PNG",
+    "lastModification": {
+      "actor": "8.3-migration",
+      "timestamp": "2026-01-07T14:49:07Z"
+    },
+    "size": 7784,
+    "lastModificationSignature": "e5278785c569974780d9c50a24a03f3c52c2c8c50e2e739526cd3e2c127836fb",
+    "height": 75
+  }
+}

@@ -1,0 +1,200 @@
+{
+  "custom": {
+    "device": {
+      "PLCType": "Allen-Bradley CompactLogix (Legacy)",
+      "image": "data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiPz48c3ZnIGlkPSJMYXllcl8yIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHhtbG5zOnhsaW5rPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5L3hsaW5rIiB2aWV3Qm94PSIwIDAgMTc0LjE3IDE3Mi4zMSI+PGRlZnM+PHN0eWxlPi5jbHMtMSwuY2xzLTIsLmNscy0ze2ZpbGw6bm9uZTt9LmNscy0ye2NsaXAtcGF0aDp1cmwoI2NsaXBwYXRoLTEpO30uY2xzLTR7ZmlsbDojZmZmO30uY2xzLTV7ZmlsbDojYWU5M2EyO30uY2xzLTZ7ZmlsbDojNmU0MTYzO30uY2xzLTd7ZmlsbDojNGMzMDQ1O30uY2xzLTN7Y2xpcC1wYXRoOnVybCgjY2xpcHBhdGgpO308L3N0eWxlPjxjbGlwUGF0aCBpZD0iY2xpcHBhdGgiPjxyZWN0IGNsYXNzPSJjbHMtMSIgd2lkdGg9IjE3NC4xNyIgaGVpZ2h0PSIxNzIuMzEiLz48L2NsaXBQYXRoPjxjbGlwUGF0aCBpZD0iY2xpcHBhdGgtMSI+PHJlY3QgY2xhc3M9ImNscy0xIiB3aWR0aD0iMTc0LjE3IiBoZWlnaHQ9IjE3Mi4zMSIvPjwvY2xpcFBhdGg+PC9kZWZzPjxnIGlkPSJMYXllcl8xLTIiPjxnIGlkPSJQTENfUHVycGxlXy1fUmlnaHQiPjxnIGNsYXNzPSJjbHMtMyI+PHBvbHlnb24gY2xhc3M9ImNscy01IiBwb2ludHM9IjQyLjc1IDAgMCAyMy42OCAwIDk2LjQ1IDEzMS4zOCAxNzIuMzEgMTc0LjE3IDE0OC42NSAxNzQuMTcgNzUuODcgNDIuNzUgMCIvPjxwb2x5Z29uIGNsYXNzPSJjbHMtNyIgcG9pbnRzPSIwIDk2LjQ1IDEzMS4zOCAxNzIuMzEgMTMxLjM4IDk5LjUyIDAgMjMuNjggMCA5Ni40NSIvPjxnIGNsYXNzPSJjbHMtMiI+PHBhdGggY2xhc3M9ImNscy00IiBkPSJtODEuNDEsMTM0LjkxYy0xLjU5LDAtMi44OS0xLjI5LTIuODktMi44OXYtNDZjMC0xLjU5LDEuMjktMi44OSwyLjg5LTIuODlzMi44OSwxLjI5LDIuODksMi44OXY0NmMwLDEuNTktMS4yOSwyLjg5LTIuODksMi44OSIvPjxwYXRoIGNsYXNzPSJjbHMtNCIgZD0ibTEwOC4zMywxNTAuNDVjLTEuNTksMC0yLjg5LTEuMjktMi44OS0yLjg5di00NS45N2MwLTEuNTksMS4yOS0yLjg5LDIuODktMi44OXMyLjg5LDEuMjksMi44OSwyLjg5djQ1Ljk3YzAsMS41OS0xLjI5LDIuODktMi44OSwyLjg5Ii8+PHBhdGggY2xhc3M9ImNscy00IiBkPSJtNTMuMTEsMTE4LjU4Yy0xLjU5LDAtMi44OS0xLjI5LTIuODktMi44OXYtNDUuOTljMC0xLjU5LDEuMjktMi44OSwyLjg5LTIuODlzMi44OSwxLjI5LDIuODksMi44OXY0NS45OWMwLDEuNTktMS4yOSwyLjg5LTIuODksMi44OSIvPjxwYXRoIGNsYXNzPSJjbHMtNCIgZD0ibTIxLjA3LDUyLjQ2YzAsMy4wOCwyLjUxLDcuMDEsNS41Nyw4Ljc5LDMuMTMsMS44LDUuNjUuNzcsNS42NS0yLjMycy0yLjUzLTcuMDgtNS42NS04Ljg3Yy0zLjA2LTEuNzgtNS41Ny0uNzEtNS41NywyLjQiLz48cGF0aCBjbGFzcz0iY2xzLTQiIGQ9Im03Ljk1LDQ0Ljg4YzAsMy4xLDIuNTEsNy4wMiw1LjYsOC44MSwzLjExLDEuNzksNS42Ljc2LDUuNi0yLjM2cy0yLjQ5LTcuMDQtNS42LTguODNjLTMuMDktMS43Ny01LjYtLjc1LTUuNiwyLjM3Ii8+PHBvbHlnb24gY2xhc3M9ImNscy02IiBwb2ludHM9IjE3NC4xNyA3NS44NyAxMzEuMzggOTkuNTIgMTMxLjM4IDE3Mi4zMSAxNzQuMTcgMTQ4LjY1IDE3NC4xNyA3NS44NyIvPjwvZz48L2c+PC9nPjwvZz48L3N2Zz4\u003d",
+      "tagCount": 2350
+    }
+  },
+  "params": {
+    "uuid": "Ia52bdff0"
+  },
+  "propConfig": {
+    "custom.device": {
+      "binding": {
+        "config": {
+          "expression": "property(\"session.custom.structure.configs.\" + {view.params.uuid})"
+        },
+        "type": "expr"
+      },
+      "persistent": true
+    },
+    "params.uuid": {
+      "paramDirection": "input",
+      "persistent": true
+    }
+  },
+  "props": {
+    "defaultSize": {
+      "height": 40,
+      "width": 608
+    }
+  },
+  "root": {
+    "children": [
+      {
+        "meta": {
+          "name": "ModuleImage"
+        },
+        "position": {
+          "basis": "28px",
+          "shrink": 0
+        },
+        "propConfig": {
+          "props.source": {
+            "binding": {
+              "config": {
+                "path": "view.custom.device.image"
+              },
+              "transforms": [
+                {
+                  "code": "\t#return \u0027data:image/png;base64,{}\u0027.format(value.decode(\u0027unicode-escape\u0027))\n\treturn \u0027{}\u0027.format(value.decode(\u0027unicode-escape\u0027))",
+                  "type": "script"
+                }
+              ],
+              "type": "property"
+            }
+          }
+        },
+        "props": {
+          "fit": {
+            "mode": "contain"
+          },
+          "style": {
+            "borderBottomLeftRadius": "8px",
+            "borderBottomRightRadius": "8px",
+            "borderTopLeftRadius": "8px",
+            "borderTopRightRadius": "8px",
+            "marginLeft": "4px",
+            "marginRight": "4px",
+            "paddingLeft": "2px",
+            "paddingRight": 2
+          }
+        },
+        "type": "ia.display.image"
+      },
+      {
+        "meta": {
+          "name": "TextField"
+        },
+        "position": {
+          "basis": "150px"
+        },
+        "propConfig": {
+          "props.text": {
+            "binding": {
+              "config": {
+                "bidirectional": true,
+                "path": "view.custom.device.name"
+              },
+              "type": "property"
+            }
+          }
+        },
+        "props": {
+          "placeholder": "Device Name"
+        },
+        "type": "ia.input.text-field"
+      },
+      {
+        "meta": {
+          "name": "EmbeddedView"
+        },
+        "position": {
+          "basis": "330px",
+          "shrink": 0
+        },
+        "propConfig": {
+          "props.params.value": {
+            "binding": {
+              "config": {
+                "bidirectional": true,
+                "path": "view.custom.device.PLCType"
+              },
+              "type": "property"
+            }
+          }
+        },
+        "props": {
+          "params": {
+            "label": "",
+            "options": [
+              "Allen-Bradley CompactLogix (Legacy)",
+              "Allen-Bradley ControlLogix (Legacy)",
+              "Allen-Bradley Logix Driver",
+              "Allen-Bradley MicroLogix",
+              "Allen-Bradley PLC5",
+              "Allen-Bradley SLC",
+              "BACnet/IP",
+              "DNP3 Driver",
+              "IEC 61850 MMS Client Driver",
+              "Mitsubishi TCP",
+              "Modbus RTU",
+              "Modbus RTU over TCP",
+              "Modbus TCP",
+              "Omron FINS/TCP",
+              "Omron FINS/UDP",
+              "Omron NJ Driver",
+              "Siemens S7-1200",
+              "Siemens S7-1500",
+              "Siemens S7-300",
+              "Siemens S7-400",
+              "TCP Driver",
+              "UDP Driver"
+            ]
+          },
+          "path": "Exchange/ArchitectureBuilder/General/DropDown"
+        },
+        "type": "ia.display.view"
+      },
+      {
+        "meta": {
+          "name": "NumericEntryField"
+        },
+        "position": {
+          "basis": "80px",
+          "shrink": 0
+        },
+        "propConfig": {
+          "props.value": {
+            "binding": {
+              "config": {
+                "bidirectional": true,
+                "path": "view.custom.device.tagCount"
+              },
+              "type": "property"
+            }
+          }
+        },
+        "props": {
+          "format": "#,###,##0",
+          "inputBounds": {
+            "minimum": 0
+          },
+          "placeholder": "Tags",
+          "style": {
+            "marginBottom": "10px",
+            "marginTop": "10px"
+          },
+          "tooltipText": "Device tags read by Ignition"
+        },
+        "type": "ia.input.numeric-entry-field"
+      }
+    ],
+    "meta": {
+      "name": "root"
+    },
+    "props": {
+      "alignContent": "flex-start",
+      "style": {
+        "backgroundColor": "--neutral-20",
+        "borderBottomLeftRadius": "8px",
+        "borderBottomRightRadius": "8px",
+        "borderTopLeftRadius": "8px",
+        "borderTopRightRadius": "8px",
+        "padding": "2px"
+      }
+    },
+    "type": "ia.container.flex"
+  }
+}

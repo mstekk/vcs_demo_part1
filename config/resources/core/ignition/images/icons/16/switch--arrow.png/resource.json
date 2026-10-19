@@ -1,0 +1,20 @@
+{
+  "scope": "A",
+  "version": 1,
+  "restricted": false,
+  "overridable": true,
+  "files": [
+    "switch--arrow.png"
+  ],
+  "attributes": {
+    "width": 16,
+    "format": "PNG",
+    "lastModification": {
+      "actor": "8.3-migration",
+      "timestamp": "2026-01-07T14:49:07Z"
+    },
+    "size": 622,
+    "lastModificationSignature": "52965c1bf3dc807f4a4c2ca7215fcfa59f5ca9b328e3f4689997c69bc5692356",
+    "height": 16
+  }
+}

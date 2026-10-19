@@ -1,0 +1,46 @@
+{
+  "profile": {
+    "type": "EmailNotificationProfileType"
+  },
+  "settings": {
+    "advanced": {
+      "debugModeEnabled": false,
+      "smtpTimeout": 10000,
+      "startTlsEnabled": false
+    },
+    "auditProfile": "alarmAudit",
+    "settings": {
+      "emailProfile": null,
+      "hostname": "smtp.gmail.com",
+      "password": {
+        "data": {
+          "ciphertext": "6yrcSZeNJFuW13q4bBlRXIw",
+          "encrypted_key": "q87VJossU81x0HfFWDWfPCRagavFMYGGa6gFc_IK79Y1IVDFZtdPkg",
+          "iv": "SYC-HeOxgXR5IkIX",
+          "protected": "eyJhbGciOiJBMjU2S1ciLCJlbmMiOiJBMjU2R0NNIiwiaWF0IjoxNzY3Nzk3Mzk0LCJ6aXAiOiJERUYifQ",
+          "tag": "FoZlT2OS5HS2p11YywAzcA"
+        },
+        "type": "Embedded"
+      },
+      "port": 465,
+      "sslEnabled": true,
+      "useSmtpProfile": false,
+      "username": "ignitionalarms@gmail.com"
+    },
+    "twoWay": {
+      "gatewayAddress": "https://10.88.1.102:8043",
+      "httpsLinkEnabled": true,
+      "twoWayEnabled": true
+    },
+    "twoWayPop3": {
+      "pop3CustomMessage": null,
+      "pop3DeleteMessage": false,
+      "pop3Hostname": null,
+      "pop3PollingInterval": 60000,
+      "pop3Port": 110,
+      "pop3SslEnabled": false,
+      "pop3TwoWayEnabled": false,
+      "pop3Username": null
+    }
+  }
+}

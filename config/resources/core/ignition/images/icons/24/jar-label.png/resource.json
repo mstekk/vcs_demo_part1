@@ -1,0 +1,20 @@
+{
+  "scope": "A",
+  "version": 1,
+  "restricted": false,
+  "overridable": true,
+  "files": [
+    "jar-label.png"
+  ],
+  "attributes": {
+    "width": 24,
+    "format": "PNG",
+    "lastModification": {
+      "actor": "8.3-migration",
+      "timestamp": "2026-01-07T14:49:07Z"
+    },
+    "size": 1076,
+    "lastModificationSignature": "1801f165a249041e9f3a3aa12e7be6662b7b5d76174e6078dbc0e07ecce79248",
+    "height": 24
+  }
+}

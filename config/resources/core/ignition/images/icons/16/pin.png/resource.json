@@ -1,0 +1,20 @@
+{
+  "scope": "A",
+  "version": 1,
+  "restricted": false,
+  "overridable": true,
+  "files": [
+    "pin.png"
+  ],
+  "attributes": {
+    "width": 16,
+    "format": "PNG",
+    "lastModification": {
+      "actor": "8.3-migration",
+      "timestamp": "2026-01-07T14:49:07Z"
+    },
+    "size": 527,
+    "lastModificationSignature": "cf448bf099a508279a8f67686881b2862e5eaeb3729d3a7cc4118d44f9f26d51",
+    "height": 16
+  }
+}

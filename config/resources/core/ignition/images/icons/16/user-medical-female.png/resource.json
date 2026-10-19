@@ -1,0 +1,20 @@
+{
+  "scope": "A",
+  "version": 1,
+  "restricted": false,
+  "overridable": true,
+  "files": [
+    "user-medical-female.png"
+  ],
+  "attributes": {
+    "width": 16,
+    "format": "PNG",
+    "lastModification": {
+      "actor": "8.3-migration",
+      "timestamp": "2026-01-07T14:49:07Z"
+    },
+    "size": 759,
+    "lastModificationSignature": "cdd2e4b2393adad080d50894277a13e677888d86af30510e3a2132acd3ab7e3a",
+    "height": 16
+  }
+}

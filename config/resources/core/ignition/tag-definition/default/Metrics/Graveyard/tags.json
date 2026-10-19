@@ -1,0 +1,386 @@
+[
+  {
+    "valueSource": "memory",
+    "historyMaxAge": 30,
+    "writePermissions": {
+      "type": "AllOf",
+      "securityLevels": []
+    },
+    "defaultValue": 95.70096,
+    "tagGroup": "Default",
+    "historyTagGroup": "SemiHourly",
+    "tagType": "AtomicTag",
+    "enabled": true,
+    "readOnly": false,
+    "dataType": "Float4",
+    "historyProvider": "MySQL",
+    "historyMaxAgeUnits": "MIN",
+    "name": "Metric1",
+    "historyEnabled": true,
+    "readPermissions": {
+      "type": "AllOf",
+      "securityLevels": []
+    },
+    "sampleMode": "TagGroup"
+  },
+  {
+    "valueSource": "memory",
+    "historyMaxAge": 30,
+    "writePermissions": {
+      "type": "AllOf",
+      "securityLevels": []
+    },
+    "defaultValue": 0.0,
+    "tagGroup": "Default",
+    "historyTagGroup": "SemiHourly",
+    "tagType": "AtomicTag",
+    "enabled": true,
+    "readOnly": false,
+    "dataType": "Float4",
+    "historyProvider": "MySQL",
+    "historyMaxAgeUnits": "MIN",
+    "name": "Metric10",
+    "historyEnabled": true,
+    "readPermissions": {
+      "type": "AllOf",
+      "securityLevels": []
+    },
+    "sampleMode": "TagGroup"
+  },
+  {
+    "valueSource": "memory",
+    "historyMaxAge": 30,
+    "writePermissions": {
+      "type": "AllOf",
+      "securityLevels": []
+    },
+    "defaultValue": 26.577566,
+    "tagGroup": "Default",
+    "historyTagGroup": "SemiHourly",
+    "tagType": "AtomicTag",
+    "enabled": true,
+    "readOnly": false,
+    "dataType": "Float4",
+    "historyProvider": "MySQL",
+    "historyMaxAgeUnits": "MIN",
+    "name": "Metric11",
+    "historyEnabled": true,
+    "readPermissions": {
+      "type": "AllOf",
+      "securityLevels": []
+    },
+    "sampleMode": "TagGroup"
+  },
+  {
+    "valueSource": "memory",
+    "historyMaxAge": 30,
+    "writePermissions": {
+      "type": "AllOf",
+      "securityLevels": []
+    },
+    "defaultValue": 481.0,
+    "tagGroup": "Default",
+    "historyTagGroup": "SemiHourly",
+    "tagType": "AtomicTag",
+    "enabled": true,
+    "readOnly": false,
+    "dataType": "Float4",
+    "historyProvider": "MySQL",
+    "historyMaxAgeUnits": "MIN",
+    "name": "Metric12",
+    "historyEnabled": true,
+    "readPermissions": {
+      "type": "AllOf",
+      "securityLevels": []
+    },
+    "sampleMode": "TagGroup"
+  },
+  {
+    "valueSource": "memory",
+    "historyMaxAge": 30,
+    "writePermissions": {
+      "type": "AllOf",
+      "securityLevels": []
+    },
+    "defaultValue": 0.0,
+    "tagGroup": "Default",
+    "historyTagGroup": "SemiHourly",
+    "tagType": "AtomicTag",
+    "enabled": true,
+    "readOnly": false,
+    "dataType": "Float4",
+    "historyProvider": "MySQL",
+    "historyMaxAgeUnits": "MIN",
+    "name": "Metric13",
+    "historyEnabled": true,
+    "readPermissions": {
+      "type": "AllOf",
+      "securityLevels": []
+    },
+    "sampleMode": "TagGroup"
+  },
+  {
+    "valueSource": "memory",
+    "historyMaxAge": 30,
+    "writePermissions": {
+      "type": "AllOf",
+      "securityLevels": []
+    },
+    "defaultValue": 31.404152,
+    "tagGroup": "Default",
+    "historyTagGroup": "SemiHourly",
+    "tagType": "AtomicTag",
+    "enabled": true,
+    "readOnly": false,
+    "dataType": "Float4",
+    "historyProvider": "MySQL",
+    "historyMaxAgeUnits": "MIN",
+    "name": "Metric14",
+    "historyEnabled": true,
+    "readPermissions": {
+      "type": "AllOf",
+      "securityLevels": []
+    },
+    "sampleMode": "TagGroup"
+  },
+  {
+    "valueSource": "memory",
+    "historyMaxAge": 30,
+    "writePermissions": {
+      "type": "AllOf",
+      "securityLevels": []
+    },
+    "defaultValue": 1.0,
+    "tagGroup": "Default",
+    "historyTagGroup": "SemiHourly",
+    "tagType": "AtomicTag",
+    "enabled": true,
+    "readOnly": false,
+    "dataType": "Float4",
+    "historyProvider": "MySQL",
+    "historyMaxAgeUnits": "MIN",
+    "name": "Metric15",
+    "historyEnabled": true,
+    "readPermissions": {
+      "type": "AllOf",
+      "securityLevels": []
+    },
+    "sampleMode": "TagGroup"
+  },
+  {
+    "valueSource": "memory",
+    "historyMaxAge": 30,
+    "writePermissions": {
+      "type": "AllOf",
+      "securityLevels": []
+    },
+    "defaultValue": 23.0,
+    "tagGroup": "Default",
+    "historyTagGroup": "SemiHourly",
+    "tagType": "AtomicTag",
+    "enabled": true,
+    "readOnly": false,
+    "dataType": "Float4",
+    "historyProvider": "MySQL",
+    "historyMaxAgeUnits": "MIN",
+    "name": "Metric16",
+    "historyEnabled": true,
+    "readPermissions": {
+      "type": "AllOf",
+      "securityLevels": []
+    },
+    "sampleMode": "TagGroup"
+  },
+  {
+    "valueSource": "memory",
+    "historyMaxAge": 30,
+    "writePermissions": {
+      "type": "AllOf",
+      "securityLevels": []
+    },
+    "defaultValue": 57.759247,
+    "tagGroup": "Default",
+    "historyTagGroup": "SemiHourly",
+    "tagType": "AtomicTag",
+    "enabled": true,
+    "readOnly": false,
+    "dataType": "Float4",
+    "historyProvider": "MySQL",
+    "historyMaxAgeUnits": "MIN",
+    "name": "Metric2",
+    "historyEnabled": true,
+    "readPermissions": {
+      "type": "AllOf",
+      "securityLevels": []
+    },
+    "sampleMode": "TagGroup"
+  },
+  {
+    "valueSource": "memory",
+    "historyMaxAge": 30,
+    "writePermissions": {
+      "type": "AllOf",
+      "securityLevels": []
+    },
+    "defaultValue": 0.0,
+    "tagGroup": "Default",
+    "historyTagGroup": "SemiHourly",
+    "tagType": "AtomicTag",
+    "enabled": true,
+    "readOnly": false,
+    "dataType": "Float4",
+    "historyProvider": "MySQL",
+    "historyMaxAgeUnits": "MIN",
+    "name": "Metric3",
+    "historyEnabled": true,
+    "readPermissions": {
+      "type": "AllOf",
+      "securityLevels": []
+    },
+    "sampleMode": "TagGroup"
+  },
+  {
+    "valueSource": "memory",
+    "historyMaxAge": 30,
+    "writePermissions": {
+      "type": "AllOf",
+      "securityLevels": []
+    },
+    "defaultValue": 236.66324,
+    "tagGroup": "Default",
+    "historyTagGroup": "SemiHourly",
+    "tagType": "AtomicTag",
+    "enabled": true,
+    "readOnly": false,
+    "dataType": "Float4",
+    "historyProvider": "MySQL",
+    "historyMaxAgeUnits": "MIN",
+    "name": "Metric4",
+    "historyEnabled": true,
+    "readPermissions": {
+      "type": "AllOf",
+      "securityLevels": []
+    },
+    "sampleMode": "TagGroup"
+  },
+  {
+    "valueSource": "memory",
+    "historyMaxAge": 30,
+    "writePermissions": {
+      "type": "AllOf",
+      "securityLevels": []
+    },
+    "defaultValue": 15.110692,
+    "tagGroup": "Default",
+    "historyTagGroup": "SemiHourly",
+    "tagType": "AtomicTag",
+    "enabled": true,
+    "readOnly": false,
+    "dataType": "Float4",
+    "historyProvider": "MySQL",
+    "historyMaxAgeUnits": "MIN",
+    "name": "Metric5",
+    "historyEnabled": true,
+    "readPermissions": {
+      "type": "AllOf",
+      "securityLevels": []
+    },
+    "sampleMode": "TagGroup"
+  },
+  {
+    "valueSource": "memory",
+    "historyMaxAge": 30,
+    "writePermissions": {
+      "type": "AllOf",
+      "securityLevels": []
+    },
+    "defaultValue": 22.21476,
+    "tagGroup": "Default",
+    "historyTagGroup": "SemiHourly",
+    "tagType": "AtomicTag",
+    "enabled": true,
+    "readOnly": false,
+    "dataType": "Float4",
+    "historyProvider": "MySQL",
+    "historyMaxAgeUnits": "MIN",
+    "name": "Metric6",
+    "historyEnabled": true,
+    "readPermissions": {
+      "type": "AllOf",
+      "securityLevels": []
+    },
+    "sampleMode": "TagGroup"
+  },
+  {
+    "valueSource": "memory",
+    "historyMaxAge": 30,
+    "writePermissions": {
+      "type": "AllOf",
+      "securityLevels": []
+    },
+    "defaultValue": 0.0,
+    "tagGroup": "Default",
+    "historyTagGroup": "SemiHourly",
+    "tagType": "AtomicTag",
+    "enabled": true,
+    "readOnly": false,
+    "dataType": "Float4",
+    "historyProvider": "MySQL",
+    "historyMaxAgeUnits": "MIN",
+    "name": "Metric7",
+    "historyEnabled": true,
+    "readPermissions": {
+      "type": "AllOf",
+      "securityLevels": []
+    },
+    "sampleMode": "TagGroup"
+  },
+  {
+    "valueSource": "memory",
+    "historyMaxAge": 30,
+    "writePermissions": {
+      "type": "AllOf",
+      "securityLevels": []
+    },
+    "defaultValue": 0.0,
+    "tagGroup": "Default",
+    "historyTagGroup": "SemiHourly",
+    "tagType": "AtomicTag",
+    "enabled": true,
+    "readOnly": false,
+    "dataType": "Float4",
+    "historyProvider": "MySQL",
+    "historyMaxAgeUnits": "MIN",
+    "name": "Metric8",
+    "historyEnabled": true,
+    "readPermissions": {
+      "type": "AllOf",
+      "securityLevels": []
+    },
+    "sampleMode": "TagGroup"
+  },
+  {
+    "valueSource": "memory",
+    "historyMaxAge": 30,
+    "writePermissions": {
+      "type": "AllOf",
+      "securityLevels": []
+    },
+    "defaultValue": 0.0,
+    "tagGroup": "Default",
+    "historyTagGroup": "SemiHourly",
+    "tagType": "AtomicTag",
+    "enabled": true,
+    "readOnly": false,
+    "dataType": "Float4",
+    "historyProvider": "MySQL",
+    "historyMaxAgeUnits": "MIN",
+    "name": "Metric9",
+    "historyEnabled": true,
+    "readPermissions": {
+      "type": "AllOf",
+      "securityLevels": []
+    },
+    "sampleMode": "TagGroup"
+  }
+]

@@ -1,0 +1,20 @@
+{
+  "scope": "A",
+  "version": 1,
+  "restricted": false,
+  "overridable": true,
+  "files": [
+    "arrow-turn-090-left.png"
+  ],
+  "attributes": {
+    "width": 16,
+    "format": "PNG",
+    "lastModification": {
+      "actor": "8.3-migration",
+      "timestamp": "2026-01-07T14:49:07Z"
+    },
+    "size": 738,
+    "lastModificationSignature": "06685ee271e7b96431a333ec61eedb98c41ff7a75d36fd4da6d4774ff6687fbf",
+    "height": 16
+  }
+}

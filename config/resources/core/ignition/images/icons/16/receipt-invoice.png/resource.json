@@ -1,0 +1,20 @@
+{
+  "scope": "A",
+  "version": 1,
+  "restricted": false,
+  "overridable": true,
+  "files": [
+    "receipt-invoice.png"
+  ],
+  "attributes": {
+    "width": 16,
+    "format": "PNG",
+    "lastModification": {
+      "actor": "8.3-migration",
+      "timestamp": "2026-01-07T14:49:07Z"
+    },
+    "size": 512,
+    "lastModificationSignature": "b5283b47035fb6c1f6ead462cb7d2d1106a85e301dd47d877fc05048c09354a2",
+    "height": 16
+  }
+}

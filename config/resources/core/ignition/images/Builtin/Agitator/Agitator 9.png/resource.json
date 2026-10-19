@@ -1,0 +1,20 @@
+{
+  "scope": "A",
+  "version": 1,
+  "restricted": false,
+  "overridable": true,
+  "files": [
+    "Agitator 9.png"
+  ],
+  "attributes": {
+    "width": 90,
+    "format": "PNG",
+    "lastModification": {
+      "actor": "8.3-migration",
+      "timestamp": "2026-01-07T14:49:07Z"
+    },
+    "size": 2874,
+    "lastModificationSignature": "bec16a8a6ca019938404dd133138f9fc3d92a807a5e14a9356b0627b21c10e67",
+    "height": 79
+  }
+}

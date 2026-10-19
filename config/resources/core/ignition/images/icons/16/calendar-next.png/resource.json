@@ -1,0 +1,20 @@
+{
+  "scope": "A",
+  "version": 1,
+  "restricted": false,
+  "overridable": true,
+  "files": [
+    "calendar-next.png"
+  ],
+  "attributes": {
+    "width": 16,
+    "format": "PNG",
+    "lastModification": {
+      "actor": "8.3-migration",
+      "timestamp": "2026-01-07T14:49:07Z"
+    },
+    "size": 717,
+    "lastModificationSignature": "2327455ab49d6e3490e89137bd6fa79157ccb3a54fe0af75d51c4cbbe0719aff",
+    "height": 16
+  }
+}

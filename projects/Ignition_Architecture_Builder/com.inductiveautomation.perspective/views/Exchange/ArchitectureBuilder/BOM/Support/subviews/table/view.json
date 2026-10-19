@@ -1,0 +1,1056 @@
+{
+  "custom": {
+    "plans": [
+      [
+        "Priority",
+        {
+          "desc": "PriorityCare is our new premium support offering, providing unlimited phone, email, and web support at our highest priority level during business hours. In addition to priority treatment, you also get Upgrade Protection, which includes unlimited free upgrades to purchased Ignition modules throughout the life of your Support Plan.",
+          "displayName": "PriorityCare",
+          "multiplier": 0.24
+        }
+      ],
+      [
+        "Total",
+        {
+          "desc": "TotalCare is our flagship support product, offering phone support during business hours, email, and web support throughout the year. All of this is built on top of Upgrade Protection, which includes unlimited free upgrades to purchased Ignition modules while your Support Plan is active.",
+          "displayName": "TotalCare",
+          "multiplier": 0.2
+        }
+      ],
+      [
+        "Basic",
+        {
+          "desc": "BasicCare is the starting point for protecting your software investment. BasicCare comes with Upgrade Protection which includes unlimited free upgrades to purchased Ignition modules throughout the duration of the Support Plan. The Upgrade Protection component alone provides significant ROI; however, you also receive unlimited email and web support throughout the year.",
+          "displayName": "BasicCare",
+          "multiplier": 0.16
+        }
+      ],
+      [
+        "None",
+        {
+          "desc": "Your purchase of Ignition comes with 90 days of complimentary email and phone technical support. After 90 days, free support is limited to email only. If an upgrade is needed and a support plan is not in place, you will have to pay 65% of the software\u0027s current retail price.",
+          "displayName": "No Support",
+          "multiplier": 0
+        }
+      ]
+    ],
+    "retail": {
+      "msg": "",
+      "total": 1100
+    },
+    "supportPlan": "Total"
+  },
+  "params": {
+    "type": "Standard",
+    "uuid": "Ie31168c2"
+  },
+  "propConfig": {
+    "custom.plans": {
+      "binding": {
+        "config": {
+          "expression": "runScript(\"exchange.architecturebuilder.modules.getSupportPlans()\")"
+        },
+        "transforms": [
+          {
+            "code": "\treturn sorted(value.items(), key \u003d lambda x: x[1][\"multiplier\"], reverse\u003dTrue)",
+            "type": "script"
+          }
+        ],
+        "type": "expr"
+      },
+      "persistent": true
+    },
+    "custom.retail": {
+      "binding": {
+        "config": {
+          "struct": {
+            "instance": "property(\"session.custom.structure.configs.\" + {view.params.uuid})",
+            "type": "{view.params.type}"
+          },
+          "waitOnAll": true
+        },
+        "transforms": [
+          {
+            "code": "\tif value[\u0027type\u0027] \u003d\u003d \u0027Cloud\u0027:\n\t\treturn {\u0027msg\u0027:\u0027Included\u0027, \u0027total\u0027:0}\n\telse:\n\t\tfor vendor in (\"IA\", \"CL\"):\n\t\t\tif vendor in value[\u0027instance\u0027][\u0027config\u0027][\u0027modules\u0027]:\n\t\t\t\t# Build list of selected modules\n\t\t\t\tselectedModules \u003d []\n\t\t\t\tmoduleVendors \u003d value[\u0027instance\u0027][\u0027config\u0027][\u0027modules\u0027][vendor]\n\t\t\t\tfor m in moduleVendors:\n\t\t\t\t\tif \"selection\" in m.keys() and m[\"selection\"] not in (None, \"\"):\n\t\t\t\t\t\tselectedModules.append({\"name\": m[\"name\"], \"selection\": m[\"selection\"]})\n\t\t\t\t\telse:\n\t\t\t\t\t\tselectedModules.append(m[\"name\"])\n\t\t\n\t\t\t\tcost \u003d exchange.architecturebuilder.modules.getRetailTotal({vendor: selectedModules}, gwType\u003dvalue[\u0027type\u0027])\n\t\t\t\treturn cost",
+            "type": "script"
+          }
+        ],
+        "type": "expr-struct"
+      },
+      "persistent": true
+    },
+    "custom.supportPlan": {
+      "binding": {
+        "config": {
+          "expression": "property(\"session.custom.structure.configs.\" + {view.params.uuid} + \".config.supportPlan\")"
+        },
+        "type": "expr"
+      },
+      "persistent": true
+    },
+    "params.type": {
+      "paramDirection": "input",
+      "persistent": true
+    },
+    "params.uuid": {
+      "paramDirection": "input",
+      "persistent": true
+    }
+  },
+  "props": {
+    "defaultSize": {
+      "height": 155,
+      "width": 392
+    }
+  },
+  "root": {
+    "children": [
+      {
+        "events": {
+          "component": {
+            "onRowClick": {
+              "config": {
+                "script": "\t# Update selected support plan\n\tself.view.custom.supportPlan \u003d event.value[\"plan\"]"
+              },
+              "scope": "G",
+              "type": "script"
+            }
+          }
+        },
+        "meta": {
+          "name": "Table",
+          "tooltip": {
+            "enabled": true
+          }
+        },
+        "position": {
+          "grow": 1
+        },
+        "propConfig": {
+          "props.data[0].cost": {
+            "binding": {
+              "config": {
+                "expression": "numberFormat({view.custom.plans[0][1].multiplier}, \"0%\") + \" retail | \" + numberFormat({view.custom.plans[0][1].multiplier} * {view.custom.retail.total}, \"$#,##0.00\")"
+              },
+              "type": "expr"
+            }
+          },
+          "props.data[0].selected": {
+            "binding": {
+              "config": {
+                "expression": "{view.custom.supportPlan} \u003d \"Priority\""
+              },
+              "type": "expr"
+            }
+          },
+          "props.data[1].cost": {
+            "binding": {
+              "config": {
+                "expression": "numberFormat({view.custom.plans[1][1].multiplier}, \"0%\") + \" retail | \" + numberFormat({view.custom.plans[1][1].multiplier} * {view.custom.retail.total}, \"$#,##0.00\")"
+              },
+              "type": "expr"
+            }
+          },
+          "props.data[1].selected": {
+            "binding": {
+              "config": {
+                "expression": "{view.custom.supportPlan} \u003d \"Total\""
+              },
+              "type": "expr"
+            }
+          },
+          "props.data[2].cost": {
+            "binding": {
+              "config": {
+                "expression": "numberFormat({view.custom.plans[2][1].multiplier}, \"0%\") + \" retail | \" + numberFormat({view.custom.plans[2][1].multiplier} * {view.custom.retail.total}, \"$#,##0.00\")"
+              },
+              "type": "expr"
+            }
+          },
+          "props.data[2].selected": {
+            "binding": {
+              "config": {
+                "expression": "{view.custom.supportPlan} \u003d \"Basic\""
+              },
+              "type": "expr"
+            }
+          },
+          "props.data[3].selected": {
+            "binding": {
+              "config": {
+                "expression": "{view.custom.supportPlan} \u003d \"None\""
+              },
+              "type": "expr"
+            }
+          }
+        },
+        "props": {
+          "columns": [
+            {
+              "align": "center",
+              "boolean": "toggle",
+              "dateFormat": "MM/DD/YYYY",
+              "editable": false,
+              "field": "selected",
+              "filter": {
+                "boolean": {
+                  "condition": ""
+                },
+                "date": {
+                  "condition": "",
+                  "value": ""
+                },
+                "enabled": false,
+                "number": {
+                  "condition": "",
+                  "value": ""
+                },
+                "string": {
+                  "condition": "",
+                  "value": ""
+                },
+                "visible": "on-hover"
+              },
+              "footer": {
+                "align": "center",
+                "justify": "left",
+                "style": {
+                  "classes": ""
+                },
+                "title": ""
+              },
+              "header": {
+                "align": "center",
+                "justify": "center",
+                "style": {
+                  "classes": "",
+                  "overflowWrap": "normal"
+                },
+                "title": " "
+              },
+              "justify": "center",
+              "nullFormat": {
+                "includeNullStrings": false,
+                "nullFormatValue": "",
+                "strict": false
+              },
+              "number": "value",
+              "numberFormat": "0,0.##",
+              "progressBar": {
+                "bar": {
+                  "color": "",
+                  "style": {
+                    "classes": ""
+                  }
+                },
+                "max": 100,
+                "min": 0,
+                "track": {
+                  "color": "",
+                  "style": {
+                    "classes": ""
+                  }
+                },
+                "value": {
+                  "enabled": true,
+                  "format": "0,0.##",
+                  "justify": "center",
+                  "style": {
+                    "classes": ""
+                  }
+                }
+              },
+              "render": "view",
+              "resizable": false,
+              "sort": "none",
+              "sortable": false,
+              "strictWidth": true,
+              "style": {
+                "classes": ""
+              },
+              "toggleSwitch": {
+                "color": {
+                  "selected": "",
+                  "unselected": ""
+                }
+              },
+              "viewParams": {
+                "selected": true
+              },
+              "viewPath": "Exchange/ArchitectureBuilder/BOM/Support/subviews/radio",
+              "visible": true,
+              "width": 30
+            },
+            {
+              "align": "center",
+              "boolean": "checkbox",
+              "dateFormat": "MM/DD/YYYY",
+              "editable": false,
+              "field": "plan",
+              "filter": {
+                "boolean": {
+                  "condition": ""
+                },
+                "date": {
+                  "condition": "",
+                  "value": ""
+                },
+                "enabled": false,
+                "number": {
+                  "condition": "",
+                  "value": ""
+                },
+                "string": {
+                  "condition": "",
+                  "value": ""
+                },
+                "visible": "on-hover"
+              },
+              "footer": {
+                "align": "center",
+                "justify": "left",
+                "style": {
+                  "classes": ""
+                },
+                "title": ""
+              },
+              "header": {
+                "align": "center",
+                "justify": "center",
+                "style": {
+                  "classes": ""
+                },
+                "title": "Plan"
+              },
+              "justify": "auto",
+              "nullFormat": {
+                "includeNullStrings": false,
+                "nullFormatValue": "",
+                "strict": false
+              },
+              "number": "value",
+              "numberFormat": "0,0.##",
+              "progressBar": {
+                "bar": {
+                  "color": "",
+                  "style": {
+                    "classes": ""
+                  }
+                },
+                "max": 100,
+                "min": 0,
+                "track": {
+                  "color": "",
+                  "style": {
+                    "classes": ""
+                  }
+                },
+                "value": {
+                  "enabled": true,
+                  "format": "0,0.##",
+                  "justify": "center",
+                  "style": {
+                    "classes": ""
+                  }
+                }
+              },
+              "render": "auto",
+              "resizable": false,
+              "sort": "none",
+              "sortable": false,
+              "strictWidth": false,
+              "style": {
+                "classes": ""
+              },
+              "toggleSwitch": {
+                "color": {
+                  "selected": "",
+                  "unselected": ""
+                }
+              },
+              "viewParams": {
+                "value": "Priority"
+              },
+              "viewPath": "Exchange/ArchitectureBuilder/BOM/Support/subviews/plan",
+              "visible": true,
+              "width": "auto"
+            },
+            {
+              "align": "center",
+              "boolean": "checkbox",
+              "dateFormat": "MM/DD/YYYY",
+              "editable": false,
+              "field": "email",
+              "filter": {
+                "boolean": {
+                  "condition": ""
+                },
+                "date": {
+                  "condition": "",
+                  "value": ""
+                },
+                "enabled": false,
+                "number": {
+                  "condition": "",
+                  "value": ""
+                },
+                "string": {
+                  "condition": "",
+                  "value": ""
+                },
+                "visible": "on-hover"
+              },
+              "footer": {
+                "align": "center",
+                "justify": "left",
+                "style": {
+                  "classes": ""
+                },
+                "title": ""
+              },
+              "header": {
+                "align": "center",
+                "justify": "center",
+                "style": {
+                  "classes": ""
+                },
+                "title": "Email"
+              },
+              "justify": "center",
+              "nullFormat": {
+                "includeNullStrings": false,
+                "nullFormatValue": "",
+                "strict": false
+              },
+              "number": "value",
+              "numberFormat": "0,0.##",
+              "progressBar": {
+                "bar": {
+                  "color": "",
+                  "style": {
+                    "classes": ""
+                  }
+                },
+                "max": 100,
+                "min": 0,
+                "track": {
+                  "color": "",
+                  "style": {
+                    "classes": ""
+                  }
+                },
+                "value": {
+                  "enabled": true,
+                  "format": "0,0.##",
+                  "justify": "center",
+                  "style": {
+                    "classes": ""
+                  }
+                }
+              },
+              "render": "auto",
+              "resizable": false,
+              "sort": "none",
+              "sortable": false,
+              "strictWidth": false,
+              "style": {
+                "classes": ""
+              },
+              "toggleSwitch": {
+                "color": {
+                  "selected": "",
+                  "unselected": ""
+                }
+              },
+              "viewParams": {
+                "value": true
+              },
+              "viewPath": "Exchange/ArchitectureBuilder/BOM/Support/subviews/inclusion",
+              "visible": true,
+              "width": 0.8
+            },
+            {
+              "align": "center",
+              "boolean": "checkbox",
+              "dateFormat": "MM/DD/YYYY",
+              "editable": false,
+              "field": "phone",
+              "filter": {
+                "boolean": {
+                  "condition": ""
+                },
+                "date": {
+                  "condition": "",
+                  "value": ""
+                },
+                "enabled": false,
+                "number": {
+                  "condition": "",
+                  "value": ""
+                },
+                "string": {
+                  "condition": "",
+                  "value": ""
+                },
+                "visible": "on-hover"
+              },
+              "footer": {
+                "align": "center",
+                "justify": "left",
+                "style": {
+                  "classes": ""
+                },
+                "title": ""
+              },
+              "header": {
+                "align": "center",
+                "justify": "center",
+                "style": {
+                  "classes": ""
+                },
+                "title": "Phone"
+              },
+              "justify": "center",
+              "nullFormat": {
+                "includeNullStrings": false,
+                "nullFormatValue": "",
+                "strict": false
+              },
+              "number": "value",
+              "numberFormat": "0,0.##",
+              "progressBar": {
+                "bar": {
+                  "color": "",
+                  "style": {
+                    "classes": ""
+                  }
+                },
+                "max": 100,
+                "min": 0,
+                "track": {
+                  "color": "",
+                  "style": {
+                    "classes": ""
+                  }
+                },
+                "value": {
+                  "enabled": true,
+                  "format": "0,0.##",
+                  "justify": "center",
+                  "style": {
+                    "classes": ""
+                  }
+                }
+              },
+              "render": "auto",
+              "resizable": false,
+              "sort": "none",
+              "sortable": false,
+              "strictWidth": false,
+              "style": {
+                "classes": ""
+              },
+              "toggleSwitch": {
+                "color": {
+                  "selected": "",
+                  "unselected": ""
+                }
+              },
+              "viewParams": {
+                "value": true
+              },
+              "viewPath": "Exchange/ArchitectureBuilder/BOM/Support/subviews/inclusion",
+              "visible": true,
+              "width": 0.8
+            },
+            {
+              "align": "center",
+              "boolean": "checkbox",
+              "dateFormat": "MM/DD/YYYY",
+              "editable": false,
+              "field": "priority",
+              "filter": {
+                "boolean": {
+                  "condition": ""
+                },
+                "date": {
+                  "condition": "",
+                  "value": ""
+                },
+                "enabled": false,
+                "number": {
+                  "condition": "",
+                  "value": ""
+                },
+                "string": {
+                  "condition": "",
+                  "value": ""
+                },
+                "visible": "on-hover"
+              },
+              "footer": {
+                "align": "center",
+                "justify": "left",
+                "style": {
+                  "classes": ""
+                },
+                "title": ""
+              },
+              "header": {
+                "align": "center",
+                "justify": "center",
+                "style": {
+                  "classes": ""
+                },
+                "title": "Priority"
+              },
+              "justify": "center",
+              "nullFormat": {
+                "includeNullStrings": false,
+                "nullFormatValue": "",
+                "strict": false
+              },
+              "number": "value",
+              "numberFormat": "0,0.##",
+              "progressBar": {
+                "bar": {
+                  "color": "",
+                  "style": {
+                    "classes": ""
+                  }
+                },
+                "max": 100,
+                "min": 0,
+                "track": {
+                  "color": "",
+                  "style": {
+                    "classes": ""
+                  }
+                },
+                "value": {
+                  "enabled": true,
+                  "format": "0,0.##",
+                  "justify": "center",
+                  "style": {
+                    "classes": ""
+                  }
+                }
+              },
+              "render": "auto",
+              "resizable": false,
+              "sort": "none",
+              "sortable": false,
+              "strictWidth": false,
+              "style": {
+                "classes": ""
+              },
+              "toggleSwitch": {
+                "color": {
+                  "selected": "",
+                  "unselected": ""
+                }
+              },
+              "viewParams": {
+                "value": true
+              },
+              "viewPath": "Exchange/ArchitectureBuilder/BOM/Support/subviews/inclusion",
+              "visible": true,
+              "width": 1
+            },
+            {
+              "align": "center",
+              "boolean": "checkbox",
+              "dateFormat": "MM/DD/YYYY",
+              "editable": false,
+              "field": "upgrade",
+              "filter": {
+                "boolean": {
+                  "condition": ""
+                },
+                "date": {
+                  "condition": "",
+                  "value": ""
+                },
+                "enabled": false,
+                "number": {
+                  "condition": "",
+                  "value": ""
+                },
+                "string": {
+                  "condition": "",
+                  "value": ""
+                },
+                "visible": "on-hover"
+              },
+              "footer": {
+                "align": "center",
+                "justify": "left",
+                "style": {
+                  "classes": ""
+                },
+                "title": ""
+              },
+              "header": {
+                "align": "center",
+                "justify": "center",
+                "style": {
+                  "classes": ""
+                },
+                "title": "Upgrade"
+              },
+              "justify": "center",
+              "nullFormat": {
+                "includeNullStrings": false,
+                "nullFormatValue": "",
+                "strict": false
+              },
+              "number": "value",
+              "numberFormat": "0,0.##",
+              "progressBar": {
+                "bar": {
+                  "color": "",
+                  "style": {
+                    "classes": ""
+                  }
+                },
+                "max": 100,
+                "min": 0,
+                "track": {
+                  "color": "",
+                  "style": {
+                    "classes": ""
+                  }
+                },
+                "value": {
+                  "enabled": true,
+                  "format": "0,0.##",
+                  "justify": "center",
+                  "style": {
+                    "classes": ""
+                  }
+                }
+              },
+              "render": "auto",
+              "resizable": false,
+              "sort": "none",
+              "sortable": false,
+              "strictWidth": false,
+              "style": {
+                "classes": ""
+              },
+              "toggleSwitch": {
+                "color": {
+                  "selected": "",
+                  "unselected": ""
+                }
+              },
+              "viewParams": {},
+              "viewPath": "",
+              "visible": true,
+              "width": 1
+            },
+            {
+              "align": "center",
+              "boolean": "checkbox",
+              "dateFormat": "MM/DD/YYYY",
+              "editable": false,
+              "field": "desc",
+              "filter": {
+                "boolean": {
+                  "condition": ""
+                },
+                "date": {
+                  "condition": "",
+                  "value": ""
+                },
+                "enabled": false,
+                "number": {
+                  "condition": "",
+                  "value": ""
+                },
+                "string": {
+                  "condition": "",
+                  "value": ""
+                },
+                "visible": "on-hover"
+              },
+              "footer": {
+                "align": "center",
+                "justify": "left",
+                "style": {
+                  "classes": ""
+                },
+                "title": ""
+              },
+              "header": {
+                "align": "center",
+                "justify": "left",
+                "style": {
+                  "classes": ""
+                },
+                "title": ""
+              },
+              "justify": "auto",
+              "nullFormat": {
+                "includeNullStrings": false,
+                "nullFormatValue": "",
+                "strict": false
+              },
+              "number": "value",
+              "numberFormat": "0,0.##",
+              "progressBar": {
+                "bar": {
+                  "color": "",
+                  "style": {
+                    "classes": ""
+                  }
+                },
+                "max": 100,
+                "min": 0,
+                "track": {
+                  "color": "",
+                  "style": {
+                    "classes": ""
+                  }
+                },
+                "value": {
+                  "enabled": true,
+                  "format": "0,0.##",
+                  "justify": "center",
+                  "style": {
+                    "classes": ""
+                  }
+                }
+              },
+              "render": "auto",
+              "resizable": false,
+              "sort": "none",
+              "sortable": false,
+              "strictWidth": false,
+              "style": {
+                "classes": ""
+              },
+              "toggleSwitch": {
+                "color": {
+                  "selected": "",
+                  "unselected": ""
+                }
+              },
+              "viewParams": {},
+              "viewPath": "",
+              "visible": false,
+              "width": ""
+            },
+            {
+              "align": "center",
+              "boolean": "checkbox",
+              "dateFormat": "MM/DD/YYYY",
+              "editable": false,
+              "field": "cost",
+              "filter": {
+                "boolean": {
+                  "condition": ""
+                },
+                "date": {
+                  "condition": "",
+                  "value": ""
+                },
+                "enabled": false,
+                "number": {
+                  "condition": "",
+                  "value": ""
+                },
+                "string": {
+                  "condition": "",
+                  "value": ""
+                },
+                "visible": "on-hover"
+              },
+              "footer": {
+                "align": "center",
+                "justify": "left",
+                "style": {
+                  "classes": ""
+                },
+                "title": ""
+              },
+              "header": {
+                "align": "center",
+                "justify": "center",
+                "style": {
+                  "classes": ""
+                },
+                "title": "Cost"
+              },
+              "justify": "center",
+              "nullFormat": {
+                "includeNullStrings": false,
+                "nullFormatValue": "",
+                "strict": false
+              },
+              "number": "value",
+              "numberFormat": "0,0.##",
+              "progressBar": {
+                "bar": {
+                  "color": "",
+                  "style": {
+                    "classes": ""
+                  }
+                },
+                "max": 100,
+                "min": 0,
+                "track": {
+                  "color": "",
+                  "style": {
+                    "classes": ""
+                  }
+                },
+                "value": {
+                  "enabled": true,
+                  "format": "0,0.##",
+                  "justify": "center",
+                  "style": {
+                    "classes": ""
+                  }
+                }
+              },
+              "render": "auto",
+              "resizable": false,
+              "sort": "none",
+              "sortable": false,
+              "strictWidth": false,
+              "style": {
+                "classes": ""
+              },
+              "toggleSwitch": {
+                "color": {
+                  "selected": "",
+                  "unselected": ""
+                }
+              },
+              "viewParams": {},
+              "viewPath": "",
+              "visible": true,
+              "width": 1
+            }
+          ],
+          "data": [
+            {
+              "desc": "PriorityCare is our new premium support offering, providing unlimited phone, email, and web support at our highest priority level during business hours. In addition to priority treatment, you also get Upgrade Protection, which includes unlimited free upgrades to purchased Ignition modules throughout the life of your Support Plan.",
+              "email": true,
+              "phone": true,
+              "plan": "Priority",
+              "priority": true,
+              "rate": "24% Annually",
+              "upgrade": "Free"
+            },
+            {
+              "desc": "",
+              "email": true,
+              "phone": true,
+              "plan": "Total",
+              "priority": false,
+              "rate": "20%",
+              "upgrade": "Free"
+            },
+            {
+              "desc": "",
+              "email": true,
+              "phone": false,
+              "plan": "Basic",
+              "priority": false,
+              "rate": "16%",
+              "upgrade": "Free"
+            },
+            {
+              "cost": "$0.00",
+              "descc": "",
+              "email": false,
+              "phone": false,
+              "plan": "None",
+              "priority": false,
+              "rate": "",
+              "upgrade": "65% Retail"
+            }
+          ],
+          "headerGroups": [
+            [
+              {
+                "align": "center",
+                "justify": "left",
+                "span": 1,
+                "style": {
+                  "classes": "",
+                  "fontWeight": "bolder",
+                  "textDecoration": "underline"
+                },
+                "title": ""
+              },
+              {
+                "align": "center",
+                "justify": "center",
+                "span": 4,
+                "style": {
+                  "borderBottomStyle": "solid",
+                  "borderBottomWidth": "1px",
+                  "borderLeftStyle": "none",
+                  "borderRightStyle": "none",
+                  "borderTopStyle": "none",
+                  "classes": "",
+                  "fontWeight": "bolder"
+                },
+                "title": "Features"
+              },
+              {
+                "align": "center",
+                "justify": "center",
+                "span": 2,
+                "style": {
+                  "classes": ""
+                },
+                "title": "Annual Cost"
+              },
+              {
+                "align": "center",
+                "justify": "left",
+                "span": 1,
+                "style": {
+                  "classes": ""
+                },
+                "title": ""
+              }
+            ]
+          ],
+          "headerStyle": {
+            "borderBottomStyle": "solid",
+            "borderBottomWidth": "1px"
+          },
+          "pager": {
+            "bottom": false
+          },
+          "rows": {
+            "subviewExpansionMode": "single"
+          },
+          "selection": {
+            "enableRowSelection": false
+          },
+          "style": {
+            "borderBottomLeftRadius": "8px",
+            "borderBottomRightRadius": "8px",
+            "borderTopLeftRadius": "8px",
+            "borderTopRightRadius": "8px"
+          },
+          "virtualized": false
+        },
+        "type": "ia.display.table"
+      }
+    ],
+    "meta": {
+      "name": "root"
+    },
+    "props": {
+      "direction": "column"
+    },
+    "type": "ia.container.flex"
+  }
+}

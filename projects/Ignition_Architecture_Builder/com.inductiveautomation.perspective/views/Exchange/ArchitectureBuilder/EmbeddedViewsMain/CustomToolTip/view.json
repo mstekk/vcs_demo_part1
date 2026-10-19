@@ -1,0 +1,109 @@
+{
+  "custom": {},
+  "params": {
+    "showIcon": true,
+    "toolTip": "Some really "
+  },
+  "propConfig": {
+    "params.showIcon": {
+      "paramDirection": "input",
+      "persistent": true
+    },
+    "params.toolTip": {
+      "paramDirection": "input",
+      "persistent": true
+    }
+  },
+  "props": {
+    "defaultSize": {
+      "height": 37,
+      "width": 296
+    }
+  },
+  "root": {
+    "children": [
+      {
+        "meta": {
+          "name": "Label"
+        },
+        "position": {
+          "basis": "100%",
+          "grow": 1,
+          "shrink": 0
+        },
+        "propConfig": {
+          "props.text": {
+            "binding": {
+              "config": {
+                "path": "view.params.toolTip"
+              },
+              "type": "property"
+            }
+          }
+        },
+        "props": {
+          "textStyle": {
+            "textAlign": "center"
+          }
+        },
+        "type": "ia.display.label"
+      },
+      {
+        "children": [
+          {
+            "meta": {
+              "name": "Icon"
+            },
+            "position": {
+              "basis": "30px"
+            },
+            "props": {
+              "path": "material/arrow_drop_up"
+            },
+            "type": "ia.display.icon"
+          }
+        ],
+        "meta": {
+          "name": "FlexContainer"
+        },
+        "position": {
+          "shrink": 0
+        },
+        "propConfig": {
+          "position.display": {
+            "binding": {
+              "config": {
+                "path": "view.params.showIcon"
+              },
+              "type": "property"
+            }
+          }
+        },
+        "props": {
+          "style": {
+            "heigth": "16px",
+            "left": "-50%",
+            "overflow": "visible",
+            "position": "relative",
+            "top": "10px",
+            "transform": "translate(-50%,-100%)",
+            "width": "30px"
+          }
+        },
+        "type": "ia.container.flex"
+      }
+    ],
+    "meta": {
+      "name": "root"
+    },
+    "props": {
+      "style": {
+        "classes": "componentTooltip",
+        "fontWeight": "500",
+        "overflow": "visible",
+        "paddingTop": "2px"
+      }
+    },
+    "type": "ia.container.flex"
+  }
+}

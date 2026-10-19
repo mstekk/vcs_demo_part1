@@ -1,0 +1,20 @@
+{
+  "scope": "A",
+  "version": 1,
+  "restricted": false,
+  "overridable": true,
+  "files": [
+    "border-dash.png"
+  ],
+  "attributes": {
+    "width": 16,
+    "format": "PNG",
+    "lastModification": {
+      "actor": "8.3-migration",
+      "timestamp": "2026-01-07T14:49:07Z"
+    },
+    "size": 321,
+    "lastModificationSignature": "d7aa1a836cf3ed0ef9b4b062b7421102f33425132f7c59f57fad9a90a0d761a4",
+    "height": 16
+  }
+}

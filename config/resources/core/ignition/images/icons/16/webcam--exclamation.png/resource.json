@@ -1,0 +1,20 @@
+{
+  "scope": "A",
+  "version": 1,
+  "restricted": false,
+  "overridable": true,
+  "files": [
+    "webcam--exclamation.png"
+  ],
+  "attributes": {
+    "width": 16,
+    "format": "PNG",
+    "lastModification": {
+      "actor": "8.3-migration",
+      "timestamp": "2026-01-07T14:49:07Z"
+    },
+    "size": 859,
+    "lastModificationSignature": "7fc9e49399a4581e3652e6667a8bfe6a8673e5727c591f9ff2e4eb0fd6189bd2",
+    "height": 16
+  }
+}

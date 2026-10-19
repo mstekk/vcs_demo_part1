@@ -1,0 +1,20 @@
+{
+  "scope": "A",
+  "version": 1,
+  "restricted": false,
+  "overridable": true,
+  "files": [
+    "ui-tooltip-balloon-bottom.png"
+  ],
+  "attributes": {
+    "width": 16,
+    "format": "PNG",
+    "lastModification": {
+      "actor": "8.3-migration",
+      "timestamp": "2026-01-07T14:49:07Z"
+    },
+    "size": 281,
+    "lastModificationSignature": "01f0d4df5248da2bba06e7ba2b2da886f3a8f814a4c56c9eec38236f65b0fdff",
+    "height": 16
+  }
+}

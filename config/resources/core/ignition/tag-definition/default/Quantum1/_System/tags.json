@@ -1,0 +1,477 @@
+[
+  {
+    "valueSource": "opc",
+    "historyMaxAge": 2,
+    "opcItemPath": "ns\u003d2:s\u003dQuantum1.Quantum1._System._AutoCreateTagDatabase",
+    "historicalDeadband": 0.005,
+    "writePermissions": {
+      "type": "AllOf",
+      "securityLevels": []
+    },
+    "historyTagGroup": "Default Historical",
+    "tagGroup": "Default",
+    "tagType": "AtomicTag",
+    "enabled": true,
+    "readOnly": false,
+    "historyProvider": "mysql",
+    "dataType": "Boolean",
+    "name": "_AutoCreateTagDatabase",
+    "historyEnabled": true,
+    "readPermissions": {
+      "type": "AllOf",
+      "securityLevels": []
+    },
+    "sampleMode": "TagGroup",
+    "opcServer": "Kepware"
+  },
+  {
+    "valueSource": "opc",
+    "historyMaxAge": 2,
+    "opcItemPath": "ns\u003d2:s\u003dQuantum1.Quantum1._System._AutoDemoted",
+    "historicalDeadband": 0.005,
+    "writePermissions": {
+      "type": "AllOf",
+      "securityLevels": []
+    },
+    "historyTagGroup": "Default Historical",
+    "tagGroup": "Default",
+    "tagType": "AtomicTag",
+    "enabled": true,
+    "readOnly": false,
+    "historyProvider": "mysql",
+    "dataType": "Boolean",
+    "name": "_AutoDemoted",
+    "historyEnabled": true,
+    "readPermissions": {
+      "type": "AllOf",
+      "securityLevels": []
+    },
+    "sampleMode": "TagGroup",
+    "opcServer": "Kepware"
+  },
+  {
+    "valueSource": "opc",
+    "historyMaxAge": 2,
+    "opcItemPath": "ns\u003d2:s\u003dQuantum1.Quantum1._System._AutoDemotionDiscardWrites",
+    "historicalDeadband": 0.005,
+    "writePermissions": {
+      "type": "AllOf",
+      "securityLevels": []
+    },
+    "historyTagGroup": "Default Historical",
+    "tagGroup": "Default",
+    "tagType": "AtomicTag",
+    "enabled": true,
+    "readOnly": false,
+    "historyProvider": "mysql",
+    "dataType": "Boolean",
+    "name": "_AutoDemotionDiscardWrites",
+    "historyEnabled": true,
+    "readPermissions": {
+      "type": "AllOf",
+      "securityLevels": []
+    },
+    "sampleMode": "TagGroup",
+    "opcServer": "Kepware"
+  },
+  {
+    "valueSource": "opc",
+    "historyMaxAge": 2,
+    "opcItemPath": "ns\u003d2:s\u003dQuantum1.Quantum1._System._AutoDemotionEnabled",
+    "historicalDeadband": 0.005,
+    "writePermissions": {
+      "type": "AllOf",
+      "securityLevels": []
+    },
+    "historyTagGroup": "Default Historical",
+    "tagGroup": "Default",
+    "tagType": "AtomicTag",
+    "enabled": true,
+    "readOnly": false,
+    "historyProvider": "mysql",
+    "dataType": "Boolean",
+    "name": "_AutoDemotionEnabled",
+    "historyEnabled": true,
+    "readPermissions": {
+      "type": "AllOf",
+      "securityLevels": []
+    },
+    "sampleMode": "TagGroup",
+    "opcServer": "Kepware"
+  },
+  {
+    "valueSource": "opc",
+    "historyMaxAge": 2,
+    "opcItemPath": "ns\u003d2:s\u003dQuantum1.Quantum1._System._AutoDemotionFailureCount",
+    "historicalDeadband": 0.005,
+    "writePermissions": {
+      "type": "AllOf",
+      "securityLevels": []
+    },
+    "historyTagGroup": "Default Historical",
+    "tagGroup": "Default",
+    "tagType": "AtomicTag",
+    "enabled": true,
+    "readOnly": false,
+    "historyProvider": "mysql",
+    "dataType": "Int4",
+    "name": "_AutoDemotionFailureCount",
+    "historyEnabled": true,
+    "readPermissions": {
+      "type": "AllOf",
+      "securityLevels": []
+    },
+    "sampleMode": "TagGroup",
+    "opcServer": "Kepware"
+  },
+  {
+    "valueSource": "opc",
+    "historyMaxAge": 2,
+    "opcItemPath": "ns\u003d2:s\u003dQuantum1.Quantum1._System._AutoDemotionIntervalMS",
+    "historicalDeadband": 0.005,
+    "writePermissions": {
+      "type": "AllOf",
+      "securityLevels": []
+    },
+    "historyTagGroup": "Default Historical",
+    "tagGroup": "Default",
+    "tagType": "AtomicTag",
+    "enabled": true,
+    "readOnly": false,
+    "historyProvider": "mysql",
+    "dataType": "Int4",
+    "name": "_AutoDemotionIntervalMS",
+    "historyEnabled": true,
+    "readPermissions": {
+      "type": "AllOf",
+      "securityLevels": []
+    },
+    "sampleMode": "TagGroup",
+    "opcServer": "Kepware"
+  },
+  {
+    "valueSource": "opc",
+    "historyMaxAge": 2,
+    "opcItemPath": "ns\u003d2:s\u003dQuantum1.Quantum1._System._ConnectTimeout",
+    "historicalDeadband": 0.005,
+    "writePermissions": {
+      "type": "AllOf",
+      "securityLevels": []
+    },
+    "historyTagGroup": "Default Historical",
+    "tagGroup": "Default",
+    "tagType": "AtomicTag",
+    "enabled": true,
+    "readOnly": false,
+    "historyProvider": "mysql",
+    "dataType": "Int4",
+    "name": "_ConnectTimeout",
+    "historyEnabled": true,
+    "readPermissions": {
+      "type": "AllOf",
+      "securityLevels": []
+    },
+    "sampleMode": "TagGroup",
+    "opcServer": "Kepware"
+  },
+  {
+    "valueSource": "opc",
+    "historyMaxAge": 2,
+    "opcItemPath": "ns\u003d2:s\u003dQuantum1.Quantum1._System._DemandPoll",
+    "historicalDeadband": 0.005,
+    "writePermissions": {
+      "type": "AllOf",
+      "securityLevels": []
+    },
+    "historyTagGroup": "Default Historical",
+    "tagGroup": "Default",
+    "tagType": "AtomicTag",
+    "enabled": true,
+    "readOnly": false,
+    "historyProvider": "mysql",
+    "dataType": "Boolean",
+    "name": "_DemandPoll",
+    "historyEnabled": true,
+    "readPermissions": {
+      "type": "AllOf",
+      "securityLevels": []
+    },
+    "sampleMode": "TagGroup",
+    "opcServer": "Kepware"
+  },
+  {
+    "valueSource": "opc",
+    "historyMaxAge": 2,
+    "opcItemPath": "ns\u003d2:s\u003dQuantum1.Quantum1._System._Description",
+    "historicalDeadband": 0.005,
+    "writePermissions": {
+      "type": "AllOf",
+      "securityLevels": []
+    },
+    "historyTagGroup": "Default Historical",
+    "tagGroup": "Default",
+    "tagType": "AtomicTag",
+    "enabled": true,
+    "readOnly": false,
+    "historyProvider": "mysql",
+    "dataType": "String",
+    "name": "_Description",
+    "historyEnabled": true,
+    "readPermissions": {
+      "type": "AllOf",
+      "securityLevels": []
+    },
+    "sampleMode": "TagGroup",
+    "opcServer": "Kepware"
+  },
+  {
+    "valueSource": "opc",
+    "historyMaxAge": 2,
+    "opcItemPath": "ns\u003d2:s\u003dQuantum1.Quantum1._System._DeviceId",
+    "historicalDeadband": 0.005,
+    "writePermissions": {
+      "type": "AllOf",
+      "securityLevels": []
+    },
+    "historyTagGroup": "Default Historical",
+    "tagGroup": "Default",
+    "tagType": "AtomicTag",
+    "enabled": true,
+    "readOnly": false,
+    "historyProvider": "mysql",
+    "dataType": "String",
+    "name": "_DeviceId",
+    "historyEnabled": true,
+    "readPermissions": {
+      "type": "AllOf",
+      "securityLevels": []
+    },
+    "sampleMode": "TagGroup",
+    "opcServer": "Kepware"
+  },
+  {
+    "valueSource": "opc",
+    "historyMaxAge": 2,
+    "opcItemPath": "ns\u003d2:s\u003dQuantum1.Quantum1._System._Enabled",
+    "historicalDeadband": 0.005,
+    "writePermissions": {
+      "type": "AllOf",
+      "securityLevels": []
+    },
+    "historyTagGroup": "Default Historical",
+    "tagGroup": "Default",
+    "tagType": "AtomicTag",
+    "enabled": true,
+    "readOnly": false,
+    "historyProvider": "mysql",
+    "dataType": "Boolean",
+    "name": "_Enabled",
+    "historyEnabled": true,
+    "readPermissions": {
+      "type": "AllOf",
+      "securityLevels": []
+    },
+    "sampleMode": "TagGroup",
+    "opcServer": "Kepware"
+  },
+  {
+    "valueSource": "opc",
+    "historyMaxAge": 2,
+    "opcItemPath": "ns\u003d2:s\u003dQuantum1.Quantum1._System._Error",
+    "historicalDeadband": 0.005,
+    "writePermissions": {
+      "type": "AllOf",
+      "securityLevels": []
+    },
+    "historyTagGroup": "Default Historical",
+    "tagGroup": "Default",
+    "tagType": "AtomicTag",
+    "enabled": true,
+    "readOnly": false,
+    "historyProvider": "mysql",
+    "dataType": "Boolean",
+    "name": "_Error",
+    "historyEnabled": true,
+    "readPermissions": {
+      "type": "AllOf",
+      "securityLevels": []
+    },
+    "sampleMode": "TagGroup",
+    "opcServer": "Kepware"
+  },
+  {
+    "valueSource": "opc",
+    "historyMaxAge": 2,
+    "opcItemPath": "ns\u003d2:s\u003dQuantum1.Quantum1._System._InterRequestDelay",
+    "historicalDeadband": 0.005,
+    "writePermissions": {
+      "type": "AllOf",
+      "securityLevels": []
+    },
+    "historyTagGroup": "Default Historical",
+    "tagGroup": "Default",
+    "tagType": "AtomicTag",
+    "enabled": true,
+    "readOnly": false,
+    "historyProvider": "mysql",
+    "dataType": "Int4",
+    "name": "_InterRequestDelay",
+    "historyEnabled": true,
+    "readPermissions": {
+      "type": "AllOf",
+      "securityLevels": []
+    },
+    "sampleMode": "TagGroup",
+    "opcServer": "Kepware"
+  },
+  {
+    "valueSource": "opc",
+    "historyMaxAge": 2,
+    "opcItemPath": "ns\u003d2:s\u003dQuantum1.Quantum1._System._NoError",
+    "historicalDeadband": 0.005,
+    "writePermissions": {
+      "type": "AllOf",
+      "securityLevels": []
+    },
+    "historyTagGroup": "Default Historical",
+    "tagGroup": "Default",
+    "tagType": "AtomicTag",
+    "enabled": true,
+    "readOnly": false,
+    "historyProvider": "mysql",
+    "dataType": "Boolean",
+    "name": "_NoError",
+    "historyEnabled": true,
+    "readPermissions": {
+      "type": "AllOf",
+      "securityLevels": []
+    },
+    "sampleMode": "TagGroup",
+    "opcServer": "Kepware"
+  },
+  {
+    "valueSource": "opc",
+    "historyMaxAge": 2,
+    "opcItemPath": "ns\u003d2:s\u003dQuantum1.Quantum1._System._RequestAttempts",
+    "historicalDeadband": 0.005,
+    "writePermissions": {
+      "type": "AllOf",
+      "securityLevels": []
+    },
+    "historyTagGroup": "Default Historical",
+    "tagGroup": "Default",
+    "tagType": "AtomicTag",
+    "enabled": true,
+    "readOnly": false,
+    "historyProvider": "mysql",
+    "dataType": "Int4",
+    "name": "_RequestAttempts",
+    "historyEnabled": true,
+    "readPermissions": {
+      "type": "AllOf",
+      "securityLevels": []
+    },
+    "sampleMode": "TagGroup",
+    "opcServer": "Kepware"
+  },
+  {
+    "valueSource": "opc",
+    "historyMaxAge": 2,
+    "opcItemPath": "ns\u003d2:s\u003dQuantum1.Quantum1._System._RequestTimeout",
+    "historicalDeadband": 0.005,
+    "writePermissions": {
+      "type": "AllOf",
+      "securityLevels": []
+    },
+    "historyTagGroup": "Default Historical",
+    "tagGroup": "Default",
+    "tagType": "AtomicTag",
+    "enabled": true,
+    "readOnly": false,
+    "historyProvider": "mysql",
+    "dataType": "Int4",
+    "name": "_RequestTimeout",
+    "historyEnabled": true,
+    "readPermissions": {
+      "type": "AllOf",
+      "securityLevels": []
+    },
+    "sampleMode": "TagGroup",
+    "opcServer": "Kepware"
+  },
+  {
+    "valueSource": "opc",
+    "historyMaxAge": 2,
+    "opcItemPath": "ns\u003d2:s\u003dQuantum1.Quantum1._System._ScanMode",
+    "historicalDeadband": 0.005,
+    "writePermissions": {
+      "type": "AllOf",
+      "securityLevels": []
+    },
+    "historyTagGroup": "Default Historical",
+    "tagGroup": "Default",
+    "tagType": "AtomicTag",
+    "enabled": true,
+    "readOnly": false,
+    "historyProvider": "mysql",
+    "dataType": "String",
+    "name": "_ScanMode",
+    "historyEnabled": true,
+    "readPermissions": {
+      "type": "AllOf",
+      "securityLevels": []
+    },
+    "sampleMode": "TagGroup",
+    "opcServer": "Kepware"
+  },
+  {
+    "valueSource": "opc",
+    "historyMaxAge": 2,
+    "opcItemPath": "ns\u003d2:s\u003dQuantum1.Quantum1._System._ScanRateMs",
+    "historicalDeadband": 0.005,
+    "writePermissions": {
+      "type": "AllOf",
+      "securityLevels": []
+    },
+    "historyTagGroup": "Default Historical",
+    "tagGroup": "Default",
+    "tagType": "AtomicTag",
+    "enabled": true,
+    "readOnly": false,
+    "historyProvider": "mysql",
+    "dataType": "Int8",
+    "name": "_ScanRateMs",
+    "historyEnabled": true,
+    "readPermissions": {
+      "type": "AllOf",
+      "securityLevels": []
+    },
+    "sampleMode": "TagGroup",
+    "opcServer": "Kepware"
+  },
+  {
+    "valueSource": "opc",
+    "historyMaxAge": 2,
+    "opcItemPath": "ns\u003d2:s\u003dQuantum1.Quantum1._System._Simulated",
+    "historicalDeadband": 0.005,
+    "writePermissions": {
+      "type": "AllOf",
+      "securityLevels": []
+    },
+    "historyTagGroup": "Default Historical",
+    "tagGroup": "Default",
+    "tagType": "AtomicTag",
+    "enabled": true,
+    "readOnly": false,
+    "historyProvider": "mysql",
+    "dataType": "Boolean",
+    "name": "_Simulated",
+    "historyEnabled": true,
+    "readPermissions": {
+      "type": "AllOf",
+      "securityLevels": []
+    },
+    "sampleMode": "TagGroup",
+    "opcServer": "Kepware"
+  }
+]

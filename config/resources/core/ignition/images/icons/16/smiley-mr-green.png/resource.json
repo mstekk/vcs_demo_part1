@@ -1,0 +1,20 @@
+{
+  "scope": "A",
+  "version": 1,
+  "restricted": false,
+  "overridable": true,
+  "files": [
+    "smiley-mr-green.png"
+  ],
+  "attributes": {
+    "width": 16,
+    "format": "PNG",
+    "lastModification": {
+      "actor": "8.3-migration",
+      "timestamp": "2026-01-07T14:49:07Z"
+    },
+    "size": 799,
+    "lastModificationSignature": "a2700ca2fc4d2213820fb1a9deba9c6813ebbe8c50b8496bc82ec9fd93f57f61",
+    "height": 16
+  }
+}

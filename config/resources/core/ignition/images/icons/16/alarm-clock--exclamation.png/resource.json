@@ -1,0 +1,20 @@
+{
+  "scope": "A",
+  "version": 1,
+  "restricted": false,
+  "overridable": true,
+  "files": [
+    "alarm-clock--exclamation.png"
+  ],
+  "attributes": {
+    "width": 16,
+    "format": "PNG",
+    "lastModification": {
+      "actor": "8.3-migration",
+      "timestamp": "2026-01-07T14:49:07Z"
+    },
+    "size": 990,
+    "lastModificationSignature": "b91377a7f50b3b08e2cdc1247a2c3ffceabec9aa98a63aaa64debbefe90d5433",
+    "height": 16
+  }
+}

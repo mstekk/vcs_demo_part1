@@ -1,0 +1,20 @@
+{
+  "scope": "A",
+  "version": 1,
+  "restricted": false,
+  "overridable": true,
+  "files": [
+    "address-book--arrow.png"
+  ],
+  "attributes": {
+    "width": 16,
+    "format": "PNG",
+    "lastModification": {
+      "actor": "8.3-migration",
+      "timestamp": "2026-01-07T14:49:07Z"
+    },
+    "size": 854,
+    "lastModificationSignature": "1c7f27c732f2d955c5e096cae0360812d277d93d23aa207578f9a07d0a9a2ab7",
+    "height": 16
+  }
+}

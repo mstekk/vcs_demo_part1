@@ -1,0 +1,20 @@
+{
+  "scope": "A",
+  "version": 1,
+  "restricted": false,
+  "overridable": true,
+  "files": [
+    "mouse-select-wheel.png"
+  ],
+  "attributes": {
+    "width": 16,
+    "format": "PNG",
+    "lastModification": {
+      "actor": "8.3-migration",
+      "timestamp": "2026-01-07T14:49:07Z"
+    },
+    "size": 620,
+    "lastModificationSignature": "87e3be7972b7e6930cdf1c3f2902d47089e7ffc9e1fcc53229b721979de3bd31",
+    "height": 16
+  }
+}

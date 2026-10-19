@@ -1,0 +1,20 @@
+{
+  "scope": "A",
+  "version": 1,
+  "restricted": false,
+  "overridable": true,
+  "files": [
+    "Valve 29.png"
+  ],
+  "attributes": {
+    "width": 90,
+    "format": "PNG",
+    "lastModification": {
+      "actor": "8.3-migration",
+      "timestamp": "2026-01-07T14:49:07Z"
+    },
+    "size": 6291,
+    "lastModificationSignature": "e94c0d3caa916bb52129d98c798924ca14407c9ec0dca37e0b70f315a8aa9a85",
+    "height": 158
+  }
+}

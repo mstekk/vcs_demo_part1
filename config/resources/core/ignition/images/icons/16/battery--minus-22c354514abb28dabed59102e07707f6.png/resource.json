@@ -1,0 +1,20 @@
+{
+  "scope": "A",
+  "version": 1,
+  "restricted": false,
+  "overridable": true,
+  "files": [
+    "battery--minus-22c354514abb28dabed59102e07707f6.png"
+  ],
+  "attributes": {
+    "width": 16,
+    "format": "PNG",
+    "lastModification": {
+      "actor": "8.3-migration",
+      "timestamp": "2026-01-07T14:49:07Z"
+    },
+    "size": 659,
+    "lastModificationSignature": "aa6164a1d5c5a254573f658c8733ae334e7ff1324da0644cf63abc34d445d1a2",
+    "height": 16
+  }
+}

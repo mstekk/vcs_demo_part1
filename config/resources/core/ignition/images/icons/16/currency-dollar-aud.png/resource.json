@@ -1,0 +1,20 @@
+{
+  "scope": "A",
+  "version": 1,
+  "restricted": false,
+  "overridable": true,
+  "files": [
+    "currency-dollar-aud.png"
+  ],
+  "attributes": {
+    "width": 16,
+    "format": "PNG",
+    "lastModification": {
+      "actor": "8.3-migration",
+      "timestamp": "2026-01-07T14:49:07Z"
+    },
+    "size": 644,
+    "lastModificationSignature": "4f334387c7d8034c2859b1e9d8b3776e968656cf4610bdb1c47da11c8e9880f6",
+    "height": 16
+  }
+}

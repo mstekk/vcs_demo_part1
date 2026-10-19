@@ -1,0 +1,20 @@
+{
+  "scope": "A",
+  "version": 1,
+  "restricted": false,
+  "overridable": true,
+  "files": [
+    "ui-scroll-pane-horizontal.png"
+  ],
+  "attributes": {
+    "width": 16,
+    "format": "PNG",
+    "lastModification": {
+      "actor": "8.3-migration",
+      "timestamp": "2026-01-07T14:49:07Z"
+    },
+    "size": 322,
+    "lastModificationSignature": "c39a05963e8fa6838fbd2578e55c6a7f1b76a81caefe9019efc32a6dc944dc0c",
+    "height": 16
+  }
+}

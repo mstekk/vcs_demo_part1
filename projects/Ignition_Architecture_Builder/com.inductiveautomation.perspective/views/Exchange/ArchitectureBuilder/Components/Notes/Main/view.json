@@ -1,0 +1,279 @@
+{
+  "custom": {
+    "DeviceImages": [
+      {
+        "filename": "PLC Blue - Left",
+        "image": "data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiPz48c3ZnIGlkPSJMYXllcl8yIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHhtbG5zOnhsaW5rPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5L3hsaW5rIiB2aWV3Qm94PSIwIDAgMTc0LjA4IDE3Mi4yMyI+PGRlZnM+PHN0eWxlPi5jbHMtMSwuY2xzLTIsLmNscy0ze2ZpbGw6bm9uZTt9LmNscy0ye2NsaXAtcGF0aDp1cmwoI2NsaXBwYXRoLTEpO30uY2xzLTR7ZmlsbDojZmZmO30uY2xzLTV7ZmlsbDojYWNjZGUzO30uY2xzLTZ7ZmlsbDojMzY1NzdmO30uY2xzLTd7ZmlsbDojMmY0NTY2O30uY2xzLTN7Y2xpcC1wYXRoOnVybCgjY2xpcHBhdGgpO308L3N0eWxlPjxjbGlwUGF0aCBpZD0iY2xpcHBhdGgiPjxyZWN0IGNsYXNzPSJjbHMtMSIgd2lkdGg9IjE3NC4wOCIgaGVpZ2h0PSIxNzIuMjMiLz48L2NsaXBQYXRoPjxjbGlwUGF0aCBpZD0iY2xpcHBhdGgtMSI+PHJlY3QgY2xhc3M9ImNscy0xIiB3aWR0aD0iMTc0LjA4IiBoZWlnaHQ9IjE3Mi4yMyIvPjwvY2xpcFBhdGg+PC9kZWZzPjxnIGlkPSJMYXllcl8xLTIiPjxnIGlkPSJQTENfQmx1ZV8tX0xlZnQiPjxnIGNsYXNzPSJjbHMtMyI+PHBvbHlnb24gY2xhc3M9ImNscy01IiBwb2ludHM9IjEzMS4zNSAwIDAgNzUuODMgMCAxNDguNTcgNDIuNzUgMTcyLjIzIDE3NC4wOCA5Ni40MiAxNzQuMDggMjMuNjYgMTMxLjM1IDAiLz48cG9seWdvbiBjbGFzcz0iY2xzLTYiIHBvaW50cz0iNDIuNzUgOTkuNDkgNDIuNzUgMTcyLjIzIDE3NC4wOCA5Ni40MiAxNzQuMDggMjMuNjYgNDIuNzUgOTkuNDkiLz48ZyBjbGFzcz0iY2xzLTIiPjxwYXRoIGNsYXNzPSJjbHMtNCIgZD0ibTExNS43LDExOS42MWMtMS41OSwwLTIuODktMS4yOS0yLjg5LTIuODl2LTQ1Ljk2YzAtMS41OSwxLjI5LTIuODksMi44OS0yLjg5czIuODksMS4yOSwyLjg5LDIuODl2NDUuOTZjMCwxLjU5LTEuMjksMi44OS0yLjg5LDIuODkiLz48cGF0aCBjbGFzcz0iY2xzLTQiIGQ9Im04OC43OCwxMzUuMTRjLTEuNTksMC0yLjg5LTEuMjktMi44OS0yLjg5di00NS45NWMwLTEuNTksMS4yOS0yLjg5LDIuODktMi44OXMyLjg5LDEuMjksMi44OSwyLjg5djQ1Ljk1YzAsMS41OS0xLjI5LDIuODktMi44OSwyLjg5Ii8+PHBhdGggY2xhc3M9ImNscy00IiBkPSJtMTQzLjk2LDEwMy4yOGMtMS41OSwwLTIuODktMS4yOS0yLjg5LTIuODl2LTQ1Ljk1YzAtMS41OSwxLjI5LTIuODksMi44OS0yLjg5czIuODksMS4yOSwyLjg5LDIuODl2NDUuOTVjMCwxLjU5LTEuMjksMi44OS0yLjg5LDIuODkiLz48cGF0aCBjbGFzcz0iY2xzLTQiIGQ9Im02My43NSwxMDQuNDZjMCwzLjEtMi40OSw3LjAyLTUuNTYsOC44LTMuMTIsMS44LTUuNjQuNzYtNS42NC0yLjM1czIuNTItNy4wNiw1LjY0LTguODNjMy4wNy0xLjgsNS41Ni0uNzQsNS41NiwyLjM4Ii8+PHBhdGggY2xhc3M9ImNscy00IiBkPSJtNzYuODcsOTYuODZjMCwzLjExLTIuNDksNy4wNS01LjU5LDguODItMy4xMSwxLjgtNS42MS43Ni01LjYxLTIuMzRzMi41LTcuMDQsNS42MS04Ljg0YzMuMS0xLjc5LDUuNTktLjczLDUuNTksMi4zNiIvPjxwb2x5Z29uIGNsYXNzPSJjbHMtNyIgcG9pbnRzPSIwIDc1LjgzIDQyLjc1IDk5LjQ5IDQyLjc1IDE3Mi4yMyAwIDE0OC41NyAwIDc1LjgzIi8+PC9nPjwvZz48L2c+PC9nPjwvc3ZnPg\u003d\u003d"
+      },
+      {
+        "filename": "PLC Blue - Right",
+        "image": "data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiPz48c3ZnIGlkPSJMYXllcl8yIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHhtbG5zOnhsaW5rPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5L3hsaW5rIiB2aWV3Qm94PSIwIDAgMTc0LjE3IDE3Mi4zMSI+PGRlZnM+PHN0eWxlPi5jbHMtMSwuY2xzLTIsLmNscy0ze2ZpbGw6bm9uZTt9LmNscy0ye2NsaXAtcGF0aDp1cmwoI2NsaXBwYXRoLTEpO30uY2xzLTR7ZmlsbDojZmZmO30uY2xzLTV7ZmlsbDojYWNjZGUzO30uY2xzLTZ7ZmlsbDojMzY1NzdmO30uY2xzLTd7ZmlsbDojMmY0NTY2O30uY2xzLTN7Y2xpcC1wYXRoOnVybCgjY2xpcHBhdGgpO308L3N0eWxlPjxjbGlwUGF0aCBpZD0iY2xpcHBhdGgiPjxyZWN0IGNsYXNzPSJjbHMtMSIgd2lkdGg9IjE3NC4xNyIgaGVpZ2h0PSIxNzIuMzEiLz48L2NsaXBQYXRoPjxjbGlwUGF0aCBpZD0iY2xpcHBhdGgtMSI+PHJlY3QgY2xhc3M9ImNscy0xIiB3aWR0aD0iMTc0LjE3IiBoZWlnaHQ9IjE3Mi4zMSIvPjwvY2xpcFBhdGg+PC9kZWZzPjxnIGlkPSJMYXllcl8xLTIiPjxnIGlkPSJQTENfQmx1ZV8tX1JpZ2h0Ij48ZyBjbGFzcz0iY2xzLTMiPjxwb2x5Z29uIGNsYXNzPSJjbHMtNSIgcG9pbnRzPSI0Mi43NSAwIDAgMjMuNjggMCA5Ni40NSAxMzEuMzggMTcyLjMxIDE3NC4xNyAxNDguNjUgMTc0LjE3IDc1Ljg3IDQyLjc1IDAiLz48cG9seWdvbiBjbGFzcz0iY2xzLTciIHBvaW50cz0iMCA5Ni40NSAxMzEuMzggMTcyLjMxIDEzMS4zOCA5OS41MiAwIDIzLjY4IDAgOTYuNDUiLz48ZyBjbGFzcz0iY2xzLTIiPjxwYXRoIGNsYXNzPSJjbHMtNCIgZD0ibTgxLjQxLDEzNC45MWMtMS41OSwwLTIuODktMS4yOS0yLjg5LTIuODl2LTQ1Ljk5YzAtMS41OSwxLjI5LTIuODksMi44OS0yLjg5czIuODksMS4yOSwyLjg5LDIuODl2NDUuOTljMCwxLjU5LTEuMjksMi44OS0yLjg5LDIuODkiLz48cGF0aCBjbGFzcz0iY2xzLTQiIGQ9Im0xMDguMzMsMTUwLjQ1Yy0xLjU5LDAtMi44OS0xLjI5LTIuODktMi44OXYtNDUuOTdjMC0xLjU5LDEuMjktMi44OSwyLjg5LTIuODlzMi44OSwxLjI5LDIuODksMi44OXY0NS45N2MwLDEuNTktMS4yOSwyLjg5LTIuODksMi44OSIvPjxwYXRoIGNsYXNzPSJjbHMtNCIgZD0ibTUzLjExLDExOC41OGMtMS41OSwwLTIuODktMS4yOS0yLjg5LTIuODl2LTQ1Ljk5YzAtMS41OSwxLjI5LTIuODksMi44OS0yLjg5czIuODksMS4yOSwyLjg5LDIuODl2NDUuOTljMCwxLjU5LTEuMjksMi44OS0yLjg5LDIuODkiLz48cGF0aCBjbGFzcz0iY2xzLTQiIGQ9Im0yMS4wNyw1Mi40NmMwLDMuMDgsMi41MSw3LjAxLDUuNTcsOC43OSwzLjEzLDEuOCw1LjY1Ljc3LDUuNjUtMi4zMnMtMi41My03LjA4LTUuNjUtOC44N2MtMy4wNi0xLjc4LTUuNTctLjcxLTUuNTcsMi40Ii8+PHBhdGggY2xhc3M9ImNscy00IiBkPSJtNy45NSw0NC44OGMwLDMuMSwyLjUxLDcuMDIsNS42LDguODEsMy4xMSwxLjc5LDUuNi43Niw1LjYtMi4zNnMtMi40OS03LjA0LTUuNi04LjgzYy0zLjA5LTEuNzctNS42LS43NS01LjYsMi4zNyIvPjxwb2x5Z29uIGNsYXNzPSJjbHMtNiIgcG9pbnRzPSIxNzQuMTcgNzUuODcgMTMxLjM4IDk5LjUyIDEzMS4zOCAxNzIuMzEgMTc0LjE3IDE0OC42NSAxNzQuMTcgNzUuODciLz48L2c+PC9nPjwvZz48L2c+PC9zdmc+"
+      },
+      {
+        "filename": "PLC Gray - Left",
+        "image": "data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiPz48c3ZnIGlkPSJMYXllcl8yIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHhtbG5zOnhsaW5rPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5L3hsaW5rIiB2aWV3Qm94PSIwIDAgMTc0LjA4IDE3My42MiI+PGRlZnM+PHN0eWxlPi5jbHMtMSwuY2xzLTIsLmNscy0ze2ZpbGw6bm9uZTt9LmNscy0ye2NsaXAtcGF0aDp1cmwoI2NsaXBwYXRoLTEpO30uY2xzLTR7ZmlsbDojZmZmO30uY2xzLTV7ZmlsbDojZTVlNWU1O30uY2xzLTZ7ZmlsbDojYTdhOGFiO30uY2xzLTd7ZmlsbDojYmJiZGJmO30uY2xzLTN7Y2xpcC1wYXRoOnVybCgjY2xpcHBhdGgpO308L3N0eWxlPjxjbGlwUGF0aCBpZD0iY2xpcHBhdGgiPjxyZWN0IGNsYXNzPSJjbHMtMSIgd2lkdGg9IjE3NC4wOCIgaGVpZ2h0PSIxNzMuNjIiLz48L2NsaXBQYXRoPjxjbGlwUGF0aCBpZD0iY2xpcHBhdGgtMSI+PHJlY3QgY2xhc3M9ImNscy0xIiB3aWR0aD0iMTc0LjA4IiBoZWlnaHQ9IjE3My42MiIvPjwvY2xpcFBhdGg+PC9kZWZzPjxnIGlkPSJMYXllcl8xLTIiPjxnIGlkPSJQTENfR3JheV8tX0xlZnQiPjxnIGNsYXNzPSJjbHMtMyI+PHBvbHlnb24gY2xhc3M9ImNscy01IiBwb2ludHM9IjEzMi4wMSAwIDAgNzYuMjEgMCAxNTAuMzMgNDIuMDggMTczLjYyIDE3NC4wOCA5Ny40MyAxNzQuMDggMjQuMjkgMTMyLjAxIDAiLz48cG9seWdvbiBjbGFzcz0iY2xzLTciIHBvaW50cz0iNDIuMDggMTAwLjUxIDQyLjA4IDE3My42MiAxNzQuMDggOTcuNDMgMTc0LjA4IDI0LjI5IDQyLjA4IDEwMC41MSIvPjxnIGNsYXNzPSJjbHMtMiI+PHBhdGggY2xhc3M9ImNscy00IiBkPSJtMTE1LjQsMTIwLjczYy0xLjYsMC0yLjktMS4zLTIuOS0yLjl2LTQ2LjJjMC0xLjYsMS4zLTIuOSwyLjktMi45czIuOSwxLjMsMi45LDIuOXY0Ni4yYzAsMS42LTEuMywyLjktMi45LDIuOSIvPjxwYXRoIGNsYXNzPSJjbHMtNCIgZD0ibTg4LjM0LDEzNi4zNGMtMS42LDAtMi45LTEuMy0yLjktMi45di00Ni4xOWMwLTEuNiwxLjMtMi45LDIuOS0yLjlzMi45LDEuMywyLjksMi45djQ2LjE5YzAsMS42LTEuMywyLjktMi45LDIuOSIvPjxwYXRoIGNsYXNzPSJjbHMtNCIgZD0ibTE0My44MSwxMDQuMzJjLTEuNiwwLTIuOS0xLjMtMi45LTIuOXYtNDYuMTljMC0xLjYsMS4zLTIuOSwyLjktMi45czIuOSwxLjMsMi45LDIuOXY0Ni4xOWMwLDEuNi0xLjMsMi45LTIuOSwyLjkiLz48cGF0aCBjbGFzcz0iY2xzLTQiIGQ9Im02My4xOCwxMDUuNWMwLDMuMTEtMi41LDcuMDYtNS41OSw4Ljg0LTMuMTQsMS44MS01LjY3Ljc2LTUuNjctMi4zNnMyLjU0LTcuMDksNS42Ny04Ljg4YzMuMDgtMS44MSw1LjU5LS43NCw1LjU5LDIuMzkiLz48cGF0aCBjbGFzcz0iY2xzLTQiIGQ9Im03Ni4zNyw5Ny44N2MwLDMuMTItMi41LDcuMDgtNS42Miw4Ljg3LTMuMTIsMS44MS01LjY0Ljc2LTUuNjQtMi4zNXMyLjUyLTcuMDgsNS42NC04Ljg5YzMuMTEtMS44LDUuNjItLjczLDUuNjIsMi4zNyIvPjxwb2x5Z29uIGNsYXNzPSJjbHMtNiIgcG9pbnRzPSIwIDc2LjIxIDQyLjA4IDEwMC41MSA0Mi4wOCAxNzMuNjIgMCAxNTAuMzMgMCA3Ni4yMSIvPjwvZz48L2c+PC9nPjwvZz48L3N2Zz4\u003d"
+      },
+      {
+        "filename": "PLC Gray - Right",
+        "image": "data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiPz48c3ZnIGlkPSJMYXllcl8yIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHhtbG5zOnhsaW5rPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5L3hsaW5rIiB2aWV3Qm94PSIwIDAgMTc0LjE3IDE3My43MSI+PGRlZnM+PHN0eWxlPi5jbHMtMSwuY2xzLTIsLmNscy0ze2ZpbGw6bm9uZTt9LmNscy0ye2NsaXAtcGF0aDp1cmwoI2NsaXBwYXRoLTEpO30uY2xzLTR7ZmlsbDojZmZmO30uY2xzLTV7ZmlsbDojZTVlNWU1O30uY2xzLTZ7ZmlsbDojYTdhOGFiO30uY2xzLTd7ZmlsbDojYmJiZGJmO30uY2xzLTN7Y2xpcC1wYXRoOnVybCgjY2xpcHBhdGgpO308L3N0eWxlPjxjbGlwUGF0aCBpZD0iY2xpcHBhdGgiPjxyZWN0IGNsYXNzPSJjbHMtMSIgd2lkdGg9IjE3NC4xNyIgaGVpZ2h0PSIxNzMuNzEiLz48L2NsaXBQYXRoPjxjbGlwUGF0aCBpZD0iY2xpcHBhdGgtMSI+PHJlY3QgY2xhc3M9ImNscy0xIiB3aWR0aD0iMTc0LjE3IiBoZWlnaHQ9IjE3My43MSIvPjwvY2xpcFBhdGg+PC9kZWZzPjxnIGlkPSJMYXllcl8xLTIiPjxnIGlkPSJQTENfR3JheV8tX1JpZ2h0Ij48ZyBjbGFzcz0iY2xzLTMiPjxwb2x5Z29uIGNsYXNzPSJjbHMtNSIgcG9pbnRzPSI0Mi4wOSAwIDAgMjQuMyAwIDk3LjQ3IDEzMi4wNyAxNzMuNzEgMTc0LjE3IDE1MC40MSAxNzQuMTcgNzYuMjUgNDIuMDkgMCIvPjxwb2x5Z29uIGNsYXNzPSJjbHMtNiIgcG9pbnRzPSIwIDk3LjQ3IDEzMi4wNyAxNzMuNzEgMTMyLjA3IDEwMC41NiAwIDI0LjMgMCA5Ny40NyIvPjxnIGNsYXNzPSJjbHMtMiI+PHBhdGggY2xhc3M9ImNscy00IiBkPSJtNTguNzEsMTIwLjc5YzEuNiwwLDIuOS0xLjMsMi45LTIuOXYtNDYuMjJjMC0xLjYtMS4zLTIuOS0yLjktMi45cy0yLjksMS4zLTIuOSwyLjl2NDYuMjJjMCwxLjYsMS4zLDIuOSwyLjksMi45Ii8+PHBhdGggY2xhc3M9ImNscy00IiBkPSJtODUuNzgsMTM2LjQxYzEuNiwwLDIuOS0xLjMsMi45LTIuOXYtNDYuMjFjMC0xLjYtMS4zLTIuOS0yLjktMi45cy0yLjksMS4zLTIuOSwyLjl2NDYuMjFjMCwxLjYsMS4zLDIuOSwyLjksMi45Ii8+PHBhdGggY2xhc3M9ImNscy00IiBkPSJtMzAuMjksMTA0LjM3YzEuNiwwLDIuOS0xLjMsMi45LTIuOXYtNDYuMjFjMC0xLjYtMS4zLTIuOS0yLjktMi45cy0yLjksMS4zLTIuOSwyLjl2NDYuMjFjMCwxLjYsMS4zLDIuOSwyLjksMi45Ii8+PHBhdGggY2xhc3M9ImNscy00IiBkPSJtMTEwLjk2LDEwNS41NmMwLDMuMTIsMi41MSw3LjA2LDUuNTksOC44NSwzLjE0LDEuODEsNS42OC43Nyw1LjY4LTIuMzZzLTIuNTQtNy4xLTUuNjgtOC44OGMtMy4wOC0xLjgxLTUuNTktLjc0LTUuNTksMi4zOSIvPjxwYXRoIGNsYXNzPSJjbHMtNCIgZD0ibTk3Ljc2LDk3LjkyYzAsMy4xMywyLjUxLDcuMDgsNS42Miw4Ljg3LDMuMTMsMS44MSw1LjY0Ljc2LDUuNjQtMi4zNXMtMi41Mi03LjA4LTUuNjQtOC44OWMtMy4xMS0xLjgtNS42Mi0uNzMtNS42MiwyLjM3Ii8+PHBvbHlnb24gY2xhc3M9ImNscy03IiBwb2ludHM9IjE3NC4xNyA3Ni4yNSAxMzIuMDcgMTAwLjU2IDEzMi4wNyAxNzMuNzEgMTc0LjE3IDE1MC40MSAxNzQuMTcgNzYuMjUiLz48L2c+PC9nPjwvZz48L2c+PC9zdmc+"
+      },
+      {
+        "filename": "PLC Orange - Left",
+        "image": "data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiPz48c3ZnIGlkPSJMYXllcl8yIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHhtbG5zOnhsaW5rPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5L3hsaW5rIiB2aWV3Qm94PSIwIDAgMTc0LjA4IDE3Mi4yMyI+PGRlZnM+PHN0eWxlPi5jbHMtMSwuY2xzLTIsLmNscy0ze2ZpbGw6bm9uZTt9LmNscy0ye2NsaXAtcGF0aDp1cmwoI2NsaXBwYXRoLTEpO30uY2xzLTR7ZmlsbDojZjc5NDM0O30uY2xzLTV7ZmlsbDojZmZmO30uY2xzLTZ7ZmlsbDojZmNjNTk1O30uY2xzLTd7ZmlsbDojODE1OTMxO30uY2xzLTN7Y2xpcC1wYXRoOnVybCgjY2xpcHBhdGgpO308L3N0eWxlPjxjbGlwUGF0aCBpZD0iY2xpcHBhdGgiPjxyZWN0IGNsYXNzPSJjbHMtMSIgd2lkdGg9IjE3NC4wOCIgaGVpZ2h0PSIxNzIuMjMiLz48L2NsaXBQYXRoPjxjbGlwUGF0aCBpZD0iY2xpcHBhdGgtMSI+PHJlY3QgY2xhc3M9ImNscy0xIiB3aWR0aD0iMTc0LjA4IiBoZWlnaHQ9IjE3Mi4yMyIvPjwvY2xpcFBhdGg+PC9kZWZzPjxnIGlkPSJMYXllcl8xLTIiPjxnIGlkPSJQTENfT3JhbmdlXy1fTGVmdCI+PGcgY2xhc3M9ImNscy0zIj48cG9seWdvbiBjbGFzcz0iY2xzLTYiIHBvaW50cz0iMTMxLjM1IDAgMCA3NS44MyAwIDE0OC41NyA0Mi43NSAxNzIuMjMgMTc0LjA4IDk2LjQyIDE3NC4wOCAyMy42NiAxMzEuMzUgMCIvPjxwb2x5Z29uIGNsYXNzPSJjbHMtNCIgcG9pbnRzPSI0Mi43NSA5OS40OSA0Mi43NSAxNzIuMjMgMTc0LjA4IDk2LjQyIDE3NC4wOCAyMy42NiA0Mi43NSA5OS40OSIvPjxnIGNsYXNzPSJjbHMtMiI+PHBhdGggY2xhc3M9ImNscy01IiBkPSJtMTE1LjcsMTE5LjYxYy0xLjU5LDAtMi44OS0xLjI5LTIuODktMi44OXYtNDUuOTZjMC0xLjU5LDEuMjktMi44OSwyLjg5LTIuODlzMi44OSwxLjI5LDIuODksMi44OXY0NS45NmMwLDEuNTktMS4yOSwyLjg5LTIuODksMi44OSIvPjxwYXRoIGNsYXNzPSJjbHMtNSIgZD0ibTg4Ljc4LDEzNS4xNGMtMS41OSwwLTIuODktMS4yOS0yLjg5LTIuODl2LTQ1Ljk1YzAtMS41OSwxLjI5LTIuODksMi44OS0yLjg5czIuODksMS4yOSwyLjg5LDIuODl2NDUuOTVjMCwxLjU5LTEuMjksMi44OS0yLjg5LDIuODkiLz48cGF0aCBjbGFzcz0iY2xzLTUiIGQ9Im0xNDMuOTYsMTAzLjI4Yy0xLjU5LDAtMi44OS0xLjI5LTIuODktMi44OXYtNDUuOTVjMC0xLjU5LDEuMjktMi44OSwyLjg5LTIuODlzMi44OSwxLjI5LDIuODksMi44OXY0NS45NWMwLDEuNTktMS4yOSwyLjg5LTIuODksMi44OSIvPjxwYXRoIGNsYXNzPSJjbHMtNSIgZD0ibTYzLjc1LDEwNC40NmMwLDMuMS0yLjQ5LDcuMDItNS41Niw4LjgtMy4xMiwxLjgtNS42NC43Ni01LjY0LTIuMzVzMi41Mi03LjA2LDUuNjQtOC44M2MzLjA3LTEuOCw1LjU2LS43NCw1LjU2LDIuMzgiLz48cGF0aCBjbGFzcz0iY2xzLTUiIGQ9Im03Ni44Nyw5Ni44NmMwLDMuMTEtMi40OSw3LjA1LTUuNTksOC44Mi0zLjExLDEuOC01LjYxLjc2LTUuNjEtMi4zNHMyLjUtNy4wNCw1LjYxLTguODRjMy4xLTEuNzksNS41OS0uNzMsNS41OSwyLjM2Ii8+PHBvbHlnb24gY2xhc3M9ImNscy03IiBwb2ludHM9IjAgNzUuODMgNDIuNzUgOTkuNDkgNDIuNzUgMTcyLjIzIDAgMTQ4LjU3IDAgNzUuODMiLz48L2c+PC9nPjwvZz48L2c+PC9zdmc+"
+      },
+      {
+        "filename": "PLC Purple - Left",
+        "image": "data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiPz48c3ZnIGlkPSJMYXllcl8yIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHhtbG5zOnhsaW5rPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5L3hsaW5rIiB2aWV3Qm94PSIwIDAgMTc0LjA4IDE3Mi4yMyI+PGRlZnM+PHN0eWxlPi5jbHMtMSwuY2xzLTIsLmNscy0ze2ZpbGw6bm9uZTt9LmNscy0ye2NsaXAtcGF0aDp1cmwoI2NsaXBwYXRoLTEpO30uY2xzLTR7ZmlsbDojZmZmO30uY2xzLTV7ZmlsbDojYWU5M2EyO30uY2xzLTZ7ZmlsbDojNmU0MTYzO30uY2xzLTd7ZmlsbDojNGMzMDQ1O30uY2xzLTN7Y2xpcC1wYXRoOnVybCgjY2xpcHBhdGgpO308L3N0eWxlPjxjbGlwUGF0aCBpZD0iY2xpcHBhdGgiPjxyZWN0IGNsYXNzPSJjbHMtMSIgd2lkdGg9IjE3NC4wOCIgaGVpZ2h0PSIxNzIuMjMiLz48L2NsaXBQYXRoPjxjbGlwUGF0aCBpZD0iY2xpcHBhdGgtMSI+PHJlY3QgY2xhc3M9ImNscy0xIiB3aWR0aD0iMTc0LjA4IiBoZWlnaHQ9IjE3Mi4yMyIvPjwvY2xpcFBhdGg+PC9kZWZzPjxnIGlkPSJMYXllcl8xLTIiPjxnIGlkPSJQTENfUHVycGxlXy1fTGVmdCI+PGcgY2xhc3M9ImNscy0zIj48cG9seWdvbiBjbGFzcz0iY2xzLTUiIHBvaW50cz0iMTMxLjM1IDAgMCA3NS44MyAwIDE0OC41NyA0Mi43NSAxNzIuMjMgMTc0LjA4IDk2LjQyIDE3NC4wOCAyMy42NiAxMzEuMzUgMCIvPjxwb2x5Z29uIGNsYXNzPSJjbHMtNiIgcG9pbnRzPSI0Mi43NSA5OS40OSA0Mi43NSAxNzIuMjMgMTc0LjA4IDk2LjQyIDE3NC4wOCAyMy42NiA0Mi43NSA5OS40OSIvPjxnIGNsYXNzPSJjbHMtMiI+PHBhdGggY2xhc3M9ImNscy00IiBkPSJtMTE1LjcsMTE5LjYxYy0xLjU5LDAtMi44OS0xLjI5LTIuODktMi44OXYtNDUuOTZjMC0xLjU5LDEuMjktMi44OSwyLjg5LTIuODlzMi44OSwxLjI5LDIuODksMi44OXY0NS45NmMwLDEuNTktMS4yOSwyLjg5LTIuODksMi44OSIvPjxwYXRoIGNsYXNzPSJjbHMtNCIgZD0ibTg4Ljc4LDEzNS4xNGMtMS41OSwwLTIuODktMS4yOS0yLjg5LTIuODl2LTQ1Ljk1YzAtMS41OSwxLjI5LTIuODksMi44OS0yLjg5czIuODksMS4yOSwyLjg5LDIuODl2NDUuOTVjMCwxLjU5LTEuMjksMi44OS0yLjg5LDIuODkiLz48cGF0aCBjbGFzcz0iY2xzLTQiIGQ9Im0xNDMuOTYsMTAzLjI4Yy0xLjU5LDAtMi44OS0xLjI5LTIuODktMi44OXYtNDUuOTVjMC0xLjU5LDEuMjktMi44OSwyLjg5LTIuODlzMi44OSwxLjI5LDIuODksMi44OXY0NS45NWMwLDEuNTktMS4yOSwyLjg5LTIuODksMi44OSIvPjxwYXRoIGNsYXNzPSJjbHMtNCIgZD0ibTYzLjc1LDEwNC40NmMwLDMuMS0yLjQ5LDcuMDItNS41Niw4LjgtMy4xMiwxLjgtNS42NC43Ni01LjY0LTIuMzVzMi41Mi03LjA2LDUuNjQtOC44M2MzLjA3LTEuOCw1LjU2LS43NCw1LjU2LDIuMzgiLz48cGF0aCBjbGFzcz0iY2xzLTQiIGQ9Im03Ni44Nyw5Ni44NmMwLDMuMTEtMi40OSw3LjA1LTUuNTksOC44Mi0zLjExLDEuOC01LjYxLjc2LTUuNjEtMi4zNHMyLjUtNy4wNCw1LjYxLTguODRjMy4xLTEuNzksNS41OS0uNzMsNS41OSwyLjM2Ii8+PHBvbHlnb24gY2xhc3M9ImNscy03IiBwb2ludHM9IjAgNzUuODMgNDIuNzUgOTkuNDkgNDIuNzUgMTcyLjIzIDAgMTQ4LjU3IDAgNzUuODMiLz48L2c+PC9nPjwvZz48L2c+PC9zdmc+"
+      },
+      {
+        "filename": "PLC Purple - Right",
+        "image": "data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiPz48c3ZnIGlkPSJMYXllcl8yIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHhtbG5zOnhsaW5rPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5L3hsaW5rIiB2aWV3Qm94PSIwIDAgMTc0LjE3IDE3Mi4zMSI+PGRlZnM+PHN0eWxlPi5jbHMtMSwuY2xzLTIsLmNscy0ze2ZpbGw6bm9uZTt9LmNscy0ye2NsaXAtcGF0aDp1cmwoI2NsaXBwYXRoLTEpO30uY2xzLTR7ZmlsbDojZmZmO30uY2xzLTV7ZmlsbDojYWU5M2EyO30uY2xzLTZ7ZmlsbDojNmU0MTYzO30uY2xzLTd7ZmlsbDojNGMzMDQ1O30uY2xzLTN7Y2xpcC1wYXRoOnVybCgjY2xpcHBhdGgpO308L3N0eWxlPjxjbGlwUGF0aCBpZD0iY2xpcHBhdGgiPjxyZWN0IGNsYXNzPSJjbHMtMSIgd2lkdGg9IjE3NC4xNyIgaGVpZ2h0PSIxNzIuMzEiLz48L2NsaXBQYXRoPjxjbGlwUGF0aCBpZD0iY2xpcHBhdGgtMSI+PHJlY3QgY2xhc3M9ImNscy0xIiB3aWR0aD0iMTc0LjE3IiBoZWlnaHQ9IjE3Mi4zMSIvPjwvY2xpcFBhdGg+PC9kZWZzPjxnIGlkPSJMYXllcl8xLTIiPjxnIGlkPSJQTENfUHVycGxlXy1fUmlnaHQiPjxnIGNsYXNzPSJjbHMtMyI+PHBvbHlnb24gY2xhc3M9ImNscy01IiBwb2ludHM9IjQyLjc1IDAgMCAyMy42OCAwIDk2LjQ1IDEzMS4zOCAxNzIuMzEgMTc0LjE3IDE0OC42NSAxNzQuMTcgNzUuODcgNDIuNzUgMCIvPjxwb2x5Z29uIGNsYXNzPSJjbHMtNyIgcG9pbnRzPSIwIDk2LjQ1IDEzMS4zOCAxNzIuMzEgMTMxLjM4IDk5LjUyIDAgMjMuNjggMCA5Ni40NSIvPjxnIGNsYXNzPSJjbHMtMiI+PHBhdGggY2xhc3M9ImNscy00IiBkPSJtODEuNDEsMTM0LjkxYy0xLjU5LDAtMi44OS0xLjI5LTIuODktMi44OXYtNDZjMC0xLjU5LDEuMjktMi44OSwyLjg5LTIuODlzMi44OSwxLjI5LDIuODksMi44OXY0NmMwLDEuNTktMS4yOSwyLjg5LTIuODksMi44OSIvPjxwYXRoIGNsYXNzPSJjbHMtNCIgZD0ibTEwOC4zMywxNTAuNDVjLTEuNTksMC0yLjg5LTEuMjktMi44OS0yLjg5di00NS45N2MwLTEuNTksMS4yOS0yLjg5LDIuODktMi44OXMyLjg5LDEuMjksMi44OSwyLjg5djQ1Ljk3YzAsMS41OS0xLjI5LDIuODktMi44OSwyLjg5Ii8+PHBhdGggY2xhc3M9ImNscy00IiBkPSJtNTMuMTEsMTE4LjU4Yy0xLjU5LDAtMi44OS0xLjI5LTIuODktMi44OXYtNDUuOTljMC0xLjU5LDEuMjktMi44OSwyLjg5LTIuODlzMi44OSwxLjI5LDIuODksMi44OXY0NS45OWMwLDEuNTktMS4yOSwyLjg5LTIuODksMi44OSIvPjxwYXRoIGNsYXNzPSJjbHMtNCIgZD0ibTIxLjA3LDUyLjQ2YzAsMy4wOCwyLjUxLDcuMDEsNS41Nyw4Ljc5LDMuMTMsMS44LDUuNjUuNzcsNS42NS0yLjMycy0yLjUzLTcuMDgtNS42NS04Ljg3Yy0zLjA2LTEuNzgtNS41Ny0uNzEtNS41NywyLjQiLz48cGF0aCBjbGFzcz0iY2xzLTQiIGQ9Im03Ljk1LDQ0Ljg4YzAsMy4xLDIuNTEsNy4wMiw1LjYsOC44MSwzLjExLDEuNzksNS42Ljc2LDUuNi0yLjM2cy0yLjQ5LTcuMDQtNS42LTguODNjLTMuMDktMS43Ny01LjYtLjc1LTUuNiwyLjM3Ii8+PHBvbHlnb24gY2xhc3M9ImNscy02IiBwb2ludHM9IjE3NC4xNyA3NS44NyAxMzEuMzggOTkuNTIgMTMxLjM4IDE3Mi4zMSAxNzQuMTcgMTQ4LjY1IDE3NC4xNyA3NS44NyIvPjwvZz48L2c+PC9nPjwvZz48L3N2Zz4\u003d"
+      },
+      {
+        "filename": "RTU - Left",
+        "image": "data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiPz48c3ZnIGlkPSJMYXllcl8yIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHhtbG5zOnhsaW5rPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5L3hsaW5rIiB2aWV3Qm94PSIwIDAgMTc0LjA4IDE3Mi4yMyI+PGRlZnM+PHN0eWxlPi5jbHMtMSwuY2xzLTIsLmNscy0ze2ZpbGw6bm9uZTt9LmNscy0ye2NsaXAtcGF0aDp1cmwoI2NsaXBwYXRoLTEpO30uY2xzLTR7ZmlsbDojZmZmO30uY2xzLTV7ZmlsbDojOTY5NzlhO30uY2xzLTZ7ZmlsbDojYmZjMGMyO30uY2xzLTd7ZmlsbDojNjE2MjY0O30uY2xzLTN7Y2xpcC1wYXRoOnVybCgjY2xpcHBhdGgpO308L3N0eWxlPjxjbGlwUGF0aCBpZD0iY2xpcHBhdGgiPjxyZWN0IGNsYXNzPSJjbHMtMSIgd2lkdGg9IjE3NC4wOCIgaGVpZ2h0PSIxNzIuMjMiLz48L2NsaXBQYXRoPjxjbGlwUGF0aCBpZD0iY2xpcHBhdGgtMSI+PHJlY3QgY2xhc3M9ImNscy0xIiB3aWR0aD0iMTc0LjA4IiBoZWlnaHQ9IjE3Mi4yMyIvPjwvY2xpcFBhdGg+PC9kZWZzPjxnIGlkPSJMYXllcl8xLTIiPjxnIGlkPSJSVFVfLV9MZWZ0Ij48ZyBjbGFzcz0iY2xzLTMiPjxwb2x5Z29uIGNsYXNzPSJjbHMtNiIgcG9pbnRzPSIxMzEuMzUgMCAwIDc1LjgzIDAgMTQ4LjU3IDQyLjc1IDE3Mi4yMyAxNzQuMDggOTYuNDIgMTc0LjA4IDIzLjY2IDEzMS4zNSAwIi8+PHBvbHlnb24gY2xhc3M9ImNscy01IiBwb2ludHM9IjQyLjc1IDk5LjQ5IDQyLjc1IDE3Mi4yMyAxNzQuMDggOTYuNDIgMTc0LjA4IDIzLjY2IDQyLjc1IDk5LjQ5Ii8+PGcgY2xhc3M9ImNscy0yIj48cGF0aCBjbGFzcz0iY2xzLTQiIGQ9Im0xMTYuNTUsNzguNTRjLS44LTEuMzgtLjMyLTMuMTUsMS4wNi0zLjk0bDM5Ljc5LTIyLjk4YzEuMzgtLjgsMy4xNS0uMzIsMy45NCwxLjA2LjgsMS4zOC4zMiwzLjE1LTEuMDYsMy45NGwtMzkuNzksMjIuOThjLTEuMzguOC0zLjE1LjMyLTMuOTQtMS4wNiIvPjxwYXRoIGNsYXNzPSJjbHMtNCIgZD0ibTExNi41NSw5NC44N2MtLjgtMS4zOC0uMzItMy4xNSwxLjA2LTMuOTRsMzkuNzktMjIuOThjMS4zOC0uOCwzLjE1LS4zMiwzLjk0LDEuMDYuOCwxLjM4LjMyLDMuMTUtMS4wNiwzLjk0bC0zOS43OSwyMi45OGMtMS4zOC44LTMuMTUuMzItMy45NC0xLjA2Ii8+PHBhdGggY2xhc3M9ImNscy00IiBkPSJtMTE2LjU1LDExMS42MmMtLjgtMS4zOC0uMzItMy4xNSwxLjA2LTMuOTRsMzkuNzktMjIuOTdjMS4zOC0uOCwzLjE1LS4zMiwzLjk0LDEuMDYuOCwxLjM4LjMyLDMuMTUtMS4wNiwzLjk0bC0zOS43OSwyMi45N2MtMS4zOC44LTMuMTUuMzItMy45NC0xLjA2Ii8+PHBvbHlnb24gY2xhc3M9ImNscy03IiBwb2ludHM9IjAgNzUuODMgNDIuNzUgOTkuNDkgNDIuNzUgMTcyLjIzIDAgMTQ4LjU3IDAgNzUuODMiLz48cG9seWdvbiBjbGFzcz0iY2xzLTQiIHBvaW50cz0iMTA0LjE3IDgxLjkzIDU4LjE1IDEwOC41MSA1OC4xNSAxNDguMTIgMTA0LjE3IDEyMS41NiAxMDQuMTcgODEuOTMiLz48L2c+PC9nPjwvZz48L2c+PC9zdmc+"
+      }
+    ]
+  },
+  "params": {
+    "config": {
+      "fontSize": 12
+    },
+    "desc": "",
+    "name": "Note",
+    "type": "Note",
+    "uuid": ""
+  },
+  "propConfig": {
+    "custom.DeviceImages": {
+      "persistent": true
+    },
+    "params.config": {
+      "paramDirection": "input",
+      "persistent": true
+    },
+    "params.desc": {
+      "paramDirection": "input",
+      "persistent": true
+    },
+    "params.name": {
+      "paramDirection": "input",
+      "persistent": true
+    },
+    "params.type": {
+      "paramDirection": "input",
+      "persistent": true
+    },
+    "params.uuid": {
+      "paramDirection": "input",
+      "persistent": true
+    }
+  },
+  "props": {
+    "defaultSize": {
+      "height": 150,
+      "width": 150
+    }
+  },
+  "root": {
+    "children": [
+      {
+        "children": [
+          {
+            "children": [
+              {
+                "events": {
+                  "dom": {
+                    "onClick": {
+                      "config": {
+                        "script": "\tuuid\u003dself.view.params.uuid\n\tpath\u003d\u0027Exchange/ArchitectureBuilder/Components/Notes/Config\u0027\n\tparams\u003d{\u0027uuid\u0027:uuid}\n\ttitle\u003d\u0027Notes Configuration\u0027\n\tsystem.perspective.sendMessage(\u0027openPopup\u0027, {\u0027uuid\u0027:uuid, \u0027path\u0027:path,\u0027params\u0027:params,\u0027title\u0027:title},scope\u003d\u0027session\u0027)"
+                      },
+                      "scope": "G",
+                      "type": "script"
+                    }
+                  }
+                },
+                "meta": {
+                  "contextMenu": {
+                    "enabled": true
+                  },
+                  "name": "Icon"
+                },
+                "position": {
+                  "grow": 1
+                },
+                "props": {
+                  "color": "white",
+                  "path": "material/settings",
+                  "style": {
+                    "classes": "iconRotate",
+                    "cursor": "pointer",
+                    "overflow": "visible"
+                  }
+                },
+                "scripts": {
+                  "customMethods": [
+                    {
+                      "name": "increase",
+                      "params": [],
+                      "script": "\tself.getSibling(\"Label\").props.style.fontSize+\u003d1"
+                    },
+                    {
+                      "name": "configure",
+                      "params": [
+                        "uuid",
+                        "configs",
+                        "name"
+                      ],
+                      "script": "\t# implement your method here\n\tsystem.perspective.sendMessage(\u0027openPopup\u0027, {\u0027uuid\u0027:uuid, \u0027path\u0027:\u0027Exchange/ArchitectureBuilder/Components/Notes/Config\u0027,\u0027params\u0027:{\u0027uuid\u0027:uuid, \u0027name\u0027:name, \u0027config\u0027:configs, \u0027desc\u0027:self.view.params.desc},\u0027title\u0027:\u0027Edit Note\u0027},scope\u003d\u0027session\u0027)"
+                    },
+                    {
+                      "name": "decrease",
+                      "params": [],
+                      "script": "\tif self.getSibling(\"Label\").props.style.fontSize\u003c\u003d5:\n\t\tself.getSibling(\"Label\").props.style.fontSize\u003d5\n\telse:\n\t\tself.getSibling(\"Label\").props.style.fontSize-\u003d1"
+                    }
+                  ],
+                  "extensionFunctions": null,
+                  "messageHandlers": []
+                },
+                "type": "ia.display.icon"
+              }
+            ],
+            "meta": {
+              "name": "FlexContainer_0"
+            },
+            "position": {
+              "basis": "16px",
+              "shrink": 0
+            },
+            "props": {
+              "style": {
+                "overflow": "visible"
+              }
+            },
+            "type": "ia.container.flex"
+          },
+          {
+            "meta": {
+              "name": "HeaderText"
+            },
+            "position": {
+              "basis": "122px",
+              "shrink": 0
+            },
+            "propConfig": {
+              "props.text": {
+                "binding": {
+                  "config": {
+                    "path": "view.params.name"
+                  },
+                  "type": "property"
+                }
+              }
+            },
+            "props": {
+              "alignVertical": "top",
+              "style": {
+                "filter": "drop-shadow(2px 2px 2px #000000)"
+              },
+              "textStyle": {
+                "fontSize": "0.6em",
+                "whiteSpace": "pre-wrap"
+              }
+            },
+            "type": "ia.display.label"
+          }
+        ],
+        "meta": {
+          "name": "FlexContainer"
+        },
+        "position": {
+          "basis": "18px",
+          "shrink": 0
+        },
+        "props": {
+          "alignItems": "flex-start",
+          "style": {
+            "margin": "4px",
+            "marginBottom": "0px",
+            "overflow": "visible"
+          }
+        },
+        "type": "ia.container.flex"
+      },
+      {
+        "meta": {
+          "name": "Label"
+        },
+        "position": {
+          "grow": 1
+        },
+        "propConfig": {
+          "props.style.fontSize": {
+            "binding": {
+              "config": {
+                "path": "view.params.config.fontSize"
+              },
+              "type": "property"
+            }
+          },
+          "props.text": {
+            "binding": {
+              "config": {
+                "path": "view.params.desc"
+              },
+              "type": "property"
+            }
+          }
+        },
+        "props": {
+          "alignVertical": "top",
+          "style": {
+            "backgroundColor": "--neutral-10",
+            "margin": "4px",
+            "overflow": "auto",
+            "padding": "2px"
+          },
+          "textStyle": {
+            "textAlign": "start",
+            "whiteSpace": "pre-wrap"
+          }
+        },
+        "type": "ia.display.label"
+      }
+    ],
+    "meta": {
+      "contextMenu": {},
+      "name": "root"
+    },
+    "position": {
+      "x": 0.0171,
+      "y": -0.0217
+    },
+    "propConfig": {
+      "meta.contextMenu.items": {
+        "binding": {
+          "config": {
+            "path": "view.custom.DeviceImages"
+          },
+          "transforms": [
+            {
+              "code": "\titems\u003d[]\n\tfor x in value:\n\t\titems.append({\n\t\t  \"text\": x[\u0027filename\u0027],\n\t\t  \"icon\": {\n\t\t    \"path\": \"\",\n\t\t    \"color\": \"\",\n\t\t    \"style\": {}\n\t\t  },\n\t\t  \"style\": {\n\t\t    \"classes\": \"\"\n\t\t  },\n\t\t  \"type\": \"method\",\n\t\t  \"children\": [],\n\t\t  \"link\": {\n\t\t    \"url\": \"\",\n\t\t    \"target\": \"self\"\n\t\t  },\n\t\t  \"method\": {\n\t\t    \"name\": \"setImage\",\n\t\t    \"params\": {\n\t\t      \"image\": x[\u0027image\u0027]\n\t\t    }\n\t\t  },\n\t\t  \"message\": {\n\t\t    \"type\": \"\",\n\t\t    \"payload\": {},\n\t\t    \"scope\": \"page\"\n\t\t  }\n\t\t})\n\treturn items",
+              "type": "script"
+            }
+          ],
+          "type": "property"
+        }
+      }
+    },
+    "props": {
+      "direction": "column",
+      "style": {
+        "borderStyle": "none",
+        "classes": "Exchange/ArchitectureBuilder/componentBackground",
+        "overflow": "hidden"
+      }
+    },
+    "type": "ia.container.flex"
+  }
+}

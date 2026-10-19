@@ -1,0 +1,20 @@
+{
+  "scope": "A",
+  "version": 1,
+  "restricted": false,
+  "overridable": true,
+  "files": [
+    "telephone-fax.png"
+  ],
+  "attributes": {
+    "width": 16,
+    "format": "PNG",
+    "lastModification": {
+      "actor": "8.3-migration",
+      "timestamp": "2026-01-07T14:49:07Z"
+    },
+    "size": 589,
+    "lastModificationSignature": "f16b93651cbd106603b2a58d18ef1291da27adc54b1d697bead78d02ddd698ca",
+    "height": 16
+  }
+}

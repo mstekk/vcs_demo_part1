@@ -1,0 +1,20 @@
+{
+  "scope": "A",
+  "version": 1,
+  "restricted": false,
+  "overridable": true,
+  "files": [
+    "heart-small-empty.png"
+  ],
+  "attributes": {
+    "width": 16,
+    "format": "PNG",
+    "lastModification": {
+      "actor": "8.3-migration",
+      "timestamp": "2026-01-07T14:49:07Z"
+    },
+    "size": 360,
+    "lastModificationSignature": "3d0044ffadec4f31215568d4ccd8901ab1b22d20f15c21c7d6778d4f83dbdcb6",
+    "height": 16
+  }
+}

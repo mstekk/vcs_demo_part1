@@ -1,0 +1,20 @@
+{
+  "scope": "A",
+  "version": 1,
+  "restricted": false,
+  "overridable": true,
+  "files": [
+    "speechbubble6.png"
+  ],
+  "attributes": {
+    "width": 16,
+    "format": "PNG",
+    "lastModification": {
+      "actor": "8.3-migration",
+      "timestamp": "2026-01-07T14:49:07Z"
+    },
+    "size": 358,
+    "lastModificationSignature": "be9fc3a83626a924cf44fdfc9aa71a6f7232726500f2d25cbfaa7696d6edd84e",
+    "height": 16
+  }
+}

@@ -1,0 +1,20 @@
+{
+  "scope": "A",
+  "version": 1,
+  "restricted": false,
+  "overridable": true,
+  "files": [
+    "wireless49.png"
+  ],
+  "attributes": {
+    "width": 16,
+    "format": "PNG",
+    "lastModification": {
+      "actor": "8.3-migration",
+      "timestamp": "2026-01-07T14:49:07Z"
+    },
+    "size": 410,
+    "lastModificationSignature": "55925f7d5ea1167e5a9b06344b734b4405c3d0878bd37af756950ae332bce532",
+    "height": 16
+  }
+}

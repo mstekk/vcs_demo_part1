@@ -1,0 +1,20 @@
+{
+  "scope": "A",
+  "version": 1,
+  "restricted": false,
+  "overridable": true,
+  "files": [
+    "tag-label-pink.png"
+  ],
+  "attributes": {
+    "width": 16,
+    "format": "PNG",
+    "lastModification": {
+      "actor": "8.3-migration",
+      "timestamp": "2026-01-07T14:49:07Z"
+    },
+    "size": 751,
+    "lastModificationSignature": "23d812f844545feb08144d8d5e136f3013f910ee015c06d784d4231d6d5a86f9",
+    "height": 16
+  }
+}

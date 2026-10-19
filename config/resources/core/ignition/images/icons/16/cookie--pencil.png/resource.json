@@ -1,0 +1,20 @@
+{
+  "scope": "A",
+  "version": 1,
+  "restricted": false,
+  "overridable": true,
+  "files": [
+    "cookie--pencil.png"
+  ],
+  "attributes": {
+    "width": 16,
+    "format": "PNG",
+    "lastModification": {
+      "actor": "8.3-migration",
+      "timestamp": "2026-01-07T14:49:07Z"
+    },
+    "size": 843,
+    "lastModificationSignature": "36ca33c2b10c19caeeb7f2873168d5ee1fa02a2c15b0c8413eb971b6adbc4171",
+    "height": 16
+  }
+}

@@ -1,0 +1,20 @@
+{
+  "scope": "A",
+  "version": 1,
+  "restricted": false,
+  "overridable": true,
+  "files": [
+    "disc-case-label.png"
+  ],
+  "attributes": {
+    "width": 16,
+    "format": "PNG",
+    "lastModification": {
+      "actor": "8.3-migration",
+      "timestamp": "2026-01-07T14:49:07Z"
+    },
+    "size": 686,
+    "lastModificationSignature": "7d8410bb5c68ef6e5d7a825a2146eab503df02fcc5366fd810b7adbf28cf6f6c",
+    "height": 16
+  }
+}

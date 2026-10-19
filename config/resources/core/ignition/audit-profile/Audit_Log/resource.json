@@ -1,0 +1,19 @@
+{
+  "scope": "A",
+  "description": "Default Audit Profile",
+  "version": 1,
+  "restricted": false,
+  "overridable": true,
+  "files": [
+    "config.json"
+  ],
+  "attributes": {
+    "lastModification": {
+      "actor": "8.3-migration",
+      "timestamp": "2026-01-07T14:49:54Z"
+    },
+    "uuid": "4004f8cf-428c-4aa5-a29a-f8daec9a4fd9",
+    "lastModificationSignature": "5db12faa1e82f048a59225dc5b1536632ec8a26718529030aa5a16e71fd48f13",
+    "enabled": true
+  }
+}

@@ -1,0 +1,20 @@
+{
+  "scope": "A",
+  "version": 1,
+  "restricted": false,
+  "overridable": true,
+  "files": [
+    "pipe blueish.png"
+  ],
+  "attributes": {
+    "width": 400,
+    "format": "PNG",
+    "lastModification": {
+      "actor": "8.3-migration",
+      "timestamp": "2026-01-07T14:49:07Z"
+    },
+    "size": 4247,
+    "lastModificationSignature": "5364bbb9b6f22fb627ae3bfae5e0e02325929e66dc0474ad1c2a1ae86510103a",
+    "height": 100
+  }
+}

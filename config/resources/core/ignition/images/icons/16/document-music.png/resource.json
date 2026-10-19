@@ -1,0 +1,20 @@
+{
+  "scope": "A",
+  "version": 1,
+  "restricted": false,
+  "overridable": true,
+  "files": [
+    "document-music.png"
+  ],
+  "attributes": {
+    "width": 16,
+    "format": "PNG",
+    "lastModification": {
+      "actor": "8.3-migration",
+      "timestamp": "2026-01-07T14:49:07Z"
+    },
+    "size": 571,
+    "lastModificationSignature": "033a8809b96eeb18200f91a3f929378678c20b8e0a5171fc683f95176bfb43bc",
+    "height": 16
+  }
+}

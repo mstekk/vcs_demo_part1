@@ -1,0 +1,20 @@
+{
+  "scope": "A",
+  "version": 1,
+  "restricted": false,
+  "overridable": true,
+  "files": [
+    "calendar-task.png"
+  ],
+  "attributes": {
+    "width": 16,
+    "format": "PNG",
+    "lastModification": {
+      "actor": "8.3-migration",
+      "timestamp": "2026-01-07T14:49:07Z"
+    },
+    "size": 704,
+    "lastModificationSignature": "c4c2aea064cca0ab93f9342adcdade2c56ba673fd94785d4fdc78f2b5bc5ef98",
+    "height": 16
+  }
+}

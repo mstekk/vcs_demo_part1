@@ -1,0 +1,20 @@
+{
+  "scope": "A",
+  "version": 1,
+  "restricted": false,
+  "overridable": true,
+  "files": [
+    "webcam--pencil.png"
+  ],
+  "attributes": {
+    "width": 16,
+    "format": "PNG",
+    "lastModification": {
+      "actor": "8.3-migration",
+      "timestamp": "2026-01-07T14:49:07Z"
+    },
+    "size": 858,
+    "lastModificationSignature": "552f0d871ac26b45e10978c644e5c742b0bbc308b1d764f9c3e7b4b60e62f175",
+    "height": 16
+  }
+}

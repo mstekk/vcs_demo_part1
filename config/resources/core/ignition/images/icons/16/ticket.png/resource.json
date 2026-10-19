@@ -1,0 +1,20 @@
+{
+  "scope": "A",
+  "version": 1,
+  "restricted": false,
+  "overridable": true,
+  "files": [
+    "ticket.png"
+  ],
+  "attributes": {
+    "width": 16,
+    "format": "PNG",
+    "lastModification": {
+      "actor": "8.3-migration",
+      "timestamp": "2026-01-07T14:49:07Z"
+    },
+    "size": 678,
+    "lastModificationSignature": "367a889645219abce3ab941bec339df7f0c66374e381d0ed4ef12cab6b1e6df1",
+    "height": 16
+  }
+}

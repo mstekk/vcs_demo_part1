@@ -1,0 +1,633 @@
+[
+  {
+    "eventScripts": [
+      {
+        "eventid": "valueChanged",
+        "script": "\t#if True\t\u003d\u003d True:\nif previousValue.value \u003d\u003d True\n#if previousValue.value \u003d\u003d True and currentValue.value \u003d\u003d False:\n\tsystem.shared.ProductRecentSetpoints.updateProductRecentSetpoints()"
+      }
+    ],
+    "valueSource": "memory",
+    "readOnly": false,
+    "dataType": "Boolean",
+    "writePermissions": {
+      "type": "AllOf",
+      "securityLevels": []
+    },
+    "name": "Bool_Test_DriveRunning",
+    "defaultValue": false,
+    "readPermissions": {
+      "type": "AllOf",
+      "securityLevels": []
+    },
+    "tagGroup": "Default",
+    "tagType": "AtomicTag",
+    "enabled": true
+  },
+  {
+    "eventScripts": [
+      {
+        "eventid": "valueChanged",
+        "script": "\t#if True\t\u003d\u003d True:\nif previousValue.value \u003d\u003d True and currentValue.value \u003d\u003d False:\n\tpaths \u003d [\"Test SCADA Integrations/Priority03/LU-GRA-RM5-PMP-SET-TO-1-100\",\n\t\t\t\"Test SCADA Integrations/Priority03/LU-GRA-RM5-PMP-SET-TO-2-100\",\n\t\t\t\"Test SCADA Integrations/Priority03/LU-GRA-RM5-PMP-SET-TO-3-100\",\n\t\t\t\"Test SCADA Integrations/Priority03/LU-GRA-RM5-PMP-SET-TO-CLS601\",\n\t\t\t\"Test SCADA Integrations/Priority03/LU-GRA-RM5-PMP-SET-TO-D-PACKER\",\n\t\t\t\"Test SCADA Integrations/Priority03/LU-GRA-RM5-PMP-SET-TO-DEADHEAD\",\n\t\t\t\"Test SCADA Integrations/Priority03/LU-GRA-RM5-PMP-SET-TO-E3\",\n\t\t\t\"Test SCADA Integrations/Priority03/LU-GRA-RM5-PMP-SET-TO-E60\",\n\t\t\t\"Test SCADA Integrations/Priority03/LU-GRA-RM5-PMP-SET-TO-GUPPY\",\n\t\t\t\"Test SCADA Integrations/Priority03/LU-GRA-RM5-PMP-SET-TO-L-PACKER\",\n\t\t\t\"Test SCADA Integrations/Priority03/LU-GRA-RM5-PMP-SET-TO-M-PACKER\",\n\t\t\t\"Test SCADA Integrations/Priority03/LU-GRA-RM5-PMP-SET-TO-NC175\",\n\t\t\t\"Test SCADA Integrations/Priority03/LU-GRA-RM5-PMP-SET-TO-NE175\",\n\t\t\t\"Test SCADA Integrations/Priority03/LU-GRA-RM5-PMP-SET-TO-NW175\",\n\t\t\t\"Test SCADA Integrations/Priority03/LU-GRA-RM5-PMP-SET-TO-SE175\",\n\t\t\t\"Test SCADA Integrations/Priority03/LU-GRA-RM5-PMP-SET-TO-SW175\",\n\t\t\t\"Test SCADA Integrations/Priority03/LU-GRA-RM5-PMP-SET-TO-W60\"]\n\t\t\t\t\n\tvalues \u003d system.tag.readAll(paths)\n\t\n\t#Check which Product is being made\n\tfor index in range(len(paths)):\n\t\t#print values[index].value\n\t\tif values[index].value \u003d\u003d True:\n\t\t\tRowMatch \u003d index\n\t\n\t#later, for efficiency, put this as last value in list and reference using -1 index\n\t#values[-1].value\n\tValueRecentSP \u003d system.tag.read(\"Test SCADA Integrations/Priority03/Float_Test_SP\").value\n\t\n\t#Write ValueRecentSP  to col 1 of the Product\u0027s row\n\t#RowMatch is row#\n\t#ValueRecentSP gets written to col 1\n\tdata \u003d system.tag.read(\"Test SCADA Integrations/Priority03/Product_Recent_Setpoints\").value\n\t\n\t#check if col 1 is already the same value\n\t#print \"Value at RowMatch, 1: \" + str(data.getValueAt(RowMatch,1))\n\tif ValueRecentSP !\u003d data.getValueAt(RowMatch,1):\n\t\t#if it\u0027s a new value, shift everything\n\t\t#move col 2 to 3\n\t\tnewCol_3 \u003d data.getValueAt(RowMatch,2)\n\t\tdata \u003d system.dataset.setValue(data, RowMatch, 3, newCol_3)\n\t\t#move col 1 to 2\n\t\tnewCol_2 \u003d data.getValueAt(RowMatch,1)\n\t\tdata \u003d system.dataset.setValue(data, RowMatch, 2, newCol_2)\n\t\n\tdata \u003d system.dataset.setValue(data, RowMatch, 1, ValueRecentSP)\n\t\n\t#for row in range(data.rowCount):\n\t#   for col in range(data.columnCount):\n\t#      print data.getValueAt(row, col)\n\t\n\t#Write Dataset back to Tag\n\tsystem.tag.write(\"Test SCADA Integrations/Priority03/Product_Recent_Setpoints\", data)"
+      }
+    ],
+    "valueSource": "memory",
+    "readOnly": false,
+    "dataType": "Boolean",
+    "writePermissions": {
+      "type": "AllOf",
+      "securityLevels": []
+    },
+    "name": "Bool_Test_DriveRunning 1",
+    "defaultValue": false,
+    "readPermissions": {
+      "type": "AllOf",
+      "securityLevels": []
+    },
+    "tagGroup": "Default",
+    "tagType": "AtomicTag",
+    "enabled": true
+  },
+  {
+    "eventScripts": [
+      {
+        "eventid": "valueChanged",
+        "script": "\t#if True\t\u003d\u003d True:\nif previousValue.value \u003d\u003d True and currentValue.value \u003d\u003d False:\n\tshared.ProductRecentSetpoints.updateProductRecentSetpoints()"
+      }
+    ],
+    "valueSource": "memory",
+    "readOnly": false,
+    "dataType": "Boolean",
+    "writePermissions": {
+      "type": "AllOf",
+      "securityLevels": []
+    },
+    "name": "Bool_Test_DriveRunning 2",
+    "defaultValue": false,
+    "readPermissions": {
+      "type": "AllOf",
+      "securityLevels": []
+    },
+    "tagGroup": "Default",
+    "tagType": "AtomicTag",
+    "enabled": true
+  },
+  {
+    "eventScripts": [
+      {
+        "eventid": "valueChanged",
+        "script": "#if True\t\u003d\u003d True:\nif previousValue.value \u003d\u003d True\n#if previousValue.value \u003d\u003d True and currentValue.value \u003d\u003d False:\n\tsystem.shared.ProductRecentSetpoints.updateProductRecentSetpoints()"
+      }
+    ],
+    "valueSource": "memory",
+    "readOnly": false,
+    "dataType": "Boolean",
+    "writePermissions": {
+      "type": "AllOf",
+      "securityLevels": []
+    },
+    "name": "Bool_Test_DriveRunning 3",
+    "defaultValue": false,
+    "readPermissions": {
+      "type": "AllOf",
+      "securityLevels": []
+    },
+    "tagGroup": "Default",
+    "tagType": "AtomicTag",
+    "enabled": true
+  },
+  {
+    "valueSource": "memory",
+    "readOnly": false,
+    "dataType": "Float4",
+    "writePermissions": {
+      "type": "AllOf",
+      "securityLevels": []
+    },
+    "name": "Float_Test_SP",
+    "defaultValue": 301.0,
+    "readPermissions": {
+      "type": "AllOf",
+      "securityLevels": []
+    },
+    "tagGroup": "Default",
+    "tagType": "AtomicTag",
+    "enabled": true
+  },
+  {
+    "valueSource": "opc",
+    "historyMaxAge": 2,
+    "opcItemPath": "ns\u003d2:s\u003dQuantum3.Quantum3.LU-GRA-RM5-DRIVE-RUNNING",
+    "historicalDeadband": 0.005,
+    "writePermissions": {
+      "type": "AllOf",
+      "securityLevels": []
+    },
+    "historicalDeadbandStyle": "Discrete",
+    "historyTagGroup": "Default Historical",
+    "tagGroup": "Default",
+    "tagType": "AtomicTag",
+    "enabled": true,
+    "eventScripts": [
+      {
+        "eventid": "valueChanged",
+        "script": "\tif currentValue.value \u003d\u003d False:\n\t\tpaths \u003d [\"[.]LU-GRA-RM5-PMP-SET-TO-1-100\",\n\t\t\"[.]LU-GRA-RM5-PMP-SET-TO-2-100\",\n\t\t\"[.]LU-GRA-RM5-PMP-SET-TO-3-100\",\n\t\t\"[.]LU-GRA-RM5-PMP-SET-TO-CLS601\",\n\t\t\"[.]LU-GRA-RM5-PMP-SET-TO-D-PACKER\",\n\t\t\"[.]LU-GRA-RM5-PMP-SET-TO-DEADHEAD\",\n\t\t\"[.]LU-GRA-RM5-PMP-SET-TO-E3\",\n\t\t\"[.]LU-GRA-RM5-PMP-SET-TO-E60\",\n\t\t\"[.]LU-GRA-RM5-PMP-SET-TO-GUPPY\",\n\t\t\"[.]LU-GRA-RM5-PMP-SET-TO-L-PACKER\",\n\t\t\"[.]LU-GRA-RM5-PMP-SET-TO-M-PACKER\",\n\t\t\"[.]LU-GRA-RM5-PMP-SET-TO-NC175\",\n\t\t\"[.]LU-GRA-RM5-PMP-SET-TO-NE175\",\n\t\t\"[.]LU-GRA-RM5-PMP-SET-TO-NW175\",\n\t\t\"[.]LU-GRA-RM5-PMP-SET-TO-SE175\",\n\t\t\"[.]LU-GRA-RM5-PMP-SET-TO-SW175\",\n\t\t\"[.]LU-GRA-RM5-PMP-SET-TO-W60\"]\n\t\t\n\t\tvalues \u003d system.tag.readAll(paths)\n\t\t\n\t\tfor index in range(len(paths)):\n\t\t\tprint values[index].value\n\t\t\n\t\t"
+      }
+    ],
+    "readOnly": false,
+    "historyProvider": "mysql",
+    "dataType": "Boolean",
+    "name": "LU-GRA-RM5-DRIVE-RUNNING",
+    "historyEnabled": true,
+    "readPermissions": {
+      "type": "AllOf",
+      "securityLevels": []
+    },
+    "sampleMode": "TagGroup",
+    "opcServer": "Kepware"
+  },
+  {
+    "valueSource": "opc",
+    "historyMaxAge": 2,
+    "opcItemPath": "ns\u003d2:s\u003dQuantum3.Quantum3.LU-GRA-RM5-PMP-SET-TO-1-100",
+    "historicalDeadband": 0.005,
+    "writePermissions": {
+      "type": "AllOf",
+      "securityLevels": []
+    },
+    "historicalDeadbandStyle": "Discrete",
+    "historyTagGroup": "Default Historical",
+    "tagGroup": "Default",
+    "tagType": "AtomicTag",
+    "enabled": true,
+    "readOnly": false,
+    "historyProvider": "mysql",
+    "dataType": "Boolean",
+    "name": "LU-GRA-RM5-PMP-SET-TO-1-100",
+    "historyEnabled": true,
+    "readPermissions": {
+      "type": "AllOf",
+      "securityLevels": []
+    },
+    "sampleMode": "TagGroup",
+    "opcServer": "Kepware"
+  },
+  {
+    "valueSource": "opc",
+    "historyMaxAge": 2,
+    "opcItemPath": "ns\u003d2:s\u003dQuantum3.Quantum3.LU-GRA-RM5-PMP-SET-TO-2-100",
+    "historicalDeadband": 0.005,
+    "writePermissions": {
+      "type": "AllOf",
+      "securityLevels": []
+    },
+    "historicalDeadbandStyle": "Discrete",
+    "historyTagGroup": "Default Historical",
+    "tagGroup": "Default",
+    "tagType": "AtomicTag",
+    "enabled": true,
+    "readOnly": false,
+    "historyProvider": "mysql",
+    "dataType": "Boolean",
+    "name": "LU-GRA-RM5-PMP-SET-TO-2-100",
+    "historyEnabled": true,
+    "readPermissions": {
+      "type": "AllOf",
+      "securityLevels": []
+    },
+    "sampleMode": "TagGroup",
+    "opcServer": "Kepware"
+  },
+  {
+    "valueSource": "opc",
+    "historyMaxAge": 2,
+    "opcItemPath": "ns\u003d2:s\u003dQuantum3.Quantum3.LU-GRA-RM5-PMP-SET-TO-3-100",
+    "historicalDeadband": 0.005,
+    "writePermissions": {
+      "type": "AllOf",
+      "securityLevels": []
+    },
+    "historicalDeadbandStyle": "Discrete",
+    "historyTagGroup": "Default Historical",
+    "tagGroup": "Default",
+    "tagType": "AtomicTag",
+    "enabled": true,
+    "readOnly": false,
+    "historyProvider": "mysql",
+    "dataType": "Boolean",
+    "name": "LU-GRA-RM5-PMP-SET-TO-3-100",
+    "historyEnabled": true,
+    "readPermissions": {
+      "type": "AllOf",
+      "securityLevels": []
+    },
+    "sampleMode": "TagGroup",
+    "opcServer": "Kepware"
+  },
+  {
+    "valueSource": "opc",
+    "historyMaxAge": 2,
+    "opcItemPath": "ns\u003d2:s\u003dQuantum3.Quantum3.LU-GRA-RM5-PMP-SET-TO-CLS601",
+    "historicalDeadband": 0.005,
+    "writePermissions": {
+      "type": "AllOf",
+      "securityLevels": []
+    },
+    "historicalDeadbandStyle": "Discrete",
+    "historyTagGroup": "Default Historical",
+    "tagGroup": "Default",
+    "tagType": "AtomicTag",
+    "enabled": true,
+    "readOnly": false,
+    "historyProvider": "mysql",
+    "dataType": "Boolean",
+    "name": "LU-GRA-RM5-PMP-SET-TO-CLS601",
+    "historyEnabled": true,
+    "readPermissions": {
+      "type": "AllOf",
+      "securityLevels": []
+    },
+    "sampleMode": "TagGroup",
+    "opcServer": "Kepware"
+  },
+  {
+    "valueSource": "opc",
+    "historyMaxAge": 2,
+    "opcItemPath": "ns\u003d2:s\u003dQuantum3.Quantum3.LU-GRA-RM5-PMP-SET-TO-D-PACKER",
+    "historicalDeadband": 0.005,
+    "writePermissions": {
+      "type": "AllOf",
+      "securityLevels": []
+    },
+    "historicalDeadbandStyle": "Discrete",
+    "historyTagGroup": "Default Historical",
+    "tagGroup": "Default",
+    "tagType": "AtomicTag",
+    "enabled": true,
+    "readOnly": false,
+    "historyProvider": "mysql",
+    "dataType": "Boolean",
+    "name": "LU-GRA-RM5-PMP-SET-TO-D-PACKER",
+    "historyEnabled": true,
+    "readPermissions": {
+      "type": "AllOf",
+      "securityLevels": []
+    },
+    "sampleMode": "TagGroup",
+    "opcServer": "Kepware"
+  },
+  {
+    "valueSource": "opc",
+    "historyMaxAge": 2,
+    "opcItemPath": "ns\u003d2:s\u003dQuantum3.Quantum3.LU-GRA-RM5-PMP-SET-TO-DEADHEAD",
+    "historicalDeadband": 0.005,
+    "writePermissions": {
+      "type": "AllOf",
+      "securityLevels": []
+    },
+    "historicalDeadbandStyle": "Discrete",
+    "historyTagGroup": "Default Historical",
+    "tagGroup": "Default",
+    "tagType": "AtomicTag",
+    "enabled": true,
+    "readOnly": false,
+    "historyProvider": "mysql",
+    "dataType": "Boolean",
+    "name": "LU-GRA-RM5-PMP-SET-TO-DEADHEAD",
+    "historyEnabled": true,
+    "readPermissions": {
+      "type": "AllOf",
+      "securityLevels": []
+    },
+    "sampleMode": "TagGroup",
+    "opcServer": "Kepware"
+  },
+  {
+    "valueSource": "opc",
+    "historyMaxAge": 2,
+    "opcItemPath": "ns\u003d2:s\u003dQuantum3.Quantum3.LU-GRA-RM5-PMP-SET-TO-E3",
+    "historicalDeadband": 0.005,
+    "writePermissions": {
+      "type": "AllOf",
+      "securityLevels": []
+    },
+    "historicalDeadbandStyle": "Discrete",
+    "historyTagGroup": "Default Historical",
+    "tagGroup": "Default",
+    "tagType": "AtomicTag",
+    "enabled": true,
+    "readOnly": false,
+    "historyProvider": "mysql",
+    "dataType": "Boolean",
+    "name": "LU-GRA-RM5-PMP-SET-TO-E3",
+    "historyEnabled": true,
+    "readPermissions": {
+      "type": "AllOf",
+      "securityLevels": []
+    },
+    "sampleMode": "TagGroup",
+    "opcServer": "Kepware"
+  },
+  {
+    "valueSource": "opc",
+    "historyMaxAge": 2,
+    "opcItemPath": "ns\u003d2:s\u003dQuantum3.Quantum3.LU-GRA-RM5-PMP-SET-TO-E60",
+    "historicalDeadband": 0.005,
+    "writePermissions": {
+      "type": "AllOf",
+      "securityLevels": []
+    },
+    "historicalDeadbandStyle": "Discrete",
+    "historyTagGroup": "Default Historical",
+    "tagGroup": "Default",
+    "tagType": "AtomicTag",
+    "enabled": true,
+    "readOnly": false,
+    "historyProvider": "mysql",
+    "dataType": "Boolean",
+    "name": "LU-GRA-RM5-PMP-SET-TO-E60",
+    "historyEnabled": true,
+    "readPermissions": {
+      "type": "AllOf",
+      "securityLevels": []
+    },
+    "sampleMode": "TagGroup",
+    "opcServer": "Kepware"
+  },
+  {
+    "valueSource": "opc",
+    "historyMaxAge": 2,
+    "opcItemPath": "ns\u003d2:s\u003dQuantum3.Quantum3.LU-GRA-RM5-PMP-SET-TO-GUPPY",
+    "historicalDeadband": 0.005,
+    "writePermissions": {
+      "type": "AllOf",
+      "securityLevels": []
+    },
+    "historicalDeadbandStyle": "Discrete",
+    "historyTagGroup": "Default Historical",
+    "tagGroup": "Default",
+    "tagType": "AtomicTag",
+    "enabled": true,
+    "readOnly": false,
+    "historyProvider": "mysql",
+    "dataType": "Boolean",
+    "name": "LU-GRA-RM5-PMP-SET-TO-GUPPY",
+    "historyEnabled": true,
+    "readPermissions": {
+      "type": "AllOf",
+      "securityLevels": []
+    },
+    "sampleMode": "TagGroup",
+    "opcServer": "Kepware"
+  },
+  {
+    "valueSource": "opc",
+    "historyMaxAge": 2,
+    "opcItemPath": "ns\u003d2:s\u003dQuantum3.Quantum3.LU-GRA-RM5-PMP-SET-TO-L-PACKER",
+    "historicalDeadband": 0.005,
+    "writePermissions": {
+      "type": "AllOf",
+      "securityLevels": []
+    },
+    "historicalDeadbandStyle": "Discrete",
+    "historyTagGroup": "Default Historical",
+    "tagGroup": "Default",
+    "tagType": "AtomicTag",
+    "enabled": true,
+    "readOnly": false,
+    "historyProvider": "mysql",
+    "dataType": "Boolean",
+    "name": "LU-GRA-RM5-PMP-SET-TO-L-PACKER",
+    "historyEnabled": true,
+    "readPermissions": {
+      "type": "AllOf",
+      "securityLevels": []
+    },
+    "sampleMode": "TagGroup",
+    "opcServer": "Kepware"
+  },
+  {
+    "valueSource": "opc",
+    "historyMaxAge": 2,
+    "opcItemPath": "ns\u003d2:s\u003dQuantum3.Quantum3.LU-GRA-RM5-PMP-SET-TO-M-PACKER",
+    "historicalDeadband": 0.005,
+    "writePermissions": {
+      "type": "AllOf",
+      "securityLevels": []
+    },
+    "historicalDeadbandStyle": "Discrete",
+    "historyTagGroup": "Default Historical",
+    "tagGroup": "Default",
+    "tagType": "AtomicTag",
+    "enabled": true,
+    "readOnly": false,
+    "historyProvider": "mysql",
+    "dataType": "Boolean",
+    "name": "LU-GRA-RM5-PMP-SET-TO-M-PACKER",
+    "historyEnabled": true,
+    "readPermissions": {
+      "type": "AllOf",
+      "securityLevels": []
+    },
+    "sampleMode": "TagGroup",
+    "opcServer": "Kepware"
+  },
+  {
+    "valueSource": "opc",
+    "historyMaxAge": 2,
+    "opcItemPath": "ns\u003d2:s\u003dQuantum3.Quantum3.LU-GRA-RM5-PMP-SET-TO-NC175",
+    "historicalDeadband": 0.005,
+    "writePermissions": {
+      "type": "AllOf",
+      "securityLevels": []
+    },
+    "historicalDeadbandStyle": "Discrete",
+    "historyTagGroup": "Default Historical",
+    "tagGroup": "Default",
+    "tagType": "AtomicTag",
+    "enabled": true,
+    "readOnly": false,
+    "historyProvider": "mysql",
+    "dataType": "Boolean",
+    "name": "LU-GRA-RM5-PMP-SET-TO-NC175",
+    "historyEnabled": true,
+    "readPermissions": {
+      "type": "AllOf",
+      "securityLevels": []
+    },
+    "sampleMode": "TagGroup",
+    "opcServer": "Kepware"
+  },
+  {
+    "valueSource": "opc",
+    "historyMaxAge": 2,
+    "opcItemPath": "ns\u003d2:s\u003dQuantum3.Quantum3.LU-GRA-RM5-PMP-SET-TO-NE175",
+    "historicalDeadband": 0.005,
+    "writePermissions": {
+      "type": "AllOf",
+      "securityLevels": []
+    },
+    "historicalDeadbandStyle": "Discrete",
+    "historyTagGroup": "Default Historical",
+    "tagGroup": "Default",
+    "tagType": "AtomicTag",
+    "enabled": true,
+    "readOnly": false,
+    "historyProvider": "mysql",
+    "dataType": "Boolean",
+    "name": "LU-GRA-RM5-PMP-SET-TO-NE175",
+    "historyEnabled": true,
+    "readPermissions": {
+      "type": "AllOf",
+      "securityLevels": []
+    },
+    "sampleMode": "TagGroup",
+    "opcServer": "Kepware"
+  },
+  {
+    "valueSource": "opc",
+    "historyMaxAge": 2,
+    "opcItemPath": "ns\u003d2:s\u003dQuantum3.Quantum3.LU-GRA-RM5-PMP-SET-TO-NW175",
+    "historicalDeadband": 0.005,
+    "writePermissions": {
+      "type": "AllOf",
+      "securityLevels": []
+    },
+    "historicalDeadbandStyle": "Discrete",
+    "historyTagGroup": "Default Historical",
+    "tagGroup": "Default",
+    "tagType": "AtomicTag",
+    "enabled": true,
+    "readOnly": false,
+    "historyProvider": "mysql",
+    "dataType": "Boolean",
+    "name": "LU-GRA-RM5-PMP-SET-TO-NW175",
+    "historyEnabled": true,
+    "readPermissions": {
+      "type": "AllOf",
+      "securityLevels": []
+    },
+    "sampleMode": "TagGroup",
+    "opcServer": "Kepware"
+  },
+  {
+    "valueSource": "opc",
+    "historyMaxAge": 2,
+    "opcItemPath": "ns\u003d2:s\u003dQuantum3.Quantum3.LU-GRA-RM5-PMP-SET-TO-SE175",
+    "historicalDeadband": 0.005,
+    "writePermissions": {
+      "type": "AllOf",
+      "securityLevels": []
+    },
+    "historicalDeadbandStyle": "Discrete",
+    "historyTagGroup": "Default Historical",
+    "tagGroup": "Default",
+    "tagType": "AtomicTag",
+    "enabled": true,
+    "readOnly": false,
+    "historyProvider": "mysql",
+    "dataType": "Boolean",
+    "name": "LU-GRA-RM5-PMP-SET-TO-SE175",
+    "historyEnabled": true,
+    "readPermissions": {
+      "type": "AllOf",
+      "securityLevels": []
+    },
+    "sampleMode": "TagGroup",
+    "opcServer": "Kepware"
+  },
+  {
+    "valueSource": "opc",
+    "historyMaxAge": 2,
+    "opcItemPath": "ns\u003d2:s\u003dQuantum3.Quantum3.LU-GRA-RM5-PMP-SET-TO-SW175",
+    "historicalDeadband": 0.005,
+    "writePermissions": {
+      "type": "AllOf",
+      "securityLevels": []
+    },
+    "historicalDeadbandStyle": "Discrete",
+    "historyTagGroup": "Default Historical",
+    "tagGroup": "Default",
+    "tagType": "AtomicTag",
+    "enabled": true,
+    "readOnly": false,
+    "historyProvider": "mysql",
+    "dataType": "Boolean",
+    "name": "LU-GRA-RM5-PMP-SET-TO-SW175",
+    "historyEnabled": true,
+    "readPermissions": {
+      "type": "AllOf",
+      "securityLevels": []
+    },
+    "sampleMode": "TagGroup",
+    "opcServer": "Kepware"
+  },
+  {
+    "valueSource": "opc",
+    "historyMaxAge": 2,
+    "opcItemPath": "ns\u003d2:s\u003dQuantum3.Quantum3.LU-GRA-RM5-PMP-SET-TO-W60",
+    "historicalDeadband": 0.005,
+    "writePermissions": {
+      "type": "AllOf",
+      "securityLevels": []
+    },
+    "historicalDeadbandStyle": "Discrete",
+    "historyTagGroup": "Default Historical",
+    "tagGroup": "Default",
+    "tagType": "AtomicTag",
+    "enabled": true,
+    "readOnly": false,
+    "historyProvider": "mysql",
+    "dataType": "Boolean",
+    "name": "LU-GRA-RM5-PMP-SET-TO-W60",
+    "historyEnabled": true,
+    "readPermissions": {
+      "type": "AllOf",
+      "securityLevels": []
+    },
+    "sampleMode": "TagGroup",
+    "opcServer": "Kepware"
+  },
+  {
+    "valueSource": "opc",
+    "historyMaxAge": 2,
+    "opcItemPath": "ns\u003d2:s\u003dQuantum3.Quantum3.LU-GRA-RM5-TURBINE-SETPOINT",
+    "historicalDeadband": 0.005,
+    "writePermissions": {
+      "type": "AllOf",
+      "securityLevels": []
+    },
+    "historyTagGroup": "Default Historical",
+    "tagGroup": "Default",
+    "tagType": "AtomicTag",
+    "enabled": true,
+    "readOnly": false,
+    "historyProvider": "mysql",
+    "dataType": "Float4",
+    "name": "LU-GRA-RM5-TURBINE-SETPOINT",
+    "historyEnabled": true,
+    "readPermissions": {
+      "type": "AllOf",
+      "securityLevels": []
+    },
+    "sampleMode": "TagGroup",
+    "opcServer": "Kepware"
+  },
+  {
+    "valueSource": "memory",
+    "readOnly": false,
+    "dataType": "DataSet",
+    "writePermissions": {
+      "type": "AllOf",
+      "securityLevels": []
+    },
+    "name": "Product_Recent_Setpoints",
+    "defaultValue": "{\"columns\":[{\"name\":\"Product\",\"type\":\"java.lang.String\"},{\"name\":\"SP_1_RunsAgo\",\"type\":\"java.lang.Float\"},{\"name\":\"SP_2_RunsAgo\",\"type\":\"java.lang.Float\"},{\"name\":\"SP_3_RunsAgo\",\"type\":\"java.lang.Float\"}],\"rows\":[[\"1-100\",0.0,0.0,0.0],[\"2-100\",0.0,0.0,0.0],[\"3-100\",300.0,298.09525,0.0],[\"CLS601\",0.0,0.0,0.0],[\"D-PACKER\",0.0,0.0,0.0],[\"DEADHEAD\",0.0,0.0,0.0],[\"E3\",0.0,0.0,0.0],[\"E60\",0.0,0.0,0.0],[\"GUPPY\",0.0,0.0,0.0],[\"L-PACKER\",0.0,0.0,0.0],[\"M-PACKER\",0.0,0.0,0.0],[\"NC175\",0.0,0.0,0.0],[\"NE175\",0.0,0.0,0.0],[\"NW175\",0.0,0.0,0.0],[\"SE175\",0.0,0.0,0.0],[\"SW175\",0.0,0.0,0.0],[\"W60\",0.0,0.0,0.0]]}",
+    "readPermissions": {
+      "type": "AllOf",
+      "securityLevels": []
+    },
+    "tagGroup": "Default",
+    "tagType": "AtomicTag",
+    "enabled": true
+  }
+]

@@ -1,0 +1,20 @@
+{
+  "scope": "A",
+  "version": 1,
+  "restricted": false,
+  "overridable": true,
+  "files": [
+    "Vertical Vessel.png"
+  ],
+  "attributes": {
+    "width": 160,
+    "format": "PNG",
+    "lastModification": {
+      "actor": "8.3-migration",
+      "timestamp": "2026-01-07T14:49:07Z"
+    },
+    "size": 14033,
+    "lastModificationSignature": "fe9a3cb8662d3fbebe15826f6000968fc085ffab574dce003c60a67eefe4771d",
+    "height": 400
+  }
+}

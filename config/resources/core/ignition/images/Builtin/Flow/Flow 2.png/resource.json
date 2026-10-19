@@ -1,0 +1,20 @@
+{
+  "scope": "A",
+  "version": 1,
+  "restricted": false,
+  "overridable": true,
+  "files": [
+    "Flow 2.png"
+  ],
+  "attributes": {
+    "width": 90,
+    "format": "PNG",
+    "lastModification": {
+      "actor": "8.3-migration",
+      "timestamp": "2026-01-07T14:49:07Z"
+    },
+    "size": 5038,
+    "lastModificationSignature": "81ca8b86d6058584f875f54975314e1c2c7ed7c19be9c8430753ae8b943fb324",
+    "height": 110
+  }
+}

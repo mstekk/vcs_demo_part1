@@ -1,0 +1,20 @@
+{
+  "scope": "A",
+  "version": 1,
+  "restricted": false,
+  "overridable": true,
+  "files": [
+    "drive--exclamation.png"
+  ],
+  "attributes": {
+    "width": 16,
+    "format": "PNG",
+    "lastModification": {
+      "actor": "8.3-migration",
+      "timestamp": "2026-01-07T14:49:07Z"
+    },
+    "size": 639,
+    "lastModificationSignature": "f6bb87c8dff9efdf81cf7f400ea9b7063df17e2f36cb337c70c9f5e02d6992bc",
+    "height": 16
+  }
+}

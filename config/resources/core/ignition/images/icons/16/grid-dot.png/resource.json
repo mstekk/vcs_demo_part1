@@ -1,0 +1,20 @@
+{
+  "scope": "A",
+  "version": 1,
+  "restricted": false,
+  "overridable": true,
+  "files": [
+    "grid-dot.png"
+  ],
+  "attributes": {
+    "width": 16,
+    "format": "PNG",
+    "lastModification": {
+      "actor": "8.3-migration",
+      "timestamp": "2026-01-07T14:49:07Z"
+    },
+    "size": 188,
+    "lastModificationSignature": "4cacfb7ea2ce9b8385fecd321103735f74631220a179cecff44aa5f5daa579fc",
+    "height": 16
+  }
+}

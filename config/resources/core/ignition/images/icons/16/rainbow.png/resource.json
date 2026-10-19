@@ -1,0 +1,20 @@
+{
+  "scope": "A",
+  "version": 1,
+  "restricted": false,
+  "overridable": true,
+  "files": [
+    "rainbow.png"
+  ],
+  "attributes": {
+    "width": 16,
+    "format": "PNG",
+    "lastModification": {
+      "actor": "8.3-migration",
+      "timestamp": "2026-01-07T14:49:07Z"
+    },
+    "size": 616,
+    "lastModificationSignature": "584a36d5c636820ce4533bbb167304b11f5ee90981fb32916f3c84984e5685a1",
+    "height": 16
+  }
+}

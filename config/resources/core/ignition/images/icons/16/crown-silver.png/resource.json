@@ -1,0 +1,20 @@
+{
+  "scope": "A",
+  "version": 1,
+  "restricted": false,
+  "overridable": true,
+  "files": [
+    "crown-silver.png"
+  ],
+  "attributes": {
+    "width": 16,
+    "format": "PNG",
+    "lastModification": {
+      "actor": "8.3-migration",
+      "timestamp": "2026-01-07T14:49:07Z"
+    },
+    "size": 584,
+    "lastModificationSignature": "7425313f0131440fa5f3b4af6e347ff28f993720595b4f5f1589480fd0da42d3",
+    "height": 16
+  }
+}

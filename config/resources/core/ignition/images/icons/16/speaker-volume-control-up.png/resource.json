@@ -1,0 +1,20 @@
+{
+  "scope": "A",
+  "version": 1,
+  "restricted": false,
+  "overridable": true,
+  "files": [
+    "speaker-volume-control-up.png"
+  ],
+  "attributes": {
+    "width": 16,
+    "format": "PNG",
+    "lastModification": {
+      "actor": "8.3-migration",
+      "timestamp": "2026-01-07T14:49:07Z"
+    },
+    "size": 655,
+    "lastModificationSignature": "6d65ec7700559e5490d6d71148608d4372163aeb6fe1d2b9e2ab846e822ebe00",
+    "height": 16
+  }
+}

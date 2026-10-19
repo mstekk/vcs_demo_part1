@@ -1,0 +1,20 @@
+{
+  "scope": "A",
+  "version": 1,
+  "restricted": false,
+  "overridable": true,
+  "files": [
+    "address-book-open.png"
+  ],
+  "attributes": {
+    "width": 16,
+    "format": "PNG",
+    "lastModification": {
+      "actor": "8.3-migration",
+      "timestamp": "2026-01-07T14:49:07Z"
+    },
+    "size": 754,
+    "lastModificationSignature": "8d6faa8f159eb72bdf9de99d69d1c0ea0c5e2d5fe49a8ad7fae3fd6492e85ea8",
+    "height": 16
+  }
+}

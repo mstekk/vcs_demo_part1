@@ -1,0 +1,20 @@
+{
+  "scope": "A",
+  "version": 1,
+  "restricted": false,
+  "overridable": true,
+  "files": [
+    "yin-yang.png"
+  ],
+  "attributes": {
+    "width": 24,
+    "format": "PNG",
+    "lastModification": {
+      "actor": "8.3-migration",
+      "timestamp": "2026-01-07T14:49:07Z"
+    },
+    "size": 1213,
+    "lastModificationSignature": "41bfb670495492b91a5ce6a8442deae49102ade581d79c7923f78f55ad4c8db7",
+    "height": 24
+  }
+}

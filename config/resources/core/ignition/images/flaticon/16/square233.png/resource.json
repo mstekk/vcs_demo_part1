@@ -1,0 +1,20 @@
+{
+  "scope": "A",
+  "version": 1,
+  "restricted": false,
+  "overridable": true,
+  "files": [
+    "square233.png"
+  ],
+  "attributes": {
+    "width": 16,
+    "format": "PNG",
+    "lastModification": {
+      "actor": "8.3-migration",
+      "timestamp": "2026-01-07T14:49:07Z"
+    },
+    "size": 380,
+    "lastModificationSignature": "79912e9f765ae8362c3ec6605eee9782bd85a618270a3f912439ce837e47f0c2",
+    "height": 16
+  }
+}

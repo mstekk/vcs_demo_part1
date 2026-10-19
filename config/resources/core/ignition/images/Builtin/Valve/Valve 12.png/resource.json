@@ -1,0 +1,20 @@
+{
+  "scope": "A",
+  "version": 1,
+  "restricted": false,
+  "overridable": true,
+  "files": [
+    "Valve 12.png"
+  ],
+  "attributes": {
+    "width": 45,
+    "format": "PNG",
+    "lastModification": {
+      "actor": "8.3-migration",
+      "timestamp": "2026-01-07T14:49:07Z"
+    },
+    "size": 2651,
+    "lastModificationSignature": "de8be31c72cbff9cec01574b54edac64bfc5096046fbfd8a8659bc2bb16634bd",
+    "height": 72
+  }
+}

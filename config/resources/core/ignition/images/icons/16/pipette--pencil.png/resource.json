@@ -1,0 +1,20 @@
+{
+  "scope": "A",
+  "version": 1,
+  "restricted": false,
+  "overridable": true,
+  "files": [
+    "pipette--pencil.png"
+  ],
+  "attributes": {
+    "width": 16,
+    "format": "PNG",
+    "lastModification": {
+      "actor": "8.3-migration",
+      "timestamp": "2026-01-07T14:49:07Z"
+    },
+    "size": 706,
+    "lastModificationSignature": "9efb53b143a6e21b91aa0cf377a54eb4ce59b24215293cae03b69f4261315b5f",
+    "height": 16
+  }
+}

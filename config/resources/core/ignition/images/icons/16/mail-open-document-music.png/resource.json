@@ -1,0 +1,20 @@
+{
+  "scope": "A",
+  "version": 1,
+  "restricted": false,
+  "overridable": true,
+  "files": [
+    "mail-open-document-music.png"
+  ],
+  "attributes": {
+    "width": 16,
+    "format": "PNG",
+    "lastModification": {
+      "actor": "8.3-migration",
+      "timestamp": "2026-01-07T14:49:07Z"
+    },
+    "size": 760,
+    "lastModificationSignature": "c5da78945d5d25e5c1689e4ec2943d525b2c1f1d0e19b0ec21987a434042236a",
+    "height": 16
+  }
+}

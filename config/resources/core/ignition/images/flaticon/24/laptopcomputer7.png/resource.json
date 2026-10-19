@@ -1,0 +1,20 @@
+{
+  "scope": "A",
+  "version": 1,
+  "restricted": false,
+  "overridable": true,
+  "files": [
+    "laptopcomputer7.png"
+  ],
+  "attributes": {
+    "width": 24,
+    "format": "PNG",
+    "lastModification": {
+      "actor": "8.3-migration",
+      "timestamp": "2026-01-07T14:49:07Z"
+    },
+    "size": 570,
+    "lastModificationSignature": "deeed6e927e3671b2744484cfab54d686b889ec6df153103619bc9cb96b2141b",
+    "height": 24
+  }
+}

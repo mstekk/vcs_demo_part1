@@ -1,0 +1,20 @@
+{
+  "scope": "A",
+  "version": 1,
+  "restricted": false,
+  "overridable": true,
+  "files": [
+    "network-status.png"
+  ],
+  "attributes": {
+    "width": 16,
+    "format": "PNG",
+    "lastModification": {
+      "actor": "8.3-migration",
+      "timestamp": "2026-01-07T14:49:07Z"
+    },
+    "size": 1441,
+    "lastModificationSignature": "1e5eaf7b1c928519d19a310c614c49d7f2b2067cacf9358f4a036b06462a6158",
+    "height": 16
+  }
+}

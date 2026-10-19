@@ -1,0 +1,20 @@
+{
+  "scope": "A",
+  "version": 1,
+  "restricted": false,
+  "overridable": true,
+  "files": [
+    "refinery_flat.png"
+  ],
+  "attributes": {
+    "width": 42,
+    "format": "PNG",
+    "lastModification": {
+      "actor": "8.3-migration",
+      "timestamp": "2026-01-07T14:49:07Z"
+    },
+    "size": 521,
+    "lastModificationSignature": "cf87627520bfce72e90c6304c96b79eff68d69ca68c886c1737c5f23f60cdd5f",
+    "height": 48
+  }
+}

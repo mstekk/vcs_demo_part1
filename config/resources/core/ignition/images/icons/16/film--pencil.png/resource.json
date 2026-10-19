@@ -1,0 +1,20 @@
+{
+  "scope": "A",
+  "version": 1,
+  "restricted": false,
+  "overridable": true,
+  "files": [
+    "film--pencil.png"
+  ],
+  "attributes": {
+    "width": 16,
+    "format": "PNG",
+    "lastModification": {
+      "actor": "8.3-migration",
+      "timestamp": "2026-01-07T14:49:07Z"
+    },
+    "size": 749,
+    "lastModificationSignature": "b75dbef20c14e2f96e6a4698117a365d539c1ff2107c6e1e6a85b1222dca2a85",
+    "height": 16
+  }
+}

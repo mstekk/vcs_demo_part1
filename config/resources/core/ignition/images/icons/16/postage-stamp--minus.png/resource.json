@@ -1,0 +1,20 @@
+{
+  "scope": "A",
+  "version": 1,
+  "restricted": false,
+  "overridable": true,
+  "files": [
+    "postage-stamp--minus.png"
+  ],
+  "attributes": {
+    "width": 16,
+    "format": "PNG",
+    "lastModification": {
+      "actor": "8.3-migration",
+      "timestamp": "2026-01-07T14:49:07Z"
+    },
+    "size": 703,
+    "lastModificationSignature": "ba709ec9b72f22ef50beccc6cbbf79ec863eda0eb4a329a087a41f9d4378d1fe",
+    "height": 16
+  }
+}

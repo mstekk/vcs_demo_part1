@@ -1,0 +1,20 @@
+{
+  "scope": "A",
+  "description": "The Jaybird JDBC driver for Firebird",
+  "version": 1,
+  "restricted": false,
+  "overridable": true,
+  "files": [
+    "config.json",
+    "jaybird-full-2.1.6.jar"
+  ],
+  "attributes": {
+    "lastModification": {
+      "actor": "8.3-migration",
+      "timestamp": "2026-01-07T14:49:07Z"
+    },
+    "uuid": "a40bcf4f-72bb-4618-b921-160635600e83",
+    "lastModificationSignature": "ee5c4936da2423ee2a87b8f60efe43a119f65608464f4204ef2cfb829d23d051",
+    "enabled": true
+  }
+}

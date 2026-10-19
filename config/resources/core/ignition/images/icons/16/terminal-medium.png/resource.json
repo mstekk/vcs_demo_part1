@@ -1,0 +1,20 @@
+{
+  "scope": "A",
+  "version": 1,
+  "restricted": false,
+  "overridable": true,
+  "files": [
+    "terminal-medium.png"
+  ],
+  "attributes": {
+    "width": 16,
+    "format": "PNG",
+    "lastModification": {
+      "actor": "8.3-migration",
+      "timestamp": "2026-01-07T14:49:07Z"
+    },
+    "size": 1340,
+    "lastModificationSignature": "5553bcd61cf74ea8b7906ea3770a6d86e871dbbb9b53a0f98952d9c48f94a235",
+    "height": 16
+  }
+}

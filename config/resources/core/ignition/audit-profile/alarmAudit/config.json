@@ -1,0 +1,22 @@
+{
+  "profile": {
+    "retentionDays": 360,
+    "type": "database"
+  },
+  "settings": {
+    "actionColumn": "ACTION",
+    "actionTargetColumn": "ACTION_TARGET",
+    "actionValueColumn": "ACTION_VALUE",
+    "actorColumn": "ACTOR",
+    "actorHostColumn": "ACTOR_HOST",
+    "autoCreate": true,
+    "databaseName": "sqlite",
+    "keyColumn": "AUDIT_EVENTS_ID",
+    "originatingContextColumn": "ORIGINATING_CONTEXT",
+    "originatingSystemColumn": "ORIGINATING_SYSTEM",
+    "pruneEnabled": false,
+    "statusCodeColumn": "STATUS_CODE",
+    "tableName": "ALARM_AUDIT_EVENTS",
+    "timestampColumn": "EVENT_TIMESTAMP"
+  }
+}

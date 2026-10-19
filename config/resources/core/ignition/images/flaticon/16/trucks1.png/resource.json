@@ -1,0 +1,20 @@
+{
+  "scope": "A",
+  "version": 1,
+  "restricted": false,
+  "overridable": true,
+  "files": [
+    "trucks1.png"
+  ],
+  "attributes": {
+    "width": 16,
+    "format": "PNG",
+    "lastModification": {
+      "actor": "8.3-migration",
+      "timestamp": "2026-01-07T14:49:07Z"
+    },
+    "size": 344,
+    "lastModificationSignature": "280fd444e5eb6d6a2be927fefb4fe950f321e729f3a99a65f13d26083a9d1928",
+    "height": 16
+  }
+}

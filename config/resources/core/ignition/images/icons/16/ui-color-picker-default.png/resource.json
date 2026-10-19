@@ -1,0 +1,20 @@
+{
+  "scope": "A",
+  "version": 1,
+  "restricted": false,
+  "overridable": true,
+  "files": [
+    "ui-color-picker-default.png"
+  ],
+  "attributes": {
+    "width": 16,
+    "format": "PNG",
+    "lastModification": {
+      "actor": "8.3-migration",
+      "timestamp": "2026-01-07T14:49:07Z"
+    },
+    "size": 565,
+    "lastModificationSignature": "9d4b1f96808a3753e48a4e743e285081a3214c7ebca030e30016b10029807d47",
+    "height": 16
+  }
+}

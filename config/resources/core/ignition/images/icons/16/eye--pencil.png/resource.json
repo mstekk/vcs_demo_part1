@@ -1,0 +1,20 @@
+{
+  "scope": "A",
+  "version": 1,
+  "restricted": false,
+  "overridable": true,
+  "files": [
+    "eye--pencil.png"
+  ],
+  "attributes": {
+    "width": 16,
+    "format": "PNG",
+    "lastModification": {
+      "actor": "8.3-migration",
+      "timestamp": "2026-01-07T14:49:07Z"
+    },
+    "size": 720,
+    "lastModificationSignature": "7a6e57b8303b62a2d0cbe198818653c5eaf3bb5634293d7de6333851ebcde6bb",
+    "height": 16
+  }
+}

@@ -1,0 +1,110 @@
+[
+  {
+    "name": "Pump",
+    "typeId": "Sample_BI",
+    "parameters": {
+      "DeviceName": {
+        "dataType": "String",
+        "value": "Pump"
+      }
+    },
+    "tagType": "UdtInstance",
+    "tags": [
+      {
+        "name": "Value",
+        "value": 21,
+        "tagType": "AtomicTag"
+      }
+    ]
+  },
+  {
+    "name": "Valve",
+    "typeId": "Sample_BI",
+    "parameters": {
+      "DeviceName": {
+        "dataType": "String",
+        "value": "Actuator Valve"
+      }
+    },
+    "tagType": "UdtInstance",
+    "tags": [
+      {
+        "name": "Value",
+        "value": 22,
+        "tagType": "AtomicTag"
+      }
+    ]
+  },
+  {
+    "name": "Valve 1",
+    "typeId": "Sample_BI",
+    "parameters": {
+      "DeviceName": {
+        "dataType": "String",
+        "value": "Control Valve"
+      }
+    },
+    "tagType": "UdtInstance",
+    "tags": [
+      {
+        "name": "Value",
+        "value": 110,
+        "tagType": "AtomicTag"
+      }
+    ]
+  },
+  {
+    "name": "Well",
+    "typeId": "Sample_BI",
+    "parameters": {
+      "DeviceName": {
+        "dataType": "String",
+        "value": "Well"
+      }
+    },
+    "tagType": "UdtInstance",
+    "tags": [
+      {
+        "name": "Value",
+        "value": 21,
+        "tagType": "AtomicTag"
+      }
+    ]
+  },
+  {
+    "name": "Chemical",
+    "typeId": "Sample_BI",
+    "parameters": {
+      "DeviceName": {
+        "dataType": "String",
+        "value": "Chem Pump"
+      }
+    },
+    "tagType": "UdtInstance",
+    "tags": [
+      {
+        "name": "Value",
+        "value": 2,
+        "tagType": "AtomicTag"
+      }
+    ]
+  },
+  {
+    "name": "Sewage",
+    "typeId": "Sample_BI",
+    "parameters": {
+      "DeviceName": {
+        "dataType": "String",
+        "value": "Sewage"
+      }
+    },
+    "tagType": "UdtInstance",
+    "tags": [
+      {
+        "name": "Value",
+        "value": 21,
+        "tagType": "AtomicTag"
+      }
+    ]
+  }
+]

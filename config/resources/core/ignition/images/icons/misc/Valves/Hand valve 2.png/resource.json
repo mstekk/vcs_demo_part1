@@ -1,0 +1,20 @@
+{
+  "scope": "A",
+  "version": 1,
+  "restricted": false,
+  "overridable": true,
+  "files": [
+    "Hand valve 2.png"
+  ],
+  "attributes": {
+    "width": 141,
+    "format": "PNG",
+    "lastModification": {
+      "actor": "8.3-migration",
+      "timestamp": "2026-01-07T14:49:07Z"
+    },
+    "size": 2261,
+    "lastModificationSignature": "47c0dadb5b51e9c8923a25361e65329439161c138e73f25ddf21b5f081c40700",
+    "height": 141
+  }
+}

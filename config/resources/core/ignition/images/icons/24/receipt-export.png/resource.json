@@ -1,0 +1,20 @@
+{
+  "scope": "A",
+  "version": 1,
+  "restricted": false,
+  "overridable": true,
+  "files": [
+    "receipt-export.png"
+  ],
+  "attributes": {
+    "width": 24,
+    "format": "PNG",
+    "lastModification": {
+      "actor": "8.3-migration",
+      "timestamp": "2026-01-07T14:49:07Z"
+    },
+    "size": 706,
+    "lastModificationSignature": "7cf6f8017cb2f4673b4480b3f302cfdf2f0460ec740c9813bd491d6080a6185c",
+    "height": 24
+  }
+}

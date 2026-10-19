@@ -1,0 +1,20 @@
+{
+  "scope": "A",
+  "version": 1,
+  "restricted": false,
+  "overridable": true,
+  "files": [
+    "counter-count.png"
+  ],
+  "attributes": {
+    "width": 16,
+    "format": "PNG",
+    "lastModification": {
+      "actor": "8.3-migration",
+      "timestamp": "2026-01-07T14:49:07Z"
+    },
+    "size": 494,
+    "lastModificationSignature": "a9e3b4518882912fb74cbe935cec870727742fcd46549335c8c9f3fdfd1b2610",
+    "height": 16
+  }
+}

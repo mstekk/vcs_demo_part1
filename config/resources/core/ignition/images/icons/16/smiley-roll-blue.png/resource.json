@@ -1,0 +1,20 @@
+{
+  "scope": "A",
+  "version": 1,
+  "restricted": false,
+  "overridable": true,
+  "files": [
+    "smiley-roll-blue.png"
+  ],
+  "attributes": {
+    "width": 16,
+    "format": "PNG",
+    "lastModification": {
+      "actor": "8.3-migration",
+      "timestamp": "2026-01-07T14:49:07Z"
+    },
+    "size": 887,
+    "lastModificationSignature": "7a9a23ad4f2f150d5e74a7a457c57b80583696083b3b21997835f3737bcb6308",
+    "height": 16
+  }
+}

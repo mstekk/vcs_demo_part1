@@ -1,0 +1,20 @@
+{
+  "scope": "A",
+  "version": 1,
+  "restricted": false,
+  "overridable": true,
+  "files": [
+    "pencil-ruler.png"
+  ],
+  "attributes": {
+    "width": 16,
+    "format": "PNG",
+    "lastModification": {
+      "actor": "8.3-migration",
+      "timestamp": "2026-01-07T14:49:07Z"
+    },
+    "size": 692,
+    "lastModificationSignature": "8d27a135ffa43edf45f4d5f6246873c6d088403012d11d99fd70d25374f00758",
+    "height": 16
+  }
+}

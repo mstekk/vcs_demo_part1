@@ -1,0 +1,20 @@
+{
+  "scope": "A",
+  "version": 1,
+  "restricted": false,
+  "overridable": true,
+  "files": [
+    "beer.png"
+  ],
+  "attributes": {
+    "width": 16,
+    "format": "PNG",
+    "lastModification": {
+      "actor": "8.3-migration",
+      "timestamp": "2026-01-07T14:49:07Z"
+    },
+    "size": 858,
+    "lastModificationSignature": "5503875cb188c60b46759c912d27ebdff5b14907f4f36b322a5dd0ec07ee631a",
+    "height": 16
+  }
+}

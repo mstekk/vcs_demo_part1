@@ -1,0 +1,20 @@
+{
+  "scope": "A",
+  "version": 1,
+  "restricted": false,
+  "overridable": true,
+  "files": [
+    "Pipe Vertical.png"
+  ],
+  "attributes": {
+    "width": 100,
+    "format": "PNG",
+    "lastModification": {
+      "actor": "8.3-migration",
+      "timestamp": "2026-01-07T14:49:07Z"
+    },
+    "size": 2811,
+    "lastModificationSignature": "8488ecd2fffd3ee8116febf7ea6efa6f562c68bbb02b117e9deaef3c856f37be",
+    "height": 348
+  }
+}

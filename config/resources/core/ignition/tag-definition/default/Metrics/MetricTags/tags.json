@@ -1,0 +1,416 @@
+[
+  {
+    "valueSource": "expr",
+    "historyMaxAge": 0,
+    "expression": "{[~]Quantum1/LU-CRU-CBE01_RATE_TPH}",
+    "writePermissions": {
+      "type": "AllOf",
+      "securityLevels": []
+    },
+    "historicalDeadbandStyle": "Discrete",
+    "historyTagGroup": "One Minute",
+    "tagGroup": "Default",
+    "tagType": "AtomicTag",
+    "enabled": true,
+    "readOnly": false,
+    "historyProvider": "MySQL",
+    "dataType": "Float4",
+    "historyMaxAgeUnits": "HOUR",
+    "name": "quantum1-lu-cru-cbe01_rate_tph",
+    "historyEnabled": true,
+    "executionMode": "TagGroupRate",
+    "readPermissions": {
+      "type": "AllOf",
+      "securityLevels": []
+    },
+    "sampleMode": "TagGroup"
+  },
+  {
+    "valueSource": "expr",
+    "historyMaxAge": 0,
+    "expression": "{[~]Quantum1/LU-DRI-CBE19-SET-TO-E2}",
+    "writePermissions": {
+      "type": "AllOf",
+      "securityLevels": []
+    },
+    "historicalDeadbandStyle": "Discrete",
+    "historyTagGroup": "One Minute",
+    "tagGroup": "Default",
+    "tagType": "AtomicTag",
+    "enabled": true,
+    "readOnly": false,
+    "historyProvider": "MySQL",
+    "dataType": "Boolean",
+    "historyMaxAgeUnits": "HOUR",
+    "name": "quantum1-lu-dri-cbe19-set-to-e2",
+    "historyEnabled": true,
+    "executionMode": "TagGroupRate",
+    "readPermissions": {
+      "type": "AllOf",
+      "securityLevels": []
+    },
+    "sampleMode": "TagGroup"
+  },
+  {
+    "valueSource": "expr",
+    "historyMaxAge": 0,
+    "expression": "{[~]Quantum1/LU-DRI-CBE19-SET-TO-M1}",
+    "writePermissions": {
+      "type": "AllOf",
+      "securityLevels": []
+    },
+    "historicalDeadbandStyle": "Discrete",
+    "historyTagGroup": "One Minute",
+    "tagGroup": "Default",
+    "tagType": "AtomicTag",
+    "enabled": true,
+    "readOnly": false,
+    "historyProvider": "MySQL",
+    "dataType": "Boolean",
+    "historyMaxAgeUnits": "HOUR",
+    "name": "quantum1-lu-dri-cbe19-set-to-m1",
+    "historyEnabled": true,
+    "executionMode": "TagGroupRate",
+    "readPermissions": {
+      "type": "AllOf",
+      "securityLevels": []
+    },
+    "sampleMode": "TagGroup"
+  },
+  {
+    "valueSource": "expr",
+    "historyMaxAge": 0,
+    "expression": "{[~]Quantum1/LU-DRI-CBE19-SET-TO-W2}",
+    "writePermissions": {
+      "type": "AllOf",
+      "securityLevels": []
+    },
+    "historicalDeadbandStyle": "Discrete",
+    "historyTagGroup": "One Minute",
+    "tagGroup": "Default",
+    "tagType": "AtomicTag",
+    "enabled": true,
+    "readOnly": false,
+    "historyProvider": "MySQL",
+    "dataType": "Boolean",
+    "historyMaxAgeUnits": "HOUR",
+    "name": "quantum1-lu-dri-cbe19-set-to-w2",
+    "historyEnabled": true,
+    "executionMode": "TagGroupRate",
+    "readPermissions": {
+      "type": "AllOf",
+      "securityLevels": []
+    },
+    "sampleMode": "TagGroup"
+  },
+  {
+    "valueSource": "expr",
+    "historyMaxAge": 0,
+    "expression": "{[~]Quantum1/LU-DRI-CBE19-TPH}",
+    "writePermissions": {
+      "type": "AllOf",
+      "securityLevels": []
+    },
+    "historicalDeadbandStyle": "Discrete",
+    "historyTagGroup": "One Minute",
+    "tagGroup": "Default",
+    "tagType": "AtomicTag",
+    "enabled": true,
+    "readOnly": false,
+    "historyProvider": "MySQL",
+    "dataType": "Float4",
+    "historyMaxAgeUnits": "HOUR",
+    "name": "quantum1-lu-dri-cbe19-tph",
+    "historyEnabled": true,
+    "executionMode": "TagGroupRate",
+    "readPermissions": {
+      "type": "AllOf",
+      "securityLevels": []
+    },
+    "sampleMode": "TagGroup"
+  },
+  {
+    "valueSource": "expr",
+    "historyMaxAge": 0,
+    "expression": "{[~]Quantum1/LU-DRI-CBE20-SET-TO-E2}",
+    "writePermissions": {
+      "type": "AllOf",
+      "securityLevels": []
+    },
+    "historicalDeadbandStyle": "Discrete",
+    "historyTagGroup": "One Minute",
+    "tagGroup": "Default",
+    "tagType": "AtomicTag",
+    "enabled": true,
+    "readOnly": false,
+    "historyProvider": "MySQL",
+    "dataType": "Boolean",
+    "historyMaxAgeUnits": "HOUR",
+    "name": "quantum1-lu-dri-cbe20-set-to-e2",
+    "historyEnabled": true,
+    "executionMode": "TagGroupRate",
+    "readPermissions": {
+      "type": "AllOf",
+      "securityLevels": []
+    },
+    "sampleMode": "TagGroup"
+  },
+  {
+    "valueSource": "expr",
+    "historyMaxAge": 0,
+    "expression": "{[~]Quantum1/LU-DRI-CBE20-SET-TO-M1}",
+    "writePermissions": {
+      "type": "AllOf",
+      "securityLevels": []
+    },
+    "historicalDeadbandStyle": "Discrete",
+    "historyTagGroup": "One Minute",
+    "tagGroup": "Default",
+    "tagType": "AtomicTag",
+    "enabled": true,
+    "readOnly": false,
+    "historyProvider": "MySQL",
+    "dataType": "Boolean",
+    "historyMaxAgeUnits": "HOUR",
+    "name": "quantum1-lu-dri-cbe20-set-to-m1",
+    "historyEnabled": true,
+    "executionMode": "TagGroupRate",
+    "readPermissions": {
+      "type": "AllOf",
+      "securityLevels": []
+    },
+    "sampleMode": "TagGroup"
+  },
+  {
+    "valueSource": "expr",
+    "historyMaxAge": 0,
+    "expression": "{[~]Quantum1/LU-DRI-CBE20-SET-TO-W1}",
+    "writePermissions": {
+      "type": "AllOf",
+      "securityLevels": []
+    },
+    "historicalDeadbandStyle": "Discrete",
+    "historyTagGroup": "One Minute",
+    "tagGroup": "Default",
+    "tagType": "AtomicTag",
+    "enabled": true,
+    "readOnly": false,
+    "historyProvider": "MySQL",
+    "dataType": "Boolean",
+    "historyMaxAgeUnits": "HOUR",
+    "name": "quantum1-lu-dri-cbe20-set-to-w1",
+    "historyEnabled": true,
+    "executionMode": "TagGroupRate",
+    "readPermissions": {
+      "type": "AllOf",
+      "securityLevels": []
+    },
+    "sampleMode": "TagGroup"
+  },
+  {
+    "valueSource": "expr",
+    "historyMaxAge": 0,
+    "expression": "{[~]Quantum1/LU-DRI-CBE20-TPH}",
+    "writePermissions": {
+      "type": "AllOf",
+      "securityLevels": []
+    },
+    "historicalDeadbandStyle": "Discrete",
+    "historyTagGroup": "One Minute",
+    "tagGroup": "Default",
+    "tagType": "AtomicTag",
+    "enabled": true,
+    "readOnly": false,
+    "historyProvider": "MySQL",
+    "dataType": "Float4",
+    "historyMaxAgeUnits": "HOUR",
+    "name": "quantum1-lu-dri-cbe20-tph",
+    "historyEnabled": true,
+    "executionMode": "TagGroupRate",
+    "readPermissions": {
+      "type": "AllOf",
+      "securityLevels": []
+    },
+    "sampleMode": "TagGroup"
+  },
+  {
+    "valueSource": "expr",
+    "historyMaxAge": 0,
+    "expression": "{[~]Quantum1/LU-DRI-CBE21-TPH}",
+    "writePermissions": {
+      "type": "AllOf",
+      "securityLevels": []
+    },
+    "historicalDeadbandStyle": "Discrete",
+    "historyTagGroup": "One Minute",
+    "tagGroup": "Default",
+    "tagType": "AtomicTag",
+    "enabled": true,
+    "readOnly": false,
+    "historyProvider": "MySQL",
+    "dataType": "Float4",
+    "historyMaxAgeUnits": "HOUR",
+    "name": "quantum1-lu-dri-cbe21-tph",
+    "historyEnabled": true,
+    "executionMode": "TagGroupRate",
+    "readPermissions": {
+      "type": "AllOf",
+      "securityLevels": []
+    },
+    "sampleMode": "TagGroup"
+  },
+  {
+    "valueSource": "expr",
+    "historyMaxAge": 0,
+    "expression": "{[~]Quantum1/LU-DRI-CBE22-TPH}",
+    "writePermissions": {
+      "type": "AllOf",
+      "securityLevels": []
+    },
+    "historicalDeadbandStyle": "Discrete",
+    "historyTagGroup": "One Minute",
+    "tagGroup": "Default",
+    "tagType": "AtomicTag",
+    "enabled": true,
+    "readOnly": false,
+    "historyProvider": "MySQL",
+    "dataType": "Float4",
+    "historyMaxAgeUnits": "HOUR",
+    "name": "quantum1-lu-dri-cbe22-tph",
+    "historyEnabled": true,
+    "executionMode": "TagGroupRate",
+    "readPermissions": {
+      "type": "AllOf",
+      "securityLevels": []
+    },
+    "sampleMode": "TagGroup"
+  },
+  {
+    "valueSource": "expr",
+    "expression": "{[~]Quantum1/LU-DRI-CBE25-SET-TO-W3}",
+    "writePermissions": {
+      "type": "AllOf",
+      "securityLevels": []
+    },
+    "historicalDeadbandStyle": "Discrete",
+    "tagGroup": "Default",
+    "historyTagGroup": "One Minute",
+    "tagType": "AtomicTag",
+    "enabled": true,
+    "readOnly": false,
+    "dataType": "Boolean",
+    "historyProvider": "MySQL",
+    "name": "quantum1-lu-dri-cbe25-set-to-w3",
+    "historyEnabled": true,
+    "executionMode": "TagGroupRate",
+    "readPermissions": {
+      "type": "AllOf",
+      "securityLevels": []
+    },
+    "sampleMode": "TagGroup"
+  },
+  {
+    "valueSource": "expr",
+    "historyMaxAge": 0,
+    "expression": "{[~]Quantum1/LU-DRI-CBE25-TPH}",
+    "writePermissions": {
+      "type": "AllOf",
+      "securityLevels": []
+    },
+    "historicalDeadbandStyle": "Discrete",
+    "historyTagGroup": "One Minute",
+    "tagGroup": "Default",
+    "tagType": "AtomicTag",
+    "enabled": true,
+    "readOnly": false,
+    "historyProvider": "MySQL",
+    "dataType": "Float4",
+    "historyMaxAgeUnits": "HOUR",
+    "name": "quantum1-lu-dri-cbe25-tph",
+    "historyEnabled": true,
+    "executionMode": "TagGroupRate",
+    "readPermissions": {
+      "type": "AllOf",
+      "securityLevels": []
+    },
+    "sampleMode": "TagGroup"
+  },
+  {
+    "valueSource": "expr",
+    "historyMaxAge": 0,
+    "expression": "{[~]Quantum1/LU-DRI-CBE26-TPH}",
+    "writePermissions": {
+      "type": "AllOf",
+      "securityLevels": []
+    },
+    "historicalDeadbandStyle": "Discrete",
+    "historyTagGroup": "One Minute",
+    "tagGroup": "Default",
+    "tagType": "AtomicTag",
+    "enabled": true,
+    "readOnly": false,
+    "historyProvider": "MySQL",
+    "dataType": "Float4",
+    "historyMaxAgeUnits": "HOUR",
+    "name": "quantum1-lu-dri-cbe26-tph",
+    "historyEnabled": true,
+    "executionMode": "TagGroupRate",
+    "readPermissions": {
+      "type": "AllOf",
+      "securityLevels": []
+    },
+    "sampleMode": "TagGroup"
+  },
+  {
+    "valueSource": "expr",
+    "historyMaxAge": 0,
+    "expression": "{[~]Quantum1/LU-DRI-CBE27-TPH}",
+    "writePermissions": {
+      "type": "AllOf",
+      "securityLevels": []
+    },
+    "historicalDeadbandStyle": "Discrete",
+    "historyTagGroup": "One Minute",
+    "tagGroup": "Default",
+    "tagType": "AtomicTag",
+    "enabled": true,
+    "readOnly": false,
+    "historyProvider": "MySQL",
+    "dataType": "Float4",
+    "historyMaxAgeUnits": "HOUR",
+    "name": "quantum1-lu-dri-cbe27-tph",
+    "historyEnabled": true,
+    "executionMode": "TagGroupRate",
+    "readPermissions": {
+      "type": "AllOf",
+      "securityLevels": []
+    },
+    "sampleMode": "TagGroup"
+  },
+  {
+    "valueSource": "expr",
+    "historyMaxAge": 0,
+    "expression": "{[~]Quantum1/LU-DRI-IMP02-AMPS}",
+    "writePermissions": {
+      "type": "AllOf",
+      "securityLevels": []
+    },
+    "historicalDeadbandStyle": "Discrete",
+    "historyTagGroup": "One Minute",
+    "tagGroup": "Default",
+    "tagType": "AtomicTag",
+    "enabled": true,
+    "readOnly": false,
+    "historyProvider": "MySQL",
+    "dataType": "Float4",
+    "historyMaxAgeUnits": "HOUR",
+    "name": "quantum1-lu-dri-imp02-amps",
+    "historyEnabled": true,
+    "executionMode": "TagGroupRate",
+    "readPermissions": {
+      "type": "AllOf",
+      "securityLevels": []
+    },
+    "sampleMode": "TagGroup"
+  }
+]

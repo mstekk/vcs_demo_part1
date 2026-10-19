@@ -1,0 +1,20 @@
+{
+  "scope": "A",
+  "version": 1,
+  "restricted": false,
+  "overridable": true,
+  "files": [
+    "minus-small-circle.png"
+  ],
+  "attributes": {
+    "width": 16,
+    "format": "PNG",
+    "lastModification": {
+      "actor": "8.3-migration",
+      "timestamp": "2026-01-07T14:49:07Z"
+    },
+    "size": 328,
+    "lastModificationSignature": "f625eb8cb19fdd7259ca1f819e82f8d9cda9e90229cdefb9f208cd09a0313d6c",
+    "height": 16
+  }
+}

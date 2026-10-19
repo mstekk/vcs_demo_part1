@@ -1,0 +1,20 @@
+{
+  "scope": "A",
+  "version": 1,
+  "restricted": false,
+  "overridable": true,
+  "files": [
+    "currency-dollar-cad.png"
+  ],
+  "attributes": {
+    "width": 16,
+    "format": "PNG",
+    "lastModification": {
+      "actor": "8.3-migration",
+      "timestamp": "2026-01-07T14:49:07Z"
+    },
+    "size": 669,
+    "lastModificationSignature": "49d8e403db324f7d19a3b82fcab5afc39ef55e98a73aa707257e69ff981f677b",
+    "height": 16
+  }
+}

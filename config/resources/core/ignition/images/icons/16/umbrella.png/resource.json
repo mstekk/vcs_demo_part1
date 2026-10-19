@@ -1,0 +1,20 @@
+{
+  "scope": "A",
+  "version": 1,
+  "restricted": false,
+  "overridable": true,
+  "files": [
+    "umbrella.png"
+  ],
+  "attributes": {
+    "width": 16,
+    "format": "PNG",
+    "lastModification": {
+      "actor": "8.3-migration",
+      "timestamp": "2026-01-07T14:49:07Z"
+    },
+    "size": 429,
+    "lastModificationSignature": "896c8e89a7a2b265c0923a79d3bdef0fb48f7b960a0a4da8774c7237566c741a",
+    "height": 16
+  }
+}

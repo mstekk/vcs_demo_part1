@@ -1,0 +1,20 @@
+{
+  "scope": "A",
+  "version": 1,
+  "restricted": false,
+  "overridable": true,
+  "files": [
+    "application-dock-tab.png"
+  ],
+  "attributes": {
+    "width": 16,
+    "format": "PNG",
+    "lastModification": {
+      "actor": "8.3-migration",
+      "timestamp": "2026-01-07T14:49:07Z"
+    },
+    "size": 558,
+    "lastModificationSignature": "be2e47be9cc78dcf146bb98ca1799fdf71bfdc0bdd6b98c379d3e63a2b848c5c",
+    "height": 16
+  }
+}

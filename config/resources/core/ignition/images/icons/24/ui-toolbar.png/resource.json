@@ -1,0 +1,20 @@
+{
+  "scope": "A",
+  "version": 1,
+  "restricted": false,
+  "overridable": true,
+  "files": [
+    "ui-toolbar.png"
+  ],
+  "attributes": {
+    "width": 24,
+    "format": "PNG",
+    "lastModification": {
+      "actor": "8.3-migration",
+      "timestamp": "2026-01-07T14:49:07Z"
+    },
+    "size": 1156,
+    "lastModificationSignature": "127cd78b8a580f17b4f59544299415f93f91ad06e2e0f7a50ab003ee4a3dd992",
+    "height": 24
+  }
+}

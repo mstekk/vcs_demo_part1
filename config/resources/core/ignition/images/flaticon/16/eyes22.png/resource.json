@@ -1,0 +1,20 @@
+{
+  "scope": "A",
+  "version": 1,
+  "restricted": false,
+  "overridable": true,
+  "files": [
+    "eyes22.png"
+  ],
+  "attributes": {
+    "width": 16,
+    "format": "PNG",
+    "lastModification": {
+      "actor": "8.3-migration",
+      "timestamp": "2026-01-07T14:49:07Z"
+    },
+    "size": 318,
+    "lastModificationSignature": "47af93141ac301f4706d4a3a4ab9165387bc7d9a4c0d3225049dbc658198a988",
+    "height": 16
+  }
+}

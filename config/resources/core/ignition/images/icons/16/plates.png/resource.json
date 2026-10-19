@@ -1,0 +1,20 @@
+{
+  "scope": "A",
+  "version": 1,
+  "restricted": false,
+  "overridable": true,
+  "files": [
+    "plates.png"
+  ],
+  "attributes": {
+    "width": 16,
+    "format": "PNG",
+    "lastModification": {
+      "actor": "8.3-migration",
+      "timestamp": "2026-01-07T14:49:07Z"
+    },
+    "size": 783,
+    "lastModificationSignature": "89c2900282004389a3852cdf0507812b9a3d47705f1a0e42388a2c2c436cdcba",
+    "height": 16
+  }
+}

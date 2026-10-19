@@ -1,0 +1,9 @@
+{
+  "base": {
+    "style": {
+      "fontSize": "50px",
+      "fontWeight": "bold",
+      "textAlign": "center"
+    }
+  }
+}

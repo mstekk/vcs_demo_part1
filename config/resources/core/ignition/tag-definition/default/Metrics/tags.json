@@ -1,0 +1,218 @@
+[
+  {
+    "valueSource": "memory",
+    "readOnly": false,
+    "dataType": "String",
+    "writePermissions": {
+      "type": "AllOf",
+      "securityLevels": []
+    },
+    "name": "Column 1 Historic Title",
+    "defaultValue": "\u003cHTML\u003e\u003cB\u003eMetric Description",
+    "readPermissions": {
+      "type": "AllOf",
+      "securityLevels": []
+    },
+    "tagGroup": "Default",
+    "tagType": "AtomicTag",
+    "enabled": true
+  },
+  {
+    "valueSource": "memory",
+    "readOnly": false,
+    "dataType": "String",
+    "writePermissions": {
+      "type": "AllOf",
+      "securityLevels": []
+    },
+    "name": "Column 1 Title",
+    "defaultValue": "\u003cHTML\u003e\u003cB\u003eMetric Name\u003c/B\u003e",
+    "readPermissions": {
+      "type": "AllOf",
+      "securityLevels": []
+    },
+    "tagGroup": "Default",
+    "tagType": "AtomicTag",
+    "enabled": true
+  },
+  {
+    "valueSource": "memory",
+    "readOnly": false,
+    "dataType": "String",
+    "writePermissions": {
+      "type": "AllOf",
+      "securityLevels": []
+    },
+    "name": "Column 2 Historic Title",
+    "defaultValue": "\u003cHTML\u003e\u003cB\u003eFrom: \u003c/B\u003eFeb, 22 6:35 AM \u003cHTML\u003e\u003cB\u003e\u003cBR\u003eTo: \u003c/B\u003eFeb, 24 6:35 AM",
+    "readPermissions": {
+      "type": "AllOf",
+      "securityLevels": []
+    },
+    "tagGroup": "Default",
+    "tagType": "AtomicTag",
+    "enabled": true
+  },
+  {
+    "valueSource": "memory",
+    "readOnly": false,
+    "dataType": "String",
+    "writePermissions": {
+      "type": "AllOf",
+      "securityLevels": []
+    },
+    "name": "Column 2 Title",
+    "defaultValue": "\u003cHTML\u003e\u003cB\u003eLast Completed\u003cBR\u003eDay Shift  \u003c/B\u003e\u003cBR\u003eOct, 2",
+    "readPermissions": {
+      "type": "AllOf",
+      "securityLevels": []
+    },
+    "tagGroup": "Default",
+    "tagType": "AtomicTag",
+    "enabled": true
+  },
+  {
+    "valueSource": "memory",
+    "readOnly": false,
+    "dataType": "String",
+    "writePermissions": {
+      "type": "AllOf",
+      "securityLevels": []
+    },
+    "name": "Column 3 Title",
+    "defaultValue": "\u003cHTML\u003e\u003cB\u003eLast Completed\u003cBR\u003eSwing Shift  \u003c/B\u003e\u003cBR\u003eOct, 2",
+    "readPermissions": {
+      "type": "AllOf",
+      "securityLevels": []
+    },
+    "tagGroup": "Default",
+    "tagType": "AtomicTag",
+    "enabled": true
+  },
+  {
+    "valueSource": "memory",
+    "readOnly": false,
+    "dataType": "String",
+    "writePermissions": {
+      "type": "AllOf",
+      "securityLevels": []
+    },
+    "name": "Column 4 Title",
+    "defaultValue": "\u003cHTML\u003e\u003cB\u003eLast Completed\u003cBR\u003eGraveyard Shift \u003c/B\u003e\u003cBR\u003eOct, 2",
+    "readPermissions": {
+      "type": "AllOf",
+      "securityLevels": []
+    },
+    "tagGroup": "Default",
+    "tagType": "AtomicTag",
+    "enabled": true
+  },
+  {
+    "valueSource": "memory",
+    "readOnly": false,
+    "dataType": "String",
+    "writePermissions": {
+      "type": "AllOf",
+      "securityLevels": []
+    },
+    "name": "Column 5 Title",
+    "defaultValue": "\u003cHTML\u003e\u003cB\u003ePast 90 Shifts  \u003c/B\u003e\u003cBR\u003eSep, 3",
+    "readPermissions": {
+      "type": "AllOf",
+      "securityLevels": []
+    },
+    "tagGroup": "Default",
+    "tagType": "AtomicTag",
+    "enabled": true
+  },
+  {
+    "valueSource": "memory",
+    "readOnly": false,
+    "dataType": "String",
+    "writePermissions": {
+      "type": "AllOf",
+      "securityLevels": []
+    },
+    "name": "Column 6 Title",
+    "defaultValue": "\u003cHTML\u003e\u003cB\u003eCurrent Shift  \u003cBR\u003eStart Time \u003c/B\u003eOct, 3 7:00 AM",
+    "readPermissions": {
+      "type": "AllOf",
+      "securityLevels": []
+    },
+    "tagGroup": "Default",
+    "tagType": "AtomicTag",
+    "enabled": true
+  },
+  {
+    "valueSource": "memory",
+    "readOnly": false,
+    "dataType": "DataSet",
+    "writePermissions": {
+      "type": "AllOf",
+      "securityLevels": []
+    },
+    "name": "NoBoldHeadersDataSet",
+    "defaultValue": "{\"columns\":[{\"name\":\"Metric Name, Current Time: Oct, 3 02:11 PM\",\"type\":\"java.lang.String\"},{\"name\":\"Day Shift Oct, 2\",\"type\":\"java.lang.Double\"},{\"name\":\"Swing Shift Oct, 2\",\"type\":\"java.lang.Double\"},{\"name\":\"Graveyard Oct, 2\",\"type\":\"java.lang.Double\"},{\"name\":\"Past 90 Shifts Sep, 3\",\"type\":\"java.lang.Double\"},{\"name\":\"Current Shift Start TimeOct, 3 7:00 AM\",\"type\":\"java.lang.Double\"}],\"rows\":[[\"Drier Sizer Feed Rate, Average\",157.91678410421162,125.65503764003824,95.7009586286644,108.40445098242206,119.76781144994041],[\"Screen Feed Rate, Average\",80.42639388293374,75.44472588124741,57.75924681824112,45.404725485649976,70.04206922048759],[\"Drier Sizer Feed Black Belt Time, %\",0.3815628867596388,0.0,0.0,1.4602835562976975,0.0],[\"Drier Impactor Amps, Average\",286.5122730219476,242.5411039737059,236.66323954052837,221.1906420362828,248.66644566794835],[\"Production Rate 45 Mesh, Average\",0.0,0.0,15.11069180026199,16.762256705166337,17.936592969429743],[\"Drier Sizer East Side Feed Rate, Average\",31.742266075633395,26.599549719796606,22.2147591644414,21.084283795344046,27.016365920861194],[\"1130 Production Rate, Average\",31.172921158960747,33.96125438714483,0.0,24.726844982226865,25.51931316638119],[\"Minutes Making 1130 to W1\",241.0,157.0,0.0,10824.0,189.0],[\"2060 Production Rate, Average\",0.0,0.0,0.0,9.34450877388624,0.0],[\"Minutes Making 2060 to W2\",0.0,0.0,0.0,7673.0,0.0],[\"1600 Production Rate, Average\",35.48388191497519,31.782991809805317,26.577566590973344,26.190150277151222,32.95604111921483],[\"1830 Production Rate, Average\",72.0,182.0,481.0,3579.0,78.0],[\"Minutes Making 1830 to E2 from 19 or 20 Belt\",0.0,0.0,0.0,0.0,0.0],[\"4005 to M1 Production Rate, Average\",0.0,30.515262331281388,31.404151916503906,33.44776980467933,0.0],[\"Minutes Making 4005 to M1 from 19 or 20 Belt\",0.0,35.0,1.0,376.0,0.0],[\"Minutes Crusher was Producing\",18.0,252.0,23.0,16558.0,234.0]]}",
+    "readPermissions": {
+      "type": "AllOf",
+      "securityLevels": []
+    },
+    "tagGroup": "Default",
+    "tagType": "AtomicTag",
+    "enabled": true
+  },
+  {
+    "valueSource": "memory",
+    "readOnly": false,
+    "dataType": "DataSet",
+    "writePermissions": {
+      "type": "AllOf",
+      "securityLevels": []
+    },
+    "name": "ReportByDateRangeDS",
+    "defaultValue": "{\"columns\":[{\"name\":\"Column 1\",\"type\":\"java.lang.String\"},{\"name\":\"Column 2\",\"type\":\"java.lang.Double\"}],\"rows\":[[\"Drier Sizer Feed Rate, Average\",123.38995587362957],[\"Mill Feed Rate, Average\",60.54641540991101],[\"Drier Sizer Feed Black Belt Time, %\",1.8543956583986678],[\"Drier Impactor Amps, Average\",220.7250750046147],[\"Production Rate 45 Mesh, Average\",9.8603293890435],[\"Drier Sizer East Side Feed Rate, Average\",24.91161758681689],[\"1130 Production Rate, Average\",30.055381906386238],[\"Minutes Making 1130 to W1\",1719.0],[\"2060 Production Rate, Average\",11.244125522886003],[\"Minutes Making 2060 to W2\",980.0],[\"1600 Production Rate, Average\",21.82595771428936],[\"1830 Production Rate, Average\",345.0],[\"Minutes Making 1830 to E2 from 19 or 20 Belt\",0.0],[\"4005 to M1 Production Rate, Average\",0.0],[\"Minutes Making 4005 to M1 from 19 or 20 Belt\",0.0],[\"Minutes Crusher was Producing\",706.0]]}",
+    "readPermissions": {
+      "type": "AllOf",
+      "securityLevels": []
+    },
+    "tagGroup": "Default",
+    "tagType": "AtomicTag",
+    "enabled": true
+  },
+  {
+    "valueSource": "memory",
+    "readOnly": false,
+    "dataType": "DataSet",
+    "writePermissions": {
+      "type": "AllOf",
+      "securityLevels": []
+    },
+    "name": "ReportDataSet",
+    "defaultValue": "{\"columns\":[{\"name\":\"Column 1\",\"type\":\"java.lang.String\"},{\"name\":\"Column 2\",\"type\":\"java.lang.Double\"},{\"name\":\"Column 3\",\"type\":\"java.lang.Double\"},{\"name\":\"Column 4\",\"type\":\"java.lang.Double\"},{\"name\":\"Column 5\",\"type\":\"java.lang.Double\"},{\"name\":\"Column 6\",\"type\":\"java.lang.Double\"}],\"rows\":[[\"Drier Sizer Feed Rate, Average\",157.91678410421162,125.65503764003824,95.7009586286644,108.40445098242206,119.76781144994041],[\"Screen Feed Rate, Average\",80.42639388293374,75.44472588124741,57.75924681824112,45.404725485649976,70.04206922048759],[\"Drier Sizer Feed Black Belt Time, %\",0.3815628867596388,0.0,0.0,1.4602835562976975,0.0],[\"Drier Impactor Amps, Average\",286.5122730219476,242.5411039737059,236.66323954052837,221.1906420362828,248.66644566794835],[\"Production Rate 45 Mesh, Average\",0.0,0.0,15.11069180026199,16.762256705166337,17.936592969429743],[\"Drier Sizer East Side Feed Rate, Average\",31.742266075633395,26.599549719796606,22.2147591644414,21.084283795344046,27.016365920861194],[\"1130 Production Rate, Average\",31.172921158960747,33.96125438714483,0.0,24.726844982226865,25.51931316638119],[\"Minutes Making 1130 to W1\",241.0,157.0,0.0,10824.0,189.0],[\"2060 Production Rate, Average\",0.0,0.0,0.0,9.34450877388624,0.0],[\"Minutes Making 2060 to W2\",0.0,0.0,0.0,7673.0,0.0],[\"1600 Production Rate, Average\",35.48388191497519,31.782991809805317,26.577566590973344,26.190150277151222,32.95604111921483],[\"1830 Production Rate, Average\",72.0,182.0,481.0,3579.0,78.0],[\"Minutes Making 1830 to E2 from 19 or 20 Belt\",0.0,0.0,0.0,0.0,0.0],[\"4005 to M1 Production Rate, Average\",0.0,30.515262331281388,31.404151916503906,33.44776980467933,0.0],[\"Minutes Making 4005 to M1 from 19 or 20 Belt\",0.0,35.0,1.0,376.0,0.0],[\"Minutes Crusher was Producing\",18.0,252.0,23.0,16558.0,234.0]]}",
+    "readPermissions": {
+      "type": "AllOf",
+      "securityLevels": []
+    },
+    "tagGroup": "Default",
+    "tagType": "AtomicTag",
+    "enabled": true
+  },
+  {
+    "valueSource": "memory",
+    "readOnly": false,
+    "dataType": "DataSet",
+    "writePermissions": {
+      "type": "AllOf",
+      "securityLevels": []
+    },
+    "name": "TableDataSet",
+    "defaultValue": "{\"columns\":[{\"name\":\"\u003cHTML\u003e\u003cB\u003eMetric Name\u003c\\/B\u003e\u003cBR\u003eCurrent Time: Oct, 3 02:11 PM\",\"type\":\"java.lang.String\"},{\"name\":\"\u003cHTML\u003e\u003cB\u003eLast Completed\u003cBR\u003e Day Shift  \u003c\\/B\u003eOct, 2\",\"type\":\"java.lang.Double\"},{\"name\":\"\u003cHTML\u003e\u003cB\u003eLast Completed\u003cBR\u003e Swing Shift  \u003c\\/B\u003eOct, 2\",\"type\":\"java.lang.Double\"},{\"name\":\"\u003cHTML\u003e\u003cB\u003eLast Completed\u003cBR\u003e Graveyard Shift \u003c\\/B\u003eOct, 2\",\"type\":\"java.lang.Double\"},{\"name\":\"\u003cHTML\u003e\u003cB\u003ePast 90 Shifts  \u003c\\/B\u003eSep, 3\",\"type\":\"java.lang.Double\"},{\"name\":\"\u003cHTML\u003e\u003cB\u003eCurrent Shift  \u003cBR\u003eStart Time \u003c\\/B\u003eOct, 3 7:00 AM\",\"type\":\"java.lang.Double\"}],\"rows\":[[\"Drier Sizer Feed Rate, Average\",157.91678410421162,125.65503764003824,95.7009586286644,108.40445098242206,119.76781144994041],[\"Screen Feed Rate, Average\",80.42639388293374,75.44472588124741,57.75924681824112,45.404725485649976,70.04206922048759],[\"Drier Sizer Feed Black Belt Time, %\",0.3815628867596388,0.0,0.0,1.4602835562976975,0.0],[\"Drier Impactor Amps, Average\",286.5122730219476,242.5411039737059,236.66323954052837,221.1906420362828,248.66644566794835],[\"Production Rate 45 Mesh, Average\",0.0,0.0,15.11069180026199,16.762256705166337,17.936592969429743],[\"Drier Sizer East Side Feed Rate, Average\",31.742266075633395,26.599549719796606,22.2147591644414,21.084283795344046,27.016365920861194],[\"1130 Production Rate, Average\",31.172921158960747,33.96125438714483,0.0,24.726844982226865,25.51931316638119],[\"Minutes Making 1130 to W1\",241.0,157.0,0.0,10824.0,189.0],[\"2060 Production Rate, Average\",0.0,0.0,0.0,9.34450877388624,0.0],[\"Minutes Making 2060 to W2\",0.0,0.0,0.0,7673.0,0.0],[\"1600 Production Rate, Average\",35.48388191497519,31.782991809805317,26.577566590973344,26.190150277151222,32.95604111921483],[\"1830 Production Rate, Average\",72.0,182.0,481.0,3579.0,78.0],[\"Minutes Making 1830 to E2 from 19 or 20 Belt\",0.0,0.0,0.0,0.0,0.0],[\"4005 to M1 Production Rate, Average\",0.0,30.515262331281388,31.404151916503906,33.44776980467933,0.0],[\"Minutes Making 4005 to M1 from 19 or 20 Belt\",0.0,35.0,1.0,376.0,0.0],[\"Minutes Crusher was Producing\",18.0,252.0,23.0,16558.0,234.0]]}",
+    "readPermissions": {
+      "type": "AllOf",
+      "securityLevels": []
+    },
+    "tagGroup": "Default",
+    "tagType": "AtomicTag",
+    "enabled": true
+  }
+]

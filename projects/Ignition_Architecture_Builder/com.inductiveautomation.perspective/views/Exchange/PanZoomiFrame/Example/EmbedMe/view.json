@@ -1,0 +1,257 @@
+{
+  "custom": {
+    "data": [
+      {
+        "count": 36,
+        "flavor": "Pumpkin"
+      },
+      {
+        "count": 17,
+        "flavor": "Cherry"
+      },
+      {
+        "count": 14,
+        "flavor": "Apple"
+      },
+      {
+        "count": 10,
+        "flavor": "Chocolate"
+      },
+      {
+        "count": 9,
+        "flavor": "Blueberry"
+      }
+    ],
+    "showLabels": false
+  },
+  "params": {
+    "detailed": "simple"
+  },
+  "propConfig": {
+    "custom.data": {
+      "persistent": true
+    },
+    "custom.showLabels": {
+      "binding": {
+        "config": {
+          "expression": "lower({view.params.detailed})\u003d\u0027detailed\u0027"
+        },
+        "type": "expr"
+      },
+      "persistent": true
+    },
+    "params.detailed": {
+      "paramDirection": "input",
+      "persistent": true
+    }
+  },
+  "props": {
+    "defaultSize": {
+      "width": 650
+    }
+  },
+  "root": {
+    "children": [
+      {
+        "children": [
+          {
+            "meta": {
+              "name": "Markdown"
+            },
+            "position": {
+              "grow": 1
+            },
+            "props": {
+              "markdown": {
+                "escapeHtml": false
+              },
+              "source": "\u003ccenter\u003e\u003cb\u003ePan Zoom iFrame\u003c/b\u003e\u003c/center\u003e\n\u003cul\u003e\n\u003cli\u003eThis is a pan and zoom resource using an inline frame.\n\u003cli\u003eWebDev module is \u003cb\u003erequired.\u003c/b\u003e\n\u003cli\u003eCode can be seen at \"Web Dev/exchange/pan-zoom-iframe/html\"\n\u003cli\u003eThe commands are processed locally in the browser, allowing for high performance and minimal gateway resource utilization.\n\u003cli\u003eTouch is also supported. Try using one finger to pan, or two fingers to pan and zoom at the same time.\n\u003cli\u003eA detailed view is shown when zooming above 110%. This number can be configured through the parameters of the resource.\n\u003cli\u003ePress the ⓘ button to see explaination of controls.\n\u003c/ul\u003e",
+              "style": {
+                "padding": 16
+              }
+            },
+            "type": "ia.display.markdown"
+          },
+          {
+            "meta": {
+              "name": "Label"
+            },
+            "position": {
+              "basis": "32px",
+              "shrink": 0
+            },
+            "propConfig": {
+              "props.style.backgroundColor": {
+                "binding": {
+                  "config": {
+                    "path": "view.custom.showLabels"
+                  },
+                  "transforms": [
+                    {
+                      "fallback": "var(--seq-1)",
+                      "inputType": "scalar",
+                      "mappings": [
+                        {
+                          "input": true,
+                          "output": "var(--div-11)"
+                        }
+                      ],
+                      "outputType": "scalar",
+                      "type": "map"
+                    }
+                  ],
+                  "type": "property"
+                }
+              },
+              "props.text": {
+                "binding": {
+                  "config": {
+                    "expression": "\u0027Interactible Pie Chart - \u0027 + upper({view.params.detailed})"
+                  },
+                  "type": "expr"
+                }
+              }
+            },
+            "props": {
+              "style": {
+                "borderBottomLeftRadius": 8,
+                "borderBottomRightRadius": 8,
+                "borderTopLeftRadius": 8,
+                "borderTopRightRadius": 8,
+                "margin": 8,
+                "max-width": "300px",
+                "padding": 8
+              },
+              "textStyle": {
+                "textAlign": "center"
+              }
+            },
+            "type": "ia.display.label"
+          },
+          {
+            "meta": {
+              "name": "PieChart"
+            },
+            "position": {
+              "basis": "300px",
+              "grow": 1
+            },
+            "propConfig": {
+              "props.data": {
+                "binding": {
+                  "config": {
+                    "path": "view.custom.data"
+                  },
+                  "type": "property"
+                }
+              },
+              "props.labels.showValue": {
+                "binding": {
+                  "config": {
+                    "path": "view.custom.showLabels"
+                  },
+                  "type": "property"
+                }
+              }
+            },
+            "props": {
+              "colors": [
+                "#E69300",
+                "#EC4B3D",
+                "#4FC86C",
+                "brown",
+                "dodgerblue"
+              ],
+              "labels": {},
+              "legend": {
+                "position": "right"
+              },
+              "showLegend": false,
+              "threeDimensional": true
+            },
+            "type": "ia.chart.pie"
+          },
+          {
+            "events": {
+              "component": {
+                "onActionPerformed": {
+                  "config": {
+                    "script": "\timport random\n\tnewValues \u003d []\n\tfor value in self.view.custom.data:\n\t\tnewValues.append(random.randint(1,25))\n\t# since simple and detailed views are open as different pages in iframe\n\t# values must be set through a session wide message\n\tpayload \u003d {\u0027values\u0027:newValues}\n\tsystem.perspective.sendMessage(\u0027set-data\u0027, payload, scope\u003d\u0027session\u0027)"
+                  },
+                  "scope": "G",
+                  "type": "script"
+                }
+              }
+            },
+            "meta": {
+              "name": "Button"
+            },
+            "position": {
+              "basis": "64px",
+              "shrink": 0
+            },
+            "props": {
+              "image": {
+                "icon": {
+                  "path": "material/touch_app"
+                },
+                "position": "right"
+              },
+              "primary": false,
+              "style": {
+                "margin": 8,
+                "padding": 8
+              },
+              "text": "Change Values. To interact switch to"
+            },
+            "type": "ia.input.button"
+          }
+        ],
+        "meta": {
+          "name": "FlexContainer"
+        },
+        "position": {
+          "height": "100%",
+          "width": "100%"
+        },
+        "props": {
+          "alignItems": "center",
+          "direction": "column",
+          "style": {
+            "backgroundColor": "var(--neutral-30)",
+            "borderBottomLeftRadius": 8,
+            "borderBottomRightRadius": 8,
+            "borderTopLeftRadius": 8,
+            "borderTopRightRadius": 8,
+            "padding": 8,
+            "touch-action": "none"
+          }
+        },
+        "type": "ia.container.flex"
+      }
+    ],
+    "meta": {
+      "name": "root"
+    },
+    "props": {
+      "style": {
+        "margin": 8,
+        "touch-action": "none"
+      }
+    },
+    "scripts": {
+      "customMethods": [],
+      "extensionFunctions": null,
+      "messageHandlers": [
+        {
+          "messageType": "set-data",
+          "pageScope": true,
+          "script": "\tfor i, row in enumerate(self.view.custom.data):\n\t\trow[\u0027count\u0027] \u003d payload[\u0027values\u0027][i]",
+          "sessionScope": true,
+          "viewScope": false
+        }
+      ]
+    },
+    "type": "ia.container.coord"
+  }
+}

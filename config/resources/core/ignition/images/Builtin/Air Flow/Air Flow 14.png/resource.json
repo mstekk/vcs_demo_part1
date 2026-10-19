@@ -1,0 +1,20 @@
+{
+  "scope": "A",
+  "version": 1,
+  "restricted": false,
+  "overridable": true,
+  "files": [
+    "Air Flow 14.png"
+  ],
+  "attributes": {
+    "width": 158,
+    "format": "PNG",
+    "lastModification": {
+      "actor": "8.3-migration",
+      "timestamp": "2026-01-07T14:49:07Z"
+    },
+    "size": 6537,
+    "lastModificationSignature": "24602c8784e554291c7487c3ba9f4f462d1488a89895a5a4e7c282af5e0cef47",
+    "height": 146
+  }
+}

@@ -1,0 +1,20 @@
+{
+  "scope": "A",
+  "version": 1,
+  "restricted": false,
+  "overridable": true,
+  "files": [
+    "paint-tube-medium.png"
+  ],
+  "attributes": {
+    "width": 16,
+    "format": "PNG",
+    "lastModification": {
+      "actor": "8.3-migration",
+      "timestamp": "2026-01-07T14:49:07Z"
+    },
+    "size": 1352,
+    "lastModificationSignature": "4205a2115e3c2a21f5e635a377cf3a2490ad0f7bf771144a9b84306593d11398",
+    "height": 16
+  }
+}

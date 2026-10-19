@@ -1,0 +1,20 @@
+{
+  "scope": "A",
+  "version": 1,
+  "restricted": false,
+  "overridable": true,
+  "files": [
+    "sailing1.png"
+  ],
+  "attributes": {
+    "width": 24,
+    "format": "PNG",
+    "lastModification": {
+      "actor": "8.3-migration",
+      "timestamp": "2026-01-07T14:49:07Z"
+    },
+    "size": 430,
+    "lastModificationSignature": "73f3641475af68954328a022c98c2da259ce8ea6ce42dd56d16e45c6ca399f7e",
+    "height": 24
+  }
+}

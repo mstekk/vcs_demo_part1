@@ -1,0 +1,20 @@
+{
+  "scope": "A",
+  "version": 1,
+  "restricted": false,
+  "overridable": true,
+  "files": [
+    "photo-album--arrow.png"
+  ],
+  "attributes": {
+    "width": 16,
+    "format": "PNG",
+    "lastModification": {
+      "actor": "8.3-migration",
+      "timestamp": "2026-01-07T14:49:07Z"
+    },
+    "size": 779,
+    "lastModificationSignature": "5a1ae020c9d25ba500e985938321ac09fa86a8a1135e2a632db91bcbff94ec18",
+    "height": 16
+  }
+}

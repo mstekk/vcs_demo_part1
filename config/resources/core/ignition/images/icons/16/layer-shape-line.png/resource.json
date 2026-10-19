@@ -1,0 +1,20 @@
+{
+  "scope": "A",
+  "version": 1,
+  "restricted": false,
+  "overridable": true,
+  "files": [
+    "layer-shape-line.png"
+  ],
+  "attributes": {
+    "width": 16,
+    "format": "PNG",
+    "lastModification": {
+      "actor": "8.3-migration",
+      "timestamp": "2026-01-07T14:49:07Z"
+    },
+    "size": 414,
+    "lastModificationSignature": "92d26e75e4e5b9b48b85e332adce567fb27fce3df682a7c6234dcc2d489ae3f4",
+    "height": 16
+  }
+}

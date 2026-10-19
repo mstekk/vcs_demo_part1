@@ -1,0 +1,13 @@
+{
+  "base": {
+    "style": {
+      "backgroundColor": "#FFFF8A",
+      "color": "#808000",
+      "fontFamily": "sans-serif",
+      "fontWeight": "bold",
+      "stroke": "#808000",
+      "strokeWidth": "5",
+      "fill": "#FFFF8A"
+    }
+  }
+}

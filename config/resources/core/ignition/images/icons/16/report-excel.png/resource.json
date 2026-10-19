@@ -1,0 +1,20 @@
+{
+  "scope": "A",
+  "version": 1,
+  "restricted": false,
+  "overridable": true,
+  "files": [
+    "report-excel.png"
+  ],
+  "attributes": {
+    "width": 16,
+    "format": "PNG",
+    "lastModification": {
+      "actor": "8.3-migration",
+      "timestamp": "2026-01-07T14:49:07Z"
+    },
+    "size": 629,
+    "lastModificationSignature": "403b2bc96b1611b175a3398a50d7fcafc629e123cdabdba5aac835939f95ab4c",
+    "height": 16
+  }
+}

@@ -1,0 +1,20 @@
+{
+  "scope": "A",
+  "version": 1,
+  "restricted": false,
+  "overridable": true,
+  "files": [
+    "global53.png"
+  ],
+  "attributes": {
+    "width": 24,
+    "format": "PNG",
+    "lastModification": {
+      "actor": "8.3-migration",
+      "timestamp": "2026-01-07T14:49:07Z"
+    },
+    "size": 674,
+    "lastModificationSignature": "6ca6dfe9116726c246c24a26558ae5bf0d545b9add2a163bc35f53a7c3f21397",
+    "height": 24
+  }
+}

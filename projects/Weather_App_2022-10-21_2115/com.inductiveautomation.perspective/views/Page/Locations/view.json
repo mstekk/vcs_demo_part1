@@ -1,0 +1,383 @@
+{
+  "custom": {
+    "AddLocation": true,
+    "Locations": {
+      "$": [
+        "ds",
+        192,
+        1666379222926
+      ],
+      "$columns": [
+        {
+          "data": [
+            "Folsom"
+          ],
+          "name": "Name",
+          "type": "String"
+        },
+        {
+          "data": [
+            38.676773
+          ],
+          "name": "Lat",
+          "type": "Float"
+        },
+        {
+          "data": [
+            -121.15264
+          ],
+          "name": "Lon",
+          "type": "Float"
+        },
+        {
+          "data": [
+            "United States"
+          ],
+          "name": "Country",
+          "type": "String"
+        },
+        {
+          "data": [
+            "North America"
+          ],
+          "name": "Continent",
+          "type": "String"
+        }
+      ]
+    }
+  },
+  "params": {},
+  "propConfig": {
+    "custom.AddLocation": {
+      "persistent": true
+    },
+    "custom.Locations": {
+      "binding": {
+        "config": {
+          "bidirectional": true,
+          "fallbackDelay": 2.5,
+          "mode": "direct",
+          "tagPath": "[default]HomeAutomation/Weather/Locations/SavedLocation"
+        },
+        "type": "tag"
+      },
+      "persistent": true
+    }
+  },
+  "props": {
+    "defaultSize": {
+      "height": 467,
+      "width": 367
+    }
+  },
+  "root": {
+    "children": [
+      {
+        "meta": {
+          "name": "Title"
+        },
+        "position": {
+          "basis": "56px",
+          "shrink": 0
+        },
+        "props": {
+          "params": {
+            "icon": "location_on",
+            "text": "Locations"
+          },
+          "path": "Embedded/Title",
+          "style": {
+            "backgroundColor": ""
+          }
+        },
+        "type": "ia.display.view"
+      },
+      {
+        "meta": {
+          "name": "flxLocations"
+        },
+        "position": {
+          "basis": "320px",
+          "grow": 1
+        },
+        "propConfig": {
+          "position.display": {
+            "binding": {
+              "config": {
+                "path": "view.custom.AddLocation"
+              },
+              "transforms": [
+                {
+                  "expression": "!{value}",
+                  "type": "expression"
+                }
+              ],
+              "type": "property"
+            }
+          },
+          "props.instances": {
+            "binding": {
+              "config": {
+                "path": "view.custom.Locations"
+              },
+              "transforms": [
+                {
+                  "code": "\tlocations \u003d [\n\t\t{\n\t\t\t\u0027Name\u0027:Name,\n\t\t\t\u0027Lat\u0027:Lat,\n\t\t\t\"Lon\":Lon,\n\t\t\t\"Country\":Country,\n\t\t\t\"Continent\":Continent\n\t\t} for Name,Lat,Lon,Country,Continent in system.dataset.toPyDataSet(value)\n\t]\n\t\n\treturn locations",
+                  "type": "script"
+                }
+              ],
+              "type": "property"
+            }
+          }
+        },
+        "props": {
+          "direction": "column",
+          "path": "Embedded/Locations/Location",
+          "style": {
+            "margin": "10px"
+          },
+          "useDefaultViewWidth": false
+        },
+        "type": "ia.display.flex-repeater"
+      },
+      {
+        "events": {
+          "component": {
+            "onActionPerformed": {
+              "config": {
+                "script": "\tself.view.custom.AddLocation \u003d True"
+              },
+              "scope": "G",
+              "type": "script"
+            }
+          }
+        },
+        "meta": {
+          "name": "btnAddLoc"
+        },
+        "position": {
+          "basis": "34px"
+        },
+        "propConfig": {
+          "position.display": {
+            "binding": {
+              "config": {
+                "path": "view.custom.AddLocation"
+              },
+              "transforms": [
+                {
+                  "expression": "!{value}",
+                  "type": "expression"
+                }
+              ],
+              "type": "property"
+            }
+          }
+        },
+        "props": {
+          "primary": false,
+          "style": {
+            "margin": "10px"
+          },
+          "text": "Add Location"
+        },
+        "type": "ia.input.button"
+      },
+      {
+        "children": [
+          {
+            "children": [
+              {
+                "meta": {
+                  "name": "tfdSearch"
+                },
+                "position": {
+                  "basis": "32px",
+                  "grow": 1
+                },
+                "propConfig": {
+                  "props.enabled": {
+                    "binding": {
+                      "config": {
+                        "path": "..../flxSearch.custom.searching"
+                      },
+                      "transforms": [
+                        {
+                          "expression": "!{value}",
+                          "type": "expression"
+                        }
+                      ],
+                      "type": "property"
+                    }
+                  }
+                },
+                "props": {
+                  "placeholder": "Enter location",
+                  "style": {
+                    "margin": "10px",
+                    "padding": "5px"
+                  }
+                },
+                "type": "ia.input.text-field"
+              },
+              {
+                "events": {
+                  "dom": {
+                    "onClick": {
+                      "config": {
+                        "script": "\tif not self.parent.parent.parent.getChild(\"flxSearch\").custom.searching:\n\t\ttagValues \u003d system.tag.readBlocking([\"[default]HomeAutomation/Weather/Locations/ApiKey\"])\n\t\tApiKey \u003d tagValues[0].value\n\t\tlocation \u003d self.getSibling(\"tfdSearch\").props.text\n\t\turl \u003d \"http://api.positionstack.com/v1/forward?access_key\u003d%s\u0026query\u003d%s\" % (ApiKey,location)\n\t\t\n\t\tself.parent.parent.parent.getChild(\"flxSearch\").custom.searching \u003d True\n\t\tres \u003d system.net.httpGet(url)\n\t\t\n\t\tself.parent.parent.parent.getChild(\"flxSearch\").custom.key \u003d res\n\t\tself.parent.parent.parent.getChild(\"flxSearch\").custom.locationData \u003d system.util.jsonDecode(res)\n\t\tself.parent.parent.parent.getChild(\"flxSearch\").custom.searching \u003d False"
+                      },
+                      "scope": "G",
+                      "type": "script"
+                    }
+                  }
+                },
+                "meta": {
+                  "name": "icnSearch"
+                },
+                "position": {
+                  "basis": "30px"
+                },
+                "props": {
+                  "path": "material/search",
+                  "style": {
+                    "margin": "5px"
+                  }
+                },
+                "type": "ia.display.icon"
+              }
+            ],
+            "meta": {
+              "name": "flxSearchBar"
+            },
+            "props": {
+              "alignItems": "center",
+              "justify": "space-between",
+              "style": {
+                "overflow": "hidden"
+              }
+            },
+            "type": "ia.container.flex"
+          },
+          {
+            "meta": {
+              "name": "flxLocations"
+            },
+            "position": {
+              "basis": "320px",
+              "grow": 1
+            },
+            "propConfig": {
+              "meta.visible": {
+                "binding": {
+                  "config": {
+                    "path": "parent.custom.searching"
+                  },
+                  "transforms": [
+                    {
+                      "expression": "!{value}",
+                      "type": "expression"
+                    }
+                  ],
+                  "type": "property"
+                }
+              },
+              "props.instances": {
+                "binding": {
+                  "config": {
+                    "path": "parent.custom.locationData.data"
+                  },
+                  "type": "property"
+                }
+              }
+            },
+            "props": {
+              "direction": "column",
+              "path": "Embedded/Locations/LocationAdd",
+              "style": {
+                "margin": "10px"
+              },
+              "useDefaultViewWidth": false
+            },
+            "type": "ia.display.flex-repeater"
+          },
+          {
+            "events": {
+              "component": {
+                "onActionPerformed": {
+                  "config": {
+                    "script": "\tself.view.custom.AddLocation \u003d False"
+                  },
+                  "scope": "G",
+                  "type": "script"
+                }
+              }
+            },
+            "meta": {
+              "name": "btnAddLoc"
+            },
+            "position": {
+              "basis": "34px"
+            },
+            "propConfig": {
+              "position.display": {
+                "binding": {
+                  "config": {
+                    "path": "view.custom.AddLocation"
+                  },
+                  "type": "property"
+                }
+              }
+            },
+            "props": {
+              "primary": false,
+              "style": {
+                "margin": "10px"
+              },
+              "text": "Close location search"
+            },
+            "type": "ia.input.button"
+          }
+        ],
+        "custom": {
+          "key": "",
+          "locationData": {
+            "data": []
+          },
+          "searching": false
+        },
+        "meta": {
+          "name": "flxSearch"
+        },
+        "position": {
+          "basis": "200px",
+          "grow": 1
+        },
+        "propConfig": {
+          "position.display": {
+            "binding": {
+              "config": {
+                "path": "view.custom.AddLocation"
+              },
+              "type": "property"
+            }
+          }
+        },
+        "props": {
+          "direction": "column",
+          "style": {
+            "padding": "0px"
+          }
+        },
+        "type": "ia.container.flex"
+      }
+    ],
+    "meta": {
+      "name": "root"
+    },
+    "props": {
+      "direction": "column"
+    },
+    "type": "ia.container.flex"
+  }
+}

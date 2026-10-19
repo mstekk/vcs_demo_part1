@@ -1,0 +1,20 @@
+{
+  "scope": "A",
+  "version": 1,
+  "restricted": false,
+  "overridable": true,
+  "files": [
+    "EXHAUST FAN BLADES.png"
+  ],
+  "attributes": {
+    "width": 134,
+    "format": "PNG",
+    "lastModification": {
+      "actor": "8.3-migration",
+      "timestamp": "2026-01-07T14:49:07Z"
+    },
+    "size": 10795,
+    "lastModificationSignature": "d8bf738600eefbdb0e9db5ee203b93154b408215cb60a16c47f4da8b26f2fc2f",
+    "height": 134
+  }
+}

@@ -1,0 +1,20 @@
+{
+  "scope": "A",
+  "version": 1,
+  "restricted": false,
+  "overridable": true,
+  "files": [
+    "jar--pencil.png"
+  ],
+  "attributes": {
+    "width": 16,
+    "format": "PNG",
+    "lastModification": {
+      "actor": "8.3-migration",
+      "timestamp": "2026-01-07T14:49:07Z"
+    },
+    "size": 878,
+    "lastModificationSignature": "9e5290fcac6b62ca305fd94bd4dfd43bde8b15fc3eceff0e1ec735cad9161e7f",
+    "height": 16
+  }
+}

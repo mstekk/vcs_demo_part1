@@ -1,0 +1,3354 @@
+{
+  "custom": {
+    "date": {
+      "$": [
+        "ts",
+        192,
+        1726768050921
+      ],
+      "$ts": 1726768050921
+    },
+    "hasRole": true,
+    "isUser": false,
+    "lastSave": "",
+    "newFilename": "Architecture_240919104730"
+  },
+  "events": {
+    "system": {
+      "onStartup": {
+        "config": {
+          "script": "\tlogger\u003dsystem.util.getLogger(\u0027LoadMongoData\u0027)\n\n\tdef getConnectorState(name):\n\t\tallow\u003dTrue\n\t\tfor connector in self.session.custom.admin.mongoAccess:\n\t\t\tif name\u003d\u003dconnector[\u0027name\u0027]:\n\t\t\t\tallow\u003dconnector[\u0027allow\u0027]\n\t\t\t\tbreak\n\t\treturn allow\n\t\n\tself.custom.date\u003dsystem.date.now()\n\tconnectorDrop\u003d[]\n\ttry:\n\t\tconnectors\u003dsystem.mongodb.listConnectorInfo()\n\n\t\tfor connector in connectors:\n\t\t\tif connector[\u0027status\u0027]\u003d\u003d\u0027Valid\u0027:\n\t\t\t\tif getConnectorState(connector[\u0027name\u0027]) and connector[\u0027name\u0027] not in self.session.custom.admin.disabledMongoConnections:\n\t\t\t\t\tconnectorDrop.append({\n\t\t\t\t\t  \"value\": connector[\u0027name\u0027],\n\t\t\t\t\t  \"label\": connector[\u0027name\u0027]\n\t\t\t\t\t})\n\t\t\telse:\n\t\t\t\tlogger.warn(\u0027MongoDB [{}] is Faulted, check that Database(s) and Collection(s) are configured in DB manager\u0027.format(connector[\u0027name\u0027]))\n\texcept:\n\t\tpass\t\t\n\tself.getChild(\"root\").getChild(\"Connectors\").getChild(\"Connectors\").props.options\u003dconnectorDrop\n\tif len(connectorDrop)\u003e0:\n\t\tfirstCollection\u003dconnectorDrop[-1][\u0027value\u0027]\n\t\tself.getChild(\"root\").getChild(\"Connectors\").getChild(\"Connectors\").props.value\u003dfirstCollection"
+        },
+        "scope": "G",
+        "type": "script"
+      }
+    }
+  },
+  "params": {
+    "lastLoad": {},
+    "newTrigger": false
+  },
+  "propConfig": {
+    "custom.date": {
+      "persistent": true
+    },
+    "custom.filename": {
+      "binding": {
+        "config": {
+          "struct": {
+            "new": "{view.custom.newFilename}",
+            "old": "{view.params.lastLoad}"
+          },
+          "waitOnAll": true
+        },
+        "transforms": [
+          {
+            "code": "\tif \u0027filename\u0027 not in value[\u0027old\u0027].keys():\n\t\treturn value[\u0027new\u0027]\n\telse:\n\t\treturn value[\u0027old\u0027][\u0027filename\u0027]",
+            "type": "script"
+          }
+        ],
+        "type": "expr-struct"
+      }
+    },
+    "custom.hasRole": {
+      "binding": {
+        "config": {
+          "expression": "if({session.custom.public}, true,isAuthorized(false, \u0027Authenticated/Roles/Administrator\u0027, \u0027Authenticated/Roles/\u0027+{session.custom.admin.role}))"
+        },
+        "type": "expr"
+      },
+      "persistent": true
+    },
+    "custom.isUser": {
+      "binding": {
+        "config": {
+          "struct": {
+            "lastLoad": "{view.params.lastLoad}",
+            "user": "{session.props.auth.user.userName}"
+          },
+          "waitOnAll": true
+        },
+        "transforms": [
+          {
+            "code": "\tif \u0027userName\u0027 in value[\u0027lastLoad\u0027].keys():\n\t\treturn value[\u0027lastLoad\u0027][\u0027userName\u0027]\u003d\u003dvalue[\u0027user\u0027]\n\treturn False",
+            "type": "script"
+          }
+        ],
+        "type": "expr-struct"
+      },
+      "persistent": true
+    },
+    "custom.newFilename": {
+      "binding": {
+        "config": {
+          "path": "view.custom.date"
+        },
+        "transforms": [
+          {
+            "formatType": "datetime",
+            "formatValue": "YYMMddHHmmss",
+            "type": "format"
+          },
+          {
+            "code": "\treturn \u0027Architecture_{}\u0027.format(value)",
+            "type": "script"
+          }
+        ],
+        "type": "property"
+      },
+      "persistent": true
+    },
+    "params.lastLoad": {
+      "paramDirection": "input",
+      "persistent": true
+    },
+    "params.newTrigger": {
+      "paramDirection": "input",
+      "persistent": true
+    }
+  },
+  "props": {
+    "defaultSize": {
+      "height": 400,
+      "width": 697
+    }
+  },
+  "root": {
+    "children": [
+      {
+        "children": [
+          {
+            "meta": {
+              "name": "Label"
+            },
+            "position": {
+              "basis": "125px"
+            },
+            "props": {
+              "style": {
+                "marginRight": "2px"
+              },
+              "text": "Connection:",
+              "textStyle": {
+                "textAlign": "right"
+              }
+            },
+            "type": "ia.display.label"
+          },
+          {
+            "meta": {
+              "name": "Connectors"
+            },
+            "position": {
+              "grow": 1
+            },
+            "propConfig": {
+              "props.value": {
+                "binding": {
+                  "config": {
+                    "path": "view.params.lastLoad"
+                  },
+                  "overlayOptOut": true,
+                  "transforms": [
+                    {
+                      "code": "\tif \u0027connector\u0027 in value.keys():\n\t\treturn value[\u0027connector\u0027]\n\treturn None",
+                      "type": "script"
+                    }
+                  ],
+                  "type": "property"
+                }
+              }
+            },
+            "props": {
+              "options": [
+                {
+                  "label": "se-notes-arch",
+                  "value": "se-notes-arch"
+                }
+              ],
+              "showClearIcon": true
+            },
+            "type": "ia.input.dropdown"
+          }
+        ],
+        "meta": {
+          "name": "Connectors"
+        },
+        "position": {
+          "basis": "34px",
+          "shrink": 0
+        },
+        "props": {
+          "style": {
+            "margin": "8px"
+          }
+        },
+        "type": "ia.container.flex"
+      },
+      {
+        "children": [
+          {
+            "meta": {
+              "name": "Label"
+            },
+            "position": {
+              "basis": "125px"
+            },
+            "props": {
+              "style": {
+                "marginRight": "2px"
+              },
+              "text": "Collection:",
+              "textStyle": {
+                "textAlign": "right"
+              }
+            },
+            "type": "ia.display.label"
+          },
+          {
+            "meta": {
+              "name": "Collectios"
+            },
+            "position": {
+              "grow": 1
+            },
+            "propConfig": {
+              "props.options": {
+                "binding": {
+                  "config": {
+                    "path": ".../Connectors/Connectors.props.value"
+                  },
+                  "overlayOptOut": true,
+                  "transforms": [
+                    {
+                      "code": "\tdef getCollectionState(collection,connector):\n\t\tallow\u003dTrue\n\t\ttry:\n\t\t\tfor con in self.session.custom.admin.mongoAccess:\n\t\t\t\tif con[\u0027name\u0027]\u003d\u003dconnector:\n\t\t\t\t\tfor col in con.collections:\n\t\t\t\t\t\tsystem.perspective.print(col)\n\t\t\t\t\t\tif collection\u003d\u003dcol[\u0027name\u0027]:\n\t\t\t\t\t\t\tallow\u003dcol[\u0027allow\u0027]\n\t\t\t\t\t\t\tsystem.perspective.print(allow)\n\t\t\t\t\t\t\tbreak\n\t\texcept:\n\t\t\tpass\n\t\treturn allow \n\tcollectionDrop\u003d[]\n\ttry:\n\t\tcollections\u003dsystem.mongodb.listCollectionNames(value)\n\t\tfor collection in collections:\n\t\t\t#return getCollectionState(\u0027Architecture\u0027,value)\n\t\t\tif getCollectionState(collection,value):\n\t\t\t\tcollectionDrop.append({\n\t\t\t\t  \"value\": collection,\n\t\t\t\t  \"label\": collection\n\t\t\t\t})\n\texcept:\n\t\tpass\n\treturn collectionDrop",
+                      "type": "script"
+                    }
+                  ],
+                  "type": "property"
+                }
+              },
+              "props.value": {
+                "binding": {
+                  "config": {
+                    "path": ".../Connectors/Connectors.props.value"
+                  },
+                  "transforms": [
+                    {
+                      "code": "\ttry:\n\t\tcollections\u003dsystem.mongodb.listCollectionNames(value)\n\t\tif len(collections)\u003e0:\n\t\t\ttry:\n\t\t\t\treturn self.view.params.lastLoad.collection\n\t\t\texcept:\n\t\t\t\treturn self.props.options[0].value\n\t\telse:\n\t\t\treturn None\n\texcept:\n\t\treturn \u0027\u0027",
+                      "type": "script"
+                    }
+                  ],
+                  "type": "property"
+                }
+              }
+            },
+            "props": {
+              "showClearIcon": true
+            },
+            "type": "ia.input.dropdown"
+          }
+        ],
+        "meta": {
+          "name": "Collections"
+        },
+        "position": {
+          "basis": "34px",
+          "shrink": 0
+        },
+        "props": {
+          "style": {
+            "margin": "8px",
+            "marginTop": 0
+          }
+        },
+        "type": "ia.container.flex"
+      },
+      {
+        "children": [
+          {
+            "meta": {
+              "name": "Label"
+            },
+            "position": {
+              "basis": "125px"
+            },
+            "props": {
+              "style": {
+                "marginRight": "2px"
+              },
+              "text": "Filename:",
+              "textStyle": {
+                "textAlign": "right"
+              }
+            },
+            "type": "ia.display.label"
+          },
+          {
+            "meta": {
+              "name": "TextField"
+            },
+            "position": {
+              "grow": 1
+            },
+            "propConfig": {
+              "custom.Files": {
+                "binding": {
+                  "config": {
+                    "struct": {
+                      "collection": "{.../Collections/Collectios.props.value}",
+                      "connector": "{.../Connectors/Connectors.props.value}"
+                    },
+                    "waitOnAll": true
+                  },
+                  "transforms": [
+                    {
+                      "code": "\toptions\u003d[]\n\tif value[\u0027connector\u0027] is not None and value[\u0027connector\u0027]!\u003d\u0027\u0027 and value[\u0027collection\u0027] is not None and value[\u0027collection\u0027]!\u003d\u0027\u0027:\n\t\tarchs\u003dsystem.mongodb.find(value[\u0027connector\u0027], value[\u0027collection\u0027], {},{\u0027filename\u0027:1})\n\t\t\n\t\tfor arch in archs:\n\t\t\toptions.append({\u0027id\u0027:arch[\u0027_id\u0027],\u0027filename\u0027:arch[\u0027filename\u0027]})\n\t\t\n\treturn options",
+                      "type": "script"
+                    }
+                  ],
+                  "type": "expr-struct"
+                }
+              },
+              "custom.nameExists": {
+                "binding": {
+                  "config": {
+                    "struct": {
+                      "filename": "{this.props.text}",
+                      "files": "{this.custom.Files}"
+                    },
+                    "waitOnAll": true
+                  },
+                  "transforms": [
+                    {
+                      "code": "\texists\u003d{\u0027exists\u0027:False, \u0027id\u0027:\u0027\u0027}\n\tfiles\u003dvalue[\u0027files\u0027]\n\tfilename\u003dvalue[\u0027filename\u0027]\n\tfor filen in files:\n\t\tif filen[\u0027filename\u0027]\u003d\u003dfilename:\n\t\t\texists\u003d{\u0027exists\u0027:True, \u0027id\u0027:filen[\u0027id\u0027]}\n\t\t\tbreak\n\treturn exists",
+                      "type": "script"
+                    }
+                  ],
+                  "type": "expr-struct"
+                }
+              },
+              "props.text": {
+                "binding": {
+                  "config": {
+                    "path": "view.custom.filename"
+                  },
+                  "type": "property"
+                }
+              }
+            },
+            "props": {
+              "placeholder": "Filename...",
+              "style": {
+                "overflow": "auto"
+              }
+            },
+            "type": "ia.input.text-field"
+          }
+        ],
+        "meta": {
+          "name": "Filename"
+        },
+        "position": {
+          "basis": "34px",
+          "shrink": 0
+        },
+        "props": {
+          "style": {
+            "margin": "8px",
+            "marginTop": "0px"
+          }
+        },
+        "type": "ia.container.flex"
+      },
+      {
+        "children": [
+          {
+            "meta": {
+              "name": "Label"
+            },
+            "position": {
+              "basis": "32px"
+            },
+            "props": {
+              "style": {
+                "marginLeft": "8px"
+              },
+              "text": "Notes Connection"
+            },
+            "type": "ia.display.label"
+          },
+          {
+            "children": [
+              {
+                "meta": {
+                  "name": "Label"
+                },
+                "position": {
+                  "basis": "125px"
+                },
+                "props": {
+                  "style": {
+                    "marginRight": "2px"
+                  },
+                  "text": "Account Name:",
+                  "textStyle": {
+                    "textAlign": "right"
+                  }
+                },
+                "type": "ia.display.label"
+              },
+              {
+                "meta": {
+                  "name": "TextField"
+                },
+                "position": {
+                  "grow": 1
+                },
+                "props": {
+                  "deferUpdates": false,
+                  "placeholder": "Account Name (Notes)...",
+                  "style": {
+                    "overflow": "auto"
+                  }
+                },
+                "type": "ia.input.text-field"
+              }
+            ],
+            "meta": {
+              "name": "AccountName"
+            },
+            "position": {
+              "basis": "34px",
+              "grow": 1
+            },
+            "props": {
+              "style": {
+                "margin": "8px"
+              }
+            },
+            "type": "ia.container.flex"
+          },
+          {
+            "children": [
+              {
+                "meta": {
+                  "name": "Label"
+                },
+                "position": {
+                  "basis": "125px"
+                },
+                "props": {
+                  "style": {
+                    "marginRight": "2px"
+                  },
+                  "text": "Meeting Desc:",
+                  "textStyle": {
+                    "textAlign": "right"
+                  }
+                },
+                "type": "ia.display.label"
+              },
+              {
+                "meta": {
+                  "name": "File"
+                },
+                "position": {
+                  "grow": 1
+                },
+                "propConfig": {
+                  "props.options": {
+                    "binding": {
+                      "config": {
+                        "path": "..../MeetingID.custom.queryResults"
+                      },
+                      "transforms": [
+                        {
+                          "code": "\toptions\u003d[]\n\tfor result in value:\n\t\tSE\u003dresult[\u0027salesEngineer\u0027]\n\t\ttry:\n\t\t\tdate\u003dsystem.date.format(result[\u0027startDate\u0027],\"MM/dd/yy\")\n\t\texcept:\n\t\t\tdate\u003dresult[\u0027startDate\u0027]\n\t\tid\u003dresult[\u0027_id\u0027]\n\t\taccountName\u003dresult[\u0027accountName\u0027]\n\t\toptions.append({\n\t\t  \"value\": id,\n\t\t  \"label\": \"{}, {}, {}\".format(accountName, SE, date)\n\t\t})\n\treturn options",
+                          "type": "script"
+                        }
+                      ],
+                      "type": "property"
+                    }
+                  },
+                  "props.placeholder.text": {
+                    "binding": {
+                      "config": {
+                        "expression": "if(len({..../MeetingID.custom.queryResults})\u003d50,\u002750+\u0027,len({..../MeetingID.custom.queryResults}))"
+                      },
+                      "transforms": [
+                        {
+                          "code": "\treturn \u0027Meeting Selector ({} results)...\u0027.format(value)",
+                          "type": "script"
+                        }
+                      ],
+                      "type": "expr"
+                    }
+                  },
+                  "props.value": {
+                    "binding": {
+                      "config": {
+                        "struct": {
+                          "lastLoad": "{view.params.lastLoad}",
+                          "selected": "{.../MeetingDesc/File.props.value}"
+                        },
+                        "waitOnAll": true
+                      },
+                      "transforms": [
+                        {
+                          "code": "\tif \u0027meetingId\u0027 in value[\u0027lastLoad\u0027].keys():\n\t\treturn value[\u0027lastLoad\u0027][\u0027meetingId\u0027]\n\telse:\n\t\treturn None",
+                          "type": "script"
+                        }
+                      ],
+                      "type": "expr-struct"
+                    }
+                  }
+                },
+                "props": {
+                  "placeholder": {},
+                  "showClearIcon": true
+                },
+                "type": "ia.input.dropdown"
+              }
+            ],
+            "meta": {
+              "name": "MeetingDesc"
+            },
+            "position": {
+              "basis": "34px",
+              "grow": 1
+            },
+            "props": {
+              "style": {
+                "margin": "8px",
+                "marginTop": "0px"
+              }
+            },
+            "type": "ia.container.flex"
+          },
+          {
+            "children": [
+              {
+                "meta": {
+                  "name": "Label"
+                },
+                "position": {
+                  "basis": "125px"
+                },
+                "props": {
+                  "style": {
+                    "marginRight": "2px"
+                  },
+                  "text": "Meeting ID:",
+                  "textStyle": {
+                    "textAlign": "right"
+                  }
+                },
+                "type": "ia.display.label"
+              },
+              {
+                "meta": {
+                  "name": "TextField"
+                },
+                "position": {
+                  "grow": 1
+                },
+                "propConfig": {
+                  "props.text": {
+                    "binding": {
+                      "config": {
+                        "path": ".../MeetingDesc/File.props.value"
+                      },
+                      "transforms": [
+                        {
+                          "code": "\tif value is None:\n\t\treturn \u0027\u0027\n\treturn value",
+                          "type": "script"
+                        }
+                      ],
+                      "type": "property"
+                    }
+                  }
+                },
+                "props": {
+                  "deferUpdates": false,
+                  "placeholder": "Meeting ID...",
+                  "style": {
+                    "overflow": "auto"
+                  }
+                },
+                "type": "ia.input.text-field"
+              }
+            ],
+            "meta": {
+              "name": "MeetingID"
+            },
+            "position": {
+              "basis": "34px",
+              "grow": 1
+            },
+            "props": {
+              "style": {
+                "margin": "8px",
+                "marginBottom": "8px",
+                "marginTop": "0px"
+              }
+            },
+            "type": "ia.container.flex"
+          }
+        ],
+        "custom": {
+          "queryResults": [
+            {
+              "_id": "66ec60534db51018b6c02d35",
+              "accountName": "Cellares",
+              "actionItems": [],
+              "attendance": [
+                {
+                  "text": "Thomas Goetz"
+                },
+                {
+                  "text": "Vanessa Garcia"
+                }
+              ],
+              "callDuration": 60,
+              "clientAttendance": [
+                {
+                  "text": " Davi Alves Oliva"
+                },
+                {
+                  "text": "Davi Alves Oliva (DMC)"
+                }
+              ],
+              "files": [],
+              "iaAttendance": [
+                {
+                  "text": "Thomas Goetz"
+                },
+                {
+                  "text": "Vanessa Garcia"
+                }
+              ],
+              "inMeeting": true,
+              "integratorAttendance": [],
+              "questionsIssues": "",
+              "salesEngineer": "Thomas Goetz",
+              "startDate": {
+                "$": [
+                  "ts",
+                  0,
+                  1726768051795
+                ],
+                "$ts": 1726767000000
+              },
+              "summary": "\"We currently use a multi-gateway architecture with a single development gateway which hosts several projects which get pushed to multiple production gateways. We don\u0027t modify the HMI projects directly on the production gateways, instead any change is first made on the development gateway and then pushed with EAM to the production servers. Each production server generally has identical equipment on it, just of different quantities, making this architecture possible.\n\n\nWhat we are trying to determine is the best path forward for user management. Currently we are using AD/Internal Hybrid, and we manually need to add users to each gateway. We only have four roles per gateway - Administrator, Service, Operator, Readonly. We want to hand off management of users to our IT group, and allow them to add users to specific gateways and ideally per-project.\"\n\nAll Perspective\n",
+              "tags": []
+            },
+            {
+              "_id": "66eb06f44db51018b6c02d34",
+              "accountName": "Stihl",
+              "actionItems": [],
+              "attendance": [
+                {
+                  "text": "Thomas Goetz"
+                },
+                {
+                  "text": "Amar Kahlon"
+                }
+              ],
+              "callDuration": 60,
+              "clientAttendance": [
+                {
+                  "text": "Robbie Reinert"
+                },
+                {
+                  "text": "Jason Tewell"
+                }
+              ],
+              "files": [],
+              "iaAttendance": [
+                {
+                  "text": "Thomas Goetz"
+                },
+                {
+                  "text": "Amar Kahlon"
+                }
+              ],
+              "inMeeting": true,
+              "integratorAttendance": [],
+              "questionsIssues": "",
+              "salesEngineer": "Thomas Goetz",
+              "startDate": {
+                "$": [
+                  "ts",
+                  0,
+                  1726768051795
+                ],
+                "$ts": 1726678800000
+              },
+              "summary": "Agenda: \"Here is what we are trying to accomplish with this project.\nA PLC system down on the shop floor will generate data that needs to be stored for use by other systems at a later date.\n\nThis later date will probably only ever be about 24 production hours later.\nA different PLC system on the same shop floor will need to access this data in order to determine what it should do.\nWe would also like to back up the data from the local shop floor system to our main Ignition system in our data center.\n\nDoes this sound like something for Edge or would it be better to get a small Ignition server?\nIn either case if we want it to talk back to our main Ignition server do we need the Enterprise Administration Module for both systems\"",
+              "tags": []
+            },
+            {
+              "_id": "66eaeb834db51018b6c02d33",
+              "accountName": "CCFF",
+              "actionItems": [],
+              "attendance": [
+                {
+                  "text": "Thomas Goetz"
+                },
+                {
+                  "text": "Abran Mathews"
+                }
+              ],
+              "callDuration": 60,
+              "clientAttendance": [
+                {
+                  "text": "Nickie Wolmarans"
+                },
+                {
+                  "text": "Michelle Schulte"
+                },
+                {
+                  "text": "Al Noman"
+                }
+              ],
+              "files": [],
+              "iaAttendance": [
+                {
+                  "text": "Thomas Goetz"
+                },
+                {
+                  "text": "Abran Mathews"
+                }
+              ],
+              "inMeeting": false,
+              "integratorAttendance": [],
+              "questionsIssues": "",
+              "salesEngineer": "Thomas Goetz",
+              "startDate": {
+                "$": [
+                  "ts",
+                  0,
+                  1726768051795
+                ],
+                "$ts": 1726671600000
+              },
+              "summary": "Upgrading from 8.0 to 8.1\n\n\nI did not do so well in this meeting. There was a lot of extra time in the meeting that was not needed. \n\nBasically we discussed how to spin up another environment with the current version, restoring back, and upgrading,\nat this point we should have communicated how to check the environment. If there are no issues they could just upgrade production.\n\nThe issue we had is we discussed restoring a gateway back to the prod environment would upgrade the server but this just isn\u0027t true.\n\nI knew this was not correct but followed the Sales Rep. \"I need to have more confidence\"\n\n",
+              "tags": []
+            },
+            {
+              "_id": "66e8804b4db51018b6c02d32",
+              "accountName": "Scada Solve",
+              "actionItems": [],
+              "attendance": [
+                {
+                  "text": "Chase Dorsey"
+                },
+                {
+                  "text": "Vanessa Garcia"
+                }
+              ],
+              "callDuration": 60,
+              "clientAttendance": [
+                {
+                  "text": "Rich Wagner"
+                }
+              ],
+              "files": [],
+              "iaAttendance": [
+                {
+                  "text": "Chase Dorsey"
+                },
+                {
+                  "text": "Vanessa Garcia"
+                }
+              ],
+              "inMeeting": false,
+              "integratorAttendance": [],
+              "questionsIssues": "",
+              "salesEngineer": "Chase Dorsey",
+              "startDate": {
+                "$": [
+                  "ts",
+                  0,
+                  1726768051795
+                ],
+                "$ts": 1726513200000
+              },
+              "summary": "Primary Vision\nWant to move to perspective eventually but migration is intimidating.\n\nDev server is doing EAM tasks. Using change management to update frontend servers once a week.\n\nRedundant server will take 24 hours to collect all 4.5 million tags from the brokers in a rebirth\nThey are using the broker module NOT an external broker.\n\nThey are on 8.1.36.\nThey update the send and receive threads to 50 every time. The default hang up their systems.\n\nRich mostly just wanted a sanity check that the attached architecture would work correctly. They have appropriate redundancy, port management, resource allocation, tag realtime goes through MQTT and tag history and other stuff goes through GN.",
+              "tags": []
+            },
+            {
+              "_id": "66e8723a4db51018b6c02d31",
+              "accountName": "Triumph Foods",
+              "actionItems": [],
+              "attendance": [
+                {
+                  "text": "Thomas Goetz"
+                },
+                {
+                  "text": "Amar Kahlon"
+                },
+                {
+                  "text": "Margarita Castro"
+                }
+              ],
+              "callDuration": 60,
+              "clientAttendance": [
+                {
+                  "text": "Jason Price"
+                }
+              ],
+              "files": [],
+              "iaAttendance": [
+                {
+                  "text": "Thomas Goetz"
+                },
+                {
+                  "text": "Amar Kahlon"
+                },
+                {
+                  "text": "Margarita Castro"
+                }
+              ],
+              "inMeeting": false,
+              "integratorAttendance": [],
+              "questionsIssues": "",
+              "salesEngineer": "Thomas Goetz",
+              "startDate": {
+                "$": [
+                  "ts",
+                  0,
+                  1726768051795
+                ],
+                "$ts": 1726509600000
+              },
+              "summary": "Large Group of individuals in the room. Northwind is present\n\nRecap- overview of Ignition as Demo.\n\nCloud as multi tenancy- \n",
+              "tags": []
+            },
+            {
+              "_id": "66e86a534db51018b6c02d30",
+              "accountName": "Ipex Management Inc.",
+              "actionItems": [],
+              "attendance": [
+                {
+                  "text": "Brad Fischer"
+                },
+                {
+                  "text": "Abran Mathews"
+                }
+              ],
+              "callDuration": 30,
+              "clientAttendance": [
+                {
+                  "text": "Reza Javid"
+                }
+              ],
+              "files": [],
+              "iaAttendance": [
+                {
+                  "text": "Brad Fischer"
+                },
+                {
+                  "text": "Abran Mathews"
+                }
+              ],
+              "inMeeting": false,
+              "integratorAttendance": [],
+              "questionsIssues": "",
+              "salesEngineer": "Brad Fischer",
+              "startDate": {
+                "$": [
+                  "ts",
+                  0,
+                  1726768051795
+                ],
+                "$ts": 1726507800000
+              },
+              "summary": "Reza has a Remote Tag Provider at the IT gateway connected back to the OT gateway. However, he is unable to enter setpoint values via the copied project running against the IT gateway, but this is desired functionality.\n- Service Security\u0027s Tag setting (default provider) was set to ReadOnly, but he had set the specific Tag Provider to ReadWrite.\n- The setpoint entry container appears to be hidden at the IT gateway\n  \u003e I asked Reza to open the designer, but he was unable to find the setpoint entry view.\n\nI mentioned that we needed to find the view in question, and that we needed to review the component to see if it was looking for specific roles to display it. In addition, I mentioned the Service Security config had an option to pass remote credentials or even spoof incoming remote connections with a specific role.",
+              "tags": []
+            },
+            {
+              "_id": "66e8543c4d3f5f7b6f4b7045",
+              "accountName": "Pavion",
+              "actionItems": [],
+              "attendance": [
+                {
+                  "text": "Chase Dorsey"
+                },
+                {
+                  "text": "Maria Chinappi"
+                }
+              ],
+              "callDuration": 60,
+              "clientAttendance": [
+                {
+                  "text": "Jim Cooper"
+                },
+                {
+                  "text": "Brian Dimeo"
+                }
+              ],
+              "files": [],
+              "iaAttendance": [
+                {
+                  "text": "Chase Dorsey"
+                },
+                {
+                  "text": "Maria Chinappi"
+                }
+              ],
+              "inMeeting": false,
+              "integratorAttendance": [],
+              "questionsIssues": "",
+              "salesEngineer": "Chase Dorsey",
+              "startDate": {
+                "$": [
+                  "ts",
+                  0,
+                  1726768051795
+                ],
+                "$ts": 1726502400000
+              },
+              "summary": "Architecture Discussion/Project Discussion\nWe have a customer with 5 PLC\u0027s controlling vehicle screening gates where they would like visibility into the operation as well as I/O logging for troubleshooting and service. We would like an overview on the different options and which modules we should be looking to deploy. All the PLC\u0027s are Omron NX series and available on the network\n\nOmron NX - Connect using OPC UA\nNX1`02 has opc, others do not. (P2)\nTag historian\n\tSQL bridge if needed for transactions\n\n2 PLCs are logging directly to SQL. They dont love this. ",
+              "tags": []
+            },
+            {
+              "_id": "66e849094d3f5f7b6f4b7044",
+              "accountName": "Pepsico",
+              "actionItems": [],
+              "attendance": [
+                {
+                  "text": "Thomas Goetz"
+                },
+                {
+                  "text": "Vanessa Garcia"
+                }
+              ],
+              "callDuration": 60,
+              "clientAttendance": [
+                {
+                  "text": "Felipe Salvador"
+                },
+                {
+                  "text": "Martin Ridyard"
+                }
+              ],
+              "files": [],
+              "iaAttendance": [
+                {
+                  "text": "Thomas Goetz"
+                },
+                {
+                  "text": "Vanessa Garcia"
+                }
+              ],
+              "inMeeting": true,
+              "integratorAttendance": [],
+              "questionsIssues": "",
+              "salesEngineer": "Thomas Goetz",
+              "startDate": {
+                "$": [
+                  "ts",
+                  0,
+                  1726768051795
+                ],
+                "$ts": 1726498800000
+              },
+              "summary": "Felipe- Global Automation Team. Multi-site implementation\nMartin- Global Automation Team. \n\n\nNotes/Agenda: In-depth Edge discussion. \n\nNumber of Sites: 9 sites\n\n\nMajor concern is with the Historian. They do not want ",
+              "tags": []
+            },
+            {
+              "_id": "66e42e884d3f5f7b6f4b7043",
+              "accountName": "SKF",
+              "actionItems": [],
+              "attendance": [
+                {
+                  "text": "Thomas Goetz"
+                },
+                {
+                  "text": "DJ Parsons"
+                }
+              ],
+              "callDuration": 60,
+              "clientAttendance": [
+                {
+                  "text": " Andrea Vitofrancesco"
+                },
+                {
+                  "text": " Camilla Gaard"
+                },
+                {
+                  "text": "Federico Morra"
+                },
+                {
+                  "text": " Giovanni Capuzzo"
+                }
+              ],
+              "files": [],
+              "iaAttendance": [
+                {
+                  "text": "Thomas Goetz"
+                },
+                {
+                  "text": "DJ Parsons"
+                }
+              ],
+              "inMeeting": false,
+              "integratorAttendance": [],
+              "questionsIssues": "",
+              "salesEngineer": "Thomas Goetz",
+              "startDate": {
+                "$": [
+                  "ts",
+                  0,
+                  1726768051795
+                ],
+                "$ts": 1726232400000
+              },
+              "summary": "Most of the meeting revolved around a group within SKF wanting to present justification to utilize Ignition throughout the organization.\n\nThe group meeting is scheduled for 9/25/24. DJ put together a tentative presentation agenda\nCompany Overview\nIgnition Modules\nFunctionality\nLicensing\nArchitechtures\nIIoT Deeper Dive\nSnowflake/MQTT (maybe) Demo",
+              "tags": []
+            },
+            {
+              "_id": "66e32c424d3f5f7b6f4b7041",
+              "accountName": "Imtech Belgium",
+              "actionItems": [],
+              "attendance": [
+                {
+                  "text": "Thomas Goetz"
+                },
+                {
+                  "text": "Vanessa Garcia"
+                }
+              ],
+              "callDuration": 60,
+              "clientAttendance": [
+                {
+                  "text": "Dennis Snoeys"
+                },
+                {
+                  "text": " Kristel De Pot"
+                },
+                {
+                  "text": "Ronny Butzen"
+                },
+                {
+                  "text": "Vijayalakshmi Ramanujam"
+                }
+              ],
+              "files": [],
+              "iaAttendance": [
+                {
+                  "text": "Thomas Goetz"
+                },
+                {
+                  "text": "Vanessa Garcia"
+                }
+              ],
+              "inMeeting": false,
+              "integratorAttendance": [],
+              "questionsIssues": "",
+              "salesEngineer": "Thomas Goetz",
+              "startDate": {
+                "$": [
+                  "ts",
+                  0,
+                  1726768051796
+                ],
+                "$ts": 1726164000000
+              },
+              "summary": "What would you like to discuss in the meeting?:\n\nWhat problems are you trying to solve with Ignition?:\n•\tI can import a json or xml file for creating UDTs. We would like to know more about this.\n•\tCreating structure tags (UDT) from the Siemens PLC exported zip file is not working.\n•\tExecuting a .bat script at Runtime\n•\tWe work with faceplates and do not use the standard symbols for ISA-101 compatibility. I find while working on faceplates there are some limitations.\n•\t For example, a vertical or horizontal valve\n1.\tUse of polylines/polygon for material lines\n2.\tChanging the line width property based on a material input bit.\n3.\tAnimations/other properties\n4.\tLayer concept (bringing the symbol visible when the specific criteria is met /options)\n\nWe mostly use Siemens PLC and hence with symbolic tags we would like to just import the zip file to create the symbolic tags in the SCADA system.",
+              "tags": []
+            },
+            {
+              "_id": "66e1daedc671422681a89996",
+              "accountName": "Avery Dennison",
+              "actionItems": [],
+              "callDuration": 60,
+              "clientAttendance": [
+                {
+                  "text": "Rob Haver"
+                }
+              ],
+              "files": [],
+              "iaAttendance": [
+                {
+                  "text": "Thomas Goetz"
+                }
+              ],
+              "inMeeting": true,
+              "integratorAttendance": [],
+              "questionsIssues": "",
+              "salesEngineer": "Thomas Goetz",
+              "startDate": {
+                "$": [
+                  "ts",
+                  0,
+                  1726768051796
+                ],
+                "$ts": 1726077600000
+              },
+              "summary": "\"We\u0027ve been starting to use Ignition more at this site as a plant overview/building management system, and we run a standard Ignition Gateway for this.  We now also have a few areas in the plant where we are looking to replace on-machine Panel views or add standalone displays for monitoring or simple control of HVAC units over BACnet, and are curious if Ignition Edge makes sense in these cases. I have no experience with Ignition Edge, I\u0027d like to see its capabilities and what it would take to get it up and running at our site (e.g., my understanding is we would need to set up a separate Ignition Edge server).\"\n\n\nVery quick discussion on the capabilities of Edge Panel.",
+              "tags": []
+            },
+            {
+              "_id": "66e1cc6dc671422681a89995",
+              "accountName": "City of North Miami Beach",
+              "actionItems": [],
+              "attendance": [
+                {
+                  "text": "Thomas Goetz"
+                },
+                {
+                  "text": "Joe Rzepka"
+                }
+              ],
+              "callDuration": 60,
+              "clientAttendance": [
+                {
+                  "text": "Guilherme Neukamp"
+                },
+                {
+                  "text": "Pablo Cababie"
+                },
+                {
+                  "text": "Jesse Emo"
+                }
+              ],
+              "files": [],
+              "iaAttendance": [
+                {
+                  "text": "Thomas Goetz"
+                },
+                {
+                  "text": "Joe Rzepka"
+                }
+              ],
+              "inMeeting": false,
+              "integratorAttendance": [],
+              "questionsIssues": "",
+              "salesEngineer": "Thomas Goetz",
+              "startDate": {
+                "$": [
+                  "ts",
+                  0,
+                  1726768051796
+                ],
+                "$ts": 1726074000000
+              },
+              "summary": "City of North Miami Beach has decided to move forward with an Ignition implementation and would like to review technical and commercial questions.\n\n\n4 servers for water\n4 for waist water\n\nredundant for water\none server for historian\n\n",
+              "tags": []
+            },
+            {
+              "_id": "66e1a161c671422681a89994",
+              "accountName": "Steel Dynamics",
+              "actionItems": [],
+              "attendance": [
+                {
+                  "text": "Thomas Goetz"
+                },
+                {
+                  "text": "Amar Kahlon"
+                }
+              ],
+              "callDuration": 60,
+              "clientAttendance": [
+                {
+                  "text": "Edson Wellman"
+                }
+              ],
+              "files": [
+                {
+                  "name": "Inductive Automation Mail - FW_ [#125151] - [1PM PST] Host a Project on a different server.pdf",
+                  "path": "Steel_Dynamics/202409110700/Inductive_Automation_Mail_-_FW_[125151]_-_[1PM_PST]_Host_a_Project_on_a_different_server.pdf"
+                }
+              ],
+              "iaAttendance": [
+                {
+                  "text": "Thomas Goetz"
+                },
+                {
+                  "text": "Amar Kahlon"
+                }
+              ],
+              "inMeeting": false,
+              "integratorAttendance": [],
+              "questionsIssues": "",
+              "salesEngineer": "Thomas Goetz",
+              "startDate": {
+                "$": [
+                  "ts",
+                  0,
+                  1726768051796
+                ],
+                "$ts": 1726063200000
+              },
+              "summary": "Standalone project - see attachment for details. \"Ignition Plant Status\" - only talking to Ignition level 3. Only certain people will have access to this project using ADFS - Azure ID.\n\nThey want to understand what is involved with making a simple frontend and exposing it so mobile users can access the Perspective UI.\n\nI shared the Security Hardening Guide",
+              "tags": []
+            },
+            {
+              "_id": "66e19428c671422681a89993",
+              "accountName": "Brock Solutions",
+              "actionItems": [],
+              "callDuration": 60,
+              "clientAttendance": [
+                {
+                  "text": "Cameron Kramer"
+                }
+              ],
+              "files": [],
+              "iaAttendance": [
+                {
+                  "text": "Thomas Goetz"
+                }
+              ],
+              "inMeeting": false,
+              "integratorAttendance": [],
+              "questionsIssues": "",
+              "salesEngineer": "Thomas Goetz",
+              "startDate": {
+                "$": [
+                  "ts",
+                  0,
+                  1726768051796
+                ],
+                "$ts": 1726059600000
+              },
+              "summary": "Systems Integrator- Solution Architecture.\n\nCameron wanted to better understand Ignition in the cloud and best practices involving connecting site level devices.\n\nWe discussed Edge and why it is important. We also discussed Cloud edition and how to best architect a solution for their client",
+              "tags": []
+            },
+            {
+              "_id": "66e09709c671422681a89991",
+              "accountName": "Smithfield Foods",
+              "actionItems": [],
+              "attendance": [
+                {
+                  "text": "Brad Fischer"
+                },
+                {
+                  "text": "Myron Hoertling"
+                }
+              ],
+              "callDuration": 30,
+              "clientAttendance": [
+                {
+                  "text": "Lin Gu"
+                },
+                {
+                  "text": "Marc McInteer"
+                },
+                {
+                  "text": "Kurt Brunner"
+                },
+                {
+                  "text": "Kanchan Gowri Seshadri"
+                }
+              ],
+              "files": [],
+              "iaAttendance": [
+                {
+                  "text": "Brad Fischer"
+                },
+                {
+                  "text": "Myron Hoertling"
+                }
+              ],
+              "inMeeting": false,
+              "integratorAttendance": [
+                {
+                  "text": "Burton Preston"
+                }
+              ],
+              "questionsIssues": "",
+              "salesEngineer": "Brad Fischer",
+              "startDate": {
+                "$": [
+                  "ts",
+                  0,
+                  1726768051796
+                ],
+                "$ts": 1725994800000
+              },
+              "summary": "Kanchan - Enterprise Solution Architect\nBurton Preston - Hallam ICS\n\nLin:\n- Want to develop a Smithfield version of an OEE module\n- Dashboard w/ downtime tracking (reason entry)\n- Strong desire for being able to communicate amongst users\n  \u003e Ex. Microsoft Teams or another messaging app\n- Want enterprise-level dashboards\n  \u003e Not simply a display\n  \u003e Feature requests include bespoke views per VP to compare his plants to others or to corporate averages\n\nKanchan asked Lin to clarify what she meant by \"enterprise\".\n- Sounds like Lin wants the data entered on-prem, with a centralized gateway that would provide access for the OEE-users\n\n- Discussed Cloud Edition vs. existing Smithfield\u0027s Azure infrastructure (existing is preferred)\n\nLin: The vision is to have every plant running this in the next 5 years\n\nBriefly touched on load balancers for stateless front gateways, but that the backend data ingestion gateway would be more stateful (as it handles ingestion to the central DB) and thus can\u0027t be load balanced.",
+              "tags": [
+                {
+                  "text": "enterprise"
+                },
+                {
+                  "text": "OEE"
+                },
+                {
+                  "text": "Azure"
+                },
+                {
+                  "text": "enterprise"
+                },
+                {
+                  "text": "dashboard"
+                },
+                {
+                  "text": "downtime"
+                },
+                {
+                  "text": "cloud"
+                },
+                {
+                  "text": "load balancer"
+                }
+              ]
+            },
+            {
+              "_id": "66e09837c671422681a89992",
+              "accountName": "Novo Nordisk",
+              "actionItems": [],
+              "callDuration": 60,
+              "clientAttendance": [
+                {
+                  "text": "Bo Andersen"
+                },
+                {
+                  "text": "Jacob Horby Hyldahl"
+                }
+              ],
+              "files": [],
+              "iaAttendance": [
+                {
+                  "text": "Reese Tyson"
+                }
+              ],
+              "inMeeting": false,
+              "integratorAttendance": [],
+              "questionsIssues": "",
+              "salesEngineer": "Reese Tyson",
+              "startDate": {
+                "$": [
+                  "ts",
+                  0,
+                  1726768051796
+                ],
+                "$ts": 1725994800000
+              },
+              "summary": "jacob(ya kob)\n\n\nQuestions\nIn our last meeting, we discussed to have a quick meeting with you and Jacob, our architect, to discuss your suggestions of practical pipeline deployments etc. The was also to get an idea of what is possible now and what will be possible with 8.3\n\nIn addition, we have a project on digital twins where vms will be cloned to sandbox environment. If we have a vm with running containers with Ignition gateways, we want to understand what license issues we would face, and how to overcome them. \n\nWe have some scenarios where we would like to connect to Schneider ELAU PLCs and consider putting kepware between it and ignition - but we\u0027d prefer not having to do this. Would like thoughts on how to avoid.\n",
+              "tags": [
+                {
+                  "text": "Kepware"
+                },
+                {
+                  "text": "deployment"
+                },
+                {
+                  "text": "8.3"
+                }
+              ]
+            },
+            {
+              "_id": "66e06da5c671422681a89990",
+              "accountName": "Argonne National Laboratory",
+              "actionItems": [],
+              "attendance": [
+                {
+                  "text": "Reese Tyson"
+                },
+                {
+                  "text": "Lindsey Aparico"
+                }
+              ],
+              "callDuration": 60,
+              "clientAttendance": [
+                {
+                  "text": "Kohler Smallwood"
+                },
+                {
+                  "text": "Steven Day"
+                }
+              ],
+              "files": [],
+              "iaAttendance": [
+                {
+                  "text": "Reese Tyson"
+                },
+                {
+                  "text": "Lindsey Aparico"
+                }
+              ],
+              "inMeeting": false,
+              "integratorAttendance": [],
+              "questionsIssues": "",
+              "salesEngineer": "Reese Tyson",
+              "startDate": {
+                "$": [
+                  "ts",
+                  0,
+                  1726768051796
+                ],
+                "$ts": 1725984000000
+              },
+              "summary": "Putting together a hacking competition\n- Want to know if there are any bad Ignition practices that they can put into place and exploit\n- Worked with them last year for getting a modbus\n\n\nTalked about security on the gateway, designer, and sessions\nAlso mentioned the gateway command-line utility and its capabilities",
+              "tags": [
+                {
+                  "text": "modbus"
+                }
+              ]
+            },
+            {
+              "_id": "66e05edec671422681a8998e",
+              "accountName": "Owens Corning",
+              "actionItems": [],
+              "attendance": [
+                {
+                  "text": "Brad Fischer"
+                },
+                {
+                  "text": "Joe Rosenkrans"
+                },
+                {
+                  "text": "Ramin Rofagha"
+                }
+              ],
+              "callDuration": 60,
+              "clientAttendance": [
+                {
+                  "text": "Tim Schultz"
+                },
+                {
+                  "text": "Joe Varga"
+                }
+              ],
+              "files": [],
+              "iaAttendance": [
+                {
+                  "text": "Brad Fischer"
+                },
+                {
+                  "text": "Joe Rosenkrans"
+                },
+                {
+                  "text": "Ramin Rofagha"
+                }
+              ],
+              "inMeeting": false,
+              "integratorAttendance": [],
+              "questionsIssues": "",
+              "salesEngineer": "Brad Fischer",
+              "startDate": {
+                "$": [
+                  "ts",
+                  0,
+                  1726768051796
+                ],
+                "$ts": 1725980400000
+              },
+              "summary": "They\u0027ve worked to get the gateway network setup (proxy hops and possibly proxy rules)\nWhen the EAM Controller disconnects (networking, reboot, etc.)\n- Status page stops updated\n- Trending in the gateway\n\nLast week:\nAgent connected to Central (and Central to EAM)\n- Setup isn\u0027t able to finish because it can\u0027t find the controller\n\nVerified proxy hops and rules are in place on the central gateway\n- Plant gateway was unable to ping the EAM Controller (timed out after 60,000 ms)\n\nDiscussed using a test environment, but I noted that only one EAM Controller is allowed on the Gateway Network at a time. They pulled back and decided to plan this out more deliberately.\n\nJoe Rosenkranz was a big help in guiding them toward opening a support ticket and how his team can help.\n- He also validated my troubleshooting 101 steps as I asked them to review the proxy rules, connections, and GN Live Diagram to ensure it was configured correctly.",
+              "tags": [
+                {
+                  "text": "EAM"
+                },
+                {
+                  "text": "Gateway Network"
+                },
+                {
+                  "text": "Troubleshooting"
+                },
+                {
+                  "text": "proxy"
+                },
+                {
+                  "text": "Support"
+                }
+              ]
+            },
+            {
+              "_id": "66e05efbc671422681a8998f",
+              "accountName": "Oracle",
+              "actionItems": [],
+              "attendance": [
+                {
+                  "text": "Reese Tyson"
+                },
+                {
+                  "text": "Christopher Markstein"
+                }
+              ],
+              "callDuration": 60,
+              "clientAttendance": [
+                {
+                  "text": "Mark"
+                },
+                {
+                  "text": "Josh Horwitz"
+                }
+              ],
+              "files": [],
+              "iaAttendance": [
+                {
+                  "text": "Reese Tyson"
+                },
+                {
+                  "text": "Christopher Markstein"
+                }
+              ],
+              "inMeeting": true,
+              "integratorAttendance": [
+                {
+                  "text": "Adam Welles"
+                }
+              ],
+              "questionsIssues": "",
+              "salesEngineer": "Reese Tyson",
+              "startDate": {
+                "$": [
+                  "ts",
+                  0,
+                  1726768051796
+                ],
+                "$ts": 1725980400000
+              },
+              "summary": "Adam - Design Group\nJosh - technical advisor to C-suite has alot of cloud exp\nMark - more on teh scada/controls side of things\n\nTalked about architecture, security, history, server sizing\n\nIn the future they have plans to bring all these buildings into one central gateway, so we talked about scaling and tag history for that as well\n\nHere is a link to this project\nhttps://www.datacenterdynamics.com/en/news/crusoe-confirms-plans-for-200mw-ai-data-center-in-texas/",
+              "tags": [
+                {
+                  "text": "architecture"
+                },
+                {
+                  "text": "server sizing"
+                },
+                {
+                  "text": "cloud"
+                },
+                {
+                  "text": "Security"
+                }
+              ]
+            },
+            {
+              "_id": "66e05e50c671422681a8998d",
+              "accountName": "Longroad Energy",
+              "actionItems": [],
+              "attendance": [
+                {
+                  "text": "Thomas Goetz"
+                },
+                {
+                  "text": "Myron Hoertling"
+                }
+              ],
+              "callDuration": 60,
+              "clientAttendance": [
+                {
+                  "text": "Chi Nguyen"
+                },
+                {
+                  "text": "Ed Volmar"
+                },
+                {
+                  "text": " Keske Toyofuku"
+                },
+                {
+                  "text": " Robert Boekhout"
+                }
+              ],
+              "files": [],
+              "iaAttendance": [
+                {
+                  "text": "Thomas Goetz"
+                },
+                {
+                  "text": "Myron Hoertling"
+                }
+              ],
+              "inMeeting": true,
+              "integratorAttendance": [],
+              "questionsIssues": "",
+              "salesEngineer": "Thomas Goetz",
+              "startDate": {
+                "$": [
+                  "ts",
+                  0,
+                  1726768051796
+                ],
+                "$ts": 1725980400000
+              },
+              "summary": "We’re looking to build out an enterprise SCADA for our Remote Operations Center and could use some help planning architecture and sizing, as well as weighing the pros and cons of an Ignition cloud central gateway vs On premise central gateway.\n\n\nTag Historization\n\n\nCentral Scada for monitoring 50+ Sites\n\n10% Historization\n55k tags per site 300-400/sec\n\n\nLoad balancing\n",
+              "tags": []
+            },
+            {
+              "_id": "66e050a3c671422681a8998c",
+              "accountName": "MPSC Inc",
+              "actionItems": [],
+              "attendance": [
+                {
+                  "text": "Reese Tyson"
+                },
+                {
+                  "text": "Maria Chinappi"
+                }
+              ],
+              "callDuration": 60,
+              "clientAttendance": [
+                {
+                  "text": "Chaston"
+                }
+              ],
+              "files": [],
+              "iaAttendance": [
+                {
+                  "text": "Reese Tyson"
+                },
+                {
+                  "text": "Maria Chinappi"
+                }
+              ],
+              "inMeeting": false,
+              "integratorAttendance": [],
+              "questionsIssues": "",
+              "salesEngineer": "Reese Tyson",
+              "startDate": {
+                "$": [
+                  "ts",
+                  0,
+                  1726768051796
+                ],
+                "$ts": 1725976800000
+              },
+              "summary": "Chaston - limited exp with Ignition, struggling with transitioning from Vision to Perspective\nIn reference to ticket number 125013\n\nHave multiple plants around the country using Wonderware/Indusoft\n- Want something better for historian\n- Want to be able to track how the equipment is working\n- They own the equipment, but end user runs it. Want to track and monitor this equipment\n\n\n200-300 tags at each containers\n9 containers\n\nCould possibly be a multitenant situation in the future if they host dashboards for end users. This is not currently the case.",
+              "tags": [
+                {
+                  "text": "Wonderware"
+                },
+                {
+                  "text": "historian"
+                },
+                {
+                  "text": "perspective"
+                }
+              ]
+            },
+            {
+              "_id": "66e042e4c671422681a8998b",
+              "accountName": "Tetra Pak",
+              "actionItems": [],
+              "attendance": [
+                {
+                  "text": "Brad Fischer"
+                },
+                {
+                  "text": "Chase Dorsey"
+                },
+                {
+                  "text": "Roman Couvrette"
+                }
+              ],
+              "callDuration": 60,
+              "clientAttendance": [
+                {
+                  "text": "Diego Pereira"
+                },
+                {
+                  "text": "Eddie Larsson Klicic"
+                },
+                {
+                  "text": "Ali AlAaradji"
+                },
+                {
+                  "text": "Jesper Arvidsson"
+                },
+                {
+                  "text": "Mahsa Salimy"
+                },
+                {
+                  "text": "Pravin Karthick Murugesan"
+                }
+              ],
+              "files": [],
+              "iaAttendance": [
+                {
+                  "text": "Brad Fischer"
+                },
+                {
+                  "text": "Chase Dorsey"
+                },
+                {
+                  "text": "Roman Couvrette"
+                }
+              ],
+              "inMeeting": false,
+              "integratorAttendance": [],
+              "questionsIssues": "",
+              "salesEngineer": "Brad Fischer",
+              "startDate": {
+                "$": [
+                  "ts",
+                  0,
+                  1726768051796
+                ],
+                "$ts": 1725973200000
+              },
+              "summary": "Diego:\n- Issue with boolean parameter values not being passed correctly when using Popup Action\n  \u003e Tested this using the scripting version (system.perspective.openPopup) and it worked correctly\n\nJesper\n- Issue applying a style class to \"invalidStyle\" on a numeric input component. Style class wouldn\u0027t work, but manually applying the style would. \n  \u003e The base component had manual styling applied, which effectively overwrote the style classes (normal or overwrite)",
+              "tags": [
+                {
+                  "text": "perspective"
+                },
+                {
+                  "text": "scripting"
+                },
+                {
+                  "text": "CSS"
+                }
+              ]
+            },
+            {
+              "_id": "66df46d3e60e0c19dc729b19",
+              "accountName": "GMEC II",
+              "actionItems": [],
+              "attendance": [
+                {
+                  "text": "Reese Tyson"
+                },
+                {
+                  "text": "Myron Hoertling"
+                }
+              ],
+              "callDuration": 60,
+              "clientAttendance": [
+                {
+                  "text": "Leigh Jerry"
+                }
+              ],
+              "files": [],
+              "iaAttendance": [
+                {
+                  "text": "Reese Tyson"
+                },
+                {
+                  "text": "Myron Hoertling"
+                }
+              ],
+              "inMeeting": false,
+              "integratorAttendance": [],
+              "questionsIssues": "",
+              "salesEngineer": "Reese Tyson",
+              "startDate": {
+                "$": [
+                  "ts",
+                  0,
+                  1726768051796
+                ],
+                "$ts": 1725908400000
+              },
+              "summary": "Helped her get going on creating an alarm pipeline with Twilio, wasn\u0027t able to finish everything.\n\nCreated a support ticket to transfer this over to them",
+              "tags": [
+                {
+                  "text": "Support"
+                }
+              ]
+            },
+            {
+              "_id": "66df457ee60e0c19dc729b18",
+              "accountName": "Ipex Management Inc.",
+              "actionItems": [],
+              "attendance": [
+                {
+                  "text": "Brad Fischer"
+                },
+                {
+                  "text": "Abran Mathews"
+                }
+              ],
+              "callDuration": 60,
+              "clientAttendance": [
+                {
+                  "text": "Reza Javid"
+                }
+              ],
+              "files": [],
+              "iaAttendance": [
+                {
+                  "text": "Brad Fischer"
+                },
+                {
+                  "text": "Abran Mathews"
+                }
+              ],
+              "inMeeting": false,
+              "integratorAttendance": [],
+              "questionsIssues": "",
+              "salesEngineer": "Brad Fischer",
+              "startDate": {
+                "$": [
+                  "ts",
+                  0,
+                  1726768051796
+                ],
+                "$ts": 1725908400000
+              },
+              "summary": "Reza:\n- Want to manager users via group / department, role, and location\n  \u003e Most of the AD groups (roles) have already been configured\n- Multiple projects will exist on the gateway\n  \u003e BMS (Building Management System)\n  \u003e AMS (Automation...)\n  \u003e PM\u0026C (Production Management \u0026 Control)\n  \u003e Quality\n  \u003e Each of these projects will be deployed to multiple sites, so user location needs to be tracked\n\nReza had an internal IdP configured to point at a local AD (LDAP) user source\nLots of hand holding for these calls.\nI walked him through applying roles in the Designer to protect the project (View / Save / Delete / Protect)\n- This didn\u0027t work at first because he had opened the designer prior to assigning the Designer to look at the IdP, so the roles didn\u0027t come in\nSpent 30+ minutes tracing his custom security levels only to find out he didn\u0027t have the roles that he said he did.",
+              "tags": [
+                {
+                  "text": "IdP"
+                },
+                {
+                  "text": "Security"
+                }
+              ]
+            },
+            {
+              "_id": "66df1cc8e60e0c19dc729b16",
+              "accountName": "AgriNorthwest",
+              "actionItems": [],
+              "attendance": [
+                {
+                  "text": "Reese Tyson"
+                },
+                {
+                  "text": "Roman Couvrette"
+                }
+              ],
+              "callDuration": 60,
+              "clientAttendance": [],
+              "files": [],
+              "iaAttendance": [
+                {
+                  "text": "Reese Tyson"
+                },
+                {
+                  "text": "Roman Couvrette"
+                }
+              ],
+              "inMeeting": false,
+              "integratorAttendance": [],
+              "questionsIssues": "",
+              "salesEngineer": "Reese Tyson",
+              "startDate": {
+                "$": [
+                  "ts",
+                  0,
+                  1726768051796
+                ],
+                "$ts": 1725897600000
+              },
+              "summary": "Large farming company and want to bring important\n\nHave a current on-prem Ignition server and want to migrate this to the cloud\n\n5000 tags\n\nTarget is for irrigation managers from a dashboard\n\nTalked about alot of different security options with the platform with Ignition in the Cloud.\n\nAlso talked through modules that are needed for a gateway in the cloud",
+              "tags": [
+                {
+                  "text": "cloud"
+                },
+                {
+                  "text": "Security"
+                },
+                {
+                  "text": "dashboard"
+                }
+              ]
+            },
+            {
+              "_id": "66deff5fe60e0c19dc729b15",
+              "accountName": "MCI Controls Solutions",
+              "actionItems": [],
+              "attendance": [
+                {
+                  "text": "Chase Dorsey"
+                },
+                {
+                  "text": "Maria Chinappi"
+                }
+              ],
+              "callDuration": 60,
+              "clientAttendance": [
+                {
+                  "text": "Paul Testagrossa"
+                },
+                {
+                  "text": "Ian McQuagge"
+                },
+                {
+                  "text": "Raul Cabarga"
+                },
+                {
+                  "text": "Yago Santos"
+                }
+              ],
+              "files": [],
+              "iaAttendance": [
+                {
+                  "text": "Chase Dorsey"
+                },
+                {
+                  "text": "Maria Chinappi"
+                }
+              ],
+              "inMeeting": true,
+              "integratorAttendance": [],
+              "questionsIssues": "",
+              "salesEngineer": "Chase Dorsey",
+              "startDate": {
+                "$": [
+                  "ts",
+                  0,
+                  1726768051796
+                ],
+                "$ts": 1725890400000
+              },
+              "summary": "Net at Work is working with Motor Controls to architect a cloud hosting solution that will fulfill all requirements for their upcoming Ignition Cloud deployment.\n\nHad to explain to Net at Work about Cloud Edition. They are more proficient at Azure than AWS.\nMCI thinks they will have 800-1000 clients.",
+              "tags": [
+                {
+                  "text": "Multi-tenancy"
+                },
+                {
+                  "text": "Multi-tenant"
+                }
+              ]
+            },
+            {
+              "_id": "66df3782e60e0c19dc729b17",
+              "accountName": "Grantek",
+              "actionItems": [],
+              "attendance": [
+                {
+                  "text": "Brad Fischer"
+                },
+                {
+                  "text": "Kristin Bainbridge"
+                }
+              ],
+              "callDuration": 30,
+              "clientAttendance": [
+                {
+                  "text": "Doug Yerger"
+                }
+              ],
+              "files": [],
+              "iaAttendance": [
+                {
+                  "text": "Brad Fischer"
+                },
+                {
+                  "text": "Kristin Bainbridge"
+                }
+              ],
+              "inMeeting": false,
+              "integratorAttendance": [],
+              "questionsIssues": "",
+              "salesEngineer": "Brad Fischer",
+              "startDate": {
+                "$": [
+                  "ts",
+                  0,
+                  1726768051796
+                ],
+                "$ts": 1725890400000
+              },
+              "summary": "Doug has a customer that wants to access a userID (6 digit) from Active Directory and include it as part of the record when a user submits form data and it is stored to SQL.\n- Almost sure Ignition doesn\u0027t have the ability to do this\n- Not aware of any third-party tools or libraries that would help read from AD into Ignition",
+              "tags": []
+            },
+            {
+              "_id": "66db5ea6e60e0c19dc729b14",
+              "accountName": "Streamline Controls",
+              "actionItems": [],
+              "attendance": [
+                {
+                  "text": "Brad Fischer"
+                },
+                {
+                  "text": "Lester Ares"
+                }
+              ],
+              "callDuration": 60,
+              "clientAttendance": [
+                {
+                  "text": "Kenneth Cabatic"
+                },
+                {
+                  "text": "Tom Chenier"
+                }
+              ],
+              "files": [
+                {
+                  "name": "CRC GN Architecture.png",
+                  "path": "Streamline_Controls/202409061300/CRC_GN_Architecture.png"
+                }
+              ],
+              "iaAttendance": [
+                {
+                  "text": "Brad Fischer"
+                },
+                {
+                  "text": "Lester Ares"
+                }
+              ],
+              "inMeeting": false,
+              "integratorAttendance": [],
+              "questionsIssues": "",
+              "salesEngineer": "Brad Fischer",
+              "startDate": {
+                "$": [
+                  "ts",
+                  0,
+                  1726768051796
+                ],
+                "$ts": 1725652800000
+              },
+              "summary": "Discussion pertains to ZenDesk ticket #124894 and relates to the scalability of the Gateway Network\n\nMigrating from ICONICs to Ignition for a California well system (oil / gas)\n- CRC has recently acquired Aera Energy\n\nDiscussion centered on GN and how well it would be able to handle the proposed architecture and load.\n\nField assets (8 gateways) with 1M total tags.\n  \u003e These are connected via a fiber ring\n  \u003e Customer wants to deploy \"redundant\" gateways on VMs located at the main facility, even though this could lead to split brain issues.\n- Concerns with Operations Control Center subscribing to all these RTPs as well as another (9th) gateway with additional tags. \n- Alarming will be used, and this will impact the GN.\n- EAM will be in use as well\n- DMZ will proxy RTP requests from Enterprise-facing frontend gateways, increasing the load on the field asset gateways\n\n- Talked about service enumeration calls, gateway proxy rules, threading, and that support can help fine tune the Gateway Network\n\n- In short, I think MQTT would help greatly in this architecture, but if the customer insists, the GN should be able to handle it. The question becomes how many alarms and how many users cause which servers to subscribe to which tags.",
+              "tags": [
+                {
+                  "text": "MQTT"
+                },
+                {
+                  "text": "Gateway Network"
+                },
+                {
+                  "text": "architecture"
+                },
+                {
+                  "text": "EAM"
+                },
+                {
+                  "text": "alarming"
+                },
+                {
+                  "text": "DMZ"
+                }
+              ]
+            },
+            {
+              "_id": "66db512ae60e0c19dc729b13",
+              "accountName": "Ipex Management Inc.",
+              "actionItems": [],
+              "attendance": [
+                {
+                  "text": "Brad Fischer"
+                },
+                {
+                  "text": "Abran Mathews"
+                }
+              ],
+              "callDuration": 30,
+              "clientAttendance": [
+                {
+                  "text": "Reza Javid"
+                },
+                {
+                  "text": "Cody Dirrigle (Imprivata)"
+                },
+                {
+                  "text": "Stephen Furstenau (Imprivata)"
+                },
+                {
+                  "text": "Abigail Conrad (Imprivata)"
+                },
+                {
+                  "text": "Taylor LeBlanc (Imprivata)"
+                }
+              ],
+              "files": [],
+              "iaAttendance": [
+                {
+                  "text": "Brad Fischer"
+                },
+                {
+                  "text": "Abran Mathews"
+                }
+              ],
+              "inMeeting": false,
+              "integratorAttendance": [],
+              "questionsIssues": "",
+              "salesEngineer": "Brad Fischer",
+              "startDate": {
+                "$": [
+                  "ts",
+                  0,
+                  1726768051796
+                ],
+                "$ts": 1725649200000
+              },
+              "summary": "Additional meeting with Imprivata to discuss IdP / SSO integration with Ignition\n\nDuring the previous meeting, we thought OIDC integration would be possible, but Imprivata has run into some challenges / limitations.\n- OIDC integration hasn\u0027t been implemented in the mobile solution that IPEX is planning to use\n  \u003e Imprivata is falling back to their primary ask which is to add \"id labels\" to the username / password entry fields as presented in the HTML\n  \u003e I replied that dev is heavy is the middle of 8.3 alpha builds, but that I would ask them about adding these labels\n\n- I showed Imprivata the properties that already exist behind the HTML username / password components and showed them that 1Password auto-detects the fields and prompts to autofill\n\nReza noted that his team has decided to drop SSO with Ignition. They\u0027ve decided to use Ignition, and Imprivata may or may not be used based on it\u0027s ability to integrate with Ignition correctly.",
+              "tags": [
+                {
+                  "text": "IdP"
+                },
+                {
+                  "text": "SSO"
+                }
+              ]
+            },
+            {
+              "_id": "66db0b40e60e0c19dc729b12",
+              "accountName": "Hilcorp Energy",
+              "actionItems": [],
+              "attendance": [
+                {
+                  "text": "Thomas Goetz"
+                },
+                {
+                  "text": "Amar Kahlon"
+                }
+              ],
+              "callDuration": 60,
+              "clientAttendance": [
+                {
+                  "text": "Mark Delaune"
+                }
+              ],
+              "files": [],
+              "iaAttendance": [
+                {
+                  "text": "Thomas Goetz"
+                },
+                {
+                  "text": "Amar Kahlon"
+                }
+              ],
+              "inMeeting": false,
+              "integratorAttendance": [],
+              "questionsIssues": "",
+              "salesEngineer": "Thomas Goetz",
+              "startDate": {
+                "$": [
+                  "ts",
+                  0,
+                  1726768051796
+                ],
+                "$ts": 1725631200000
+              },
+              "summary": "Agenda:\nNeed assistance with Scripting and UDTs best practices and guide. Working on POC. \n\nMost important features of Ignition we need to implement is the ability to display gas meter and well data in a tabular format based on certain criteria:\nGeographic area\n\nField site\n\nRoute\n\nMeter type (or well type): Gas Lift, Sales, etc… or for wells – plunger, SWD, etc…\n\n-Conversation mainly turned toward using an integrator for POC.\n-Did a demo on how to setup a dynamic flex repeater based on a UDTs parameter(s)",
+              "tags": []
+            },
+            {
+              "_id": "66d9ffeae60e0c19dc729b11",
+              "accountName": "Toyota",
+              "actionItems": [],
+              "attendance": [
+                {
+                  "text": "Brad Fischer"
+                },
+                {
+                  "text": "Lester Ares"
+                },
+                {
+                  "text": "Vanessa Garcia"
+                }
+              ],
+              "callDuration": 60,
+              "clientAttendance": [
+                {
+                  "text": "Jeff Heck"
+                },
+                {
+                  "text": "Craig Egan"
+                },
+                {
+                  "text": "Kenneth Wilson"
+                },
+                {
+                  "text": "Nick Yates"
+                }
+              ],
+              "files": [],
+              "iaAttendance": [
+                {
+                  "text": "Brad Fischer"
+                },
+                {
+                  "text": "Lester Ares"
+                },
+                {
+                  "text": "Vanessa Garcia"
+                }
+              ],
+              "inMeeting": false,
+              "integratorAttendance": [],
+              "questionsIssues": "",
+              "salesEngineer": "Brad Fischer",
+              "startDate": {
+                "$": [
+                  "ts",
+                  0,
+                  1726768051796
+                ],
+                "$ts": 1725562800000
+              },
+              "summary": "Jeff Huck:\n- Utilizing modules for several reasons:\n1) Protecting code from inadvertent changes by end users\n\n- I mentioned that JSON config files would be preferred going forward\n- I mentioned the new configurationManager coming with 8.3 and the fact that we won\u0027t support hot-loading / restarting modules in 8.3\n- Answered a question about multi-threading by stating that the implementation shouldn\u0027t be changing in 8.3\n\n- We discussed 8.3 milestones, but left it at Q4 beta / Q1 full release",
+              "tags": [
+                {
+                  "text": "8.3"
+                },
+                {
+                  "text": "module development"
+                }
+              ]
+            },
+            {
+              "_id": "66d9f168e60e0c19dc729b0f",
+              "accountName": "Covation Biomaterials",
+              "actionItems": [],
+              "attendance": [
+                {
+                  "text": "Brad Fischer"
+                },
+                {
+                  "text": "Abran Mathews"
+                },
+                {
+                  "text": "Tyler Earnest"
+                }
+              ],
+              "callDuration": 60,
+              "clientAttendance": [
+                {
+                  "text": "Rob Strong"
+                },
+                {
+                  "text": "Ben Thomas"
+                },
+                {
+                  "text": "Greg Sunshine"
+                }
+              ],
+              "files": [],
+              "iaAttendance": [
+                {
+                  "text": "Brad Fischer"
+                },
+                {
+                  "text": "Abran Mathews"
+                },
+                {
+                  "text": "Tyler Earnest"
+                }
+              ],
+              "inMeeting": false,
+              "integratorAttendance": [],
+              "questionsIssues": "",
+              "salesEngineer": "Brad Fischer",
+              "startDate": {
+                "$": [
+                  "ts",
+                  0,
+                  1726768051796
+                ],
+                "$ts": 1725559200000
+              },
+              "summary": "NOTE: Reese is the assigned SE, but I\u0027m taking this meeting in his absence.\n\nGreg:\n- Used to be part of DuPont\n  \u003e Ended up with multiple control boxes per hood, with multiple PID loops for pressure, gas flow, etc.\n- As a startup, their on a smaller time scale and want a quick way to setup various hardware sensors \u0026 PIDs so that they can do a better job of communicating with their researchers when reviewing the data\n  \u003e Need to be able to quickly turn on/off logging of various process points, even while already running\n\nAbran did a great job showing them the online demo, specially the power chart. He emphasized the Tag Historian took care of all the backend setup and configuration, meaning they wouldn\u0027t need to write a single SQL query. Talked about annotations, data export, brushes, etc.\n- Conversation moved to server sizing, they\u0027re looking at 5-10k tags, less than 100 devices (some with only a single PID controller) and 5-10 concurrent sessions.\n\n- Discussed monitoring power failures and alarming with Ignition\n- Discussed redundant licensing available 50%\n- Discussed on-prem vs. cloud based databases (Abran recommended both)\n\nAbran went over Support plans, Design Services, etc.",
+              "tags": [
+                {
+                  "text": "licensing"
+                },
+                {
+                  "text": "cloud"
+                },
+                {
+                  "text": "server sizing"
+                },
+                {
+                  "text": "alarming"
+                },
+                {
+                  "text": "historian"
+                },
+                {
+                  "text": "database"
+                },
+                {
+                  "text": "Tag Historian"
+                },
+                {
+                  "text": "cloud"
+                },
+                {
+                  "text": "sql"
+                },
+                {
+                  "text": "module selection"
+                }
+              ]
+            },
+            {
+              "_id": "66d9f13de60e0c19dc729b0e",
+              "accountName": "Edgewater Automation",
+              "actionItems": [],
+              "attendance": [
+                {
+                  "text": "Thomas Goetz"
+                },
+                {
+                  "text": "Amar Kahlon"
+                }
+              ],
+              "callDuration": 60,
+              "clientAttendance": [
+                {
+                  "text": "Keith Bowling"
+                }
+              ],
+              "files": [],
+              "iaAttendance": [
+                {
+                  "text": "Thomas Goetz"
+                },
+                {
+                  "text": "Amar Kahlon"
+                }
+              ],
+              "inMeeting": false,
+              "integratorAttendance": [],
+              "questionsIssues": "",
+              "salesEngineer": "Thomas Goetz",
+              "startDate": {
+                "$": [
+                  "ts",
+                  0,
+                  1726768051796
+                ],
+                "$ts": 1725559200000
+              },
+              "summary": "Ad-Hoc Meeting\n\nNew to Ignition edge. Interested in how to retrieve data from the Primary and use in the Edge. \nI suggested using the WebDev Module and Calling an Endpoint at the Primary from the edge.\n\n\n\n-------------------------------------------------------------------------------------------------------------------------------------\nPost Meeting discussion, customer could also use system.util.sendRequest\nhttps://www.docs.inductiveautomation.com/docs/8.1/appendix/scripting-functions/system-util/system-util-sendRequest",
+              "tags": []
+            },
+            {
+              "_id": "66d9f1afe60e0c19dc729b10",
+              "accountName": "Boston Scientific",
+              "actionItems": [],
+              "attendance": [
+                {
+                  "text": "Thomas Goetz"
+                },
+                {
+                  "text": "Joe Rosenkrans"
+                },
+                {
+                  "text": "Vanessa Garcia"
+                }
+              ],
+              "callDuration": 60,
+              "clientAttendance": [
+                {
+                  "text": "Jayce Oxton"
+                },
+                {
+                  "text": "Israel Zapata"
+                },
+                {
+                  "text": "Dustin Weisser"
+                },
+                {
+                  "text": "Walter Chester"
+                },
+                {
+                  "text": "Abdus Khan"
+                },
+                {
+                  "text": "Curtis Stacy"
+                }
+              ],
+              "files": [],
+              "iaAttendance": [
+                {
+                  "text": "Thomas Goetz"
+                },
+                {
+                  "text": "Joe Rosenkrans"
+                },
+                {
+                  "text": "Vanessa Garcia"
+                }
+              ],
+              "inMeeting": true,
+              "integratorAttendance": [],
+              "questionsIssues": "",
+              "salesEngineer": "Thomas Goetz",
+              "startDate": {
+                "$": [
+                  "ts",
+                  0,
+                  1726768051796
+                ],
+                "$ts": 1725559200000
+              },
+              "summary": "Blue Mountain Conference\nPower BI Module- what does the module do and can we setup a conversation \nEnterprise Support Review.\n\nAcerta, why we chose them as a partner and do we have any industry examples on how it is being used?\n\nExporting Tags in the System and showing missing properties. -Joe Answered\n",
+              "tags": []
+            },
+            {
+              "_id": "66d9e3e9e60e0c19dc729b0d",
+              "accountName": "Contel ICS",
+              "actionItems": [],
+              "attendance": [
+                {
+                  "text": "Brad Fischer"
+                },
+                {
+                  "text": "Roman Couvrette"
+                },
+                {
+                  "text": "Amar Kahlon"
+                }
+              ],
+              "callDuration": 60,
+              "clientAttendance": [
+                {
+                  "text": "Tal Keidar"
+                },
+                {
+                  "text": "Alex Slipak"
+                }
+              ],
+              "files": [],
+              "iaAttendance": [
+                {
+                  "text": "Brad Fischer"
+                },
+                {
+                  "text": "Roman Couvrette"
+                },
+                {
+                  "text": "Amar Kahlon"
+                }
+              ],
+              "inMeeting": false,
+              "integratorAttendance": [],
+              "questionsIssues": "",
+              "salesEngineer": "Brad Fischer",
+              "startDate": {
+                "$": [
+                  "ts",
+                  0,
+                  1726768051796
+                ],
+                "$ts": 1725555600000
+              },
+              "summary": "Tal:\n- We have several Edge deployments across our application\n  \u003e Getting new demand from customers\n- Customer in Israel wants expanded limits for store-and-forward and data logging\n\nRoman:\n- Contel has 40+ Edge gateways communicating over MQTT to a scale-out architecture at a central location\n\nTal\u0027s Israeli customer wanted him to ask IA about extending the store and forward buffer - to see if IA is considering this or would maybe do so in the future.\n- I was adamant that the exclusion of database functionality was a defining part of Ignition Edge and would not be included in the product anytime soon.\n- I explained standard Ignition was seen as the proper solution for what they wanted\n- I explained MQTT has it\u0027s own store-and-forward that doesn\u0027t have the 35-day / 10M record limitation that the Tag Historian does\n\n- They will relay this to their customer and plan to use standard Ignition where they need additional buffering capacity",
+              "tags": [
+                {
+                  "text": "Edge"
+                },
+                {
+                  "text": "Tag Historian"
+                }
+              ]
+            },
+            {
+              "_id": "66d9c781e60e0c19dc729b0c",
+              "accountName": "Global Automated Solutions",
+              "actionItems": [],
+              "attendance": [
+                {
+                  "text": "Thomas Goetz"
+                },
+                {
+                  "text": "Amar Kahlon"
+                }
+              ],
+              "callDuration": 60,
+              "clientAttendance": [
+                {
+                  "text": "Adrian"
+                }
+              ],
+              "files": [],
+              "iaAttendance": [
+                {
+                  "text": "Thomas Goetz"
+                },
+                {
+                  "text": "Amar Kahlon"
+                }
+              ],
+              "inMeeting": false,
+              "integratorAttendance": [],
+              "questionsIssues": "",
+              "salesEngineer": "Thomas Goetz",
+              "startDate": {
+                "$": [
+                  "ts",
+                  0,
+                  1726768051796
+                ],
+                "$ts": 1725548400000
+              },
+              "summary": "Notes/Agenda: EU Legoland. Has questions about database set up and best practices. Interfacing with Tag historian and other modules and other questions about collecting data from roller coasters and rides for maintenance needs at the park.\n\n\n3 rides on FTHistorian as well as visuals\n\nVery simple demo. Demonstrated UDTS and template/embedded views based on what they were looking for.\n",
+              "tags": []
+            },
+            {
+              "_id": "66d9c096e60e0c19dc729b0b",
+              "accountName": "Reynolds Consumer Products",
+              "actionItems": [],
+              "attendance": [
+                {
+                  "text": "Brad Fischer"
+                },
+                {
+                  "text": "Brittany Scates"
+                }
+              ],
+              "callDuration": 60,
+              "clientAttendance": [
+                {
+                  "text": "Todd Crowson"
+                },
+                {
+                  "text": "Jerry Hartwell"
+                },
+                {
+                  "text": "Marcus A. Lee"
+                },
+                {
+                  "text": "Matt Cohen"
+                },
+                {
+                  "text": "Mark Slater"
+                }
+              ],
+              "files": [],
+              "iaAttendance": [
+                {
+                  "text": "Brad Fischer"
+                },
+                {
+                  "text": "Brittany Scates"
+                }
+              ],
+              "inMeeting": false,
+              "integratorAttendance": [],
+              "questionsIssues": "",
+              "salesEngineer": "Brad Fischer",
+              "startDate": {
+                "$": [
+                  "ts",
+                  0,
+                  1726768051796
+                ],
+                "$ts": 1725546600000
+              },
+              "summary": "NOTE: Chase is the assigned SE. I took this call in his absence.\n\nMarcus Lee - reports to Todd [IT / IIoT]\nMatt - Huntersville, AL [development]\nJerry - mic issues\nMark - [IT - lead enterprise apps \u0026 intelligent factory stack; Todd \u0026 Marcus as part of his team]\n\nTodd: [Works in IT]\n- Reynolds uses Ignition heavily\n- Working on what our intelligent factory roadmap looks like for the future\n  \u003e Identified Ignition as a standard tool going forward\n\nMark:\n- Ignition is a critical, strategic tool that Reynolds uses\n- How are other customers using Ignition to drive innovation?\n- Thinking in the long term, how can we think of Ignition as a strategic tool?\n  \u003e The current strategic factory initiative is over 5 years old\n  \u003e But what\u0027s next? What does the future look like and how to Ignition play into that?\n\nMatt Cohen:\n- Huntersville is using every module except for SMS notification\n- Lots of reports are sent via email\n- Vision supports entering production numbers into the DB (and sending out via reports)\n- Working on alarm notification as part of their new IIoT setup\n\nJerry:\n- Not using Perspective at Presto (but have tested it out)\n  \u003e \"Haven\u0027t had a project to make use of this yet\"\n- Serial modules are being used to communicate with RS-232 scales on the plant floor\n- Web Browser is used in Carrollton to handle label printing via SAP\n- Using email-to-SMS\n\nI discussed the EAM, WebDev, and SQL Bridge modules in detail.\nAlso explained MQTT, including Sparkplug B and CL\u0027s injector modules / IOT Bridges.",
+              "tags": [
+                {
+                  "text": "SQL Bridge"
+                },
+                {
+                  "text": "EAM"
+                },
+                {
+                  "text": "MQTT"
+                },
+                {
+                  "text": "enterprise"
+                }
+              ]
+            },
+            {
+              "_id": "66d9b937e60e0c19dc729b0a",
+              "accountName": "Kymera",
+              "actionItems": [],
+              "attendance": [
+                {
+                  "text": "Thomas Goetz"
+                },
+                {
+                  "text": "Roman Couvrette"
+                }
+              ],
+              "callDuration": 60,
+              "clientAttendance": [
+                {
+                  "text": "Shawn Sanfilippo"
+                }
+              ],
+              "files": [],
+              "iaAttendance": [
+                {
+                  "text": "Thomas Goetz"
+                },
+                {
+                  "text": "Roman Couvrette"
+                }
+              ],
+              "inMeeting": false,
+              "integratorAttendance": [],
+              "questionsIssues": "",
+              "salesEngineer": "Thomas Goetz",
+              "startDate": {
+                "$": [
+                  "ts",
+                  0,
+                  1726768051796
+                ],
+                "$ts": 1725544800000
+              },
+              "summary": "No Show\nAgenda\nI have a question about how the Ignition Edge works as a fallback. Ideally, we want the Main Gateway to be what the PLC is communicating with. This will be writing MES data to the Database for product transactions basically. However, when our network goes down, we want to be able to save the transaction to the edge client and use the edge client as the HMI until the network is restored back to the main gateway. Then the edge client can push those changes into the main gateway and the transactions get saved to the Database. Is this something Edge Panel can do?",
+              "tags": [
+                {
+                  "text": "No Show"
+                }
+              ]
+            },
+            {
+              "_id": "66d8a789e60e0c19dc729b09",
+              "accountName": "Northwind Midstream",
+              "actionItems": [],
+              "attendance": [
+                {
+                  "text": "Thomas Goetz"
+                },
+                {
+                  "text": "Roman Couvrette"
+                }
+              ],
+              "callDuration": 60,
+              "clientAttendance": [
+                {
+                  "text": "Luis Ramos"
+                },
+                {
+                  "text": "Jorge Sepulveda"
+                },
+                {
+                  "text": "Patrick Klose"
+                },
+                {
+                  "text": "Marshall"
+                }
+              ],
+              "files": [],
+              "iaAttendance": [
+                {
+                  "text": "Thomas Goetz"
+                },
+                {
+                  "text": "Roman Couvrette"
+                }
+              ],
+              "inMeeting": false,
+              "integratorAttendance": [
+                {
+                  "text": "Jon Sisk (Colexas)"
+                }
+              ],
+              "questionsIssues": "",
+              "salesEngineer": "Thomas Goetz",
+              "startDate": {
+                "$": [
+                  "ts",
+                  0,
+                  1726768051796
+                ],
+                "$ts": 1725474600000
+              },
+              "summary": "Customer is using PlantPAX and are seeing some lagging issues on writes\nAny benchmarking tools they could use for this?\nAlso pulling from the same device at 2 rates (tag groups) within the same udt.\n\nFollow-up email:\n\nIt was great speaking with you and your teams yesterday. I was able to reach out to one of our other Sales Engineering team members but unfortunately our team may not be best suited to answer questions directly related to specific devices. \n\nI was a\nWhile looking through some of our internal resources I was able to find \"we do not currently have any type of optimizations done for PlantPAx objects\"  In many cases like this we have observed the PLC\u0027s CPU is running at 100%.\n\nThis forum post contains a lot of information regarding the topic and may be of interest for this system. Automation Professional\u0027s driver seems to be the goto when talking large numbers of tags/UDTs/AOIs\n\nOur support division has done significantly more troubleshooting on device specific related issues and benchmarking. Since Colexas you are an integrator may I suggest reaching out to our support team to see if they have any further suggestions on the topics.\n\nPlease let me know if you have any questions.\n",
+              "tags": []
+            },
+            {
+              "_id": "66d86f05e60e0c19dc729b08",
+              "accountName": "PRAMANJ Technologies",
+              "actionItems": [],
+              "callDuration": 60,
+              "clientAttendance": [
+                {
+                  "text": "Prafull"
+                }
+              ],
+              "files": [],
+              "iaAttendance": [
+                {
+                  "text": "Thomas Goetz"
+                }
+              ],
+              "inMeeting": false,
+              "integratorAttendance": [],
+              "questionsIssues": "",
+              "salesEngineer": "Thomas Goetz",
+              "startDate": {
+                "$": [
+                  "ts",
+                  0,
+                  1726768051796
+                ],
+                "$ts": 1725460200000
+              },
+              "summary": "1. Can I host the Standard Ignition gateway server on a VM on one of existing servers on plant network? This will save cost of a new high-end server. Hope it will be able to communicate with multiple plant OPC DA servers properly.\n\n2. Will it have any significant adverse impact on performance of the server response?  \n\n3. Will remote clients from corporate network be able to access it if I install remote-access-VPN-server on another VM on the network.  \n\n4. Will the local clients within plant network be able to access it on a plant WiFi network or a LAN cable on local network? Architecture in email of Sep 2.\n\n\n-10 units that use osi-pi\n-edge to communicate via opc-com\n-discussed MQTT option(s) and his proposed architectures\n-also mentioned EAM and how it works.",
+              "tags": []
+            },
+            {
+              "_id": "66d85a1ae60e0c19dc729b07",
+              "accountName": "KK Wind Solutions",
+              "actionItems": [],
+              "attendance": [
+                {
+                  "text": "Thomas Goetz"
+                },
+                {
+                  "text": "Brittany Scates"
+                },
+                {
+                  "text": "Christine Lee"
+                }
+              ],
+              "callDuration": 60,
+              "clientAttendance": [
+                {
+                  "text": "Maciej Paszek"
+                },
+                {
+                  "text": "Thirupugazhmani Thirunavukarasu"
+                },
+                {
+                  "text": " Niranjan Kulkarni"
+                },
+                {
+                  "text": " Huandong Hou"
+                }
+              ],
+              "files": [],
+              "iaAttendance": [
+                {
+                  "text": "Thomas Goetz"
+                },
+                {
+                  "text": "Brittany Scates"
+                },
+                {
+                  "text": "Christine Lee"
+                }
+              ],
+              "inMeeting": false,
+              "integratorAttendance": [],
+              "questionsIssues": "",
+              "salesEngineer": "Thomas Goetz",
+              "startDate": {
+                "$": [
+                  "ts",
+                  0,
+                  1726768051796
+                ],
+                "$ts": 1725454800000
+              },
+              "summary": "Maciej is the Ignition Champion over at KK Wind Solutions. He is hoping to convince his technical management team that Ignition is the right choice. They recently started development in TULIP,  however decided against it as the price point was too high. They did like the ease of development and design. Maciej would like us to show off the ease of design in Ignition specifically for Digital Work Instructions. \n\n\n-General discussion on Ignition Capabilities. \n-One member of their team knows Ignition. It sounded like they want more of a SAAS or prebuilt solution, but did consider using a system Integrator.\n\n-Major interest abound documentation control and management system. (MES) based information.\n\n",
+              "tags": []
+            },
+            {
+              "_id": "66d76acbe60e0c19dc729b06",
+              "accountName": "Ridgeline Power Engineering",
+              "actionItems": [],
+              "attendance": [
+                {
+                  "text": "Brad Fischer"
+                },
+                {
+                  "text": "Joe Rzepka"
+                }
+              ],
+              "callDuration": 60,
+              "clientAttendance": [
+                {
+                  "text": "Kevin Thingvold"
+                }
+              ],
+              "files": [],
+              "iaAttendance": [
+                {
+                  "text": "Brad Fischer"
+                },
+                {
+                  "text": "Joe Rzepka"
+                }
+              ],
+              "inMeeting": false,
+              "integratorAttendance": [],
+              "questionsIssues": "",
+              "salesEngineer": "Brad Fischer",
+              "startDate": {
+                "$": [
+                  "ts",
+                  0,
+                  1726768051796
+                ],
+                "$ts": 1725393600000
+              },
+              "summary": "Kevin is in Vancouver, Canada\n\nUDT Question:\n- Trying to get device timestamp for alarm\n  \u003e Updated the alarm timestamp source property to \"Value\" (he was using a binding to a dateTime tag, which isn\u0027t allowed)\n\nI helped him use a multi-state button to develop a status/control component. When the user changed the state, he wanted a confirmation popup, so we used a propertyChange event on controlValue to call system.gui.confirm. Given a user selected YES, we wrote to a tag. He understood the concept and would keep going.\n\nIt sounds like they\u0027re trying to determine if Ignition is the right software for them to use going forward, so I spent a few extra minutes talking about adding a custom property to hold the UDT and how making it a template would allow it to be drag-and-drop and highly dynamic without having to touch each instance to make the code write to the appropriate tag.",
+              "tags": [
+                {
+                  "text": "UDT"
+                }
+              ]
+            },
+            {
+              "_id": "66d74de9e60e0c19dc729b05",
+              "accountName": "Cleveland-Cliffs",
+              "actionItems": [],
+              "attendance": [
+                {
+                  "text": "Thomas Goetz"
+                },
+                {
+                  "text": "Shane Miller"
+                }
+              ],
+              "callDuration": 60,
+              "clientAttendance": [
+                {
+                  "text": "Leon Winitsky"
+                },
+                {
+                  "text": "Dick Regits"
+                },
+                {
+                  "text": "Simon Parisse"
+                },
+                {
+                  "text": "Micah G Koegler"
+                },
+                {
+                  "text": "Gene M Famiglietti"
+                },
+                {
+                  "text": "Seth M  Elder"
+                }
+              ],
+              "files": [],
+              "iaAttendance": [
+                {
+                  "text": "Thomas Goetz"
+                },
+                {
+                  "text": "Shane Miller"
+                }
+              ],
+              "inMeeting": false,
+              "integratorAttendance": [],
+              "questionsIssues": "",
+              "salesEngineer": "Thomas Goetz",
+              "startDate": {
+                "$": [
+                  "ts",
+                  0,
+                  1726768051796
+                ],
+                "$ts": 1725386400000
+              },
+              "summary": "Seth and Team are looking at Ignition for latest project at their Butler, PA site. They have some design related questions regarding concurrent designers/ projects and Perspective design. Once they get their questions answered and BOM identified they can move forward with their purchase quickly.\n",
+              "tags": []
+            },
+            {
+              "_id": "66d740ebe60e0c19dc729b03",
+              "accountName": "Ipex Management Inc.",
+              "actionItems": [],
+              "attendance": [
+                {
+                  "text": "Brad Fischer"
+                },
+                {
+                  "text": "Abran Mathews"
+                }
+              ],
+              "callDuration": 60,
+              "clientAttendance": [
+                {
+                  "text": "Reza Javid"
+                }
+              ],
+              "files": [],
+              "iaAttendance": [
+                {
+                  "text": "Brad Fischer"
+                },
+                {
+                  "text": "Abran Mathews"
+                }
+              ],
+              "inMeeting": false,
+              "integratorAttendance": [],
+              "questionsIssues": "",
+              "salesEngineer": "Brad Fischer",
+              "startDate": {
+                "$": [
+                  "ts",
+                  0,
+                  1726768051796
+                ],
+                "$ts": 1725382800000
+              },
+              "summary": "Brock Solutions is coming in early November to deploy a project.\n\nProject written by external vendor that connects to 65 valves with 2-3 signals each\n- Deployed the project and it crashed their production gateway\n- Abran recommended contacting support and using a dev/test gateway\n\nCan the EAM Controller be deployed at the Regional UAT now and then moved to the Regional IT later on?\n- Yes. Backups may be lost during the move, and all Agents will need to be disconnected and then setup again pointed at the new Gateway.\n\n- We discussed deployment strategy (golden copy @ dev server --\u003e production gateway(s))\n  \u003e I mentioned 8.3 is going to bring better support for git\n\n- We walked through EAM Controller setup (including a SQLite DB)\n  \u003e Added a few agents\n  \u003e Configured an on-demand backup task",
+              "tags": [
+                {
+                  "text": "EAM"
+                }
+              ]
+            },
+            {
+              "_id": "66d7413ae60e0c19dc729b04",
+              "accountName": "Fusion Industries",
+              "actionItems": [],
+              "attendance": [
+                {
+                  "text": "Thomas Goetz"
+                },
+                {
+                  "text": "Myron Hoertling"
+                },
+                {
+                  "text": "Ryan Zakskorn"
+                }
+              ],
+              "callDuration": 60,
+              "clientAttendance": [
+                {
+                  "text": "Caleb Taggart"
+                }
+              ],
+              "files": [],
+              "iaAttendance": [
+                {
+                  "text": "Thomas Goetz"
+                },
+                {
+                  "text": "Myron Hoertling"
+                },
+                {
+                  "text": "Ryan Zakskorn"
+                }
+              ],
+              "inMeeting": false,
+              "integratorAttendance": [],
+              "questionsIssues": "",
+              "salesEngineer": "Thomas Goetz",
+              "startDate": {
+                "$": [
+                  "ts",
+                  0,
+                  1726768051796
+                ],
+                "$ts": 1725382800000
+              },
+              "summary": "overview of modules, architectures and functionality\n\ndemo connectivity, tags, udt\u0027s, history, alarms, templates.\n\nGetting-started demo",
+              "tags": []
+            },
+            {
+              "_id": "66d72477e60e0c19dc729b02",
+              "accountName": "OperaMetrix",
+              "actionItems": [],
+              "attendance": [
+                {
+                  "text": "Brad Fischer"
+                },
+                {
+                  "text": "Tom Goetz"
+                },
+                {
+                  "text": "Chris Fischer"
+                }
+              ],
+              "callDuration": 60,
+              "clientAttendance": [
+                {
+                  "text": "Benjamin Freeman"
+                },
+                {
+                  "text": "Yoann Masmont"
+                }
+              ],
+              "files": [],
+              "iaAttendance": [
+                {
+                  "text": "Brad Fischer"
+                },
+                {
+                  "text": "Tom Goetz"
+                },
+                {
+                  "text": "Chris Fischer"
+                }
+              ],
+              "inMeeting": false,
+              "integratorAttendance": [],
+              "questionsIssues": "",
+              "salesEngineer": "Brad Fischer",
+              "startDate": {
+                "$": [
+                  "ts",
+                  0,
+                  1726768051796
+                ],
+                "$ts": 1725375600000
+              },
+              "summary": "Chris:\n\"This will be more of an overall discussion of Ignition to test OperaMetrix\u0027s knowledge of Ignition\"\n\nBen (company founder):\n- They admitted they never used SQL Bridge module and had a very, very limited understanding of it.\n- They decided against using MQTT because Ignition used Sparkplug B and the customer wanted to use standard MQTT. They said they had done it in the past.\n  \u003e Ben \u0026 the other founder sought out software compatible with MQTT as they thought it was necessary for modern industrial applications.\n- They were able to discuss Vision vs. Perspective well.\n- Have used Twilio \u0026 Reporting modules\n- Discussed security (certs, roles, IdPs)\n\nYoann:\n- CSS\n  \u003e Using the Advanced Stylesheet\n  \u003e Applying CSS to animate SVGs\n- Scripting\n  \u003e Most are in bindings, though the library is used to prevent code duplication\n\nBen:\n- Lyfe project is using auditing\n- \n",
+              "tags": []
+            },
+            {
+              "_id": "66d708bde60e0c19dc729b00",
+              "accountName": "S.C. Johnson",
+              "actionItems": [],
+              "attendance": [
+                {
+                  "text": "Thomas Goetz"
+                },
+                {
+                  "text": "Joe Rzepka"
+                }
+              ],
+              "callDuration": 60,
+              "clientAttendance": [
+                {
+                  "text": "Gingrich, Randal R."
+                }
+              ],
+              "files": [],
+              "iaAttendance": [
+                {
+                  "text": "Thomas Goetz"
+                },
+                {
+                  "text": "Joe Rzepka"
+                }
+              ],
+              "inMeeting": false,
+              "integratorAttendance": [
+                {
+                  "text": "Scheckelhoff, Dean (SSOE)"
+                },
+                {
+                  "text": "Stringfield, David (SSOE)"
+                },
+                {
+                  "text": "Mitchell, Michael (SSOE)"
+                }
+              ],
+              "questionsIssues": "",
+              "salesEngineer": "Thomas Goetz",
+              "startDate": {
+                "$": [
+                  "ts",
+                  0,
+                  1726768051796
+                ],
+                "$ts": 1725368400000
+              },
+              "summary": "Joint meeting to discuss architecture needs at the line level for SCJ\n\nDetermine minimum numbers of visualization clients that are mission critical\n\nFine tune licensing and module needs at both the line level along with the central gateway\n\nFinalized the design to use a single Edge Panel per line. See Arch for details",
+              "tags": []
+            },
+            {
+              "_id": "66d709e7e60e0c19dc729b01",
+              "accountName": "Tetra Pak",
+              "actionItems": [],
+              "callDuration": 60,
+              "clientAttendance": [
+                {
+                  "text": "Mahsa Salimy"
+                },
+                {
+                  "text": "Rickard Moberg"
+                },
+                {
+                  "text": "Eddie LarssonKlicic"
+                },
+                {
+                  "text": "Diego Pereira"
+                },
+                {
+                  "text": "Jesper Arvidsson"
+                },
+                {
+                  "text": "AlAaradji Ali"
+                },
+                {
+                  "text": "Pravin Murugesan"
+                },
+                {
+                  "text": "Oliver Marshall"
+                }
+              ],
+              "files": [],
+              "iaAttendance": [
+                {
+                  "text": "Brad Fischer"
+                }
+              ],
+              "inMeeting": false,
+              "integratorAttendance": [],
+              "questionsIssues": "",
+              "salesEngineer": "Brad Fischer",
+              "startDate": {
+                "$": [
+                  "ts",
+                  0,
+                  1726768051796
+                ],
+                "$ts": 1725368400000
+              },
+              "summary": "Mahsa:\n- Alarm Journal realtime \"last X seconds\" doesn\u0027t appear to apply the entered time constraint correctly\n\nOliver:\n- Modal popup issue\n  \u003e They want a way to have the dimmed / unclickable background for modal popups to apply in some cases, but not others\n\n- Dynamic popup sizing\n  \u003e They\u0027re using IA\u0027s tab component on a faceplate. When switching between \"Control\" and \"Configuration\", the popup needs to change vertical size. They are currently calculating the height in a script and returning that, but it doesn\u0027t work dynamically. Using \"NULL\" or \"auto\" works, but the Designer barks that these aren\u0027t allowable values, even though they work.\n  \u003e Oliver \u0026 Diego spent DAYS pursuing this complex solution, thinking the designer is warning them that the value isn\u0027t valid. This needs to be addressed to prevent customers from having similar issues.\n\nEddie:\n- Overwriting the Power Chart styles (via advanced CSS) worked with #powerChart in some cases, but not others.\n  \u003e This appears to be based on .ia_powerChartComponent (needs #powerChart) versus CSS entries without the \".ia_\" prefix",
+              "tags": []
+            },
+            {
+              "_id": "66d23347e60e0c19dc729aff",
+              "accountName": "Terra Gen",
+              "actionItems": [],
+              "attendance": [
+                {
+                  "text": "Reese Tyson"
+                },
+                {
+                  "text": "Maria Chinappi"
+                }
+              ],
+              "callDuration": 60,
+              "clientAttendance": [
+                {
+                  "text": "Jordan Campbell"
+                }
+              ],
+              "files": [],
+              "iaAttendance": [
+                {
+                  "text": "Reese Tyson"
+                },
+                {
+                  "text": "Maria Chinappi"
+                }
+              ],
+              "inMeeting": false,
+              "integratorAttendance": [],
+              "questionsIssues": "",
+              "salesEngineer": "Reese Tyson",
+              "startDate": {
+                "$": [
+                  "ts",
+                  0,
+                  1726768051796
+                ],
+                "$ts": 1725051600000
+              },
+              "summary": "Looking to convert approx3000 MQTT messages to DNP3 points at multiple renewable energy sites\n\nEMS(energy management system)\nWant to decode a json structure and write to a bunch of DNP3 devices.\n\nWanted to know if Ignition could act as an outstation to a DNP3 master, which we cannot do.\n\nWasn\u0027t very happy that Ignition could not do this.",
+              "tags": [
+                {
+                  "text": "MQTT"
+                },
+                {
+                  "text": "dnp3"
+                }
+              ]
+            },
+            {
+              "_id": "66d224dce60e0c19dc729afe",
+              "accountName": "MPG Consulting Services",
+              "actionItems": [],
+              "attendance": [
+                {
+                  "text": "Chase Dorsey"
+                },
+                {
+                  "text": "Abran Mathews"
+                }
+              ],
+              "callDuration": 60,
+              "clientAttendance": [
+                {
+                  "text": "Pilar G Long"
+                }
+              ],
+              "files": [],
+              "iaAttendance": [
+                {
+                  "text": "Chase Dorsey"
+                },
+                {
+                  "text": "Abran Mathews"
+                }
+              ],
+              "inMeeting": false,
+              "integratorAttendance": [],
+              "questionsIssues": "",
+              "salesEngineer": "Chase Dorsey",
+              "startDate": {
+                "$": [
+                  "ts",
+                  0,
+                  1726768051796
+                ],
+                "$ts": 1725048000000
+              },
+              "summary": "User wants \"Custom alarms.\"\n\nThey have Vision templates and are trying to add tags to them.\n\nTold her about template properties as well as indirect tag bindings. Explained about alarm filtering. Explained alarm expression bindings.\n\nUser needed help with a script that someone else wrote to import a csv of tags from wonderware into Ignition. I explained to her how error popups work as well as the console and gateway logs. Was not able to help work on the script and suggested working with the original author, someone with more python experience, or potentially an integrator.",
+              "tags": [
+                {
+                  "text": "Vision"
+                },
+                {
+                  "text": "Wonderware"
+                }
+              ]
+            }
+          ]
+        },
+        "meta": {
+          "name": "MeetingID"
+        },
+        "position": {
+          "shrink": 0
+        },
+        "propConfig": {
+          "custom.queryResults": {
+            "binding": {
+              "config": {
+                "struct": {
+                  "account": "{./AccountName/TextField.props.text}",
+                  "filename": "{../Filename/TextField.props.text}",
+                  "mongoNotes": "{session.custom.mongo.mongoNotes}"
+                },
+                "waitOnAll": true
+              },
+              "transforms": [
+                {
+                  "code": "\tarchs\u003dsystem.mongodb.find(value[\u0027mongoNotes\u0027][\u0027connector\u0027], value[\u0027mongoNotes\u0027][\u0027collection\u0027], {\n\t    \u0027accountName\u0027: {\u0027$regex\u0027: value[\u0027account\u0027], \u0027$options\u0027: \u0027i\u0027}\n\t}, limit\u003d50, sort\u003d{\u0027startDate\u0027: -1})\n\n\treturn archs",
+                  "type": "script"
+                }
+              ],
+              "type": "expr-struct"
+            },
+            "persistent": true
+          },
+          "position.display": {
+            "binding": {
+              "config": {
+                "expression": "{view.custom.hasRole} \u0026\u0026 {session.custom.mongo.mongoNotes.connector}!\u003dnull \u0026\u0026 {session.custom.mongo.mongoNotes.connector}!\u003d\u0027\u0027"
+              },
+              "type": "expr"
+            }
+          }
+        },
+        "props": {
+          "direction": "column",
+          "style": {
+            "backgroundColor": "--neutral-40",
+            "borderBottomLeftRadius": "16px",
+            "borderBottomRightRadius": "16px",
+            "borderTopLeftRadius": "16px",
+            "borderTopRightRadius": "16px",
+            "margin": "4px",
+            "padding": "4px"
+          }
+        },
+        "type": "ia.container.flex"
+      },
+      {
+        "events": {
+          "component": {
+            "onActionPerformed": {
+              "config": {
+                "script": "\t\n\tconnector\u003dself.parent.getChild(\"Connectors\").getChild(\"Connectors\").props.value\n\tcollection\u003dself.parent.getChild(\"Collections\").getChild(\"Collectios\").props.value\n\tfilename\u003dself.parent.getChild(\"Filename\").getChild(\"TextField\").props.text\n\tmeetingId\u003dself.parent.getChild(\"MeetingID\").getChild(\"MeetingID\").getChild(\"TextField\").props.text\n\tmongoId\u003dself.view.params.lastLoad.id\n\tsystem.perspective.sendMessage(\u0027saveArchitecture\u0027, {\u0027connector\u0027:connector,\u0027collection\u0027:collection,\u0027filename\u0027:filename, \u0027meetingId\u0027:meetingId, \u0027id\u0027:mongoId, \u0027newTrigger\u0027:self.view.params.newTrigger}, scope\u003d\u0027session\u0027)\n\tsystem.perspective.sendMessage(\u0027clearFromSENotes\u0027, True, scope\u003d\u0027session\u0027)\n\tif self.view.params.newTrigger:\n\t\tsystem.perspective.sendMessage(\u0027clearCenterComponents\u0027, False, scope\u003d\u0027session\u0027)\n\t\tsystem.perspective.sendMessage(\u0027panInteract\u0027, {\u0027action\u0027:\u0027Pan\u0027},scope\u003d\u0027session\u0027)\n\tsystem.perspective.closePopup(\u0027saveArchitecture\u0027)"
+              },
+              "scope": "G",
+              "type": "script"
+            }
+          }
+        },
+        "meta": {
+          "name": "Button_0",
+          "tooltip": {}
+        },
+        "position": {
+          "shrink": 0
+        },
+        "propConfig": {
+          "meta.tooltip.enabled": {
+            "binding": {
+              "config": {
+                "path": "view.params.lastLoad"
+              },
+              "transforms": [
+                {
+                  "code": "\treturn \u0027userName\u0027 in value.keys()",
+                  "type": "script"
+                }
+              ],
+              "type": "property"
+            }
+          },
+          "meta.tooltip.text": {
+            "binding": {
+              "config": {
+                "path": "view.params.lastLoad"
+              },
+              "transforms": [
+                {
+                  "code": "\treturn \"This Architecture Belongs To ({})\".format(value[\u0027userName\u0027])",
+                  "type": "script"
+                }
+              ],
+              "type": "property"
+            }
+          },
+          "props.enabled": {
+            "binding": {
+              "config": {
+                "struct": {
+                  "collection": "{../Collections/Collectios.props.value}",
+                  "connector": "{../Connectors/Connectors.props.value}",
+                  "filename": "{../Filename/TextField.props.text}",
+                  "hasRole": "{view.custom.hasRole}",
+                  "isUser": "{view.custom.isUser}",
+                  "lastLoad": "{view.params.lastLoad}"
+                },
+                "waitOnAll": true
+              },
+              "transforms": [
+                {
+                  "code": "\tif value[\u0027isUser\u0027] or value[\u0027hasRole\u0027]:\n\t\tif \u0027filename\u0027 in value[\u0027lastLoad\u0027]:\n\t\t\tif value[\u0027lastLoad\u0027][\u0027filename\u0027]\u003d\u003dvalue[\u0027filename\u0027] and value[\u0027lastLoad\u0027][\u0027collection\u0027]\u003d\u003dvalue[\u0027collection\u0027] and value[\u0027lastLoad\u0027][\u0027connector\u0027]\u003d\u003dvalue[\u0027connector\u0027]:\n\t\t\t\treturn True\n\t\treturn False\n\treturn False",
+                  "type": "script"
+                }
+              ],
+              "type": "expr-struct"
+            }
+          }
+        },
+        "props": {
+          "style": {
+            "margin": "8px",
+            "marginTop": "8px",
+            "overflow": "auto"
+          },
+          "text": "Update/Save"
+        },
+        "type": "ia.input.button"
+      },
+      {
+        "events": {
+          "component": {
+            "onActionPerformed": {
+              "config": {
+                "script": "\t\n\tconnector\u003dself.parent.getChild(\"Connectors\").getChild(\"Connectors\").props.value\n\tcollection\u003dself.parent.getChild(\"Collections\").getChild(\"Collectios\").props.value\n\tfilename\u003dself.parent.getChild(\"Filename\").getChild(\"TextField\").props.text\n\tmeetingId\u003dself.parent.getChild(\"MeetingID\").getChild(\"MeetingID\").getChild(\"TextField\").props.text\n\tsystem.perspective.sendMessage(\u0027saveArchitecture\u0027, {\u0027connector\u0027:connector,\u0027collection\u0027:collection,\u0027filename\u0027:filename, \u0027meetingId\u0027:meetingId, \u0027id\u0027:\u0027Empty\u0027, \u0027newTrigger\u0027:self.view.params.newTrigger}, scope\u003d\u0027session\u0027)\n\tsystem.perspective.sendMessage(\u0027clearFromSENotes\u0027, True, scope\u003d\u0027session\u0027)\n\tif self.view.params.newTrigger:\n\t\tsystem.perspective.sendMessage(\u0027clearCenterComponents\u0027, False, scope\u003d\u0027session\u0027)\n\t\tsystem.perspective.sendMessage(\u0027panInteract\u0027, {\u0027action\u0027:\u0027Pan\u0027},scope\u003d\u0027session\u0027)\n\tsystem.perspective.closePopup(\u0027saveArchitecture\u0027)"
+              },
+              "scope": "G",
+              "type": "script"
+            }
+          }
+        },
+        "meta": {
+          "name": "Button"
+        },
+        "position": {
+          "shrink": 0
+        },
+        "propConfig": {
+          "props.enabled": {
+            "binding": {
+              "config": {
+                "expression": "{../Collections/Collectios.props.value}!\u003d\"\"\u0026\u0026{../Connectors/Connectors.props.value}!\u003d\"\""
+              },
+              "type": "expr"
+            }
+          }
+        },
+        "props": {
+          "style": {
+            "backgroundColor": "--success",
+            "margin": "8px",
+            "marginTop": "0px",
+            "overflow": "auto"
+          },
+          "text": "Save As"
+        },
+        "type": "ia.input.button"
+      }
+    ],
+    "meta": {
+      "name": "root"
+    },
+    "props": {
+      "direction": "column"
+    },
+    "type": "ia.container.flex"
+  }
+}

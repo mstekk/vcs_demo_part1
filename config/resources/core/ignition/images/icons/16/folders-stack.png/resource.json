@@ -1,0 +1,20 @@
+{
+  "scope": "A",
+  "version": 1,
+  "restricted": false,
+  "overridable": true,
+  "files": [
+    "folders-stack.png"
+  ],
+  "attributes": {
+    "width": 16,
+    "format": "PNG",
+    "lastModification": {
+      "actor": "8.3-migration",
+      "timestamp": "2026-01-07T14:49:07Z"
+    },
+    "size": 519,
+    "lastModificationSignature": "31e5f57bf3276544333efa6868caba6b465b554a5ed5f4bdc599ee575a55658c",
+    "height": 16
+  }
+}

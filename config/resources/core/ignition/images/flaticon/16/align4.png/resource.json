@@ -1,0 +1,20 @@
+{
+  "scope": "A",
+  "version": 1,
+  "restricted": false,
+  "overridable": true,
+  "files": [
+    "align4.png"
+  ],
+  "attributes": {
+    "width": 16,
+    "format": "PNG",
+    "lastModification": {
+      "actor": "8.3-migration",
+      "timestamp": "2026-01-07T14:49:07Z"
+    },
+    "size": 230,
+    "lastModificationSignature": "ab351ef6a1b5da3d37e957b0fbccd47ab8c553b43cdceb349b35e3e97b308414",
+    "height": 16
+  }
+}

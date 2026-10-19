@@ -1,0 +1,20 @@
+{
+  "scope": "A",
+  "version": 1,
+  "restricted": false,
+  "overridable": true,
+  "files": [
+    "currency-dollar-nzd.png"
+  ],
+  "attributes": {
+    "width": 16,
+    "format": "PNG",
+    "lastModification": {
+      "actor": "8.3-migration",
+      "timestamp": "2026-01-07T14:49:07Z"
+    },
+    "size": 674,
+    "lastModificationSignature": "705a396e101dbfbf4f16c08e0e5a1f7fd97b11ef9f0b52bc4576fd905ef90250",
+    "height": 16
+  }
+}

@@ -1,0 +1,79 @@
+{
+  "custom": {},
+  "params": {},
+  "props": {
+    "defaultSize": {
+      "height": 75,
+      "width": 197
+    }
+  },
+  "root": {
+    "children": [
+      {
+        "meta": {
+          "name": "Snap"
+        },
+        "position": {
+          "shrink": 0
+        },
+        "propConfig": {
+          "props.params.value": {
+            "binding": {
+              "config": {
+                "path": "session.custom.snapPixels"
+              },
+              "type": "property"
+            }
+          }
+        },
+        "props": {
+          "params": {
+            "label": "Grid Pixels:",
+            "labelSize": "100px"
+          },
+          "path": "Exchange/ArchitectureBuilder/General/NumericInput",
+          "style": {
+            "marginTop": "4px"
+          }
+        },
+        "type": "ia.display.view"
+      },
+      {
+        "events": {
+          "component": {
+            "onActionPerformed": {
+              "config": {
+                "script": "\tself.session.custom.snapPixels\u003dself.getSibling(\"Snap\").props.params.value\n\tsystem.perspective.closePopup(\u0027snapPixels\u0027)"
+              },
+              "scope": "G",
+              "type": "script"
+            }
+          }
+        },
+        "meta": {
+          "name": "Button"
+        },
+        "position": {
+          "shrink": 0
+        },
+        "props": {
+          "style": {
+            "margin": "4px"
+          },
+          "text": "Apply Grid Size"
+        },
+        "type": "ia.input.button"
+      }
+    ],
+    "meta": {
+      "name": "root"
+    },
+    "props": {
+      "direction": "column",
+      "style": {
+        "margin": "4px"
+      }
+    },
+    "type": "ia.container.flex"
+  }
+}

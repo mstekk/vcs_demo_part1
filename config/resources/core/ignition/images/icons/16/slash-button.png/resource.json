@@ -1,0 +1,20 @@
+{
+  "scope": "A",
+  "version": 1,
+  "restricted": false,
+  "overridable": true,
+  "files": [
+    "slash-button.png"
+  ],
+  "attributes": {
+    "width": 16,
+    "format": "PNG",
+    "lastModification": {
+      "actor": "8.3-migration",
+      "timestamp": "2026-01-07T14:49:07Z"
+    },
+    "size": 674,
+    "lastModificationSignature": "c85244ab46712c26bf45ba0c7db2a7420f9d341d11b648ef44459f1c3606f4d2",
+    "height": 16
+  }
+}

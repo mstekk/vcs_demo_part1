@@ -1,0 +1,20 @@
+{
+  "scope": "A",
+  "version": 1,
+  "restricted": false,
+  "overridable": true,
+  "files": [
+    "Curve Left Up-small.png"
+  ],
+  "attributes": {
+    "width": 17,
+    "format": "PNG",
+    "lastModification": {
+      "actor": "8.3-migration",
+      "timestamp": "2026-01-07T14:49:07Z"
+    },
+    "size": 3508,
+    "lastModificationSignature": "99e2b0b0f09bcb48e927891559b4ef50ef540f45f8ee04dd4de25fb36b5f5813",
+    "height": 17
+  }
+}

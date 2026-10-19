@@ -1,0 +1,20 @@
+{
+  "scope": "A",
+  "version": 1,
+  "restricted": false,
+  "overridable": true,
+  "files": [
+    "Drill Reboiler.png"
+  ],
+  "attributes": {
+    "width": 400,
+    "format": "PNG",
+    "lastModification": {
+      "actor": "8.3-migration",
+      "timestamp": "2026-01-07T14:49:07Z"
+    },
+    "size": 67374,
+    "lastModificationSignature": "7c0efc0cd1d728eec55b9c47e2b5f9c44d5de76476c68e827df235f5b346199a",
+    "height": 252
+  }
+}

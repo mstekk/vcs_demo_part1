@@ -1,0 +1,20 @@
+{
+  "scope": "A",
+  "version": 1,
+  "restricted": false,
+  "overridable": true,
+  "files": [
+    "home--pencil.png"
+  ],
+  "attributes": {
+    "width": 16,
+    "format": "PNG",
+    "lastModification": {
+      "actor": "8.3-migration",
+      "timestamp": "2026-01-07T14:49:07Z"
+    },
+    "size": 835,
+    "lastModificationSignature": "2b8d0d7f626fa0c1e998b8fe9cc7184a070c146932560d1e88be0564a19f3d15",
+    "height": 16
+  }
+}

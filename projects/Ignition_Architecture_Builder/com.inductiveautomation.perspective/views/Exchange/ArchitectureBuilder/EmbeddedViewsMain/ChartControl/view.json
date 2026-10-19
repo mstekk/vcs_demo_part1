@@ -1,0 +1,1194 @@
+{
+  "custom": {
+    "display": false,
+    "hasRole": true,
+    "isUser": false
+  },
+  "params": {
+    "lastLoad": {},
+    "newArch": false
+  },
+  "propConfig": {
+    "custom.display": {
+      "persistent": true
+    },
+    "custom.hasRole": {
+      "binding": {
+        "config": {
+          "expression": "if({session.custom.public}, true,isAuthorized(false, \u0027Authenticated/Roles/Administrator\u0027, \u0027Authenticated/Roles/\u0027+{session.custom.admin.role}))"
+        },
+        "type": "expr"
+      },
+      "persistent": true
+    },
+    "custom.isUser": {
+      "binding": {
+        "config": {
+          "struct": {
+            "lastLoad": "{view.params.lastLoad}",
+            "user": "{session.props.auth.user.userName}"
+          },
+          "waitOnAll": true
+        },
+        "transforms": [
+          {
+            "code": "\tif \u0027userName\u0027 in value[\u0027lastLoad\u0027].keys():\n\t\treturn value[\u0027lastLoad\u0027][\u0027userName\u0027]\u003d\u003dvalue[\u0027user\u0027]\n\treturn False",
+            "type": "script"
+          }
+        ],
+        "type": "expr-struct"
+      },
+      "persistent": true
+    },
+    "params.lastLoad": {
+      "paramDirection": "input",
+      "persistent": true
+    },
+    "params.newArch": {
+      "paramDirection": "input",
+      "persistent": true
+    },
+    "props.defaultSize.width": {
+      "binding": {
+        "config": {
+          "path": "view.custom.display"
+        },
+        "enabled": false,
+        "transforms": [
+          {
+            "fallback": 200,
+            "inputType": "scalar",
+            "mappings": [
+              {
+                "input": true,
+                "output": 500
+              }
+            ],
+            "outputType": "scalar",
+            "type": "map"
+          }
+        ],
+        "type": "property"
+      }
+    }
+  },
+  "props": {
+    "defaultSize": {
+      "height": 453,
+      "width": 532
+    }
+  },
+  "root": {
+    "children": [
+      {
+        "children": [
+          {
+            "custom": {
+              "lastSave": {
+                "$": [
+                  "ts",
+                  192,
+                  1717004700925
+                ],
+                "$ts": 1717004700925
+              }
+            },
+            "events": {
+              "dom": {
+                "onClick": {
+                  "config": {
+                    "script": "\tif self.session.custom.saveToMongo:\n\t\tconnector\u003dself.view.params.lastLoad.connector\n\t\tcollection\u003dself.view.params.lastLoad.collection\n\t\tfilename\u003dself.view.params.lastLoad.filename\n\t\tmeetingId\u003dself.view.params.lastLoad.meetingId\n\t\tmongoId\u003dself.view.params.lastLoad.id\n\t\tsystem.perspective.sendMessage(\u0027saveArchitecture\u0027, {\u0027connector\u0027:connector,\u0027collection\u0027:collection,\u0027filename\u0027:filename, \u0027meetingId\u0027:meetingId, \u0027id\u0027:mongoId}, scope\u003d\u0027session\u0027)\n\t\tself.custom.lastSave\u003dsystem.date.now()\n\telse:\n\t\timport json\n\t\timport os\n\t\t# Data to be written to the JSON file\n\t\t\n\t\tcollection\u003dself.view.params.lastLoad.collection\n\t\tcomponents\u003dsystem.util.jsonDecode(system.util.jsonEncode(self.session.custom.components))\n\t\tconnections\u003dsystem.util.jsonDecode(system.util.jsonEncode(self.session.custom.connections))\n\t\tcontainers\u003dsystem.util.jsonDecode(system.util.jsonEncode(self.session.custom.containers))\n\t\tconfig\u003dsystem.util.jsonDecode(system.util.jsonEncode(self.session.custom.structure.configs))\n\t\tcanvasSize\u003dsystem.util.jsonDecode(system.util.jsonEncode(self.session.custom.canvasSize))\n\t\tsaveDate\u003dsystem.date.toMillis(system.date.now())\n\t\tfilename\u003dself.view.params.lastLoad.filename\n\t\t\n\t\tdirectory_path \u003d self.view.params.lastLoad.collection\n\t\tfile_name \u003d filename.replace(\u0027.json\u0027,\u0027\u0027)\n\t\t\n\t\tdata\u003d{\n\t\t\t\t\u0027filename\u0027:file_name,\n\t\t\t\t\u0027meetingId\u0027:\u0027\u0027,\n\t\t\t\t\u0027saveDate\u0027:saveDate,\n\t\t\t\t\u0027components\u0027:components,\n\t\t\t\t\u0027connections\u0027:connections,\n\t\t\t\t\u0027containers\u0027:containers,\n\t\t\t\t\u0027config\u0027:config,\n\t\t\t\t\"canvasSize\":canvasSize}\n\t\n\t\n\t\n\t\ttry:\n\t\t    if not os.path.exists(directory_path):\n\t\t   \t\tos.mkdir(directory_path)\n\t\texcept OSError as e:\n\t\t    system.perspective.print(\"Error: {}\".format(e))\n\t\t# Specify the file path\n\t\tfile_path \u003d \u0027{}/{}.json\u0027.format(directory_path,file_name)\n\t\t# Write the data to a JSON file\n\t\twith open(file_path, \u0027w\u0027) as json_file:\n\t\t    json.dump(data, json_file)\n\t\tmongoLast\u003d{\u0027filename\u0027:file_name+\u0027.json\u0027, \u0027id\u0027:\u0027\u0027, \u0027saveDate\u0027:saveDate,\t\u0027connector\u0027:\u0027\u0027, \u0027collection\u0027:collection, \u0027meetingId\u0027:\u0027\u0027,\u0027canvasSize\u0027:canvasSize}\n\t\tsystem.perspective.sendMessage(\u0027updateLastMongo\u0027, mongoLast, scope\u003d\u0027session\u0027)\n\t\tself.custom.lastSave\u003dsystem.date.now()\n\t\t"
+                  },
+                  "scope": "G",
+                  "type": "script"
+                }
+              }
+            },
+            "meta": {
+              "name": "Save"
+            },
+            "position": {
+              "basis": "30px"
+            },
+            "propConfig": {
+              "position.display": {
+                "binding": {
+                  "config": {
+                    "path": "view.params.lastLoad"
+                  },
+                  "transforms": [
+                    {
+                      "code": "\treturn len(value.keys())\u003e0 and (self.view.custom.hasRole or self.view.custom.isUser)",
+                      "type": "script"
+                    }
+                  ],
+                  "type": "property"
+                }
+              },
+              "props.color": {
+                "binding": {
+                  "config": {
+                    "expression": "dateIsAfter(now(),dateArithmetic({this.custom.lastSave},1,\u0027sec\u0027))"
+                  },
+                  "transforms": [
+                    {
+                      "fallback": "Green",
+                      "inputType": "scalar",
+                      "mappings": [
+                        {
+                          "input": true,
+                          "output": "Black"
+                        }
+                      ],
+                      "outputType": "scalar",
+                      "type": "map"
+                    }
+                  ],
+                  "type": "expr"
+                }
+              }
+            },
+            "props": {
+              "path": "material/save",
+              "style": {
+                "classes": "",
+                "cursor": "pointer",
+                "marginLeft": "8px"
+              }
+            },
+            "type": "ia.display.icon"
+          },
+          {
+            "events": {
+              "component": {
+                "onItemClicked": {
+                  "config": {
+                    "script": "\t# if event.enabled:\n\t\t# add your action handling code\n\tif event.label in [\u0027Save...\u0027,\u0027Save As...\u0027]and (not self.session.custom.admin.savingDisabled):\n\t\tsystem.perspective.sendMessage(\u0027cancelConfigs\u0027, True, scope\u003d\u0027session\u0027)\n\t\tif self.session.custom.saveToMongo:\n\t\t\tview\u003d\u0027Exchange/ArchitectureBuilder/EmbeddedViewsMain/SaveArchitectureToMongo\u0027\n\t\telse:\n\t\t\tview\u003d\u0027Exchange/ArchitectureBuilder/EmbeddedViewsMain/SaveArchitectureToFileSystem\u0027\n\t\tsystem.perspective.openPopup(\u0027saveArchitecture\u0027, view, params\u003d{\u0027lastLoad\u0027: self.view.params.lastLoad}, title\u003d\"Save Architecture\")\n\telif event.label\u003d\u003d\u0027Open\u0027:\n\t\tsystem.perspective.sendMessage(\u0027cancelConfigs\u0027, True, scope\u003d\u0027session\u0027)\n\t\tif self.session.custom.saveToMongo:\n\t\t\tview\u003d\u0027Exchange/ArchitectureBuilder/EmbeddedViewsMain/LoadArchitectureFromMongo\u0027\n\t\telse:\n\t\t\tview\u003d\u0027Exchange/ArchitectureBuilder/EmbeddedViewsMain/LoadArchitectureFromFileSystem\u0027\n\t\t\t\n\t\tsystem.perspective.openPopup(\u0027insertArch\u0027, view, title\u003d\u0027Open Architecture\u0027, params\u003d{\u0027load\u0027: True})\n\telif event.label\u003d\u003d\u0027Manage Files\u0027 and (not self.session.custom.admin.deletingDisabled):\n\t\tsystem.perspective.sendMessage(\u0027cancelConfigs\u0027, True, scope\u003d\u0027session\u0027)\n\t\tif self.session.custom.saveToMongo:\n\t\t\tview\u003d\u0027Exchange/ArchitectureBuilder/EmbeddedViewsMain/FileManagerMongo\u0027\n\t\telse:\n\t\t\tview\u003d\u0027Exchange/ArchitectureBuilder/EmbeddedViewsMain/FileManagerFileSystem\u0027\n\t\tsystem.perspective.openPopup(\u0027manageFiles\u0027, view, title\u003d\u0027Manage Files\u0027, params\u003d{\u0027load\u0027: True})\n\t\t\n\telif event.label\u003d\u003d\u0027Insert\u0027:\n\t\tsystem.perspective.sendMessage(\u0027cancelConfigs\u0027, True, scope\u003d\u0027session\u0027)\n\t\tif self.session.custom.saveToMongo:\n\t\t\tview\u003d\u0027Exchange/ArchitectureBuilder/EmbeddedViewsMain/LoadArchitectureFromMongo\u0027\n\t\telse:\n\t\t\tview\u003d\u0027Exchange/ArchitectureBuilder/EmbeddedViewsMain/LoadArchitectureFromFileSystem\u0027\n\t\tsystem.perspective.openPopup(\u0027insertArch\u0027, view, title\u003d\u0027Insert Architecture\u0027, params\u003d{\u0027load\u0027: False})\n\t\n\telif event.label\u003d\u003d\u0027Delete\u0027 and (not self.session.custom.admin.savingDisabled or \"Administrator\" in self.session.props.auth.user.roles):\n\t\tsystem.perspective.sendMessage(\u0027cancelConfigs\u0027, True, scope\u003d\u0027session\u0027)\n\t\tview\u003d\u0027Exchange/ArchitectureBuilder/EmbeddedViewsMain/DeleteArchitectureFromMongo\u0027\n\t\tsystem.perspective.openPopup(\u0027deleteArchitecture\u0027, view, title\u003d\u0027Delete Architecture\u0027)\n\telif event.label\u003d\u003d\u0027Reset Center\u0027:\n\t\tsystem.perspective.sendMessage(\u0027clearCenterComponents\u0027, True, scope\u003d\u0027session\u0027)\n\t\tsystem.perspective.sendMessage(\u0027panInteract\u0027, {\u0027action\u0027:\u0027Pan\u0027},scope\u003d\u0027session\u0027)\n\telif event.label\u003d\u003d\u0027Clear\u0027:\n\t\tsystem.perspective.sendMessage(\u0027clearCenterComponents\u0027, False, scope\u003d\u0027session\u0027)\n\t\tsystem.perspective.sendMessage(\u0027panInteract\u0027, {\u0027action\u0027:\u0027Pan\u0027},scope\u003d\u0027session\u0027)\n\telif event.label\u003d\u003d\u0027New\u0027:\n\t\tview\u003d\u0027Exchange/ArchitectureBuilder/EmbeddedViewsMain/EmbeddedViews/NewPopup\u0027\n\t\tsystem.perspective.openPopup(\u0027saveNew\u0027, view, title\u003d\u0027Save?\u0027, params\u003d{\u0027lastLoad\u0027: self.view.params.lastLoad})\n\t\t\n\telif event.label\u003d\u003d\u0027Snap\u0027:\n\t\tsystem.perspective.sendMessage(\u0027requestSnap\u0027, True, scope\u003d\u0027session\u0027)\n\telif event.label\u003d\u003d\u0027Open BOM\u0027:\n\t\tsystem.perspective.navigate(\u0027/BOM\u0027,newTab\u003dTrue)\n\telif event.label\u003d\u003d\u0027Map\u0027:\n\t\tsystem.perspective.navigate(\u0027/Map\u0027,newTab\u003dTrue)\n\telif event.label\u003d\u003d\u0027JSON Structure\u0027:\n\t\tsystem.perspective.openDock(\"structure\")\n#\t\tsystem.perspective.openPopup(\u0027JSON\u0027, \u0027Exchange/ArchitectureBuilder/StructureViewPrettyPrint\u0027, title\u003d\u0027JSON Structure\u0027, resizable \u003d True, modal\u003dTrue, viewportBound\u003dTrue, position \u003d {\u0027height\u0027: \u0027auto\u0027, \u0027width\u0027: \u0027300px\u0027} )\n\telif event.label\u003d\u003d\u0027JSON Configs\u0027:\n\t\tsystem.perspective.openPopup(\u0027JSON\u0027, \u0027Exchange/ArchitectureBuilder/ConfigViewPrettyPrint\u0027, title\u003d\u0027JSON Configs\u0027, resizable \u003d True, modal\u003dTrue, viewportBound\u003dTrue, position \u003d {\u0027height\u0027: \u002750%\u0027, \u0027width\u0027: \u0027300px\u0027} )\n\telif event.label\u003d\u003d\u0027Email\u0027:\n\t\t#system.perspective.navigate(\u0027/email\u0027,newTab\u003dTrue)\n\t\tsystem.perspective.openPopup(\u0027Email\u0027, \u0027Exchange/ArchitectureBuilder/EmbeddedViewsMain/EmailPopUp\u0027, title\u003d\u0027Email\u0027 , resizable\u003dFalse)\n\telif event.label\u003d\u003d\u0027Print\u0027:\n\t\tsystem.perspective.sendMessage(\u0027Print\u0027, True, scope\u003d\u0027session\u0027)\n\telif event.label\u003d\u003d\u0027Export\u0027:\n\t\t#system.perspective.sendMessage(\u0027downloadLayout\u0027, True, scope\u003d\u0027session\u0027)\n\t\tsystem.perspective.openPopup(\"Export\", \"Exchange/ArchitectureBuilder/BOM/Popups/Export\", title\u003d\"Download\", )\n\telif event.label\u003d\u003d\u0027Import\u0027:\n\t\tsystem.perspective.sendMessage(\u0027cancelConfigs\u0027, True, scope\u003d\u0027session\u0027)\n\t\tview\u003d\u0027Exchange/ArchitectureBuilder/EmbeddedViewsMain/UploadArchitecture\u0027\n\t\tsystem.perspective.openPopup(\u0027uploadArch\u0027, view, title\u003d\u0027Upload Architecture\u0027)\n\telif event.label\u003d\u003d\u0027Enable Module Flyout\u0027 or event.label\u003d\u003d\u0027Disable Module Flyout\u0027:\n\t\tself.session.custom.moduleFlyOut\u003d not self.session.custom.moduleFlyOut\n\telif event.label\u003d\u003d\u0027Show UUID\u0027 or event.label\u003d\u003d\u0027Hide UUID\u0027:\n\t\tself.session.custom.showUUID\u003d not self.session.custom.showUUID\n\telif event.label\u003d\u003d\u0027Click Support\u0027 or event.label\u003d\u003d\u0027Touch Support\u0027:\n\t\tself.session.custom.touch\u003d not self.session.custom.touch\t\n\telif event.label\u003d\u003d\u0027Set Canvas Size\u0027:\n\t\tview\u003d\u0027Exchange/ArchitectureBuilder/General/CanvasSize\u0027\n\t\tsystem.perspective.openPopup(\u0027canvasSize\u0027, view, title\u003d\"Modify Canvas Size\")\n\telif event.label\u003d\u003d\u0027Change Grid Size\u0027:\n\t\tview\u003d\u0027Exchange/ArchitectureBuilder/EmbeddedViewsMain/SnapPopUp\u0027\n\t\tsystem.perspective.openPopup(\u0027snapPixels\u0027, view, title\u003d\"Modify Snap Pixels\")\n\telif event.label\u003d\u003d\u0027Toggle Grid\u0027:\n\t\tsystem.perspective.sendMessage(\u0027toggleGrid\u0027, True, scope\u003d\u0027session\u0027)\n\telif event.label\u003d\u003d\u0027View/Render\u0027:\n\t\tview\u003d\u0027Exchange/ArchitectureBuilder/EmbeddedViewsMain/EmbeddedViews/RenderingOptions\u0027\n\t\tsystem.perspective.openPopup(\u0027render\u0027, view, params\u003d{}, title\u003d\"Select Components to Show\")\n\telif event.label\u003d\u003d\u0027Configure Connection\u0027:\n\t\tsystem.perspective.sendMessage(\u0027requestConnection\u0027, True, scope\u003d\u0027session\u0027)\n\t\tself.view.custom.display\u003dFalse"
+                  },
+                  "scope": "G",
+                  "type": "script"
+                }
+              }
+            },
+            "meta": {
+              "name": "HorizontalMenu"
+            },
+            "propConfig": {
+              "position.display": {
+                "binding": {
+                  "config": {
+                    "path": "view.custom.display"
+                  },
+                  "enabled": false,
+                  "type": "property"
+                }
+              },
+              "props.items[1].items[1].items[3].label": {
+                "binding": {
+                  "config": {
+                    "path": "session.custom.showUUID"
+                  },
+                  "transforms": [
+                    {
+                      "fallback": "Show UUID",
+                      "inputType": "scalar",
+                      "mappings": [
+                        {
+                          "input": true,
+                          "output": "Hide UUID"
+                        }
+                      ],
+                      "outputType": "scalar",
+                      "type": "map"
+                    }
+                  ],
+                  "type": "property"
+                }
+              },
+              "props.items[1].items[2].icon.path": {
+                "binding": {
+                  "config": {
+                    "path": "session.custom.moduleFlyOut"
+                  },
+                  "transforms": [
+                    {
+                      "fallback": "material/speaker_notes",
+                      "inputType": "scalar",
+                      "mappings": [
+                        {
+                          "input": true,
+                          "output": "material/speaker_notes_off"
+                        }
+                      ],
+                      "outputType": "scalar",
+                      "type": "map"
+                    }
+                  ],
+                  "type": "property"
+                }
+              },
+              "props.items[1].items[2].label": {
+                "binding": {
+                  "config": {
+                    "path": "session.custom.moduleFlyOut"
+                  },
+                  "transforms": [
+                    {
+                      "fallback": "Enable Module Flyout",
+                      "inputType": "scalar",
+                      "mappings": [
+                        {
+                          "input": true,
+                          "output": "Disable Module Flyout"
+                        }
+                      ],
+                      "outputType": "scalar",
+                      "type": "map"
+                    }
+                  ],
+                  "type": "property"
+                }
+              }
+            },
+            "props": {
+              "items": [
+                {
+                  "enabled": true,
+                  "icon": {
+                    "path": ""
+                  },
+                  "items": [
+                    {
+                      "enabled": true,
+                      "icon": {
+                        "color": "",
+                        "path": "material/insert_drive_file"
+                      },
+                      "items": [],
+                      "label": "New",
+                      "style": {
+                        "classes": ""
+                      },
+                      "target": ""
+                    },
+                    {
+                      "enabled": true,
+                      "icon": {
+                        "color": "",
+                        "path": "material/folder_open"
+                      },
+                      "label": "Open",
+                      "style": {
+                        "classes": ""
+                      },
+                      "target": ""
+                    },
+                    {
+                      "enabled": true,
+                      "icon": {
+                        "path": "material/dashboard"
+                      },
+                      "items": [],
+                      "label": "Insert",
+                      "style": {
+                        "classes": ""
+                      },
+                      "target": ""
+                    },
+                    {
+                      "enabled": true,
+                      "icon": {
+                        "path": "material/save"
+                      },
+                      "items": [],
+                      "label": "Save...",
+                      "style": {
+                        "classes": ""
+                      },
+                      "target": ""
+                    },
+                    {
+                      "enabled": true,
+                      "icon": {
+                        "path": "material/save"
+                      },
+                      "items": [],
+                      "label": "Save As...",
+                      "style": {
+                        "classes": ""
+                      },
+                      "target": ""
+                    },
+                    {
+                      "enabled": true,
+                      "icon": {
+                        "path": "material/file_copy"
+                      },
+                      "items": [],
+                      "label": "Manage Files",
+                      "style": {
+                        "classes": ""
+                      },
+                      "target": ""
+                    },
+                    {
+                      "enabled": true,
+                      "icon": {
+                        "path": "material/local_printshop"
+                      },
+                      "items": [],
+                      "label": "Print",
+                      "style": {
+                        "classes": ""
+                      },
+                      "target": ""
+                    },
+                    {
+                      "enabled": true,
+                      "icon": {
+                        "path": "material/cloud_download"
+                      },
+                      "items": [],
+                      "label": "Export",
+                      "style": {
+                        "classes": ""
+                      },
+                      "target": ""
+                    },
+                    {
+                      "enabled": true,
+                      "icon": {
+                        "path": "material/cloud_upload"
+                      },
+                      "items": [],
+                      "label": "Import",
+                      "style": {
+                        "classes": ""
+                      },
+                      "target": ""
+                    }
+                  ],
+                  "label": "File",
+                  "style": {
+                    "backgroundColor": "lightgrey",
+                    "classes": "",
+                    "color": "black"
+                  },
+                  "target": ""
+                },
+                {
+                  "enabled": true,
+                  "icon": {
+                    "path": ""
+                  },
+                  "items": [
+                    {
+                      "enabled": true,
+                      "icon": {
+                        "path": "material/layers_clear"
+                      },
+                      "items": [],
+                      "label": "Clear",
+                      "style": {
+                        "classes": ""
+                      },
+                      "target": ""
+                    },
+                    {
+                      "enabled": true,
+                      "icon": {
+                        "path": "material/dashboard"
+                      },
+                      "items": [
+                        {
+                          "enabled": true,
+                          "icon": {
+                            "path": "material/grid_on"
+                          },
+                          "items": [],
+                          "label": "Toggle Grid",
+                          "style": {
+                            "classes": ""
+                          },
+                          "target": ""
+                        },
+                        {
+                          "enabled": true,
+                          "icon": {
+                            "path": "material/edit"
+                          },
+                          "items": [],
+                          "label": "Change Grid Size",
+                          "style": {
+                            "classes": ""
+                          },
+                          "target": ""
+                        },
+                        {
+                          "enabled": true,
+                          "icon": {
+                            "path": "material/zoom_out_map"
+                          },
+                          "items": [],
+                          "label": "Set Canvas Size",
+                          "style": {
+                            "classes": ""
+                          },
+                          "target": ""
+                        },
+                        {
+                          "enabled": true,
+                          "icon": {
+                            "path": "material/widgets"
+                          },
+                          "items": [],
+                          "style": {
+                            "classes": ""
+                          },
+                          "target": ""
+                        },
+                        {
+                          "enabled": true,
+                          "icon": {
+                            "path": "material/preview"
+                          },
+                          "items": [],
+                          "label": "View/Render",
+                          "style": {
+                            "classes": ""
+                          },
+                          "target": ""
+                        }
+                      ],
+                      "label": "Chart Tools",
+                      "style": {
+                        "classes": ""
+                      },
+                      "target": ""
+                    },
+                    {
+                      "enabled": true,
+                      "icon": {},
+                      "items": [],
+                      "style": {
+                        "classes": ""
+                      },
+                      "target": ""
+                    },
+                    {
+                      "enabled": true,
+                      "icon": {
+                        "path": "material/timeline"
+                      },
+                      "items": [],
+                      "label": "Configure Connection",
+                      "style": {
+                        "classes": ""
+                      },
+                      "target": ""
+                    }
+                  ],
+                  "label": "Chart",
+                  "style": {
+                    "backgroundColor": "lightgrey",
+                    "classes": "",
+                    "color": "black"
+                  },
+                  "target": ""
+                },
+                {
+                  "enabled": true,
+                  "icon": {
+                    "path": ""
+                  },
+                  "items": [
+                    {
+                      "enabled": true,
+                      "icon": {
+                        "path": "material/list"
+                      },
+                      "items": [],
+                      "label": "Open BOM",
+                      "style": {
+                        "classes": ""
+                      },
+                      "target": ""
+                    },
+                    {
+                      "enabled": true,
+                      "icon": {
+                        "path": "material/code"
+                      },
+                      "items": [],
+                      "label": "JSON Structure",
+                      "style": {
+                        "classes": ""
+                      },
+                      "target": ""
+                    },
+                    {
+                      "enabled": true,
+                      "icon": {
+                        "path": "material/code"
+                      },
+                      "items": [],
+                      "label": "JSON Configs",
+                      "style": {
+                        "classes": ""
+                      },
+                      "target": ""
+                    },
+                    {
+                      "enabled": true,
+                      "icon": {
+                        "path": "material/map"
+                      },
+                      "items": [],
+                      "label": "Map",
+                      "style": {
+                        "classes": ""
+                      },
+                      "target": ""
+                    }
+                  ],
+                  "label": "BOM",
+                  "style": {
+                    "backgroundColor": "lightgrey",
+                    "classes": "",
+                    "color": "black"
+                  },
+                  "target": ""
+                }
+              ],
+              "style": {
+                "backgroundColor": "lightgrey",
+                "borderBottomLeftRadius": "8px",
+                "borderBottomRightRadius": "8px",
+                "borderColor": "var(--neutral-50)",
+                "borderStyle": "none",
+                "borderTopLeftRadius": "8px",
+                "borderTopRightRadius": "8px"
+              }
+            },
+            "type": "ia.navigation.horizontalmenu"
+          },
+          {
+            "meta": {
+              "name": "Label"
+            },
+            "position": {
+              "basis": "70px",
+              "grow": 1,
+              "shrink": 0
+            },
+            "propConfig": {
+              "position.display": {
+                "binding": {
+                  "config": {
+                    "path": "view.custom.display"
+                  },
+                  "enabled": false,
+                  "type": "property"
+                }
+              },
+              "props.text": {
+                "binding": {
+                  "config": {
+                    "expression": "len({session.custom.components})+\r\nlen({session.custom.connections})+\r\nlen({session.custom.containers})"
+                  },
+                  "transforms": [
+                    {
+                      "code": "\treturn \u0027{}\\nComponents\u0027.format(value)",
+                      "type": "script"
+                    }
+                  ],
+                  "type": "expr"
+                }
+              }
+            },
+            "props": {
+              "style": {
+                "borderBottomLeftRadius": "16px",
+                "borderBottomRightRadius": "16px",
+                "borderColor": "black",
+                "borderStyle": "solid",
+                "borderTopLeftRadius": "16px",
+                "borderTopRightRadius": "16px",
+                "marginBottom": "4px",
+                "marginRight": "8px",
+                "marginTop": "4px",
+                "padding": "4px"
+              },
+              "textStyle": {
+                "color": "black",
+                "fontSize": "12px",
+                "textAlign": "center",
+                "whiteSpace": "pre-wrap"
+              }
+            },
+            "type": "ia.display.label"
+          },
+          {
+            "children": [
+              {
+                "custom": {
+                  "position": "value"
+                },
+                "events": {
+                  "dom": {
+                    "onClick": {
+                      "config": {
+                        "script": "\tself.session.custom.requestConnection\u003dnot self.session.custom.requestConnection\n#\tsystem.perspective.sendMessage(\u0027requestConnection\u0027, True, scope\u003d\u0027session\u0027)\n#\tself.view.custom.display\u003dFalse\n\t#self.parent.parent.getChild(\"Accordion\").props.items[0].expanded\u003dTrue"
+                      },
+                      "scope": "G",
+                      "type": "script"
+                    }
+                  }
+                },
+                "meta": {
+                  "name": "Connections",
+                  "tooltip": {
+                    "location": "bottom",
+                    "text": "Connection (ctrl+Shift+P)"
+                  }
+                },
+                "position": {
+                  "basis": "100%",
+                  "shrink": 0
+                },
+                "propConfig": {
+                  "props.color": {
+                    "binding": {
+                      "config": {
+                        "path": "session.custom.requestConnection"
+                      },
+                      "transforms": [
+                        {
+                          "fallback": "black",
+                          "inputType": "scalar",
+                          "mappings": [
+                            {
+                              "input": true,
+                              "output": "green"
+                            }
+                          ],
+                          "outputType": "scalar",
+                          "type": "map"
+                        }
+                      ],
+                      "type": "property"
+                    }
+                  }
+                },
+                "props": {
+                  "path": "material/timeline",
+                  "style": {
+                    "classes": "controlIconHover",
+                    "cursor": "pointer",
+                    "paddingRight": "2px",
+                    "width": "36px"
+                  }
+                },
+                "type": "ia.display.icon"
+              },
+              {
+                "meta": {
+                  "name": "CustomToolTip"
+                },
+                "position": {
+                  "shrink": 0
+                },
+                "props": {
+                  "params": {
+                    "toolTip": "Connection (ctrl+Shift+P)"
+                  },
+                  "path": "Exchange/ArchitectureBuilder/EmbeddedViewsMain/CustomToolTip",
+                  "style": {
+                    "classes": "hiddenToolTip",
+                    "height": "16px",
+                    "marginTop": "8px",
+                    "overflow": "visible",
+                    "width": "190px"
+                  }
+                },
+                "type": "ia.display.view"
+              }
+            ],
+            "meta": {
+              "name": "Connection"
+            },
+            "position": {
+              "basis": "36px",
+              "shrink": 0
+            },
+            "props": {
+              "alignItems": "center",
+              "direction": "column",
+              "style": {
+                "classes": "containerTooltip",
+                "marginRight": "4px",
+                "overflow": "visible"
+              }
+            },
+            "type": "ia.container.flex"
+          },
+          {
+            "children": [
+              {
+                "events": {
+                  "dom": {
+                    "onClick": {
+                      "config": {
+                        "script": "\tsystem.perspective.sendMessage(\u0027insertArea\u0027, True,scope\u003d\u0027session\u0027)"
+                      },
+                      "scope": "G",
+                      "type": "script"
+                    }
+                  }
+                },
+                "meta": {
+                  "name": "AddArea",
+                  "tooltip": {
+                    "location": "bottom",
+                    "text": "Add Area (ctrl+a)"
+                  }
+                },
+                "position": {
+                  "basis": "100%",
+                  "shrink": 0
+                },
+                "props": {
+                  "color": "black",
+                  "path": "material/format_shapes",
+                  "style": {
+                    "classes": "controlIconHover",
+                    "cursor": "pointer",
+                    "paddingRight": "2px",
+                    "width": "36px"
+                  }
+                },
+                "type": "ia.display.icon"
+              },
+              {
+                "meta": {
+                  "name": "CustomToolTip"
+                },
+                "position": {
+                  "shrink": 0
+                },
+                "props": {
+                  "params": {
+                    "toolTip": "Add Area (ctrl+a)"
+                  },
+                  "path": "Exchange/ArchitectureBuilder/EmbeddedViewsMain/CustomToolTip",
+                  "style": {
+                    "classes": "hiddenToolTip",
+                    "marginTop": "8px",
+                    "overflow": "visible",
+                    "width": "140px"
+                  }
+                },
+                "type": "ia.display.view"
+              }
+            ],
+            "meta": {
+              "name": "Add Area"
+            },
+            "position": {
+              "basis": "36px",
+              "shrink": 0
+            },
+            "props": {
+              "alignItems": "center",
+              "direction": "column",
+              "style": {
+                "classes": "containerTooltip",
+                "marginRight": "4px",
+                "overflow": "visible"
+              }
+            },
+            "type": "ia.container.flex"
+          },
+          {
+            "children": [
+              {
+                "events": {
+                  "dom": {
+                    "onClick": {
+                      "config": {
+                        "script": "\tsystem.perspective.sendMessage(\u0027cancelConfigs\u0027,True,scope\u003d\u0027session\u0027)\n\t"
+                      },
+                      "scope": "G",
+                      "type": "script"
+                    }
+                  }
+                },
+                "meta": {
+                  "name": "Escape",
+                  "tooltip": {
+                    "tail": false,
+                    "text": "Cancel (Escape)"
+                  }
+                },
+                "position": {
+                  "basis": "100%",
+                  "shrink": 0
+                },
+                "props": {
+                  "color": "black",
+                  "path": "material/cancel_presentation",
+                  "style": {
+                    "classes": "controlIconHover",
+                    "cursor": "pointer",
+                    "paddingRight": "2px",
+                    "width": "36px"
+                  }
+                },
+                "type": "ia.display.icon"
+              },
+              {
+                "meta": {
+                  "name": "CustomToolTip"
+                },
+                "position": {
+                  "shrink": 0
+                },
+                "props": {
+                  "params": {
+                    "toolTip": "Cancel (Escape)"
+                  },
+                  "path": "Exchange/ArchitectureBuilder/EmbeddedViewsMain/CustomToolTip",
+                  "style": {
+                    "classes": "hiddenToolTip",
+                    "marginTop": "8px",
+                    "overflow": "visible",
+                    "width": "140px"
+                  }
+                },
+                "type": "ia.display.view"
+              }
+            ],
+            "meta": {
+              "name": "Escape"
+            },
+            "position": {
+              "basis": "36px",
+              "shrink": 0
+            },
+            "props": {
+              "alignItems": "center",
+              "direction": "column",
+              "style": {
+                "classes": "containerTooltip",
+                "marginRight": "4px",
+                "overflow": "visible"
+              }
+            },
+            "type": "ia.container.flex"
+          },
+          {
+            "children": [
+              {
+                "events": {
+                  "dom": {
+                    "onClick": {
+                      "config": {
+                        "script": "\tif self.view.custom.display:\n\t\tsystem.perspective.sendMessage(\u0027cancelConfigs\u0027,True,scope\u003d\u0027session\u0027)\n\tself.view.custom.display\u003d not self.view.custom.display"
+                      },
+                      "scope": "G",
+                      "type": "script"
+                    }
+                  }
+                },
+                "meta": {
+                  "name": "Information"
+                },
+                "position": {
+                  "basis": "100%",
+                  "shrink": 0
+                },
+                "propConfig": {
+                  "props.path": {
+                    "binding": {
+                      "config": {
+                        "path": "view.custom.display"
+                      },
+                      "enabled": false,
+                      "transforms": [
+                        {
+                          "fallback": "material/keyboard_arrow_down",
+                          "inputType": "scalar",
+                          "mappings": [
+                            {
+                              "input": true,
+                              "output": "material/keyboard_arrow_up"
+                            }
+                          ],
+                          "outputType": "scalar",
+                          "type": "map"
+                        }
+                      ],
+                      "type": "property"
+                    }
+                  }
+                },
+                "props": {
+                  "color": "black",
+                  "path": "material/info",
+                  "style": {
+                    "classes": "",
+                    "cursor": "pointer",
+                    "paddingRight": "2px",
+                    "width": "36px"
+                  }
+                },
+                "type": "ia.display.icon"
+              },
+              {
+                "meta": {
+                  "name": "CustomToolTip"
+                },
+                "position": {
+                  "shrink": 0
+                },
+                "props": {
+                  "params": {
+                    "toolTip": "Info"
+                  },
+                  "path": "Exchange/ArchitectureBuilder/EmbeddedViewsMain/CustomToolTip",
+                  "style": {
+                    "classes": "hiddenToolTip",
+                    "height": "15px",
+                    "marginTop": "8px",
+                    "overflow": "visible",
+                    "width": "80px"
+                  }
+                },
+                "type": "ia.display.view"
+              }
+            ],
+            "meta": {
+              "name": "Info"
+            },
+            "position": {
+              "basis": "36px",
+              "shrink": 0
+            },
+            "props": {
+              "alignItems": "center",
+              "direction": "column",
+              "style": {
+                "classes": "containerTooltip",
+                "marginRight": "4px",
+                "overflow": "visible"
+              }
+            },
+            "type": "ia.container.flex"
+          }
+        ],
+        "meta": {
+          "name": "FlexContainer"
+        },
+        "position": {
+          "basis": "56px",
+          "shrink": 0
+        },
+        "props": {
+          "justify": "flex-end",
+          "style": {
+            "backgroundColor": "lightgrey",
+            "borderBottomLeftRadius": "8px",
+            "borderBottomRightRadius": "8px",
+            "borderTopLeftRadius": "8px",
+            "borderTopRightRadius": "8px",
+            "overflow": "visible"
+          }
+        },
+        "type": "ia.container.flex"
+      },
+      {
+        "children": [
+          {
+            "meta": {
+              "name": "Filename"
+            },
+            "position": {
+              "shrink": 0
+            },
+            "props": {
+              "style": {
+                "marginLeft": "8px",
+                "marginRight": "4px"
+              },
+              "text": "Filename: "
+            },
+            "type": "ia.display.label"
+          },
+          {
+            "meta": {
+              "name": "File"
+            },
+            "position": {
+              "grow": 1,
+              "shrink": 0
+            },
+            "propConfig": {
+              "position.display": {
+                "binding": {
+                  "config": {
+                    "expression": "!{view.params.newArch}||!{parent.custom.edit}"
+                  },
+                  "type": "expr"
+                }
+              },
+              "props.text": {
+                "binding": {
+                  "config": {
+                    "path": "view.params.lastLoad.filename"
+                  },
+                  "type": "property"
+                }
+              }
+            },
+            "props": {
+              "textStyle": {
+                "fontWeight": "bolder"
+              }
+            },
+            "type": "ia.display.label"
+          }
+        ],
+        "custom": {
+          "edit": false
+        },
+        "meta": {
+          "name": "SaveHeader"
+        },
+        "position": {
+          "basis": "32px",
+          "shrink": 0
+        },
+        "propConfig": {
+          "position.display": {
+            "binding": {
+              "config": {
+                "path": "view.params.lastLoad"
+              },
+              "transforms": [
+                {
+                  "code": "\treturn \u0027filename\u0027 in value.keys()",
+                  "type": "script"
+                }
+              ],
+              "type": "property"
+            }
+          }
+        },
+        "props": {
+          "style": {
+            "backgroundColor": "--neutral-50",
+            "border-radius": "8px",
+            "marginBottom": "2px",
+            "marginTop": "2px",
+            "opacity": "1 !important"
+          }
+        },
+        "type": "ia.container.flex"
+      },
+      {
+        "meta": {
+          "name": "Accordion"
+        },
+        "position": {
+          "basis": "NaNpx"
+        },
+        "propConfig": {
+          "position.display": {
+            "binding": {
+              "config": {
+                "path": "view.custom.display"
+              },
+              "type": "property"
+            }
+          }
+        },
+        "props": {
+          "expansionMode": "single",
+          "items": [
+            {
+              "body": {
+                "height": "auto",
+                "style": {
+                  "classes": "",
+                  "margin": "0px",
+                  "overflow": "visible",
+                  "overflowX": "visible",
+                  "overflowY": "visible"
+                },
+                "useDefaultViewHeight": false,
+                "useDefaultViewWidth": false,
+                "viewParams": {},
+                "viewPath": "Exchange/ArchitectureBuilder/EmbeddedViewsMain/keyboardShortcutInformation"
+              },
+              "expanded": true,
+              "header": {
+                "content": {
+                  "style": {
+                    "classes": ""
+                  },
+                  "text": "Keyboard Shortcuts",
+                  "type": "text",
+                  "useDefaultViewHeight": false,
+                  "useDefaultViewWidth": false,
+                  "viewParams": {},
+                  "viewPath": ""
+                },
+                "height": "40px",
+                "reverse": false,
+                "style": {
+                  "classes": ""
+                },
+                "toggle": {
+                  "collapsedIcon": {
+                    "color": "",
+                    "path": "material/expand_more",
+                    "style": {
+                      "classes": ""
+                    }
+                  },
+                  "enabled": true,
+                  "expandedIcon": {
+                    "color": "",
+                    "path": "material/expand_less",
+                    "style": {
+                      "classes": ""
+                    }
+                  }
+                }
+              }
+            }
+          ],
+          "style": {
+            "backgroundColor": "--neutral-50",
+            "border-radius": "8px",
+            "width": "auto"
+          }
+        },
+        "type": "ia.display.accordion"
+      }
+    ],
+    "meta": {
+      "domId": "testid",
+      "name": "root"
+    },
+    "props": {
+      "direction": "column",
+      "style": {
+        "borderStyle": "hidden",
+        "borderWidth": 1,
+        "overflow": "visible"
+      }
+    },
+    "type": "ia.container.flex"
+  }
+}

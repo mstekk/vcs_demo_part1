@@ -1,0 +1,20 @@
+{
+  "scope": "A",
+  "version": 1,
+  "restricted": false,
+  "overridable": true,
+  "files": [
+    "EXHAUST FAN BLADES with BG.png"
+  ],
+  "attributes": {
+    "width": 134,
+    "format": "PNG",
+    "lastModification": {
+      "actor": "8.3-migration",
+      "timestamp": "2026-01-07T14:49:07Z"
+    },
+    "size": 24199,
+    "lastModificationSignature": "d9035d302f3dfc4d4fff5a8838e259d189b7594d9a5b654784fca2930be1d504",
+    "height": 134
+  }
+}

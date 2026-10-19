@@ -1,0 +1,19 @@
+{
+  "scope": "A",
+  "description": "ODBC Bridge driver from Sun Microsystems. Applicable only for connecting to Microsoft Access.",
+  "version": 1,
+  "restricted": false,
+  "overridable": true,
+  "files": [
+    "config.json"
+  ],
+  "attributes": {
+    "lastModification": {
+      "actor": "8.3-migration",
+      "timestamp": "2026-01-07T14:49:07Z"
+    },
+    "uuid": "2c6ef19e-24cc-41f7-9744-dcabecc62610",
+    "lastModificationSignature": "c06ce019d81669167bc60c4495c0f88a1f2205f484ac0e77864f080259fbb61b",
+    "enabled": true
+  }
+}

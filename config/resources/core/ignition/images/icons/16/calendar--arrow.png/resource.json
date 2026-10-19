@@ -1,0 +1,20 @@
+{
+  "scope": "A",
+  "version": 1,
+  "restricted": false,
+  "overridable": true,
+  "files": [
+    "calendar--arrow.png"
+  ],
+  "attributes": {
+    "width": 16,
+    "format": "PNG",
+    "lastModification": {
+      "actor": "8.3-migration",
+      "timestamp": "2026-01-07T14:49:07Z"
+    },
+    "size": 696,
+    "lastModificationSignature": "d512084c7ef5dfe5d109dc08609b8138a1950e5e9b123b01d06ce54ef37564d3",
+    "height": 16
+  }
+}

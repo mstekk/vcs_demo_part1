@@ -1,0 +1,17 @@
+{
+  "base": {
+    "style": {
+      "strokeWidth": "4"
+    }
+  },
+  "variants": [
+    {
+      "pseudo": "hover",
+      "style": {
+        "cursor": "pointer",
+        "opacity": "1",
+        "strokeWidth": "7"
+      }
+    }
+  ]
+}

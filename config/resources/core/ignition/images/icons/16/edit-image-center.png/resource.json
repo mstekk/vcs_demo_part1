@@ -1,0 +1,20 @@
+{
+  "scope": "A",
+  "version": 1,
+  "restricted": false,
+  "overridable": true,
+  "files": [
+    "edit-image-center.png"
+  ],
+  "attributes": {
+    "width": 16,
+    "format": "PNG",
+    "lastModification": {
+      "actor": "8.3-migration",
+      "timestamp": "2026-01-07T14:49:07Z"
+    },
+    "size": 409,
+    "lastModificationSignature": "10840d9e0e47f1e90035f64b6ed12af5c6bfc91f45bbc566f09142c4f86e11c4",
+    "height": 16
+  }
+}

@@ -1,0 +1,20 @@
+{
+  "scope": "A",
+  "version": 1,
+  "restricted": false,
+  "overridable": true,
+  "files": [
+    "system-monitor--arrow.png"
+  ],
+  "attributes": {
+    "width": 16,
+    "format": "PNG",
+    "lastModification": {
+      "actor": "8.3-migration",
+      "timestamp": "2026-01-07T14:49:07Z"
+    },
+    "size": 659,
+    "lastModificationSignature": "aee7048ff1dc7ccf5ef592899da0cedc027e21208ed4201b3c9baf6b2144dcbf",
+    "height": 16
+  }
+}

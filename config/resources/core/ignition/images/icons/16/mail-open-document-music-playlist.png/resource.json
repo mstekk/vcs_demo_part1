@@ -1,0 +1,20 @@
+{
+  "scope": "A",
+  "version": 1,
+  "restricted": false,
+  "overridable": true,
+  "files": [
+    "mail-open-document-music-playlist.png"
+  ],
+  "attributes": {
+    "width": 16,
+    "format": "PNG",
+    "lastModification": {
+      "actor": "8.3-migration",
+      "timestamp": "2026-01-07T14:49:07Z"
+    },
+    "size": 796,
+    "lastModificationSignature": "d9400cce6773e68f1c49c1b3b39321ad85968d608fea2d48ff904c5417fc6d4f",
+    "height": 16
+  }
+}

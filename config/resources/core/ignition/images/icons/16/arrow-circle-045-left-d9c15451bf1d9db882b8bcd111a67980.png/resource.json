@@ -1,0 +1,20 @@
+{
+  "scope": "A",
+  "version": 1,
+  "restricted": false,
+  "overridable": true,
+  "files": [
+    "arrow-circle-045-left-d9c15451bf1d9db882b8bcd111a67980.png"
+  ],
+  "attributes": {
+    "width": 16,
+    "format": "PNG",
+    "lastModification": {
+      "actor": "8.3-migration",
+      "timestamp": "2026-01-07T14:49:07Z"
+    },
+    "size": 814,
+    "lastModificationSignature": "829dcef1417b6a09c35032057e460bba0b24f5266166136d3116c280d5e1e142",
+    "height": 16
+  }
+}

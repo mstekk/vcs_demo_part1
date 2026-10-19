@@ -1,0 +1,20 @@
+{
+  "scope": "A",
+  "version": 1,
+  "restricted": false,
+  "overridable": true,
+  "files": [
+    "blue-document-film.png"
+  ],
+  "attributes": {
+    "width": 16,
+    "format": "PNG",
+    "lastModification": {
+      "actor": "8.3-migration",
+      "timestamp": "2026-01-07T14:49:07Z"
+    },
+    "size": 726,
+    "lastModificationSignature": "6d3cc05fd0a4ddcc1c9962983952083a218f73b878471b6401dc7e83f17a9b9a",
+    "height": 16
+  }
+}

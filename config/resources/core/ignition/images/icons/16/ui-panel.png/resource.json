@@ -1,0 +1,20 @@
+{
+  "scope": "A",
+  "version": 1,
+  "restricted": false,
+  "overridable": true,
+  "files": [
+    "ui-panel.png"
+  ],
+  "attributes": {
+    "width": 16,
+    "format": "PNG",
+    "lastModification": {
+      "actor": "8.3-migration",
+      "timestamp": "2026-01-07T14:49:07Z"
+    },
+    "size": 292,
+    "lastModificationSignature": "369c07b07ca5e7ae289343d1b6a2daff14b1b9db5eeca743c46a4a2613ccca39",
+    "height": 16
+  }
+}

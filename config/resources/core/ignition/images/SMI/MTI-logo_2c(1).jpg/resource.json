@@ -1,0 +1,20 @@
+{
+  "scope": "A",
+  "version": 1,
+  "restricted": false,
+  "overridable": true,
+  "files": [
+    "MTI-logo_2c(1).jpg"
+  ],
+  "attributes": {
+    "width": 391,
+    "format": "JPEG",
+    "lastModification": {
+      "actor": "8.3-migration",
+      "timestamp": "2026-01-07T14:49:07Z"
+    },
+    "size": 10860,
+    "lastModificationSignature": "baf06071bfcdf321b0db1d932468c5b8911482910662145e61d8a11bcc6032fa",
+    "height": 360
+  }
+}

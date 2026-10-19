@@ -1,0 +1,20 @@
+{
+  "scope": "A",
+  "version": 1,
+  "restricted": false,
+  "overridable": true,
+  "files": [
+    "validation-invalid-document.png"
+  ],
+  "attributes": {
+    "width": 16,
+    "format": "PNG",
+    "lastModification": {
+      "actor": "8.3-migration",
+      "timestamp": "2026-01-07T14:49:07Z"
+    },
+    "size": 809,
+    "lastModificationSignature": "42f96d25a0393c49b3c1b25d6cb1af26e9d6a22dc48a76cab8b9e319d5a5834f",
+    "height": 16
+  }
+}

@@ -1,0 +1,20 @@
+{
+  "scope": "A",
+  "version": 1,
+  "restricted": false,
+  "overridable": true,
+  "files": [
+    "linegraphic3.png"
+  ],
+  "attributes": {
+    "width": 24,
+    "format": "PNG",
+    "lastModification": {
+      "actor": "8.3-migration",
+      "timestamp": "2026-01-07T14:49:07Z"
+    },
+    "size": 458,
+    "lastModificationSignature": "c543d5ed4afcb48e5c11845cc6155ec5d196fcaf1c5e53cc287dfa29f811341a",
+    "height": 24
+  }
+}

@@ -1,0 +1,20 @@
+{
+  "scope": "A",
+  "version": 1,
+  "restricted": false,
+  "overridable": true,
+  "files": [
+    "sticky-note-shred.png"
+  ],
+  "attributes": {
+    "width": 16,
+    "format": "PNG",
+    "lastModification": {
+      "actor": "8.3-migration",
+      "timestamp": "2026-01-07T14:49:07Z"
+    },
+    "size": 573,
+    "lastModificationSignature": "527ff444b9c32c1ea586acbd2d0d81f10e5011b20dbcb19da2cb9025b979ea77",
+    "height": 16
+  }
+}

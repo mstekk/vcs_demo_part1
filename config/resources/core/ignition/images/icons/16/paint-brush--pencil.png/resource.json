@@ -1,0 +1,20 @@
+{
+  "scope": "A",
+  "version": 1,
+  "restricted": false,
+  "overridable": true,
+  "files": [
+    "paint-brush--pencil.png"
+  ],
+  "attributes": {
+    "width": 16,
+    "format": "PNG",
+    "lastModification": {
+      "actor": "8.3-migration",
+      "timestamp": "2026-01-07T14:49:07Z"
+    },
+    "size": 731,
+    "lastModificationSignature": "d511725c649e9388d9dee8a5b40058df8e3a71a93265684dd6fa69c7d858d343",
+    "height": 16
+  }
+}

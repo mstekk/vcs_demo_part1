@@ -1,0 +1,20 @@
+{
+  "scope": "A",
+  "version": 1,
+  "restricted": false,
+  "overridable": true,
+  "files": [
+    "network-clouds.png"
+  ],
+  "attributes": {
+    "width": 16,
+    "format": "PNG",
+    "lastModification": {
+      "actor": "8.3-migration",
+      "timestamp": "2026-01-07T14:49:07Z"
+    },
+    "size": 836,
+    "lastModificationSignature": "77f4ceecb56587d317f17640bb8a6d84b836353678882ceb383e6e152631b470",
+    "height": 16
+  }
+}

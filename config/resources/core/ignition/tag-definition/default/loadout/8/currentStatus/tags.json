@@ -1,0 +1,38 @@
+[
+  {
+    "valueSource": "memory",
+    "readOnly": false,
+    "dataType": "Int4",
+    "writePermissions": {
+      "type": "AllOf",
+      "securityLevels": []
+    },
+    "name": "currentDrop",
+    "defaultValue": 0,
+    "readPermissions": {
+      "type": "AllOf",
+      "securityLevels": []
+    },
+    "tagGroup": "Default",
+    "tagType": "AtomicTag",
+    "enabled": true
+  },
+  {
+    "valueSource": "memory",
+    "readOnly": false,
+    "dataType": "Boolean",
+    "writePermissions": {
+      "type": "AllOf",
+      "securityLevels": []
+    },
+    "name": "loadingProduct",
+    "defaultValue": false,
+    "readPermissions": {
+      "type": "AllOf",
+      "securityLevels": []
+    },
+    "tagGroup": "Default",
+    "tagType": "AtomicTag",
+    "enabled": true
+  }
+]

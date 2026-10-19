@@ -1,0 +1,20 @@
+{
+  "scope": "A",
+  "version": 1,
+  "restricted": false,
+  "overridable": true,
+  "files": [
+    "bank--arrow-18c3545110d2e2d010fb917a2b314d99.png"
+  ],
+  "attributes": {
+    "width": 16,
+    "format": "PNG",
+    "lastModification": {
+      "actor": "8.3-migration",
+      "timestamp": "2026-01-07T14:49:07Z"
+    },
+    "size": 772,
+    "lastModificationSignature": "8f5b8712db1186ef59aeea9879431325a6e54432dadddd8501dfb247619652ca",
+    "height": 16
+  }
+}

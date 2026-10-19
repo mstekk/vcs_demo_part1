@@ -1,0 +1,20 @@
+{
+  "scope": "A",
+  "version": 1,
+  "restricted": false,
+  "overridable": true,
+  "files": [
+    "box-label.png"
+  ],
+  "attributes": {
+    "width": 16,
+    "format": "PNG",
+    "lastModification": {
+      "actor": "8.3-migration",
+      "timestamp": "2026-01-07T14:49:07Z"
+    },
+    "size": 665,
+    "lastModificationSignature": "7ac5152b1d7e751049fb5dc88eca5c41b61e23c2ae88ce5a0f66dbd389f58496",
+    "height": 16
+  }
+}

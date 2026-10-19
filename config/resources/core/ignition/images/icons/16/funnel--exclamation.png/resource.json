@@ -1,0 +1,20 @@
+{
+  "scope": "A",
+  "version": 1,
+  "restricted": false,
+  "overridable": true,
+  "files": [
+    "funnel--exclamation.png"
+  ],
+  "attributes": {
+    "width": 16,
+    "format": "PNG",
+    "lastModification": {
+      "actor": "8.3-migration",
+      "timestamp": "2026-01-07T14:49:07Z"
+    },
+    "size": 727,
+    "lastModificationSignature": "8df5cdbd16a91a8a0fef185fa9b8cd2f62caae4aa5a4aaea89f9c8c6b54468e7",
+    "height": 16
+  }
+}

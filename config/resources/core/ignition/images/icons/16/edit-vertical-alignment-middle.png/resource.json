@@ -1,0 +1,20 @@
+{
+  "scope": "A",
+  "version": 1,
+  "restricted": false,
+  "overridable": true,
+  "files": [
+    "edit-vertical-alignment-middle.png"
+  ],
+  "attributes": {
+    "width": 16,
+    "format": "PNG",
+    "lastModification": {
+      "actor": "8.3-migration",
+      "timestamp": "2026-01-07T14:49:07Z"
+    },
+    "size": 392,
+    "lastModificationSignature": "37a015af42267ff9b3c0346df19518030cb38b389de1c1a1131698478d7e9938",
+    "height": 16
+  }
+}

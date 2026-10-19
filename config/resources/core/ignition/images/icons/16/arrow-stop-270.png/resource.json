@@ -1,0 +1,20 @@
+{
+  "scope": "A",
+  "version": 1,
+  "restricted": false,
+  "overridable": true,
+  "files": [
+    "arrow-stop-270.png"
+  ],
+  "attributes": {
+    "width": 16,
+    "format": "PNG",
+    "lastModification": {
+      "actor": "8.3-migration",
+      "timestamp": "2026-01-07T14:49:07Z"
+    },
+    "size": 707,
+    "lastModificationSignature": "005d08d1e7c0237944513b4f8ca6eb14f18938220b314b63398dfbcf923d6c68",
+    "height": 16
+  }
+}

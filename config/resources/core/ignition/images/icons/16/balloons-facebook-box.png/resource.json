@@ -1,0 +1,20 @@
+{
+  "scope": "A",
+  "version": 1,
+  "restricted": false,
+  "overridable": true,
+  "files": [
+    "balloons-facebook-box.png"
+  ],
+  "attributes": {
+    "width": 16,
+    "format": "PNG",
+    "lastModification": {
+      "actor": "8.3-migration",
+      "timestamp": "2026-01-07T14:49:07Z"
+    },
+    "size": 716,
+    "lastModificationSignature": "36533ec8921cbcb6084f7dcd5a162a7e9b056ec8b9b338c89f177760186f2f51",
+    "height": 16
+  }
+}

@@ -1,0 +1,20 @@
+{
+  "scope": "A",
+  "version": 1,
+  "restricted": false,
+  "overridable": true,
+  "files": [
+    "Control Valve Vertical.png"
+  ],
+  "attributes": {
+    "width": 72,
+    "format": "PNG",
+    "lastModification": {
+      "actor": "8.3-migration",
+      "timestamp": "2026-01-07T14:49:07Z"
+    },
+    "size": 1395,
+    "lastModificationSignature": "8bd47dbc32fb8acbe4084b8723142807f7636393bbf9d7715d343de93f6fff72",
+    "height": 138
+  }
+}

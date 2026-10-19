@@ -1,0 +1,20 @@
+{
+  "scope": "A",
+  "version": 1,
+  "restricted": false,
+  "overridable": true,
+  "files": [
+    "Valve 7.png"
+  ],
+  "attributes": {
+    "width": 90,
+    "format": "PNG",
+    "lastModification": {
+      "actor": "8.3-migration",
+      "timestamp": "2026-01-07T14:49:07Z"
+    },
+    "size": 6956,
+    "lastModificationSignature": "7472517e4a9ff1cd2cee246ccc179c7c60ae84b0bf6e0e3e28166982e3bad0b1",
+    "height": 117
+  }
+}

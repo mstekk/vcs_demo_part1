@@ -1,0 +1,20 @@
+{
+  "scope": "A",
+  "version": 1,
+  "restricted": false,
+  "overridable": true,
+  "files": [
+    "barcode-1fc3545199e35de8d093611919fc4c36.png"
+  ],
+  "attributes": {
+    "width": 16,
+    "format": "PNG",
+    "lastModification": {
+      "actor": "8.3-migration",
+      "timestamp": "2026-01-07T14:49:07Z"
+    },
+    "size": 217,
+    "lastModificationSignature": "9e51228769d851acb3f7065ebc4443a38de7025f011857d06ec088830f34436b",
+    "height": 16
+  }
+}

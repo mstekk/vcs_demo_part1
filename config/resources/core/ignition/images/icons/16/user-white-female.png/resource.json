@@ -1,0 +1,20 @@
+{
+  "scope": "A",
+  "version": 1,
+  "restricted": false,
+  "overridable": true,
+  "files": [
+    "user-white-female.png"
+  ],
+  "attributes": {
+    "width": 16,
+    "format": "PNG",
+    "lastModification": {
+      "actor": "8.3-migration",
+      "timestamp": "2026-01-07T14:49:07Z"
+    },
+    "size": 684,
+    "lastModificationSignature": "5c0722ec81cfc2ba93f3caa5c0d9017513db39a200451e1eb2cc080a2714e591",
+    "height": 16
+  }
+}

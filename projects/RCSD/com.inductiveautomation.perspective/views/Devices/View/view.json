@@ -1,0 +1,113 @@
+{
+  "custom": {},
+  "params": {},
+  "propConfig": {
+    "custom.key": {
+      "persistent": true
+    }
+  },
+  "props": {},
+  "root": {
+    "children": [
+      {
+        "children": [
+          {
+            "meta": {
+              "name": "CoordinateContainer"
+            },
+            "position": {
+              "height": 1,
+              "width": 1
+            },
+            "propConfig": {
+              "props.style.backgroundColor": {
+                "binding": {
+                  "config": {
+                    "path": "parent.custom.color"
+                  },
+                  "type": "property"
+                }
+              }
+            },
+            "type": "ia.container.coord"
+          },
+          {
+            "meta": {
+              "name": "CoordinateContainer_0"
+            },
+            "position": {
+              "width": 1
+            },
+            "propConfig": {
+              "position.height": {
+                "binding": {
+                  "config": {
+                    "expression": "1.0 - {parent.custom.value_as_percent}/100"
+                  },
+                  "type": "expr"
+                }
+              }
+            },
+            "props": {
+              "style": {
+                "backgroundColor": "#D5D5D5"
+              }
+            },
+            "type": "ia.container.coord"
+          }
+        ],
+        "custom": {
+          "value_as_percent": 100
+        },
+        "meta": {
+          "name": "CoordinateContainer"
+        },
+        "position": {
+          "height": 200,
+          "width": 195,
+          "x": 139,
+          "y": 268
+        },
+        "propConfig": {
+          "custom.color": {
+            "binding": {
+              "config": {
+                "path": "this.custom.value_as_percent"
+              },
+              "transforms": [
+                {
+                  "expression": "toStr({value})",
+                  "type": "expression"
+                },
+                {
+                  "fallback": "#D5D5D5",
+                  "inputType": "range",
+                  "mappings": [
+                    {
+                      "input": {
+                        "max": 100,
+                        "min": 0
+                      },
+                      "output": "#8A8AFF"
+                    }
+                  ],
+                  "outputType": "color",
+                  "type": "map"
+                }
+              ],
+              "type": "property"
+            }
+          }
+        },
+        "props": {
+          "mode": "percent"
+        },
+        "type": "ia.container.coord"
+      }
+    ],
+    "meta": {
+      "name": "root"
+    },
+    "type": "ia.container.coord"
+  }
+}

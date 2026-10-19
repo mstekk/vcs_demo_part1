@@ -1,0 +1,20 @@
+{
+  "scope": "A",
+  "description": "This is the default and always present internal authentication profile.",
+  "version": 1,
+  "restricted": false,
+  "overridable": true,
+  "files": [
+    "config.json",
+    "users.json"
+  ],
+  "attributes": {
+    "lastModification": {
+      "actor": "unknown",
+      "timestamp": "2026-03-21T04:24:43Z"
+    },
+    "uuid": "4b46b2f8-f11f-4dde-8a66-7e54fbfc027e",
+    "lastModificationSignature": "cd62320ce4591a0e5a14926e89eea8d4d0c50715ca783b7e8750044c0221a788",
+    "enabled": true
+  }
+}

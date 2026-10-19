@@ -1,0 +1,20 @@
+{
+  "scope": "A",
+  "version": 1,
+  "restricted": false,
+  "overridable": true,
+  "files": [
+    "disk.png"
+  ],
+  "attributes": {
+    "width": 24,
+    "format": "PNG",
+    "lastModification": {
+      "actor": "8.3-migration",
+      "timestamp": "2026-01-07T14:49:07Z"
+    },
+    "size": 649,
+    "lastModificationSignature": "2f06605fb7cd9f9b094967baac2097c728bd6b724b0c624a5b2b3d6da81e7c4b",
+    "height": 24
+  }
+}

@@ -1,0 +1,20 @@
+{
+  "scope": "A",
+  "version": 1,
+  "restricted": false,
+  "overridable": true,
+  "files": [
+    "sort-alphabet-descending.png"
+  ],
+  "attributes": {
+    "width": 16,
+    "format": "PNG",
+    "lastModification": {
+      "actor": "8.3-migration",
+      "timestamp": "2026-01-07T14:49:07Z"
+    },
+    "size": 574,
+    "lastModificationSignature": "951c6cef0c7b07196a3857f089b088629fb931d5b38b9585644d29c67e2e5a90",
+    "height": 16
+  }
+}

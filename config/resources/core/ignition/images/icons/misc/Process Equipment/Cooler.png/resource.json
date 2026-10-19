@@ -1,0 +1,20 @@
+{
+  "scope": "A",
+  "version": 1,
+  "restricted": false,
+  "overridable": true,
+  "files": [
+    "Cooler.png"
+  ],
+  "attributes": {
+    "width": 399,
+    "format": "PNG",
+    "lastModification": {
+      "actor": "8.3-migration",
+      "timestamp": "2026-01-07T14:49:07Z"
+    },
+    "size": 61999,
+    "lastModificationSignature": "2069b104c068f4239b4060755ae0a3c8856453b21afb488eb33cb0386ad51b76",
+    "height": 84
+  }
+}

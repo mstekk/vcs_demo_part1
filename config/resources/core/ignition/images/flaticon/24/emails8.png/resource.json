@@ -1,0 +1,20 @@
+{
+  "scope": "A",
+  "version": 1,
+  "restricted": false,
+  "overridable": true,
+  "files": [
+    "emails8.png"
+  ],
+  "attributes": {
+    "width": 24,
+    "format": "PNG",
+    "lastModification": {
+      "actor": "8.3-migration",
+      "timestamp": "2026-01-07T14:49:07Z"
+    },
+    "size": 573,
+    "lastModificationSignature": "d68a9fd9d8d9060b59d555e068b25d33107485fe737c25b9e994b04cb343817e",
+    "height": 24
+  }
+}

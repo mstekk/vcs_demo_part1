@@ -1,0 +1,20 @@
+{
+  "scope": "A",
+  "version": 1,
+  "restricted": false,
+  "overridable": true,
+  "files": [
+    "arrow-retweet.png"
+  ],
+  "attributes": {
+    "width": 16,
+    "format": "PNG",
+    "lastModification": {
+      "actor": "8.3-migration",
+      "timestamp": "2026-01-07T14:49:07Z"
+    },
+    "size": 710,
+    "lastModificationSignature": "c39dde8560abaec7c0f0f240ccb10e1f9f37aca5a65fedcb018e1c8c36abb544",
+    "height": 16
+  }
+}

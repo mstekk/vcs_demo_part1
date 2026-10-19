@@ -1,0 +1,145 @@
+{
+  "custom": {},
+  "params": {
+    "UUID": "I2feea8ee",
+    "expanded": true
+  },
+  "propConfig": {
+    "params.UUID": {
+      "paramDirection": "input",
+      "persistent": true
+    },
+    "params.expanded": {
+      "paramDirection": "inout",
+      "persistent": true
+    }
+  },
+  "props": {
+    "defaultSize": {
+      "height": 40
+    }
+  },
+  "root": {
+    "children": [
+      {
+        "events": {
+          "dom": {
+            "onClick": {
+              "config": {
+                "script": "\t# Determine new value\n\tisExpanded \u003d not self.view.params.expanded\n\n\tif self.session.custom.audit.bom:\n\t\t# Log BOM opened\n\t\tif isExpanded:\n\t\t\taction \u003d \"Expanded\"\n\t\telse:\n\t\t\taction \u003d \"Collapsed\"\n\t\tsystem.util.audit(action\u003daction, actionTarget\u003d\"BOM\", actionValue\u003d\"Gateway Config\", originatingSystem\u003d[\"uuid\",self.view.params.UUID,\"type\",self.view.params.type])\n\n\t# Call message handler\n\tpayload \u003d {\"source\": \"gatewayConfig\", \"uuid\": self.view.params.UUID, \"value\": isExpanded}\n\tsystem.perspective.sendMessage(\"toggleExpansion\", payload)"
+              },
+              "scope": "G",
+              "type": "script"
+            }
+          }
+        },
+        "meta": {
+          "name": "Toggle",
+          "tooltip": {
+            "enabled": true,
+            "text": "Expand/Collapse"
+          }
+        },
+        "position": {
+          "basis": "30px"
+        },
+        "propConfig": {
+          "props.path": {
+            "binding": {
+              "config": {
+                "path": "view.params.expanded"
+              },
+              "transforms": [
+                {
+                  "fallback": "material/expand_more",
+                  "inputType": "scalar",
+                  "mappings": [
+                    {
+                      "input": true,
+                      "output": "material/expand_less"
+                    }
+                  ],
+                  "outputType": "scalar",
+                  "type": "map"
+                }
+              ],
+              "type": "property"
+            }
+          }
+        },
+        "props": {
+          "style": {
+            "cursor": "pointer"
+          }
+        },
+        "type": "ia.display.icon"
+      },
+      {
+        "meta": {
+          "name": "Title"
+        },
+        "position": {
+          "shrink": 0
+        },
+        "props": {
+          "style": {
+            "cursor": "auto",
+            "marginLeft": "6px",
+            "marginRight": "6px"
+          },
+          "text": "Gateway Configuration"
+        },
+        "type": "ia.display.label"
+      },
+      {
+        "events": {
+          "dom": {
+            "onClick": {
+              "config": {
+                "script": "\tpath\u003d\u0027Exchange/ArchitectureBuilder/Components/Server/Config\u0027\n\tsystem.perspective.openPopup(self.view.params.UUID, path, params \u003d {\"uuid\": self.view.params.UUID}, title \u003d \"Gateway Configuration\", viewportBound \u003d True, resizable \u003d False)\n"
+              },
+              "scope": "G",
+              "type": "script"
+            }
+          }
+        },
+        "meta": {
+          "name": "Config",
+          "tooltip": {
+            "enabled": true,
+            "text": "Open Gateway Configuration"
+          }
+        },
+        "position": {
+          "basis": "26px",
+          "shrink": 0
+        },
+        "props": {
+          "path": "material/settings",
+          "style": {
+            "classes": "iconRotate",
+            "cursor": "pointer",
+            "marginBottom": "5px",
+            "marginRight": "4px",
+            "marginTop": "5px",
+            "overflow": "hidden"
+          }
+        },
+        "type": "ia.display.icon"
+      }
+    ],
+    "meta": {
+      "name": "root"
+    },
+    "props": {
+      "style": {
+        "borderTopLeftRadius": "16px",
+        "borderTopRightRadius": "16px",
+        "margin": "0px",
+        "marginBottom": "0px",
+        "marginTop": "0px"
+      }
+    },
+    "type": "ia.container.flex"
+  }
+}

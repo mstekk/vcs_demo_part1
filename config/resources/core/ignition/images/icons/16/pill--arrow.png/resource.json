@@ -1,0 +1,20 @@
+{
+  "scope": "A",
+  "version": 1,
+  "restricted": false,
+  "overridable": true,
+  "files": [
+    "pill--arrow.png"
+  ],
+  "attributes": {
+    "width": 16,
+    "format": "PNG",
+    "lastModification": {
+      "actor": "8.3-migration",
+      "timestamp": "2026-01-07T14:49:07Z"
+    },
+    "size": 693,
+    "lastModificationSignature": "a1dd2c19c4ba64da8f9b1819c8112941f277789dd40dbdfb66b0514d95e5e009",
+    "height": 16
+  }
+}

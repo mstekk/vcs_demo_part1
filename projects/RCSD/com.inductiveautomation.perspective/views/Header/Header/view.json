@@ -1,0 +1,108 @@
+{
+  "custom": {},
+  "events": {
+    "system": {
+      "onShutdown": {
+        "config": {
+          "script": "\timport re\n\t\n\t# ------------------------------\n\t# 1️⃣ Get all usernames\n\t# ------------------------------\n\tusers \u003d system.user.getUsers(\u0027default\u0027)\n\tusernames \u003d []\n\t\n\tfor user in users:\n\t    s \u003d str(user)\n\t    match \u003d re.search(r\u0027username\u003d([^,]+)\u0027, s)\n\t    if match:\n\t        usernames.append(match.group(1))\n\t\n\tprint(\"Usernames:\", usernames)\n\t\n\t# ------------------------------\n\t# 2️⃣ Ensure folder exists\n\t# ------------------------------\n\tfolderPath \u003d \"[RCSD]Users_Theme\"\n\t\n\t# Browse the folder path to check if it exists\n\ttry:\n\t    system.tag.browse(folderPath)\n\t    folderExists \u003d True\n\texcept:\n\t    folderExists \u003d False\n\t\n\tif not folderExists:\n\t    # Create the folder under [RCSD]\n\t    system.tag.addTag(parentPath\u003d\"[RCSD]\", tag\u003d{\n\t        \"name\": \"Users_Theme\",\n\t        \"tagType\": \"Folder\",\n\t        \"enabled\": True\n\t    })\n\t    print(\"Created folder [RCSD]Users_Theme\")\n\t\n\t# ------------------------------\n\t# 3️⃣ Get existing tags under the folder\n\t# ------------------------------\n\tresults \u003d system.tag.browse(folderPath)\n\ttagNames \u003d [str(i[\u0027name\u0027]) for i in results.getResults()]\n\t\n\tprint(\"Existing tag names:\", tagNames)\n\t\n\t# ------------------------------\n\t# 4️⃣ Compare and find missing usernames\n\t# ------------------------------\n\tmissingUsernames \u003d [u for u in usernames if u not in tagNames]\n\t\n\t# Print missing usernames as comma-separated string\n\tprint(\"Missing usernames:\", \", \".join(missingUsernames))\n\t\n\t# ------------------------------\n\t# 5️⃣ Create missing tags (one per username)\n\t# ------------------------------\n\tfor name in missingUsernames:\n\t    newTag \u003d {\n\t        \"name\": name,          # Tag name \u003d username\n\t        \"tagType\": \"AtomicTag\",   # Correct tag type\n\t        \"dataType\": \"String\",  # String type\n\t        \"value\": \"\",           # Default empty value\n\t        \"enabled\": True\n\t    }\n\t    # Use configure to add the tag\n\t    system.tag.configure(basePath\u003dfolderPath, tags\u003d[newTag])\n\t    print(\"Created tag:\", name)\n\t\n\tprint(\"✅ Done creating missing tags.\")\n\t\n\t# ------------------------------\n\t# 6️⃣ Apply theme for logged-in user\n\t# ------------------------------\n\tusername \u003d self.session.props.auth.user.userName\n\t\n\tif not username:\n\t    self.session.props.theme \u003d \"light\"\n\t    return\n\t\n\ttagPath \u003d folderPath + \"/\" + username\n\tresult \u003d system.tag.readBlocking([tagPath])[0]\n\t\n\tif result.quality.isGood() and result.value:\n\t    self.session.props.theme \u003d result.value\n\telse:\n\t    self.session.props.theme \u003d \"light\""
+        },
+        "scope": "G",
+        "type": "script"
+      },
+      "onStartup": {
+        "config": {
+          "script": "\timport re\n\t\n\t# ------------------------------\n\t# 1️⃣ Get all usernames\n\t# ------------------------------\n\tusers \u003d system.user.getUsers(\u0027default\u0027)\n\tusernames \u003d []\n\t\n\tfor user in users:\n\t    s \u003d str(user)\n\t    match \u003d re.search(r\u0027username\u003d([^,]+)\u0027, s)\n\t    if match:\n\t        usernames.append(match.group(1))\n\t\n\tprint(\"Usernames:\", usernames)\n\t\n\t# ------------------------------\n\t# 2️⃣ Ensure folder exists\n\t# ------------------------------\n\tfolderPath \u003d \"[RCSD]Users_Theme\"\n\t\n\t# Browse the folder path to check if it exists\n\ttry:\n\t    system.tag.browse(folderPath)\n\t    folderExists \u003d True\n\texcept:\n\t    folderExists \u003d False\n\t\n\tif not folderExists:\n\t    # Create the folder under [RCSD]\n\t    system.tag.addTag(parentPath\u003d\"[RCSD]\", tag\u003d{\n\t        \"name\": \"Users_Theme\",\n\t        \"tagType\": \"Folder\",\n\t        \"enabled\": True\n\t    })\n\t    print(\"Created folder [RCSD]Users_Theme\")\n\t\n\t# ------------------------------\n\t# 3️⃣ Get existing tags under the folder\n\t# ------------------------------\n\tresults \u003d system.tag.browse(folderPath)\n\ttagNames \u003d [str(i[\u0027name\u0027]) for i in results.getResults()]\n\t\n\tprint(\"Existing tag names:\", tagNames)\n\t\n\t# ------------------------------\n\t# 4️⃣ Compare and find missing usernames\n\t# ------------------------------\n\tmissingUsernames \u003d [u for u in usernames if u not in tagNames]\n\t\n\t# Print missing usernames as comma-separated string\n\tprint(\"Missing usernames:\", \", \".join(missingUsernames))\n\t\n\t# ------------------------------\n\t# 5️⃣ Create missing tags (one per username)\n\t# ------------------------------\n\tfor name in missingUsernames:\n\t    newTag \u003d {\n\t        \"name\": name,          # Tag name \u003d username\n\t        \"tagType\": \"AtomicTag\",   # Correct tag type\n\t        \"dataType\": \"String\",  # String type\n\t        \"value\": \"\",           # Default empty value\n\t        \"enabled\": True\n\t    }\n\t    # Use configure to add the tag\n\t    system.tag.configure(basePath\u003dfolderPath, tags\u003d[newTag])\n\t    print(\"Created tag:\", name)\n\t\n\tprint(\"✅ Done creating missing tags.\")\n\t\n\t# ------------------------------\n\t# 6️⃣ Apply theme for logged-in user\n\t# ------------------------------\n\tusername \u003d self.session.props.auth.user.userName\n\t\n\tif not username:\n\t    self.session.props.theme \u003d \"light\"\n\t    return\n\t\n\ttagPath \u003d folderPath + \"/\" + username\n\tresult \u003d system.tag.readBlocking([tagPath])[0]\n\t\n\tif result.quality.isGood() and result.value:\n\t    self.session.props.theme \u003d result.value\n\telse:\n\t    self.session.props.theme \u003d \"light\""
+        },
+        "scope": "G",
+        "type": "script"
+      }
+    }
+  },
+  "params": {},
+  "props": {},
+  "root": {
+    "children": [
+      {
+        "meta": {
+          "name": "Large"
+        },
+        "position": {
+          "size": "large"
+        },
+        "props": {
+          "params": {
+            "theme": "light"
+          },
+          "path": "Header/Large"
+        },
+        "type": "ia.display.view"
+      },
+      {
+        "children": [
+          {
+            "meta": {
+              "name": "Medium"
+            },
+            "position": {
+              "size": "large"
+            },
+            "props": {
+              "params": {
+                "theme": "light"
+              },
+              "path": "Header/Medium"
+            },
+            "type": "ia.display.view"
+          },
+          {
+            "events": {
+              "system": {
+                "onStartup": {
+                  "config": {
+                    "script": "\timport re\n\t\n\t# ------------------------------\n\t# 1️⃣ Get all usernames\n\t# ------------------------------\n\tusers \u003d system.user.getUsers(\u0027default\u0027)\n\tusernames \u003d []\n\t\n\tfor user in users:\n\t    s \u003d str(user)\n\t    match \u003d re.search(r\u0027username\u003d([^,]+)\u0027, s)\n\t    if match:\n\t        usernames.append(match.group(1))\n\t\n\tprint(\"Usernames:\", usernames)\n\t\n\t# ------------------------------\n\t# 2️⃣ Ensure folder exists\n\t# ------------------------------\n\tfolderPath \u003d \"[RCSD]Users_Theme\"\n\t\n\t# Browse the folder path to check if it exists\n\ttry:\n\t    system.tag.browse(folderPath)\n\t    folderExists \u003d True\n\texcept:\n\t    folderExists \u003d False\n\t\n\tif not folderExists:\n\t    # Create the folder under [RCSD]\n\t    system.tag.addTag(parentPath\u003d\"[RCSD]\", tag\u003d{\n\t        \"name\": \"Users_Theme\",\n\t        \"tagType\": \"Folder\",\n\t        \"enabled\": True\n\t    })\n\t    print(\"Created folder [RCSD]Users_Theme\")\n\t\n\t# ------------------------------\n\t# 3️⃣ Get existing tags under the folder\n\t# ------------------------------\n\tresults \u003d system.tag.browse(folderPath)\n\ttagNames \u003d [str(i[\u0027name\u0027]) for i in results.getResults()]\n\t\n\tprint(\"Existing tag names:\", tagNames)\n\t\n\t# ------------------------------\n\t# 4️⃣ Compare and find missing usernames\n\t# ------------------------------\n\tmissingUsernames \u003d [u for u in usernames if u not in tagNames]\n\t\n\t# Print missing usernames as comma-separated string\n\tprint(\"Missing usernames:\", \", \".join(missingUsernames))\n\t\n\t# ------------------------------\n\t# 5️⃣ Create missing tags (one per username)\n\t# ------------------------------\n\tfor name in missingUsernames:\n\t    newTag \u003d {\n\t        \"name\": name,          # Tag name \u003d username\n\t        \"tagType\": \"AtomicTag\",   # Correct tag type\n\t        \"dataType\": \"String\",  # String type\n\t        \"value\": \"\",           # Default empty value\n\t        \"enabled\": True\n\t    }\n\t    # Use configure to add the tag\n\t    system.tag.configure(basePath\u003dfolderPath, tags\u003d[newTag])\n\t    print(\"Created tag:\", name)\n\t\n\tprint(\"✅ Done creating missing tags.\")\n\t\n\t# ------------------------------\n\t# 6️⃣ Apply theme for logged-in user\n\t# ------------------------------\n\tusername \u003d self.session.props.auth.user.userName\n\t\n\tif not username:\n\t    self.session.props.theme \u003d \"light\"\n\t    return\n\t\n\ttagPath \u003d folderPath + \"/\" + username\n\tresult \u003d system.tag.readBlocking([tagPath])[0]\n\t\n\tif result.quality.isGood() and result.value:\n\t    self.session.props.theme \u003d result.value\n\telse:\n\t    self.session.props.theme \u003d \"light\""
+                  },
+                  "scope": "G",
+                  "type": "script"
+                }
+              }
+            },
+            "meta": {
+              "name": "Small"
+            },
+            "props": {
+              "params": {
+                "theme": "light"
+              },
+              "path": "Header/Small"
+            },
+            "type": "ia.display.view"
+          }
+        ],
+        "meta": {
+          "name": "BreakpointContainer"
+        },
+        "props": {
+          "breakpoint": 800
+        },
+        "type": "ia.container.breakpt"
+      }
+    ],
+    "meta": {
+      "name": "root"
+    },
+    "propConfig": {
+      "custom.screenSize": {
+        "binding": {
+          "config": {
+            "path": "page.props.dimensions.screen.width"
+          },
+          "type": "property"
+        }
+      }
+    },
+    "props": {
+      "breakpoint": 1650
+    },
+    "type": "ia.container.breakpt"
+  }
+}

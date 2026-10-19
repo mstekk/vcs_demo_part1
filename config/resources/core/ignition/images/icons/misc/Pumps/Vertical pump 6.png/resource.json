@@ -1,0 +1,20 @@
+{
+  "scope": "A",
+  "version": 1,
+  "restricted": false,
+  "overridable": true,
+  "files": [
+    "Vertical pump 6.png"
+  ],
+  "attributes": {
+    "width": 64,
+    "format": "PNG",
+    "lastModification": {
+      "actor": "8.3-migration",
+      "timestamp": "2026-01-07T14:49:07Z"
+    },
+    "size": 1885,
+    "lastModificationSignature": "9244e958d043fdf444b7bc024dd91ef3ac0621d12b1ecddf063839096f44485c",
+    "height": 141
+  }
+}

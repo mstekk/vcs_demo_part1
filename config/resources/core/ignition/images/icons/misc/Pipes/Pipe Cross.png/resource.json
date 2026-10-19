@@ -1,0 +1,20 @@
+{
+  "scope": "A",
+  "version": 1,
+  "restricted": false,
+  "overridable": true,
+  "files": [
+    "Pipe Cross.png"
+  ],
+  "attributes": {
+    "width": 347,
+    "format": "PNG",
+    "lastModification": {
+      "actor": "8.3-migration",
+      "timestamp": "2026-01-07T14:49:07Z"
+    },
+    "size": 13308,
+    "lastModificationSignature": "fde1acb8a245fbf3898467b2f22b7de0843128bd8d867cd3dc4cc8fd99294d33",
+    "height": 348
+  }
+}

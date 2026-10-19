@@ -1,0 +1,20 @@
+{
+  "scope": "A",
+  "version": 1,
+  "restricted": false,
+  "overridable": true,
+  "files": [
+    "gear--pencil.png"
+  ],
+  "attributes": {
+    "width": 16,
+    "format": "PNG",
+    "lastModification": {
+      "actor": "8.3-migration",
+      "timestamp": "2026-01-07T14:49:07Z"
+    },
+    "size": 799,
+    "lastModificationSignature": "3814e17b9a984e6bab261bd7f54eafa329b66bea47c32e8ae7eb02d4d682ec9c",
+    "height": 16
+  }
+}

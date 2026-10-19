@@ -1,0 +1,20 @@
+{
+  "scope": "A",
+  "version": 1,
+  "restricted": false,
+  "overridable": true,
+  "files": [
+    "pillow-gray.png"
+  ],
+  "attributes": {
+    "width": 16,
+    "format": "PNG",
+    "lastModification": {
+      "actor": "8.3-migration",
+      "timestamp": "2026-01-07T14:49:07Z"
+    },
+    "size": 519,
+    "lastModificationSignature": "9cb40b4be0abd5042a299788319bb137757c1ac79b400132be5ed97ed87d6402",
+    "height": 16
+  }
+}

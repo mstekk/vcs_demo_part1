@@ -1,0 +1,20 @@
+{
+  "scope": "A",
+  "version": 1,
+  "restricted": false,
+  "overridable": true,
+  "files": [
+    "uparrows2.png"
+  ],
+  "attributes": {
+    "width": 16,
+    "format": "PNG",
+    "lastModification": {
+      "actor": "8.3-migration",
+      "timestamp": "2026-01-07T14:49:07Z"
+    },
+    "size": 267,
+    "lastModificationSignature": "72f5d5ac59e663eaaa98f700fd1fa25bfffadcec1e1049191a110f3bacfccf59",
+    "height": 16
+  }
+}

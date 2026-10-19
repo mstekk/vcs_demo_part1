@@ -1,0 +1,20 @@
+{
+  "scope": "A",
+  "version": 1,
+  "restricted": false,
+  "overridable": true,
+  "files": [
+    "Heat Exchanger Vert.png"
+  ],
+  "attributes": {
+    "width": 109,
+    "format": "PNG",
+    "lastModification": {
+      "actor": "8.3-migration",
+      "timestamp": "2026-01-07T14:49:07Z"
+    },
+    "size": 52299,
+    "lastModificationSignature": "5475ca8c949b1bf8152762a154ac416337a7d47c9a65061d91fe57ab035a0591",
+    "height": 396
+  }
+}

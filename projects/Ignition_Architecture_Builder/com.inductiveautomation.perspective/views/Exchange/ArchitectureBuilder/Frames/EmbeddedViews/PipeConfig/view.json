@@ -1,0 +1,1260 @@
+{
+  "custom": {
+    "allowConnection": {
+      "allow": false,
+      "approval": false,
+      "limited": false,
+      "message": ""
+    },
+    "connectionProps": null,
+    "dir": null,
+    "established": null,
+    "params": null
+  },
+  "params": {
+    "uuid": "I763c004f"
+  },
+  "propConfig": {
+    "custom.allowConnection": {
+      "binding": {
+        "config": {
+          "struct": {
+            "defined": "{/root/FlexContainer/DropDown.props.params.value}",
+            "established": "{view.custom.established}"
+          },
+          "waitOnAll": true
+        },
+        "transforms": [
+          {
+            "code": "\treturn exchange.architecturebuilder.viewCanvas.connectionRules.preEstablishedConnectionRules(value[\u0027defined\u0027], value[\u0027established\u0027])",
+            "type": "script"
+          }
+        ],
+        "type": "expr-struct"
+      },
+      "persistent": true
+    },
+    "custom.connectionProps": {
+      "binding": {
+        "config": {
+          "expression": "property(\u0027session.custom.connections.\u0027+{view.params.uuid})"
+        },
+        "type": "expr"
+      },
+      "persistent": true
+    },
+    "custom.connections": {
+      "binding": {
+        "config": {
+          "expression": "{view.custom.connectionProps}"
+        },
+        "transforms": [
+          {
+            "code": "\tconnections\u003d{}\n\tfor uuid in value:\n\t\tconnections[uuid]\u003dself.session.custom.structure.configs[uuid][\u0027type\u0027]\n\treturn connections",
+            "type": "script"
+          }
+        ],
+        "type": "expr"
+      },
+      "persistent": false
+    },
+    "custom.dir": {
+      "binding": {
+        "config": {
+          "struct": {
+            "components": "{session.custom.components}",
+            "connections": "{view.custom.connectionProps}"
+          },
+          "waitOnAll": true
+        },
+        "transforms": [
+          {
+            "code": "\tdef dire(lat,lng, meX, meY, oX, oY):\n\t\tif lat in [0,1] and lng in [0,1]:\n\t\t\tif abs(meX-oX)\u003eabs(meY-oY):\n\t\t\t\treturn \u0027vert\u0027\n\t\t\telse:\n\t\t\t\treturn \u0027horz\u0027\n\t\t\n\t\tif lat\u003d\u003d0 or lat\u003d\u003d1:\n\t\t\treturn \u0027horz\u0027\n\t\telif lng\u003d\u003d0 or lng\u003d\u003d1:\n\t\t\treturn \u0027vert\u0027\t\n\n\n#\tdef dire(lat,lng):\n#\t\tif lat\u003d\u003d0 or lat\u003d\u003d1:\n#\t\t\treturn \u0027horz\u0027\n#\t\tif lng\u003d\u003d0 or lng\u003d\u003d1:\n#\t\t\treturn \u0027vert\u0027\n\t\n\tcomponents\u003dvalue[\u0027components\u0027]\n\t\n\tcompUuids\u003dvalue[\u0027connections\u0027].keys()\n\tlat1\u003dvalue[\u0027connections\u0027][compUuids[0]][\u0027x\u0027]\n\tlng1\u003dvalue[\u0027connections\u0027][compUuids[0]][\u0027y\u0027]\n\tlat2\u003dvalue[\u0027connections\u0027][compUuids[1]][\u0027x\u0027]\n\tlng2\u003dvalue[\u0027connections\u0027][compUuids[1]][\u0027y\u0027]\n\tx1\u003dcomponents[compUuids[0]][\u0027left\u0027]+(lat1*components[compUuids[0]][\u0027width\u0027])\n\ty1\u003dcomponents[compUuids[0]][\u0027top\u0027]+((1-lng1)*components[compUuids[0]][\u0027height\u0027])\n\tx2\u003dcomponents[compUuids[1]][\u0027left\u0027]+(lat2*components[compUuids[1]][\u0027width\u0027])\n\ty2\u003dcomponents[compUuids[1]][\u0027top\u0027]+((1-lng2)*components[compUuids[1]][\u0027height\u0027])\n\texit1\u003ddire(lat1,lng1, x1,y1,x2,y2)\n\texit2\u003ddire(lat2,lng2, x2,y2,x1,y1)\n\treturn[exit1, exit2]",
+            "type": "script"
+          }
+        ],
+        "type": "expr-struct"
+      },
+      "persistent": true
+    },
+    "custom.established": {
+      "binding": {
+        "config": {
+          "struct": {
+            "configs": "{session.custom.structure.configs}",
+            "connection": "{view.custom.connection}",
+            "connections": "{session.custom.connections}",
+            "uuid": "{view.params.uuid}"
+          },
+          "waitOnAll": true
+        },
+        "transforms": [
+          {
+            "code": "\tconnections\u003dvalue[\u0027connections\u0027]\n\tconnection\u003dconnections[value[\u0027uuid\u0027]].keys()\n\testablishedConnections\u003d[]\n\tif len(connection)\u003d\u003d2:\n\t\tuuid0\u003dconnection[0]\n\t\tuuid1\u003dconnection[1]\n\t\tfor x in connections:\n\t\t\tif x !\u003d value[\u0027uuid\u0027]:\n\t\t\t\tif uuid0 in connections[x].keys() and uuid1 in connections[x].keys():\n\t\t\t\t\testablishedConnections.append(value[\u0027configs\u0027][x][\u0027config\u0027][\u0027connectionType\u0027])\n\treturn establishedConnections\n\t\t\t\t",
+            "type": "script"
+          }
+        ],
+        "type": "expr-struct"
+      },
+      "persistent": true
+    },
+    "custom.params": {
+      "binding": {
+        "config": {
+          "expression": "property(\u0027session.custom.structure.configs.\u0027+{view.params.uuid})"
+        },
+        "type": "expr"
+      },
+      "persistent": true
+    },
+    "params.uuid": {
+      "paramDirection": "input",
+      "persistent": true
+    }
+  },
+  "props": {
+    "defaultSize": {
+      "height": 677,
+      "width": 435
+    }
+  },
+  "root": {
+    "children": [
+      {
+        "children": [
+          {
+            "meta": {
+              "name": "Name"
+            },
+            "position": {
+              "shrink": 0
+            },
+            "propConfig": {
+              "props.params.text": {
+                "binding": {
+                  "config": {
+                    "bidirectional": true,
+                    "path": "view.custom.params.name"
+                  },
+                  "type": "property"
+                }
+              }
+            },
+            "props": {
+              "params": {
+                "label": "Client Name:",
+                "labelSize": 150
+              },
+              "path": "Exchange/ArchitectureBuilder/General/TextInput",
+              "style": {
+                "margin": "8px"
+              }
+            },
+            "type": "ia.display.view"
+          },
+          {
+            "meta": {
+              "name": "DropDown"
+            },
+            "propConfig": {
+              "props.params.options": {
+                "binding": {
+                  "config": {
+                    "path": "view.custom.connections"
+                  },
+                  "transforms": [
+                    {
+                      "code": "\tconnectionTypes\u003d[]\n\toptions\u003d[]\n\tfor key in value.keys():\n\t\tconnectionTypes.append(value[key])\n\t\t\t\n\treturn exchange.architecturebuilder.viewCanvas.connectionRules.availibleConnections(connectionTypes)",
+                      "type": "script"
+                    }
+                  ],
+                  "type": "property"
+                }
+              },
+              "props.params.value": {
+                "binding": {
+                  "config": {
+                    "bidirectional": true,
+                    "path": "view.custom.params.config.connectionType"
+                  },
+                  "type": "property"
+                }
+              }
+            },
+            "props": {
+              "params": {
+                "label": "Connection Type:",
+                "labelSize": 150
+              },
+              "path": "Exchange/ArchitectureBuilder/General/DropDown",
+              "style": {
+                "margin": "8px",
+                "marginTop": "0px"
+              }
+            },
+            "type": "ia.display.view"
+          },
+          {
+            "children": [
+              {
+                "meta": {
+                  "name": "RadioGroup"
+                },
+                "position": {
+                  "grow": 1,
+                  "shrink": 0
+                },
+                "propConfig": {
+                  "props.selectedIcon.path": {
+                    "binding": {
+                      "config": {
+                        "expression": "if({this.props.radios[0].selected},\u0027material/linear_scale\u0027,\r\nif({this.props.radios[1].selected},\u0027material/timeline\u0027,\u0027material/radio_button_checked\u0027))"
+                      },
+                      "type": "expr"
+                    }
+                  },
+                  "props.value": {
+                    "binding": {
+                      "config": {
+                        "bidirectional": true,
+                        "path": "view.custom.params.config.lineType"
+                      },
+                      "type": "property"
+                    }
+                  }
+                },
+                "props": {
+                  "align": "end",
+                  "justify": "end",
+                  "radios": [
+                    {
+                      "selected": true,
+                      "text": "Direct",
+                      "value": "Direct"
+                    },
+                    {
+                      "selected": false,
+                      "text": "Segmented",
+                      "value": "Segmented"
+                    }
+                  ],
+                  "selectedIcon": {
+                    "color": {
+                      "enabled": "--success"
+                    },
+                    "style": {
+                      "borderBottomLeftRadius": "16px",
+                      "borderBottomRightRadius": "16px",
+                      "borderColor": "--success",
+                      "borderStyle": "solid",
+                      "borderTopLeftRadius": "16px",
+                      "borderTopRightRadius": "16px",
+                      "borderWidth": 2
+                    }
+                  },
+                  "style": {
+                    "marginRight": "8px",
+                    "overflow": "visible"
+                  }
+                },
+                "type": "ia.input.radio-group"
+              },
+              {
+                "meta": {
+                  "name": "Checkbox"
+                },
+                "propConfig": {
+                  "props.selected": {
+                    "binding": {
+                      "config": {
+                        "bidirectional": true,
+                        "path": "view.custom.params.config.dashed"
+                      },
+                      "overlayOptOut": true,
+                      "type": "property"
+                    }
+                  }
+                },
+                "props": {
+                  "checkedIcon": {
+                    "color": {
+                      "enabled": "--success"
+                    }
+                  },
+                  "indeterminateIcon": {
+                    "color": {
+                      "enabled": "--neutral-100"
+                    }
+                  },
+                  "style": {
+                    "marginBottom": "8px",
+                    "marginRight": "18px",
+                    "overflow": "visible"
+                  },
+                  "text": "Dashed Connection"
+                },
+                "type": "ia.input.checkbox"
+              }
+            ],
+            "meta": {
+              "name": "ConnectionAppearance"
+            },
+            "props": {
+              "alignItems": "flex-end",
+              "direction": "column"
+            },
+            "type": "ia.container.flex"
+          },
+          {
+            "children": [
+              {
+                "meta": {
+                  "name": "Label"
+                },
+                "position": {
+                  "basis": "32px"
+                },
+                "props": {
+                  "style": {
+                    "marginRight": "32px"
+                  },
+                  "text": "Select Outgoing Connection:"
+                },
+                "type": "ia.display.label"
+              },
+              {
+                "meta": {
+                  "name": "RadioGroup"
+                },
+                "position": {
+                  "grow": 1
+                },
+                "propConfig": {
+                  "props.radios": {
+                    "binding": {
+                      "config": {
+                        "struct": {
+                          "connections": "{view.custom.connections}"
+                        },
+                        "waitOnAll": true
+                      },
+                      "overlayOptOut": true,
+                      "transforms": [
+                        {
+                          "code": "\tradios\u003d[]\n\tconnections\u003dvalue[\u0027connections\u0027]\n\tfor item in connections:\n\t\tselected\u003dFalse\n\t\tif self.session.custom.structure.configs[self.view.params.uuid][\u0027config\u0027][\u0027Outgoing\u0027] \u003d\u003d item:\n\t\t\tselected\u003dTrue\n\t\tradios.append({\n\t\t  \"text\": self.session.custom.structure.configs[item][\u0027name\u0027],\n\t\t  \"selected\": selected,\n\t\t  \"value\": item\n\t\t})\n\n\treturn radios",
+                          "type": "script"
+                        }
+                      ],
+                      "type": "expr-struct"
+                    }
+                  },
+                  "props.value": {
+                    "binding": {
+                      "config": {
+                        "bidirectional": true,
+                        "coalesce": true,
+                        "path": "view.custom.params.config.Outgoing"
+                      },
+                      "overlayOptOut": true,
+                      "type": "property"
+                    },
+                    "persistent": true
+                  }
+                },
+                "props": {
+                  "index": null,
+                  "value": ""
+                },
+                "type": "ia.input.radio-group"
+              }
+            ],
+            "meta": {
+              "name": "GatewayNetwork"
+            },
+            "propConfig": {
+              "position.display": {
+                "binding": {
+                  "config": {
+                    "expression": "{view.custom.params.config.connectionType}\u003d\u0027Gateway Network\u0027"
+                  },
+                  "type": "expr"
+                }
+              }
+            },
+            "props": {
+              "alignItems": "flex-end",
+              "direction": "column",
+              "style": {
+                "margin": "8px"
+              }
+            },
+            "type": "ia.container.flex"
+          },
+          {
+            "children": [
+              {
+                "meta": {
+                  "name": "Label"
+                },
+                "props": {
+                  "style": {
+                    "marginLeft": "8px",
+                    "marginRight": "8px"
+                  },
+                  "text": "Adjust Center Segment:",
+                  "textStyle": {
+                    "fontSize": "12px"
+                  }
+                },
+                "type": "ia.display.label"
+              },
+              {
+                "events": {
+                  "dom": {
+                    "onClick": {
+                      "config": {
+                        "script": "\tself.view.custom.params.config.adjust-\u003dself.session.custom.snapPixels"
+                      },
+                      "scope": "G",
+                      "type": "script"
+                    }
+                  }
+                },
+                "meta": {
+                  "name": "Decrease_0"
+                },
+                "position": {
+                  "basis": "25px",
+                  "shrink": 0
+                },
+                "propConfig": {
+                  "props.path": {
+                    "binding": {
+                      "config": {
+                        "path": "view.custom.dir"
+                      },
+                      "enabled": false,
+                      "transforms": [
+                        {
+                          "code": "\tif all(item \u003d\u003d \"vert\" for item in value):\n\t\treturn \u0027material/arrow_upward\u0027\n\treturn \u0027material/arrow_back\u0027",
+                          "type": "script"
+                        }
+                      ],
+                      "type": "property"
+                    }
+                  },
+                  "props.style.pointer-events": {
+                    "binding": {
+                      "config": {
+                        "struct": {
+                          "dir": "{view.custom.dir}",
+                          "lineType": "{.../RadioGroup.props.value}"
+                        },
+                        "waitOnAll": true
+                      },
+                      "transforms": [
+                        {
+                          "code": "\tif value[\u0027dir\u0027][0]\u003d\u003dvalue[\u0027dir\u0027][1]:\n\t\treturn \u0027auto\u0027\n\treturn \u0027none\u0027\n\t\t",
+                          "type": "script"
+                        }
+                      ],
+                      "type": "expr-struct"
+                    }
+                  },
+                  "props.style.transform": {
+                    "binding": {
+                      "config": {
+                        "path": "view.custom.dir"
+                      },
+                      "transforms": [
+                        {
+                          "code": "\tif all(item \u003d\u003d \"vert\" for item in value):\n\t\treturn \u0027rotate(90deg)\u0027\n\treturn \u0027rotate(0deg)\u0027",
+                          "type": "script"
+                        }
+                      ],
+                      "type": "property"
+                    }
+                  }
+                },
+                "props": {
+                  "path": "material/fast_rewind",
+                  "style": {
+                    "borderBottomLeftRadius": "16px",
+                    "borderBottomRightRadius": "16px",
+                    "borderStyle": "solid",
+                    "borderTopLeftRadius": "16px",
+                    "borderTopRightRadius": "16px",
+                    "borderWidth": 1.2,
+                    "cursor": "pointer",
+                    "height": "25px",
+                    "margin": "2px",
+                    "padding": "2px"
+                  }
+                },
+                "type": "ia.display.icon"
+              },
+              {
+                "events": {
+                  "dom": {
+                    "onClick": {
+                      "config": {
+                        "script": "\tself.view.custom.params.config.adjust-\u003dself.session.custom.snapPixels/2.0"
+                      },
+                      "scope": "G",
+                      "type": "script"
+                    }
+                  }
+                },
+                "meta": {
+                  "name": "Decrease"
+                },
+                "position": {
+                  "basis": "25px",
+                  "shrink": 0
+                },
+                "propConfig": {
+                  "props.path": {
+                    "binding": {
+                      "config": {
+                        "path": "view.custom.dir"
+                      },
+                      "transforms": [
+                        {
+                          "code": "\tif all(item \u003d\u003d \"vert\" for item in value):\n\t\treturn \u0027material/arrow_upward\u0027\n\treturn \u0027material/arrow_back\u0027",
+                          "type": "script"
+                        }
+                      ],
+                      "type": "property"
+                    }
+                  },
+                  "props.style.pointer-events": {
+                    "binding": {
+                      "config": {
+                        "struct": {
+                          "dir": "{view.custom.dir}",
+                          "lineType": "{.../RadioGroup.props.value}"
+                        },
+                        "waitOnAll": true
+                      },
+                      "transforms": [
+                        {
+                          "code": "\tif value[\u0027dir\u0027][0]\u003d\u003dvalue[\u0027dir\u0027][1]:\n\t\treturn \u0027auto\u0027\n\treturn \u0027none\u0027\n\t\t",
+                          "type": "script"
+                        }
+                      ],
+                      "type": "expr-struct"
+                    }
+                  }
+                },
+                "props": {
+                  "style": {
+                    "borderBottomLeftRadius": "16px",
+                    "borderBottomRightRadius": "16px",
+                    "borderStyle": "solid",
+                    "borderTopLeftRadius": "16px",
+                    "borderTopRightRadius": "16px",
+                    "borderWidth": 1.2,
+                    "cursor": "pointer",
+                    "height": "25px",
+                    "margin": "2px",
+                    "padding": "2px"
+                  }
+                },
+                "type": "ia.display.icon"
+              },
+              {
+                "events": {
+                  "dom": {
+                    "onClick": {
+                      "config": {
+                        "script": "\tself.view.custom.params.config.adjust+\u003dself.session.custom.snapPixels/2.0"
+                      },
+                      "scope": "G",
+                      "type": "script"
+                    }
+                  }
+                },
+                "meta": {
+                  "name": "Increase"
+                },
+                "position": {
+                  "basis": "25px"
+                },
+                "propConfig": {
+                  "props.path": {
+                    "binding": {
+                      "config": {
+                        "path": "view.custom.dir"
+                      },
+                      "transforms": [
+                        {
+                          "code": "\tif all(item \u003d\u003d \"vert\" for item in value):\n\t\treturn \u0027material/arrow_downward\u0027\n\treturn \u0027material/arrow_forward\u0027",
+                          "type": "script"
+                        }
+                      ],
+                      "type": "property"
+                    }
+                  },
+                  "props.style.pointer-events": {
+                    "binding": {
+                      "config": {
+                        "struct": {
+                          "dir": "{view.custom.dir}",
+                          "lineType": "{.../RadioGroup.props.value}"
+                        },
+                        "waitOnAll": true
+                      },
+                      "transforms": [
+                        {
+                          "code": "\tif value[\u0027dir\u0027][0]\u003d\u003dvalue[\u0027dir\u0027][1]:\n\t\treturn \u0027auto\u0027\n\treturn \u0027none\u0027\n\t\t",
+                          "type": "script"
+                        }
+                      ],
+                      "type": "expr-struct"
+                    }
+                  }
+                },
+                "props": {
+                  "style": {
+                    "borderBottomLeftRadius": "16px",
+                    "borderBottomRightRadius": "16px",
+                    "borderStyle": "solid",
+                    "borderTopLeftRadius": "16px",
+                    "borderTopRightRadius": "16px",
+                    "borderWidth": 1.2,
+                    "cursor": "pointer",
+                    "height": "25px",
+                    "margin": "2px",
+                    "padding": "2px"
+                  }
+                },
+                "type": "ia.display.icon"
+              },
+              {
+                "events": {
+                  "dom": {
+                    "onClick": {
+                      "config": {
+                        "script": "\tself.view.custom.params.config.adjust+\u003dself.session.custom.snapPixels"
+                      },
+                      "scope": "G",
+                      "type": "script"
+                    }
+                  }
+                },
+                "meta": {
+                  "name": "Increase_0"
+                },
+                "position": {
+                  "basis": "25px"
+                },
+                "propConfig": {
+                  "props.path": {
+                    "binding": {
+                      "config": {
+                        "path": "view.custom.dir"
+                      },
+                      "enabled": false,
+                      "transforms": [
+                        {
+                          "code": "\tif all(item \u003d\u003d \"vert\" for item in value):\n\t\treturn \u0027material/arrow_downward\u0027\n\treturn \u0027material/arrow_forward\u0027",
+                          "type": "script"
+                        }
+                      ],
+                      "type": "property"
+                    }
+                  },
+                  "props.style.pointer-events": {
+                    "binding": {
+                      "config": {
+                        "struct": {
+                          "dir": "{view.custom.dir}",
+                          "lineType": "{.../RadioGroup.props.value}"
+                        },
+                        "waitOnAll": true
+                      },
+                      "transforms": [
+                        {
+                          "code": "\tif value[\u0027dir\u0027][0]\u003d\u003dvalue[\u0027dir\u0027][1]:\n\t\treturn \u0027auto\u0027\n\treturn \u0027none\u0027\n\t\t",
+                          "type": "script"
+                        }
+                      ],
+                      "type": "expr-struct"
+                    }
+                  },
+                  "props.style.transform": {
+                    "binding": {
+                      "config": {
+                        "path": "view.custom.dir"
+                      },
+                      "transforms": [
+                        {
+                          "code": "\tif all(item \u003d\u003d \"vert\" for item in value):\n\t\treturn \u0027rotate(90deg)\u0027\n\treturn \u0027rotate(0deg)\u0027",
+                          "type": "script"
+                        }
+                      ],
+                      "type": "property"
+                    }
+                  }
+                },
+                "props": {
+                  "path": "material/fast_forward",
+                  "style": {
+                    "borderBottomLeftRadius": "16px",
+                    "borderBottomRightRadius": "16px",
+                    "borderStyle": "solid",
+                    "borderTopLeftRadius": "16px",
+                    "borderTopRightRadius": "16px",
+                    "borderWidth": 1.2,
+                    "cursor": "pointer",
+                    "height": "25px",
+                    "margin": "2px",
+                    "padding": "2px"
+                  }
+                },
+                "type": "ia.display.icon"
+              },
+              {
+                "meta": {
+                  "name": "Label_0"
+                },
+                "position": {
+                  "basis": "84px"
+                },
+                "propConfig": {
+                  "props.text": {
+                    "binding": {
+                      "config": {
+                        "path": "view.custom.params.config.adjust"
+                      },
+                      "transforms": [
+                        {
+                          "code": "\tif value is None:\n\t\tself.view.custom.params.config[\u0027adjust\u0027]\u003d0\n\treturn \u0027{} px\u0027.format(value)",
+                          "type": "script"
+                        }
+                      ],
+                      "type": "property"
+                    }
+                  }
+                },
+                "props": {
+                  "style": {
+                    "backgroundColor": "black",
+                    "borderColor": "--neutral-50",
+                    "borderStyle": "solid",
+                    "borderWidth": 1
+                  },
+                  "textStyle": {
+                    "textAlign": "center"
+                  }
+                },
+                "type": "ia.display.label"
+              }
+            ],
+            "meta": {
+              "name": "AdjustLocation",
+              "tooltip": {
+                "text": "Adjustment Only Availible on 3 Segment Connection"
+              }
+            },
+            "position": {
+              "basis": "38px",
+              "shrink": 0
+            },
+            "propConfig": {
+              "position.display": {
+                "binding": {
+                  "config": {
+                    "struct": {
+                      "dir": "{view.custom.dir}",
+                      "lineType": "{../ConnectionAppearance/RadioGroup.props.value}"
+                    },
+                    "waitOnAll": true
+                  },
+                  "transforms": [
+                    {
+                      "code": "\treturn value[\u0027lineType\u0027]\u003d\u003d\u0027Segmented\u0027# and value[\u0027dir\u0027][0]\u003d\u003dvalue[\u0027dir\u0027][1]",
+                      "type": "script"
+                    }
+                  ],
+                  "type": "expr-struct"
+                }
+              },
+              "props.style.backgroundColor": {
+                "binding": {
+                  "config": {
+                    "struct": {
+                      "dir": "{view.custom.dir}",
+                      "lineType": "{../RadioGroup.props.value}"
+                    },
+                    "waitOnAll": true
+                  },
+                  "transforms": [
+                    {
+                      "code": "\tif value[\u0027dir\u0027][0]\u003d\u003dvalue[\u0027dir\u0027][1]:\n\t\treturn \"\"\n\treturn \u0027--neutral-30\u0027\n\t\t",
+                      "type": "script"
+                    }
+                  ],
+                  "type": "expr-struct"
+                }
+              },
+              "props.style.cursor": {
+                "binding": {
+                  "config": {
+                    "struct": {
+                      "dir": "{view.custom.dir}",
+                      "lineType": "{../RadioGroup.props.value}"
+                    },
+                    "waitOnAll": true
+                  },
+                  "transforms": [
+                    {
+                      "code": "\tif value[\u0027dir\u0027][0]\u003d\u003dvalue[\u0027dir\u0027][1]:\n\t\treturn \"\"\n\treturn \"not-allowed\"\n\t\t",
+                      "type": "script"
+                    }
+                  ],
+                  "type": "expr-struct"
+                }
+              },
+              "props.style.opacity": {
+                "binding": {
+                  "config": {
+                    "struct": {
+                      "dir": "{view.custom.dir}",
+                      "lineType": "{../RadioGroup.props.value}"
+                    },
+                    "waitOnAll": true
+                  },
+                  "transforms": [
+                    {
+                      "code": "\tif value[\u0027dir\u0027][0]\u003d\u003dvalue[\u0027dir\u0027][1]:\n\t\treturn \"1.0\"\n\treturn \u00270.5\u0027\n\t\t",
+                      "type": "script"
+                    }
+                  ],
+                  "type": "expr-struct"
+                }
+              }
+            },
+            "props": {
+              "justify": "center",
+              "style": {
+                "padding": "4px"
+              }
+            },
+            "type": "ia.container.flex"
+          },
+          {
+            "events": {
+              "component": {
+                "onActionPerformed": {
+                  "config": {
+                    "script": "\tself.session.custom.adjustConnections\u003d{\u0027uuid\u0027:self.view.params.uuid, \u0027components\u0027:self.view.custom.connections.keys()}\n\tself.session.custom.requestConnection\u003dFalse\n\tsystem.perspective.closePopup(self.view.params.uuid)"
+                  },
+                  "scope": "G",
+                  "type": "script"
+                }
+              }
+            },
+            "meta": {
+              "name": "ModifyConnections"
+            },
+            "position": {
+              "shrink": 0
+            },
+            "props": {
+              "image": {
+                "icon": {
+                  "path": "material/edit"
+                }
+              },
+              "style": {
+                "classes": "Exchange/ArchitectureBuilder/buttonHover",
+                "marginLeft": "8px",
+                "marginRight": "8px"
+              },
+              "text": "Modify Connection Points"
+            },
+            "type": "ia.input.button"
+          },
+          {
+            "meta": {
+              "name": "Description"
+            },
+            "position": {
+              "shrink": 0
+            },
+            "propConfig": {
+              "props.params.desc": {
+                "binding": {
+                  "config": {
+                    "bidirectional": true,
+                    "path": "view.custom.params.desc"
+                  },
+                  "type": "property"
+                }
+              }
+            },
+            "props": {
+              "path": "Exchange/ArchitectureBuilder/General/TextArea",
+              "style": {
+                "margin": 8
+              }
+            },
+            "type": "ia.display.view"
+          }
+        ],
+        "meta": {
+          "name": "FlexContainer"
+        },
+        "position": {
+          "shrink": 0
+        },
+        "props": {
+          "direction": "column"
+        },
+        "type": "ia.container.flex"
+      },
+      {
+        "children": [
+          {
+            "meta": {
+              "name": "Icon",
+              "tooltip": {
+                "text": "Edge to Edge GWN not Allowed"
+              }
+            },
+            "position": {
+              "basis": "24px"
+            },
+            "propConfig": {
+              "props.color": {
+                "binding": {
+                  "config": {
+                    "struct": {
+                      "allowConnection": "{view.custom.allowConnection}"
+                    },
+                    "waitOnAll": true
+                  },
+                  "transforms": [
+                    {
+                      "code": "\tif not value[\u0027allowConnection\u0027][\u0027allow\u0027]:\n\t\treturn \u0027--error\u0027\n\telif value[\u0027allowConnection\u0027][\u0027limited\u0027]:\n\t\treturn \u0027#FF8C00\u0027\n\telif value[\u0027allowConnection\u0027][\u0027approval\u0027]: \n\t\treturn \u0027#D9D900\u0027\n\telse:\n\t\treturn \u0027#D9D900\u0027",
+                      "type": "script"
+                    }
+                  ],
+                  "type": "expr-struct"
+                }
+              },
+              "props.path": {
+                "binding": {
+                  "config": {
+                    "struct": {
+                      "connectionEstablished": "{view.custom.allowConnection}"
+                    },
+                    "waitOnAll": true
+                  },
+                  "transforms": [
+                    {
+                      "code": "\tif not value[\u0027connectionEstablished\u0027][\u0027allow\u0027]:\n\t\treturn \u0027material/warning\u0027\n\telif value[\u0027connectionEstablished\u0027][\u0027limited\u0027]:\n\t\treturn \u0027material/error\u0027\n\telif value[\u0027connectionEstablished\u0027][\u0027approval\u0027]: \n\t\treturn \u0027material/check_circle\u0027\n\telse:\n\t\treturn \u0027material/check_circle\u0027",
+                      "type": "script"
+                    }
+                  ],
+                  "type": "expr-struct"
+                }
+              }
+            },
+            "type": "ia.display.icon"
+          },
+          {
+            "meta": {
+              "name": "Label"
+            },
+            "position": {
+              "basis": "50px",
+              "grow": 1
+            },
+            "propConfig": {
+              "props.text": {
+                "binding": {
+                  "config": {
+                    "struct": {
+                      "allowConnection": "{view.custom.allowConnection}"
+                    },
+                    "waitOnAll": true
+                  },
+                  "transforms": [
+                    {
+                      "code": "\treturn value[\u0027allowConnection\u0027][\u0027message\u0027]",
+                      "type": "script"
+                    }
+                  ],
+                  "type": "expr-struct"
+                }
+              }
+            },
+            "props": {
+              "textStyle": {
+                "fontSize": 10
+              }
+            },
+            "type": "ia.display.label"
+          }
+        ],
+        "meta": {
+          "name": "FlexContainer_0"
+        },
+        "position": {
+          "basis": "32px"
+        },
+        "propConfig": {
+          "position.display": {
+            "binding": {
+              "config": {
+                "expression": "!{view.custom.allowConnection.allow}"
+              },
+              "type": "expr"
+            }
+          }
+        },
+        "props": {
+          "style": {
+            "marginLeft": "8px",
+            "marginRight": "8px"
+          }
+        },
+        "type": "ia.container.flex"
+      },
+      {
+        "children": [
+          {
+            "events": {
+              "component": {
+                "onActionPerformed": {
+                  "config": {
+                    "script": "\tfrom exchange.architecturebuilder.viewCanvas.auditEvents import insertAuditEvent\n\tpayload\u003dsystem.util.jsonDecode(system.util.jsonEncode(self.view.custom.params))\n\tsystem.perspective.sendMessage(\u0027updateViewParams\u0027, payload, scope\u003d\u0027session\u0027)\n\t\n\t\n\tconnectionType\u003dself.session.custom.structure.configs[self.view.params.uuid][\u0027config\u0027][\u0027connectionType\u0027]\n\tactionValue\u003d\u0027, \u0027.join(self.session.custom.connections[self.view.params.uuid].keys())\n\toriginatingSystem\u003d[\u0027uuid\u0027,self.view.params.uuid]\n\tinsertAuditEvent(self.session.custom.audit.layout, \"Modified\", \"Connection\", actionValue\u003dconnectionType + \u0027, \u0027 + actionValue, originatingSystem\u003doriginatingSystem)\n\t\n\tsystem.perspective.closePopup(self.view.params.uuid)"
+                  },
+                  "scope": "G",
+                  "type": "script"
+                }
+              }
+            },
+            "meta": {
+              "name": "Ok",
+              "tooltip": {}
+            },
+            "position": {
+              "basis": "33%",
+              "grow": 1
+            },
+            "propConfig": {
+              "meta.tooltip.enabled": {
+                "binding": {
+                  "config": {
+                    "expression": "!{view.custom.allowConnection.allow}"
+                  },
+                  "type": "expr"
+                }
+              },
+              "meta.tooltip.text": {
+                "binding": {
+                  "config": {
+                    "path": "view.custom.allowConnection.message"
+                  },
+                  "type": "property"
+                }
+              },
+              "props.enabled": {
+                "binding": {
+                  "config": {
+                    "path": "view.custom.allowConnection.allow"
+                  },
+                  "type": "property"
+                }
+              }
+            },
+            "props": {
+              "style": {
+                "classes": "Exchange/ArchitectureBuilder/buttonHover",
+                "marginLeft": "8px",
+                "marginRight": "8px"
+              },
+              "text": "OK"
+            },
+            "type": "ia.input.button"
+          },
+          {
+            "events": {
+              "component": {
+                "onActionPerformed": {
+                  "config": {
+                    "script": "\tsystem.perspective.closePopup(self.view.params.uuid)"
+                  },
+                  "scope": "G",
+                  "type": "script"
+                }
+              }
+            },
+            "meta": {
+              "name": "Cancel"
+            },
+            "position": {
+              "basis": "33%",
+              "grow": 1
+            },
+            "props": {
+              "style": {
+                "classes": "Exchange/ArchitectureBuilder/buttonHover",
+                "marginLeft": "8px",
+                "marginRight": "8px"
+              },
+              "text": "Cancel"
+            },
+            "type": "ia.input.button"
+          },
+          {
+            "events": {
+              "component": {
+                "onActionPerformed": {
+                  "config": {
+                    "script": "\tfrom exchange.architecturebuilder.viewCanvas.auditEvents import insertAuditEvent\n\tpayload\u003dsystem.util.jsonDecode(system.util.jsonEncode(self.view.custom.params))\n\tsystem.perspective.sendMessage(\u0027updateViewParams\u0027, payload, scope\u003d\u0027session\u0027)\n\tconnectionType\u003dself.session.custom.structure.configs[self.view.params.uuid][\u0027config\u0027][\u0027connectionType\u0027]\n\tactionValue\u003d\u0027, \u0027.join(self.session.custom.connections[self.view.params.uuid].keys())\n\toriginatingSystem\u003d[\u0027uuid\u0027,self.view.params.uuid]\n\tinsertAuditEvent(self.session.custom.audit.layout, \"Modified\", \"Connection\", actionValue\u003dconnectionType + \u0027, \u0027 + actionValue, originatingSystem\u003doriginatingSystem)"
+                  },
+                  "scope": "G",
+                  "type": "script"
+                }
+              }
+            },
+            "meta": {
+              "name": "Apply",
+              "tooltip": {}
+            },
+            "position": {
+              "basis": "33%",
+              "grow": 1
+            },
+            "propConfig": {
+              "meta.tooltip.enabled": {
+                "binding": {
+                  "config": {
+                    "expression": "!{view.custom.allowConnection.allow}"
+                  },
+                  "type": "expr"
+                }
+              },
+              "meta.tooltip.text": {
+                "binding": {
+                  "config": {
+                    "path": "view.custom.allowConnection.message"
+                  },
+                  "type": "property"
+                }
+              },
+              "props.enabled": {
+                "binding": {
+                  "config": {
+                    "path": "view.custom.allowConnection.allow"
+                  },
+                  "type": "property"
+                }
+              }
+            },
+            "props": {
+              "style": {
+                "classes": "Exchange/ArchitectureBuilder/buttonHover",
+                "marginLeft": "8px",
+                "marginRight": "8px"
+              },
+              "text": "Apply"
+            },
+            "type": "ia.input.button"
+          }
+        ],
+        "meta": {
+          "name": "Apply"
+        },
+        "position": {
+          "basis": "34px",
+          "shrink": 0
+        },
+        "props": {
+          "justify": "space-around",
+          "style": {
+            "marginBottom": "8px",
+            "marginTop": "8px"
+          }
+        },
+        "type": "ia.container.flex"
+      },
+      {
+        "events": {
+          "component": {
+            "onActionPerformed": {
+              "config": {
+                "script": "\tfrom exchange.architecturebuilder.viewCanvas.auditEvents import insertAuditEvent\n\tconnectionUUID\u003dself.view.params.uuid\n\tfor uuid in self.view.custom.connections:\n\t\tconnections\u003dself.session.custom.structure.configs[uuid][\u0027config\u0027][\u0027connections\u0027]\n\t\tfor connection in range(len(connections)):\n\t\t\tif str(connections[connection]) \u003d\u003dconnectionUUID:\n\t\t\t\tself.session.custom.structure.configs[uuid][\u0027config\u0027][\u0027connections\u0027].pop(connection)\n\t\t\t\tbreak\n\n\n\tconnectionType\u003dself.session.custom.structure.configs[connectionUUID][\u0027config\u0027][\u0027connectionType\u0027]\n\tactionValue\u003d\u0027, \u0027.join(self.session.custom.connections[connectionUUID].keys())\n\toriginatingSystem\u003d[\u0027uuid\u0027,connectionUUID]\n\tinsertAuditEvent(self.session.custom.audit.layout, \"Deleted\", \"Connection\", actionValue\u003dconnectionType + \u0027, \u0027 + actionValue, originatingSystem\u003doriginatingSystem)\n\tself.session.custom.connections.pop(self.view.params.uuid)\n\tself.session.custom.structure.configs.pop(self.view.params.uuid)\n\tsystem.perspective.closePopup(self.view.params.uuid)\n\tsystem.perspective.sendMessage(\u0027refreshViewCanvas\u0027, True, scope\u003d \u0027session\u0027)"
+              },
+              "scope": "G",
+              "type": "script"
+            }
+          }
+        },
+        "meta": {
+          "name": "DeleteComponent"
+        },
+        "position": {
+          "basis": "42px",
+          "shrink": 0
+        },
+        "props": {
+          "confirm": {
+            "enabled": true
+          },
+          "readyState": {
+            "icon": {
+              "style": {
+                "height": "24px",
+                "width": "2rem"
+              }
+            },
+            "text": "Delete Connection"
+          },
+          "style": {
+            "classes": "Exchange/ArchitectureBuilder/buttonHover",
+            "marginBottom": "8px",
+            "marginLeft": "8px",
+            "marginRight": "8px"
+          },
+          "writingState": {
+            "icon": {
+              "path": "material/hourglass_empty",
+              "style": {
+                "height": "24px",
+                "width": "2rem"
+              }
+            },
+            "text": "Writing..."
+          }
+        },
+        "scripts": {
+          "customMethods": [
+            {
+              "name": "deleteComponent",
+              "params": [],
+              "script": "\tuuid\u003dself.view.params.uuid\n\ttypeID\u003dself.view.custom.params.type\n\tsystem.perspective.sendMessage(\u0027selectFrame\u0027,{\u0027selected\u0027: True})\n\tsystem.perspective.sendMessage(\u0027deleteComponent\u0027, {\u0027uuid\u0027:uuid,\u0027type\u0027: typeID }, scope\u003d\"session\")"
+            }
+          ],
+          "extensionFunctions": null,
+          "messageHandlers": []
+        },
+        "type": "ia.input.oneshotbutton"
+      }
+    ],
+    "meta": {
+      "name": "root"
+    },
+    "props": {
+      "direction": "column",
+      "style": {
+        "width": "400px"
+      }
+    },
+    "type": "ia.container.flex"
+  }
+}

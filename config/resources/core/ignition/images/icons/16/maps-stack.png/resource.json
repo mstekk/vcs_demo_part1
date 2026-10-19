@@ -1,0 +1,20 @@
+{
+  "scope": "A",
+  "version": 1,
+  "restricted": false,
+  "overridable": true,
+  "files": [
+    "maps-stack.png"
+  ],
+  "attributes": {
+    "width": 16,
+    "format": "PNG",
+    "lastModification": {
+      "actor": "8.3-migration",
+      "timestamp": "2026-01-07T14:49:07Z"
+    },
+    "size": 590,
+    "lastModificationSignature": "1a67fe9a866b7bc535962c94f3daa25e2501e5c135af855c75d4d30a3c448da5",
+    "height": 16
+  }
+}

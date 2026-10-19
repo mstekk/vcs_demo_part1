@@ -1,0 +1,20 @@
+{
+  "scope": "A",
+  "version": 1,
+  "restricted": false,
+  "overridable": true,
+  "files": [
+    "star-half.png"
+  ],
+  "attributes": {
+    "width": 16,
+    "format": "PNG",
+    "lastModification": {
+      "actor": "8.3-migration",
+      "timestamp": "2026-01-07T14:49:07Z"
+    },
+    "size": 738,
+    "lastModificationSignature": "ca078049c3dd3432e0479edc6ce943c8495abcd9728b98f3570bb9411bc1c8ad",
+    "height": 16
+  }
+}

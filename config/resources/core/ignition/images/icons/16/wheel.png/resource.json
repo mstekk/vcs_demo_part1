@@ -1,0 +1,20 @@
+{
+  "scope": "A",
+  "version": 1,
+  "restricted": false,
+  "overridable": true,
+  "files": [
+    "wheel.png"
+  ],
+  "attributes": {
+    "width": 16,
+    "format": "PNG",
+    "lastModification": {
+      "actor": "8.3-migration",
+      "timestamp": "2026-01-07T14:49:07Z"
+    },
+    "size": 872,
+    "lastModificationSignature": "93fb62c2b1b19c82419b1fb490418ddd08e8a2784130745026e0c1d2b1d716e8",
+    "height": 16
+  }
+}

@@ -1,0 +1,20 @@
+{
+  "scope": "A",
+  "version": 1,
+  "restricted": false,
+  "overridable": true,
+  "files": [
+    "jar--exclamation.png"
+  ],
+  "attributes": {
+    "width": 16,
+    "format": "PNG",
+    "lastModification": {
+      "actor": "8.3-migration",
+      "timestamp": "2026-01-07T14:49:07Z"
+    },
+    "size": 846,
+    "lastModificationSignature": "e818e2f0edfef45c7f97648c77219df1f3c93fe5f38ac9c359a9afa3ff9d04b2",
+    "height": 16
+  }
+}

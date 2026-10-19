@@ -1,0 +1,20 @@
+{
+  "scope": "A",
+  "version": 1,
+  "restricted": false,
+  "overridable": true,
+  "files": [
+    "arrow-join-270.png"
+  ],
+  "attributes": {
+    "width": 16,
+    "format": "PNG",
+    "lastModification": {
+      "actor": "8.3-migration",
+      "timestamp": "2026-01-07T14:49:07Z"
+    },
+    "size": 745,
+    "lastModificationSignature": "208df865bbdfbf9885f8cf9cabbf44e2d8d9429a862eed5d4a3cd9b26a00956c",
+    "height": 16
+  }
+}

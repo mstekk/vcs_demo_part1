@@ -1,0 +1,20 @@
+{
+  "scope": "A",
+  "version": 1,
+  "restricted": false,
+  "overridable": true,
+  "files": [
+    "notebook.png"
+  ],
+  "attributes": {
+    "width": 24,
+    "format": "PNG",
+    "lastModification": {
+      "actor": "8.3-migration",
+      "timestamp": "2026-01-07T14:49:07Z"
+    },
+    "size": 686,
+    "lastModificationSignature": "7b361274a9b33c2550f0760cd802bf707c2eff3905c83cd4e64e0e5fa32243c1",
+    "height": 24
+  }
+}

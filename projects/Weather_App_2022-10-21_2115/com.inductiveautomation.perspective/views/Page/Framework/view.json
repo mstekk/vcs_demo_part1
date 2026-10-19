@@ -1,0 +1,490 @@
+{
+  "custom": {},
+  "params": {},
+  "props": {
+    "defaultSize": {
+      "height": 517,
+      "width": 367
+    }
+  },
+  "root": {
+    "children": [
+      {
+        "meta": {
+          "name": "Locations"
+        },
+        "position": {
+          "basis": "320px",
+          "grow": 1
+        },
+        "propConfig": {
+          "position.display": {
+            "binding": {
+              "config": {
+                "expression": "{../Menu.props.params.Page} \u003d \"Locations\""
+              },
+              "type": "expr"
+            }
+          }
+        },
+        "props": {
+          "path": "Page/Locations"
+        },
+        "type": "ia.display.view"
+      },
+      {
+        "meta": {
+          "name": "Settings"
+        },
+        "position": {
+          "basis": "320px",
+          "grow": 1
+        },
+        "propConfig": {
+          "position.display": {
+            "binding": {
+              "config": {
+                "expression": "{../Menu.props.params.Page} \u003d \"Settings\""
+              },
+              "type": "expr"
+            }
+          }
+        },
+        "props": {
+          "path": "Page/Settings"
+        },
+        "type": "ia.display.view"
+      },
+      {
+        "meta": {
+          "name": "Map"
+        },
+        "position": {
+          "basis": "320px",
+          "grow": 1
+        },
+        "propConfig": {
+          "position.display": {
+            "binding": {
+              "config": {
+                "expression": "{../Menu.props.params.Page} \u003d \"Map\""
+              },
+              "type": "expr"
+            }
+          }
+        },
+        "props": {
+          "path": "Page/Map"
+        },
+        "type": "ia.display.view"
+      },
+      {
+        "meta": {
+          "name": "Details"
+        },
+        "position": {
+          "basis": "320px",
+          "grow": 1
+        },
+        "propConfig": {
+          "position.display": {
+            "binding": {
+              "config": {
+                "expression": "{../Menu.props.params.Page} \u003d \"Details\""
+              },
+              "type": "expr"
+            }
+          }
+        },
+        "props": {
+          "params": {
+            "Country": "France",
+            "Name": "Paris",
+            "Weather": {
+              "current": {
+                "clouds": 98,
+                "dew_point": 19.24,
+                "dt": 1659456059,
+                "feels_like": 29.96,
+                "humidity": 57,
+                "pressure": 1017,
+                "sunrise": 1659413740,
+                "sunset": 1659468765,
+                "temp": 28.59,
+                "uvi": 1.98,
+                "visibility": 10000,
+                "weather": [
+                  {
+                    "description": "overcast clouds",
+                    "icon": "04d",
+                    "id": 804,
+                    "main": "Clouds"
+                  }
+                ],
+                "wind_deg": 227,
+                "wind_gust": 7.15,
+                "wind_speed": 4.02
+              },
+              "daily": [
+                {
+                  "clouds": 85,
+                  "dew_point": 13.95,
+                  "dt": 1659438000,
+                  "feels_like": {
+                    "day": 27.29,
+                    "eve": 29.37,
+                    "morn": 14.79,
+                    "night": 19.63
+                  },
+                  "humidity": 44,
+                  "moon_phase": 0.15,
+                  "moonrise": 1659431400,
+                  "moonset": 1659476220,
+                  "pop": 0,
+                  "pressure": 1017,
+                  "sunrise": 1659413740,
+                  "sunset": 1659468765,
+                  "temp": {
+                    "day": 27.27,
+                    "eve": 28.42,
+                    "max": 28.86,
+                    "min": 14.83,
+                    "morn": 14.92,
+                    "night": 19.51
+                  },
+                  "uvi": 6.18,
+                  "weather": [
+                    {
+                      "description": "overcast clouds",
+                      "icon": "04d",
+                      "id": 804,
+                      "main": "Clouds"
+                    }
+                  ],
+                  "wind_deg": 258,
+                  "wind_gust": 7.07,
+                  "wind_speed": 6.44
+                },
+                {
+                  "clouds": 98,
+                  "dew_point": 13.61,
+                  "dt": 1659524400,
+                  "feels_like": {
+                    "day": 29.72,
+                    "eve": 29.91,
+                    "morn": 17.42,
+                    "night": 20.28
+                  },
+                  "humidity": 36,
+                  "moon_phase": 0.18,
+                  "moonrise": 1659522180,
+                  "moonset": 1659563460,
+                  "pop": 0,
+                  "pressure": 1014,
+                  "sunrise": 1659500228,
+                  "sunset": 1659555069,
+                  "temp": {
+                    "day": 30.42,
+                    "eve": 30.69,
+                    "max": 33.08,
+                    "min": 16.82,
+                    "morn": 17.33,
+                    "night": 20.48
+                  },
+                  "uvi": 6.48,
+                  "weather": [
+                    {
+                      "description": "overcast clouds",
+                      "icon": "04d",
+                      "id": 804,
+                      "main": "Clouds"
+                    }
+                  ],
+                  "wind_deg": 264,
+                  "wind_gust": 7.36,
+                  "wind_speed": 6.13
+                },
+                {
+                  "clouds": 9,
+                  "dew_point": 11.25,
+                  "dt": 1659610800,
+                  "feels_like": {
+                    "day": 27.35,
+                    "eve": 24.57,
+                    "morn": 17.34,
+                    "night": 17
+                  },
+                  "humidity": 35,
+                  "moon_phase": 0.21,
+                  "moonrise": 1659613200,
+                  "moonset": 0,
+                  "pop": 0,
+                  "pressure": 1014,
+                  "sunrise": 1659586718,
+                  "sunset": 1659641371,
+                  "temp": {
+                    "day": 27.99,
+                    "eve": 25.09,
+                    "max": 29.19,
+                    "min": 16.96,
+                    "morn": 17.33,
+                    "night": 17.47
+                  },
+                  "uvi": 6.67,
+                  "weather": [
+                    {
+                      "description": "clear sky",
+                      "icon": "01d",
+                      "id": 800,
+                      "main": "Clear"
+                    }
+                  ],
+                  "wind_deg": 338,
+                  "wind_gust": 6.14,
+                  "wind_speed": 6.6
+                },
+                {
+                  "clouds": 100,
+                  "dew_point": 9.81,
+                  "dt": 1659697200,
+                  "feels_like": {
+                    "day": 22.27,
+                    "eve": 17.94,
+                    "morn": 14.93,
+                    "night": 11.82
+                  },
+                  "humidity": 43,
+                  "moon_phase": 0.25,
+                  "moonrise": 1659704400,
+                  "moonset": 1659650760,
+                  "pop": 0.07,
+                  "pressure": 1020,
+                  "sunrise": 1659673207,
+                  "sunset": 1659727672,
+                  "temp": {
+                    "day": 22.81,
+                    "eve": 18.83,
+                    "max": 22.81,
+                    "min": 12.6,
+                    "morn": 15.43,
+                    "night": 12.6
+                  },
+                  "uvi": 4.96,
+                  "weather": [
+                    {
+                      "description": "overcast clouds",
+                      "icon": "04d",
+                      "id": 804,
+                      "main": "Clouds"
+                    }
+                  ],
+                  "wind_deg": 3,
+                  "wind_gust": 8.96,
+                  "wind_speed": 7.38
+                },
+                {
+                  "clouds": 3,
+                  "dew_point": 5.01,
+                  "dt": 1659783600,
+                  "feels_like": {
+                    "day": 22.14,
+                    "eve": 18.83,
+                    "morn": 12.53,
+                    "night": 12.74
+                  },
+                  "humidity": 31,
+                  "moon_phase": 0.28,
+                  "moonrise": 1659795840,
+                  "moonset": 1659738300,
+                  "pop": 0,
+                  "pressure": 1026,
+                  "sunrise": 1659759698,
+                  "sunset": 1659813970,
+                  "temp": {
+                    "day": 22.98,
+                    "eve": 19.73,
+                    "max": 22.98,
+                    "min": 10.31,
+                    "morn": 13.41,
+                    "night": 13.46
+                  },
+                  "uvi": 6.18,
+                  "weather": [
+                    {
+                      "description": "clear sky",
+                      "icon": "01d",
+                      "id": 800,
+                      "main": "Clear"
+                    }
+                  ],
+                  "wind_deg": 5,
+                  "wind_gust": 8.29,
+                  "wind_speed": 6.72
+                },
+                {
+                  "clouds": 24,
+                  "dew_point": 0.96,
+                  "dt": 1659870000,
+                  "feels_like": {
+                    "day": 23.93,
+                    "eve": 20.28,
+                    "morn": 11.57,
+                    "night": 15.03
+                  },
+                  "humidity": 21,
+                  "moon_phase": 0.32,
+                  "moonrise": 1659887340,
+                  "moonset": 1659826260,
+                  "pop": 0,
+                  "pressure": 1025,
+                  "sunrise": 1659846188,
+                  "sunset": 1659900268,
+                  "temp": {
+                    "day": 24.84,
+                    "eve": 20.95,
+                    "max": 25.21,
+                    "min": 10.66,
+                    "morn": 12.47,
+                    "night": 15.49
+                  },
+                  "uvi": 7,
+                  "weather": [
+                    {
+                      "description": "few clouds",
+                      "icon": "02d",
+                      "id": 801,
+                      "main": "Clouds"
+                    }
+                  ],
+                  "wind_deg": 12,
+                  "wind_gust": 11.78,
+                  "wind_speed": 7.4
+                },
+                {
+                  "clouds": 4,
+                  "dew_point": 5.6,
+                  "dt": 1659956400,
+                  "feels_like": {
+                    "day": 26.13,
+                    "eve": 22.9,
+                    "morn": 13.39,
+                    "night": 16.78
+                  },
+                  "humidity": 26,
+                  "moon_phase": 0.36,
+                  "moonrise": 1659978540,
+                  "moonset": 1659914820,
+                  "pop": 0,
+                  "pressure": 1025,
+                  "sunrise": 1659932679,
+                  "sunset": 1659986563,
+                  "temp": {
+                    "day": 26.77,
+                    "eve": 23.36,
+                    "max": 27.99,
+                    "min": 12.3,
+                    "morn": 14.19,
+                    "night": 17.04
+                  },
+                  "uvi": 7,
+                  "weather": [
+                    {
+                      "description": "clear sky",
+                      "icon": "01d",
+                      "id": 800,
+                      "main": "Clear"
+                    }
+                  ],
+                  "wind_deg": 12,
+                  "wind_gust": 12.8,
+                  "wind_speed": 7.07
+                },
+                {
+                  "clouds": 50,
+                  "dew_point": 6.92,
+                  "dt": 1660042800,
+                  "feels_like": {
+                    "day": 27.8,
+                    "eve": 26.33,
+                    "morn": 15.83,
+                    "night": 18.89
+                  },
+                  "humidity": 24,
+                  "moon_phase": 0.4,
+                  "moonrise": 1660068900,
+                  "moonset": 1660004280,
+                  "pop": 0,
+                  "pressure": 1024,
+                  "sunrise": 1660019171,
+                  "sunset": 1660072857,
+                  "temp": {
+                    "day": 29.28,
+                    "eve": 26.33,
+                    "max": 30.57,
+                    "min": 14.24,
+                    "morn": 16.41,
+                    "night": 19.17
+                  },
+                  "uvi": 7,
+                  "weather": [
+                    {
+                      "description": "scattered clouds",
+                      "icon": "03d",
+                      "id": 802,
+                      "main": "Clouds"
+                    }
+                  ],
+                  "wind_deg": 18,
+                  "wind_gust": 11.47,
+                  "wind_speed": 7.26
+                }
+              ],
+              "lat": 50.776,
+              "lon": 3.002,
+              "timezone": "Europe/Brussels",
+              "timezone_offset": 7200
+            }
+          },
+          "path": "Page/Details"
+        },
+        "type": "ia.display.view"
+      },
+      {
+        "meta": {
+          "name": "Menu"
+        },
+        "position": {
+          "basis": "50px"
+        },
+        "props": {
+          "params": {
+            "Page": "Locations"
+          },
+          "path": "Embedded/Menu"
+        },
+        "type": "ia.display.view"
+      }
+    ],
+    "meta": {
+      "name": "root"
+    },
+    "props": {
+      "direction": "column",
+      "justify": "flex-end"
+    },
+    "scripts": {
+      "customMethods": [],
+      "extensionFunctions": null,
+      "messageHandlers": [
+        {
+          "messageType": "getDetails",
+          "pageScope": true,
+          "script": "\tweather \u003d payload[\u0027weather\u0027]\n\tname \u003d payload[\u0027name\u0027]\n\tcountry \u003d payload[\u0027country\u0027]\n\tself.getChild(\"Details\").props.params.Country \u003d country\n\tself.getChild(\"Details\").props.params.Name \u003d name\n\tself.getChild(\"Details\").props.params.Weather \u003d weather\n\tself.getChild(\"Menu\").props.params.Page \u003d \"Details\"",
+          "sessionScope": false,
+          "viewScope": false
+        }
+      ]
+    },
+    "type": "ia.container.flex"
+  }
+}

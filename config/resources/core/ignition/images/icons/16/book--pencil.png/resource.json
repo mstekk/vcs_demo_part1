@@ -1,0 +1,20 @@
+{
+  "scope": "A",
+  "version": 1,
+  "restricted": false,
+  "overridable": true,
+  "files": [
+    "book--pencil.png"
+  ],
+  "attributes": {
+    "width": 16,
+    "format": "PNG",
+    "lastModification": {
+      "actor": "8.3-migration",
+      "timestamp": "2026-01-07T14:49:07Z"
+    },
+    "size": 714,
+    "lastModificationSignature": "bb8ae26cedff8189cd461a6616acc1e3e3ee2fbb003b6147d2e275609b4a5448",
+    "height": 16
+  }
+}

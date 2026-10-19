@@ -1,0 +1,20 @@
+{
+  "scope": "A",
+  "version": 1,
+  "restricted": false,
+  "overridable": true,
+  "files": [
+    "price-tag--arrow.png"
+  ],
+  "attributes": {
+    "width": 16,
+    "format": "PNG",
+    "lastModification": {
+      "actor": "8.3-migration",
+      "timestamp": "2026-01-07T14:49:07Z"
+    },
+    "size": 796,
+    "lastModificationSignature": "2824faf7014a6f8e3d37bec74e9baa7ee7b323b7d6e8221bc08b951ea79661ff",
+    "height": 16
+  }
+}

@@ -1,0 +1,20 @@
+{
+  "scope": "A",
+  "version": 1,
+  "restricted": false,
+  "overridable": true,
+  "files": [
+    "magnifier-zoom-actual.png"
+  ],
+  "attributes": {
+    "width": 24,
+    "format": "PNG",
+    "lastModification": {
+      "actor": "8.3-migration",
+      "timestamp": "2026-01-07T14:49:07Z"
+    },
+    "size": 1189,
+    "lastModificationSignature": "f15e24a33b24f2a9dc93b1215c815eab74bf0aaabfdc9a515f0276666d091ffb",
+    "height": 24
+  }
+}

@@ -1,0 +1,20 @@
+{
+  "scope": "A",
+  "version": 1,
+  "restricted": false,
+  "overridable": true,
+  "files": [
+    "counter-reset.png"
+  ],
+  "attributes": {
+    "width": 16,
+    "format": "PNG",
+    "lastModification": {
+      "actor": "8.3-migration",
+      "timestamp": "2026-01-07T14:49:07Z"
+    },
+    "size": 323,
+    "lastModificationSignature": "175dc6da529a7e6deaef94e60219085bb5cb435227de546ef75e4c54dfa42802",
+    "height": 16
+  }
+}

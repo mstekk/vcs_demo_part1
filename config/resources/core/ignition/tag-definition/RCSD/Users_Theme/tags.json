@@ -1,0 +1,35 @@
+[
+  {
+    "dataType": "String",
+    "name": "User1",
+    "defaultValue": "",
+    "enabled": true,
+    "tagType": "AtomicTag"
+  },
+  {
+    "dataType": "String",
+    "name": "User2",
+    "defaultValue": "",
+    "enabled": true,
+    "tagType": "AtomicTag"
+  },
+  {
+    "valueSource": "memory",
+    "dataType": "String",
+    "name": "admin",
+    "tagType": "AtomicTag"
+  },
+  {
+    "valueSource": "memory",
+    "dataType": "String",
+    "name": "S-TEKK",
+    "tagType": "AtomicTag"
+  },
+  {
+    "dataType": "String",
+    "name": "User3",
+    "defaultValue": "",
+    "enabled": true,
+    "tagType": "AtomicTag"
+  }
+]

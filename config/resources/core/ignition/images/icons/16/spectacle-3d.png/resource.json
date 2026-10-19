@@ -1,0 +1,20 @@
+{
+  "scope": "A",
+  "version": 1,
+  "restricted": false,
+  "overridable": true,
+  "files": [
+    "spectacle-3d.png"
+  ],
+  "attributes": {
+    "width": 16,
+    "format": "PNG",
+    "lastModification": {
+      "actor": "8.3-migration",
+      "timestamp": "2026-01-07T14:49:07Z"
+    },
+    "size": 358,
+    "lastModificationSignature": "391b8a88c11db741425d2c6880a49a5362fd49c357d0c0d3f8dc6b5042009105",
+    "height": 16
+  }
+}

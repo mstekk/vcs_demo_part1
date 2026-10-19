@@ -1,0 +1,561 @@
+{
+  "custom": {},
+  "params": {
+    "displayName": true,
+    "displayStatus": false,
+    "isVFD": true,
+    "tagPath": "[RCSD]WTF/Anita-B-Smith/Well 4"
+  },
+  "propConfig": {
+    "params.displayName": {
+      "paramDirection": "input",
+      "persistent": true
+    },
+    "params.displayStatus": {
+      "paramDirection": "input",
+      "persistent": true
+    },
+    "params.isVFD": {
+      "paramDirection": "input",
+      "persistent": true
+    },
+    "params.tagPath": {
+      "paramDirection": "input",
+      "persistent": true
+    }
+  },
+  "props": {
+    "defaultSize": {
+      "height": 220,
+      "width": 150
+    }
+  },
+  "root": {
+    "children": [
+      {
+        "meta": {
+          "name": "Device Name"
+        },
+        "position": {
+          "basis": "30px"
+        },
+        "propConfig": {
+          "meta.visible": {
+            "binding": {
+              "config": {
+                "path": "view.params.displayName"
+              },
+              "type": "property"
+            }
+          },
+          "props.text": {
+            "binding": {
+              "config": {
+                "fallbackDelay": 2.5,
+                "mode": "indirect",
+                "references": {
+                  "1": "{view.params.tagPath}"
+                },
+                "tagPath": "{1}/Parameters.DeviceID"
+              },
+              "type": "tag"
+            }
+          }
+        },
+        "props": {
+          "textStyle": {
+            "classes": "Text/Labels",
+            "textAlign": "center"
+          }
+        },
+        "type": "ia.display.label"
+      },
+      {
+        "children": [
+          {
+            "meta": {
+              "name": "Label"
+            },
+            "position": {
+              "height": "auto",
+              "width": "auto",
+              "x": 83.445
+            },
+            "propConfig": {
+              "meta.visible": {
+                "binding": {
+                  "config": {
+                    "path": "view.params.displayStatus"
+                  },
+                  "type": "property"
+                }
+              },
+              "props.text": {
+                "binding": {
+                  "config": {
+                    "expression": "if(\r\n  !{/root.custom.isLocal},\r\n  \"\",\r\n  if({/root.custom.isLocal}, \"L\", \"R\")\r\n  +\r\n  if({/root.custom.isAuto}, \"A\", \"M\")\r\n)"
+                  },
+                  "type": "expr"
+                }
+              }
+            },
+            "props": {
+              "textStyle": {
+                "classes": "Text/ProcessVariable"
+              }
+            },
+            "type": "ia.display.label"
+          },
+          {
+            "events": {
+              "dom": {
+                "onClick": [
+                  {
+                    "config": {
+                      "script": "\twindow \u003d \u0027Popups/Pump\u0027\n\t\n\tsystem.perspective.openPopup(id\u003d\u0027pump\u0027, view\u003dwindow, params\u003d{\u0027isVFD\u0027:self.view.params.isVFD}, modal\u003dTrue, showCloseIcon\u003dFalse, viewportBound\u003dTrue, draggable\u003dFalse)"
+                    },
+                    "scope": "G",
+                    "type": "script"
+                  },
+                  {
+                    "config": {
+                      "draggable": false,
+                      "id": "popup",
+                      "modal": true,
+                      "overlayDismiss": false,
+                      "position": {
+                        "bottom": 100,
+                        "left": 100,
+                        "right": 100,
+                        "top": 100
+                      },
+                      "positionType": "exact",
+                      "resizable": false,
+                      "showCloseIcon": false,
+                      "type": "open",
+                      "viewPath": "Popups/Demo/Popup",
+                      "viewportBound": true
+                    },
+                    "enabled": false,
+                    "scope": "C",
+                    "type": "popup"
+                  }
+                ]
+              }
+            },
+            "meta": {
+              "name": "Well Pump"
+            },
+            "position": {
+              "height": 135,
+              "width": 82,
+              "x": 0.44999999999999996,
+              "y": -3.5
+            },
+            "propConfig": {
+              "custom.stroke": {
+                "binding": {
+                  "config": {
+                    "path": "session.props.theme"
+                  },
+                  "transforms": [
+                    {
+                      "expression": "if(indexOf({value},\u0027ight\u0027)\u003e0, \u0027#2D2D2D\u0027,\u0027#808080\u0027)",
+                      "type": "expression"
+                    }
+                  ],
+                  "type": "property"
+                }
+              },
+              "props.elements[0].stroke.paint": {
+                "binding": {
+                  "config": {
+                    "path": "this.custom.stroke"
+                  },
+                  "type": "property"
+                }
+              },
+              "props.elements[0].style.classes": {
+                "binding": {
+                  "config": {
+                    "path": "/root.custom.classStyle"
+                  },
+                  "type": "property"
+                }
+              },
+              "props.elements[1].stroke.paint": {
+                "binding": {
+                  "config": {
+                    "path": "this.custom.stroke"
+                  },
+                  "type": "property"
+                }
+              },
+              "props.elements[1].style.classes": {
+                "binding": {
+                  "config": {
+                    "path": "/root.custom.classStyle"
+                  },
+                  "type": "property"
+                }
+              },
+              "props.elements[2].stroke.paint": {
+                "binding": {
+                  "config": {
+                    "path": "this.custom.stroke"
+                  },
+                  "type": "property"
+                }
+              },
+              "props.elements[2].style.classes": {
+                "binding": {
+                  "config": {
+                    "path": "/root.custom.classStyle"
+                  },
+                  "type": "property"
+                }
+              },
+              "props.elements[3].stroke.paint": {
+                "binding": {
+                  "config": {
+                    "path": "this.custom.stroke"
+                  },
+                  "type": "property"
+                }
+              },
+              "props.elements[3].style.classes": {
+                "binding": {
+                  "config": {
+                    "path": "/root.custom.classStyle"
+                  },
+                  "type": "property"
+                }
+              },
+              "props.elements[4].stroke.paint": {
+                "binding": {
+                  "config": {
+                    "path": "this.custom.stroke"
+                  },
+                  "type": "property"
+                }
+              },
+              "props.elements[4].style.classes": {
+                "binding": {
+                  "config": {
+                    "path": "/root.custom.classStyle"
+                  },
+                  "type": "property"
+                }
+              },
+              "props.elements[5].stroke.paint": {
+                "binding": {
+                  "config": {
+                    "path": "this.custom.stroke"
+                  },
+                  "type": "property"
+                }
+              },
+              "props.elements[5].style.classes": {
+                "binding": {
+                  "config": {
+                    "path": "/root.custom.classStyle"
+                  },
+                  "type": "property"
+                }
+              },
+              "props.elements[6].stroke.paint": {
+                "binding": {
+                  "config": {
+                    "path": "this.custom.stroke"
+                  },
+                  "type": "property"
+                }
+              },
+              "props.elements[6].style.classes": {
+                "binding": {
+                  "config": {
+                    "path": "/root.custom.classStyle"
+                  },
+                  "type": "property"
+                }
+              }
+            },
+            "props": {
+              "elements": [
+                {
+                  "clipRule": "evenodd",
+                  "d": "M203 3H103L98 33H53V63H253V33H208L203 3Z",
+                  "name": "path",
+                  "stroke": {},
+                  "style": {
+                    "strokeWidth": "3"
+                  },
+                  "type": "path"
+                },
+                {
+                  "d": "M3 63H303V93H3V63Z",
+                  "name": "path",
+                  "stroke": {},
+                  "style": {
+                    "strokeWidth": "3"
+                  },
+                  "type": "path"
+                },
+                {
+                  "d": "M28 92H278V337H28V92Z",
+                  "name": "path",
+                  "stroke": {},
+                  "style": {
+                    "strokeWidth": "3"
+                  },
+                  "type": "path"
+                },
+                {
+                  "d": "M103 140H203V290H103V140Z",
+                  "name": "path",
+                  "stroke": {},
+                  "style": {
+                    "strokeWidth": "3"
+                  },
+                  "type": "path"
+                },
+                {
+                  "d": "M78 606H228V621H78V606Z",
+                  "name": "path",
+                  "stroke": {},
+                  "style": {
+                    "strokeWidth": "3"
+                  },
+                  "type": "path"
+                },
+                {
+                  "d": "M3 337H303V367H3V337Z",
+                  "name": "path",
+                  "stroke": {},
+                  "style": {
+                    "strokeWidth": "3"
+                  },
+                  "type": "path"
+                },
+                {
+                  "clipRule": "evenodd",
+                  "d": "M253 367H53V397H68L93 606H213L238 397H253V367Z",
+                  "name": "path",
+                  "stroke": {},
+                  "style": {
+                    "strokeWidth": "3"
+                  },
+                  "type": "path"
+                }
+              ],
+              "fill": {
+                "paint": "transparent"
+              },
+              "style": {
+                "classes": "HoverSelect"
+              },
+              "viewBox": "0 0 306 624"
+            },
+            "type": "ia.shapes.svg"
+          }
+        ],
+        "meta": {
+          "name": "CoordinateContainer"
+        },
+        "props": {
+          "style": {
+            "overflow": "visible"
+          }
+        },
+        "type": "ia.container.coord"
+      },
+      {
+        "meta": {
+          "name": "Status"
+        },
+        "propConfig": {
+          "position.display": {
+            "binding": {
+              "config": {
+                "path": "view.params.displayStatus"
+              },
+              "type": "property"
+            }
+          },
+          "props.text": {
+            "binding": {
+              "config": {
+                "path": "parent.custom.status"
+              },
+              "transforms": [
+                {
+                  "fallback": "Non-Telemetered",
+                  "inputType": "scalar",
+                  "mappings": [
+                    {
+                      "input": 0,
+                      "output": "Stopped"
+                    },
+                    {
+                      "input": 1,
+                      "output": "Running"
+                    },
+                    {
+                      "input": 2,
+                      "output": "Non-Telemetered"
+                    },
+                    {
+                      "input": 10,
+                      "output": "Failed"
+                    },
+                    {
+                      "input": 11,
+                      "output": "Warning"
+                    },
+                    {
+                      "input": 12,
+                      "output": "Notice"
+                    },
+                    {
+                      "input": 20,
+                      "output": "Failed"
+                    },
+                    {
+                      "input": 21,
+                      "output": "Warning"
+                    },
+                    {
+                      "input": 22,
+                      "output": "Notice"
+                    }
+                  ],
+                  "outputType": "scalar",
+                  "type": "map"
+                }
+              ],
+              "type": "property"
+            }
+          }
+        },
+        "props": {
+          "textStyle": {
+            "classes": "Text/ProcessVariable",
+            "textAlign": "center"
+          }
+        },
+        "type": "ia.display.label"
+      },
+      {
+        "meta": {
+          "name": "Speed"
+        },
+        "propConfig": {
+          "position.display": {
+            "binding": {
+              "config": {
+                "path": "view.params.displayStatus"
+              },
+              "transforms": [
+                {
+                  "expression": "{value}\r\n\u0026\u0026\r\n{view.params.isVFD}",
+                  "type": "expression"
+                }
+              ],
+              "type": "property"
+            }
+          }
+        },
+        "props": {
+          "text": "100%",
+          "textStyle": {
+            "classes": "Text/ProcessVariable",
+            "textAlign": "center"
+          }
+        },
+        "type": "ia.display.label"
+      }
+    ],
+    "meta": {
+      "name": "root"
+    },
+    "propConfig": {
+      "custom.classStyle": {
+        "binding": {
+          "config": {
+            "path": "this.custom.status"
+          },
+          "transforms": [
+            {
+              "fallback": "Status/NonTelemetered",
+              "inputType": "scalar",
+              "mappings": [
+                {
+                  "input": 0,
+                  "output": "Status/Stopped"
+                },
+                {
+                  "input": 1,
+                  "output": "Status/Running"
+                },
+                {
+                  "input": 2,
+                  "output": "Status/NonTelemetered"
+                }
+              ],
+              "outputType": "scalar",
+              "type": "map"
+            }
+          ],
+          "type": "property"
+        }
+      },
+      "custom.isAuto": {
+        "binding": {
+          "config": {
+            "fallbackDelay": 2.5,
+            "mode": "indirect",
+            "references": {
+              "1": "{view.params.tagPath}"
+            },
+            "tagPath": "{1}/Auto"
+          },
+          "type": "tag"
+        }
+      },
+      "custom.isLocal": {
+        "binding": {
+          "config": {
+            "fallbackDelay": 2.5,
+            "mode": "indirect",
+            "references": {
+              "1": "{view.params.tagPath}"
+            },
+            "tagPath": "{1}/LOR"
+          },
+          "type": "tag"
+        }
+      },
+      "custom.status": {
+        "binding": {
+          "config": {
+            "fallbackDelay": 2.5,
+            "mode": "indirect",
+            "references": {
+              "1": "{view.params.tagPath}"
+            },
+            "tagPath": "{1}/Value"
+          },
+          "type": "tag"
+        }
+      }
+    },
+    "props": {
+      "alignItems": "center",
+      "direction": "column",
+      "style": {
+        "overflow": "visible"
+      }
+    },
+    "type": "ia.container.flex"
+  }
+}

@@ -1,0 +1,20 @@
+{
+  "scope": "A",
+  "version": 1,
+  "restricted": false,
+  "overridable": true,
+  "files": [
+    "ui-ruler.png"
+  ],
+  "attributes": {
+    "width": 16,
+    "format": "PNG",
+    "lastModification": {
+      "actor": "8.3-migration",
+      "timestamp": "2026-01-07T14:49:07Z"
+    },
+    "size": 551,
+    "lastModificationSignature": "629e136a30cc0bb9624fa6e85b4349b6b18cee6ca0311390d37dc80dd9b02ed7",
+    "height": 16
+  }
+}

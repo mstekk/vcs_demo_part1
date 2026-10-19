@@ -1,0 +1,20 @@
+{
+  "scope": "A",
+  "version": 1,
+  "restricted": false,
+  "overridable": true,
+  "files": [
+    "magnifyingglass44.png"
+  ],
+  "attributes": {
+    "width": 24,
+    "format": "PNG",
+    "lastModification": {
+      "actor": "8.3-migration",
+      "timestamp": "2026-01-07T14:49:07Z"
+    },
+    "size": 519,
+    "lastModificationSignature": "d614734709b510223c2c1135a91b0d776f1fa02d4af39e77465a1aacdc75c98b",
+    "height": 24
+  }
+}

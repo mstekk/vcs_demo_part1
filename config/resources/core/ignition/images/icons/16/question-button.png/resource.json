@@ -1,0 +1,20 @@
+{
+  "scope": "A",
+  "version": 1,
+  "restricted": false,
+  "overridable": true,
+  "files": [
+    "question-button.png"
+  ],
+  "attributes": {
+    "width": 16,
+    "format": "PNG",
+    "lastModification": {
+      "actor": "8.3-migration",
+      "timestamp": "2026-01-07T14:49:07Z"
+    },
+    "size": 614,
+    "lastModificationSignature": "f9e780ee291a8235dd15372c1513fad86f64f4ddff6b9eb1877040c435d04033",
+    "height": 16
+  }
+}

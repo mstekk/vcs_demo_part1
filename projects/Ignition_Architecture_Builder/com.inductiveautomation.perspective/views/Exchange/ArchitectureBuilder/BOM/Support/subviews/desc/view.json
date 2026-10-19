@@ -1,0 +1,66 @@
+{
+  "custom": {},
+  "params": {
+    "value": {
+      "cost": "$0.00",
+      "desc": "Your purchase of Ignition comes with 90 days of complimentary email and phone technical support. After 90 days, free support is limited to email only. If an upgrade is needed and a support plan is not in place, you will have to pay 65% of the software\u0027s current retail price.",
+      "email": false,
+      "phone": false,
+      "plan": "None",
+      "priority": false,
+      "rate": "",
+      "selected": false,
+      "upgrade": "65% Retail"
+    }
+  },
+  "propConfig": {
+    "params.value": {
+      "paramDirection": "input",
+      "persistent": true
+    }
+  },
+  "props": {
+    "defaultSize": {
+      "height": 100,
+      "width": 600
+    }
+  },
+  "root": {
+    "children": [
+      {
+        "meta": {
+          "name": "Label"
+        },
+        "position": {
+          "grow": 1
+        },
+        "propConfig": {
+          "props.text": {
+            "binding": {
+              "config": {
+                "path": "view.params.value.desc"
+              },
+              "type": "property"
+            }
+          }
+        },
+        "props": {
+          "style": {
+            "marginBottom": "8px",
+            "marginLeft": "20px",
+            "marginRight": "8px",
+            "marginTop": "4px"
+          }
+        },
+        "type": "ia.display.label"
+      }
+    ],
+    "meta": {
+      "name": "root"
+    },
+    "props": {
+      "direction": "column"
+    },
+    "type": "ia.container.flex"
+  }
+}

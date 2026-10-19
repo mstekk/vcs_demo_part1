@@ -1,0 +1,20 @@
+{
+  "scope": "A",
+  "version": 1,
+  "restricted": false,
+  "overridable": true,
+  "files": [
+    "blue-document-outlook.png"
+  ],
+  "attributes": {
+    "width": 16,
+    "format": "PNG",
+    "lastModification": {
+      "actor": "8.3-migration",
+      "timestamp": "2026-01-07T14:49:07Z"
+    },
+    "size": 766,
+    "lastModificationSignature": "c66b88aeef9d273847c089035f51a461a5301b030a69eadc982b020a1f9eb5d4",
+    "height": 16
+  }
+}

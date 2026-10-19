@@ -1,0 +1,20 @@
+{
+  "scope": "A",
+  "version": 1,
+  "restricted": false,
+  "overridable": true,
+  "files": [
+    "balloon-smiley.png"
+  ],
+  "attributes": {
+    "width": 16,
+    "format": "PNG",
+    "lastModification": {
+      "actor": "8.3-migration",
+      "timestamp": "2026-01-07T14:49:07Z"
+    },
+    "size": 760,
+    "lastModificationSignature": "1a7352ab23da41fece72a3cd44dfca5b55cd6668c12d98d210a04ca2f187a023",
+    "height": 16
+  }
+}

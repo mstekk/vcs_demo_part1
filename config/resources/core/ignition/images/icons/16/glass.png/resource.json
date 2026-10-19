@@ -1,0 +1,20 @@
+{
+  "scope": "A",
+  "version": 1,
+  "restricted": false,
+  "overridable": true,
+  "files": [
+    "glass.png"
+  ],
+  "attributes": {
+    "width": 16,
+    "format": "PNG",
+    "lastModification": {
+      "actor": "8.3-migration",
+      "timestamp": "2026-01-07T14:49:07Z"
+    },
+    "size": 651,
+    "lastModificationSignature": "c0cd99aa45d36e2c0ae0f361f310ef7fd646a79d19098037d796d8507dc3d7af",
+    "height": 16
+  }
+}

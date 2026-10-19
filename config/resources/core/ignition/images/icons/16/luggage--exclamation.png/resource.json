@@ -1,0 +1,20 @@
+{
+  "scope": "A",
+  "version": 1,
+  "restricted": false,
+  "overridable": true,
+  "files": [
+    "luggage--exclamation.png"
+  ],
+  "attributes": {
+    "width": 16,
+    "format": "PNG",
+    "lastModification": {
+      "actor": "8.3-migration",
+      "timestamp": "2026-01-07T14:49:07Z"
+    },
+    "size": 729,
+    "lastModificationSignature": "fac2aa3988e9621be12dd7ad6f045aaaa5221383d32fbc1e584b11cc70c37340",
+    "height": 16
+  }
+}

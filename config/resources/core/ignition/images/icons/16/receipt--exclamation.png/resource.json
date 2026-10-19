@@ -1,0 +1,20 @@
+{
+  "scope": "A",
+  "version": 1,
+  "restricted": false,
+  "overridable": true,
+  "files": [
+    "receipt--exclamation.png"
+  ],
+  "attributes": {
+    "width": 16,
+    "format": "PNG",
+    "lastModification": {
+      "actor": "8.3-migration",
+      "timestamp": "2026-01-07T14:49:07Z"
+    },
+    "size": 608,
+    "lastModificationSignature": "bac5b26b4b263327cc0edf6798a75e88e30fb2f1141ebd027f8b47fd1c114719",
+    "height": 16
+  }
+}

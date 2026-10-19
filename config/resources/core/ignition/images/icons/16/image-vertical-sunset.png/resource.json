@@ -1,0 +1,20 @@
+{
+  "scope": "A",
+  "version": 1,
+  "restricted": false,
+  "overridable": true,
+  "files": [
+    "image-vertical-sunset.png"
+  ],
+  "attributes": {
+    "width": 16,
+    "format": "PNG",
+    "lastModification": {
+      "actor": "8.3-migration",
+      "timestamp": "2026-01-07T14:49:07Z"
+    },
+    "size": 538,
+    "lastModificationSignature": "e14b6aae0b098e329b617df0f1627c8bdca4cf1cbdefd131db6231dffffedf0c",
+    "height": 16
+  }
+}

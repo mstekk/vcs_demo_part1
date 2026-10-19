@@ -1,0 +1,20 @@
+{
+  "scope": "A",
+  "version": 1,
+  "restricted": false,
+  "overridable": true,
+  "files": [
+    "socket--pencil.png"
+  ],
+  "attributes": {
+    "width": 16,
+    "format": "PNG",
+    "lastModification": {
+      "actor": "8.3-migration",
+      "timestamp": "2026-01-07T14:49:07Z"
+    },
+    "size": 714,
+    "lastModificationSignature": "452247c3082eff7d93b56f7780559ef7401a1e7bdcaf40c59f3bc398390c6b33",
+    "height": 16
+  }
+}

@@ -1,0 +1,20 @@
+{
+  "scope": "A",
+  "version": 1,
+  "restricted": false,
+  "overridable": true,
+  "files": [
+    "application-list.png"
+  ],
+  "attributes": {
+    "width": 16,
+    "format": "PNG",
+    "lastModification": {
+      "actor": "8.3-migration",
+      "timestamp": "2026-01-07T14:49:07Z"
+    },
+    "size": 585,
+    "lastModificationSignature": "7c71f84722017eee662912aa60cb3a59cdf046f76f573bc899fa0b964a0d6651",
+    "height": 16
+  }
+}

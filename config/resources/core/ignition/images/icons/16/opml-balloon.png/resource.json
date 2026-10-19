@@ -1,0 +1,20 @@
+{
+  "scope": "A",
+  "version": 1,
+  "restricted": false,
+  "overridable": true,
+  "files": [
+    "opml-balloon.png"
+  ],
+  "attributes": {
+    "width": 16,
+    "format": "PNG",
+    "lastModification": {
+      "actor": "8.3-migration",
+      "timestamp": "2026-01-07T14:49:07Z"
+    },
+    "size": 741,
+    "lastModificationSignature": "d5e66064a12a6c0559592ed2f6f425b94809ea3896ad8ab07a283640d105e3b7",
+    "height": 16
+  }
+}

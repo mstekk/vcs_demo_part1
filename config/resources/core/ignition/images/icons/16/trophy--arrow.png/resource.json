@@ -1,0 +1,20 @@
+{
+  "scope": "A",
+  "version": 1,
+  "restricted": false,
+  "overridable": true,
+  "files": [
+    "trophy--arrow.png"
+  ],
+  "attributes": {
+    "width": 16,
+    "format": "PNG",
+    "lastModification": {
+      "actor": "8.3-migration",
+      "timestamp": "2026-01-07T14:49:07Z"
+    },
+    "size": 898,
+    "lastModificationSignature": "2eb9744e1682b41bf146f7eb163ccf16727b90923ebc71b5ddf093d8ec2df610",
+    "height": 16
+  }
+}

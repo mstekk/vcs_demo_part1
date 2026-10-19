@@ -1,0 +1,20 @@
+{
+  "scope": "A",
+  "version": 1,
+  "restricted": false,
+  "overridable": true,
+  "files": [
+    "luggage--minus.png"
+  ],
+  "attributes": {
+    "width": 16,
+    "format": "PNG",
+    "lastModification": {
+      "actor": "8.3-migration",
+      "timestamp": "2026-01-07T14:49:07Z"
+    },
+    "size": 622,
+    "lastModificationSignature": "b3dd0b6e40d2713ba79293c174bce99b556ea69121f0deb9c6f780bfbe498219",
+    "height": 16
+  }
+}

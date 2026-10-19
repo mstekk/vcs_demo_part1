@@ -1,0 +1,20 @@
+{
+  "scope": "A",
+  "version": 1,
+  "restricted": false,
+  "overridable": true,
+  "files": [
+    "paint-can-paint-brush.png"
+  ],
+  "attributes": {
+    "width": 16,
+    "format": "PNG",
+    "lastModification": {
+      "actor": "8.3-migration",
+      "timestamp": "2026-01-07T14:49:07Z"
+    },
+    "size": 761,
+    "lastModificationSignature": "ea4d1bf06b2fd9f80222b4440ca6a2ecedee1a635a2515471216a082971bc7cb",
+    "height": 16
+  }
+}

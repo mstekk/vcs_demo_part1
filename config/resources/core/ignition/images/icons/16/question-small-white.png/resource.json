@@ -1,0 +1,20 @@
+{
+  "scope": "A",
+  "version": 1,
+  "restricted": false,
+  "overridable": true,
+  "files": [
+    "question-small-white.png"
+  ],
+  "attributes": {
+    "width": 16,
+    "format": "PNG",
+    "lastModification": {
+      "actor": "8.3-migration",
+      "timestamp": "2026-01-07T14:49:07Z"
+    },
+    "size": 449,
+    "lastModificationSignature": "16e969ca2ea504e65369c8070eb544ba476f7438682c5525f30f45ff2aaa6642",
+    "height": 16
+  }
+}

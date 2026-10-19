@@ -1,0 +1,692 @@
+{
+  "custom": {},
+  "events": {
+    "system": {
+      "onShutdown": {
+        "config": {
+          "script": "\tif self.session.custom.audit.bom:\n\t\t# Log BOM closed\n\t\tsystem.util.audit(action\u003d\"Closed\", actionTarget\u003d\"BOM\")"
+        },
+        "scope": "G",
+        "type": "script"
+      },
+      "onStartup": {
+        "config": {
+          "script": "\tif self.session.custom.audit.bom:\n\t\t# Log BOM opened\n\t\tsystem.util.audit(action\u003d\"Opened\", actionTarget\u003d\"BOM\")"
+        },
+        "scope": "G",
+        "type": "script"
+      }
+    }
+  },
+  "params": {},
+  "props": {},
+  "root": {
+    "children": [
+      {
+        "children": [
+          {
+            "children": [
+              {
+                "events": {
+                  "dom": {
+                    "onClick": {
+                      "config": {
+                        "script": "\t# Collapse all active entries\n\tself.parent.parent.parent.getChild(\"Accordion\").setExpansion(\"all\", True)\n\n\t# Log All BOM entires expanded\n\tsystem.util.audit(action\u003d\"Expanded\", actionTarget\u003d\"BOM\", actionValue\u003d\"All %d Entries\" % (len(self.parent.parent.parent.getChild(\"Accordion\").custom.items)))\n\n\t# Save collapsed state for all gateways\n\tfor gateway in self.parent.parent.parent.getChild(\"Accordion\").custom.visibility.gateways.keys():\n\t\tself.parent.parent.parent.getChild(\"Accordion\").custom.visibility.gateways[gateway][\"entryExpanded\"] \u003d True"
+                      },
+                      "scope": "G",
+                      "type": "script"
+                    }
+                  }
+                },
+                "meta": {
+                  "name": "ExpandGateways",
+                  "tooltip": {
+                    "enabled": true,
+                    "text": "Expand All"
+                  }
+                },
+                "position": {
+                  "basis": "30px",
+                  "shrink": 0
+                },
+                "props": {
+                  "path": "material/double_arrow",
+                  "style": {
+                    "cursor": "pointer",
+                    "transform": "rotate(90deg)"
+                  }
+                },
+                "type": "ia.display.icon"
+              },
+              {
+                "events": {
+                  "dom": {
+                    "onClick": {
+                      "config": {
+                        "script": "\t# Collapse all active entries\n\tself.parent.parent.parent.getChild(\"Accordion\").setExpansion(\"all\", False)\n\n\t# Log All BOM entires collapsed\n\tsystem.util.audit(action\u003d\"Collapsed\", actionTarget\u003d\"BOM\", actionValue\u003d\"All %d Entries\" % (len(self.parent.parent.parent.getChild(\"Accordion\").custom.items)))\n\n\t# Save collapsed state for all gateways\n\tfor gateway in self.parent.parent.parent.getChild(\"Accordion\").custom.visibility.gateways.keys():\n\t\tself.parent.parent.parent.getChild(\"Accordion\").custom.visibility.gateways[gateway][\"entryExpanded\"] \u003d False"
+                      },
+                      "scope": "G",
+                      "type": "script"
+                    }
+                  }
+                },
+                "meta": {
+                  "name": "CollapseGateways",
+                  "tooltip": {
+                    "enabled": true,
+                    "text": "Collapse All"
+                  }
+                },
+                "position": {
+                  "basis": "30px",
+                  "shrink": 0
+                },
+                "props": {
+                  "path": "material/double_arrow",
+                  "style": {
+                    "cursor": "pointer",
+                    "transform": "rotate(-90deg)"
+                  }
+                },
+                "type": "ia.display.icon"
+              },
+              {
+                "events": {
+                  "component": {
+                    "onItemClicked": {
+                      "config": {
+                        "script": "\t##### File Menu #####\n\tif event.label \u003d\u003d \u0027Export\u0027:\n\t\tif self.session.custom.audit.bom or self.session.custom.audit.global:\n\t\t\t# Log Export opened\n\t\t\tsystem.util.audit(action\u003d\"Opened\", actionTarget\u003d\"Exports\", originatingSystem\u003d[\"source\",\"BOM\"])\n\t\tparams \u003d {\"entries\": system.util.jsonDecode(system.util.jsonEncode(self.parent.parent.parent.getChild(\"Accordion\").custom.items))}\n\t\tsystem.perspective.openPopup(\"Export\", \"Exchange/ArchitectureBuilder/BOM/Popups/Export\", params\u003dparams, showCloseIcon\u003dFalse, draggable\u003dFalse, viewportBound\u003dTrue, modal\u003dTrue)\n\n\t##### View Menu #####\n\telif event.label in (\"Hide Configuration\", \"Show Configuration\"):\n\t\tnewValue \u003d not self.parent.parent.parent.getChild(\"Accordion\").custom.visibility.gatewayConfig\n\t\tif self.session.custom.audit.bom:\n\t\t\t# Log BOM Configuration visibility toggled\n\t\t\tif newValue:\n\t\t\t\taction \u003d \"Show\"\n\t\t\telse:\n\t\t\t\taction \u003d \"Hide\"\n\t\t\tsystem.util.audit(action\u003daction, actionTarget\u003d\"BOM\", actionValue\u003d\"Configuration\")\n\t\tself.parent.parent.parent.getChild(\"Accordion\").custom.visibility.gatewayConfig \u003d newValue\n\telif event.label in (\"Hide Computing Load \u0026 Resources\", \"Show Computing Load \u0026 Resources\"):\n\t\tnewValue \u003d not self.parent.parent.parent.getChild(\"Accordion\").custom.visibility.computing\n\t\tif self.session.custom.audit.bom:\n\t\t\t# Log BOM Computing Load \u0026 Resources visibility toggled\n\t\t\tif newValue:\n\t\t\t\taction \u003d \"Show\"\n\t\t\telse:\n\t\t\t\taction \u003d \"Hide\"\n\t\t\tsystem.util.audit(action\u003daction, actionTarget\u003d\"BOM\", actionValue\u003d\"Resources\")\n\t\tself.parent.parent.parent.getChild(\"Accordion\").custom.visibility.computing \u003d newValue\n\telif event.label in (\"Hide Support Plans \u0026 Costs\", \"Show Support Plans \u0026 Costs\"):\n\t\tnewValue \u003d not self.parent.parent.parent.getChild(\"Accordion\").custom.visibility.support\n\t\tif self.session.custom.audit.bom:\n\t\t\t# Log BOM Support Plan visibility toggled\n\t\t\tif newValue:\n\t\t\t\taction \u003d \"Show\"\n\t\t\telse:\n\t\t\t\taction \u003d \"Hide\"\n\t\t\tsystem.util.audit(action\u003daction, actionTarget\u003d\"BOM\", actionValue\u003d\"Support\")\n\t\tself.parent.parent.parent.getChild(\"Accordion\").custom.visibility.support \u003d newValue\n\n\t##### BOM Menu #####\n\telif event.label \u003d\u003d \"EAM Unlimited\":\n\t\tif self.session.custom.audit.eam:\n\t\t\t# Log EAM Unlimited popup opened\n\t\t\tsystem.util.audit(action\u003d\"Opened\", actionTarget\u003d\"EAM Unlimited\")\n\t\tsystem.perspective.openPopup(\"EamUnlimited\", \"Exchange/ArchitectureBuilder/BOM/Popups/EAM\", showCloseIcon\u003dFalse, draggable\u003dFalse)"
+                      },
+                      "scope": "G",
+                      "type": "script"
+                    }
+                  }
+                },
+                "meta": {
+                  "name": "HorizontalMenu"
+                },
+                "propConfig": {
+                  "props.items[1].items[0].icon.path": {
+                    "binding": {
+                      "config": {
+                        "path": "..../Accordion.custom.visibility.gatewayConfig"
+                      },
+                      "transforms": [
+                        {
+                          "expression": "\"material/subtitles\" + \r\nif({value}, \"\", \"_off\")",
+                          "type": "expression"
+                        }
+                      ],
+                      "type": "property"
+                    }
+                  },
+                  "props.items[1].items[0].label": {
+                    "binding": {
+                      "config": {
+                        "path": "..../Accordion.custom.visibility.gatewayConfig"
+                      },
+                      "transforms": [
+                        {
+                          "expression": "if({value}, \"Hide\", \"Show\")\r\n+ \" Configuration\"",
+                          "type": "expression"
+                        }
+                      ],
+                      "type": "property"
+                    }
+                  },
+                  "props.items[1].items[1].icon.path": {
+                    "binding": {
+                      "config": {
+                        "path": "..../Accordion.custom.visibility.computing"
+                      },
+                      "transforms": [
+                        {
+                          "expression": "\"material/subtitles\" + \r\nif({value}, \"\", \"_off\")",
+                          "type": "expression"
+                        }
+                      ],
+                      "type": "property"
+                    }
+                  },
+                  "props.items[1].items[1].label": {
+                    "binding": {
+                      "config": {
+                        "path": "..../Accordion.custom.visibility.computing"
+                      },
+                      "transforms": [
+                        {
+                          "expression": "if({value}, \"Hide\", \"Show\")\r\n+ \" Computing Load \u0026 Resources\"",
+                          "type": "expression"
+                        }
+                      ],
+                      "type": "property"
+                    }
+                  },
+                  "props.items[1].items[2].icon.path": {
+                    "binding": {
+                      "config": {
+                        "path": "..../Accordion.custom.visibility.support"
+                      },
+                      "transforms": [
+                        {
+                          "expression": "\"material/subtitles\" + \r\nif({value}, \"\", \"_off\")",
+                          "type": "expression"
+                        }
+                      ],
+                      "type": "property"
+                    }
+                  },
+                  "props.items[1].items[2].label": {
+                    "binding": {
+                      "config": {
+                        "path": "..../Accordion.custom.visibility.support"
+                      },
+                      "transforms": [
+                        {
+                          "expression": "if({value}, \"Hide\", \"Show\")\r\n+ \" Support Plans \u0026 Costs\"",
+                          "type": "expression"
+                        }
+                      ],
+                      "type": "property"
+                    }
+                  }
+                },
+                "props": {
+                  "itemStyle": {
+                    "backgroundColor": "--neutral-30",
+                    "color": "--neutral-100"
+                  },
+                  "items": [
+                    {
+                      "enabled": true,
+                      "icon": {
+                        "path": ""
+                      },
+                      "items": [
+                        {
+                          "enabled": true,
+                          "icon": {
+                            "path": "material/cloud_download"
+                          },
+                          "items": [],
+                          "label": "Export",
+                          "style": {
+                            "classes": ""
+                          },
+                          "target": ""
+                        }
+                      ],
+                      "label": "File",
+                      "style": {
+                        "classes": ""
+                      },
+                      "target": ""
+                    },
+                    {
+                      "enabled": true,
+                      "icon": {
+                        "path": ""
+                      },
+                      "items": [
+                        {
+                          "enabled": true,
+                          "icon": {},
+                          "items": [],
+                          "style": {
+                            "classes": ""
+                          },
+                          "target": ""
+                        },
+                        {
+                          "enabled": true,
+                          "icon": {},
+                          "items": [],
+                          "style": {
+                            "classes": ""
+                          },
+                          "target": ""
+                        },
+                        {
+                          "enabled": true,
+                          "icon": {},
+                          "items": [],
+                          "style": {
+                            "classes": ""
+                          },
+                          "target": ""
+                        }
+                      ],
+                      "label": "View",
+                      "style": {
+                        "classes": ""
+                      },
+                      "target": ""
+                    },
+                    {
+                      "enabled": true,
+                      "icon": {
+                        "path": ""
+                      },
+                      "items": [
+                        {
+                          "enabled": true,
+                          "icon": {
+                            "path": "material/all_inclusive"
+                          },
+                          "items": [],
+                          "label": "EAM Unlimited",
+                          "style": {
+                            "classes": ""
+                          },
+                          "target": ""
+                        }
+                      ],
+                      "label": "EAM",
+                      "style": {
+                        "classes": ""
+                      },
+                      "target": ""
+                    }
+                  ],
+                  "style": {
+                    "borderBottomLeftRadius": 8,
+                    "borderBottomRightRadius": 8,
+                    "borderTopLeftRadius": 8,
+                    "borderTopRightRadius": 8,
+                    "marginLeft": "4px"
+                  }
+                },
+                "type": "ia.navigation.horizontalmenu"
+              }
+            ],
+            "meta": {
+              "name": "Icons"
+            },
+            "position": {
+              "shrink": 0
+            },
+            "props": {
+              "justify": "center"
+            },
+            "type": "ia.container.flex"
+          },
+          {
+            "children": [
+              {
+                "events": {
+                  "dom": {
+                    "onClick": {
+                      "config": {
+                        "draggable": false,
+                        "id": "EamUnlimited",
+                        "modal": false,
+                        "overlayDismiss": false,
+                        "resizable": false,
+                        "showCloseIcon": false,
+                        "type": "open",
+                        "viewPath": "Exchange/ArchitectureBuilder/BOM/Popups/EAM",
+                        "viewportBound": false
+                      },
+                      "scope": "C",
+                      "type": "popup"
+                    }
+                  }
+                },
+                "meta": {
+                  "name": "Edit",
+                  "tooltip": {
+                    "enabled": true
+                  }
+                },
+                "position": {
+                  "basis": "20px",
+                  "shrink": 0
+                },
+                "propConfig": {
+                  "meta.tooltip.text": {
+                    "binding": {
+                      "config": {
+                        "expression": "len({session.custom.eamUnlimited.UUID}) \u003c 1"
+                      },
+                      "transforms": [
+                        {
+                          "fallback": "Click to Edit",
+                          "inputType": "scalar",
+                          "mappings": [
+                            {
+                              "input": true,
+                              "output": "No Gateway - Click to Edit"
+                            }
+                          ],
+                          "outputType": "scalar",
+                          "type": "map"
+                        }
+                      ],
+                      "type": "expr"
+                    }
+                  },
+                  "props.color": {
+                    "binding": {
+                      "config": {
+                        "expression": "len({session.custom.eamUnlimited.UUID}) \u003c 1"
+                      },
+                      "transforms": [
+                        {
+                          "fallback": "#C0C0C0",
+                          "inputType": "scalar",
+                          "mappings": [
+                            {
+                              "input": true,
+                              "output": "#FF0000"
+                            }
+                          ],
+                          "outputType": "color",
+                          "type": "map"
+                        }
+                      ],
+                      "type": "expr"
+                    }
+                  },
+                  "props.path": {
+                    "binding": {
+                      "config": {
+                        "expression": "len({session.custom.eamUnlimited.UUID}) \u003c 1"
+                      },
+                      "transforms": [
+                        {
+                          "fallback": "material/edit",
+                          "inputType": "scalar",
+                          "mappings": [
+                            {
+                              "input": true,
+                              "output": "material/warning"
+                            }
+                          ],
+                          "outputType": "scalar",
+                          "type": "map"
+                        }
+                      ],
+                      "type": "expr"
+                    }
+                  }
+                },
+                "props": {
+                  "style": {
+                    "cursor": "pointer",
+                    "marginRight": "4px"
+                  }
+                },
+                "type": "ia.display.icon"
+              },
+              {
+                "meta": {
+                  "name": "Label",
+                  "tooltip": {
+                    "enabled": true,
+                    "text": "EAM Unlimited"
+                  }
+                },
+                "position": {
+                  "shrink": 0
+                },
+                "propConfig": {
+                  "props.text": {
+                    "binding": {
+                      "config": {
+                        "path": "session.custom.eamUnlimited.UUID"
+                      },
+                      "transforms": [
+                        {
+                          "code": "\ttry:\n\t\tkey \u003d self.session.custom.structure.configs[value][\"config\"][\"licenseKey\"]\n\texcept:\n\t\tkey \u003d \"\u003cN/A\u003e\"\n\treturn \"EAM: \" + (key or \"\u003cNo Key\u003e\")",
+                          "type": "script"
+                        }
+                      ],
+                      "type": "property"
+                    }
+                  }
+                },
+                "props": {
+                  "textStyle": {
+                    "textAlign": "center"
+                  }
+                },
+                "type": "ia.display.label"
+              }
+            ],
+            "meta": {
+              "name": "EamUnlimited"
+            },
+            "propConfig": {
+              "position.display": {
+                "binding": {
+                  "config": {
+                    "path": "session.custom.eamUnlimited.selected"
+                  },
+                  "type": "property"
+                }
+              }
+            },
+            "props": {
+              "style": {
+                "paddingLeft": "4px",
+                "paddingRight": "4px"
+              }
+            },
+            "type": "ia.container.flex"
+          },
+          {
+            "meta": {
+              "name": "GrandTotal",
+              "tooltip": {
+                "enabled": true
+              }
+            },
+            "position": {
+              "shrink": 0
+            },
+            "propConfig": {
+              "custom.price": {
+                "binding": {
+                  "config": {
+                    "struct": {
+                      "configs": "{session.custom.structure.configs}",
+                      "discount": "{session.custom.discount}",
+                      "eamUnlimited": "{session.custom.eamUnlimited}",
+                      "gatewayUUIDs": "{.../Accordion.custom.visibility.gateways}",
+                      "supportCosts": "{.../Accordion.custom.visibility.support}"
+                    },
+                    "waitOnAll": true
+                  },
+                  "transforms": [
+                    {
+                      "code": "\treturnVal \u003d {\"msg\": \u0027\u0027, \"total\": 0, \"retailTotal\": 0, \"licenseBase\": 0, \"supportBase\": 0, \"licenseDiscounted\": 0, \"supportDiscounted\": 0}\n\ttotal \u003d 0\n\n\tfor uuid in value[\u0027gatewayUUIDs\u0027].keys():\n\t\tif value[\u0027configs\u0027][uuid][\u0027type\u0027] in (\u0027standard\u0027, \u0027edge\u0027, \u0027cloud\u0027, \u0027panel\u0027):\n\t\t\tif value[\u0027configs\u0027][uuid][\u0027type\u0027] \u003d\u003d \u0027cloud\u0027:\n\t\t\t\treturnVal[\u0027msg\u0027] \u003d \u0027Check Provider\u0027\n\t\t\telif value[\u0027configs\u0027][uuid][\u0027config\u0027][\u0027trial\u0027]:\n\t\t\t\tpass\n\t\t\telse:\n\t\t\t\t# Build list of selected modules\n\t\t\t\tselections \u003d {}\n\t\t\t\teamCost \u003d 0\n\t\t\t\tfor vendor in value[\u0027configs\u0027][uuid][\u0027config\u0027][\u0027modules\u0027]:\n\t\t\t\t\tselectedModules \u003d []\n\t\t\t\t\tif len(value[\u0027configs\u0027][uuid][\u0027config\u0027][\u0027modules\u0027][vendor]) \u003e 0:\n\t\t\t\t\t\tfor m in value[\u0027configs\u0027][uuid][\u0027config\u0027][\u0027modules\u0027][vendor]:\n\t\t\t\t\t\t\tif \"selection\" in m.keys() and m[\"selection\"] is not None:\n\t\t\t\t\t\t\t\tselectedModules.append({\"name\": m[\"name\"], \"selection\": m[\"selection\"]})\n\t\t\t\t\t\t\telse:\n\t\t\t\t\t\t\t\tselectedModules.append(m[\"name\"])\n\t\t\t\t\t\tselections[vendor] \u003d selectedModules\n\t\t\t\t\tif vendor \u003d\u003d \"IA\" and value[\"eamUnlimited\"][\"selected\"]:\n\t\t\t\t\t\tif len(filter(lambda module: module \u003d\u003d \"EAM\", selections[\"IA\"])) \u003e 0:\n\t\t\t\t\t\t\tfor module in selections[\"IA\"]:\n\t\t\t\t\t\t\t\tif module \u003d\u003d \"EAM\":\n\t\t\t\t\t\t\t\t\tselections[\"IA\"].remove(module)\n\t\t\t\t\t\t\t\t\tbreak\n\t\t\t\t\t\tif value[\"eamUnlimited\"][\"UUID\"] \u003d\u003d uuid:\n\t\t\t\t\t\t\tselectedModules.append({\"name\": \"EAM\", \"selection\": \"unlimited\"})\n\t\t\t\t\t\t\treturnVal[\"eamCost\"] \u003d exchange.architecturebuilder.modules.getEamUnlimited()\n\t\t\t\tlicenseBase \u003d exchange.architecturebuilder.modules.getRetailTotal(selections, gwType\u003dvalue[\u0027configs\u0027][uuid][\u0027type\u0027])[\u0027total\u0027]\n\t\t\t\tsupportBase \u003d exchange.architecturebuilder.modules.getSupportTotal(selections, supportPlan\u003dvalue[\u0027configs\u0027][uuid][\u0027config\u0027][\u0027supportPlan\u0027], gwType\u003dvalue[\u0027configs\u0027][uuid][\u0027type\u0027])[\u0027total\u0027]\n\t\n\t\t\t\t# Calculate total with discount and redundancy/development modifiers\n\t\t\t\tlicense \u003d licenseBase\n\t\t\t\tsupport \u003d supportBase\n\t\t\t\tif value[\u0027configs\u0027][uuid][\u0027config\u0027][\u0027redundant\u0027]:\n\t\t\t\t\tlicense \u003d license * 1.5\n\t\t\t\t\tsupport \u003d support * 1.5\n\t\t\t\tif value[\u0027configs\u0027][uuid][\u0027config\u0027][\u0027development\u0027]:\n\t\t\t\t\tlicense \u003d license * 0.5\n\t\t\t\t\tsupport \u003d support * 0.5\n\t\t\t\tretailTotal \u003d license + support\n\t\t\t\tlicenseDiscounted \u003d (license * (1 - (value[\u0027discount\u0027] / 100.0)))\n\t\t\t\tsupportDiscounted \u003d support * 0.9 if value[\u0027discount\u0027] \u003e 0 else support\n\n\t\t\t\t# Increment dictionary values\n\t\t\t\treturnVal[\u0027licenseBase\u0027] +\u003d licenseBase\n\t\t\t\treturnVal[\u0027supportBase\u0027] +\u003d supportBase\n\t\t\t\treturnVal[\u0027retailTotal\u0027] +\u003d retailTotal\n\t\t\t\treturnVal[\u0027licenseDiscounted\u0027] +\u003d licenseDiscounted\n\t\t\t\treturnVal[\u0027supportDiscounted\u0027] +\u003d supportDiscounted\n\t\t\t\treturnVal[\u0027total\u0027] +\u003d licenseDiscounted + (supportDiscounted if value[\"supportCosts\"] else 0)\n\treturn returnVal",
+                      "type": "script"
+                    }
+                  ],
+                  "type": "expr-struct"
+                }
+              },
+              "meta.tooltip.text": {
+                "binding": {
+                  "config": {
+                    "expression": "\"Licenses: \" + numberFormat({this.custom.price.licenseDiscounted}, \"$#,##0.00\") + \"; Support: \" + \r\nif({.../Accordion.custom.visibility.support},\r\n\tnumberFormat({this.custom.price.supportDiscounted}, \"$#,##0.00\"),\r\n\t\"Not calculated\")"
+                  },
+                  "type": "expr"
+                }
+              },
+              "props.text": {
+                "binding": {
+                  "config": {
+                    "path": "this.custom.price"
+                  },
+                  "transforms": [
+                    {
+                      "expression": "numberFormat({value}[\u0027total\u0027], \"$#,##0.00\")\r\n+\r\nif(len({value}[\u0027msg\u0027])\u003e0,\r\n\t\"+\",\r\n\t\"\")",
+                      "type": "expression"
+                    }
+                  ],
+                  "type": "property"
+                }
+              }
+            },
+            "props": {
+              "style": {
+                "cursor": "help",
+                "paddingLeft": "10px",
+                "textAlign": "right"
+              }
+            },
+            "type": "ia.display.label"
+          }
+        ],
+        "custom": {
+          "visibility": {}
+        },
+        "meta": {
+          "name": "OptionsPalette"
+        },
+        "position": {
+          "basis": "36px",
+          "shrink": 0
+        },
+        "propConfig": {
+          "custom.visibility.config": {
+            "binding": {
+              "config": {
+                "path": "./ShowConfiguration.props.selected"
+              },
+              "type": "property"
+            }
+          },
+          "custom.visibility.resources": {
+            "binding": {
+              "config": {
+                "path": "./ShowComputingResources.props.selected"
+              },
+              "type": "property"
+            }
+          }
+        },
+        "props": {
+          "alignContent": "space-between",
+          "justify": "space-between",
+          "style": {
+            "margin": "8px",
+            "marginBottom": "0px"
+          }
+        },
+        "type": "ia.container.flex"
+      },
+      {
+        "custom": {
+          "visibility": {
+            "computing": false,
+            "gatewayConfig": true,
+            "gateways": {},
+            "support": true
+          }
+        },
+        "meta": {
+          "name": "Accordion"
+        },
+        "position": {
+          "grow": 1
+        },
+        "propConfig": {
+          "custom.items": {
+            "binding": {
+              "config": {
+                "path": "session.custom.structure"
+              },
+              "transforms": [
+                {
+                  "code": "\tlogger \u003d system.util.getLogger(\"BOM Items Builder\")\n\tif logger.isDebugEnabled():\n\t\tlogger.debug(\"BOM Items Builder Started\")\n\n\tgwVisibility \u003d {}\n\tvisibility \u003d self.custom.visibility\n\n\t# Accordion template for Ignition Gateway\n\tdef stdAccordion():\n\t\treturn {\n\t\t  \"expanded\": True,\n\t\t  \"header\": {\n\t\t    \"toggle\": {\n\t\t      \"enabled\": False,\n\t\t      \"expandedIcon\": {\n\t\t        \"path\": \"material/expand_less\",\n\t\t        \"color\": \"\",\n\t\t        \"style\": {\n\t\t          \"display\": \"none\",\n\t\t          \"classes\": \"\"\n\t\t        }\n\t\t      },\n\t\t      \"collapsedIcon\": {\n\t\t        \"path\": \"material/expand_more\",\n\t\t        \"color\": \"\",\n\t\t        \"style\": {\n\t\t          \"display\": \"none\",\n\t\t          \"classes\": \"\"\n\t\t        }\n\t\t      }\n\t\t    },\n\t\t    \"content\": {\n\t\t      \"type\": \"view\",\n\t\t      \"text\": \"\",\n\t\t      \"useDefaultViewWidth\": False,\n\t\t      \"useDefaultViewHeight\": False,\n\t\t      \"viewPath\": \"Exchange/ArchitectureBuilder/BOM/EntryHeader\",\n\t\t      \"viewParams\": {\n\t\t        \"entry\": {\n\t\t          \"name\": \"IIoT Cloud\",\n\t\t          \"redundant\": False,\n\t\t          \"type\": \"Cloud\",\n\t\t          \"uuid\": \"I73d907c5\",\n\t\t          \"supportCosts\": True\n\t\t        }\n\t\t      },\n\t\t      \"style\": {\n\t\t        \"color\": \"#FFFFFF\",\n\t\t        \"classes\": \"\"\n\t\t      }\n\t\t    },\n\t\t    \"height\": \"auto\",\n\t\t    \"reverse\": False,\n\t\t    \"style\": {\n\t\t      \"classes\": \"\"\n\t\t    }\n\t\t  },\n\t\t  \"body\": {\n\t\t    \"viewPath\": \"Exchange/ArchitectureBuilder/BOM/Ignition\",\n\t\t    \"viewParams\": {\n\t\t      \"source\": \"BOM\",\n\t\t      \"uuid\": \"I73d907c5\"\n\t\t    },\n\t\t    \"useDefaultViewWidth\": False,\n\t\t    \"useDefaultViewHeight\": False,\n\t\t    \"height\": \"auto\",\n\t\t    \"style\": {\n\t\t        \"classes\": \"\",\n\t\t        \"marginBottom\": \"16px\",\n\t\t        \"paddingBottom\": \"4px\",\n\t\t        \"borderBottomStyle\": \"solid\",\n\t\t        \"borderLeftStyle\": \"solid\",\n\t\t        \"borderBottomLeftRadius\": \"20px\",\n\t\t        \"borderBottomRightRadius\": \"20px\",\n\t\t        \"borderRightStyle\": \"solid\",\n\t\t        \"borderTopStyle\": \"none\",\n\t\t        \"margin\": \"0px\"\n\t\t    }\n\t\t  }\n\t\t}\n\n\t# Accordion template for Area Container\n\tdef areaAccordion():\n\t\treturn {\n\t\t  \"expanded\": True,\n\t\t  \"header\": {\n\t\t    \"toggle\": {\n\t\t      \"enabled\": True,\n\t\t      \"expandedIcon\": {\n\t\t        \"path\": \"material/expand_less\",\n\t\t        \"color\": \"\",\n\t\t        \"style\": {\n\t\t          \"classes\": \"\",\n\t\t          \"display\": \"none\"\n\t\t        }\n\t\t      },\n\t\t      \"collapsedIcon\": {\n\t\t        \"path\": \"material/expand_more\",\n\t\t        \"color\": \"\",\n\t\t        \"style\": {\n\t\t          \"classes\": \"\",\n\t\t          \"display\": \"none\"\n\t\t        }\n\t\t      }\n\t\t    },\n\t\t    \"content\": {\n\t\t      \"type\": \"text\",\n\t\t      \"text\": \"\",\n\t\t      \"useDefaultViewWidth\": False,\n\t\t      \"useDefaultViewHeight\": False,\n\t\t      \"viewPath\": \"\",\n\t\t      \"viewParams\": {},\n\t\t      \"style\": {\n\t\t        \"classes\": \"\"\n\t\t      }\n\t\t    },\n\t\t    \"height\": 0,\n\t\t    \"reverse\": False,\n\t\t    \"style\": {\n\t\t      \"classes\": \"\"\n\t\t    }\n\t\t  },\n\t\t  \"body\": {\n\t\t    \"viewPath\": \"Exchange/ArchitectureBuilder/BOM/Areas/Body\",\n\t\t    \"viewParams\": {\n\t\t      \"children\": [\n\t\t        \"I943014d7\"\n\t\t      ],\n\t\t      \"parents\": \"Icac3ae64\",\n\t\t      \"uuid\": \"I943014d7\"\n\t\t    },\n\t\t    \"useDefaultViewWidth\": False,\n\t\t    \"useDefaultViewHeight\": False,\n\t\t    \"height\": \"auto\",\n\t\t    \"style\": {\n\t\t      \"classes\": \"\",\n\t\t      \"margin\": \"0px\",\n\t\t      \"marginBottom\": \"16px\"\n\t\t    }\n\t\t  }\n\t\t}\n\n\t# Return list of Ignition Gateway UUIDs that are children of the specified area\n\tdef areaSearch(targetUUID, entry, path, areaFound, children):\n\t\tfor e in entry:\n\t\t\tif e[\u0027type\u0027] \u003d\u003d \u0027Container\u0027:\n\t\t\t\tif path \u003d\u003d \u0027\u0027:\n\t\t\t\t\tareaSearch(targetUUID, e[\u0027contents\u0027], e[\u0027uuid\u0027], areaFound or e[\u0027uuid\u0027] \u003d\u003d targetUUID, children)\n\t\t\t\telse:\n\t\t\t\t\tareaSearch(targetUUID, e[\u0027contents\u0027], path + \u0027@\u0027 + e[\u0027uuid\u0027], areaFound or e[\u0027uuid\u0027] \u003d\u003d targetUUID, children)\n\t\t\telif areaFound and e[\u0027type\u0027] in (\u0027standard\u0027, \u0027edge\u0027, \u0027panel\u0027, \u0027cloud\u0027):\n\t\t\t\tchildren.append(e[\u0027uuid\u0027])\n\t\treturn children\n\n\tdef search(accordion, entry, path):\n\t\tif logger.isTraceEnabled():\n\t\t\tlogger.trace(\"Search called with accordion \u003d \u0027%s\u0027, entry \u003d \u0027%s\u0027, path \u003d \u0027%s\u0027\"% (accordion, entry, path))\n\t\tfor e in entry:\n\t\t\tif logger.isDebugEnabled():\n\t\t\t\tlogger.debug(\"Processing entry \u0027%s\u0027 of type \u0027%s\u0027\"% (e, e[\u0027type\u0027]))\n\t\t\tif e[\u0027type\u0027] in (\u0027Container\u0027, \u0027standard\u0027, \u0027edge\u0027, \u0027panel\u0027, \u0027cloud\u0027):\n\t\t\t\tif e[\u0027type\u0027] \u003d\u003d \u0027Container\u0027:\n\t\t\t\t\t# Add Area entry\n\t\t\t\t\titem \u003d areaAccordion()\n\t\t\t\t\titem[\u0027body\u0027][\u0027viewParams\u0027][\u0027parents\u0027] \u003d path\n\t\t\t\t\titem[\u0027body\u0027][\u0027viewParams\u0027][\u0027uuid\u0027] \u003d e[\u0027uuid\u0027]\n\t\t\t\t\titem[\u0027body\u0027][\u0027viewParams\u0027][\u0027supportCosts\u0027] \u003d visibility[\"support\"]\n\t\t\t\t\titem[\u0027body\u0027][\u0027viewParams\u0027][\u0027children\u0027] \u003d areaSearch(e[\u0027uuid\u0027], value[\u0027structure\u0027], \u0027\u0027, False, [])\n\t\t\t\t\taccordion.append(item)\n\t\n\t\t\t\t\t# Recursively search for contents\n\t\t\t\t\tif path \u003d\u003d \u0027\u0027:\n\t\t\t\t\t\tsearch(accordion, e[\u0027contents\u0027], e[\u0027uuid\u0027])\n\t\t\t\t\telse:\n\t\t\t\t\t\tsearch(accordion, e[\u0027contents\u0027], path + \u0027@\u0027 + e[\u0027uuid\u0027])\n\t\n\t\t\t\tif e[\u0027type\u0027] in (\u0027standard\u0027, \u0027edge\u0027, \u0027panel\u0027, \u0027cloud\u0027):\n\t\t\t\t\titem \u003d stdAccordion()\n\t\t\t\t\t# Get Ignition Edition\n\t\t\t\t\tgwType \u003d value[\u0027configs\u0027][e[\u0027uuid\u0027]][\u0027type\u0027].capitalize()\n\t\t\t\t\t# Set header properties\n\t\t\t\t\titem[\u0027header\u0027][\u0027content\u0027][\u0027viewPath\u0027] \u003d \"Exchange/ArchitectureBuilder/BOM/Ignition/Header\"\n\t\t\t\t\titem[\u0027header\u0027][\u0027content\u0027][\u0027viewParams\u0027] \u003d {\n\t\t\t\t\t\t\"name\": e[\u0027name\u0027],\n\t\t\t\t\t\t\"parents\": path,\n\t\t\t\t\t\t\"type\": gwType,\n\t\t\t\t\t\t\"uuid\": e[\u0027uuid\u0027]\n\t\t\t\t\t}\n\t\t\t\t\t# Set body properties\n\t\t\t\t\titem[\u0027body\u0027][\u0027viewPath\u0027] \u003d \"Exchange/ArchitectureBuilder/BOM/Ignition/Body\"\n\t\t\t\t\titem[\u0027body\u0027][\u0027viewParams\u0027] \u003d {\n\t\t\t\t\t\t\"type\": gwType,\n\t\t\t\t\t\t\"uuid\": e[\u0027uuid\u0027]\n\t\t\t\t\t}\n\t\t\t\t\titem[\u0027body\u0027][\u0027style\u0027][\u0027borderBottomColor\u0027] \u003d \"var(--\" + gwType.lower() + \")\"\n\t\t\t\t\titem[\u0027body\u0027][\u0027style\u0027][\u0027borderRightColor\u0027] \u003d \"var(--\" + gwType.lower() + \")\"\n\t\t\t\t\titem[\u0027body\u0027][\u0027style\u0027][\u0027borderLeftColor\u0027] \u003d \"var(--\" + gwType.lower() + \")\"\n\t\t\t\t\t# Append to accordion list\n\t\t\t\t\taccordion.append(item)\n\t\n\t\t\t\t# Build dictionary to retain visibility/expansion selections\n\t\t\t\t# \tCopy existing values when present\n\t\t\t\tif len(visibility[\"gateways\"]) \u003e 0 and e[\"uuid\"] in visibility[\"gateways\"].keys():\n\t\t\t\t\titem[\"body\"][\"viewParams\"][\"visibility\"] \u003d {}\n\t\t\t\t\titem[\"body\"][\"viewParams\"][\"visibility\"][\"expanded\"] \u003d visibility[\"gateways\"][e[\"uuid\"]][\"expanded\"]\n\t\t\t\t\titem[\"header\"][\"content\"][\"viewParams\"][\"expanded\"] \u003d visibility[\"gateways\"][e[\"uuid\"]][\"entryExpanded\"]\n\t\t\t\t\titem[\"expanded\"] \u003d visibility[\"gateways\"][e[\"uuid\"]][\"entryExpanded\"]\n\t\t\t\t\tgwVisibility[e[\"uuid\"]] \u003d {\n\t\t\t\t\t\t\"entryExpanded\": visibility[\"gateways\"][e[\"uuid\"]][\"entryExpanded\"],\n\t\t\t\t\t\t\"expanded\": visibility[\"gateways\"][e[\"uuid\"]][\"expanded\"]\n\t\t\t\t\t\t}\n\t\t\t\telse:\n\t\t\t\t\titem[\"header\"][\"content\"][\"viewParams\"][\"visibility\"] \u003d True\n\t\t\t\t\titem[\"expanded\"] \u003d True\n\t\t\t\t\titem[\"body\"][\"viewParams\"][\"visibility\"] \u003d {\n\t\t\t\t\t\t\"expanded\": {\n\t\t\t\t\t\t\t\"gatewayConfig\": True,\n\t\t\t\t\t\t\t\"IA\": True,\n\t\t\t\t\t\t\t\"CL\": True,\n\t\t\t\t\t\t\t\"TPM\": True,\n\t\t\t\t\t\t\t\"computing\": True,\n\t\t\t\t\t\t\t\"SS\": True,\n\t\t\t\t\t\t\t\"support\": True\n\t\t\t\t\t\t\t},\n\t\t\t\t\t\t\"entryExpanded\": True\n\t\t\t\t\t\t}\n\t\t\t\t\tgwVisibility[e[\"uuid\"]] \u003d {\n\t\t\t\t\t\t\"expanded\": {\n\t\t\t\t\t\t\t\"gatewayConfig\": True,\n\t\t\t\t\t\t\t\"IA\": True,\n\t\t\t\t\t\t\t\"CL\": True,\n\t\t\t\t\t\t\t\"TPM\": True,\n\t\t\t\t\t\t\t\"computing\": True,\n\t\t\t\t\t\t\t\"SS\": True,\n\t\t\t\t\t\t\t\"support\": True\n\t\t\t\t\t\t\t},\n\t\t\t\t\t\t\"entryExpanded\": True\n\t\t\t\t\t\t}\t\t\t\t\n\t\t\t\titem[\"body\"][\"viewParams\"][\"visibility\"][\"display\"] \u003d {key: visibility[key] for key in [\"computing\", \"gatewayConfig\", \"support\"]}\n\t\t\t\titem[\"header\"][\"content\"][\"viewParams\"][\"supportCosts\"] \u003d visibility[\"support\"]\n\t\treturn accordion\n\n\t# Simplify structure (only include connections to non-gateways)\n\tsimpleStructure \u003d search([], value[\u0027structure\u0027], \u0027\u0027)\n\n\t# Write expansionStates to expanded\n\tself.custom.visibility[\"gateways\"] \u003d gwVisibility\n\n\treturn simpleStructure",
+                  "type": "script"
+                }
+              ],
+              "type": "property"
+            },
+            "onChange": {
+              "enabled": null,
+              "script": "\tif currentValue.quality.isGood():\n\t\tself.props.items \u003d currentValue.value"
+            }
+          },
+          "custom.visibility": {
+            "onChange": {
+              "enabled": null,
+              "script": "\tfor attr in (\"computing\", \"gatewayConfig\", \"support\"):\n\t\tif currentValue.value[attr] !\u003d previousValue.value[attr]:\n\t\t\tfor item in self.props.items:\n\t\t\t\titem[\"body\"][\"viewParams\"][\"visibility\"][\"display\"][attr] \u003d currentValue.value[attr]\n\t\t\tif attr \u003d\u003d \"support\":\n\t\t\t\tfor item in self.props.items:\n\t\t\t\t\tif item[\"body\"][\"viewPath\"] \u003d\u003d \"Exchange/ArchitectureBuilder/BOM/Areas/Body\":\n\t\t\t\t\t\titem[\"body\"][\"viewParams\"][\"supportCosts\"] \u003d currentValue.value[attr]\n\t\t\t\t\telse:\n\t\t\t\t\t\titem[\"header\"][\"content\"][\"viewParams\"][\"supportCosts\"] \u003d currentValue.value[attr]"
+            },
+            "persistent": true
+          },
+          "custom.visibility.gateways": {
+            "persistent": true
+          }
+        },
+        "props": {
+          "items": [],
+          "style": {
+            "margin": "8px",
+            "marginRight": "8px"
+          }
+        },
+        "scripts": {
+          "customMethods": [
+            {
+              "name": "setExpansion",
+              "params": [
+                "uuid",
+                "value"
+              ],
+              "script": "\tfor item in self.props.items:\n\t\t# \"type\" is used to distinguish the type of Ignition Gateway. Its presence indicates this is an Ignition Gateway\n\t\tif \"type\" in item[\"body\"][\"viewParams\"].keys():\n\t\t\tif (uuid \u003d\u003d \u0027all\u0027 or item[\"body\"][\"viewParams\"][\"uuid\"] \u003d\u003d uuid) and item[\"body\"][\"viewParams\"][\"type\"] in (\u0027Standard\u0027, \u0027Edge\u0027, \u0027Panel\u0027, \u0027Cloud\u0027):\n\t\t\t\t# Toggle entry\u0027s expanded state\n\t\t\t\titem[\"expanded\"] \u003d value\n\t\t\t\titem[\"header\"][\"content\"][\"viewParams\"][\"expanded\"] \u003d value"
+            }
+          ],
+          "extensionFunctions": null,
+          "messageHandlers": [
+            {
+              "messageType": "clearCenterComponents",
+              "pageScope": false,
+              "script": "\t#### CLEANUP - Probably unnecessary\n\tself.custom.visibility.gateways \u003d {}",
+              "sessionScope": true,
+              "viewScope": false
+            }
+          ]
+        },
+        "type": "ia.display.accordion"
+      }
+    ],
+    "meta": {
+      "name": "root"
+    },
+    "props": {
+      "direction": "column"
+    },
+    "scripts": {
+      "customMethods": [],
+      "extensionFunctions": null,
+      "messageHandlers": [
+        {
+          "messageType": "goToAnchor",
+          "pageScope": false,
+          "script": "\t#  http://architecture-buildout.localtest.me/data/perspective/client/ArchitectureBuildOut/BOM#Icc7fcaa2\n\n\tgwAddr\u003dself.session.props.gateway.address\n\tif gwAddr[-1]\u003d\u003d\u0027:\u0027:\n\t\tgwAddr\u003dgwAddr[:-1]\n\tproject \u003d system.util.getProjectName()\n\n\turl\u003d\u0027{}/data/perspective/client/{}/BOM#{}\u0027.format(gwAddr, project, payload[\u0027uuid\u0027])\n\tsystem.perspective.navigate(url\u003durl)",
+          "sessionScope": true,
+          "viewScope": false
+        },
+        {
+          "messageType": "clearCenterComponents",
+          "pageScope": false,
+          "script": "\tself.getChild(\"Accordion\").custom.visibility.gateways \u003d {}",
+          "sessionScope": true,
+          "viewScope": false
+        },
+        {
+          "messageType": "toggleExpansion",
+          "pageScope": true,
+          "script": "\t# Incoming payload should include \u0027source\u0027, \u0027uuid\u0027, and \u0027value\u0027\n\tif payload[\"source\"] \u003d\u003d \"entry\":\n\t\t# Update active expansion state\n\t\tself.getChild(\"Accordion\").setExpansion(payload[\"uuid\"], payload[\"value\"])\n\n\t\t# Save updated expansion state\n\t\tself.getChild(\"Accordion\").custom.visibility.gateways[payload[\"uuid\"]][\"entryExpanded\"] \u003d payload[\"value\"]\n\n\telif payload[\"source\"] in (\"IA\", \"CL\", \"SS\", \"TPM\"):\n\t\tself.getChild(\"Accordion\").custom.visibility.gateways[payload[\"uuid\"]][\"expanded\"][payload[\"source\"]] \u003d payload[\"value\"]",
+          "sessionScope": false,
+          "viewScope": false
+        }
+      ]
+    },
+    "type": "ia.container.flex"
+  }
+}

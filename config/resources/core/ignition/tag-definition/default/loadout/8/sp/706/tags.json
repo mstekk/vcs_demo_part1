@@ -1,0 +1,343 @@
+[
+  {
+    "rawHigh": 9999.0,
+    "valueSource": "memory",
+    "opcItemPath": "ns\u003d2:s\u003dQuantum2.Quantum2.000101",
+    "engHigh": 9999.0,
+    "writePermissions": {
+      "type": "AllOf",
+      "securityLevels": []
+    },
+    "historicalDeadbandStyle": "Discrete",
+    "tooltip": "SP706_AUTO_CENTER",
+    "defaultValue": false,
+    "historyTagGroup": "Default Historical",
+    "tagGroup": "Default",
+    "tagType": "AtomicTag",
+    "enabled": true,
+    "scaledHigh": 9999.0,
+    "scaleMode": "Linear",
+    "readOnly": false,
+    "historyProvider": "MySQL",
+    "dataType": "Boolean",
+    "name": "auto center",
+    "historyEnabled": true,
+    "deadband": 0.0,
+    "readPermissions": {
+      "type": "AllOf",
+      "securityLevels": []
+    },
+    "sampleMode": "TagGroup",
+    "opcServer": "Kepware"
+  },
+  {
+    "rawHigh": 9999.0,
+    "valueSource": "memory",
+    "opcItemPath": "ns\u003d2:s\u003dQuantum2.Quantum2.013342",
+    "engHigh": 9999.0,
+    "writePermissions": {
+      "type": "AllOf",
+      "securityLevels": []
+    },
+    "historicalDeadbandStyle": "Discrete",
+    "tooltip": "RM7_SP706_AUTO_MAN",
+    "defaultValue": false,
+    "historyTagGroup": "Default Historical",
+    "tagGroup": "Default",
+    "tagType": "AtomicTag",
+    "enabled": true,
+    "scaledHigh": 9999.0,
+    "scaleMode": "Linear",
+    "readOnly": false,
+    "historyProvider": "MySQL",
+    "dataType": "Boolean",
+    "name": "auto manual",
+    "historyEnabled": true,
+    "deadband": 0.0,
+    "readPermissions": {
+      "type": "AllOf",
+      "securityLevels": []
+    },
+    "sampleMode": "TagGroup",
+    "opcServer": "Kepware"
+  },
+  {
+    "rawHigh": 9999.0,
+    "valueSource": "memory",
+    "opcItemPath": "ns\u003d2:s\u003dQuantum2.Quantum2.100172",
+    "engHigh": 9999.0,
+    "writePermissions": {
+      "type": "AllOf",
+      "securityLevels": []
+    },
+    "historicalDeadbandStyle": "Discrete",
+    "tooltip": "RM7_SP706_CABLE_FAULT",
+    "defaultValue": false,
+    "historyTagGroup": "Default Historical",
+    "tagGroup": "Default",
+    "tagType": "AtomicTag",
+    "enabled": true,
+    "scaledHigh": 9999.0,
+    "scaleMode": "Linear",
+    "readOnly": false,
+    "historyProvider": "MySQL",
+    "dataType": "Boolean",
+    "name": "cable fault",
+    "historyEnabled": true,
+    "deadband": 0.0,
+    "readPermissions": {
+      "type": "AllOf",
+      "securityLevels": []
+    },
+    "sampleMode": "TagGroup",
+    "opcServer": "Kepware"
+  },
+  {
+    "rawHigh": 9999.0,
+    "valueSource": "memory",
+    "opcItemPath": "ns\u003d2:s\u003dQuantum2.Quantum2.100174",
+    "engHigh": 9999.0,
+    "writePermissions": {
+      "type": "AllOf",
+      "securityLevels": []
+    },
+    "historicalDeadbandStyle": "Discrete",
+    "tooltip": "RM7_SP706_CABLE_SW_NO1",
+    "defaultValue": false,
+    "historyTagGroup": "Default Historical",
+    "tagGroup": "Default",
+    "tagType": "AtomicTag",
+    "enabled": true,
+    "scaledHigh": 9999.0,
+    "scaleMode": "Linear",
+    "readOnly": false,
+    "historyProvider": "MySQL",
+    "dataType": "Boolean",
+    "name": "cable sw no1",
+    "historyEnabled": true,
+    "deadband": 0.0,
+    "readPermissions": {
+      "type": "AllOf",
+      "securityLevels": []
+    },
+    "sampleMode": "TagGroup",
+    "opcServer": "Kepware"
+  },
+  {
+    "rawHigh": 9999.0,
+    "valueSource": "memory",
+    "opcItemPath": "ns\u003d2:s\u003dQuantum2.Quantum2.100176",
+    "engHigh": 9999.0,
+    "writePermissions": {
+      "type": "AllOf",
+      "securityLevels": []
+    },
+    "historicalDeadbandStyle": "Discrete",
+    "tooltip": "RM7_SP706_CABLE_SW_NO2",
+    "defaultValue": false,
+    "historyTagGroup": "Default Historical",
+    "tagGroup": "Default",
+    "tagType": "AtomicTag",
+    "enabled": true,
+    "scaledHigh": 9999.0,
+    "scaleMode": "Linear",
+    "readOnly": false,
+    "historyProvider": "MySQL",
+    "dataType": "Boolean",
+    "name": "cable sw no2",
+    "historyEnabled": true,
+    "deadband": 0.0,
+    "readPermissions": {
+      "type": "AllOf",
+      "securityLevels": []
+    },
+    "sampleMode": "TagGroup",
+    "opcServer": "Kepware"
+  },
+  {
+    "rawHigh": 9999.0,
+    "valueSource": "memory",
+    "opcItemPath": "ns\u003d2:s\u003dQuantum2.Quantum2.100180",
+    "engHigh": 9999.0,
+    "writePermissions": {
+      "type": "AllOf",
+      "securityLevels": []
+    },
+    "historicalDeadbandStyle": "Discrete",
+    "tooltip": "RM7_SP706_FULL_DOWN",
+    "defaultValue": false,
+    "historyTagGroup": "Default Historical",
+    "tagGroup": "Default",
+    "tagType": "AtomicTag",
+    "enabled": true,
+    "scaledHigh": 9999.0,
+    "scaleMode": "Linear",
+    "readOnly": false,
+    "historyProvider": "MySQL",
+    "dataType": "Boolean",
+    "name": "full down",
+    "historyEnabled": true,
+    "deadband": 0.0,
+    "readPermissions": {
+      "type": "AllOf",
+      "securityLevels": []
+    },
+    "sampleMode": "TagGroup",
+    "opcServer": "Kepware"
+  },
+  {
+    "rawHigh": 9999.0,
+    "valueSource": "memory",
+    "opcItemPath": "ns\u003d2:s\u003dQuantum2.Quantum2.100178",
+    "engHigh": 9999.0,
+    "writePermissions": {
+      "type": "AllOf",
+      "securityLevels": []
+    },
+    "historicalDeadbandStyle": "Discrete",
+    "tooltip": "RM7_SP706_FULL_UP",
+    "defaultValue": false,
+    "historyTagGroup": "Default Historical",
+    "tagGroup": "Default",
+    "tagType": "AtomicTag",
+    "enabled": true,
+    "scaledHigh": 9999.0,
+    "scaleMode": "Linear",
+    "readOnly": false,
+    "historyProvider": "MySQL",
+    "dataType": "Boolean",
+    "name": "full up",
+    "historyEnabled": true,
+    "deadband": 0.0,
+    "readPermissions": {
+      "type": "AllOf",
+      "securityLevels": []
+    },
+    "sampleMode": "TagGroup",
+    "opcServer": "Kepware"
+  },
+  {
+    "rawHigh": 9999.0,
+    "valueSource": "memory",
+    "opcItemPath": "ns\u003d2:s\u003dQuantum2.Quantum2.013079",
+    "engHigh": 9999.0,
+    "writePermissions": {
+      "type": "AllOf",
+      "securityLevels": []
+    },
+    "historicalDeadbandStyle": "Discrete",
+    "tooltip": "SP706_IS_DOWN",
+    "defaultValue": false,
+    "historyTagGroup": "Default Historical",
+    "tagGroup": "Default",
+    "tagType": "AtomicTag",
+    "enabled": true,
+    "scaledHigh": 9999.0,
+    "scaleMode": "Linear",
+    "readOnly": false,
+    "historyProvider": "MySQL",
+    "dataType": "Boolean",
+    "name": "is down",
+    "historyEnabled": true,
+    "deadband": 0.0,
+    "readPermissions": {
+      "type": "AllOf",
+      "securityLevels": []
+    },
+    "sampleMode": "TagGroup",
+    "opcServer": "Kepware"
+  },
+  {
+    "rawHigh": 9999.0,
+    "valueSource": "memory",
+    "opcItemPath": "ns\u003d2:s\u003dQuantum2.Quantum2.013343",
+    "engHigh": 9999.0,
+    "writePermissions": {
+      "type": "AllOf",
+      "securityLevels": []
+    },
+    "historicalDeadbandStyle": "Discrete",
+    "tooltip": "RM7_SP706_MAN_LOWER",
+    "defaultValue": false,
+    "historyTagGroup": "Default Historical",
+    "tagGroup": "Default",
+    "tagType": "AtomicTag",
+    "enabled": true,
+    "scaledHigh": 9999.0,
+    "scaleMode": "Linear",
+    "readOnly": false,
+    "historyProvider": "MySQL",
+    "dataType": "Boolean",
+    "name": "manual lower",
+    "historyEnabled": true,
+    "deadband": 0.0,
+    "readPermissions": {
+      "type": "AllOf",
+      "securityLevels": []
+    },
+    "sampleMode": "TagGroup",
+    "opcServer": "Kepware"
+  },
+  {
+    "rawHigh": 9999.0,
+    "valueSource": "memory",
+    "opcItemPath": "ns\u003d2:s\u003dQuantum2.Quantum2.013344",
+    "engHigh": 9999.0,
+    "writePermissions": {
+      "type": "AllOf",
+      "securityLevels": []
+    },
+    "historicalDeadbandStyle": "Discrete",
+    "tooltip": "RM7_SP706_MAN_RAISE",
+    "defaultValue": false,
+    "historyTagGroup": "Default Historical",
+    "tagGroup": "Default",
+    "tagType": "AtomicTag",
+    "enabled": true,
+    "scaledHigh": 9999.0,
+    "scaleMode": "Linear",
+    "readOnly": false,
+    "historyProvider": "MySQL",
+    "dataType": "Boolean",
+    "name": "manual raise",
+    "historyEnabled": true,
+    "deadband": 0.0,
+    "readPermissions": {
+      "type": "AllOf",
+      "securityLevels": []
+    },
+    "sampleMode": "TagGroup",
+    "opcServer": "Kepware"
+  },
+  {
+    "rawHigh": 9999.0,
+    "valueSource": "memory",
+    "opcItemPath": "ns\u003d2:s\u003dQuantum2.Quantum2.013341",
+    "engHigh": 9999.0,
+    "writePermissions": {
+      "type": "AllOf",
+      "securityLevels": []
+    },
+    "historicalDeadbandStyle": "Discrete",
+    "tooltip": "RM7_SP706_SELECT",
+    "defaultValue": false,
+    "historyTagGroup": "Default Historical",
+    "tagGroup": "Default",
+    "tagType": "AtomicTag",
+    "enabled": true,
+    "scaledHigh": 9999.0,
+    "scaleMode": "Linear",
+    "readOnly": false,
+    "historyProvider": "MySQL",
+    "dataType": "Boolean",
+    "name": "select",
+    "historyEnabled": true,
+    "deadband": 0.0,
+    "readPermissions": {
+      "type": "AllOf",
+      "securityLevels": []
+    },
+    "sampleMode": "TagGroup",
+    "opcServer": "Kepware"
+  }
+]

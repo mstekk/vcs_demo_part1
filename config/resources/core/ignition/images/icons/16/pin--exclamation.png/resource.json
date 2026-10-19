@@ -1,0 +1,20 @@
+{
+  "scope": "A",
+  "version": 1,
+  "restricted": false,
+  "overridable": true,
+  "files": [
+    "pin--exclamation.png"
+  ],
+  "attributes": {
+    "width": 16,
+    "format": "PNG",
+    "lastModification": {
+      "actor": "8.3-migration",
+      "timestamp": "2026-01-07T14:49:07Z"
+    },
+    "size": 729,
+    "lastModificationSignature": "8ccd94314bb349fd51e93c1d0c3e9814f929000ebe00a0caba5c3d4ea60851b4",
+    "height": 16
+  }
+}

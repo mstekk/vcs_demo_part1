@@ -1,0 +1,20 @@
+{
+  "scope": "A",
+  "version": 1,
+  "restricted": false,
+  "overridable": true,
+  "files": [
+    "sitemap-application.png"
+  ],
+  "attributes": {
+    "width": 16,
+    "format": "PNG",
+    "lastModification": {
+      "actor": "8.3-migration",
+      "timestamp": "2026-01-07T14:49:07Z"
+    },
+    "size": 474,
+    "lastModificationSignature": "0ed90fdcd3bf20e395b4a061b7a6b0aac4bad5c631e96eccfd5107853d686dc2",
+    "height": 16
+  }
+}

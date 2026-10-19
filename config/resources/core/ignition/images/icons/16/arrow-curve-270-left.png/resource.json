@@ -1,0 +1,20 @@
+{
+  "scope": "A",
+  "version": 1,
+  "restricted": false,
+  "overridable": true,
+  "files": [
+    "arrow-curve-270-left.png"
+  ],
+  "attributes": {
+    "width": 16,
+    "format": "PNG",
+    "lastModification": {
+      "actor": "8.3-migration",
+      "timestamp": "2026-01-07T14:49:07Z"
+    },
+    "size": 704,
+    "lastModificationSignature": "4df0bfd071007d5cf4dd9816819e9b8d7e04e79a5db8a8d8f40e77c386405c4c",
+    "height": 16
+  }
+}

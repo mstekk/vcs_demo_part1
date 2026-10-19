@@ -1,0 +1,28 @@
+[
+  {
+    "valueSource": "opc",
+    "opcItemPath": "ns\u003d1;s\u003d[Demo Tags]_Meta:Refrigeration/receiverLevel",
+    "dataType": "Float8",
+    "historyProvider": "sqlite",
+    "name": "receiverLevel",
+    "historyEnabled": true,
+    "tagType": "AtomicTag",
+    "opcServer": "Ignition OPC-UA Server"
+  },
+  {
+    "valueSource": "expr",
+    "expression": "({[.]receiverLevel.value}/150)*100",
+    "dataType": "Float8",
+    "historyProvider": "sqlite",
+    "name": "Value",
+    "historyEnabled": true,
+    "tagType": "AtomicTag"
+  },
+  {
+    "valueSource": "memory",
+    "dataType": "String",
+    "name": "DeviceName",
+    "defaultValue": "Tank",
+    "tagType": "AtomicTag"
+  }
+]

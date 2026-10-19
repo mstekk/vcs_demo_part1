@@ -1,0 +1,20 @@
+{
+  "scope": "A",
+  "version": 1,
+  "restricted": false,
+  "overridable": true,
+  "files": [
+    "cake--pencil.png"
+  ],
+  "attributes": {
+    "width": 16,
+    "format": "PNG",
+    "lastModification": {
+      "actor": "8.3-migration",
+      "timestamp": "2026-01-07T14:49:07Z"
+    },
+    "size": 940,
+    "lastModificationSignature": "8c4c9c2e6510d00aa58b5771fc58629cd5b97505fa7a52c0bccf5f44ee84d27e",
+    "height": 16
+  }
+}

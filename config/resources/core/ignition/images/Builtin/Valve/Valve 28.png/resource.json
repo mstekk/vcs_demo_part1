@@ -1,0 +1,20 @@
+{
+  "scope": "A",
+  "version": 1,
+  "restricted": false,
+  "overridable": true,
+  "files": [
+    "Valve 28.png"
+  ],
+  "attributes": {
+    "width": 90,
+    "format": "PNG",
+    "lastModification": {
+      "actor": "8.3-migration",
+      "timestamp": "2026-01-07T14:49:07Z"
+    },
+    "size": 5368,
+    "lastModificationSignature": "4aa8e5d1940e75514fe74116e447ebd2aaa9958f6d80bfbcd24eb4d43f2a00da",
+    "height": 221
+  }
+}

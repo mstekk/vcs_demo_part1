@@ -1,0 +1,20 @@
+{
+  "scope": "A",
+  "version": 1,
+  "restricted": false,
+  "overridable": true,
+  "files": [
+    "cross-octagon.png"
+  ],
+  "attributes": {
+    "width": 16,
+    "format": "PNG",
+    "lastModification": {
+      "actor": "8.3-migration",
+      "timestamp": "2026-01-07T14:49:07Z"
+    },
+    "size": 589,
+    "lastModificationSignature": "b790597c6185ccad4ff772372161e4250636d3cffe2a7aaf1b578fd3c438a4d3",
+    "height": 16
+  }
+}

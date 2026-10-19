@@ -1,0 +1,20 @@
+{
+  "scope": "A",
+  "version": 1,
+  "restricted": false,
+  "overridable": true,
+  "files": [
+    "edit-direction-rtl.png"
+  ],
+  "attributes": {
+    "width": 16,
+    "format": "PNG",
+    "lastModification": {
+      "actor": "8.3-migration",
+      "timestamp": "2026-01-07T14:49:07Z"
+    },
+    "size": 273,
+    "lastModificationSignature": "7a09fb96d70b2b543ac5b131ef3ce6b5a96c5a543117df65496eee65d4426734",
+    "height": 16
+  }
+}

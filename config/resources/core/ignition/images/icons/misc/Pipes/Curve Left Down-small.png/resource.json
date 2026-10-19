@@ -1,0 +1,20 @@
+{
+  "scope": "A",
+  "version": 1,
+  "restricted": false,
+  "overridable": true,
+  "files": [
+    "Curve Left Down-small.png"
+  ],
+  "attributes": {
+    "width": 17,
+    "format": "PNG",
+    "lastModification": {
+      "actor": "8.3-migration",
+      "timestamp": "2026-01-07T14:49:07Z"
+    },
+    "size": 3588,
+    "lastModificationSignature": "498c8952ec07897786434962c3695d24e9ff642b2709fc1cf728cab690e4f26b",
+    "height": 17
+  }
+}

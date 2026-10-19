@@ -1,0 +1,19 @@
+{
+  "scope": "A",
+  "description": "Email Gmail (unused)",
+  "version": 1,
+  "restricted": false,
+  "overridable": true,
+  "files": [
+    "config.json"
+  ],
+  "attributes": {
+    "lastModification": {
+      "actor": "8.3-migration",
+      "timestamp": "2026-01-07T14:49:54Z"
+    },
+    "uuid": "81c14072-6723-49ef-86ba-b7d835a660f9",
+    "lastModificationSignature": "3dd2d60468ce4fbe0ee5851d59ccc556c9162ec74dcd88ede88ced85828199bb",
+    "enabled": false
+  }
+}

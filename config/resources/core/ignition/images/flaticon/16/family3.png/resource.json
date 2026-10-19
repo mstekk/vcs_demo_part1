@@ -1,0 +1,20 @@
+{
+  "scope": "A",
+  "version": 1,
+  "restricted": false,
+  "overridable": true,
+  "files": [
+    "family3.png"
+  ],
+  "attributes": {
+    "width": 16,
+    "format": "PNG",
+    "lastModification": {
+      "actor": "8.3-migration",
+      "timestamp": "2026-01-07T14:49:07Z"
+    },
+    "size": 412,
+    "lastModificationSignature": "6f803e0f2301bd3824be562fddeec1bef1753469dbe1b8ca1f25903e6f950158",
+    "height": 16
+  }
+}

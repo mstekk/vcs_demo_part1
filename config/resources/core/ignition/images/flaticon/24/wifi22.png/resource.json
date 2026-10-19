@@ -1,0 +1,20 @@
+{
+  "scope": "A",
+  "version": 1,
+  "restricted": false,
+  "overridable": true,
+  "files": [
+    "wifi22.png"
+  ],
+  "attributes": {
+    "width": 24,
+    "format": "PNG",
+    "lastModification": {
+      "actor": "8.3-migration",
+      "timestamp": "2026-01-07T14:49:07Z"
+    },
+    "size": 567,
+    "lastModificationSignature": "bf4a0bac83ed04edf8f0769da5b25bfa0e6d550af9572be3871395c3fd484460",
+    "height": 24
+  }
+}

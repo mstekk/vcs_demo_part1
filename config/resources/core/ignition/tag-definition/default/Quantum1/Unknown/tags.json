@@ -1,0 +1,74 @@
+[
+  {
+    "valueSource": "opc",
+    "opcItemPath": "ns\u003d2;s\u003dQuantum1.Quantum1.LU-BIN-CRU-500-TON-LEVEL",
+    "writePermissions": {
+      "type": "AllOf",
+      "securityLevels": []
+    },
+    "tagGroup": "Default Historical",
+    "historyTagGroup": "Default Historical",
+    "tagType": "AtomicTag",
+    "enabled": true,
+    "SourceDataType": "Float4",
+    "readOnly": true,
+    "dataType": "Float4",
+    "historyProvider": "MySQL",
+    "name": "LU-BIN-CRU-500-TON-LEVEL",
+    "historyEnabled": true,
+    "readPermissions": {
+      "type": "AllOf",
+      "securityLevels": []
+    },
+    "sampleMode": "TagGroup",
+    "opcServer": "Kepware"
+  },
+  {
+    "valueSource": "opc",
+    "opcItemPath": "ns\u003d2;s\u003dQuantum1.Quantum1.LU-BIN-CRU-NORTH-FINES-LEVEL",
+    "writePermissions": {
+      "type": "AllOf",
+      "securityLevels": []
+    },
+    "tagGroup": "Default Historical",
+    "historyTagGroup": "Default Historical",
+    "tagType": "AtomicTag",
+    "enabled": true,
+    "SourceDataType": "Float4",
+    "readOnly": true,
+    "dataType": "Float4",
+    "historyProvider": "MySQL",
+    "name": "LU-BIN-CRU-NORTH-FINES-LEVEL",
+    "historyEnabled": true,
+    "readPermissions": {
+      "type": "AllOf",
+      "securityLevels": []
+    },
+    "sampleMode": "TagGroup",
+    "opcServer": "Kepware"
+  },
+  {
+    "valueSource": "opc",
+    "opcItemPath": "ns\u003d2;s\u003dQuantum1.Quantum1.LU-BIN-CRU-SOUTH-FINES-LEVEL",
+    "writePermissions": {
+      "type": "AllOf",
+      "securityLevels": []
+    },
+    "tagGroup": "Default Historical",
+    "historyTagGroup": "Default Historical",
+    "tagType": "AtomicTag",
+    "enabled": true,
+    "SourceDataType": "Float4",
+    "readOnly": true,
+    "dataType": "Float4",
+    "historyProvider": "MySQL",
+    "name": "LU-BIN-CRU-SOUTH-FINES-LEVEL",
+    "historyEnabled": true,
+    "readPermissions": {
+      "type": "AllOf",
+      "securityLevels": []
+    },
+    "sampleMode": "TagGroup",
+    "opcServer": "Kepware"
+  }
+]

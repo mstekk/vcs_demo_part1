@@ -1,0 +1,20 @@
+{
+  "scope": "A",
+  "version": 1,
+  "restricted": false,
+  "overridable": true,
+  "files": [
+    "edit-kerning.png"
+  ],
+  "attributes": {
+    "width": 16,
+    "format": "PNG",
+    "lastModification": {
+      "actor": "8.3-migration",
+      "timestamp": "2026-01-07T14:49:07Z"
+    },
+    "size": 633,
+    "lastModificationSignature": "ccf905a44bd678c2e5d9f6749bca0902739de0b286378e0505c64aa1dedbdc2f",
+    "height": 16
+  }
+}

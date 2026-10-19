@@ -1,0 +1,20 @@
+{
+  "scope": "A",
+  "version": 1,
+  "restricted": false,
+  "overridable": true,
+  "files": [
+    "car--exclamation.png"
+  ],
+  "attributes": {
+    "width": 16,
+    "format": "PNG",
+    "lastModification": {
+      "actor": "8.3-migration",
+      "timestamp": "2026-01-07T14:49:07Z"
+    },
+    "size": 900,
+    "lastModificationSignature": "d9330b9790d67bbb1ea4c97a5611217e24f4dbee0bd68ec8a769b3595dfe9dc7",
+    "height": 16
+  }
+}

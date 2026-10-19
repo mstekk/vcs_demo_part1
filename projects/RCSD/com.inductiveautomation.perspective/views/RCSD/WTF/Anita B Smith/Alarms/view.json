@@ -1,0 +1,70 @@
+{
+  "custom": {},
+  "params": {},
+  "props": {
+    "defaultSize": {
+      "height": 1030,
+      "width": 1770
+    }
+  },
+  "root": {
+    "children": [
+      {
+        "children": [
+          {
+            "meta": {
+              "name": "AlarmJournalTable_0"
+            },
+            "position": {
+              "tabIndex": 1
+            },
+            "props": {
+              "filter": {
+                "events": {
+                  "acked": false,
+                  "active": false,
+                  "cleared": false
+                },
+                "priorities": {
+                  "critical": false,
+                  "high": false,
+                  "low": false,
+                  "medium": false
+                }
+              }
+            },
+            "type": "ia.display.alarmjournaltable"
+          },
+          {
+            "meta": {
+              "name": "AlarmStatusTable"
+            },
+            "type": "ia.display.alarmstatustable"
+          }
+        ],
+        "meta": {
+          "name": "TabContainer"
+        },
+        "position": {
+          "basis": "300px",
+          "grow": 1
+        },
+        "props": {
+          "menuType": "modern",
+          "tabs": [
+            "Realtime",
+            "History"
+          ]
+        },
+        "type": "ia.container.tab"
+      }
+    ],
+    "meta": {
+      "name": "root"
+    },
+    "props": {
+      "direction": "column"
+    },
+    "type": "ia.container.flex"
+  }
+}

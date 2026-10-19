@@ -1,0 +1,20 @@
+{
+  "scope": "A",
+  "version": 1,
+  "restricted": false,
+  "overridable": true,
+  "files": [
+    "arrow-move.png"
+  ],
+  "attributes": {
+    "width": 16,
+    "format": "PNG",
+    "lastModification": {
+      "actor": "8.3-migration",
+      "timestamp": "2026-01-07T14:49:07Z"
+    },
+    "size": 743,
+    "lastModificationSignature": "1fe9278eceb82c499e3c78a92cb7990aba6b2dbf966b8dac04f44c93b5cafea3",
+    "height": 16
+  }
+}

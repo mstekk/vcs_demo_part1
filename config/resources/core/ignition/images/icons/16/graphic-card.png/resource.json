@@ -1,0 +1,20 @@
+{
+  "scope": "A",
+  "version": 1,
+  "restricted": false,
+  "overridable": true,
+  "files": [
+    "graphic-card.png"
+  ],
+  "attributes": {
+    "width": 16,
+    "format": "PNG",
+    "lastModification": {
+      "actor": "8.3-migration",
+      "timestamp": "2026-01-07T14:49:07Z"
+    },
+    "size": 513,
+    "lastModificationSignature": "b0cd7cd8501cf9ff0ec458d9ecb5b947605a6531411d3902ce1e92dd0b04f4b1",
+    "height": 16
+  }
+}

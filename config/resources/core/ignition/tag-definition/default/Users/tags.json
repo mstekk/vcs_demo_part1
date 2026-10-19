@@ -1,0 +1,13 @@
+[
+  {
+    "valueSource": "memory",
+    "dataType": "StringArray",
+    "name": "Users",
+    "defaultValue": [
+      "{\u0027theme\u0027: u\u0027dark-cool\u0027, \u0027username\u0027: \u0027admin\u0027}",
+      "{\u0027theme\u0027: u\u0027dark-warm\u0027, \u0027username\u0027: \u0027jay\u0027}",
+      "{\u0027theme\u0027: \u0027dark\u0027, \u0027username\u0027: \u0027Guest\u0027}"
+    ],
+    "tagType": "AtomicTag"
+  }
+]

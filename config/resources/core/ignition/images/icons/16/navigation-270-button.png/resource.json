@@ -1,0 +1,20 @@
+{
+  "scope": "A",
+  "version": 1,
+  "restricted": false,
+  "overridable": true,
+  "files": [
+    "navigation-270-button.png"
+  ],
+  "attributes": {
+    "width": 16,
+    "format": "PNG",
+    "lastModification": {
+      "actor": "8.3-migration",
+      "timestamp": "2026-01-07T14:49:07Z"
+    },
+    "size": 619,
+    "lastModificationSignature": "d13bdb21dba05daee294673d8a1ddeb9fbe2e86ea80b93810b2e20c8fe8f2aed",
+    "height": 16
+  }
+}

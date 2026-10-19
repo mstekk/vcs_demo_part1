@@ -1,0 +1,20 @@
+{
+  "scope": "A",
+  "version": 1,
+  "restricted": false,
+  "overridable": true,
+  "files": [
+    "Button 10.png"
+  ],
+  "attributes": {
+    "width": 107,
+    "format": "PNG",
+    "lastModification": {
+      "actor": "8.3-migration",
+      "timestamp": "2026-01-07T14:49:07Z"
+    },
+    "size": 10119,
+    "lastModificationSignature": "698f58e97f70e6ca01a2f59806eee99f7032a20281ebcbe55d32b7b09c00d1b4",
+    "height": 107
+  }
+}

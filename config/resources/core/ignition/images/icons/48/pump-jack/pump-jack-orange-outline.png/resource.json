@@ -1,0 +1,20 @@
+{
+  "scope": "A",
+  "version": 1,
+  "restricted": false,
+  "overridable": true,
+  "files": [
+    "pump-jack-orange-outline.png"
+  ],
+  "attributes": {
+    "width": 48,
+    "format": "PNG",
+    "lastModification": {
+      "actor": "8.3-migration",
+      "timestamp": "2026-01-07T14:49:07Z"
+    },
+    "size": 1875,
+    "lastModificationSignature": "1624c233a89c57395076c76364085141f052a2c29c438cedc1258ce0fea6f5f3",
+    "height": 41
+  }
+}

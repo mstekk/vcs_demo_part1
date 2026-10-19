@@ -1,0 +1,20 @@
+{
+  "scope": "A",
+  "version": 1,
+  "restricted": false,
+  "overridable": true,
+  "files": [
+    "database-delete.png"
+  ],
+  "attributes": {
+    "width": 16,
+    "format": "PNG",
+    "lastModification": {
+      "actor": "8.3-migration",
+      "timestamp": "2026-01-07T14:49:07Z"
+    },
+    "size": 645,
+    "lastModificationSignature": "ec410c1468eae76226353ceae9d678cc45dbb725abe030c2bbe0a35fb36047e0",
+    "height": 16
+  }
+}

@@ -1,0 +1,20 @@
+{
+  "scope": "A",
+  "version": 1,
+  "restricted": false,
+  "overridable": true,
+  "files": [
+    "zone--minus.png"
+  ],
+  "attributes": {
+    "width": 16,
+    "format": "PNG",
+    "lastModification": {
+      "actor": "8.3-migration",
+      "timestamp": "2026-01-07T14:49:07Z"
+    },
+    "size": 466,
+    "lastModificationSignature": "31dd94d083a57431f1f8b07e6ff6723dfa63dac971905bcb5ff5dfcb98c111fd",
+    "height": 16
+  }
+}

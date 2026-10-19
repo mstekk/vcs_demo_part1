@@ -1,0 +1,20 @@
+{
+  "scope": "A",
+  "version": 1,
+  "restricted": false,
+  "overridable": true,
+  "files": [
+    "dashboard-network.png"
+  ],
+  "attributes": {
+    "width": 16,
+    "format": "PNG",
+    "lastModification": {
+      "actor": "8.3-migration",
+      "timestamp": "2026-01-07T14:49:07Z"
+    },
+    "size": 725,
+    "lastModificationSignature": "e7daf6e8b4e9981836ce808de144fd2a6bd0768806a5f60cd334f7e81c0b9ad9",
+    "height": 16
+  }
+}

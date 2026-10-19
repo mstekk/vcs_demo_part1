@@ -1,0 +1,20 @@
+{
+  "scope": "A",
+  "version": 1,
+  "restricted": false,
+  "overridable": true,
+  "files": [
+    "flask--plus.png"
+  ],
+  "attributes": {
+    "width": 16,
+    "format": "PNG",
+    "lastModification": {
+      "actor": "8.3-migration",
+      "timestamp": "2026-01-07T14:49:07Z"
+    },
+    "size": 808,
+    "lastModificationSignature": "4d8982e4ccdb3ec742da45cf613e6fcc2f0985451ffd86a8aa9ab9e7385aaa24",
+    "height": 16
+  }
+}

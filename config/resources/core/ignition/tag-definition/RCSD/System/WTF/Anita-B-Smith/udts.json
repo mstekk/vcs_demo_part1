@@ -1,0 +1,418 @@
+[
+  {
+    "name": "NR-V6-2",
+    "typeId": "Sample_Valve_Hand",
+    "tagType": "UdtInstance"
+  },
+  {
+    "name": "RT-V2",
+    "typeId": "Sample_Valve_Hand",
+    "tagType": "UdtInstance"
+  },
+  {
+    "name": "BS-V1",
+    "typeId": "Sample_Valve_Hand",
+    "tagType": "UdtInstance"
+  },
+  {
+    "name": "RP-PIT-1-1",
+    "typeId": "Sample_Analog",
+    "parameters": {
+      "unit": {
+        "dataType": "String",
+        "value": "psi"
+      }
+    },
+    "tagType": "UdtInstance",
+    "tags": [
+      {
+        "opcItemPath": "ns\u003d1;s\u003d[Demo Tags 1]_Meta:Realistic/Realistic6",
+        "name": "TempValue",
+        "tagType": "AtomicTag"
+      }
+    ]
+  },
+  {
+    "name": "NR-V3-3",
+    "typeId": "Sample_Valve_Hand",
+    "tagType": "UdtInstance"
+  },
+  {
+    "name": "NR-V3-1",
+    "typeId": "Sample_Valve_Hand",
+    "tagType": "UdtInstance"
+  },
+  {
+    "name": "RP-PIT-2-1",
+    "typeId": "Sample_Analog",
+    "parameters": {
+      "unit": {
+        "dataType": "String",
+        "value": "psi"
+      }
+    },
+    "tagType": "UdtInstance",
+    "tags": [
+      {
+        "opcItemPath": "ns\u003d1;s\u003d[Demo Tags 1]_Meta:Realistic/Realistic8",
+        "name": "TempValue",
+        "tagType": "AtomicTag"
+      }
+    ]
+  },
+  {
+    "name": "NR-V5-2",
+    "typeId": "Sample_Valve_Hand",
+    "tagType": "UdtInstance"
+  },
+  {
+    "name": "RT-V1",
+    "typeId": "Sample_Valve_Hand",
+    "tagType": "UdtInstance"
+  },
+  {
+    "name": "NR-V1-3",
+    "typeId": "Sample_Valve_Hand",
+    "tagType": "UdtInstance"
+  },
+  {
+    "name": "RT-LIT",
+    "typeId": "Sample_Analog",
+    "parameters": {
+      "unit": {
+        "dataType": "String",
+        "value": "ft"
+      }
+    },
+    "tagType": "UdtInstance",
+    "tags": [
+      {
+        "opcItemPath": "ns\u003d1;s\u003d[Demo Tags 1]_Meta:Realistic/Realistic1",
+        "name": "TempValue",
+        "tagType": "AtomicTag"
+      }
+    ]
+  },
+  {
+    "name": "NR-V1-1",
+    "typeId": "Sample_Valve_Hand",
+    "tagType": "UdtInstance"
+  },
+  {
+    "name": "BRI-CIT",
+    "typeId": "Sample_Analog",
+    "parameters": {
+      "unit": {
+        "dataType": "String",
+        "value": "ph"
+      }
+    },
+    "tagType": "UdtInstance",
+    "tags": [
+      {
+        "opcItemPath": "ns\u003d1;s\u003d[Demo Tags 1]_Meta:Ramp/Ramp0",
+        "name": "TempValue",
+        "tagType": "AtomicTag"
+      }
+    ]
+  },
+  {
+    "name": "NR-pHIT-2",
+    "typeId": "Sample_Analog",
+    "parameters": {
+      "unit": {
+        "dataType": "String",
+        "value": "ph"
+      }
+    },
+    "tagType": "UdtInstance",
+    "tags": [
+      {
+        "opcItemPath": "ns\u003d1;s\u003d[Demo Tags 1]_Meta:Ramp/Ramp2",
+        "name": "TempValue",
+        "tagType": "AtomicTag"
+      }
+    ]
+  },
+  {
+    "name": "NR-V5-1",
+    "typeId": "Sample_Valve_Hand",
+    "tagType": "UdtInstance"
+  },
+  {
+    "name": "NR-V2-2",
+    "typeId": "Sample_Valve_Hand",
+    "tagType": "UdtInstance"
+  },
+  {
+    "name": "RW-pHIT",
+    "typeId": "Sample_Analog",
+    "parameters": {
+      "unit": {
+        "dataType": "String",
+        "value": "ph"
+      }
+    },
+    "tagType": "UdtInstance",
+    "tags": [
+      {
+        "opcItemPath": "ns\u003d1;s\u003d[Demo Tags 1]_Meta:Ramp/Ramp0",
+        "name": "TempValue",
+        "tagType": "AtomicTag"
+      }
+    ]
+  },
+  {
+    "name": "NR-FIT-1",
+    "typeId": "Sample_Analog",
+    "parameters": {
+      "unit": {
+        "dataType": "String",
+        "value": "MGD"
+      }
+    },
+    "tagType": "UdtInstance"
+  },
+  {
+    "name": "NR-FIT-2",
+    "typeId": "Sample_Analog",
+    "parameters": {
+      "unit": {
+        "dataType": "String",
+        "value": "MGD"
+      }
+    },
+    "tagType": "UdtInstance",
+    "tags": [
+      {
+        "opcItemPath": "ns\u003d1;s\u003d[Demo Tags]_Meta:Overview/Sensor 2/Temperature",
+        "name": "TempValue",
+        "tagType": "AtomicTag"
+      }
+    ]
+  },
+  {
+    "name": "NR-V1-2",
+    "typeId": "Sample_Valve_Hand",
+    "tagType": "UdtInstance"
+  },
+  {
+    "name": "BS-V3",
+    "typeId": "Sample_Valve_Hand",
+    "tagType": "UdtInstance"
+  },
+  {
+    "name": "NR-V4-2",
+    "typeId": "Sample_Valve_Hand",
+    "tagType": "UdtInstance"
+  },
+  {
+    "name": "BS-V2",
+    "typeId": "Sample_Valve_Hand",
+    "tagType": "UdtInstance"
+  },
+  {
+    "name": "NR-FIT-3",
+    "typeId": "Sample_Analog",
+    "parameters": {
+      "unit": {
+        "dataType": "String",
+        "value": "MGD"
+      }
+    },
+    "tagType": "UdtInstance",
+    "tags": [
+      {
+        "opcItemPath": "ns\u003d1;s\u003d[Demo Tags]_Meta:Overview/Sensor 3/Temperature",
+        "name": "TempValue",
+        "tagType": "AtomicTag"
+      }
+    ]
+  },
+  {
+    "name": "RP-PIT-2-2",
+    "typeId": "Sample_Analog",
+    "parameters": {
+      "unit": {
+        "dataType": "String",
+        "value": "psi"
+      }
+    },
+    "tagType": "UdtInstance",
+    "tags": [
+      {
+        "opcItemPath": "ns\u003d1;s\u003d[Demo Tags 1]_Meta:Realistic/Realistic9",
+        "name": "TempValue",
+        "tagType": "AtomicTag"
+      }
+    ]
+  },
+  {
+    "name": "NR-V4-1",
+    "typeId": "Sample_Valve_Hand",
+    "tagType": "UdtInstance"
+  },
+  {
+    "name": "RP-PIT-1-2",
+    "typeId": "Sample_Analog",
+    "parameters": {
+      "unit": {
+        "dataType": "String",
+        "value": "psi"
+      }
+    },
+    "tagType": "UdtInstance",
+    "tags": [
+      {
+        "opcItemPath": "ns\u003d1;s\u003d[Demo Tags 1]_Meta:Realistic/Realistic7",
+        "name": "TempValue",
+        "tagType": "AtomicTag"
+      }
+    ]
+  },
+  {
+    "name": "DW-FIT",
+    "typeId": "Sample_Analog",
+    "parameters": {
+      "unit": {
+        "dataType": "String",
+        "value": "MGD"
+      }
+    },
+    "tagType": "UdtInstance",
+    "tags": [
+      {
+        "opcItemPath": "ns\u003d1;s\u003d[Demo Tags 1]_Meta:Ramp/Ramp0",
+        "name": "TempValue",
+        "tagType": "AtomicTag"
+      }
+    ]
+  },
+  {
+    "name": "BT-LIT",
+    "typeId": "Sample_Analog",
+    "parameters": {
+      "unit": {
+        "dataType": "String",
+        "value": "ft"
+      }
+    },
+    "tagType": "UdtInstance",
+    "tags": [
+      {
+        "opcItemPath": "ns\u003d1;s\u003d[Demo Tags 1]_Meta:Realistic/Realistic2",
+        "name": "TempValue",
+        "tagType": "AtomicTag"
+      }
+    ]
+  },
+  {
+    "name": "NR-V5-3",
+    "typeId": "Sample_Valve_Hand",
+    "tagType": "UdtInstance"
+  },
+  {
+    "name": "BRI-FIT",
+    "typeId": "Sample_Analog",
+    "parameters": {
+      "unit": {
+        "dataType": "String",
+        "value": "MGD"
+      }
+    },
+    "tagType": "UdtInstance",
+    "tags": [
+      {
+        "opcItemPath": "ns\u003d1;s\u003d[Demo Tags 1]_Meta:Ramp/Ramp0",
+        "name": "TempValue",
+        "tagType": "AtomicTag"
+      }
+    ]
+  },
+  {
+    "name": "NR-V3-2",
+    "typeId": "Sample_Valve_Hand",
+    "tagType": "UdtInstance"
+  },
+  {
+    "name": "BT-V2",
+    "typeId": "Sample_Valve_Hand",
+    "tagType": "UdtInstance"
+  },
+  {
+    "name": "BT-V3",
+    "typeId": "Sample_Valve_Hand",
+    "tagType": "UdtInstance"
+  },
+  {
+    "name": "NR-V6-1",
+    "typeId": "Sample_Valve_Hand",
+    "tagType": "UdtInstance"
+  },
+  {
+    "name": "NR-V2-1",
+    "typeId": "Sample_Valve_Hand",
+    "tagType": "UdtInstance"
+  },
+  {
+    "name": "BT-V1",
+    "typeId": "Sample_Valve_Hand",
+    "tagType": "UdtInstance"
+  },
+  {
+    "name": "NR-pHIT-3",
+    "typeId": "Sample_Analog",
+    "parameters": {
+      "unit": {
+        "dataType": "String",
+        "value": "ph"
+      }
+    },
+    "tagType": "UdtInstance",
+    "tags": [
+      {
+        "opcItemPath": "ns\u003d1;s\u003d[Demo Tags 1]_Meta:Ramp/Ramp3",
+        "name": "TempValue",
+        "tagType": "AtomicTag"
+      }
+    ]
+  },
+  {
+    "name": "NR-V2-3",
+    "typeId": "Sample_Valve_Hand",
+    "tagType": "UdtInstance"
+  },
+  {
+    "name": "NR-pHIT-1",
+    "typeId": "Sample_Analog",
+    "parameters": {
+      "unit": {
+        "dataType": "String",
+        "value": "ph"
+      }
+    },
+    "tagType": "UdtInstance",
+    "tags": [
+      {
+        "opcItemPath": "ns\u003d1;s\u003d[Demo Tags 1]_Meta:Ramp/Ramp0",
+        "name": "TempValue",
+        "tagType": "AtomicTag"
+      }
+    ]
+  },
+  {
+    "name": "NR-V6-3",
+    "typeId": "Sample_Valve_Hand",
+    "tagType": "UdtInstance"
+  },
+  {
+    "name": "NR-V4-3",
+    "typeId": "Sample_Valve_Hand",
+    "tagType": "UdtInstance"
+  },
+  {
+    "name": "WT-V1",
+    "typeId": "Sample_Valve_Hand",
+    "tagType": "UdtInstance"
+  }
+]

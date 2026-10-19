@@ -1,0 +1,20 @@
+{
+  "scope": "A",
+  "version": 1,
+  "restricted": false,
+  "overridable": true,
+  "files": [
+    "document-powerpoint.png"
+  ],
+  "attributes": {
+    "width": 16,
+    "format": "PNG",
+    "lastModification": {
+      "actor": "8.3-migration",
+      "timestamp": "2026-01-07T14:49:07Z"
+    },
+    "size": 658,
+    "lastModificationSignature": "bce5b104b682191a60e0c4a7b96ff3e51bc0ae136d5f37de4125939ccaf5ceb9",
+    "height": 16
+  }
+}

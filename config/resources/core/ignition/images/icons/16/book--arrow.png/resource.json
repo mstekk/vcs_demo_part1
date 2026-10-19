@@ -1,0 +1,20 @@
+{
+  "scope": "A",
+  "version": 1,
+  "restricted": false,
+  "overridable": true,
+  "files": [
+    "book--arrow.png"
+  ],
+  "attributes": {
+    "width": 16,
+    "format": "PNG",
+    "lastModification": {
+      "actor": "8.3-migration",
+      "timestamp": "2026-01-07T14:49:07Z"
+    },
+    "size": 645,
+    "lastModificationSignature": "c9a61181d7bf223a8b81766071dc0a0b2c51a0574cf886f8201afa67614181a6",
+    "height": 16
+  }
+}

@@ -1,0 +1,20 @@
+{
+  "scope": "A",
+  "version": 1,
+  "restricted": false,
+  "overridable": true,
+  "files": [
+    "application-dock-270.png"
+  ],
+  "attributes": {
+    "width": 16,
+    "format": "PNG",
+    "lastModification": {
+      "actor": "8.3-migration",
+      "timestamp": "2026-01-07T14:49:07Z"
+    },
+    "size": 592,
+    "lastModificationSignature": "896f3d2c1b9f9fb663a7fccf270254e707571b2b631bcddf76c5c95d865ff311",
+    "height": 16
+  }
+}

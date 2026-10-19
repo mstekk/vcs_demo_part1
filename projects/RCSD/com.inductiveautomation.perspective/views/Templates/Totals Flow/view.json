@@ -1,0 +1,612 @@
+{
+  "custom": {},
+  "params": {},
+  "props": {
+    "defaultSize": {
+      "height": 360,
+      "width": 300
+    }
+  },
+  "root": {
+    "children": [
+      {
+        "meta": {
+          "name": "Label"
+        },
+        "position": {
+          "basis": "40px"
+        },
+        "props": {
+          "text": "Device Name",
+          "textStyle": {
+            "fontSize": "16pt",
+            "fontWeight": "bold",
+            "textAlign": "center"
+          }
+        },
+        "type": "ia.display.label"
+      },
+      {
+        "children": [
+          {
+            "meta": {
+              "name": "Label"
+            },
+            "position": {
+              "basis": "20%"
+            },
+            "props": {
+              "style": {
+                "borderBottomStyle": "solid"
+              },
+              "text": "Flow Totals",
+              "textStyle": {
+                "fontSize": "14pt",
+                "textAlign": "center"
+              }
+            },
+            "type": "ia.display.label"
+          },
+          {
+            "children": [
+              {
+                "children": [
+                  {
+                    "meta": {
+                      "name": "FlexContainer"
+                    },
+                    "position": {
+                      "basis": "25px"
+                    },
+                    "type": "ia.container.flex"
+                  },
+                  {
+                    "meta": {
+                      "name": "Day_0"
+                    },
+                    "position": {
+                      "basis": "25px"
+                    },
+                    "props": {
+                      "text": "Day",
+                      "textStyle": {
+                        "fontSize": "12pt",
+                        "textAlign": "start",
+                        "textIndent": "5"
+                      }
+                    },
+                    "type": "ia.display.label"
+                  },
+                  {
+                    "meta": {
+                      "name": "Day_1"
+                    },
+                    "position": {
+                      "basis": "25px"
+                    },
+                    "props": {
+                      "text": "Week",
+                      "textStyle": {
+                        "fontSize": "12pt",
+                        "textAlign": "start",
+                        "textIndent": "5"
+                      }
+                    },
+                    "type": "ia.display.label"
+                  },
+                  {
+                    "meta": {
+                      "name": "Day_2"
+                    },
+                    "position": {
+                      "basis": "25px"
+                    },
+                    "props": {
+                      "text": "Month",
+                      "textStyle": {
+                        "fontSize": "12pt",
+                        "textAlign": "start",
+                        "textIndent": "5"
+                      }
+                    },
+                    "type": "ia.display.label"
+                  },
+                  {
+                    "meta": {
+                      "name": "Day_3"
+                    },
+                    "position": {
+                      "basis": "25px"
+                    },
+                    "props": {
+                      "text": "Year",
+                      "textStyle": {
+                        "fontSize": "12pt",
+                        "textAlign": "start",
+                        "textIndent": "5"
+                      }
+                    },
+                    "type": "ia.display.label"
+                  }
+                ],
+                "meta": {
+                  "name": "FlexContainer"
+                },
+                "position": {
+                  "basis": "30%"
+                },
+                "props": {
+                  "direction": "column"
+                },
+                "type": "ia.container.flex"
+              },
+              {
+                "children": [
+                  {
+                    "meta": {
+                      "name": "Label"
+                    },
+                    "position": {
+                      "basis": "25px"
+                    },
+                    "props": {
+                      "text": "Previous",
+                      "textStyle": {
+                        "fontSize": "12pt",
+                        "textAlign": "center"
+                      }
+                    },
+                    "type": "ia.display.label"
+                  },
+                  {
+                    "meta": {
+                      "name": "Day"
+                    },
+                    "position": {
+                      "basis": "25px"
+                    },
+                    "propConfig": {
+                      "props.text": {
+                        "binding": {
+                          "config": {
+                            "expression": "0"
+                          },
+                          "transforms": [
+                            {
+                              "formatType": "numeric",
+                              "formatValue": "0.00",
+                              "type": "format"
+                            }
+                          ],
+                          "type": "expr"
+                        }
+                      }
+                    },
+                    "props": {
+                      "style": {
+                        "borderLeftStyle": "solid"
+                      },
+                      "textStyle": {
+                        "fontSize": "12pt",
+                        "textAlign": "center"
+                      }
+                    },
+                    "type": "ia.display.label"
+                  },
+                  {
+                    "meta": {
+                      "name": "Week"
+                    },
+                    "position": {
+                      "basis": "25px"
+                    },
+                    "propConfig": {
+                      "props.text": {
+                        "binding": {
+                          "config": {
+                            "expression": "0"
+                          },
+                          "transforms": [
+                            {
+                              "formatType": "numeric",
+                              "formatValue": "0.00",
+                              "type": "format"
+                            }
+                          ],
+                          "type": "expr"
+                        }
+                      }
+                    },
+                    "props": {
+                      "style": {
+                        "borderLeftStyle": "solid"
+                      },
+                      "textStyle": {
+                        "fontSize": "12pt",
+                        "textAlign": "center"
+                      }
+                    },
+                    "type": "ia.display.label"
+                  },
+                  {
+                    "meta": {
+                      "name": "Month"
+                    },
+                    "position": {
+                      "basis": "25px"
+                    },
+                    "propConfig": {
+                      "props.text": {
+                        "binding": {
+                          "config": {
+                            "expression": "0"
+                          },
+                          "transforms": [
+                            {
+                              "formatType": "numeric",
+                              "formatValue": "0.00",
+                              "type": "format"
+                            }
+                          ],
+                          "type": "expr"
+                        }
+                      }
+                    },
+                    "props": {
+                      "style": {
+                        "borderLeftStyle": "solid"
+                      },
+                      "textStyle": {
+                        "fontSize": "12pt",
+                        "textAlign": "center"
+                      }
+                    },
+                    "type": "ia.display.label"
+                  },
+                  {
+                    "meta": {
+                      "name": "Year"
+                    },
+                    "position": {
+                      "basis": "25px"
+                    },
+                    "propConfig": {
+                      "props.text": {
+                        "binding": {
+                          "config": {
+                            "expression": "0"
+                          },
+                          "transforms": [
+                            {
+                              "formatType": "numeric",
+                              "formatValue": "0.00",
+                              "type": "format"
+                            }
+                          ],
+                          "type": "expr"
+                        }
+                      }
+                    },
+                    "props": {
+                      "style": {
+                        "borderLeftStyle": "solid"
+                      },
+                      "textStyle": {
+                        "fontSize": "12pt",
+                        "textAlign": "center"
+                      }
+                    },
+                    "type": "ia.display.label"
+                  }
+                ],
+                "meta": {
+                  "name": "Previous"
+                },
+                "position": {
+                  "basis": "35%"
+                },
+                "props": {
+                  "direction": "column"
+                },
+                "type": "ia.container.flex"
+              },
+              {
+                "children": [
+                  {
+                    "meta": {
+                      "name": "Label"
+                    },
+                    "position": {
+                      "basis": "25px"
+                    },
+                    "props": {
+                      "text": "Current",
+                      "textStyle": {
+                        "fontSize": "12pt",
+                        "textAlign": "center"
+                      }
+                    },
+                    "type": "ia.display.label"
+                  },
+                  {
+                    "meta": {
+                      "name": "Day"
+                    },
+                    "position": {
+                      "basis": "25px"
+                    },
+                    "propConfig": {
+                      "props.text": {
+                        "binding": {
+                          "config": {
+                            "expression": "0"
+                          },
+                          "transforms": [
+                            {
+                              "formatType": "numeric",
+                              "formatValue": "0.00",
+                              "type": "format"
+                            }
+                          ],
+                          "type": "expr"
+                        }
+                      }
+                    },
+                    "props": {
+                      "style": {
+                        "borderLeftStyle": "solid"
+                      },
+                      "textStyle": {
+                        "fontSize": "12pt",
+                        "textAlign": "center"
+                      }
+                    },
+                    "type": "ia.display.label"
+                  },
+                  {
+                    "meta": {
+                      "name": "Week"
+                    },
+                    "position": {
+                      "basis": "25px"
+                    },
+                    "propConfig": {
+                      "props.text": {
+                        "binding": {
+                          "config": {
+                            "expression": "0"
+                          },
+                          "transforms": [
+                            {
+                              "formatType": "numeric",
+                              "formatValue": "0.00",
+                              "type": "format"
+                            }
+                          ],
+                          "type": "expr"
+                        }
+                      }
+                    },
+                    "props": {
+                      "style": {
+                        "borderLeftStyle": "solid"
+                      },
+                      "textStyle": {
+                        "fontSize": "12pt",
+                        "textAlign": "center"
+                      }
+                    },
+                    "type": "ia.display.label"
+                  },
+                  {
+                    "meta": {
+                      "name": "Month"
+                    },
+                    "position": {
+                      "basis": "25px"
+                    },
+                    "propConfig": {
+                      "props.text": {
+                        "binding": {
+                          "config": {
+                            "expression": "0"
+                          },
+                          "transforms": [
+                            {
+                              "formatType": "numeric",
+                              "formatValue": "0.00",
+                              "type": "format"
+                            }
+                          ],
+                          "type": "expr"
+                        }
+                      }
+                    },
+                    "props": {
+                      "style": {
+                        "borderLeftStyle": "solid"
+                      },
+                      "textStyle": {
+                        "fontSize": "12pt",
+                        "textAlign": "center"
+                      }
+                    },
+                    "type": "ia.display.label"
+                  },
+                  {
+                    "meta": {
+                      "name": "Year"
+                    },
+                    "position": {
+                      "basis": "25px"
+                    },
+                    "propConfig": {
+                      "props.text": {
+                        "binding": {
+                          "config": {
+                            "expression": "0"
+                          },
+                          "transforms": [
+                            {
+                              "formatType": "numeric",
+                              "formatValue": "0.00",
+                              "type": "format"
+                            }
+                          ],
+                          "type": "expr"
+                        }
+                      }
+                    },
+                    "props": {
+                      "style": {
+                        "borderLeftStyle": "solid"
+                      },
+                      "textStyle": {
+                        "fontSize": "12pt",
+                        "textAlign": "center"
+                      }
+                    },
+                    "type": "ia.display.label"
+                  }
+                ],
+                "meta": {
+                  "name": "Current"
+                },
+                "position": {
+                  "basis": "35%"
+                },
+                "props": {
+                  "direction": "column"
+                },
+                "type": "ia.container.flex"
+              }
+            ],
+            "meta": {
+              "name": "Metrics"
+            },
+            "position": {
+              "basis": "65%"
+            },
+            "type": "ia.container.flex"
+          },
+          {
+            "meta": {
+              "name": "Lifetime"
+            },
+            "position": {
+              "basis": "15%"
+            },
+            "props": {
+              "text": "Lifetime Total: 0.00",
+              "textStyle": {
+                "fontSize": "12pt",
+                "textIndent": 5
+              }
+            },
+            "type": "ia.display.label"
+          }
+        ],
+        "meta": {
+          "name": "Start Totals"
+        },
+        "position": {
+          "basis": "210px"
+        },
+        "props": {
+          "direction": "column",
+          "style": {
+            "borderBottomLeftRadius": 5,
+            "borderBottomRightRadius": 5,
+            "borderStyle": "solid",
+            "borderTopLeftRadius": 5,
+            "borderTopRightRadius": 5,
+            "marginBottom": 2.5,
+            "marginTop": 5
+          }
+        },
+        "type": "ia.container.flex"
+      },
+      {
+        "children": [
+          {
+            "meta": {
+              "name": "Lifetime"
+            },
+            "position": {
+              "basis": "20pt"
+            },
+            "props": {
+              "text": "Maximum Flow: 0.00",
+              "textStyle": {
+                "fontSize": "12pt",
+                "textIndent": 5
+              }
+            },
+            "type": "ia.display.label"
+          },
+          {
+            "meta": {
+              "name": "Lifetime_0"
+            },
+            "position": {
+              "basis": "20pt"
+            },
+            "props": {
+              "text": "Date: October 18, 2025",
+              "textStyle": {
+                "fontSize": "12pt",
+                "textIndent": 5
+              }
+            },
+            "type": "ia.display.label"
+          },
+          {
+            "meta": {
+              "name": "Lifetime_1"
+            },
+            "position": {
+              "basis": "20pt"
+            },
+            "props": {
+              "text": "Time: 1200hr",
+              "textStyle": {
+                "fontSize": "12pt",
+                "textIndent": 5
+              }
+            },
+            "type": "ia.display.label"
+          }
+        ],
+        "meta": {
+          "name": "Runtime Hours"
+        },
+        "position": {
+          "basis": "65pt"
+        },
+        "props": {
+          "direction": "column",
+          "style": {
+            "borderBottomLeftRadius": 5,
+            "borderBottomRightRadius": 5,
+            "borderStyle": "solid",
+            "borderTopLeftRadius": 5,
+            "borderTopRightRadius": 5,
+            "marginBottom": 2.5,
+            "marginTop": 2.5
+          }
+        },
+        "type": "ia.container.flex"
+      }
+    ],
+    "meta": {
+      "name": "root"
+    },
+    "props": {
+      "direction": "column",
+      "style": {
+        "padding": 5
+      }
+    },
+    "type": "ia.container.flex"
+  }
+}

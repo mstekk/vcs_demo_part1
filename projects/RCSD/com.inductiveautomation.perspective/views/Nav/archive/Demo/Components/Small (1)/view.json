@@ -1,0 +1,659 @@
+{
+  "custom": {},
+  "params": {},
+  "props": {
+    "defaultSize": {
+      "height": 2520,
+      "width": 799
+    }
+  },
+  "root": {
+    "children": [
+      {
+        "meta": {
+          "name": "Pump"
+        },
+        "position": {
+          "basis": "200px",
+          "shrink": 0
+        },
+        "props": {
+          "path": "Devices/Pump"
+        },
+        "type": "ia.display.view"
+      },
+      {
+        "meta": {
+          "name": "Pump Buttons"
+        },
+        "position": {
+          "basis": "500px",
+          "shrink": 0
+        },
+        "propConfig": {
+          "props.controlValue": {
+            "binding": {
+              "config": {
+                "bidirectional": true,
+                "fallbackDelay": 0,
+                "mode": "direct",
+                "tagPath": "[default]Demo/Pump/Value"
+              },
+              "type": "tag"
+            }
+          }
+        },
+        "props": {
+          "buttonGap": 5,
+          "states": [
+            {
+              "selectedStyle": {
+                "classes": "Status/NonTelemetered"
+              },
+              "text": "Non Telemetered",
+              "unselectedStyle": {
+                "classes": ""
+              },
+              "value": 2
+            },
+            {
+              "selectedStyle": {
+                "classes": "Status/Stopped"
+              },
+              "text": "Stopped",
+              "unselectedStyle": {
+                "classes": ""
+              },
+              "value": 0
+            },
+            {
+              "selectedStyle": {
+                "classes": "Status/Running"
+              },
+              "text": "Running",
+              "unselectedStyle": {
+                "classes": ""
+              },
+              "value": 1
+            },
+            {
+              "selectedStyle": {
+                "classes": "Alarms/ActiveUnacked_Critical"
+              },
+              "text": "Critical Alarm (Active)",
+              "unselectedStyle": {
+                "classes": ""
+              },
+              "value": 20
+            },
+            {
+              "selectedStyle": {
+                "classes": "Alarms/ActiveAcked_Critical"
+              },
+              "text": "Critical ALarm (Acknowledged)",
+              "unselectedStyle": {
+                "classes": ""
+              },
+              "value": 10
+            },
+            {
+              "selectedStyle": {
+                "classes": "Alarms/ActiveUnacked_High"
+              },
+              "text": "High Alarm (Active)",
+              "unselectedStyle": {
+                "classes": ""
+              },
+              "value": 21
+            },
+            {
+              "selectedStyle": {
+                "classes": "Alarms/ActiveAcked_High"
+              },
+              "text": "High Alarm (Acknowledged)",
+              "unselectedStyle": {
+                "classes": ""
+              },
+              "value": 11
+            },
+            {
+              "selectedStyle": {
+                "classes": "Alarms/ActiveUnacked_Low"
+              },
+              "text": "Notice (Active)",
+              "unselectedStyle": {
+                "classes": ""
+              },
+              "value": 22
+            },
+            {
+              "selectedStyle": {
+                "classes": "Alarms/ActiveAcked_Low"
+              },
+              "text": "Notice (Unacknowledged)",
+              "unselectedStyle": {
+                "classes": ""
+              },
+              "value": 12
+            }
+          ],
+          "style": {
+            "paddingBottom": 10,
+            "paddingLeft": 50,
+            "paddingRight": 50,
+            "paddingTop": 10
+          }
+        },
+        "type": "ia.input.multi-state-button"
+      },
+      {
+        "meta": {
+          "name": "Hand Valve"
+        },
+        "position": {
+          "basis": "200px",
+          "shrink": 0
+        },
+        "props": {
+          "path": "Devices/Valve_Hand"
+        },
+        "type": "ia.display.view"
+      },
+      {
+        "meta": {
+          "name": "Hand Valve Buttons"
+        },
+        "position": {
+          "basis": "500px",
+          "shrink": 0
+        },
+        "propConfig": {
+          "props.controlValue": {
+            "binding": {
+              "config": {
+                "bidirectional": true,
+                "fallbackDelay": 0,
+                "mode": "direct",
+                "tagPath": "[default]Demo/Valve/Value"
+              },
+              "type": "tag"
+            }
+          },
+          "props.indicatorValue": {
+            "binding": {
+              "config": {
+                "path": "this.props.controlValue"
+              },
+              "type": "property"
+            }
+          }
+        },
+        "props": {
+          "buttonGap": 5,
+          "states": [
+            {
+              "selectedStyle": {
+                "classes": "Status/NonTelemetered"
+              },
+              "text": "Non Telemetered",
+              "unselectedStyle": {
+                "classes": ""
+              },
+              "value": 2
+            },
+            {
+              "selectedStyle": {
+                "classes": "Status/Stopped"
+              },
+              "text": "Closed",
+              "unselectedStyle": {
+                "classes": ""
+              },
+              "value": 0
+            },
+            {
+              "selectedStyle": {
+                "classes": "Status/Running"
+              },
+              "text": "Open",
+              "unselectedStyle": {
+                "classes": ""
+              },
+              "value": 1
+            },
+            {
+              "selectedStyle": {
+                "classes": "Alarms/ActiveUnacked_Critical"
+              },
+              "text": "Critical Alarm (Active)",
+              "unselectedStyle": {
+                "classes": ""
+              },
+              "value": 20
+            },
+            {
+              "selectedStyle": {
+                "classes": "Alarms/ActiveAcked_Critical"
+              },
+              "text": "Critical ALarm (Acknowledged)",
+              "unselectedStyle": {
+                "classes": ""
+              },
+              "value": 10
+            },
+            {
+              "selectedStyle": {
+                "classes": "Alarms/ActiveUnacked_High"
+              },
+              "text": "High Alarm (Active)",
+              "unselectedStyle": {
+                "classes": ""
+              },
+              "value": 21
+            },
+            {
+              "selectedStyle": {
+                "classes": "Alarms/ActiveAcked_High"
+              },
+              "text": "High Alarm (Acknowledged)",
+              "unselectedStyle": {
+                "classes": ""
+              },
+              "value": 11
+            },
+            {
+              "selectedStyle": {
+                "classes": "Alarms/ActiveUnacked_Low"
+              },
+              "text": "Notice (Active)",
+              "unselectedStyle": {
+                "classes": ""
+              },
+              "value": 22
+            },
+            {
+              "selectedStyle": {
+                "classes": "Alarms/ActiveAcked_Low"
+              },
+              "text": "Notice (Unacknowledged)",
+              "unselectedStyle": {
+                "classes": ""
+              },
+              "value": 12
+            }
+          ],
+          "style": {
+            "paddingBottom": 10,
+            "paddingLeft": 50,
+            "paddingRight": 50,
+            "paddingTop": 10
+          }
+        },
+        "type": "ia.input.multi-state-button"
+      },
+      {
+        "meta": {
+          "name": "Control Valve"
+        },
+        "position": {
+          "basis": "200px",
+          "shrink": 0
+        },
+        "props": {
+          "params": {
+            "tagPath": "[default]Demo/Valve 1"
+          },
+          "path": "Devices/Valve_Control"
+        },
+        "type": "ia.display.view"
+      },
+      {
+        "children": [
+          {
+            "meta": {
+              "name": "Control Valve Slider"
+            },
+            "position": {
+              "basis": "50%"
+            },
+            "propConfig": {
+              "props.value": {
+                "binding": {
+                  "config": {
+                    "bidirectional": true,
+                    "fallbackDelay": 2.5,
+                    "mode": "direct",
+                    "tagPath": "[default]Demo/Valve 1/Value"
+                  },
+                  "type": "tag"
+                }
+              }
+            },
+            "props": {
+              "labels": {
+                "show": true
+              },
+              "orientation": "vertical",
+              "style": {
+                "padding": 30
+              }
+            },
+            "type": "ia.input.slider"
+          },
+          {
+            "meta": {
+              "name": "Control Valve Buttons"
+            },
+            "position": {
+              "basis": "50%"
+            },
+            "propConfig": {
+              "props.controlValue": {
+                "binding": {
+                  "config": {
+                    "bidirectional": true,
+                    "fallbackDelay": 0,
+                    "mode": "direct",
+                    "tagPath": "[default]Demo/Valve 1/Value"
+                  },
+                  "type": "tag"
+                }
+              }
+            },
+            "props": {
+              "buttonGap": 5,
+              "states": [
+                {
+                  "selectedStyle": {
+                    "classes": "Alarms/ActiveUnacked_Critical"
+                  },
+                  "text": "Critical Alarm (Active)",
+                  "unselectedStyle": {
+                    "classes": ""
+                  },
+                  "value": 120
+                },
+                {
+                  "selectedStyle": {
+                    "classes": "Alarms/ActiveAcked_Critical"
+                  },
+                  "text": "Critical ALarm (Acknowledged)",
+                  "unselectedStyle": {
+                    "classes": ""
+                  },
+                  "value": 110
+                },
+                {
+                  "selectedStyle": {
+                    "classes": "Alarms/ActiveUnacked_High"
+                  },
+                  "text": "High Alarm (Active)",
+                  "unselectedStyle": {
+                    "classes": ""
+                  },
+                  "value": 121
+                },
+                {
+                  "selectedStyle": {
+                    "classes": "Alarms/ActiveAcked_High"
+                  },
+                  "text": "High Alarm (Acknowledged)",
+                  "unselectedStyle": {
+                    "classes": ""
+                  },
+                  "value": 111
+                },
+                {
+                  "selectedStyle": {
+                    "classes": "Alarms/ActiveUnacked_Low"
+                  },
+                  "text": "Notice (Active)",
+                  "unselectedStyle": {
+                    "classes": ""
+                  },
+                  "value": 122
+                },
+                {
+                  "selectedStyle": {
+                    "classes": "Alarms/ActiveAcked_Low"
+                  },
+                  "text": "Notice (Unacknowledged)",
+                  "unselectedStyle": {
+                    "classes": ""
+                  },
+                  "value": 112
+                }
+              ],
+              "style": {
+                "paddingBottom": 10,
+                "paddingRight": 50,
+                "paddingTop": 10
+              }
+            },
+            "type": "ia.input.multi-state-button"
+          }
+        ],
+        "meta": {
+          "name": "Control Valve Controls"
+        },
+        "position": {
+          "basis": "380px",
+          "shrink": 0
+        },
+        "type": "ia.container.flex"
+      },
+      {
+        "children": [
+          {
+            "children": [
+              {
+                "meta": {
+                  "name": "Tank"
+                },
+                "position": {
+                  "grow": 1
+                },
+                "props": {
+                  "params": {
+                    "tagPath": "[default]Demo/Tank"
+                  },
+                  "path": "Devices/Tank"
+                },
+                "type": "ia.display.view"
+              },
+              {
+                "meta": {
+                  "name": "Label"
+                },
+                "position": {
+                  "basis": "50px"
+                },
+                "propConfig": {
+                  "props.text": {
+                    "binding": {
+                      "config": {
+                        "fallbackDelay": 2.5,
+                        "mode": "direct",
+                        "tagPath": "[default]Demo/Tank/Value"
+                      },
+                      "transforms": [
+                        {
+                          "expression": "numberFormat({value}, \"#00.0\u0027%\u0027\")",
+                          "type": "expression"
+                        }
+                      ],
+                      "type": "tag"
+                    }
+                  }
+                },
+                "props": {
+                  "textStyle": {
+                    "classes": "ComponentDisplay"
+                  }
+                },
+                "type": "ia.display.label"
+              }
+            ],
+            "meta": {
+              "name": "FlexContainer"
+            },
+            "position": {
+              "height": 0.9439,
+              "width": 0.5777,
+              "x": 0.2109,
+              "y": 0.0279
+            },
+            "props": {
+              "direction": "column",
+              "style": {
+                "overflow": "visible"
+              }
+            },
+            "type": "ia.container.flex"
+          },
+          {
+            "meta": {
+              "name": "MovingAnalogIndicator"
+            },
+            "position": {
+              "height": 0.584,
+              "width": 0.1563,
+              "x": 0.7172,
+              "y": 0.1964
+            },
+            "propConfig": {
+              "props.processValue": {
+                "binding": {
+                  "config": {
+                    "fallbackDelay": 2.5,
+                    "mode": "direct",
+                    "publishInitial": false,
+                    "tagPath": "[default]Demo/Tank/Value"
+                  },
+                  "type": "tag"
+                }
+              }
+            },
+            "props": {
+              "desiredHigh": 65,
+              "desiredLow": 40,
+              "highAlarm": 90,
+              "highHighAlarm": null,
+              "highInterlock": null,
+              "label": {
+                "format": "#,##0%",
+                "visible": true
+              },
+              "lowAlarm": 10,
+              "lowInterlock": null,
+              "lowLowAlarm": null,
+              "reverseIndicator": true
+            },
+            "type": "ia.display.moving-analog-indicator"
+          },
+          {
+            "meta": {
+              "name": "LinearScale"
+            },
+            "position": {
+              "height": 0.538,
+              "width": 0.18,
+              "x": 0.0403,
+              "y": 0.22
+            },
+            "propConfig": {
+              "props.indicators[1].label": {
+                "binding": {
+                  "config": {
+                    "path": "this.props.indicators[1].value"
+                  },
+                  "transforms": [
+                    {
+                      "expression": "numberFormat({value}, \"#00.0\u0027ft\u0027\")",
+                      "type": "expression"
+                    }
+                  ],
+                  "type": "property"
+                }
+              },
+              "props.indicators[1].value": {
+                "binding": {
+                  "config": {
+                    "fallbackDelay": 2.5,
+                    "mode": "direct",
+                    "publishInitial": false,
+                    "tagPath": "[default]Demo/Tank/receiverLevel"
+                  },
+                  "type": "tag"
+                }
+              }
+            },
+            "props": {
+              "fineTicks": {
+                "length": 2,
+                "span": 0
+              },
+              "indicators": [
+                {
+                  "color": "#FF0000",
+                  "extent": 20,
+                  "indicatorStyle": "range",
+                  "label": "",
+                  "labelAngle": 0,
+                  "labelColor": "",
+                  "length": 15,
+                  "opacity": 0.5,
+                  "stroke": 1.5,
+                  "value": 130
+                },
+                {
+                  "color": "#4747FF",
+                  "extent": 4,
+                  "indicatorStyle": "wedge",
+                  "labelAngle": -30,
+                  "labelColor": "",
+                  "length": 20,
+                  "opacity": 1,
+                  "stroke": 2
+                }
+              ],
+              "labels": {
+                "style": {
+                  "fontSize": "12px"
+                }
+              },
+              "majorTicks": {
+                "length": 10,
+                "span": 50
+              },
+              "maxValue": 150,
+              "minorTicks": {
+                "length": 5
+              }
+            },
+            "type": "ia.display.linear-scale"
+          }
+        ],
+        "meta": {
+          "name": "CoordinateContainer"
+        },
+        "position": {
+          "basis": "500px",
+          "grow": 1,
+          "shrink": 0
+        },
+        "props": {
+          "mode": "percent"
+        },
+        "type": "ia.container.coord"
+      }
+    ],
+    "meta": {
+      "name": "root"
+    },
+    "props": {
+      "direction": "column"
+    },
+    "type": "ia.container.flex"
+  }
+}

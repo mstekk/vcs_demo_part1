@@ -1,0 +1,20 @@
+{
+  "scope": "A",
+  "version": 1,
+  "restricted": false,
+  "overridable": true,
+  "files": [
+    "switch--exclamation.png"
+  ],
+  "attributes": {
+    "width": 16,
+    "format": "PNG",
+    "lastModification": {
+      "actor": "8.3-migration",
+      "timestamp": "2026-01-07T14:49:07Z"
+    },
+    "size": 671,
+    "lastModificationSignature": "096ab7c70a98f64df37aeeffd88dc0069e3cf89bd25091acadd3c80e9f2be146",
+    "height": 16
+  }
+}

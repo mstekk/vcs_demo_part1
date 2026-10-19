@@ -1,0 +1,36 @@
+{
+  "custom": {},
+  "params": {},
+  "props": {},
+  "root": {
+    "children": [
+      {
+        "meta": {
+          "name": "Label"
+        },
+        "position": {
+          "basis": "535px",
+          "grow": 1
+        },
+        "props": {
+          "text": "Leland Thompson Alarms Screen",
+          "textStyle": {
+            "classes": "Header",
+            "fontSize": "50px"
+          }
+        },
+        "type": "ia.display.label"
+      }
+    ],
+    "meta": {
+      "name": "root"
+    },
+    "props": {
+      "direction": "column",
+      "style": {
+        "classes": "Background"
+      }
+    },
+    "type": "ia.container.flex"
+  }
+}

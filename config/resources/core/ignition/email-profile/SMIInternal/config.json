@@ -1,0 +1,19 @@
+{
+  "profile": {
+    "type": "smtp.classic"
+  },
+  "settings": {
+    "advanced": {
+      "debugModeEnabled": false,
+      "smtpTimeout": 10000,
+      "sslProtocols": "TLSv1.2"
+    },
+    "settings": {
+      "hostname": "10.118.11.30",
+      "port": 25,
+      "startTlsEnabled": false,
+      "useSslPort": false,
+      "username": null
+    }
+  }
+}

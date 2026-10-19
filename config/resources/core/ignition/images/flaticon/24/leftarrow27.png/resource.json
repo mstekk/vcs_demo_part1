@@ -1,0 +1,20 @@
+{
+  "scope": "A",
+  "version": 1,
+  "restricted": false,
+  "overridable": true,
+  "files": [
+    "leftarrow27.png"
+  ],
+  "attributes": {
+    "width": 24,
+    "format": "PNG",
+    "lastModification": {
+      "actor": "8.3-migration",
+      "timestamp": "2026-01-07T14:49:07Z"
+    },
+    "size": 305,
+    "lastModificationSignature": "c20d240756a5dd7e0d9582050c10175f8c37b7429d0a2cf630e5b9721eb0e864",
+    "height": 24
+  }
+}

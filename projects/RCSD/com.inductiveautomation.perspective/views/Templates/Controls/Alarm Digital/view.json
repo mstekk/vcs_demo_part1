@@ -1,0 +1,219 @@
+{
+  "custom": {},
+  "params": {},
+  "props": {
+    "defaultSize": {
+      "height": 160,
+      "width": 400
+    }
+  },
+  "root": {
+    "children": [
+      {
+        "meta": {
+          "name": "Label"
+        },
+        "position": {
+          "basis": "40px"
+        },
+        "props": {
+          "style": {
+            "borderBottomStyle": "solid",
+            "borderBottomWidth": 1,
+            "marginLeft": 20,
+            "marginRight": 20
+          },
+          "text": "ALARM CONFIGURATION",
+          "textStyle": {
+            "classes": "Text/Labels",
+            "textAlign": "center"
+          }
+        },
+        "type": "ia.display.label"
+      },
+      {
+        "meta": {
+          "name": "Enable"
+        },
+        "position": {
+          "basis": "30px"
+        },
+        "props": {
+          "selected": true,
+          "style": {
+            "classes": "Text/Labels",
+            "marginBottom": 2,
+            "marginLeft": 30,
+            "marginRight": 30,
+            "marginTop": 2
+          },
+          "text": "Enable Alarm"
+        },
+        "type": "ia.input.checkbox"
+      },
+      {
+        "children": [
+          {
+            "meta": {
+              "name": "Auto Reset"
+            },
+            "position": {
+              "basis": "50%"
+            },
+            "propConfig": {
+              "props.enabled": {
+                "binding": {
+                  "config": {
+                    "path": ".../Enable.props.selected"
+                  },
+                  "type": "property"
+                }
+              }
+            },
+            "props": {
+              "style": {
+                "classes": "Text/Labels"
+              },
+              "text": "Auto Reset"
+            },
+            "type": "ia.input.checkbox"
+          },
+          {
+            "meta": {
+              "name": "Button"
+            },
+            "position": {
+              "basis": "50%"
+            },
+            "propConfig": {
+              "props.enabled": {
+                "binding": {
+                  "config": {
+                    "path": "../Auto Reset.props.selected"
+                  },
+                  "transforms": [
+                    {
+                      "expression": "!{value}\r\n\u0026\u0026\r\n{../Auto Reset.props.enabled}",
+                      "type": "expression"
+                    }
+                  ],
+                  "type": "property"
+                }
+              }
+            },
+            "props": {
+              "primary": false,
+              "text": "Reset"
+            },
+            "type": "ia.input.button"
+          }
+        ],
+        "meta": {
+          "name": "Auto Reset"
+        },
+        "position": {
+          "basis": "30px"
+        },
+        "props": {
+          "style": {
+            "marginBottom": 2,
+            "marginLeft": 30,
+            "marginRight": 30,
+            "marginTop": 2
+          }
+        },
+        "type": "ia.container.flex"
+      },
+      {
+        "children": [
+          {
+            "meta": {
+              "name": "Label"
+            },
+            "position": {
+              "basis": "50%"
+            },
+            "props": {
+              "text": "Alarm Delay:",
+              "textStyle": {
+                "classes": "Text/Labels"
+              }
+            },
+            "type": "ia.display.label"
+          },
+          {
+            "meta": {
+              "name": "NumericEntryField"
+            },
+            "position": {
+              "basis": "30%"
+            },
+            "propConfig": {
+              "props.enabled": {
+                "binding": {
+                  "config": {
+                    "path": ".../Enable.props.selected"
+                  },
+                  "type": "property"
+                }
+              }
+            },
+            "props": {
+              "style": {
+                "borderBottomLeftRadius": 0,
+                "borderBottomRightRadius": 0,
+                "borderBottomStyle": "solid",
+                "borderLeftStyle": "none",
+                "borderRightStyle": "none",
+                "borderTopStyle": "none",
+                "classes": "Text/Setpoints",
+                "textAlign": "center"
+              }
+            },
+            "type": "ia.input.numeric-entry-field"
+          },
+          {
+            "meta": {
+              "name": "Label_0"
+            },
+            "position": {
+              "basis": "20%"
+            },
+            "props": {
+              "text": "sec",
+              "textStyle": {
+                "classes": "Text/Units"
+              }
+            },
+            "type": "ia.display.label"
+          }
+        ],
+        "meta": {
+          "name": "Alarm Delay"
+        },
+        "position": {
+          "basis": "30px"
+        },
+        "props": {
+          "style": {
+            "marginBottom": 2,
+            "marginLeft": 30,
+            "marginRight": 30,
+            "marginTop": 2
+          }
+        },
+        "type": "ia.container.flex"
+      }
+    ],
+    "meta": {
+      "name": "root"
+    },
+    "props": {
+      "direction": "column",
+      "style": {
+        "borderStyle": "none"
+      }
+    },
+    "type": "ia.container.flex"
+  }
+}

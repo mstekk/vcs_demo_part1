@@ -1,0 +1,386 @@
+{
+  "custom": {},
+  "params": {
+    "config": {
+      "base64": null
+    },
+    "desc": "",
+    "name": "Custom",
+    "type": "Custom",
+    "uuid": ""
+  },
+  "propConfig": {
+    "params.config": {
+      "paramDirection": "input",
+      "persistent": true
+    },
+    "params.desc": {
+      "paramDirection": "input",
+      "persistent": true
+    },
+    "params.name": {
+      "paramDirection": "input",
+      "persistent": true
+    },
+    "params.type": {
+      "paramDirection": "input",
+      "persistent": true
+    },
+    "params.uuid": {
+      "paramDirection": "input",
+      "persistent": true
+    }
+  },
+  "props": {
+    "defaultSize": {
+      "height": 331,
+      "width": 301
+    }
+  },
+  "root": {
+    "children": [
+      {
+        "children": [
+          {
+            "children": [
+              {
+                "meta": {
+                  "name": "Image"
+                },
+                "position": {
+                  "grow": 1
+                },
+                "propConfig": {
+                  "position.display": {
+                    "binding": {
+                      "config": {
+                        "expression": "{view.params.config.base64}!\u003dnull"
+                      },
+                      "type": "expr"
+                    }
+                  },
+                  "props.source": {
+                    "binding": {
+                      "config": {
+                        "path": "view.params.config.base64"
+                      },
+                      "type": "property"
+                    }
+                  }
+                },
+                "props": {
+                  "fit": {
+                    "mode": "contain"
+                  }
+                },
+                "type": "ia.display.image"
+              },
+              {
+                "events": {
+                  "dom": {
+                    "onClick": {
+                      "config": {
+                        "script": "\tself.parent.parent.getChild(\"Header\").openConfig()"
+                      },
+                      "scope": "G",
+                      "type": "script"
+                    }
+                  }
+                },
+                "meta": {
+                  "name": "Icon_0"
+                },
+                "position": {
+                  "grow": 1
+                },
+                "propConfig": {
+                  "position.display": {
+                    "binding": {
+                      "config": {
+                        "expression": "{view.params.config.base64}\u003dnull"
+                      },
+                      "type": "expr"
+                    }
+                  }
+                },
+                "props": {
+                  "color": "white",
+                  "path": "material/settings",
+                  "style": {
+                    "cursor": "pointer",
+                    "overflow": "visible"
+                  }
+                },
+                "type": "ia.display.icon"
+              }
+            ],
+            "meta": {
+              "name": "FlexContainer"
+            },
+            "position": {
+              "height": 0.82,
+              "width": 1,
+              "y": 0.18
+            },
+            "props": {
+              "direction": "column",
+              "style": {
+                "overflow": "visible"
+              }
+            },
+            "type": "ia.container.flex"
+          },
+          {
+            "children": [
+              {
+                "meta": {
+                  "contextMenu": {
+                    "enabled": true,
+                    "items": [
+                      {
+                        "children": [],
+                        "icon": {
+                          "color": "",
+                          "path": "",
+                          "style": {}
+                        },
+                        "link": {
+                          "target": "self",
+                          "url": ""
+                        },
+                        "message": {
+                          "payload": {},
+                          "scope": "page",
+                          "type": ""
+                        },
+                        "method": {
+                          "name": "gatewayConfig",
+                          "params": {}
+                        },
+                        "style": {
+                          "classes": ""
+                        },
+                        "text": "Gateway Config",
+                        "type": "method"
+                      },
+                      {
+                        "children": [],
+                        "icon": {
+                          "color": "",
+                          "path": "",
+                          "style": {}
+                        },
+                        "link": {
+                          "target": "self",
+                          "url": ""
+                        },
+                        "message": {
+                          "payload": {},
+                          "scope": "page",
+                          "type": ""
+                        },
+                        "method": {
+                          "name": "moduleConfig",
+                          "params": {}
+                        },
+                        "style": {
+                          "classes": ""
+                        },
+                        "text": "Module Config",
+                        "type": "method"
+                      }
+                    ]
+                  },
+                  "name": "Icon"
+                },
+                "position": {
+                  "shrink": 0
+                },
+                "propConfig": {
+                  "meta.contextMenu.items[0].method.params.presets": {
+                    "binding": {
+                      "config": {
+                        "path": "view.params.config"
+                      },
+                      "type": "property"
+                    }
+                  },
+                  "meta.contextMenu.items[0].method.params.uuid": {
+                    "binding": {
+                      "config": {
+                        "path": "view.params.uuid"
+                      },
+                      "type": "property"
+                    }
+                  },
+                  "meta.contextMenu.items[1].method.params.gatewayUUID": {
+                    "binding": {
+                      "config": {
+                        "path": "view.params.uuid"
+                      },
+                      "type": "property"
+                    }
+                  },
+                  "meta.contextMenu.items[1].method.params.preselected": {
+                    "binding": {
+                      "config": {
+                        "path": "view.params.config.modules"
+                      },
+                      "type": "property"
+                    }
+                  }
+                },
+                "props": {
+                  "color": "white",
+                  "path": "material/settings",
+                  "style": {
+                    "classes": "iconRotate",
+                    "cursor": "pointer"
+                  }
+                },
+                "type": "ia.display.icon"
+              },
+              {
+                "meta": {
+                  "name": "HeaderText"
+                },
+                "position": {
+                  "grow": 1
+                },
+                "propConfig": {
+                  "props.text": {
+                    "binding": {
+                      "config": {
+                        "path": "view.params.name"
+                      },
+                      "type": "property"
+                    }
+                  }
+                },
+                "props": {
+                  "alignVertical": "top",
+                  "style": {
+                    "filter": "drop-shadow(2px 2px 2px #000000)"
+                  },
+                  "textStyle": {
+                    "fontSize": "0.6em",
+                    "whiteSpace": "pre-wrap"
+                  }
+                },
+                "type": "ia.display.label"
+              }
+            ],
+            "events": {
+              "dom": {
+                "onClick": {
+                  "config": {
+                    "script": "\tself.openConfig()"
+                  },
+                  "scope": "G",
+                  "type": "script"
+                }
+              }
+            },
+            "meta": {
+              "name": "Header"
+            },
+            "position": {
+              "height": 0.15,
+              "width": 0.9,
+              "x": 0.0025,
+              "y": 0.0025
+            },
+            "props": {
+              "style": {
+                "cursor": "pointer",
+                "overflow": "visible"
+              }
+            },
+            "scripts": {
+              "customMethods": [
+                {
+                  "name": "openConfig",
+                  "params": [],
+                  "script": "\tuuid\u003dself.view.params.uuid\n\tpath\u003d\u0027Exchange/ArchitectureBuilder/Components/Custom/Config\u0027\n\tparams\u003d{\u0027uuid\u0027:uuid}\n\ttitle\u003d\u0027Custom Configuration\u0027\n\tsystem.perspective.sendMessage(\u0027openPopup\u0027, {\u0027uuid\u0027:uuid, \u0027path\u0027:path,\u0027params\u0027:params,\u0027title\u0027:title},scope\u003d\u0027session\u0027)"
+                }
+              ],
+              "extensionFunctions": null,
+              "messageHandlers": []
+            },
+            "type": "ia.container.flex"
+          },
+          {
+            "meta": {
+              "name": "Label"
+            },
+            "position": {
+              "height": 0.1,
+              "width": 0.5,
+              "x": 0.25,
+              "y": 0.9
+            },
+            "propConfig": {
+              "meta.visible": {
+                "binding": {
+                  "config": {
+                    "path": "session.custom.showUUID"
+                  },
+                  "type": "property"
+                }
+              },
+              "props.text": {
+                "binding": {
+                  "config": {
+                    "path": "view.params.uuid"
+                  },
+                  "type": "property"
+                }
+              }
+            },
+            "props": {
+              "style": {
+                "filter": "drop-shadow(2px 2px 2px #000000)"
+              },
+              "textStyle": {
+                "fontSize": "0.5em",
+                "textAlign": "center"
+              }
+            },
+            "type": "ia.display.label"
+          }
+        ],
+        "meta": {
+          "name": "CoordinateContainer"
+        },
+        "position": {
+          "basis": "200px",
+          "grow": 1
+        },
+        "props": {
+          "mode": "percent",
+          "style": {
+            "height": "100%",
+            "padding": "4px"
+          }
+        },
+        "type": "ia.container.coord"
+      }
+    ],
+    "meta": {
+      "name": "root"
+    },
+    "position": {
+      "x": 0,
+      "y": 0.0248
+    },
+    "props": {
+      "direction": "column",
+      "style": {
+        "borderStyle": "none",
+        "classes": "Exchange/ArchitectureBuilder/componentBackground",
+        "overflow": "hidden"
+      }
+    },
+    "type": "ia.container.flex"
+  }
+}

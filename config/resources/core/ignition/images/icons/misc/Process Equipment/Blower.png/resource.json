@@ -1,0 +1,20 @@
+{
+  "scope": "A",
+  "version": 1,
+  "restricted": false,
+  "overridable": true,
+  "files": [
+    "Blower.png"
+  ],
+  "attributes": {
+    "width": 279,
+    "format": "PNG",
+    "lastModification": {
+      "actor": "8.3-migration",
+      "timestamp": "2026-01-07T14:49:07Z"
+    },
+    "size": 51322,
+    "lastModificationSignature": "bbc12b8b4826f48278a3e646b62cbdb22aee52c1f3465808fb6c8477eb08441d",
+    "height": 274
+  }
+}

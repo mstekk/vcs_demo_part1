@@ -1,0 +1,20 @@
+{
+  "scope": "A",
+  "version": 1,
+  "restricted": false,
+  "overridable": true,
+  "files": [
+    "placeholder35.png"
+  ],
+  "attributes": {
+    "width": 16,
+    "format": "PNG",
+    "lastModification": {
+      "actor": "8.3-migration",
+      "timestamp": "2026-01-07T14:49:07Z"
+    },
+    "size": 382,
+    "lastModificationSignature": "f1779fe7c52b7424ecfad2f14ffa37be81a85f1973b5acef1c92493ec4500d74",
+    "height": 16
+  }
+}

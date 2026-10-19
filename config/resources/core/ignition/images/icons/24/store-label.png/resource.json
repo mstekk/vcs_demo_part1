@@ -1,0 +1,20 @@
+{
+  "scope": "A",
+  "version": 1,
+  "restricted": false,
+  "overridable": true,
+  "files": [
+    "store-label.png"
+  ],
+  "attributes": {
+    "width": 24,
+    "format": "PNG",
+    "lastModification": {
+      "actor": "8.3-migration",
+      "timestamp": "2026-01-07T14:49:07Z"
+    },
+    "size": 996,
+    "lastModificationSignature": "e30d19d581602b10f5abdcc3d4f84832efc7d71336d69cb87e9c707517854f36",
+    "height": 24
+  }
+}

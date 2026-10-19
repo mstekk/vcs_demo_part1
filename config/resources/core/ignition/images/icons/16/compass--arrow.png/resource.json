@@ -1,0 +1,20 @@
+{
+  "scope": "A",
+  "version": 1,
+  "restricted": false,
+  "overridable": true,
+  "files": [
+    "compass--arrow.png"
+  ],
+  "attributes": {
+    "width": 16,
+    "format": "PNG",
+    "lastModification": {
+      "actor": "8.3-migration",
+      "timestamp": "2026-01-07T14:49:07Z"
+    },
+    "size": 939,
+    "lastModificationSignature": "13e94bd335587573f3bcf8b5f758f6214a2b00b88c46f02d7b7a02d72a797c78",
+    "height": 16
+  }
+}

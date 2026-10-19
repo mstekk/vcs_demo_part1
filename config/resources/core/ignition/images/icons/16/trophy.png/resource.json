@@ -1,0 +1,20 @@
+{
+  "scope": "A",
+  "version": 1,
+  "restricted": false,
+  "overridable": true,
+  "files": [
+    "trophy.png"
+  ],
+  "attributes": {
+    "width": 16,
+    "format": "PNG",
+    "lastModification": {
+      "actor": "8.3-migration",
+      "timestamp": "2026-01-07T14:49:07Z"
+    },
+    "size": 821,
+    "lastModificationSignature": "6084a8e2d08522b763f2b62939013594775c636c1a021a7f3b773e12bc3ebaeb",
+    "height": 16
+  }
+}

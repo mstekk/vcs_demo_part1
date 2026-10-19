@@ -1,0 +1,1918 @@
+{
+  "custom": {},
+  "params": {},
+  "props": {
+    "defaultSize": {
+      "height": 1030,
+      "width": 1920
+    }
+  },
+  "root": {
+    "children": [
+      {
+        "children": [
+          {
+            "children": [
+              {
+                "meta": {
+                  "name": "Device"
+                },
+                "position": {
+                  "basis": "200px"
+                },
+                "props": {
+                  "params": {
+                    "tagPath": "[default]Demo/Well"
+                  },
+                  "path": "Devices/Well"
+                },
+                "type": "ia.display.view"
+              },
+              {
+                "children": [
+                  {
+                    "meta": {
+                      "name": "MultiStateButton_0"
+                    },
+                    "position": {
+                      "basis": "120px",
+                      "grow": 1
+                    },
+                    "propConfig": {
+                      "props.controlValue": {
+                        "binding": {
+                          "config": {
+                            "bidirectional": true,
+                            "fallbackDelay": 0,
+                            "mode": "indirect",
+                            "references": {
+                              "1": "{parent.custom.tagPath}"
+                            },
+                            "tagPath": "{1}/Value"
+                          },
+                          "type": "tag"
+                        }
+                      },
+                      "props.indicatorValue": {
+                        "binding": {
+                          "config": {
+                            "path": "this.props.controlValue"
+                          },
+                          "type": "property"
+                        }
+                      }
+                    },
+                    "props": {
+                      "buttonGap": 5,
+                      "states": [
+                        {
+                          "selectedStyle": {
+                            "classes": "Status/NonTelemetered"
+                          },
+                          "text": "Non-Telemetered",
+                          "unselectedStyle": {
+                            "classes": ""
+                          },
+                          "value": 2
+                        },
+                        {
+                          "selectedStyle": {
+                            "classes": "Status/Stopped"
+                          },
+                          "text": "Stop",
+                          "unselectedStyle": {
+                            "classes": ""
+                          },
+                          "value": 0
+                        },
+                        {
+                          "selectedStyle": {
+                            "classes": "Status/Running"
+                          },
+                          "text": "Run",
+                          "unselectedStyle": {
+                            "classes": ""
+                          },
+                          "value": 1
+                        }
+                      ],
+                      "style": {
+                        "paddingRight": 5
+                      }
+                    },
+                    "type": "ia.input.multi-state-button"
+                  },
+                  {
+                    "meta": {
+                      "name": "MultiStateButton_1"
+                    },
+                    "position": {
+                      "basis": "120px",
+                      "grow": 1
+                    },
+                    "propConfig": {
+                      "props.controlValue": {
+                        "binding": {
+                          "config": {
+                            "bidirectional": true,
+                            "fallbackDelay": 0,
+                            "mode": "indirect",
+                            "references": {
+                              "1": "{parent.custom.tagPath}"
+                            },
+                            "tagPath": "{1}/Value"
+                          },
+                          "type": "tag"
+                        }
+                      },
+                      "props.indicatorValue": {
+                        "binding": {
+                          "config": {
+                            "path": "this.props.controlValue"
+                          },
+                          "type": "property"
+                        }
+                      }
+                    },
+                    "props": {
+                      "buttonGap": 5,
+                      "states": [
+                        {
+                          "selectedStyle": {
+                            "classes": "Alarms/ActiveUnacked_Critical"
+                          },
+                          "text": "Critical Alarm (Active)",
+                          "unselectedStyle": {
+                            "classes": ""
+                          },
+                          "value": 20
+                        },
+                        {
+                          "selectedStyle": {
+                            "classes": "Alarms/ActiveUnacked_High"
+                          },
+                          "text": "High Alarm (Active)",
+                          "unselectedStyle": {
+                            "classes": ""
+                          },
+                          "value": 21
+                        },
+                        {
+                          "selectedStyle": {
+                            "classes": "Alarms/ActiveUnacked_Low"
+                          },
+                          "text": "Notice (Active)",
+                          "unselectedStyle": {
+                            "classes": ""
+                          },
+                          "value": 22
+                        }
+                      ],
+                      "style": {
+                        "paddingLeft": 5,
+                        "paddingRight": 5
+                      }
+                    },
+                    "type": "ia.input.multi-state-button"
+                  },
+                  {
+                    "meta": {
+                      "name": "MultiStateButton_2"
+                    },
+                    "position": {
+                      "basis": "120px",
+                      "grow": 1
+                    },
+                    "propConfig": {
+                      "props.controlValue": {
+                        "binding": {
+                          "config": {
+                            "bidirectional": true,
+                            "fallbackDelay": 0,
+                            "mode": "indirect",
+                            "references": {
+                              "1": "{parent.custom.tagPath}"
+                            },
+                            "tagPath": "{1}/Value"
+                          },
+                          "type": "tag"
+                        }
+                      },
+                      "props.indicatorValue": {
+                        "binding": {
+                          "config": {
+                            "path": "this.props.controlValue"
+                          },
+                          "type": "property"
+                        }
+                      }
+                    },
+                    "props": {
+                      "buttonGap": 5,
+                      "states": [
+                        {
+                          "selectedStyle": {
+                            "classes": "Alarms/ActiveAcked_Critical"
+                          },
+                          "text": "Critical Alarm (Acknowledged)",
+                          "unselectedStyle": {
+                            "classes": ""
+                          },
+                          "value": 10
+                        },
+                        {
+                          "selectedStyle": {
+                            "classes": "Alarms/ActiveAcked_High"
+                          },
+                          "text": "Critical Alarm (Acknowledged)",
+                          "unselectedStyle": {
+                            "classes": ""
+                          },
+                          "value": 11
+                        },
+                        {
+                          "selectedStyle": {
+                            "classes": "Alarms/ActiveAcked_Low"
+                          },
+                          "text": "Critical Alarm (Acknowledged)",
+                          "unselectedStyle": {
+                            "classes": ""
+                          },
+                          "value": 12
+                        }
+                      ],
+                      "style": {
+                        "paddingLeft": 5
+                      }
+                    },
+                    "type": "ia.input.multi-state-button"
+                  }
+                ],
+                "custom": {
+                  "tagPath": "[default]Demo/Well"
+                },
+                "meta": {
+                  "name": "Control"
+                },
+                "position": {
+                  "basis": "478px",
+                  "grow": 1
+                },
+                "props": {
+                  "justify": "space-evenly",
+                  "style": {
+                    "padding": 10
+                  }
+                },
+                "type": "ia.container.flex"
+              }
+            ],
+            "meta": {
+              "name": "Well"
+            },
+            "position": {
+              "basis": "50%"
+            },
+            "type": "ia.container.flex"
+          },
+          {
+            "children": [
+              {
+                "meta": {
+                  "name": "Device"
+                },
+                "position": {
+                  "basis": "200px"
+                },
+                "props": {
+                  "path": "Devices/Pump",
+                  "style": {
+                    "padding": 30
+                  }
+                },
+                "type": "ia.display.view"
+              },
+              {
+                "children": [
+                  {
+                    "meta": {
+                      "name": "MultiStateButton_0"
+                    },
+                    "position": {
+                      "basis": "120px",
+                      "grow": 1
+                    },
+                    "propConfig": {
+                      "props.controlValue": {
+                        "binding": {
+                          "config": {
+                            "bidirectional": true,
+                            "fallbackDelay": 0,
+                            "mode": "indirect",
+                            "references": {
+                              "1": "{parent.custom.tagPath}"
+                            },
+                            "tagPath": "{1}/Value"
+                          },
+                          "type": "tag"
+                        }
+                      },
+                      "props.indicatorValue": {
+                        "binding": {
+                          "config": {
+                            "path": "this.props.controlValue"
+                          },
+                          "type": "property"
+                        }
+                      }
+                    },
+                    "props": {
+                      "buttonGap": 5,
+                      "states": [
+                        {
+                          "selectedStyle": {
+                            "classes": "Status/NonTelemetered"
+                          },
+                          "text": "Non-Telemetered",
+                          "unselectedStyle": {
+                            "classes": ""
+                          },
+                          "value": 2
+                        },
+                        {
+                          "selectedStyle": {
+                            "classes": "Status/Stopped"
+                          },
+                          "text": "Stop",
+                          "unselectedStyle": {
+                            "classes": ""
+                          },
+                          "value": 0
+                        },
+                        {
+                          "selectedStyle": {
+                            "classes": "Status/Running"
+                          },
+                          "text": "Run",
+                          "unselectedStyle": {
+                            "classes": ""
+                          },
+                          "value": 1
+                        }
+                      ],
+                      "style": {
+                        "paddingRight": 5
+                      }
+                    },
+                    "type": "ia.input.multi-state-button"
+                  },
+                  {
+                    "meta": {
+                      "name": "MultiStateButton_1"
+                    },
+                    "position": {
+                      "basis": "120px",
+                      "grow": 1
+                    },
+                    "propConfig": {
+                      "props.controlValue": {
+                        "binding": {
+                          "config": {
+                            "bidirectional": true,
+                            "fallbackDelay": 0,
+                            "mode": "indirect",
+                            "references": {
+                              "1": "{parent.custom.tagPath}"
+                            },
+                            "tagPath": "{1}/Value"
+                          },
+                          "type": "tag"
+                        }
+                      },
+                      "props.indicatorValue": {
+                        "binding": {
+                          "config": {
+                            "path": "this.props.controlValue"
+                          },
+                          "type": "property"
+                        }
+                      }
+                    },
+                    "props": {
+                      "buttonGap": 5,
+                      "states": [
+                        {
+                          "selectedStyle": {
+                            "classes": "Alarms/ActiveUnacked_Critical"
+                          },
+                          "text": "Critical Alarm (Active)",
+                          "unselectedStyle": {
+                            "classes": ""
+                          },
+                          "value": 20
+                        },
+                        {
+                          "selectedStyle": {
+                            "classes": "Alarms/ActiveUnacked_High"
+                          },
+                          "text": "High Alarm (Active)",
+                          "unselectedStyle": {
+                            "classes": ""
+                          },
+                          "value": 21
+                        },
+                        {
+                          "selectedStyle": {
+                            "classes": "Alarms/ActiveUnacked_Low"
+                          },
+                          "text": "Notice (Active)",
+                          "unselectedStyle": {
+                            "classes": ""
+                          },
+                          "value": 22
+                        }
+                      ],
+                      "style": {
+                        "paddingLeft": 5,
+                        "paddingRight": 5
+                      }
+                    },
+                    "type": "ia.input.multi-state-button"
+                  },
+                  {
+                    "meta": {
+                      "name": "MultiStateButton_2"
+                    },
+                    "position": {
+                      "basis": "120px",
+                      "grow": 1
+                    },
+                    "propConfig": {
+                      "props.controlValue": {
+                        "binding": {
+                          "config": {
+                            "bidirectional": true,
+                            "fallbackDelay": 0,
+                            "mode": "indirect",
+                            "references": {
+                              "1": "{parent.custom.tagPath}"
+                            },
+                            "tagPath": "{1}/Value"
+                          },
+                          "type": "tag"
+                        }
+                      },
+                      "props.indicatorValue": {
+                        "binding": {
+                          "config": {
+                            "path": "this.props.controlValue"
+                          },
+                          "type": "property"
+                        }
+                      }
+                    },
+                    "props": {
+                      "buttonGap": 5,
+                      "states": [
+                        {
+                          "selectedStyle": {
+                            "classes": "Alarms/ActiveAcked_Critical"
+                          },
+                          "text": "Critical Alarm (Acknowledged)",
+                          "unselectedStyle": {
+                            "classes": ""
+                          },
+                          "value": 10
+                        },
+                        {
+                          "selectedStyle": {
+                            "classes": "Alarms/ActiveAcked_High"
+                          },
+                          "text": "Critical Alarm (Acknowledged)",
+                          "unselectedStyle": {
+                            "classes": ""
+                          },
+                          "value": 11
+                        },
+                        {
+                          "selectedStyle": {
+                            "classes": "Alarms/ActiveAcked_Low"
+                          },
+                          "text": "Critical Alarm (Acknowledged)",
+                          "unselectedStyle": {
+                            "classes": ""
+                          },
+                          "value": 12
+                        }
+                      ],
+                      "style": {
+                        "paddingLeft": 5
+                      }
+                    },
+                    "type": "ia.input.multi-state-button"
+                  }
+                ],
+                "custom": {
+                  "tagPath": "[default]Demo/Pump"
+                },
+                "meta": {
+                  "name": "Control"
+                },
+                "position": {
+                  "basis": "478px",
+                  "grow": 1
+                },
+                "props": {
+                  "justify": "space-evenly",
+                  "style": {
+                    "padding": 10
+                  }
+                },
+                "type": "ia.container.flex"
+              }
+            ],
+            "meta": {
+              "name": "Pump"
+            },
+            "position": {
+              "basis": "50%"
+            },
+            "type": "ia.container.flex"
+          }
+        ],
+        "meta": {
+          "name": "Row 1"
+        },
+        "position": {
+          "basis": "20%"
+        },
+        "props": {
+          "style": {
+            "padding": 20
+          }
+        },
+        "type": "ia.container.flex"
+      },
+      {
+        "children": [
+          {
+            "children": [
+              {
+                "meta": {
+                  "name": "Device"
+                },
+                "position": {
+                  "basis": "200px"
+                },
+                "props": {
+                  "params": {
+                    "tagPath": "[default]Demo/Valve"
+                  },
+                  "path": "Devices/Valve_Hand",
+                  "style": {
+                    "padding": 30
+                  }
+                },
+                "type": "ia.display.view"
+              },
+              {
+                "children": [
+                  {
+                    "meta": {
+                      "name": "MultiStateButton_0"
+                    },
+                    "position": {
+                      "basis": "120px",
+                      "grow": 1
+                    },
+                    "propConfig": {
+                      "props.controlValue": {
+                        "binding": {
+                          "config": {
+                            "bidirectional": true,
+                            "fallbackDelay": 0,
+                            "mode": "indirect",
+                            "references": {
+                              "1": "{parent.custom.tagPath}"
+                            },
+                            "tagPath": "{1}/Value"
+                          },
+                          "type": "tag"
+                        }
+                      },
+                      "props.indicatorValue": {
+                        "binding": {
+                          "config": {
+                            "path": "this.props.controlValue"
+                          },
+                          "type": "property"
+                        }
+                      }
+                    },
+                    "props": {
+                      "buttonGap": 5,
+                      "states": [
+                        {
+                          "selectedStyle": {
+                            "classes": "Status/NonTelemetered"
+                          },
+                          "text": "Non-Telemetered",
+                          "unselectedStyle": {
+                            "classes": ""
+                          },
+                          "value": 2
+                        },
+                        {
+                          "selectedStyle": {
+                            "classes": "Status/Stopped"
+                          },
+                          "text": "Stop",
+                          "unselectedStyle": {
+                            "classes": ""
+                          },
+                          "value": 0
+                        },
+                        {
+                          "selectedStyle": {
+                            "classes": "Status/Running"
+                          },
+                          "text": "Run",
+                          "unselectedStyle": {
+                            "classes": ""
+                          },
+                          "value": 1
+                        }
+                      ],
+                      "style": {
+                        "paddingRight": 5
+                      }
+                    },
+                    "type": "ia.input.multi-state-button"
+                  },
+                  {
+                    "meta": {
+                      "name": "MultiStateButton_1"
+                    },
+                    "position": {
+                      "basis": "120px",
+                      "grow": 1
+                    },
+                    "propConfig": {
+                      "props.controlValue": {
+                        "binding": {
+                          "config": {
+                            "bidirectional": true,
+                            "fallbackDelay": 0,
+                            "mode": "indirect",
+                            "references": {
+                              "1": "{parent.custom.tagPath}"
+                            },
+                            "tagPath": "{1}/Value"
+                          },
+                          "type": "tag"
+                        }
+                      },
+                      "props.indicatorValue": {
+                        "binding": {
+                          "config": {
+                            "path": "this.props.controlValue"
+                          },
+                          "type": "property"
+                        }
+                      }
+                    },
+                    "props": {
+                      "buttonGap": 5,
+                      "states": [
+                        {
+                          "selectedStyle": {
+                            "classes": "Alarms/ActiveUnacked_Critical"
+                          },
+                          "text": "Critical Alarm (Active)",
+                          "unselectedStyle": {
+                            "classes": ""
+                          },
+                          "value": 20
+                        },
+                        {
+                          "selectedStyle": {
+                            "classes": "Alarms/ActiveUnacked_High"
+                          },
+                          "text": "High Alarm (Active)",
+                          "unselectedStyle": {
+                            "classes": ""
+                          },
+                          "value": 21
+                        },
+                        {
+                          "selectedStyle": {
+                            "classes": "Alarms/ActiveUnacked_Low"
+                          },
+                          "text": "Notice (Active)",
+                          "unselectedStyle": {
+                            "classes": ""
+                          },
+                          "value": 22
+                        }
+                      ],
+                      "style": {
+                        "paddingLeft": 5,
+                        "paddingRight": 5
+                      }
+                    },
+                    "type": "ia.input.multi-state-button"
+                  },
+                  {
+                    "meta": {
+                      "name": "MultiStateButton_2"
+                    },
+                    "position": {
+                      "basis": "120px",
+                      "grow": 1
+                    },
+                    "propConfig": {
+                      "props.controlValue": {
+                        "binding": {
+                          "config": {
+                            "bidirectional": true,
+                            "fallbackDelay": 0,
+                            "mode": "indirect",
+                            "references": {
+                              "1": "{parent.custom.tagPath}"
+                            },
+                            "tagPath": "{1}/Value"
+                          },
+                          "type": "tag"
+                        }
+                      },
+                      "props.indicatorValue": {
+                        "binding": {
+                          "config": {
+                            "path": "this.props.controlValue"
+                          },
+                          "type": "property"
+                        }
+                      }
+                    },
+                    "props": {
+                      "buttonGap": 5,
+                      "states": [
+                        {
+                          "selectedStyle": {
+                            "classes": "Alarms/ActiveAcked_Critical"
+                          },
+                          "text": "Critical Alarm (Acknowledged)",
+                          "unselectedStyle": {
+                            "classes": ""
+                          },
+                          "value": 10
+                        },
+                        {
+                          "selectedStyle": {
+                            "classes": "Alarms/ActiveAcked_High"
+                          },
+                          "text": "Critical Alarm (Acknowledged)",
+                          "unselectedStyle": {
+                            "classes": ""
+                          },
+                          "value": 11
+                        },
+                        {
+                          "selectedStyle": {
+                            "classes": "Alarms/ActiveAcked_Low"
+                          },
+                          "text": "Critical Alarm (Acknowledged)",
+                          "unselectedStyle": {
+                            "classes": ""
+                          },
+                          "value": 12
+                        }
+                      ],
+                      "style": {
+                        "paddingLeft": 5
+                      }
+                    },
+                    "type": "ia.input.multi-state-button"
+                  }
+                ],
+                "custom": {
+                  "tagPath": "[default]Demo/Valve"
+                },
+                "meta": {
+                  "name": "Control"
+                },
+                "position": {
+                  "basis": "478px",
+                  "grow": 1
+                },
+                "props": {
+                  "justify": "space-evenly",
+                  "style": {
+                    "padding": 10
+                  }
+                },
+                "type": "ia.container.flex"
+              }
+            ],
+            "meta": {
+              "name": "Actuator Valve"
+            },
+            "position": {
+              "basis": "50%"
+            },
+            "type": "ia.container.flex"
+          },
+          {
+            "children": [
+              {
+                "meta": {
+                  "name": "Device"
+                },
+                "position": {
+                  "basis": "200px"
+                },
+                "props": {
+                  "params": {
+                    "tagPath": "[default]Demo/Valve 1"
+                  },
+                  "path": "Devices/Valve_Control",
+                  "style": {
+                    "padding": 30
+                  }
+                },
+                "type": "ia.display.view"
+              },
+              {
+                "children": [
+                  {
+                    "children": [
+                      {
+                        "meta": {
+                          "name": "Control Valve Slider"
+                        },
+                        "position": {
+                          "basis": "70%"
+                        },
+                        "propConfig": {
+                          "props.value": {
+                            "binding": {
+                              "config": {
+                                "bidirectional": true,
+                                "fallbackDelay": 0,
+                                "mode": "direct",
+                                "tagPath": "[default]Demo/Valve 1/Value"
+                              },
+                              "type": "tag"
+                            }
+                          }
+                        },
+                        "props": {
+                          "labels": {
+                            "show": true
+                          },
+                          "style": {
+                            "padding": 30
+                          }
+                        },
+                        "type": "ia.input.slider"
+                      },
+                      {
+                        "meta": {
+                          "name": "NumericEntryField"
+                        },
+                        "position": {
+                          "basis": "30%"
+                        },
+                        "propConfig": {
+                          "props.value": {
+                            "binding": {
+                              "config": {
+                                "bidirectional": true,
+                                "fallbackDelay": 0,
+                                "mode": "direct",
+                                "tagPath": "[default]Demo/Valve 1/Value"
+                              },
+                              "type": "tag"
+                            }
+                          }
+                        },
+                        "props": {
+                          "spinner": {
+                            "enabled": false
+                          },
+                          "style": {
+                            "margin": 50
+                          }
+                        },
+                        "type": "ia.input.numeric-entry-field"
+                      }
+                    ],
+                    "meta": {
+                      "name": "FlexContainer"
+                    },
+                    "position": {
+                      "basis": "120px",
+                      "grow": 1
+                    },
+                    "props": {
+                      "direction": "column"
+                    },
+                    "type": "ia.container.flex"
+                  },
+                  {
+                    "meta": {
+                      "name": "MultiStateButton_1"
+                    },
+                    "position": {
+                      "basis": "120px",
+                      "grow": 1
+                    },
+                    "propConfig": {
+                      "props.controlValue": {
+                        "binding": {
+                          "config": {
+                            "bidirectional": true,
+                            "fallbackDelay": 0,
+                            "mode": "indirect",
+                            "references": {
+                              "1": "{parent.custom.tagPath}"
+                            },
+                            "tagPath": "{1}/Value"
+                          },
+                          "type": "tag"
+                        }
+                      },
+                      "props.indicatorValue": {
+                        "binding": {
+                          "config": {
+                            "path": "this.props.controlValue"
+                          },
+                          "type": "property"
+                        }
+                      }
+                    },
+                    "props": {
+                      "buttonGap": 5,
+                      "states": [
+                        {
+                          "selectedStyle": {
+                            "classes": "Alarms/ActiveUnacked_Critical"
+                          },
+                          "text": "Critical Alarm (Active)",
+                          "unselectedStyle": {
+                            "classes": ""
+                          },
+                          "value": 120
+                        },
+                        {
+                          "selectedStyle": {
+                            "classes": "Alarms/ActiveUnacked_High"
+                          },
+                          "text": "High Alarm (Active)",
+                          "unselectedStyle": {
+                            "classes": ""
+                          },
+                          "value": 121
+                        },
+                        {
+                          "selectedStyle": {
+                            "classes": "Alarms/ActiveUnacked_Low"
+                          },
+                          "text": "Notice (Active)",
+                          "unselectedStyle": {
+                            "classes": ""
+                          },
+                          "value": 122
+                        }
+                      ],
+                      "style": {
+                        "paddingLeft": 5,
+                        "paddingRight": 5
+                      }
+                    },
+                    "type": "ia.input.multi-state-button"
+                  },
+                  {
+                    "meta": {
+                      "name": "MultiStateButton_2"
+                    },
+                    "position": {
+                      "basis": "120px",
+                      "grow": 1
+                    },
+                    "propConfig": {
+                      "props.controlValue": {
+                        "binding": {
+                          "config": {
+                            "bidirectional": true,
+                            "fallbackDelay": 0,
+                            "mode": "indirect",
+                            "references": {
+                              "1": "{parent.custom.tagPath}"
+                            },
+                            "tagPath": "{1}/Value"
+                          },
+                          "type": "tag"
+                        }
+                      },
+                      "props.indicatorValue": {
+                        "binding": {
+                          "config": {
+                            "path": "this.props.controlValue"
+                          },
+                          "type": "property"
+                        }
+                      }
+                    },
+                    "props": {
+                      "buttonGap": 5,
+                      "states": [
+                        {
+                          "selectedStyle": {
+                            "classes": "Alarms/ActiveAcked_Critical"
+                          },
+                          "text": "Critical Alarm (Acknowledged)",
+                          "unselectedStyle": {
+                            "classes": ""
+                          },
+                          "value": 110
+                        },
+                        {
+                          "selectedStyle": {
+                            "classes": "Alarms/ActiveAcked_High"
+                          },
+                          "text": "Critical Alarm (Acknowledged)",
+                          "unselectedStyle": {
+                            "classes": ""
+                          },
+                          "value": 111
+                        },
+                        {
+                          "selectedStyle": {
+                            "classes": "Alarms/ActiveAcked_Low"
+                          },
+                          "text": "Critical Alarm (Acknowledged)",
+                          "unselectedStyle": {
+                            "classes": ""
+                          },
+                          "value": 112
+                        }
+                      ],
+                      "style": {
+                        "paddingLeft": 5
+                      }
+                    },
+                    "type": "ia.input.multi-state-button"
+                  }
+                ],
+                "custom": {
+                  "tagPath": "[default]Demo/Valve 1"
+                },
+                "meta": {
+                  "name": "Control"
+                },
+                "position": {
+                  "basis": "478px",
+                  "grow": 1
+                },
+                "props": {
+                  "justify": "space-evenly",
+                  "style": {
+                    "padding": 10
+                  }
+                },
+                "type": "ia.container.flex"
+              }
+            ],
+            "meta": {
+              "name": "FlexContainer_0"
+            },
+            "position": {
+              "basis": "50%"
+            },
+            "type": "ia.container.flex"
+          }
+        ],
+        "meta": {
+          "name": "Row 2"
+        },
+        "position": {
+          "basis": "20%"
+        },
+        "props": {
+          "style": {
+            "padding": 20
+          }
+        },
+        "type": "ia.container.flex"
+      },
+      {
+        "children": [
+          {
+            "children": [
+              {
+                "meta": {
+                  "name": "Device"
+                },
+                "position": {
+                  "basis": "200px"
+                },
+                "props": {
+                  "params": {
+                    "tagPath": "[default]Demo/Chemical"
+                  },
+                  "path": "Devices/Chemical",
+                  "style": {
+                    "padding": 30
+                  }
+                },
+                "type": "ia.display.view"
+              },
+              {
+                "children": [
+                  {
+                    "meta": {
+                      "name": "MultiStateButton_0"
+                    },
+                    "position": {
+                      "basis": "120px",
+                      "grow": 1
+                    },
+                    "propConfig": {
+                      "props.controlValue": {
+                        "binding": {
+                          "config": {
+                            "bidirectional": true,
+                            "fallbackDelay": 0,
+                            "mode": "indirect",
+                            "references": {
+                              "1": "{parent.custom.tagPath}"
+                            },
+                            "tagPath": "{1}/Value"
+                          },
+                          "type": "tag"
+                        }
+                      },
+                      "props.indicatorValue": {
+                        "binding": {
+                          "config": {
+                            "path": "this.props.controlValue"
+                          },
+                          "type": "property"
+                        }
+                      }
+                    },
+                    "props": {
+                      "buttonGap": 5,
+                      "states": [
+                        {
+                          "selectedStyle": {
+                            "classes": "Status/NonTelemetered"
+                          },
+                          "text": "Non-Telemetered",
+                          "unselectedStyle": {
+                            "classes": ""
+                          },
+                          "value": 2
+                        },
+                        {
+                          "selectedStyle": {
+                            "classes": "Status/Stopped"
+                          },
+                          "text": "Stop",
+                          "unselectedStyle": {
+                            "classes": ""
+                          },
+                          "value": 0
+                        },
+                        {
+                          "selectedStyle": {
+                            "classes": "Status/Running"
+                          },
+                          "text": "Run",
+                          "unselectedStyle": {
+                            "classes": ""
+                          },
+                          "value": 1
+                        }
+                      ],
+                      "style": {
+                        "paddingRight": 5
+                      }
+                    },
+                    "type": "ia.input.multi-state-button"
+                  },
+                  {
+                    "meta": {
+                      "name": "MultiStateButton_1"
+                    },
+                    "position": {
+                      "basis": "120px",
+                      "grow": 1
+                    },
+                    "propConfig": {
+                      "props.controlValue": {
+                        "binding": {
+                          "config": {
+                            "bidirectional": true,
+                            "fallbackDelay": 0,
+                            "mode": "indirect",
+                            "references": {
+                              "1": "{parent.custom.tagPath}"
+                            },
+                            "tagPath": "{1}/Value"
+                          },
+                          "type": "tag"
+                        }
+                      },
+                      "props.indicatorValue": {
+                        "binding": {
+                          "config": {
+                            "path": "this.props.controlValue"
+                          },
+                          "type": "property"
+                        }
+                      }
+                    },
+                    "props": {
+                      "buttonGap": 5,
+                      "states": [
+                        {
+                          "selectedStyle": {
+                            "classes": "Alarms/ActiveUnacked_Critical"
+                          },
+                          "text": "Critical Alarm (Active)",
+                          "unselectedStyle": {
+                            "classes": ""
+                          },
+                          "value": 20
+                        },
+                        {
+                          "selectedStyle": {
+                            "classes": "Alarms/ActiveUnacked_High"
+                          },
+                          "text": "High Alarm (Active)",
+                          "unselectedStyle": {
+                            "classes": ""
+                          },
+                          "value": 21
+                        },
+                        {
+                          "selectedStyle": {
+                            "classes": "Alarms/ActiveUnacked_Low"
+                          },
+                          "text": "Notice (Active)",
+                          "unselectedStyle": {
+                            "classes": ""
+                          },
+                          "value": 22
+                        }
+                      ],
+                      "style": {
+                        "paddingLeft": 5,
+                        "paddingRight": 5
+                      }
+                    },
+                    "type": "ia.input.multi-state-button"
+                  },
+                  {
+                    "meta": {
+                      "name": "MultiStateButton_2"
+                    },
+                    "position": {
+                      "basis": "120px",
+                      "grow": 1
+                    },
+                    "propConfig": {
+                      "props.controlValue": {
+                        "binding": {
+                          "config": {
+                            "bidirectional": true,
+                            "fallbackDelay": 0,
+                            "mode": "indirect",
+                            "references": {
+                              "1": "{parent.custom.tagPath}"
+                            },
+                            "tagPath": "{1}/Value"
+                          },
+                          "type": "tag"
+                        }
+                      },
+                      "props.indicatorValue": {
+                        "binding": {
+                          "config": {
+                            "path": "this.props.controlValue"
+                          },
+                          "type": "property"
+                        }
+                      }
+                    },
+                    "props": {
+                      "buttonGap": 5,
+                      "states": [
+                        {
+                          "selectedStyle": {
+                            "classes": "Alarms/ActiveAcked_Critical"
+                          },
+                          "text": "Critical Alarm (Acknowledged)",
+                          "unselectedStyle": {
+                            "classes": ""
+                          },
+                          "value": 10
+                        },
+                        {
+                          "selectedStyle": {
+                            "classes": "Alarms/ActiveAcked_High"
+                          },
+                          "text": "Critical Alarm (Acknowledged)",
+                          "unselectedStyle": {
+                            "classes": ""
+                          },
+                          "value": 11
+                        },
+                        {
+                          "selectedStyle": {
+                            "classes": "Alarms/ActiveAcked_Low"
+                          },
+                          "text": "Critical Alarm (Acknowledged)",
+                          "unselectedStyle": {
+                            "classes": ""
+                          },
+                          "value": 12
+                        }
+                      ],
+                      "style": {
+                        "paddingLeft": 5
+                      }
+                    },
+                    "type": "ia.input.multi-state-button"
+                  }
+                ],
+                "custom": {
+                  "tagPath": "[default]Demo/Chemical"
+                },
+                "meta": {
+                  "name": "Control"
+                },
+                "position": {
+                  "basis": "478px",
+                  "grow": 1
+                },
+                "props": {
+                  "justify": "space-evenly",
+                  "style": {
+                    "padding": 10
+                  }
+                },
+                "type": "ia.container.flex"
+              }
+            ],
+            "meta": {
+              "name": "Well"
+            },
+            "position": {
+              "basis": "50%"
+            },
+            "type": "ia.container.flex"
+          },
+          {
+            "children": [
+              {
+                "meta": {
+                  "name": "Device"
+                },
+                "position": {
+                  "basis": "200px"
+                },
+                "props": {
+                  "params": {
+                    "tagPath": "[default]Demo/Sewage"
+                  },
+                  "path": "Devices/Sewage",
+                  "style": {
+                    "padding": 30
+                  }
+                },
+                "type": "ia.display.view"
+              },
+              {
+                "children": [
+                  {
+                    "meta": {
+                      "name": "MultiStateButton_0"
+                    },
+                    "position": {
+                      "basis": "120px",
+                      "grow": 1
+                    },
+                    "propConfig": {
+                      "props.controlValue": {
+                        "binding": {
+                          "config": {
+                            "bidirectional": true,
+                            "fallbackDelay": 0,
+                            "mode": "indirect",
+                            "references": {
+                              "1": "{parent.custom.tagPath}"
+                            },
+                            "tagPath": "{1}/Value"
+                          },
+                          "type": "tag"
+                        }
+                      },
+                      "props.indicatorValue": {
+                        "binding": {
+                          "config": {
+                            "path": "this.props.controlValue"
+                          },
+                          "type": "property"
+                        }
+                      }
+                    },
+                    "props": {
+                      "buttonGap": 5,
+                      "states": [
+                        {
+                          "selectedStyle": {
+                            "classes": "Status/NonTelemetered"
+                          },
+                          "text": "Non-Telemetered",
+                          "unselectedStyle": {
+                            "classes": ""
+                          },
+                          "value": 2
+                        },
+                        {
+                          "selectedStyle": {
+                            "classes": "Status/Stopped"
+                          },
+                          "text": "Stop",
+                          "unselectedStyle": {
+                            "classes": ""
+                          },
+                          "value": 0
+                        },
+                        {
+                          "selectedStyle": {
+                            "classes": "Status/Running"
+                          },
+                          "text": "Run",
+                          "unselectedStyle": {
+                            "classes": ""
+                          },
+                          "value": 1
+                        }
+                      ],
+                      "style": {
+                        "paddingRight": 5
+                      }
+                    },
+                    "type": "ia.input.multi-state-button"
+                  },
+                  {
+                    "meta": {
+                      "name": "MultiStateButton_1"
+                    },
+                    "position": {
+                      "basis": "120px",
+                      "grow": 1
+                    },
+                    "propConfig": {
+                      "props.controlValue": {
+                        "binding": {
+                          "config": {
+                            "bidirectional": true,
+                            "fallbackDelay": 0,
+                            "mode": "indirect",
+                            "references": {
+                              "1": "{parent.custom.tagPath}"
+                            },
+                            "tagPath": "{1}/Value"
+                          },
+                          "type": "tag"
+                        }
+                      },
+                      "props.indicatorValue": {
+                        "binding": {
+                          "config": {
+                            "path": "this.props.controlValue"
+                          },
+                          "type": "property"
+                        }
+                      }
+                    },
+                    "props": {
+                      "buttonGap": 5,
+                      "states": [
+                        {
+                          "selectedStyle": {
+                            "classes": "Alarms/ActiveUnacked_Critical"
+                          },
+                          "text": "Critical Alarm (Active)",
+                          "unselectedStyle": {
+                            "classes": ""
+                          },
+                          "value": 20
+                        },
+                        {
+                          "selectedStyle": {
+                            "classes": "Alarms/ActiveUnacked_High"
+                          },
+                          "text": "High Alarm (Active)",
+                          "unselectedStyle": {
+                            "classes": ""
+                          },
+                          "value": 21
+                        },
+                        {
+                          "selectedStyle": {
+                            "classes": "Alarms/ActiveUnacked_Low"
+                          },
+                          "text": "Notice (Active)",
+                          "unselectedStyle": {
+                            "classes": ""
+                          },
+                          "value": 22
+                        }
+                      ],
+                      "style": {
+                        "paddingLeft": 5,
+                        "paddingRight": 5
+                      }
+                    },
+                    "type": "ia.input.multi-state-button"
+                  },
+                  {
+                    "meta": {
+                      "name": "MultiStateButton_2"
+                    },
+                    "position": {
+                      "basis": "120px",
+                      "grow": 1
+                    },
+                    "propConfig": {
+                      "props.controlValue": {
+                        "binding": {
+                          "config": {
+                            "bidirectional": true,
+                            "fallbackDelay": 0,
+                            "mode": "indirect",
+                            "references": {
+                              "1": "{parent.custom.tagPath}"
+                            },
+                            "tagPath": "{1}/Value"
+                          },
+                          "type": "tag"
+                        }
+                      },
+                      "props.indicatorValue": {
+                        "binding": {
+                          "config": {
+                            "path": "this.props.controlValue"
+                          },
+                          "type": "property"
+                        }
+                      }
+                    },
+                    "props": {
+                      "buttonGap": 5,
+                      "states": [
+                        {
+                          "selectedStyle": {
+                            "classes": "Alarms/ActiveAcked_Critical"
+                          },
+                          "text": "Critical Alarm (Acknowledged)",
+                          "unselectedStyle": {
+                            "classes": ""
+                          },
+                          "value": 10
+                        },
+                        {
+                          "selectedStyle": {
+                            "classes": "Alarms/ActiveAcked_High"
+                          },
+                          "text": "Critical Alarm (Acknowledged)",
+                          "unselectedStyle": {
+                            "classes": ""
+                          },
+                          "value": 11
+                        },
+                        {
+                          "selectedStyle": {
+                            "classes": "Alarms/ActiveAcked_Low"
+                          },
+                          "text": "Critical Alarm (Acknowledged)",
+                          "unselectedStyle": {
+                            "classes": ""
+                          },
+                          "value": 12
+                        }
+                      ],
+                      "style": {
+                        "paddingLeft": 5
+                      }
+                    },
+                    "type": "ia.input.multi-state-button"
+                  }
+                ],
+                "custom": {
+                  "tagPath": "[default]Demo/Sewage"
+                },
+                "meta": {
+                  "name": "Control"
+                },
+                "position": {
+                  "basis": "478px",
+                  "grow": 1
+                },
+                "props": {
+                  "justify": "space-evenly",
+                  "style": {
+                    "padding": 10
+                  }
+                },
+                "type": "ia.container.flex"
+              }
+            ],
+            "meta": {
+              "name": "Pump"
+            },
+            "position": {
+              "basis": "50%"
+            },
+            "type": "ia.container.flex"
+          }
+        ],
+        "meta": {
+          "name": "Row 3"
+        },
+        "position": {
+          "basis": "20%"
+        },
+        "props": {
+          "style": {
+            "padding": 20
+          }
+        },
+        "type": "ia.container.flex"
+      },
+      {
+        "children": [
+          {
+            "meta": {
+              "name": "LinearScale"
+            },
+            "position": {
+              "height": 206.99,
+              "width": 100.03,
+              "x": 28.99,
+              "y": 97.27
+            },
+            "propConfig": {
+              "props.indicators[1].label": {
+                "binding": {
+                  "config": {
+                    "path": "this.props.indicators[1].value"
+                  },
+                  "transforms": [
+                    {
+                      "expression": "numberFormat({value}, \"#00.0\u0027ft\u0027\")",
+                      "type": "expression"
+                    }
+                  ],
+                  "type": "property"
+                }
+              },
+              "props.indicators[1].value": {
+                "binding": {
+                  "config": {
+                    "fallbackDelay": 2.5,
+                    "mode": "direct",
+                    "publishInitial": false,
+                    "tagPath": "[default]Demo/Tank/receiverLevel"
+                  },
+                  "type": "tag"
+                }
+              }
+            },
+            "props": {
+              "fineTicks": {
+                "length": 2,
+                "span": 0
+              },
+              "indicators": [
+                {
+                  "color": "#FF0000",
+                  "extent": 20,
+                  "indicatorStyle": "range",
+                  "label": "",
+                  "labelAngle": 0,
+                  "labelColor": "",
+                  "length": 15,
+                  "opacity": 0.5,
+                  "stroke": 1.5,
+                  "value": 130
+                },
+                {
+                  "color": "#4747FF",
+                  "extent": 4,
+                  "indicatorStyle": "wedge",
+                  "labelAngle": -30,
+                  "labelColor": "",
+                  "length": 20,
+                  "opacity": 1,
+                  "stroke": 2
+                }
+              ],
+              "labels": {
+                "style": {
+                  "fontSize": "12px"
+                }
+              },
+              "majorTicks": {
+                "length": 10,
+                "span": 50
+              },
+              "maxValue": 150,
+              "minorTicks": {
+                "length": 5
+              }
+            },
+            "type": "ia.display.linear-scale"
+          },
+          {
+            "meta": {
+              "name": "MovingAnalogIndicator"
+            },
+            "position": {
+              "height": 228,
+              "width": 80.06,
+              "x": 303.94,
+              "y": 85.78
+            },
+            "propConfig": {
+              "props.processValue": {
+                "binding": {
+                  "config": {
+                    "fallbackDelay": 2.5,
+                    "mode": "direct",
+                    "publishInitial": false,
+                    "tagPath": "[default]Demo/Tank/Value"
+                  },
+                  "type": "tag"
+                }
+              }
+            },
+            "props": {
+              "desiredHigh": 65,
+              "desiredLow": 40,
+              "highAlarm": 90,
+              "highHighAlarm": null,
+              "highInterlock": null,
+              "label": {
+                "format": "#,##0%",
+                "visible": true
+              },
+              "lowAlarm": 10,
+              "lowInterlock": null,
+              "lowLowAlarm": null,
+              "reverseIndicator": true
+            },
+            "type": "ia.display.moving-analog-indicator"
+          },
+          {
+            "meta": {
+              "name": "Tank"
+            },
+            "position": {
+              "height": 320,
+              "width": 203.9,
+              "x": 129.02,
+              "y": 20.27
+            },
+            "props": {
+              "params": {
+                "tagPath": "[default]Demo/Tank"
+              },
+              "path": "Devices/Tank"
+            },
+            "type": "ia.display.view"
+          },
+          {
+            "meta": {
+              "name": "Label"
+            },
+            "position": {
+              "height": 19.98,
+              "width": 100.03,
+              "x": 129.02,
+              "y": 304.26
+            },
+            "props": {
+              "text": "2500 gal",
+              "textStyle": {
+                "classes": "ComponentDisplay"
+              }
+            },
+            "type": "ia.display.label"
+          },
+          {
+            "meta": {
+              "name": "Label_0"
+            },
+            "position": {
+              "height": 19.98,
+              "width": 100.03,
+              "x": 232.9,
+              "y": 304.26
+            },
+            "props": {
+              "text": "85.5%",
+              "textStyle": {
+                "classes": "ComponentDisplay"
+              }
+            },
+            "type": "ia.display.label"
+          },
+          {
+            "meta": {
+              "name": "Sparkline_0"
+            },
+            "position": {
+              "height": 206,
+              "width": 204,
+              "x": 128.570421753,
+              "y": 95.78
+            },
+            "propConfig": {
+              "props.points": {
+                "binding": {
+                  "config": {
+                    "avoidScanClassValidation": true,
+                    "dateRange": {
+                      "mostRecent": "2",
+                      "mostRecentUnits": "HOUR"
+                    },
+                    "enableValueCache": true,
+                    "ignoreBadQuality": false,
+                    "polling": {
+                      "enabled": true,
+                      "rate": "1"
+                    },
+                    "preventInterpolation": false,
+                    "returnFormat": "Wide",
+                    "returnSize": {
+                      "type": "RAW"
+                    },
+                    "tags": [
+                      {
+                        "path": "[default]Demo/Tank/receiverLevel"
+                      }
+                    ],
+                    "valueFormat": "DATASET"
+                  },
+                  "type": "tag-history"
+                }
+              }
+            },
+            "props": {
+              "desired": {
+                "fill": {
+                  "color": "#ACCBFC",
+                  "opacity": 0.3
+                },
+                "high": 120,
+                "low": 20,
+                "stroke": {
+                  "width": 0
+                }
+              },
+              "marker": {},
+              "range": {
+                "high": 150,
+                "low": 0
+              },
+              "width": 1
+            },
+            "type": "ia.display.sparkline"
+          }
+        ],
+        "meta": {
+          "name": "Tank"
+        },
+        "position": {
+          "basis": "35%",
+          "grow": 1
+        },
+        "type": "ia.container.coord"
+      }
+    ],
+    "meta": {
+      "name": "root"
+    },
+    "props": {
+      "direction": "column"
+    },
+    "type": "ia.container.flex"
+  }
+}

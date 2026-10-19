@@ -1,0 +1,45 @@
+{
+  "custom": {},
+  "params": {},
+  "props": {
+    "defaultSize": {
+      "height": 439
+    }
+  },
+  "root": {
+    "children": [
+      {
+        "meta": {
+          "name": "FlexRepeater"
+        },
+        "position": {
+          "shrink": 0
+        },
+        "props": {
+          "elementPosition": {
+            "basis": "auto",
+            "shrink": 0
+          },
+          "instances": [
+            {
+              "label": "Licence Key:",
+              "labelSize": "auto",
+              "text": "Test"
+            }
+          ],
+          "path": "Exchange/ArchitectureBuilder/General/TextInput",
+          "useDefaultViewHeight": false,
+          "useDefaultViewWidth": false
+        },
+        "type": "ia.display.flex-repeater"
+      }
+    ],
+    "meta": {
+      "name": "root"
+    },
+    "props": {
+      "direction": "column"
+    },
+    "type": "ia.container.flex"
+  }
+}

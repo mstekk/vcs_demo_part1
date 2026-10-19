@@ -1,0 +1,20 @@
+{
+  "scope": "A",
+  "version": 1,
+  "restricted": false,
+  "overridable": true,
+  "files": [
+    "Curve Right Down.png"
+  ],
+  "attributes": {
+    "width": 170,
+    "format": "PNG",
+    "lastModification": {
+      "actor": "8.3-migration",
+      "timestamp": "2026-01-07T14:49:07Z"
+    },
+    "size": 18385,
+    "lastModificationSignature": "4e66cf8ed1f988b4d0a84072eb9c9ec34c8619e978fb4c3a2432a492f328bc95",
+    "height": 170
+  }
+}

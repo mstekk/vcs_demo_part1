@@ -1,0 +1,20 @@
+{
+  "scope": "A",
+  "version": 1,
+  "restricted": false,
+  "overridable": true,
+  "files": [
+    "ice.png"
+  ],
+  "attributes": {
+    "width": 16,
+    "format": "PNG",
+    "lastModification": {
+      "actor": "8.3-migration",
+      "timestamp": "2026-01-07T14:49:07Z"
+    },
+    "size": 587,
+    "lastModificationSignature": "6e3844b92d574c911cf5a232f564163886e3790e8c2a8b55ca589094e2745379",
+    "height": 16
+  }
+}

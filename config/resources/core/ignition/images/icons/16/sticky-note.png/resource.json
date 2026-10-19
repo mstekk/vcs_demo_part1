@@ -1,0 +1,20 @@
+{
+  "scope": "A",
+  "version": 1,
+  "restricted": false,
+  "overridable": true,
+  "files": [
+    "sticky-note.png"
+  ],
+  "attributes": {
+    "width": 16,
+    "format": "PNG",
+    "lastModification": {
+      "actor": "8.3-migration",
+      "timestamp": "2026-01-07T14:49:07Z"
+    },
+    "size": 425,
+    "lastModificationSignature": "5cc5f5a6171d50a90bd2777d20b71c0a16ae6517bcb04980868041f82917ad53",
+    "height": 16
+  }
+}

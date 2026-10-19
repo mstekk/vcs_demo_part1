@@ -1,0 +1,14 @@
+{
+  "base": {
+    "style": {}
+  },
+  "variants": [
+    {
+      "pseudo": "hover",
+      "style": {
+        "color": "red",
+        "cursor": "crosshair"
+      }
+    }
+  ]
+}

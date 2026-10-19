@@ -1,0 +1,20 @@
+{
+  "scope": "A",
+  "version": 1,
+  "restricted": false,
+  "overridable": true,
+  "files": [
+    "building--exclamation-11c554512bc80d97a8302cf6a7211912.png"
+  ],
+  "attributes": {
+    "width": 16,
+    "format": "PNG",
+    "lastModification": {
+      "actor": "8.3-migration",
+      "timestamp": "2026-01-07T14:49:07Z"
+    },
+    "size": 736,
+    "lastModificationSignature": "a75e2e8893b93de579728658fb6950c20c37ca502db8a0af15aba0c874fa7fd6",
+    "height": 16
+  }
+}

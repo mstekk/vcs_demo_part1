@@ -1,0 +1,20 @@
+{
+  "scope": "A",
+  "version": 1,
+  "restricted": false,
+  "overridable": true,
+  "files": [
+    "levels3.png"
+  ],
+  "attributes": {
+    "width": 24,
+    "format": "PNG",
+    "lastModification": {
+      "actor": "8.3-migration",
+      "timestamp": "2026-01-07T14:49:07Z"
+    },
+    "size": 424,
+    "lastModificationSignature": "72ed3af14188ee017846b1d7c60f15bcf1c6844f39f1bf07f73723a65c93c2e1",
+    "height": 24
+  }
+}

@@ -1,0 +1,20 @@
+{
+  "scope": "A",
+  "version": 1,
+  "restricted": false,
+  "overridable": true,
+  "files": [
+    "hourglass.png"
+  ],
+  "attributes": {
+    "width": 16,
+    "format": "PNG",
+    "lastModification": {
+      "actor": "8.3-migration",
+      "timestamp": "2026-01-07T14:49:07Z"
+    },
+    "size": 661,
+    "lastModificationSignature": "b46fed8c2f5bddf8f7a334bb85e1c5a02464180525b54a4bcccc0e2899af460a",
+    "height": 16
+  }
+}

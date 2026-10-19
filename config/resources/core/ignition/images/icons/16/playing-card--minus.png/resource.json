@@ -1,0 +1,20 @@
+{
+  "scope": "A",
+  "version": 1,
+  "restricted": false,
+  "overridable": true,
+  "files": [
+    "playing-card--minus.png"
+  ],
+  "attributes": {
+    "width": 16,
+    "format": "PNG",
+    "lastModification": {
+      "actor": "8.3-migration",
+      "timestamp": "2026-01-07T14:49:07Z"
+    },
+    "size": 775,
+    "lastModificationSignature": "41b83ad832d68d7506f23e532e74843b24adc159327b060e11f33c867b23ae0f",
+    "height": 16
+  }
+}

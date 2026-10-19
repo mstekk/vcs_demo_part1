@@ -1,0 +1,19 @@
+{
+  "scope": "A",
+  "description": "SMI SMTP Internal Profile",
+  "version": 1,
+  "restricted": false,
+  "overridable": true,
+  "files": [
+    "config.json"
+  ],
+  "attributes": {
+    "lastModification": {
+      "actor": "8.3-migration",
+      "timestamp": "2026-01-07T14:49:54Z"
+    },
+    "uuid": "45fb278f-2b77-47ee-95f1-2dd22fe66b8d",
+    "lastModificationSignature": "cc268e5b5fbc4043d6a40107934bcc3ae272f56d181202e555bb89fdabe228c6",
+    "enabled": true
+  }
+}

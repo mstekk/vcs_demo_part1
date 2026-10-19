@@ -1,0 +1,20 @@
+{
+  "scope": "A",
+  "version": 1,
+  "restricted": false,
+  "overridable": true,
+  "files": [
+    "paper-bag--minus.png"
+  ],
+  "attributes": {
+    "width": 16,
+    "format": "PNG",
+    "lastModification": {
+      "actor": "8.3-migration",
+      "timestamp": "2026-01-07T14:49:07Z"
+    },
+    "size": 595,
+    "lastModificationSignature": "ed1e18b59e6ce39645897846f218f8c7cc932626fb9b3263dd052d2c0491eef0",
+    "height": 16
+  }
+}

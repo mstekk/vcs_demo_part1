@@ -1,0 +1,20 @@
+{
+  "scope": "A",
+  "version": 1,
+  "restricted": false,
+  "overridable": true,
+  "files": [
+    "receipt--pencil.png"
+  ],
+  "attributes": {
+    "width": 16,
+    "format": "PNG",
+    "lastModification": {
+      "actor": "8.3-migration",
+      "timestamp": "2026-01-07T14:49:07Z"
+    },
+    "size": 604,
+    "lastModificationSignature": "cf0d67552c474ee20d4eb5b75d3011ce2f5dcba4bd3945a575b7065655ecf335",
+    "height": 16
+  }
+}

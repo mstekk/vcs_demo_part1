@@ -1,0 +1,20 @@
+{
+  "scope": "A",
+  "version": 1,
+  "restricted": false,
+  "overridable": true,
+  "files": [
+    "projection-screen--arrow.png"
+  ],
+  "attributes": {
+    "width": 16,
+    "format": "PNG",
+    "lastModification": {
+      "actor": "8.3-migration",
+      "timestamp": "2026-01-07T14:49:07Z"
+    },
+    "size": 532,
+    "lastModificationSignature": "33357c6dffad171c66971d19d59dee951f2aaa689ead899fe662fbf1957f0fec",
+    "height": 16
+  }
+}

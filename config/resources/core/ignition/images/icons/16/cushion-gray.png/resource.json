@@ -1,0 +1,20 @@
+{
+  "scope": "A",
+  "version": 1,
+  "restricted": false,
+  "overridable": true,
+  "files": [
+    "cushion-gray.png"
+  ],
+  "attributes": {
+    "width": 16,
+    "format": "PNG",
+    "lastModification": {
+      "actor": "8.3-migration",
+      "timestamp": "2026-01-07T14:49:07Z"
+    },
+    "size": 599,
+    "lastModificationSignature": "7394f07f31c1a4f2a93c23c5d3acf0b572bb479b724b1ceabbbe996072641409",
+    "height": 16
+  }
+}

@@ -1,0 +1,67 @@
+{
+  "pages": {
+    "/WTF/Anita-B-Smith/Alarms": {
+      "title": "Anita B. Smith Alarms",
+      "viewPath": "RCSD/WTF/Anita B Smith/Alarms"
+    },
+    "/WTF/Anita-B-Smith/EDB/:navTarget": {
+      "title": "",
+      "viewPath": "RCSD/WTF/Anita B Smith/EDB"
+    },
+    "/WTF/Anita-B-Smith/NR-Vessels/:navTarget": {
+      "title": "Anita B. Smith Nitrate Removal Vessels",
+      "viewPath": "RCSD/WTF/Anita B Smith/NR Vessels"
+    },
+    "/WTF/Anita-B-Smith/Overview": {
+      "title": "Anita B. Smith Overview",
+      "viewPath": "RCSD/WTF/Anita B Smith/Overview"
+    },
+    "/WTF/Anita-B-Smith/Trend": {
+      "title": "Anita B. Smith Trend",
+      "viewPath": "RCSD/WTF/Anita B Smith/Trend"
+    },
+    "/WTF/Anita-B-Smith/Waste-and-Recycle/:navTarget": {
+      "title": "",
+      "viewPath": "RCSD/WTF/Anita B Smith/Waste \u0026 Recycle"
+    },
+    "/WTF/Anita-B-Smith/Water-Softener/:navTarget": {
+      "title": "",
+      "viewPath": "RCSD/WTF/Anita B Smith/Water Softener"
+    }
+  },
+  "sharedDocks": {
+    "cornerPriority": "top-bottom",
+    "left": [
+      {
+        "anchor": "fixed",
+        "autoBreakpoint": 1649,
+        "content": "push",
+        "handle": "hide",
+        "iconUrl": "",
+        "id": "navMain",
+        "modal": false,
+        "resizable": false,
+        "show": "visible",
+        "size": 50,
+        "viewParams": {},
+        "viewPath": "Nav/Menu"
+      }
+    ],
+    "top": [
+      {
+        "anchor": "fixed",
+        "autoBreakpoint": 480,
+        "content": "push",
+        "handle": "hide",
+        "iconUrl": "",
+        "id": "header",
+        "modal": false,
+        "resizable": false,
+        "show": "visible",
+        "size": 50,
+        "viewParams": {},
+        "viewPath": "Header/Header"
+      }
+    ]
+  }
+}

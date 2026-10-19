@@ -1,0 +1,20 @@
+{
+  "scope": "A",
+  "version": 1,
+  "restricted": false,
+  "overridable": true,
+  "files": [
+    "switch-medium.png"
+  ],
+  "attributes": {
+    "width": 16,
+    "format": "PNG",
+    "lastModification": {
+      "actor": "8.3-migration",
+      "timestamp": "2026-01-07T14:49:07Z"
+    },
+    "size": 1337,
+    "lastModificationSignature": "1523d05d084f70169dc2dcfc9cd91463d97df5b6699fbe73873ed323a2ed6490",
+    "height": 16
+  }
+}

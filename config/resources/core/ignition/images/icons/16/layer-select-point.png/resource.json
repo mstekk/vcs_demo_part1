@@ -1,0 +1,20 @@
+{
+  "scope": "A",
+  "version": 1,
+  "restricted": false,
+  "overridable": true,
+  "files": [
+    "layer-select-point.png"
+  ],
+  "attributes": {
+    "width": 16,
+    "format": "PNG",
+    "lastModification": {
+      "actor": "8.3-migration",
+      "timestamp": "2026-01-07T14:49:07Z"
+    },
+    "size": 472,
+    "lastModificationSignature": "f6efa6e3f3f560c0e21c74591d9a855580811c5504816c17381022bc80bdd32c",
+    "height": 16
+  }
+}

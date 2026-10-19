@@ -1,0 +1,20 @@
+{
+  "scope": "A",
+  "version": 1,
+  "restricted": false,
+  "overridable": true,
+  "files": [
+    "newspaper--plus.png"
+  ],
+  "attributes": {
+    "width": 16,
+    "format": "PNG",
+    "lastModification": {
+      "actor": "8.3-migration",
+      "timestamp": "2026-01-07T14:49:07Z"
+    },
+    "size": 686,
+    "lastModificationSignature": "59e63467e1faf2029dd1c9306e0ef07fa7cd79a176657c782ef31bb39246cb02",
+    "height": 16
+  }
+}

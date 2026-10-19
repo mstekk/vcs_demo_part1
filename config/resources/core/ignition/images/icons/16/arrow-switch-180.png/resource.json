@@ -1,0 +1,20 @@
+{
+  "scope": "A",
+  "version": 1,
+  "restricted": false,
+  "overridable": true,
+  "files": [
+    "arrow-switch-180.png"
+  ],
+  "attributes": {
+    "width": 16,
+    "format": "PNG",
+    "lastModification": {
+      "actor": "8.3-migration",
+      "timestamp": "2026-01-07T14:49:07Z"
+    },
+    "size": 937,
+    "lastModificationSignature": "a407bfba94566cc37dce08e2dc3ebb442df10160bb4cce3884469fb2e7a6abf7",
+    "height": 16
+  }
+}

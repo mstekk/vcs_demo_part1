@@ -1,0 +1,25 @@
+{
+  "base": {
+    "style": {
+      "stroke": "#2B2B2B"
+    }
+  },
+  "variants": [
+    {
+      "pseudo": "active",
+      "animation": {
+        "duration": "3s",
+        "direction": "normal",
+        "iterationCount": "1",
+        "keyframes": {
+          "0%": {
+            "stroke": "#53baed"
+          },
+          "100%": {
+            "stroke": "#2B2B2B"
+          }
+        }
+      }
+    }
+  ]
+}

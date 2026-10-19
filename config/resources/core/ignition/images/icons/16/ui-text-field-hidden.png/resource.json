@@ -1,0 +1,20 @@
+{
+  "scope": "A",
+  "version": 1,
+  "restricted": false,
+  "overridable": true,
+  "files": [
+    "ui-text-field-hidden.png"
+  ],
+  "attributes": {
+    "width": 16,
+    "format": "PNG",
+    "lastModification": {
+      "actor": "8.3-migration",
+      "timestamp": "2026-01-07T14:49:07Z"
+    },
+    "size": 242,
+    "lastModificationSignature": "bb577b0b478af0f413bc0fa2404a01cf5a24815dab93be3cac0af2edc6d1595f",
+    "height": 16
+  }
+}

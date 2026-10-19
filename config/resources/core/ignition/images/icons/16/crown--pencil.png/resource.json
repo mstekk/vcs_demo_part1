@@ -1,0 +1,20 @@
+{
+  "scope": "A",
+  "version": 1,
+  "restricted": false,
+  "overridable": true,
+  "files": [
+    "crown--pencil.png"
+  ],
+  "attributes": {
+    "width": 16,
+    "format": "PNG",
+    "lastModification": {
+      "actor": "8.3-migration",
+      "timestamp": "2026-01-07T14:49:07Z"
+    },
+    "size": 754,
+    "lastModificationSignature": "340f7e2bf0e8e31ea7fa9bca4a86269d82711b22fc31374bbfb513a64ea9da52",
+    "height": 16
+  }
+}

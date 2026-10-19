@@ -1,0 +1,335 @@
+{
+  "custom": {
+    "price": -3000
+  },
+  "params": {
+    "name": "Vision \u0026 Perspective Discount",
+    "selection": "",
+    "type": "Standard",
+    "uuid": "a1b2c3dd",
+    "vendor": "IA"
+  },
+  "propConfig": {
+    "custom.price": {
+      "binding": {
+        "config": {
+          "struct": {
+            "name": "{view.params.name}",
+            "type": "{view.params.type}",
+            "vendor": "{view.params.vendor}"
+          },
+          "waitOnAll": true
+        },
+        "transforms": [
+          {
+            "code": "\t#return sorted(exchange.architecturebuilder.modules.getRetail(value[\u0027vendor\u0027], value[\u0027name\u0027]))\t\t\t#### CLEANUP\n\treturn exchange.architecturebuilder.modules.getRetail(value[\u0027vendor\u0027], value[\u0027name\u0027], gwType\u003dvalue[\u0027type\u0027])",
+            "type": "script"
+          }
+        ],
+        "type": "expr-struct"
+      },
+      "persistent": true
+    },
+    "params.name": {
+      "paramDirection": "input",
+      "persistent": true
+    },
+    "params.selection": {
+      "paramDirection": "inout",
+      "persistent": true
+    },
+    "params.type": {
+      "paramDirection": "input",
+      "persistent": true
+    },
+    "params.uuid": {
+      "paramDirection": "input",
+      "persistent": true
+    },
+    "params.vendor": {
+      "paramDirection": "input",
+      "persistent": true
+    }
+  },
+  "props": {
+    "defaultSize": {
+      "height": 40,
+      "width": 300
+    }
+  },
+  "root": {
+    "children": [
+      {
+        "meta": {
+          "name": "ModuleImage"
+        },
+        "position": {
+          "basis": "28px",
+          "shrink": 0
+        },
+        "propConfig": {
+          "props.source": {
+            "binding": {
+              "config": {
+                "struct": {
+                  "name": "{view.params.name}",
+                  "vendor": "{view.params.vendor}"
+                },
+                "waitOnAll": true
+              },
+              "transforms": [
+                {
+                  "code": "\tif value[\u0027vendor\u0027]\u003d\u003d\u0027TPM\u0027:\n\t\treturn system.tag.readBlocking([\u0027[default]Exchange/ArchitectureBuilder/TPM\u0027])[0].value[value[\u0027name\u0027]][\u0027image\u0027]\n\treturn \u0027data:image/svg+xml;base64,{}\u0027.format(exchange.architecturebuilder.modules.getImageFromName(value[\u0027vendor\u0027], value[\u0027name\u0027]).decode(\u0027unicode-escape\u0027))",
+                  "type": "script"
+                }
+              ],
+              "type": "expr-struct"
+            }
+          }
+        },
+        "props": {
+          "fit": {
+            "mode": "contain"
+          },
+          "style": {
+            "borderBottomLeftRadius": "8px",
+            "borderBottomRightRadius": "8px",
+            "borderTopLeftRadius": "8px",
+            "borderTopRightRadius": "8px",
+            "marginLeft": "4px",
+            "marginRight": "4px",
+            "paddingLeft": "2px",
+            "paddingRight": 2
+          }
+        },
+        "type": "ia.display.image"
+      },
+      {
+        "meta": {
+          "name": "Label"
+        },
+        "propConfig": {
+          "props.text": {
+            "binding": {
+              "config": {
+                "path": "view.params.name"
+              },
+              "transforms": [
+                {
+                  "expression": "if({session.custom.eamUnlimited.selected} \u0026\u0026 {value} \u003d \"EAM\" \u0026\u0026 {view.params.vendor} \u003d \"IA\",\r\n\tif({session.custom.eamUnlimited.UUID} \u003d {view.params.uuid},\r\n\t\t\"EAM Unlimited License\",\r\n\t\t\"EAM Unlimited\"),\r\n{value})",
+                  "type": "expression"
+                }
+              ],
+              "type": "property"
+            }
+          }
+        },
+        "props": {
+          "style": {
+            "borderBottomLeftRadius": "8px",
+            "borderBottomRightRadius": "8px",
+            "borderTopLeftRadius": "8px",
+            "borderTopRightRadius": "8px",
+            "paddingLeft": "6px",
+            "paddingRight": "6px"
+          },
+          "textStyle": {
+            "fontWeight": "bolder"
+          }
+        },
+        "type": "ia.display.label"
+      },
+      {
+        "meta": {
+          "name": "Dropdown"
+        },
+        "position": {
+          "basis": "130px"
+        },
+        "propConfig": {
+          "position.basis": {
+            "binding": {
+              "config": {
+                "expression": "if({view.params.name} \u003d \"MQTT Distributor\",\r\n\t\"230px\",\r\n\t\"130px\")"
+              },
+              "type": "expr"
+            },
+            "persistent": true
+          },
+          "position.display": {
+            "binding": {
+              "config": {
+                "path": "view.custom.price"
+              },
+              "transforms": [
+                {
+                  "code": "\treturn isinstance(system.util.jsonDecode(system.util.jsonEncode(value)), dict) or isinstance(system.util.jsonDecode(system.util.jsonEncode(value)), list)",
+                  "type": "script"
+                }
+              ],
+              "type": "property"
+            }
+          },
+          "props.options": {
+            "binding": {
+              "config": {
+                "path": "view.custom.price"
+              },
+              "transforms": [
+                {
+                  "code": "\ttry:\n\t\tif str(value[:5]) \u003d\u003d \u0027Error\u0027:\n\t\t\treturn value\n\texcept:\n\t\topts \u003d sorted(value)\n\t\toptions \u003d []\n\t\tfor entry in opts:\n\t\t\toptions.append({\"label\": entry, \"value\": entry})\n\t\treturn options",
+                  "type": "script"
+                }
+              ],
+              "type": "property"
+            },
+            "onChange": {
+              "enabled": null,
+              "script": "\tif origin \u003d\u003d \u0027Browser\u0027:\n\t\ttry:\n\t\t\tvals\u003dself.props.options\n\t\t\tindex\u003dint(len(vals))-1\n\t\t\t\n\t\t\tself.props.value\u003dvals[index][\u0027value\u0027]\n\t\texcept:\n\t\t\tself.props.value\u003dNone"
+            }
+          },
+          "props.value": {
+            "binding": {
+              "config": {
+                "bidirectional": true,
+                "path": "view.params.selection"
+              },
+              "type": "property"
+            },
+            "onChange": {
+              "enabled": null,
+              "script": "\tif self.session.custom.audit.bom and origin \u003d\u003d \"Browser\":\n\t\t# Log module selection modified\n\t\tsystem.util.audit(action\u003d\"Updated\", actionTarget\u003d\"Module Selection\", actionValue\u003dself.view.params.name, originatingSystem\u003d[\"source\",\"BOM\",\"uuid\",self.view.params.uuid,\"selection\",currentValue.value])"
+            }
+          }
+        },
+        "props": {
+          "style": {
+            "marginBottom": "4px",
+            "marginTop": "4px"
+          }
+        },
+        "type": "ia.input.dropdown"
+      },
+      {
+        "children": [
+          {
+            "meta": {
+              "name": "Description"
+            },
+            "position": {
+              "shrink": 0
+            },
+            "propConfig": {
+              "position.display": {
+                "binding": {
+                  "config": {
+                    "path": "session.custom.showDescriptions"
+                  },
+                  "type": "property"
+                }
+              },
+              "props.text": {
+                "binding": {
+                  "config": {
+                    "struct": {
+                      "module": "{view.params.name}",
+                      "vendor": "{view.params.vendor}"
+                    },
+                    "waitOnAll": true
+                  },
+                  "transforms": [
+                    {
+                      "code": "\treturn exchange.architecturebuilder.modules.getDescription(value[\"vendor\"], value[\"module\"])",
+                      "type": "script"
+                    }
+                  ],
+                  "type": "expr-struct"
+                }
+              }
+            },
+            "props": {
+              "style": {
+                "fontStyle": "italic",
+                "marginRight": "4px"
+              },
+              "textStyle": {
+                "fontSize": "14px",
+                "textAlign": "left",
+                "textOverflow": "ellipsis"
+              }
+            },
+            "type": "ia.display.label"
+          },
+          {
+            "meta": {
+              "name": "Price"
+            },
+            "position": {
+              "shrink": 0
+            },
+            "propConfig": {
+              "props.text": {
+                "binding": {
+                  "config": {
+                    "struct": {
+                      "discount": "{session.custom.discount}",
+                      "eamUnlimited": "{session.custom.eamUnlimited}",
+                      "selection": "{.../Dropdown.props.value}"
+                    },
+                    "waitOnAll": true
+                  },
+                  "transforms": [
+                    {
+                      "expression": "if({view.params.vendor} \u003d \"IA\" \u0026\u0026 {view.params.name} \u003d \"EAM\" \u0026\u0026 {value}[\"eamUnlimited\"][\"selected\"],\r\n\t// EAM Unlimited is selected and this entry is for EAM\r\n\tif({value}[\"eamUnlimited\"][\"UUID\"] \u003d {view.params.uuid},\r\n\t\tnumberFormat(runScript(\"exchange.architecturebuilder.modules.getEamUnlimited()\"), \"$#,##0.00\"),\r\n\t\tnumberFormat(0, \"$0.00\")),\r\nif(typeOf({view.custom.price}) \u003d \u0027String\u0027,\r\n\t{view.custom.price},\r\n\tif({.../Dropdown.position.display},\r\n\t\tif(len({value}[\u0027selection\u0027]) \u003e 0,\r\n\t\t\ttry(numberFormat(({view.custom.price}[{value}[\u0027selection\u0027]] * (1-({value}[\u0027discount\u0027]/100.0))), \"$#,##0.00\"), {view.custom.price}[{value}[\u0027selection\u0027]]),\r\n\t\t\"\"),\r\n\tnumberFormat(({view.custom.price} * (1-({value}[\u0027discount\u0027]/100.0))), \"$#,##0.00\"))))",
+                      "type": "expression"
+                    }
+                  ],
+                  "type": "expr-struct"
+                }
+              }
+            },
+            "props": {
+              "style": {
+                "marginRight": "4px"
+              },
+              "textStyle": {
+                "textAlign": "right"
+              }
+            },
+            "type": "ia.display.label"
+          }
+        ],
+        "meta": {
+          "name": "FlexContainer"
+        },
+        "position": {
+          "grow": 1,
+          "shrink": 0
+        },
+        "props": {
+          "justify": "flex-end",
+          "style": {
+            "marginLeft": "3px"
+          }
+        },
+        "type": "ia.container.flex"
+      }
+    ],
+    "meta": {
+      "name": "root"
+    },
+    "props": {
+      "alignContent": "flex-start",
+      "style": {
+        "backgroundColor": "--neutral-20",
+        "borderBottomLeftRadius": "8px",
+        "borderBottomRightRadius": "8px",
+        "borderTopLeftRadius": "8px",
+        "borderTopRightRadius": "8px",
+        "overflow": "visible",
+        "padding": "2px"
+      }
+    },
+    "type": "ia.container.flex"
+  }
+}

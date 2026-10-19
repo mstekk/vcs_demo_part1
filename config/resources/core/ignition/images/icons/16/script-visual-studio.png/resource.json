@@ -1,0 +1,20 @@
+{
+  "scope": "A",
+  "version": 1,
+  "restricted": false,
+  "overridable": true,
+  "files": [
+    "script-visual-studio.png"
+  ],
+  "attributes": {
+    "width": 16,
+    "format": "PNG",
+    "lastModification": {
+      "actor": "8.3-migration",
+      "timestamp": "2026-01-07T14:49:07Z"
+    },
+    "size": 702,
+    "lastModificationSignature": "5ebee1501e54da62549e92e0504477b38fa7325ec39207c37c4e659c76147bed",
+    "height": 16
+  }
+}

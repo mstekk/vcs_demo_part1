@@ -1,0 +1,20 @@
+{
+  "scope": "A",
+  "version": 1,
+  "restricted": false,
+  "overridable": true,
+  "files": [
+    "garbage22.png"
+  ],
+  "attributes": {
+    "width": 24,
+    "format": "PNG",
+    "lastModification": {
+      "actor": "8.3-migration",
+      "timestamp": "2026-01-07T14:49:07Z"
+    },
+    "size": 361,
+    "lastModificationSignature": "8d26c6da11ac52adc901819daf78c3135940a44f00014e80d2b85edf23eefe21",
+    "height": 24
+  }
+}

@@ -1,0 +1,240 @@
+{
+  "custom": {},
+  "params": {
+    "lat": 40.041265323,
+    "lng": -103.359375,
+    "uuid": "Ia941c7bc"
+  },
+  "propConfig": {
+    "params.lat": {
+      "paramDirection": "input",
+      "persistent": true
+    },
+    "params.lng": {
+      "paramDirection": "input",
+      "persistent": true
+    },
+    "params.uuid": {
+      "paramDirection": "input",
+      "persistent": true
+    }
+  },
+  "props": {
+    "defaultSize": {
+      "height": 559,
+      "width": 411
+    }
+  },
+  "root": {
+    "children": [
+      {
+        "events": {
+          "component": {
+            "onMapClick": {
+              "config": {
+                "script": "\tself.view.params.lat\u003devent.lat\n\tself.view.params.lng\u003devent.lng"
+              },
+              "scope": "G",
+              "type": "script"
+            }
+          }
+        },
+        "meta": {
+          "name": "Map"
+        },
+        "position": {
+          "basis": "559px",
+          "grow": 1
+        },
+        "propConfig": {
+          "props.layers.ui.marker[0].lat": {
+            "binding": {
+              "config": {
+                "path": "view.params.lat"
+              },
+              "type": "property"
+            }
+          },
+          "props.layers.ui.marker[0].lng": {
+            "binding": {
+              "config": {
+                "path": "view.params.lng"
+              },
+              "type": "property"
+            }
+          }
+        },
+        "props": {
+          "init": {
+            "center": {
+              "lat": 40.310050413,
+              "lng": -99.140625
+            },
+            "zoom": 3
+          },
+          "layers": {
+            "raster": {
+              "tile": [
+                {
+                  "WMS": {
+                    "format": "image/jpeg",
+                    "layers": "",
+                    "styles": "",
+                    "transparent": false,
+                    "uppercase": false,
+                    "version": "1.1.1"
+                  },
+                  "options": {
+                    "attribution": "Map data \u0026copy; \u003ca href\u003d\u0027https://www.openstreetmap.org/\u0027\u003eOpenStreetMap\u003c/a\u003e contributors, \u003ca href\u003d\u0027https://creativecommons.org/licenses/by-sa/2.0/\u0027\u003eCC-BY-SA\u003c/a\u003e",
+                    "crossOrigin": false,
+                    "detectRetina": false,
+                    "errorTileUrl": "",
+                    "opacity": 1,
+                    "subdomains": [
+                      "a",
+                      "b",
+                      "c"
+                    ],
+                    "tileSize": {
+                      "height": 256,
+                      "width": 256
+                    },
+                    "tms": false,
+                    "update": {
+                      "interval": 200,
+                      "whenIdle": false,
+                      "whenZooming": true
+                    },
+                    "zIndex": 1,
+                    "zoom": {
+                      "max": 18,
+                      "min": 0,
+                      "native": {
+                        "max": null,
+                        "min": null
+                      },
+                      "offset": 0,
+                      "reverse": false
+                    }
+                  },
+                  "url": "https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png",
+                  "urlTemplateParams": {}
+                }
+              ]
+            },
+            "ui": {
+              "marker": [
+                {
+                  "enabled": true,
+                  "event": {
+                    "stopPropagation": false
+                  },
+                  "icon": {
+                    "color": "#4190F7",
+                    "path": "material/location_on",
+                    "rotate": 0,
+                    "size": {
+                      "height": 36,
+                      "width": 36
+                    },
+                    "style": {
+                      "classes": ""
+                    }
+                  },
+                  "name": "",
+                  "opacity": 1,
+                  "popup": {
+                    "autoClose": true,
+                    "closeButton": true,
+                    "closeOnClick": null,
+                    "closeOnEscapeKey": true,
+                    "content": {
+                      "text": "",
+                      "view": {
+                        "params": {},
+                        "path": ""
+                      }
+                    },
+                    "enabled": false,
+                    "height": {
+                      "max": null
+                    },
+                    "pan": {
+                      "auto": true
+                    },
+                    "width": {
+                      "max": 300,
+                      "min": 50
+                    }
+                  },
+                  "properties": {},
+                  "tooltip": {
+                    "content": {
+                      "text": "",
+                      "view": {
+                        "params": {},
+                        "path": ""
+                      }
+                    },
+                    "direction": "auto",
+                    "opacity": 1,
+                    "permanent": false,
+                    "sticky": false
+                  }
+                }
+              ]
+            }
+          },
+          "style": {
+            "cursor": "pointer"
+          }
+        },
+        "type": "ia.display.map"
+      },
+      {
+        "events": {
+          "component": {
+            "onActionPerformed": {
+              "config": {
+                "script": "\tsystem.perspective.sendMessage(\u0027areaLocation\u0027, {\u0027lat\u0027: self.view.params.lat, \u0027lng\u0027: self.view.params.lng, \u0027uuid\u0027: self.view.params.uuid})\n\tsystem.perspective.closePopup(\u0027SelectLocation\u0027)"
+              },
+              "scope": "G",
+              "type": "script"
+            }
+          }
+        },
+        "meta": {
+          "name": "Button"
+        },
+        "position": {
+          "basis": "34px"
+        },
+        "propConfig": {
+          "props.enabled": {
+            "binding": {
+              "config": {
+                "expression": "{view.params.lat}!\u003dnull \u0026\u0026 {view.params.lng}!\u003dnull "
+              },
+              "type": "expr"
+            }
+          }
+        },
+        "props": {
+          "text": "Apply Location"
+        },
+        "type": "ia.input.button"
+      }
+    ],
+    "meta": {
+      "name": "root"
+    },
+    "props": {
+      "direction": "column",
+      "style": {
+        "margin": "4px",
+        "padding": "4px"
+      }
+    },
+    "type": "ia.container.flex"
+  }
+}

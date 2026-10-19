@@ -1,0 +1,20 @@
+{
+  "scope": "A",
+  "version": 1,
+  "restricted": false,
+  "overridable": true,
+  "files": [
+    "Horizontal Vessel.png"
+  ],
+  "attributes": {
+    "width": 400,
+    "format": "PNG",
+    "lastModification": {
+      "actor": "8.3-migration",
+      "timestamp": "2026-01-07T14:49:07Z"
+    },
+    "size": 14039,
+    "lastModificationSignature": "34e81f80b9b31d3ecef01cc0999c654e2c977af389314b5991d7c16ce58862e1",
+    "height": 158
+  }
+}

@@ -1,0 +1,20 @@
+{
+  "scope": "A",
+  "version": 1,
+  "restricted": false,
+  "overridable": true,
+  "files": [
+    "document-hf-select.png"
+  ],
+  "attributes": {
+    "width": 16,
+    "format": "PNG",
+    "lastModification": {
+      "actor": "8.3-migration",
+      "timestamp": "2026-01-07T14:49:07Z"
+    },
+    "size": 484,
+    "lastModificationSignature": "d59c868320066bcadaf5351c5d7131d33e4f453747e8bb6dd20d1467df3f7f35",
+    "height": 16
+  }
+}

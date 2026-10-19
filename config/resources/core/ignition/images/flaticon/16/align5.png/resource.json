@@ -1,0 +1,20 @@
+{
+  "scope": "A",
+  "version": 1,
+  "restricted": false,
+  "overridable": true,
+  "files": [
+    "align5.png"
+  ],
+  "attributes": {
+    "width": 16,
+    "format": "PNG",
+    "lastModification": {
+      "actor": "8.3-migration",
+      "timestamp": "2026-01-07T14:49:07Z"
+    },
+    "size": 236,
+    "lastModificationSignature": "d60db1b000f9d134a78c99bfa9769a4b2476b49c21d90c872d5aaef8ec4480e0",
+    "height": 16
+  }
+}

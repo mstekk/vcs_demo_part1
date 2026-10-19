@@ -1,0 +1,20 @@
+{
+  "scope": "A",
+  "version": 1,
+  "restricted": false,
+  "overridable": true,
+  "files": [
+    "system-monitor.png"
+  ],
+  "attributes": {
+    "width": 24,
+    "format": "PNG",
+    "lastModification": {
+      "actor": "8.3-migration",
+      "timestamp": "2026-01-07T14:49:07Z"
+    },
+    "size": 799,
+    "lastModificationSignature": "af5295cfaf5ffe497b083a3e3e911e1c57b1e9a0cde982ac8507f9d10c372bb0",
+    "height": 24
+  }
+}

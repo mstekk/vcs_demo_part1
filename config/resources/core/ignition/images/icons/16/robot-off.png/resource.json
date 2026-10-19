@@ -1,0 +1,20 @@
+{
+  "scope": "A",
+  "version": 1,
+  "restricted": false,
+  "overridable": true,
+  "files": [
+    "robot-off.png"
+  ],
+  "attributes": {
+    "width": 16,
+    "format": "PNG",
+    "lastModification": {
+      "actor": "8.3-migration",
+      "timestamp": "2026-01-07T14:49:07Z"
+    },
+    "size": 796,
+    "lastModificationSignature": "80220862e17d5cab72c022480f50325ee2fbcd9df811a76e70ddedc473b55a20",
+    "height": 16
+  }
+}

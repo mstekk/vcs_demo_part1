@@ -1,0 +1,20 @@
+{
+  "scope": "A",
+  "version": 1,
+  "restricted": false,
+  "overridable": true,
+  "files": [
+    "bandaid--arrow.png"
+  ],
+  "attributes": {
+    "width": 16,
+    "format": "PNG",
+    "lastModification": {
+      "actor": "8.3-migration",
+      "timestamp": "2026-01-07T14:49:07Z"
+    },
+    "size": 940,
+    "lastModificationSignature": "d5c53915fdc3b4e38d73e12c1adfdd8aa4b45eae6e2157c1fe236ea4801b945d",
+    "height": 16
+  }
+}

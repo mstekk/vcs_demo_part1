@@ -1,0 +1,20 @@
+{
+  "scope": "A",
+  "version": 1,
+  "restricted": false,
+  "overridable": true,
+  "files": [
+    "building--pencil.png"
+  ],
+  "attributes": {
+    "width": 16,
+    "format": "PNG",
+    "lastModification": {
+      "actor": "8.3-migration",
+      "timestamp": "2026-01-07T14:49:07Z"
+    },
+    "size": 858,
+    "lastModificationSignature": "f799ac345791170119357dfc4cdcf41318f5cc5e7cac21b454a155b6ace27b8d",
+    "height": 16
+  }
+}

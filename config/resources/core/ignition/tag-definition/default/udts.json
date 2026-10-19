@@ -1,0 +1,18 @@
+[
+  {
+    "name": "New Instance",
+    "typeId": "Sample UDT",
+    "tagType": "UdtInstance"
+  },
+  {
+    "name": "sample",
+    "typeId": "SARI",
+    "parameters": {
+      "GroupName": {
+        "dataType": "String",
+        "value": "Sample Write"
+      }
+    },
+    "tagType": "UdtInstance"
+  }
+]

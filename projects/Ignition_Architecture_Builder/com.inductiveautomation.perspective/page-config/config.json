@@ -1,0 +1,181 @@
+{
+  "pages": {
+    "/": {
+      "docks": {
+        "left": [
+          {
+            "anchor": "fixed",
+            "autoBreakpoint": 480,
+            "content": "cover",
+            "handle": "show",
+            "iconUrl": "material/bug_report",
+            "id": "bug",
+            "modal": false,
+            "resizable": false,
+            "show": "onDemand",
+            "size": 600,
+            "viewParams": {},
+            "viewPath": "Exchange/AsanaIntegration/NewTask"
+          },
+          {
+            "anchor": "fixed",
+            "autoBreakpoint": 480,
+            "content": "push",
+            "handle": "show",
+            "iconUrl": "material/account_tree",
+            "id": "structure",
+            "modal": false,
+            "resizable": false,
+            "show": "onDemand",
+            "size": 300,
+            "viewParams": {},
+            "viewPath": "Exchange/ArchitectureBuilder/StructureViewPrettyPrint"
+          }
+        ],
+        "right": [
+          {
+            "anchor": "fixed",
+            "autoBreakpoint": 480,
+            "content": "push",
+            "handle": "show",
+            "iconUrl": "material/layers",
+            "id": "components",
+            "modal": false,
+            "resizable": false,
+            "show": "visible",
+            "size": 360,
+            "viewParams": {},
+            "viewPath": "Exchange/ArchitectureBuilder/ComponentsDock"
+          }
+        ]
+      },
+      "title": "",
+      "viewPath": "Exchange/ArchitectureBuilder/Main"
+    },
+    "/BOM": {
+      "docks": {
+        "left": [
+          {
+            "anchor": "fixed",
+            "autoBreakpoint": 480,
+            "content": "cover",
+            "handle": "show",
+            "iconUrl": "material/bug_report",
+            "id": "bug",
+            "modal": false,
+            "resizable": false,
+            "show": "onDemand",
+            "size": 600,
+            "viewParams": {},
+            "viewPath": "Exchange/AsanaIntegration/NewTask"
+          }
+        ]
+      },
+      "title": "",
+      "viewPath": "Exchange/ArchitectureBuilder/BOM/BillOfMaterials"
+    },
+    "/Map": {
+      "docks": {
+        "left": [
+          {
+            "anchor": "fixed",
+            "autoBreakpoint": 480,
+            "content": "cover",
+            "handle": "show",
+            "iconUrl": "material/bug_report",
+            "id": "bug",
+            "modal": false,
+            "resizable": false,
+            "show": "onDemand",
+            "size": 600,
+            "viewParams": {},
+            "viewPath": "Exchange/AsanaIntegration/NewTask"
+          }
+        ]
+      },
+      "title": "",
+      "viewPath": "Exchange/ArchitectureBuilder/Map/Main"
+    },
+    "/Partners": {
+      "docks": {
+        "left": [
+          {
+            "anchor": "fixed",
+            "autoBreakpoint": 480,
+            "content": "cover",
+            "handle": "show",
+            "iconUrl": "material/bug_report",
+            "id": "bug",
+            "modal": false,
+            "resizable": false,
+            "show": "onDemand",
+            "size": 600,
+            "viewParams": {},
+            "viewPath": "Exchange/AsanaIntegration/NewTask"
+          }
+        ]
+      },
+      "title": "",
+      "viewPath": "Exchange/ArchitectureBuilder/Partners"
+    },
+    "/email": {
+      "title": "",
+      "viewPath": "Exchange/ArchitectureBuilder/EmbeddedViewsMain/EmailPopUp"
+    },
+    "/embedme/:detailed": {
+      "title": "",
+      "viewPath": "Exchange/ArchitectureBuilder/ViewCanvas"
+    },
+    "/load/:archID": {
+      "docks": {
+        "right": [
+          {
+            "anchor": "fixed",
+            "autoBreakpoint": 480,
+            "content": "push",
+            "handle": "show",
+            "iconUrl": "material/layers",
+            "id": "components",
+            "modal": false,
+            "resizable": false,
+            "show": "visible",
+            "size": 360,
+            "viewParams": {},
+            "viewPath": "Exchange/ArchitectureBuilder/ComponentsDock"
+          }
+        ]
+      },
+      "title": "",
+      "viewPath": "Exchange/ArchitectureBuilder/Main"
+    },
+    "/new-arch/:meetingID": {
+      "docks": {
+        "right": [
+          {
+            "anchor": "fixed",
+            "autoBreakpoint": 480,
+            "content": "push",
+            "handle": "show",
+            "iconUrl": "material/layers",
+            "id": "components",
+            "modal": false,
+            "resizable": false,
+            "show": "visible",
+            "size": 360,
+            "viewParams": {},
+            "viewPath": "Exchange/ArchitectureBuilder/ComponentsDock"
+          }
+        ]
+      },
+      "title": "",
+      "viewPath": "Exchange/ArchitectureBuilder/Main"
+    },
+    "/viewCanvas": {
+      "title": "",
+      "viewPath": "Exchange/ArchitectureBuilder/ViewCanvas"
+    }
+  },
+  "sharedDocks": {
+    "cornerPriority": "top-bottom"
+  }
+}

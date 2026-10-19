@@ -1,0 +1,20 @@
+{
+  "scope": "A",
+  "version": 1,
+  "restricted": false,
+  "overridable": true,
+  "files": [
+    "graphicseditor9.png"
+  ],
+  "attributes": {
+    "width": 16,
+    "format": "PNG",
+    "lastModification": {
+      "actor": "8.3-migration",
+      "timestamp": "2026-01-07T14:49:07Z"
+    },
+    "size": 230,
+    "lastModificationSignature": "70b319da3934ba7f30c3532bb68501e879a3778ac1bb9cb9ce5c4d5f1e951c42",
+    "height": 16
+  }
+}

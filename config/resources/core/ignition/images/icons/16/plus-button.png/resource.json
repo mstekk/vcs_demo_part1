@@ -1,0 +1,20 @@
+{
+  "scope": "A",
+  "version": 1,
+  "restricted": false,
+  "overridable": true,
+  "files": [
+    "plus-button.png"
+  ],
+  "attributes": {
+    "width": 16,
+    "format": "PNG",
+    "lastModification": {
+      "actor": "8.3-migration",
+      "timestamp": "2026-01-07T14:49:07Z"
+    },
+    "size": 544,
+    "lastModificationSignature": "350e63c8b0864c6d8ee8e7473516a78c7b9dd40736001125982b3c5437a3a962",
+    "height": 16
+  }
+}

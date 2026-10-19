@@ -1,0 +1,20 @@
+{
+  "scope": "A",
+  "version": 1,
+  "restricted": false,
+  "overridable": true,
+  "files": [
+    "ascendant6.png"
+  ],
+  "attributes": {
+    "width": 24,
+    "format": "PNG",
+    "lastModification": {
+      "actor": "8.3-migration",
+      "timestamp": "2026-01-07T14:49:07Z"
+    },
+    "size": 465,
+    "lastModificationSignature": "23f07d1d3b92aa1e4fedc5b5067b7f6cd6cfec066c2babcf51b4173d4b2a79ab",
+    "height": 24
+  }
+}

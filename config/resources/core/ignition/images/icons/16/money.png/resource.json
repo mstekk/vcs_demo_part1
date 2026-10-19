@@ -1,0 +1,20 @@
+{
+  "scope": "A",
+  "version": 1,
+  "restricted": false,
+  "overridable": true,
+  "files": [
+    "money.png"
+  ],
+  "attributes": {
+    "width": 16,
+    "format": "PNG",
+    "lastModification": {
+      "actor": "8.3-migration",
+      "timestamp": "2026-01-07T14:49:07Z"
+    },
+    "size": 437,
+    "lastModificationSignature": "21fb633d0c2078558b674f9dbe1d53aca28f3212eabccf3a3619a7fab5630fd3",
+    "height": 16
+  }
+}

@@ -1,0 +1,20 @@
+{
+  "scope": "A",
+  "version": 1,
+  "restricted": false,
+  "overridable": true,
+  "files": [
+    "toolbox.png"
+  ],
+  "attributes": {
+    "width": 16,
+    "format": "PNG",
+    "lastModification": {
+      "actor": "8.3-migration",
+      "timestamp": "2026-01-07T14:49:07Z"
+    },
+    "size": 488,
+    "lastModificationSignature": "e249a7b0a0b84d13c51502d05a888261d139d28edd90ea9e1e3e5ce41274e4a4",
+    "height": 16
+  }
+}

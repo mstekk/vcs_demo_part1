@@ -1,0 +1,20 @@
+{
+  "scope": "A",
+  "version": 1,
+  "restricted": false,
+  "overridable": true,
+  "files": [
+    "contrast-control.png"
+  ],
+  "attributes": {
+    "width": 16,
+    "format": "PNG",
+    "lastModification": {
+      "actor": "8.3-migration",
+      "timestamp": "2026-01-07T14:49:07Z"
+    },
+    "size": 539,
+    "lastModificationSignature": "b4e8aa7a4cf80c9fa5de2a52e8e62b17bf04ee3932b03ba5df84d8442d514057",
+    "height": 16
+  }
+}

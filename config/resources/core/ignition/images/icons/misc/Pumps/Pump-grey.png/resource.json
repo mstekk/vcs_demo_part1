@@ -1,0 +1,20 @@
+{
+  "scope": "A",
+  "version": 1,
+  "restricted": false,
+  "overridable": true,
+  "files": [
+    "Pump-grey.png"
+  ],
+  "attributes": {
+    "width": 400,
+    "format": "PNG",
+    "lastModification": {
+      "actor": "8.3-migration",
+      "timestamp": "2026-01-07T14:49:07Z"
+    },
+    "size": 34393,
+    "lastModificationSignature": "48a89ce230c79123ca531f3035d799f0ac7adeecb12e2298ba14591b06feda86",
+    "height": 300
+  }
+}

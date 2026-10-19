@@ -1,0 +1,20 @@
+{
+  "scope": "A",
+  "version": 1,
+  "restricted": false,
+  "overridable": true,
+  "files": [
+    "Valve 15.png"
+  ],
+  "attributes": {
+    "width": 45,
+    "format": "PNG",
+    "lastModification": {
+      "actor": "8.3-migration",
+      "timestamp": "2026-01-07T14:49:07Z"
+    },
+    "size": 2699,
+    "lastModificationSignature": "a88aa464883067f33ce3b768810740c503512a21a92f9e259b1ab438c2e7ea3a",
+    "height": 57
+  }
+}

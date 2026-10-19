@@ -1,0 +1,20 @@
+{
+  "scope": "A",
+  "version": 1,
+  "restricted": false,
+  "overridable": true,
+  "files": [
+    "piano.png"
+  ],
+  "attributes": {
+    "width": 16,
+    "format": "PNG",
+    "lastModification": {
+      "actor": "8.3-migration",
+      "timestamp": "2026-01-07T14:49:07Z"
+    },
+    "size": 357,
+    "lastModificationSignature": "d6b625011ca680c6c912f70c2964324a04f3bb5e3964094b56284a8ec755b71d",
+    "height": 16
+  }
+}

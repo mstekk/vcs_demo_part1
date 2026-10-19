@@ -1,0 +1,20 @@
+{
+  "scope": "A",
+  "version": 1,
+  "restricted": false,
+  "overridable": true,
+  "files": [
+    "border-draw.png"
+  ],
+  "attributes": {
+    "width": 16,
+    "format": "PNG",
+    "lastModification": {
+      "actor": "8.3-migration",
+      "timestamp": "2026-01-07T14:49:07Z"
+    },
+    "size": 581,
+    "lastModificationSignature": "06febf3c576fbce25921aadce51a9a30f479a4e54102d7a4ebe61a10299e4f8c",
+    "height": 16
+  }
+}

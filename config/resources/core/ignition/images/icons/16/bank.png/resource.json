@@ -1,0 +1,20 @@
+{
+  "scope": "A",
+  "version": 1,
+  "restricted": false,
+  "overridable": true,
+  "files": [
+    "bank.png"
+  ],
+  "attributes": {
+    "width": 16,
+    "format": "PNG",
+    "lastModification": {
+      "actor": "8.3-migration",
+      "timestamp": "2026-01-07T14:49:07Z"
+    },
+    "size": 769,
+    "lastModificationSignature": "93b28e5f8913e0844a3acd10159de1b6e5d099bfc343f4e5b9831ed0bb2a9704",
+    "height": 16
+  }
+}

@@ -1,0 +1,172 @@
+{
+  "custom": {},
+  "params": {
+    "modules": [
+      {
+        "name": "Vision \u0026 Perspective Discount"
+      }
+    ],
+    "type": "Standard",
+    "uuid": "I06ac5707",
+    "vendor": "IA"
+  },
+  "propConfig": {
+    "params.modules": {
+      "paramDirection": "inout",
+      "persistent": true
+    },
+    "params.type": {
+      "paramDirection": "input",
+      "persistent": true
+    },
+    "params.uuid": {
+      "paramDirection": "input",
+      "persistent": true
+    },
+    "params.vendor": {
+      "paramDirection": "input",
+      "persistent": true
+    },
+    "props.defaultSize.height": {
+      "binding": {
+        "config": {
+          "expression": "44*len({view.params.modules}) + 4"
+        },
+        "type": "expr"
+      }
+    }
+  },
+  "props": {
+    "defaultSize": {
+      "width": 752
+    }
+  },
+  "root": {
+    "children": [
+      {
+        "meta": {
+          "name": "FlexRepeater"
+        },
+        "position": {
+          "shrink": 0
+        },
+        "propConfig": {
+          "position.display": {
+            "binding": {
+              "config": {
+                "expression": "len({view.params.modules})\u003e0"
+              },
+              "type": "expr"
+            }
+          },
+          "props.instances": {
+            "binding": {
+              "config": {
+                "struct": {
+                  "eamUnlimited": "{session.custom.eamUnlimited}",
+                  "modules": "{view.params.modules}",
+                  "type": "{view.params.type}",
+                  "uuid": "{view.params.uuid}",
+                  "vendor": "{view.params.vendor}"
+                },
+                "waitOnAll": true
+              },
+              "transforms": [
+                {
+                  "code": "\tinstances\u003d[]\n\tfor module in value[\"modules\"]:\n\t\tparams\u003d{}\n\t\tif \"selection\" in module.keys():\n\t\t\tparams[\"selection\"] \u003d module[\"selection\"]\n\t\tparams[\"name\"] \u003d module[\"name\"]\n\t\tparams[\"uuid\"] \u003d value[\"uuid\"]\n\t\tparams[\"vendor\"] \u003d value[\"vendor\"]\n\t\tparams[\"type\"] \u003d value[\"type\"]\n\t\tinstances.append(params)\n\tif value[\"eamUnlimited\"][\"selected\"] and value[\"vendor\"] \u003d\u003d \"IA\" and len(filter(lambda module: module[\"name\"] \u003d\u003d \"EAM\", instances)) \u003d\u003d 0:\n\t\tinstances.append({\"vendor\": \"IA\", \"name\": \"EAM\", \"type\": value[\"type\"], \"uuid\": value[\"uuid\"]})\n\treturn instances\n",
+                  "type": "script"
+                }
+              ],
+              "type": "expr-struct"
+            },
+            "onChange": {
+              "enabled": null,
+              "script": "\tlogger \u003d system.util.getLogger(\"BOM/Modules/Repeater.flex.instances\")\n\tlogger.info(\"Repeater change origin \u003d \" + origin)\n\n\tif currentValue.quality.isGood() and origin \u003d\u003d \u0027Browser\u0027:\n\t\t# Use \u0027IA\u0027 as vendor for \u0027Standard\u0027, \u0027Edge\u0027, or \u0027Cloud\u0027\n\t\tif self.view.params.vendor in (\u0027Standard\u0027, \u0027Edge\u0027, \u0027Cloud\u0027):\n\t\t\tvendor \u003d \u0027IA\u0027\n\t\telse:\n\t\t\tvendor \u003d self.view.params.vendor\n\n\t\t# Sample Session Prop\n\t\t#self.session.custom.structure.configs.I2feea8ee.config.modules.IA\n\n\t\t# Build list of dictionaries\n\t\tmoduleList \u003d []\n\t\t#logger.info(str(len(currentValue.value)))\n\t\tfor i in range(len(currentValue.value)):\n\t\t\tmodule \u003d currentValue.value[i].value\n\t\t\t#logger.info(str(module))\n\t\t\t#logger.info(str(currentValue.value[i]))\n\t\t\tmoduleDict \u003d {\u0027name\u0027: module[\u0027name\u0027].value}\n\t\t\t#logger.info(str(moduleDict))\n\t\t\tif \u0027selection\u0027 in currentValue.value[i].value.keys():\n\t\t\t\t#logger.info(\"Found \u0027selection\u0027\")\n\t\t\t\tif currentValue.value[i].value[\u0027selection\u0027].value not in (None, \u0027null\u0027, \u0027None\u0027):\n\t\t\t\t\tmoduleDict[\u0027selection\u0027] \u003d currentValue.value[i].value[\u0027selection\u0027].value\n\t\t\t\t\tlogger.info(\"New Selection value \u003d \" + moduleDict[\u0027selection\u0027])\n\t\t\tmoduleList.append(moduleDict)\n\n\t\tlogger.info(str(moduleList))\n\n\t\t# Get structure\n\t\tstructure \u003d system.util.jsonDecode(system.util.jsonEncode(self.session.custom.structure))\n\t\t\n\t\tlogger.info(\"Original config for \" + self.view.params.uuid + \" was \" + str(structure[\u0027configs\u0027][self.view.params.uuid][\u0027config\u0027][\u0027modules\u0027][vendor]))\n\n\t\tlogger.info(\"Altering config for \" + self.view.params.uuid + \"; New value \u003d \" + str(moduleList))\n\n\t\t# Alter this config\n\t\tstructure[\u0027configs\u0027][self.view.params.uuid][\u0027config\u0027][\u0027modules\u0027][vendor] \u003d moduleList\n\t\tstructure[\u0027source\u0027] \u003d \u0027bom\u0027\n\n\t\tlogger.info(\"Local \u0027structure\u0027 updated: \" + self.view.params.uuid + \"/\" + vendor + \" \u003d \" + str(structure[\u0027configs\u0027][self.view.params.uuid][\u0027config\u0027][\u0027modules\u0027][vendor]))\n\n\t\t# Write updates back to session property\n\t\tself.session.custom.structure \u003d structure\n\n\t\t# Call message handler to update total cost displayed in header\n\t\tlogger.info(\"Calling \u0027updateCost\u0027 from FlexRepeater.props.instances\")\n\t\tsystem.perspective.sendMessage(\"priceRefresh\", {\u0027vendor\u0027: vendor, \u0027uuid\u0027: self.view.params.uuid})"
+            }
+          }
+        },
+        "props": {
+          "direction": "column",
+          "elementPosition": {
+            "basis": "auto",
+            "grow": 0,
+            "shrink": 0
+          },
+          "elementStyle": {
+            "margin": "2px"
+          },
+          "path": "Exchange/ArchitectureBuilder/BOM/Modules/View",
+          "useDefaultViewWidth": false
+        },
+        "type": "ia.display.flex-repeater"
+      }
+    ],
+    "meta": {
+      "name": "root"
+    },
+    "propConfig": {
+      "meta.visible": {
+        "binding": {
+          "config": {
+            "expression": "len({view.params.modules})\u003e0"
+          },
+          "type": "expr"
+        }
+      },
+      "props.style.background": {
+        "binding": {
+          "config": {
+            "expression": "if({view.params.vendor} \u003d \u0027IA\u0027,\r\n\t{view.params.type},\r\n\t{view.params.vendor})"
+          },
+          "transforms": [
+            {
+              "fallback": "#AAAAAA",
+              "inputType": "scalar",
+              "mappings": [
+                {
+                  "input": "Standard",
+                  "output": "--standard"
+                },
+                {
+                  "input": "Edge",
+                  "output": "--edge"
+                },
+                {
+                  "input": "Panel",
+                  "output": "--panel"
+                },
+                {
+                  "input": "CL",
+                  "output": "--cirrusLink"
+                },
+                {
+                  "input": "SS",
+                  "output": "--sepasoft"
+                },
+                {
+                  "input": "Cloud",
+                  "output": "--cloud"
+                }
+              ],
+              "outputType": "scalar",
+              "type": "map"
+            }
+          ],
+          "type": "expr"
+        }
+      }
+    },
+    "props": {
+      "direction": "column",
+      "style": {
+        "borderBottomLeftRadius": "8px",
+        "borderBottomRightRadius": "8px",
+        "paddingBottom": "4px",
+        "paddingLeft": "8px",
+        "paddingRight": "8px",
+        "paddingTop": "0px"
+      }
+    },
+    "type": "ia.container.flex"
+  }
+}

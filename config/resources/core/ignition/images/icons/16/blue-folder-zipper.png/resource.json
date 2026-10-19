@@ -1,0 +1,20 @@
+{
+  "scope": "A",
+  "version": 1,
+  "restricted": false,
+  "overridable": true,
+  "files": [
+    "blue-folder-zipper.png"
+  ],
+  "attributes": {
+    "width": 16,
+    "format": "PNG",
+    "lastModification": {
+      "actor": "8.3-migration",
+      "timestamp": "2026-01-07T14:49:07Z"
+    },
+    "size": 679,
+    "lastModificationSignature": "3a85128aebec8fc77b37ac8783d32b1eb3a26cd9ccdcc8057f6ad4b191c8c7df",
+    "height": 16
+  }
+}

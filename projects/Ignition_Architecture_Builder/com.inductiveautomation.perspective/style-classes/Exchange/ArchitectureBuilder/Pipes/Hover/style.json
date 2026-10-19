@@ -1,0 +1,14 @@
+{
+  "base": {
+    "style": {}
+  },
+  "variants": [
+    {
+      "pseudo": "hover",
+      "style": {
+        "borderStyle": "dotted",
+        "borderWidth": "1px"
+      }
+    }
+  ]
+}

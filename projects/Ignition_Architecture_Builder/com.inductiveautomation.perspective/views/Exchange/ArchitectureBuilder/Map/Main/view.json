@@ -1,0 +1,218 @@
+{
+  "custom": {
+    "noLocation": []
+  },
+  "params": {},
+  "propConfig": {
+    "custom.noLocation": {
+      "persistent": true
+    }
+  },
+  "props": {
+    "defaultSize": {
+      "height": 850,
+      "width": 756
+    }
+  },
+  "root": {
+    "children": [
+      {
+        "meta": {
+          "name": "Map"
+        },
+        "position": {
+          "basis": "400px",
+          "grow": 1
+        },
+        "propConfig": {
+          "props.layers.ui.marker": {
+            "binding": {
+              "config": {
+                "struct": {
+                  "configs": "{session.custom.structure.configs}",
+                  "containers": "{session.custom.containers}"
+                },
+                "waitOnAll": true
+              },
+              "transforms": [
+                {
+                  "code": "\tdef markerCreate(uuid,lat,lng,index, color\u003d\"--callToAction\"):\n\t\tmarker\u003d{ \n\t\t  \"name\": uuid,\n\t\t  \"properties\": {},\n\t\t  \"enabled\": True,\n\t\t  \"lat\": lat,\n\t\t  \"lng\": lng,\n\t\t  \"opacity\": 1,\n\t\t  \"icon\": {\n\t\t    \"path\": \"material/location_city\",\n\t\t    \"color\": color,\n\t\t    \"rotate\": 0,\n\t\t    \"size\": {\"width\": 30,\"height\": 30},\n\t\t    \"style\": {\"classes\": \"\"}\n\t\t  },\n\t\t  \"event\": {\"stopPropagation\": False},\n\t\t  \"tooltip\": {\"content\": {\"text\": \"\",\"view\": {\"path\": \"\",\"params\": {}}},\n\t\t    \"direction\": \"auto\",\n\t\t    \"permanent\": False,\n\t\t    \"sticky\": False,\n\t\t    \"opacity\": 1\n\t\t  },\n\t\t  \"popup\": {\"enabled\": False,\"content\": {\"text\": \"\",\"view\": {\"path\": \"Exchange/ArchitectureBuilder/Map/embeddedViews/Site\",\"params\": {\"uuid\": uuid, \"index\": index}}},\n\t\t    \"width\": {\"max\": 400,\"min\": 0},\n\t\t    \"height\": {\"max\": None},\n\t\t    \"pan\": {\"auto\": True},\n\t\t    \"closeButton\": True,\n\t\t    \"autoClose\": True,\n\t\t    \"closeOnEscapeKey\": True,\n\t\t    \"closeOnClick\": None\n\t\t  }\n\t\t}\n\t\treturn marker\n\tcontainers\u003dvalue[\u0027containers\u0027]\n\tconfigs\u003dvalue[\u0027configs\u0027]\n\tmarkers\u003d[]\n\tnolocation\u003d[]\n\ti\u003d0\n\tfor container in containers:\n\t\tuuid\u003dcontainer.keys()[0]\n\t\tconfig\u003dconfigs[uuid][\u0027config\u0027]\n\t\tlat\u003dconfig[\u0027location\u0027][\u0027lat\u0027]\n\t\tlng\u003dconfig[\u0027location\u0027][\u0027lng\u0027]\n\t\tif \u0027location\u0027 in config.keys():\n\t\t\tif lat is not None and lng is not None:\n\t\t\t\tmarkers.append(markerCreate(uuid,lat,lng, i, config[\u0027backColor\u0027]))\n\t\t\telse:\n\t\t\t\tnolocation.append(uuid)\n\t\ti+\u003d1\n\tself.view.custom.noLocation\u003dnolocation\n\treturn markers",
+                  "type": "script"
+                }
+              ],
+              "type": "expr-struct"
+            }
+          }
+        },
+        "props": {
+          "init": {
+            "center": {
+              "lat": 40.310050413,
+              "lng": -99.140625
+            },
+            "zoom": 3
+          },
+          "layers": {
+            "raster": {
+              "tile": [
+                {
+                  "WMS": {
+                    "format": "image/jpeg",
+                    "layers": "",
+                    "styles": "",
+                    "transparent": false,
+                    "uppercase": false,
+                    "version": "1.1.1"
+                  },
+                  "options": {
+                    "attribution": "Map data \u0026copy; \u003ca href\u003d\u0027https://www.openstreetmap.org/\u0027\u003eOpenStreetMap\u003c/a\u003e contributors, \u003ca href\u003d\u0027https://creativecommons.org/licenses/by-sa/2.0/\u0027\u003eCC-BY-SA\u003c/a\u003e",
+                    "crossOrigin": false,
+                    "detectRetina": false,
+                    "errorTileUrl": "",
+                    "opacity": 1,
+                    "subdomains": [
+                      "a",
+                      "b",
+                      "c"
+                    ],
+                    "tileSize": {
+                      "height": 256,
+                      "width": 256
+                    },
+                    "tms": false,
+                    "update": {
+                      "interval": 200,
+                      "whenIdle": false,
+                      "whenZooming": true
+                    },
+                    "zIndex": 1,
+                    "zoom": {
+                      "max": 18,
+                      "min": 0,
+                      "native": {
+                        "max": null,
+                        "min": null
+                      },
+                      "offset": 0,
+                      "reverse": false
+                    }
+                  },
+                  "url": "https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png",
+                  "urlTemplateParams": {}
+                }
+              ]
+            },
+            "ui": {}
+          }
+        },
+        "type": "ia.display.map"
+      },
+      {
+        "children": [
+          {
+            "meta": {
+              "name": "Label"
+            },
+            "position": {
+              "basis": "32px"
+            },
+            "propConfig": {
+              "position.display": {
+                "binding": {
+                  "config": {
+                    "expression": "len({view.custom.noLocation})\u003e0"
+                  },
+                  "type": "expr"
+                }
+              }
+            },
+            "props": {
+              "style": {
+                "marginLeft": "4px"
+              },
+              "text": "No Location Defined:",
+              "textStyle": {
+                "textDecoration": "underline"
+              }
+            },
+            "type": "ia.display.label"
+          },
+          {
+            "meta": {
+              "name": "FlexRepeater"
+            },
+            "position": {
+              "shrink": 0
+            },
+            "propConfig": {
+              "props.instances": {
+                "binding": {
+                  "config": {
+                    "path": "view.custom.noLocation"
+                  },
+                  "transforms": [
+                    {
+                      "code": "\tinstances\u003d[]\n\tfor x in value:\n\t\tinstances.append({\n\t\t  \"uuid\": x\n\t\t})\n\treturn instances",
+                      "type": "script"
+                    }
+                  ],
+                  "type": "property"
+                }
+              }
+            },
+            "props": {
+              "elementPosition": {
+                "basis": "auto",
+                "grow": 0,
+                "shrink": 0
+              },
+              "elementStyle": {
+                "cursor": "pointer",
+                "marginLeft": "8px",
+                "marginRight": "8px"
+              },
+              "path": "Exchange/ArchitectureBuilder/Map/embeddedViews/noLocation",
+              "useDefaultViewHeight": false,
+              "useDefaultViewWidth": false,
+              "wrap": "wrap"
+            },
+            "type": "ia.display.flex-repeater"
+          }
+        ],
+        "meta": {
+          "name": "FlexContainer"
+        },
+        "position": {
+          "shrink": 0
+        },
+        "props": {
+          "direction": "column",
+          "style": {
+            "margin": "8px"
+          }
+        },
+        "type": "ia.container.flex"
+      }
+    ],
+    "meta": {
+      "name": "root"
+    },
+    "props": {
+      "direction": "column"
+    },
+    "scripts": {
+      "customMethods": [],
+      "extensionFunctions": null,
+      "messageHandlers": [
+        {
+          "messageType": "openPopup",
+          "pageScope": false,
+          "script": "\t#system.perspective.sendMessage(\u0027openPopup\u0027, {\u0027uuid\u0027:self.view.params.uuid, \u0027path\u0027:\u0027Exchange/ArchitectureBuilder/Modules/ModuleSelection\u0027,\u0027params\u0027:{\u0027gatewayUUID\u0027:self.view.params.uuid, \u0027preselected\u0027:self.view.params.config.modules, \u0027name\u0027:name, \u0027gwType\u0027: gwType.lower()},title:\u0027Module Selection\u0027})\n\t\n\t\n\t\n\tsystem.perspective.openPopup(payload[\u0027uuid\u0027], payload[\u0027path\u0027], params\u003dpayload[\u0027params\u0027], title\u003dpayload[\u0027title\u0027],viewportBound\u003dTrue, position\u003d{\u0027height\u0027:\u0027auto\u0027})",
+          "sessionScope": false,
+          "viewScope": false
+        }
+      ]
+    },
+    "type": "ia.container.flex"
+  }
+}

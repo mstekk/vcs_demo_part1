@@ -1,0 +1,20 @@
+{
+  "scope": "A",
+  "version": 1,
+  "restricted": false,
+  "overridable": true,
+  "files": [
+    "Heating 14.png"
+  ],
+  "attributes": {
+    "width": 180,
+    "format": "PNG",
+    "lastModification": {
+      "actor": "8.3-migration",
+      "timestamp": "2026-01-07T14:49:07Z"
+    },
+    "size": 3946,
+    "lastModificationSignature": "e1ad77b91f14fffd879168308976479bce2df11c6f50b3476ef3b725a0a22df5",
+    "height": 105
+  }
+}

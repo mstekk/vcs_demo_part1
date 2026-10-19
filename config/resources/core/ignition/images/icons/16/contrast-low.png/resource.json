@@ -1,0 +1,20 @@
+{
+  "scope": "A",
+  "version": 1,
+  "restricted": false,
+  "overridable": true,
+  "files": [
+    "contrast-low.png"
+  ],
+  "attributes": {
+    "width": 16,
+    "format": "PNG",
+    "lastModification": {
+      "actor": "8.3-migration",
+      "timestamp": "2026-01-07T14:49:07Z"
+    },
+    "size": 666,
+    "lastModificationSignature": "9e51cc4ba334ebec730784eb7c7eedd6cff76ac1fe43744ed2a1c6f4c4398a1e",
+    "height": 16
+  }
+}

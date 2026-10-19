@@ -1,0 +1,20 @@
+{
+  "scope": "A",
+  "version": 1,
+  "restricted": false,
+  "overridable": true,
+  "files": [
+    "blue-folder-open-document-music-playlist-3fc454514d5388daf0aedef5c6f2f710.png"
+  ],
+  "attributes": {
+    "width": 16,
+    "format": "PNG",
+    "lastModification": {
+      "actor": "8.3-migration",
+      "timestamp": "2026-01-07T14:49:07Z"
+    },
+    "size": 707,
+    "lastModificationSignature": "99a2ec60cadda94ea8368259ebd6cd6e9720cf5739f478bd9aa456966d6c4cdb",
+    "height": 16
+  }
+}

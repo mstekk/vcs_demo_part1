@@ -1,0 +1,20 @@
+{
+  "scope": "A",
+  "version": 1,
+  "restricted": false,
+  "overridable": true,
+  "files": [
+    "edit-decimal-decrease.png"
+  ],
+  "attributes": {
+    "width": 16,
+    "format": "PNG",
+    "lastModification": {
+      "actor": "8.3-migration",
+      "timestamp": "2026-01-07T14:49:07Z"
+    },
+    "size": 438,
+    "lastModificationSignature": "6eb0fca487367f1f9831cbf280d1ea739b1d06864319ca98e3103adbcd0970d6",
+    "height": 16
+  }
+}

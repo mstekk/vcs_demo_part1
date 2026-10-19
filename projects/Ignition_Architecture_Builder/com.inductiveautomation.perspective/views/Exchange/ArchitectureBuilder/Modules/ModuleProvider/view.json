@@ -1,0 +1,260 @@
+{
+  "custom": {
+    "key": {
+      "Some Module": {
+        "desc": "Configure and manage notifications systems and email notifications.",
+        "image": "PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHhtbG5zOnhsaW5rPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5L3hsaW5rIiB2aWV3Qm94PSIwIDAgNzIgODQiPjxkZWZzPjxzdHlsZT4uY2xzLTF7ZmlsbDp1cmwoI2xpbmVhci1ncmFkaWVudCk7fS5jbHMtMntmaWxsOnVybCgjbGluZWFyLWdyYWRpZW50LTIpO30uY2xzLTN7ZmlsbDp1cmwoI2xpbmVhci1ncmFkaWVudC0zKTt9LmNscy00e2ZpbGw6dXJsKCNsaW5lYXItZ3JhZGllbnQtNCk7fS5jbHMtNXtmaWxsOiNmMmYxZjE7fS5jbHMtNntmaWxsOiNmZmY7fS5jbHMtN3tmaWxsOiNlM2UyZTE7fTwvc3R5bGU+PGxpbmVhckdyYWRpZW50IGlkPSJsaW5lYXItZ3JhZGllbnQiIHgxPSIxMjA2LjcxIiB5MT0iLTEyNDUuMTUiIHgyPSIxMjQ5Ljg5IiB5Mj0iLTExNzEuODQiIGdyYWRpZW50VHJhbnNmb3JtPSJ0cmFuc2xhdGUoMTI0NSAxMjcwKSByb3RhdGUoLTkwKSIgZ3JhZGllbnRVbml0cz0idXNlclNwYWNlT25Vc2UiPjxzdG9wIG9mZnNldD0iMCIgc3RvcC1jb2xvcj0iI2ZjYjgxYSIvPjxzdG9wIG9mZnNldD0iMCIgc3RvcC1jb2xvcj0iI2ZjYjgxYSIvPjxzdG9wIG9mZnNldD0iMC4xMSIgc3RvcC1jb2xvcj0iI2Y4YTAxZCIvPjxzdG9wIG9mZnNldD0iMC4yMiIgc3RvcC1jb2xvcj0iI2Y2OGYxZiIvPjxzdG9wIG9mZnNldD0iMC4zNSIgc3RvcC1jb2xvcj0iI2Y0ODUyMCIvPjxzdG9wIG9mZnNldD0iMC41IiBzdG9wLWNvbG9yPSIjZjQ4MjIwIi8+PHN0b3Agb2Zmc2V0PSIwLjY1IiBzdG9wLWNvbG9yPSIjZjQ4NTIwIi8+PHN0b3Agb2Zmc2V0PSIwLjc4IiBzdG9wLWNvbG9yPSIjZjY4ZjFmIi8+PHN0b3Agb2Zmc2V0PSIwLjg5IiBzdG9wLWNvbG9yPSIjZjhhMDFkIi8+PHN0b3Agb2Zmc2V0PSIxIiBzdG9wLWNvbG9yPSIjZmNiODFhIi8+PHN0b3Agb2Zmc2V0PSIxIiBzdG9wLWNvbG9yPSIjZmNiODFhIi8+PC9saW5lYXJHcmFkaWVudD48bGluZWFyR3JhZGllbnQgaWQ9ImxpbmVhci1ncmFkaWVudC0yIiB4MT0iMTcuODMiIHkxPSIzLjA1IiB4Mj0iNTQuNjgiIHkyPSIzOS44OSIgZ3JhZGllbnRVbml0cz0idXNlclNwYWNlT25Vc2UiPjxzdG9wIG9mZnNldD0iMCIgc3RvcC1jb2xvcj0iI2YxYzgxZSIvPjxzdG9wIG9mZnNldD0iMC41NCIgc3RvcC1jb2xvcj0iI2VmOTEyMCIvPjxzdG9wIG9mZnNldD0iMSIgc3RvcC1jb2xvcj0iI2VkNWYyMiIvPjwvbGluZWFyR3JhZGllbnQ+PGxpbmVhckdyYWRpZW50IGlkPSJsaW5lYXItZ3JhZGllbnQtMyIgeDE9IjU0IiB5MT0iODMuODYiIHgyPSI1NCIgeTI9IjIwLjA0IiBncmFkaWVudFVuaXRzPSJ1c2VyU3BhY2VPblVzZSI+PHN0b3Agb2Zmc2V0PSIwIiBzdG9wLWNvbG9yPSIjZWQ1ZjIyIi8+PHN0b3Agb2Zmc2V0PSIwLjI0IiBzdG9wLWNvbG9yPSIjZWU3NDIxIi8+PHN0b3Agb2Zmc2V0PSIwLjc0IiBzdG9wLWNvbG9yPSIjZjBhOTFmIi8+PHN0b3Agb2Zmc2V0PSIxIiBzdG9wLWNvbG9yPSIjZjFjODFlIi8+PC9saW5lYXJHcmFkaWVudD48bGluZWFyR3JhZGllbnQgaWQ9ImxpbmVhci1ncmFkaWVudC00IiB4MT0iNDMuOTEiIHkxPSI3NC4xNCIgeDI9Ii03LjkxIiB5Mj0iMzAuNjUiIGdyYWRpZW50VW5pdHM9InVzZXJTcGFjZU9uVXNlIj48c3RvcCBvZmZzZXQ9IjAiIHN0b3AtY29sb3I9IiNmNjkwMWYiLz48c3RvcCBvZmZzZXQ9IjAuMTIiIHN0b3AtY29sb3I9IiNmMzgwMWQiLz48c3RvcCBvZmZzZXQ9IjAuMzYiIHN0b3AtY29sb3I9IiNlZjY4MTkiLz48c3RvcCBvZmZzZXQ9IjAuNSIgc3RvcC1jb2xvcj0iI2VkNWYxOCIvPjxzdG9wIG9mZnNldD0iMC42NCIgc3RvcC1jb2xvcj0iI2VmNjgxOSIvPjxzdG9wIG9mZnNldD0iMC44NyIgc3RvcC1jb2xvcj0iI2YzODAxZCIvPjxzdG9wIG9mZnNldD0iMSIgc3RvcC1jb2xvcj0iI2Y2OTAxZiIvPjwvbGluZWFyR3JhZGllbnQ+PC9kZWZzPjxnIGlkPSJCRyI+PHBvbHlnb24gY2xhc3M9ImNscy0xIiBwb2ludHM9IjAgMjEuMjEgMCA2Mi43OCAzNiA4My41NyA3MiA2Mi43OCA3MiAyMS4yMSAzNiAwLjQzIDAgMjEuMjEiLz48cG9seWdvbiBjbGFzcz0iY2xzLTIiIHBvaW50cz0iMzYgMC40MyAwIDIxLjIxIDM2IDQyIDcyIDIxLjIxIDM2IDAuNDMiLz48cG9seWdvbiBjbGFzcz0iY2xzLTMiIHBvaW50cz0iMzYgNDIgMzYgODMuNTcgNzIgNjIuNzggNzIgMjEuMjEgMzYgNDIiLz48cG9seWdvbiBjbGFzcz0iY2xzLTQiIHBvaW50cz0iMCAyMS4yMSAzNiA0MiAzNiA4My41NyAwIDYyLjc4IDAgMjEuMjEiLz48L2c+PGcgaWQ9IkxpbmVzLUN1dF9GT1JfRVhQT1JUXyIgZGF0YS1uYW1lPSJMaW5lcy1DdXQgKEZPUiBFWFBPUlQpIj48cGF0aCBjbGFzcz0iY2xzLTUiIGQ9Ik00Ny41LDQ0LjZhMiwyLDAsMCwwLDQsMFYzMy4wNWwtNCwyLjMxWiIvPjxwYXRoIGNsYXNzPSJjbHMtNSIgZD0iTTQ2LDU0LjEyYTIsMiwwLDAsMC0yLTMuNDZsLTgsNC42MlY1OS45aDBaIi8+PHBvbHlnb24gY2xhc3M9ImNscy01IiBwb2ludHM9IjU1LjI1IDcyLjQ1IDU1LjI1IDU4LjQ0IDM2IDY5LjU2IDM2IDc0LjE4IDM2IDc0LjE4IDUxLjI1IDY1LjM3IDUxLjI1IDc0Ljc3IDU1LjI1IDcyLjQ1Ii8+PHBhdGggY2xhc3M9ImNscy01IiBkPSJNMzYsNDUuODJoMGEzLjgsMy44LDAsMCwwLDMuMy01LjcyTDM2LDQyWiIvPjxwb2x5Z29uIGNsYXNzPSJjbHMtNSIgcG9pbnRzPSI3MiAzOS42OSA2My44NyA0NC4zOCA2My44NyAyNS45MSA1OS44NyAyOC4yMiA1OS44NyA1MS4zMSA3MiA0NC4zMSA3MiAzOS42OSIvPjxwYXRoIGNsYXNzPSJjbHMtNiIgZD0iTTM2LDM4LjE4YTMuODMsMy44MywwLDAsMC0zLjMsMS45MkwzNiw0MmwzLjMtMS45QTMuODMsMy44MywwLDAsMCwzNiwzOC4xOFoiLz48cGF0aCBjbGFzcz0iY2xzLTYiIGQ9Ik0xMi4xMywyOC4yMmwxMy40NC03Ljc3YTMuNywzLjcsMCwwLDAsMS44MS40OEEzLjgyLDMuODIsMCwxLDAsMjMuNTcsMTdMOC4xMywyNS45MVoiLz48cGF0aCBjbGFzcz0iY2xzLTYiIGQ9Ik0yNC41LDM1LjM2bDgtNC42MmEyLDIsMCwwLDAtMi0zLjQ2bC0xMCw1Ljc3LDQsMi4zMVoiLz48cGF0aCBjbGFzcz0iY2xzLTYiIGQ9Ik00MS40OSwyNy4yOGEyLDIsMCwxLDAtMiwzLjQ2bDgsNC42MmgwbDQtMi4zMWgwWiIvPjxwYXRoIGNsYXNzPSJjbHMtNiIgZD0iTTYzLjg3LDI1LjkxLDQ4LjQzLDE3YTMuODYsMy44NiwwLDEsMC0yLDMuNDZsMTMuNDUsNy43NmgwbDQtMi4zMVoiLz48cGF0aCBjbGFzcz0iY2xzLTciIGQ9Ik0yMC41LDMzLjA1VjQ0LjZhMiwyLDAsMCwwLDIsMmgwYTIsMiwwLDAsMCwyLTJWMzUuMzZsLTQtMi4zMVoiLz48cGF0aCBjbGFzcz0iY2xzLTciIGQ9Ik0xOC43NSw1OC4wOWEzLjgyLDMuODIsMCwxLDAsMS44LDcuMTdMMzYsNzQuMThWNjkuNTZMMjIuNTYsNjEuODFBMy44MSwzLjgxLDAsMCwwLDE4Ljc1LDU4LjA5WiIvPjxwb2x5Z29uIGNsYXNzPSJjbHMtNyIgcG9pbnRzPSIwIDQ0LjMxIDEyLjEzIDUxLjMxIDEyLjEzIDI4LjIyIDEyLjEzIDI4LjIyIDguMTMgMjUuOTEgOC4xMyAyNS45MSA4LjEzIDQ0LjM4IDAgMzkuNjkgMCA0NC4zMSIvPjxwYXRoIGNsYXNzPSJjbHMtNyIgZD0iTTMyLjE4LDQyQTMuODIsMy44MiwwLDAsMCwzNiw0NS44MlY0MmwtMy4zLTEuOUEzLjgxLDMuODEsMCwwLDAsMzIuMTgsNDJaIi8+PHBhdGggY2xhc3M9ImNscy03IiBkPSJNMjYsNTQuMTIsMzYsNTkuOVY1NS4yOGwtOC00LjYyYTIsMiwwLDEsMC0yLDMuNDZaIi8+PC9nPjwvc3ZnPg\\u003d\\u003d",
+        "link": "https://inductiveautomation.com/ignition/modules/alarm-notification",
+        "price": 2245
+      }
+    },
+    "modules": null
+  },
+  "params": {
+    "color": "--neutral-40",
+    "preselected": [
+      "Some Module"
+    ],
+    "providerName": "TEST",
+    "selected": null,
+    "text": null
+  },
+  "propConfig": {
+    "custom.key": {
+      "persistent": true
+    },
+    "custom.modules": {
+      "binding": {
+        "config": {
+          "path": "view.params.providerName"
+        },
+        "transforms": [
+          {
+            "code": "\treturn exchange.architecturebuilder.modules.get(vendors\u003d[value])[value]",
+            "type": "script"
+          }
+        ],
+        "type": "property"
+      },
+      "persistent": true
+    },
+    "params.color": {
+      "paramDirection": "input",
+      "persistent": true
+    },
+    "params.preselected": {
+      "paramDirection": "input",
+      "persistent": true
+    },
+    "params.providerName": {
+      "paramDirection": "input",
+      "persistent": true
+    },
+    "params.selected": {
+      "binding": {
+        "config": {
+          "path": "/root/FlexRepeater.props.instances"
+        },
+        "transforms": [
+          {
+            "code": "\tselected\u003d[]\n\tfor i in value:\n\t\tif i[\u0027selected\u0027]:\n\t\t\tselected.append(i[\u0027name\u0027])\n\treturn selected",
+            "type": "script"
+          }
+        ],
+        "type": "property"
+      },
+      "paramDirection": "output",
+      "persistent": true
+    },
+    "params.text": {
+      "paramDirection": "input",
+      "persistent": true
+    }
+  },
+  "props": {
+    "defaultSize": {
+      "height": 162,
+      "width": 701
+    }
+  },
+  "root": {
+    "children": [
+      {
+        "children": [
+          {
+            "children": [
+              {
+                "meta": {
+                  "name": "Label"
+                },
+                "position": {
+                  "shrink": 0
+                },
+                "propConfig": {
+                  "props.text": {
+                    "binding": {
+                      "config": {
+                        "expression": "if({view.params.text}\u003dnull, {view.params.providerName},{view.params.providerName})"
+                      },
+                      "type": "expr"
+                    }
+                  }
+                },
+                "props": {
+                  "style": {
+                    "marginRight": "8px"
+                  },
+                  "textStyle": {
+                    "fontFamily": "Roboto",
+                    "fontSize": 20,
+                    "fontWeight": "bolder"
+                  }
+                },
+                "type": "ia.display.label"
+              }
+            ],
+            "meta": {
+              "name": "Name"
+            },
+            "position": {
+              "grow": 1
+            },
+            "props": {
+              "style": {
+                "marginLeft": "8px"
+              }
+            },
+            "type": "ia.container.flex"
+          },
+          {
+            "meta": {
+              "name": "display"
+            },
+            "position": {
+              "basis": "30px"
+            },
+            "propConfig": {
+              "props.path": {
+                "binding": {
+                  "config": {
+                    "path": ".../FlexRepeater.position.display"
+                  },
+                  "transforms": [
+                    {
+                      "fallback": "material/arrow_drop_down",
+                      "inputType": "scalar",
+                      "mappings": [
+                        {
+                          "input": true,
+                          "output": "material/arrow_drop_up"
+                        }
+                      ],
+                      "outputType": "scalar",
+                      "type": "map"
+                    }
+                  ],
+                  "type": "property"
+                }
+              }
+            },
+            "type": "ia.display.icon"
+          }
+        ],
+        "custom": {
+          "display": false
+        },
+        "events": {
+          "dom": {
+            "onClick": {
+              "config": {
+                "script": "\tself.getSibling(\"FlexRepeater\").position.display\u003d not self.getSibling(\"FlexRepeater\").position.display"
+              },
+              "scope": "G",
+              "type": "script"
+            }
+          }
+        },
+        "meta": {
+          "name": "HEADER"
+        },
+        "position": {
+          "shrink": 0
+        },
+        "propConfig": {
+          "props.style.backgroundColor": {
+            "binding": {
+              "config": {
+                "path": "view.params.color"
+              },
+              "type": "property"
+            }
+          }
+        },
+        "props": {
+          "justify": "space-between",
+          "style": {
+            "borderBottomLeftRadius": "8px",
+            "borderBottomRightRadius": "8px",
+            "borderTopLeftRadius": "8px",
+            "borderTopRightRadius": "8px",
+            "cursor": "pointer",
+            "margin": "8px"
+          }
+        },
+        "type": "ia.container.flex"
+      },
+      {
+        "meta": {
+          "name": "FlexRepeater"
+        },
+        "position": {
+          "display": false,
+          "grow": 1,
+          "shrink": 0
+        },
+        "propConfig": {
+          "props.instances": {
+            "binding": {
+              "config": {
+                "path": "view.custom.modules"
+              },
+              "transforms": [
+                {
+                  "code": "\tinstances\u003d[]\n\tfor module in value.keys():\n\t\tselected\u003dFalse\n\t\tif module in self.view.params.preselected:\n\t\t\tselected\u003dTrue\n\t\tinstances.append({\n\t\t  \"link\": value[module][\u0027link\u0027],\n\t\t  \"image\": value[module][\u0027image\u0027].decode(\u0027unicode-escape\u0027),\n\t\t  \"selected\": selected,\n\t\t  \"name\": module\n\t\t})\n\treturn instances",
+                  "type": "script"
+                }
+              ],
+              "type": "property"
+            }
+          }
+        },
+        "props": {
+          "alignContent": "flex-start",
+          "alignItems": "flex-start",
+          "direction": "column",
+          "elementPosition": {
+            "basis": "20px",
+            "grow": 0,
+            "shrink": 0
+          },
+          "loading": {
+            "order": "with-parent"
+          },
+          "path": "Exchange/ArchitectureBuilder/Modules/ModuleView",
+          "style": {
+            "margin": "4px"
+          },
+          "wrap": "wrap"
+        },
+        "type": "ia.display.flex-repeater"
+      }
+    ],
+    "meta": {
+      "name": "root"
+    },
+    "props": {
+      "direction": "column"
+    },
+    "type": "ia.container.flex"
+  }
+}

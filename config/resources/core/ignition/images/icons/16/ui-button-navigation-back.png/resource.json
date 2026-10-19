@@ -1,0 +1,20 @@
+{
+  "scope": "A",
+  "version": 1,
+  "restricted": false,
+  "overridable": true,
+  "files": [
+    "ui-button-navigation-back.png"
+  ],
+  "attributes": {
+    "width": 16,
+    "format": "PNG",
+    "lastModification": {
+      "actor": "8.3-migration",
+      "timestamp": "2026-01-07T14:49:07Z"
+    },
+    "size": 379,
+    "lastModificationSignature": "3a6c24dee03f90ae4c7601ba1220fbed2773f948ff50bd7f48b8f9b42b5145fe",
+    "height": 16
+  }
+}

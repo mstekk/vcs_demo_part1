@@ -1,0 +1,20 @@
+{
+  "scope": "A",
+  "version": 1,
+  "restricted": false,
+  "overridable": true,
+  "files": [
+    "tables-stacks.png"
+  ],
+  "attributes": {
+    "width": 16,
+    "format": "PNG",
+    "lastModification": {
+      "actor": "8.3-migration",
+      "timestamp": "2026-01-07T14:49:07Z"
+    },
+    "size": 537,
+    "lastModificationSignature": "9c2de6a7316c4062bd157ed18216c59abda8ee44ee575ee3cb5bbb87a676ee06",
+    "height": 16
+  }
+}

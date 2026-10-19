@@ -1,0 +1,510 @@
+{
+  "custom": {
+    "fileSystem": {
+      "path": "/usr/local/bin/ignition/data/savedFiles/Architecture"
+    },
+    "loadPath": "",
+    "type": ""
+  },
+  "events": {
+    "system": {
+      "onStartup": {
+        "config": {
+          "script": "\texchange.architecturebuilder.files.create_Base_Folders()\n\tfrom com.inductiveautomation.ignition.gateway import IgnitionGateway\n\tcontext \u003d IgnitionGateway.get()\n\tprojectParentFolder \u003d str(context.systemManager.dataDir.absoluteFile).replace(\u0027\\\\\u0027,\u0027/\u0027)\n\tself.custom.fileSystem.path\u003d projectParentFolder+\u0027/savedFiles/Architecture\u0027"
+        },
+        "scope": "G",
+        "type": "script"
+      }
+    }
+  },
+  "params": {},
+  "propConfig": {
+    "custom.fileSystem": {
+      "persistent": true
+    },
+    "custom.fileSystem.directories": {
+      "binding": {
+        "config": {
+          "path": "view.custom.fileSystem.path"
+        },
+        "transforms": [
+          {
+            "code": "\timport os\n\t\n\tdef list_directories(directory):\n\t    try:\n\t        # Get a list of all items in the directory\n\t        items \u003d os.listdir(directory)\n\t        # Filter out directories from the list\n\t        directories \u003d [item for item in items if os.path.isdir(os.path.join(directory, item))]\n\t        return directories\n\t    except OSError as e:\n\t        print(\"Error listing directories: {}\".format(e))\n\t        return []\n\t\n\t# Specify the directory to browse\n\tdirectories\u003d[]\n\tdirectory \u003d value\n\t\n\t# Get the list of all directories in the directory\n\tdirectory_list \u003d list_directories(directory)\n\t\n\t# Print the directory list\n\tfor directory_name in directory_list:\n\t    directories.append(directory_name)\n\t\n\treturn directories",
+            "type": "script"
+          }
+        ],
+        "type": "property"
+      }
+    },
+    "custom.fileSystem.path": {
+      "binding": {
+        "config": {
+          "path": ""
+        },
+        "enabled": false,
+        "transforms": [
+          {
+            "code": "\texchange.architecturebuilder.files.create_Base_Folders()\n\tfrom com.inductiveautomation.ignition.gateway import IgnitionGateway\n\tcontext \u003d IgnitionGateway.get()\n\tprojectParentFolder \u003d str(context.systemManager.dataDir.absoluteFile).replace(\u0027\\\\\u0027,\u0027/\u0027)\n\treturn projectParentFolder+\u0027/savedFiles/Architecture\u0027\n",
+            "type": "script"
+          }
+        ],
+        "type": "property"
+      }
+    },
+    "custom.type": {
+      "persistent": true
+    }
+  },
+  "props": {
+    "defaultSize": {
+      "height": 644,
+      "width": 310
+    }
+  },
+  "root": {
+    "children": [
+      {
+        "children": [
+          {
+            "meta": {
+              "name": "Tree"
+            },
+            "position": {
+              "basis": "200px",
+              "grow": 1
+            },
+            "propConfig": {
+              "props.items": {
+                "binding": {
+                  "config": {
+                    "struct": {
+                      "directories": "{view.custom.fileSystem.directories}",
+                      "parent": "{view.custom.fileSystem.path}"
+                    },
+                    "waitOnAll": true
+                  },
+                  "transforms": [
+                    {
+                      "code": "\timport os\n\t\n\tdef list_files(directory):\n\t    try:\n\t        # Get a list of all files in the directory\n\t        files \u003d os.listdir(directory)\n\t        # Filter out directories from the list\n\t        files \u003d [file for file in files if os.path.isfile(os.path.join(directory, file))]\n\t        return files\n\t    except OSError as e:\n\t        print(\"Error listing files: {}\".format(e))\n\t        return []\n\t\n\tdef createTreeItem(filename, directory\u003dNone):\n\t\treturn {\n\t\t  \"label\": filename,\n\t\t  \"expanded\": True,\n\t\t  \"data\": {\u0027filename\u0027: filename, \u0027directory\u0027:directory},\n\t\t  \"items\": []\n\t\t}\n\t\n\tdef createDirItem(directory,parentPath):\n\t\tlisted_files\u003dlist_files(\u0027{}/{}\u0027.format(parentPath,directory))\n\t\titems\u003d[]\n\t\tfor filename in listed_files:\n\t\t\titems.append(createTreeItem(filename,directory))\n\t\treturn {\n\t\t\t  \"label\": directory,\n\t\t\t  \"expanded\": True,\n\t\t\t  \"data\": {\u0027directory\u0027:directory},\n\t\t\t  \"icon\": {\"path\": \"material/folder_open\",\"color\": \"\",\"style\": {}},\n\t\t\t  \"items\": items\n\t\t\t}\n\t\n\tfileStructure\u003d[]\n\tparentPath\u003dvalue[\u0027parent\u0027]\n\n\t\n\tdirectories\u003dvalue[\u0027directories\u0027]\n\tfor directory in directories:\n\t\tfileStructure.append(createDirItem(directory,parentPath))\n\tparentFiles\u003dlist_files(parentPath)\t\n\t\n\tfor filename in parentFiles:\n\t\tfileStructure.append(createTreeItem(filename))\n\t\n\treturn fileStructure\n#\treturn [{\n#\t\t\t  \"label\": \u0027Architectures\u0027,\n#\t\t\t  \"expanded\": True,\n#\t\t\t  \"data\": {\u0027directory\u0027:None},\n#\t\t\t  \"items\": fileStructure\n#\t\t\t}]",
+                      "type": "script"
+                    }
+                  ],
+                  "type": "expr-struct"
+                },
+                "persistent": true
+              },
+              "props.selectionData": {
+                "onChange": {
+                  "enabled": null,
+                  "script": "\tif len(self.props.selectionData)\u003e0:\n\t\tselection\u003dself.props.selectionData[0].value\t\n\t\n\t\tif \u0027filename\u0027 in selection.keys():\n\t\t\tself.view.custom.type\u003d\u0027file\u0027\n\t\t\tparentPath\u003dself.view.custom.fileSystem.path\n\t\t\tdirectory\u003dselection[\u0027directory\u0027]\n\t\t\tfilename\u003dselection[\u0027filename\u0027]\n\t\t\tif directory is None:\n\t\t\t\tself.view.custom.loadPath\u003d\u0027{}/{}\u0027.format(parentPath,filename)\n\t\t\telse:\n\t\t\t\tself.view.custom.loadPath\u003d\u0027{}/{}/{}\u0027.format(parentPath,directory,filename)\n\t\t\t\n\t\telif \u0027directory\u0027 in selection.keys():\n\t\t\tself.view.custom.type\u003d\u0027dir\u0027\n\t\t\tparentPath\u003dself.view.custom.fileSystem.path\n\t\t\tdirectory\u003dselection[\u0027directory\u0027]\n\t\t\tself.view.custom.loadPath\u003d\u0027{}/{}\u0027.format(parentPath,directory)\n\t\t\t\n\t\telse:\n\t\t\tself.view.custom.loadPath\u003d\u0027\u0027\n\t\t\tself.view.custom.type\u003d\u0027\u0027\n\telse:\n\t\tself.view.custom.loadPath\u003d\u0027\u0027\n\t\tself.view.custom.type\u003d\u0027\u0027"
+                }
+              }
+            },
+            "props": {
+              "appearance": {
+                "defaultNodeIcons": {
+                  "collapsed": {
+                    "path": "material/folder"
+                  },
+                  "empty": {
+                    "color": "--standard",
+                    "path": "material/insert_drive_file"
+                  },
+                  "expanded": {
+                    "path": "material/folder_open"
+                  }
+                },
+                "expandIcons": {
+                  "collapsed": {
+                    "path": "material/arrow_right"
+                  },
+                  "expanded": {
+                    "path": "material/arrow_drop_down"
+                  }
+                },
+                "selectedStyle": {
+                  "color": "--edge"
+                }
+              },
+              "style": {
+                "min-height": "300px"
+              }
+            },
+            "type": "ia.display.tree"
+          },
+          {
+            "children": [
+              {
+                "meta": {
+                  "name": "TextField"
+                },
+                "position": {
+                  "basis": "29px",
+                  "shrink": 0
+                },
+                "props": {
+                  "deferUpdates": false,
+                  "placeholder": "Folder Name...",
+                  "style": {
+                    "marginBottom": "8px"
+                  }
+                },
+                "type": "ia.input.text-field"
+              },
+              {
+                "events": {
+                  "component": {
+                    "onActionPerformed": {
+                      "config": {
+                        "script": "\tfolder\u003dself.parent.custom.folderName\n\tparentPath\u003dself.view.custom.fileSystem.path\n\tdirectory_path\u003d\u0027{}/{}\u0027.format(parentPath,folder)\n\texchange.architecturebuilder.files.create_folder(directory_path)\n\tself.view.refreshBinding(\"custom.fileSystem.directories\")\n\tself.parent.parent.getChild(\"Tree\").props.selectionData\u003d[]\n\tself.parent.parent.getChild(\"Tree\").props.selection\u003d[]\n\tself.getSibling(\"TextField\").props.text\u003d\u0027\u0027\n\tmessage\u003d\u0027New Folder \"{}\" Created Successfully\u0027.format(folder)\n\tsystem.perspective.sendMessage(\"Toast\", {\"message\": message, \"delay\": 5, \"color\": \"--success\", \"textColor\": \"Black\"}, scope\u003d\"session\")"
+                      },
+                      "scope": "G",
+                      "type": "script"
+                    }
+                  }
+                },
+                "meta": {
+                  "name": "AddFolder"
+                },
+                "position": {
+                  "shrink": 0
+                },
+                "propConfig": {
+                  "props.enabled": {
+                    "binding": {
+                      "config": {
+                        "expression": "{../TextField.props.text}!\u003d\u0027\u0027"
+                      },
+                      "type": "expr"
+                    }
+                  }
+                },
+                "props": {
+                  "image": {
+                    "icon": {
+                      "path": "material/create_new_folder"
+                    }
+                  },
+                  "text": "Add Folder"
+                },
+                "type": "ia.input.button"
+              }
+            ],
+            "meta": {
+              "name": "AddFolder"
+            },
+            "propConfig": {
+              "custom.folderName": {
+                "binding": {
+                  "config": {
+                    "path": "./TextField.props.text"
+                  },
+                  "type": "property"
+                }
+              }
+            },
+            "props": {
+              "direction": "column",
+              "style": {
+                "borderStyle": "solid",
+                "borderWidth": "1px",
+                "marginBottom": "8px",
+                "padding": "4px"
+              }
+            },
+            "type": "ia.container.flex"
+          },
+          {
+            "children": [
+              {
+                "meta": {
+                  "name": "Dropdown"
+                },
+                "position": {
+                  "basis": "29px",
+                  "shrink": 0
+                },
+                "propConfig": {
+                  "props.options": {
+                    "binding": {
+                      "config": {
+                        "struct": {
+                          "directories": "{view.custom.fileSystem.directories}",
+                          "loadPath": "{view.custom.loadPath}",
+                          "type": "{view.custom.type}"
+                        },
+                        "waitOnAll": true
+                      },
+                      "transforms": [
+                        {
+                          "code": "\tselectedDir\u003dvalue[\u0027loadPath\u0027]\n\tselFileType\u003dvalue[\u0027type\u0027]\n\tdirAndFile\u003dselectedDir.replace(self.view.custom.fileSystem.path,\u0027\u0027).strip(\u0027/\u0027).split(\u0027/\u0027)\n\tif dirAndFile[0][-4:]\u003d\u003d\u0027json\u0027:\n\t\tseleDir\u003d\u0027/\u0027\n\t\toptions\u003d[]\n\telse:\n\t\tseleDir\u003ddirAndFile[0]\n\t\toptions\u003d[{\n\t\t  \"value\": \"/\",\n\t\t  \"label\": \"/\"\n\t\t}]\n\tfor x in value[\u0027directories\u0027]:\n\t\tif x !\u003dseleDir:\n\t\t\toptions.append({\n\t\t\t  \"value\": \"/\"+x,\n\t\t\t  \"label\": x\n\t\t\t})\n\treturn options",
+                          "type": "script"
+                        }
+                      ],
+                      "type": "expr-struct"
+                    }
+                  }
+                },
+                "props": {
+                  "placeholder": {
+                    "text": "Select Location..."
+                  },
+                  "showClearIcon": true,
+                  "style": {
+                    "marginBottom": "8px"
+                  },
+                  "value": "/"
+                },
+                "type": "ia.input.dropdown"
+              },
+              {
+                "events": {
+                  "component": {
+                    "onActionPerformed": {
+                      "config": {
+                        "script": "\timport os\n\t\n\t# Specify the path to the source file and the destination folder\n\tsrc_file_path \u003d self.view.custom.loadPath\n\tparentPath\u003dself.view.custom.fileSystem.path\n\tdest_folder_path \u003d self.view.custom.fileSystem.path+self.getSibling(\"Dropdown\").props.value\n\tdest_file_path \u003d os.path.join(dest_folder_path, os.path.basename(src_file_path))\n\t\t\n\t# Move the file\n\texchange.architecturebuilder.files.move_file(src_file_path, dest_file_path)\n\tself.view.refreshBinding(\"custom.fileSystem.directories\")\n\tself.parent.parent.getChild(\"Tree\").props.selectionData\u003d[]\n\tself.parent.parent.getChild(\"Tree\").props.selection\u003d[]\n\tself.getSibling(\"Dropdown\").props.value\u003d\u0027\u0027\n\tfilename\u003dsrc_file_path.split(\u0027/\u0027)[-1]\n\tsrcFolder\u003dsrc_file_path.replace(parentPath,\u0027\u0027).replace(\"/\"+filename,\u0027\u0027)\n\tdesFolder\u003ddest_file_path.replace(parentPath,\u0027\u0027).replace(\"/\"+filename,\u0027\u0027)\n\tsrcFolder \u003d \"/\" if srcFolder \u003d\u003d \"\" else srcFolder\n\tdesFolder \u003d \"/\" if desFolder \u003d\u003d \"\" else desFolder\t\n\tmessage\u003d\u0027\"{}\" Successfully Moved From \"{}\" To \"{}\"\u0027.format(filename, srcFolder, desFolder)\n\tsystem.perspective.sendMessage(\"Toast\", {\"message\": message, \"delay\": 5, \"color\": \"--success\"}, scope\u003d\"session\")"
+                      },
+                      "scope": "G",
+                      "type": "script"
+                    }
+                  }
+                },
+                "meta": {
+                  "name": "AddFolder"
+                },
+                "position": {
+                  "shrink": 0
+                },
+                "propConfig": {
+                  "props.enabled": {
+                    "binding": {
+                      "config": {
+                        "expression": "{../Dropdown.props.value}!\u003d\u0027\u0027\u0026\u0026{view.custom.type}\u003d\u0027file\u0027"
+                      },
+                      "type": "expr"
+                    }
+                  }
+                },
+                "props": {
+                  "image": {
+                    "icon": {
+                      "path": "material/double_arrow"
+                    }
+                  },
+                  "text": "Move File"
+                },
+                "type": "ia.input.button"
+              }
+            ],
+            "meta": {
+              "name": "Move"
+            },
+            "propConfig": {
+              "custom.folderName": {
+                "binding": {
+                  "config": {
+                    "path": "./TextField.props.text"
+                  },
+                  "type": "property"
+                }
+              }
+            },
+            "props": {
+              "direction": "column",
+              "style": {
+                "borderStyle": "solid",
+                "borderWidth": "1px",
+                "marginBottom": "8px",
+                "padding": "4px"
+              }
+            },
+            "type": "ia.container.flex"
+          },
+          {
+            "children": [
+              {
+                "meta": {
+                  "name": "TextField"
+                },
+                "position": {
+                  "basis": "29px",
+                  "shrink": 0
+                },
+                "props": {
+                  "deferUpdates": false,
+                  "placeholder": "New Name...",
+                  "style": {
+                    "marginBottom": "8px"
+                  }
+                },
+                "type": "ia.input.text-field"
+              },
+              {
+                "events": {
+                  "component": {
+                    "onActionPerformed": {
+                      "config": {
+                        "script": "\timport os\n\t\n\tfileType\u003dself.view.custom.type\n\tparentPath\u003dself.view.custom.fileSystem.path\n\t# Specify the path to the old directory and the new directory name\n\tif fileType\u003d\u003d\u0027dir\u0027:\n\t\told_directory_path \u003d self.view.custom.loadPath\n\t\tnew_directory_path \u003d \u0027{}/{}\u0027.format(parentPath,self.getSibling(\"TextField\").props.text)\n\t\t# Rename the directory\n\t\texchange.architecturebuilder.files.rename_directory(old_directory_path, new_directory_path)\n\tif fileType\u003d\u003d\u0027file\u0027:\n\t\told_directory_path \u003d self.view.custom.loadPath\n\t\toldFilename\u003dold_directory_path.split(\u0027/\u0027)[-1]\n\t\tnewFilename\u003dself.getSibling(\"TextField\").props.text.replace(\u0027.json\u0027,\u0027\u0027) + \u0027.json\u0027\n\t\tnew_directory_path \u003d old_directory_path.replace(oldFilename,newFilename)\n\t\texchange.architecturebuilder.files.rename_directory(old_directory_path, new_directory_path)\n\tself.view.refreshBinding(\"custom.fileSystem.directories\")\n\tself.parent.parent.getChild(\"Tree\").props.selectionData\u003d[]\n\tself.parent.parent.getChild(\"Tree\").props.selection\u003d[]\n\tself.getSibling(\"TextField\").props.text\u003d\u0027\u0027\n\t\n\tmessage\u003d\u0027\"{}\" Successfully Renamed To \"{}\"\u0027.format(oldFilename, newFilename)\n\tsystem.perspective.sendMessage(\"Toast\", {\"message\": message, \"delay\": 3, \"color\": \"--success\"}, scope\u003d\"session\")"
+                      },
+                      "scope": "G",
+                      "type": "script"
+                    }
+                  }
+                },
+                "meta": {
+                  "name": "AddFolder"
+                },
+                "position": {
+                  "shrink": 0
+                },
+                "propConfig": {
+                  "props.enabled": {
+                    "binding": {
+                      "config": {
+                        "expression": "{../TextField.props.text}!\u003d\u0027\u0027\u0026\u0026{view.custom.loadPath}!\u003d\u0027\u0027"
+                      },
+                      "type": "expr"
+                    }
+                  }
+                },
+                "props": {
+                  "image": {
+                    "icon": {
+                      "path": "material/create_new_folder"
+                    }
+                  },
+                  "text": "Rename"
+                },
+                "type": "ia.input.button"
+              }
+            ],
+            "meta": {
+              "name": "Rename"
+            },
+            "propConfig": {
+              "custom.folderName": {
+                "binding": {
+                  "config": {
+                    "path": "./TextField.props.text"
+                  },
+                  "type": "property"
+                }
+              }
+            },
+            "props": {
+              "direction": "column",
+              "style": {
+                "borderStyle": "solid",
+                "borderWidth": "1px",
+                "marginBottom": "8px",
+                "padding": "4px"
+              }
+            },
+            "type": "ia.container.flex"
+          },
+          {
+            "events": {
+              "component": {
+                "onActionPerformed": {
+                  "config": {
+                    "script": "\t# Specify the path to the file you want to delete\n\tfile_path_to_delete \u003d self.view.custom.loadPath\n\tif self.view.custom.type\u003d\u003d\u0027file\u0027:\n\t# Delete the file\n\t\texchange.architecturebuilder.files.delete_file(file_path_to_delete)\n\telif self.view.custom.type\u003d\u003d\u0027dir\u0027:\n\t\texchange.architecturebuilder.files.delete_directory(file_path_to_delete)\n\tself.getSibling(\"Tree\").refreshBinding(\"props.items\")\n\tself.view.refreshBinding(\"custom.fileSystem.directories\")\n\tself.view.custom.loadPath\u003d\u0027\u0027\n\tself.view.custom.type\u003d\u0027\u0027\n\tself.getSibling(\"Tree\").props.selectionData\u003d[]\n\tself.getSibling(\"Tree\").props.selection\u003d[]\n\tself.props.value\u003d0\n\tmessage\u003d\u0027\"{}\" Deleted Successfully\u0027.format(file_path_to_delete)\n\tsystem.perspective.sendMessage(\"Toast\", {\"message\": message, \"delay\": 3, \"color\": \"--success\", \"textColor\": \"Black\"}, scope\u003d\"session\")"
+                  },
+                  "scope": "G",
+                  "type": "script"
+                }
+              }
+            },
+            "meta": {
+              "name": "OneShotButton"
+            },
+            "position": {
+              "basis": "28px",
+              "shrink": 0
+            },
+            "propConfig": {
+              "props.confirm.text": {
+                "binding": {
+                  "config": {
+                    "path": "../Tree.props.selectionData[0].value"
+                  },
+                  "overlayOptOut": true,
+                  "transforms": [
+                    {
+                      "code": "\tif \u0027filename\u0027 in value.keys():\n\t\treturn \u0027Delete \"{}\"\u0027.format(value[\u0027filename\u0027])\n\telse:\n\t\treturn \u0027Delete \"{}\" Folder\u0027.format(value[\u0027directory\u0027])\n",
+                      "type": "script"
+                    }
+                  ],
+                  "type": "property"
+                }
+              },
+              "props.enabled": {
+                "binding": {
+                  "config": {
+                    "expression": "{view.custom.loadPath}!\u003d\u0027\u0027\u0026\u0026{view.custom.type}!\u003d\u0027\u0027"
+                  },
+                  "type": "expr"
+                }
+              },
+              "props.readyState.text": {
+                "binding": {
+                  "config": {
+                    "path": "../Tree.props.selectionData"
+                  },
+                  "transforms": [
+                    {
+                      "code": "\tif len(value)\u003e0 and \u0027value\u0027 in value[0].keys():\n\t\tif \u0027filename\u0027 in value[0][\u0027value\u0027].keys():\n\t\t\treturn \u0027Delete \"{}\"\u0027.format(value[0][\u0027value\u0027][\u0027filename\u0027])\n\t\telse:\n\t\t\treturn \u0027Delete \"{}\" Folder\u0027.format(value[0][\u0027value\u0027][\u0027directory\u0027])\n\treturn \u0027Delete\u0027",
+                      "type": "script"
+                    }
+                  ],
+                  "type": "property"
+                }
+              }
+            },
+            "props": {
+              "confirm": {
+                "enabled": true
+              },
+              "readyState": {
+                "icon": {
+                  "style": {
+                    "height": "24px",
+                    "width": "2rem"
+                  }
+                }
+              },
+              "writingState": {
+                "icon": {
+                  "path": "material/hourglass_empty",
+                  "style": {
+                    "height": "24px",
+                    "width": "2rem"
+                  }
+                },
+                "text": "Deleting..."
+              }
+            },
+            "type": "ia.input.oneshotbutton"
+          }
+        ],
+        "meta": {
+          "name": "FileManager"
+        },
+        "position": {
+          "basis": "285px",
+          "grow": 1
+        },
+        "props": {
+          "direction": "column",
+          "style": {
+            "margin": "8px"
+          }
+        },
+        "type": "ia.container.flex"
+      }
+    ],
+    "meta": {
+      "name": "root"
+    },
+    "type": "ia.container.flex"
+  }
+}

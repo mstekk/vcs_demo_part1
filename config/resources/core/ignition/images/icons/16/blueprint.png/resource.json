@@ -1,0 +1,20 @@
+{
+  "scope": "A",
+  "version": 1,
+  "restricted": false,
+  "overridable": true,
+  "files": [
+    "blueprint.png"
+  ],
+  "attributes": {
+    "width": 16,
+    "format": "PNG",
+    "lastModification": {
+      "actor": "8.3-migration",
+      "timestamp": "2026-01-07T14:49:07Z"
+    },
+    "size": 693,
+    "lastModificationSignature": "68b7c4902aee4964c48570957194ae657a75d800edbf94b129bf17700e2ca28e",
+    "height": 16
+  }
+}

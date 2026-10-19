@@ -1,0 +1,120 @@
+{
+  "custom": {},
+  "params": {},
+  "props": {
+    "defaultSize": {
+      "height": 1030,
+      "width": 1920
+    }
+  },
+  "root": {
+    "children": [
+      {
+        "meta": {
+          "name": "Large"
+        },
+        "position": {
+          "size": "large"
+        },
+        "propConfig": {
+          "props.params.params_scale": {
+            "binding": {
+              "config": {
+                "path": "session.custom.panControl.scale"
+              },
+              "type": "property"
+            }
+          },
+          "props.params.params_x": {
+            "binding": {
+              "config": {
+                "bidirectional": true,
+                "path": "session.custom.panControl.x"
+              },
+              "type": "property"
+            }
+          },
+          "props.params.params_y": {
+            "binding": {
+              "config": {
+                "path": "session.custom.panControl.y"
+              },
+              "type": "property"
+            }
+          }
+        },
+        "props": {
+          "loading": {
+            "order": "with-parent"
+          },
+          "params": {
+            "controls": {
+              "click": true,
+              "in": true,
+              "out": true,
+              "pan": true,
+              "reset": true,
+              "zoom": true
+            },
+            "panning": true,
+            "viewParams": {
+              "text": "Your Text Here"
+            },
+            "viewPath": "Pages/Demo/Overview/Demo Overview"
+          },
+          "path": "Pages/Demo/Overview/Pan Zoom View"
+        },
+        "type": "ia.display.view"
+      },
+      {
+        "children": [
+          {
+            "meta": {
+              "name": "Medium"
+            },
+            "position": {
+              "size": "large"
+            },
+            "props": {
+              "loading": {
+                "order": "with-parent"
+              },
+              "path": "Pages/Demo/Components/Medium"
+            },
+            "type": "ia.display.view"
+          },
+          {
+            "meta": {
+              "name": "Small"
+            },
+            "props": {
+              "loading": {
+                "order": "with-parent"
+              },
+              "path": "Pages/Demo/Components/Small",
+              "useDefaultViewHeight": true
+            },
+            "type": "ia.display.view"
+          }
+        ],
+        "meta": {
+          "name": "Medium"
+        },
+        "props": {
+          "breakpoint": 800
+        },
+        "type": "ia.container.breakpt"
+      }
+    ],
+    "meta": {
+      "name": "root"
+    },
+    "props": {
+      "breakpoint": 1650,
+      "style": {
+        "overflow": "auto"
+      }
+    },
+    "type": "ia.container.breakpt"
+  }
+}

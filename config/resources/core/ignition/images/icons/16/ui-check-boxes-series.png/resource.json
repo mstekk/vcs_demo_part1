@@ -1,0 +1,20 @@
+{
+  "scope": "A",
+  "version": 1,
+  "restricted": false,
+  "overridable": true,
+  "files": [
+    "ui-check-boxes-series.png"
+  ],
+  "attributes": {
+    "width": 16,
+    "format": "PNG",
+    "lastModification": {
+      "actor": "8.3-migration",
+      "timestamp": "2026-01-07T14:49:07Z"
+    },
+    "size": 472,
+    "lastModificationSignature": "e73331cfb2c2ecaa3883b32eb0998e919b703930af001d385578594de74d30bd",
+    "height": 16
+  }
+}

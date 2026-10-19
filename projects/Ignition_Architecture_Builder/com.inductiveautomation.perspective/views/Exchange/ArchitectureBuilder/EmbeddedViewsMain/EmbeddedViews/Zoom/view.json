@@ -1,0 +1,116 @@
+{
+  "custom": {},
+  "params": {},
+  "props": {
+    "defaultSize": {
+      "height": 120,
+      "width": 114
+    }
+  },
+  "root": {
+    "children": [
+      {
+        "events": {
+          "dom": {
+            "onClick": {
+              "config": {
+                "script": "\tsystem.perspective.sendMessage(\u0027zoom\u0027, {\u0027zoom\u0027:1, \u0027origin\u0027:False})"
+              },
+              "scope": "G",
+              "type": "script"
+            }
+          }
+        },
+        "meta": {
+          "name": "Icon"
+        },
+        "position": {
+          "basis": "30px",
+          "grow": 1
+        },
+        "props": {
+          "path": "material/zoom_in",
+          "style": {
+            "cursor": "pointer",
+            "marginBottom": "4px",
+            "marginTop": "4px"
+          }
+        },
+        "type": "ia.display.icon"
+      },
+      {
+        "events": {
+          "dom": {
+            "onClick": {
+              "config": {
+                "script": "\tsystem.perspective.sendMessage(\u0027zoom\u0027, {\u0027zoom\u0027:0, \u0027origin\u0027:True})"
+              },
+              "scope": "G",
+              "type": "script"
+            }
+          }
+        },
+        "meta": {
+          "name": "Icon_0"
+        },
+        "position": {
+          "basis": "30px",
+          "grow": 1
+        },
+        "props": {
+          "path": "material/zoom_out_map",
+          "style": {
+            "cursor": "pointer",
+            "marginBottom": "4px",
+            "marginTop": "4px"
+          }
+        },
+        "type": "ia.display.icon"
+      },
+      {
+        "events": {
+          "dom": {
+            "onClick": {
+              "config": {
+                "script": "\tsystem.perspective.sendMessage(\u0027zoom\u0027, {\u0027zoom\u0027:-1, \u0027origin\u0027:False})"
+              },
+              "scope": "G",
+              "type": "script"
+            }
+          }
+        },
+        "meta": {
+          "name": "Icon_1"
+        },
+        "position": {
+          "basis": "30px",
+          "grow": 1
+        },
+        "props": {
+          "path": "material/zoom_out",
+          "style": {
+            "cursor": "pointer",
+            "marginBottom": "4px",
+            "marginTop": "4px"
+          }
+        },
+        "type": "ia.display.icon"
+      }
+    ],
+    "meta": {
+      "name": "root"
+    },
+    "props": {
+      "direction": "column",
+      "style": {
+        "backgroundColor": "--neutral-20",
+        "borderBottomLeftRadius": "16px",
+        "borderBottomRightRadius": "16px",
+        "borderTopLeftRadius": "16px",
+        "borderTopRightRadius": "16px",
+        "padding": "8px"
+      }
+    },
+    "type": "ia.container.flex"
+  }
+}

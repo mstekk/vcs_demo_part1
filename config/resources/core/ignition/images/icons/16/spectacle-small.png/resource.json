@@ -1,0 +1,20 @@
+{
+  "scope": "A",
+  "version": 1,
+  "restricted": false,
+  "overridable": true,
+  "files": [
+    "spectacle-small.png"
+  ],
+  "attributes": {
+    "width": 16,
+    "format": "PNG",
+    "lastModification": {
+      "actor": "8.3-migration",
+      "timestamp": "2026-01-07T14:49:07Z"
+    },
+    "size": 246,
+    "lastModificationSignature": "fc8fda848ac47b45bc0deb745bac22cdc4d2e3c98583f8034c40ac2ee72a3384",
+    "height": 16
+  }
+}

@@ -1,0 +1,772 @@
+{
+  "custom": {
+    "settings": {}
+  },
+  "events": {
+    "system": {
+      "onStartup": {
+        "config": {
+          "script": "\tif \u0027Asana\u0027 in system.util.getGlobals().keys():\n\t\tself.custom.settings\u003dsystem.util.getGlobals()[\u0027Asana\u0027]\n\t\tself.getChild(\"root\").clearForm()\n\telse:\n\t\tself.custom.settings\u003d\u003dNone\n\tself.getChild(\"root\").getChild(\"Contact\").props.text\u003dself.session.props.auth.user.userName"
+        },
+        "scope": "G",
+        "type": "script"
+      }
+    }
+  },
+  "params": {},
+  "propConfig": {
+    "custom.settings": {
+      "persistent": true
+    }
+  },
+  "props": {
+    "defaultSize": {
+      "height": 762,
+      "width": 784
+    }
+  },
+  "root": {
+    "children": [
+      {
+        "children": [
+          {
+            "meta": {
+              "name": "HeaderTitle"
+            },
+            "position": {
+              "grow": 1,
+              "shrink": 0
+            },
+            "propConfig": {
+              "props.text": {
+                "binding": {
+                  "config": {
+                    "path": "view.custom.settings"
+                  },
+                  "transforms": [
+                    {
+                      "code": "\tif value is None or len(value.keys()) \u003d\u003d 0:\n\t\treturn \"Configure Asana In Admin Screen...\"\n\treturn \"Create New Asana Task\"\n",
+                      "type": "script"
+                    }
+                  ],
+                  "type": "property"
+                }
+              },
+              "props.textStyle.color": {
+                "binding": {
+                  "config": {
+                    "path": "view.custom.settings"
+                  },
+                  "transforms": [
+                    {
+                      "code": "\tif value is None or len(value.keys()) \u003d\u003d 0:\n\t\treturn \"red\"\n\treturn \"\"\n",
+                      "type": "script"
+                    }
+                  ],
+                  "type": "property"
+                }
+              }
+            },
+            "props": {
+              "style": {
+                "fontSize": 20,
+                "fontWeight": "bolder"
+              }
+            },
+            "type": "ia.display.label"
+          },
+          {
+            "events": {
+              "dom": {
+                "onClick": {
+                  "config": {
+                    "script": "\n\tif \u0027Asana\u0027 in system.util.getGlobals().keys():\n\t\tself.view.custom.settings\u003dsystem.util.getGlobals()[\u0027Asana\u0027]\n\t\tself.view.getChild(\"root\").clearForm()\n\telse:\n\t\tself.view.custom.settings\u003d\u003dNone\n\t\t"
+                  },
+                  "scope": "G",
+                  "type": "script"
+                }
+              }
+            },
+            "meta": {
+              "name": "Icon"
+            },
+            "position": {
+              "basis": "30px"
+            },
+            "propConfig": {
+              "props.color": {
+                "binding": {
+                  "config": {
+                    "path": ".../InsertTasks.meta.tooltip.enabled"
+                  },
+                  "transforms": [
+                    {
+                      "fallback": "",
+                      "inputType": "scalar",
+                      "mappings": [
+                        {
+                          "input": true,
+                          "output": "red"
+                        }
+                      ],
+                      "outputType": "scalar",
+                      "type": "map"
+                    }
+                  ],
+                  "type": "property"
+                }
+              }
+            },
+            "props": {
+              "path": "material/refresh",
+              "style": {
+                "cursor": "pointer"
+              }
+            },
+            "type": "ia.display.icon"
+          },
+          {
+            "events": {
+              "dom": {
+                "onClick": {
+                  "config": {
+                    "draggable": true,
+                    "id": "5_aE8PBB",
+                    "modal": false,
+                    "overlayDismiss": false,
+                    "resizable": true,
+                    "showCloseIcon": true,
+                    "title": "Asana Configure",
+                    "type": "open",
+                    "viewParams": {
+                      "token": "{session.custom.AsanaSettings.token}"
+                    },
+                    "viewPath": "Exchange/AsanaIntegration/Asana",
+                    "viewportBound": true
+                  },
+                  "scope": "C",
+                  "type": "popup"
+                }
+              }
+            },
+            "meta": {
+              "name": "Icon_0"
+            },
+            "position": {
+              "basis": "30px"
+            },
+            "propConfig": {
+              "position.display": {
+                "binding": {
+                  "config": {
+                    "path": "view.custom.settings"
+                  },
+                  "transforms": [
+                    {
+                      "code": "\tif value is None:\n\t\treturn True\n\treturn False\n",
+                      "type": "script"
+                    }
+                  ],
+                  "type": "property"
+                }
+              }
+            },
+            "props": {
+              "path": "material/bug_report",
+              "style": {
+                "cursor": "pointer"
+              }
+            },
+            "type": "ia.display.icon"
+          }
+        ],
+        "meta": {
+          "name": "Header"
+        },
+        "position": {
+          "shrink": 0
+        },
+        "props": {
+          "justify": "space-between"
+        },
+        "type": "ia.container.flex"
+      },
+      {
+        "meta": {
+          "name": "WorkspaceHeader"
+        },
+        "position": {
+          "basis": "32px"
+        },
+        "props": {
+          "text": "Task Name:"
+        },
+        "type": "ia.display.label"
+      },
+      {
+        "meta": {
+          "name": "TaskName"
+        },
+        "position": {
+          "basis": "32px"
+        },
+        "props": {
+          "deferUpdates": false,
+          "placeholder": "Task Name...."
+        },
+        "type": "ia.input.text-field"
+      },
+      {
+        "meta": {
+          "name": "NoteHeader"
+        },
+        "position": {
+          "basis": "32px"
+        },
+        "props": {
+          "text": "Task Note:"
+        },
+        "type": "ia.display.label"
+      },
+      {
+        "meta": {
+          "name": "TaskNote"
+        },
+        "position": {
+          "basis": "243px"
+        },
+        "props": {
+          "deferUpdates": false,
+          "placeholder": "Task Notes...",
+          "text": "Bug Report"
+        },
+        "type": "ia.input.text-area"
+      },
+      {
+        "meta": {
+          "name": "ContactHeader"
+        },
+        "position": {
+          "basis": "32px"
+        },
+        "props": {
+          "text": "Contact:"
+        },
+        "type": "ia.display.label"
+      },
+      {
+        "meta": {
+          "name": "Contact"
+        },
+        "position": {
+          "basis": "32px"
+        },
+        "props": {
+          "placeholder": "Who Are You...",
+          "text": "admin"
+        },
+        "type": "ia.input.text-field"
+      },
+      {
+        "meta": {
+          "name": "FilterHeader"
+        },
+        "position": {
+          "basis": "32px"
+        },
+        "props": {
+          "text": "Filters:"
+        },
+        "type": "ia.display.label"
+      },
+      {
+        "custom": {
+          "key": "value"
+        },
+        "meta": {
+          "name": "FlexRepeater"
+        },
+        "propConfig": {
+          "props.instances": {
+            "binding": {
+              "config": {
+                "path": "view.custom.settings.custom_filters"
+              },
+              "transforms": [
+                {
+                  "code": "\tinstances\u003d[]\n\tfor x in value:\n\t\tinstances.append({\"custom_field\":x[\u0027custom_field\u0027], \"selected\": x[\u0027selected\u0027], \u0027labelwidth\u0027: 150, \"edit\": False, \"userEdit\": False, \"canEdit\": x[\u0027edit\u0027]})\n\n\treturn instances",
+                  "type": "script"
+                }
+              ],
+              "type": "property"
+            }
+          }
+        },
+        "props": {
+          "direction": "column",
+          "elementPosition": {
+            "basis": "auto",
+            "grow": 0,
+            "shrink": 0
+          },
+          "elementStyle": {
+            "height": "40px"
+          },
+          "path": "Exchange/AsanaIntegration/EmbeddedViews/customFields",
+          "useDefaultViewHeight": false,
+          "useDefaultViewWidth": false,
+          "wrap": "wrap"
+        },
+        "type": "ia.display.flex-repeater"
+      },
+      {
+        "custom": {
+          "InsertTaskResponse": {
+            "data": {
+              "actual_time_minutes": 0,
+              "assignee": null,
+              "assignee_status": "upcoming",
+              "completed": false,
+              "completed_at": null,
+              "created_at": "2024-07-29T11:38:52.139Z",
+              "custom_fields": [
+                {
+                  "created_by": {
+                    "gid": "1201895577322976",
+                    "name": "Tera Dalia",
+                    "resource_type": "user"
+                  },
+                  "display_value": null,
+                  "enabled": true,
+                  "enum_options": [
+                    {
+                      "color": "red",
+                      "enabled": true,
+                      "gid": "1206323256234045",
+                      "name": "High",
+                      "resource_type": "enum_option"
+                    },
+                    {
+                      "color": "orange",
+                      "enabled": true,
+                      "gid": "1206323256234046",
+                      "name": "Medium",
+                      "resource_type": "enum_option"
+                    },
+                    {
+                      "color": "yellow-orange",
+                      "enabled": true,
+                      "gid": "1206323256234047",
+                      "name": "Low",
+                      "resource_type": "enum_option"
+                    }
+                  ],
+                  "enum_value": null,
+                  "gid": "1206323256234044",
+                  "name": "Priority",
+                  "resource_subtype": "enum",
+                  "resource_type": "custom_field",
+                  "type": "enum"
+                },
+                {
+                  "created_by": {
+                    "gid": "1202996125242517",
+                    "name": "Thomas E Goetz",
+                    "resource_type": "user"
+                  },
+                  "display_value": "Not Started",
+                  "enabled": true,
+                  "enum_options": [
+                    {
+                      "color": "red",
+                      "enabled": true,
+                      "gid": "1206119801704457",
+                      "name": "Not Started",
+                      "resource_type": "enum_option"
+                    },
+                    {
+                      "color": "yellow",
+                      "enabled": true,
+                      "gid": "1206119801704458",
+                      "name": "In Progress",
+                      "resource_type": "enum_option"
+                    },
+                    {
+                      "color": "blue",
+                      "enabled": true,
+                      "gid": "1207445614703149",
+                      "name": "Review",
+                      "resource_type": "enum_option"
+                    },
+                    {
+                      "color": "aqua",
+                      "enabled": true,
+                      "gid": "1207757513654226",
+                      "name": "Complete",
+                      "resource_type": "enum_option"
+                    }
+                  ],
+                  "enum_value": {
+                    "color": "red",
+                    "enabled": true,
+                    "gid": "1206119801704457",
+                    "name": "Not Started",
+                    "resource_type": "enum_option"
+                  },
+                  "gid": "1206119801704456",
+                  "name": "Status",
+                  "resource_subtype": "enum",
+                  "resource_type": "custom_field",
+                  "type": "enum"
+                },
+                {
+                  "created_by": {
+                    "gid": "1201419631281958",
+                    "name": "Brad Fischer",
+                    "resource_type": "user"
+                  },
+                  "display_value": null,
+                  "enabled": true,
+                  "enum_options": [
+                    {
+                      "color": "green",
+                      "enabled": true,
+                      "gid": "1207445808611293",
+                      "name": "Feature",
+                      "resource_type": "enum_option"
+                    },
+                    {
+                      "color": "red",
+                      "enabled": true,
+                      "gid": "1207445811595792",
+                      "name": "Bug",
+                      "resource_type": "enum_option"
+                    },
+                    {
+                      "color": "orange",
+                      "enabled": true,
+                      "gid": "1207445811595793",
+                      "name": "Refinement",
+                      "resource_type": "enum_option"
+                    },
+                    {
+                      "color": "yellow-orange",
+                      "enabled": true,
+                      "gid": "1207445811595794",
+                      "name": "Refactor",
+                      "resource_type": "enum_option"
+                    },
+                    {
+                      "color": "purple",
+                      "enabled": true,
+                      "gid": "1207445811595795",
+                      "name": "Documentation",
+                      "resource_type": "enum_option"
+                    }
+                  ],
+                  "gid": "1207445808611292",
+                  "multi_enum_values": [],
+                  "name": "Task Type",
+                  "resource_subtype": "multi_enum",
+                  "resource_type": "custom_field",
+                  "type": "multi_enum"
+                },
+                {
+                  "created_by": {
+                    "gid": "1202996125242517",
+                    "name": "Thomas E Goetz",
+                    "resource_type": "user"
+                  },
+                  "display_value": null,
+                  "enabled": true,
+                  "gid": "1207631384834995",
+                  "name": "Project Location",
+                  "resource_subtype": "text",
+                  "resource_type": "custom_field",
+                  "text_value": null,
+                  "type": "text"
+                }
+              ],
+              "due_at": null,
+              "due_on": null,
+              "followers": [],
+              "gid": "1207921488443230",
+              "hearted": false,
+              "hearts": [],
+              "liked": false,
+              "likes": [],
+              "memberships": [
+                {
+                  "project": {
+                    "gid": "1206119907511844",
+                    "name": "Architecture Builder ",
+                    "resource_type": "project"
+                  },
+                  "section": {
+                    "gid": "1207856160934396",
+                    "name": "Bug Reporting",
+                    "resource_type": "section"
+                  }
+                }
+              ],
+              "modified_at": "2024-07-29T11:38:54.111Z",
+              "name": "One More Try",
+              "notes": "Reporter: admin\n Page: /\n-------------------- \nBug Report",
+              "num_hearts": 0,
+              "num_likes": 0,
+              "parent": null,
+              "permalink_url": "https://app.asana.com/0/1206119907511844/1207921488443230",
+              "projects": [
+                {
+                  "gid": "1206119907511844",
+                  "name": "Architecture Builder ",
+                  "resource_type": "project"
+                }
+              ],
+              "resource_subtype": "default_task",
+              "resource_type": "task",
+              "start_at": null,
+              "start_on": null,
+              "tags": [],
+              "workspace": {
+                "gid": "9576476576450",
+                "name": "Inductive Automation",
+                "resource_type": "workspace"
+              }
+            }
+          },
+          "insertInitiated": false,
+          "insertInitiatedTime": {
+            "$": [
+              "ts",
+              192,
+              1722253131720
+            ],
+            "$ts": 1722253131720
+          }
+        },
+        "events": {
+          "component": {
+            "onActionPerformed": {
+              "config": {
+                "script": "\t# Parameters\n\tself.custom.insertInitiated\u003dTrue\n\tself.custom.insertInitiatedTime\u003dsystem.date.now()\n\tself.props.style.backgroundColor\u003d\"yellow\"\n\tapi_token \u003d str(self.view.custom.settings.token)\n\tproject_id \u003d str(self.view.custom.settings.project)\n\tsection_id \u003d str(self.view.custom.settings.section)\n\t\n\ttask_name \u003d str(self.getSibling(\"TaskName\").props.text)\n\ttask_notes \u003d str(self.getSibling(\"TaskNote\").props.text)\n\treporter\u003d str(self.getSibling(\"Contact\").props.text)\n\t\n\tcustom_fields\u003d{}\n\tfields\u003dself.getSibling(\"FlexRepeater\").props.instances\n\tfor x in fields:\n\t\tif x[\u0027selected\u0027]!\u003d\u0027\u0027 and x[\u0027selected\u0027] is not None:\n\t\t\tif x[\u0027custom_field\u0027][\u0027type\u0027]\u003d\u003d\u0027multi_enum\u0027:\n\t\t\t\tselectOptions\u003d[]\n\t\t\t\tfor sel in x[\u0027selected\u0027]:\n\t\t\t\t\tselectOptions.append(str(sel))\n\t\t\t\tcustom_fields[str(x[\u0027custom_field\u0027][\u0027gid\u0027])]\u003dselectOptions\n\t\t\telse:\n\t\t\t\tcustom_fields[str(x[\u0027custom_field\u0027][\u0027gid\u0027])]\u003dstr(x[\u0027selected\u0027])\n\n\t# API endpoint\n\turl \u003d \"https://app.asana.com/api/1.0/tasks\"\n\t\n\t# Headers\n\theaders\u003d{\n\t\t\"accept\": \u0027application/json\u0027,\n\t\t\u0027content-type\u0027: \u0027application/json\u0027,\n\t\t\"authorization\": \u0027Bearer {}\u0027.format(api_token)\n\t}\n\t\n\t# Data\n\tdata \u003d {\n\t    \"data\": {\n\t        \"custom_fields\": custom_fields,\n\t        \"name\": task_name,\n\t        \"notes\": \u0027Reporter: {}\\n Page: {}\\n-------------------- \\n{}\u0027.format(reporter,self.page.props.path,task_notes),\n\t        \"projects\": [project_id],\n            \"followers\": [],\n            \"memberships\": [\n\t            {\n\t                \"project\": project_id,\n\t                \"section\": section_id\n\t            }\n\t            ]\n\t    }\n\t}\n\t# Convert data to JSON\n\timport json\n\tjson_data \u003d json.dumps(data)\n\t\n\t# Make the HTTP POST request\n\tresponse \u003d system.net.httpPost(url\u003d url, contentType\u003d\u0027application/json\u0027, postData\u003djson_data, headerValues\u003dheaders)\n\t\n\t# Print the response\n\tself.custom.InsertTaskResponse\u003djson.loads(response)\n\t"
+              },
+              "scope": "G",
+              "type": "script"
+            }
+          }
+        },
+        "meta": {
+          "name": "InsertTasks",
+          "tooltip": {
+            "text": "Task Insert Fail, Refresh and Try Again"
+          }
+        },
+        "position": {
+          "basis": "34px"
+        },
+        "propConfig": {
+          "custom.link": {
+            "binding": {
+              "config": {
+                "path": "this.custom.InsertTaskResponse.data"
+              },
+              "transforms": [
+                {
+                  "code": "\tif value is None:\n\t\treturn \"\"\n\treturn \"https://app.asana.com/0/{}/{}/f\".format(value[\u0027projects\u0027][0][\u0027gid\u0027],value[\u0027gid\u0027])",
+                  "type": "script"
+                }
+              ],
+              "type": "property"
+            }
+          },
+          "custom.modified": {
+            "binding": {
+              "config": {
+                "path": "this.custom.InsertTaskResponse.data.modified_at"
+              },
+              "transforms": [
+                {
+                  "code": "\tif value is None:\n\t\treturn None\n\treturn system.date.parse(value+\"+0000\",\"yyyy-MM-dd\u0027T\u0027HH:mm:ss.SSS\u0027Z\u0027Z\")",
+                  "type": "script"
+                }
+              ],
+              "type": "property"
+            }
+          },
+          "custom.now": {
+            "binding": {
+              "config": {
+                "expression": "dateArithmetic(now(),-3,\u0027seconds\u0027)"
+              },
+              "type": "expr"
+            }
+          },
+          "custom.sec5": {
+            "binding": {
+              "config": {
+                "struct": {
+                  "modified": "{this.custom.modified}",
+                  "now": "{this.custom.now}"
+                },
+                "waitOnAll": true
+              },
+              "transforms": [
+                {
+                  "code": "\tif value[\u0027now\u0027] is None or value[\u0027modified\u0027] is  None:\n\t\treturn False\n\t\n\ttry:\n\t\treturn system.date.isAfter(value[\u0027modified\u0027], value[\u0027now\u0027])\n\texcept:\n\t\treturn False",
+                  "type": "script"
+                }
+              ],
+              "type": "expr-struct"
+            },
+            "onChange": {
+              "enabled": null,
+              "script": "\ttry:\n\t\tif self.custom.sec5\u003d\u003dFalse:\n\t\t\tsystem.perspective.closeDock(\"bug\")\n\t\t\tself.custom.insertInitiated\u003dFalse\n\t\t\tself.parent.clearForm()\n\texcept:\n\t\tpass"
+            }
+          },
+          "meta.tooltip.enabled": {
+            "binding": {
+              "config": {
+                "struct": {
+                  "initiate": "{this.custom.insertInitiated}",
+                  "now": "{this.custom.now}",
+                  "time": "{this.custom.insertInitiatedTime}"
+                },
+                "waitOnAll": true
+              },
+              "transforms": [
+                {
+                  "code": "\tif value[\u0027initiate\u0027]:\n\t\tif system.date.isAfter(system.date.addSeconds(system.date.now(), -10), value[\u0027time\u0027]):\n\t\t\treturn True\n\treturn False",
+                  "type": "script"
+                }
+              ],
+              "type": "expr-struct"
+            }
+          },
+          "props.enabled": {
+            "binding": {
+              "config": {
+                "expression": "{view.custom.settings}!\u003dnull \u0026\u0026\r\n{../TaskName.props.text}!\u003d\u0027\u0027\u0026\u0026\r\n{../TaskNote.props.text}!\u003d\u0027\u0027\u0026\u0026\r\n{../Contact.props.text}!\u003d\u0027\u0027\u0026\u0026\r\n!{this.custom.insertInitiated}"
+              },
+              "type": "expr"
+            }
+          },
+          "props.style.backgroundColor": {
+            "binding": {
+              "config": {
+                "struct": {
+                  "error": "{this.meta.tooltip.enabled}",
+                  "initated": "{this.custom.insertInitiated}",
+                  "sec5": "{this.custom.sec5}"
+                },
+                "waitOnAll": true
+              },
+              "transforms": [
+                {
+                  "code": "\tif value[\u0027error\u0027]:\n\t\treturn \"red\"\n\tif value[\u0027sec5\u0027]:\n\t\treturn \"green\"\n\tif value[\u0027initated\u0027]:\n\t\treturn \"yellow\"\n\treturn \"\"",
+                  "type": "script"
+                }
+              ],
+              "type": "expr-struct"
+            }
+          },
+          "props.text": {
+            "binding": {
+              "config": {
+                "struct": {
+                  "error": "{this.meta.tooltip.enabled}",
+                  "initated": "{this.custom.insertInitiated}",
+                  "sec5": "{this.custom.sec5}"
+                },
+                "waitOnAll": true
+              },
+              "transforms": [
+                {
+                  "code": "\tif value[\u0027error\u0027]:\n\t\treturn \"Task Insert Fail, Refresh and Try Again\"\n\tif value[\u0027sec5\u0027]:\n\t\treturn \"Task Created\"\n\tif value[\u0027initated\u0027]:\n\t\treturn \"Creating Task...\"\n\treturn \"Insert Task\"",
+                  "type": "script"
+                }
+              ],
+              "type": "expr-struct"
+            }
+          }
+        },
+        "props": {
+          "style": {
+            "marginTop": "8px"
+          }
+        },
+        "type": "ia.input.button"
+      },
+      {
+        "meta": {
+          "name": "Link"
+        },
+        "position": {
+          "basis": "24px"
+        },
+        "propConfig": {
+          "position.display": {
+            "binding": {
+              "config": {
+                "path": "../InsertTasks.custom.InsertTaskResponse"
+              },
+              "enabled": false,
+              "transforms": [
+                {
+                  "code": "\treturn \u0027data\u0027 in  value.keys()",
+                  "type": "script"
+                }
+              ],
+              "type": "property"
+            }
+          },
+          "props.url": {
+            "binding": {
+              "config": {
+                "path": "view.custom.settings.project"
+              },
+              "transforms": [
+                {
+                  "code": "\treturn \"https://app.asana.com/0/{}\".format(value)",
+                  "type": "script"
+                }
+              ],
+              "type": "property"
+            }
+          }
+        },
+        "props": {
+          "style": {
+            "textAlign": "center"
+          },
+          "target": "tab",
+          "text": "Asana Project"
+        },
+        "type": "ia.navigation.link"
+      }
+    ],
+    "meta": {
+      "name": "root"
+    },
+    "props": {
+      "direction": "column",
+      "style": {
+        "backgroundColor": "--neutral-10",
+        "margin": "8px",
+        "padding": "8px"
+      }
+    },
+    "scripts": {
+      "customMethods": [
+        {
+          "name": "clearForm",
+          "params": [],
+          "script": "\tself.getChild(\"TaskName\").props.text\u003d\u0027\u0027\n\tself.getChild(\"InsertTasks\").custom.insertInitiated\u003dFalse\n\tif \u0027defaultNote\u0027 in self.view.custom.settings.keys():\n\t\tself.getChild(\"TaskNote\").props.text\u003dself.view.custom.settings.defaultNote\n\telse:\n\t\tself.getChild(\"TaskNote\").props.text\n\tself.getChild(\"FlexRepeater\").refreshBinding(\"props.instances\")\n\tself.getChild(\"Contact\").props.text\u003dself.session.props.auth.user.userName"
+        }
+      ],
+      "extensionFunctions": null,
+      "messageHandlers": []
+    },
+    "type": "ia.container.flex"
+  }
+}

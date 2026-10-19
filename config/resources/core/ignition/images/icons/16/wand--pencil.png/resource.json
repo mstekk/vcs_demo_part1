@@ -1,0 +1,20 @@
+{
+  "scope": "A",
+  "version": 1,
+  "restricted": false,
+  "overridable": true,
+  "files": [
+    "wand--pencil.png"
+  ],
+  "attributes": {
+    "width": 16,
+    "format": "PNG",
+    "lastModification": {
+      "actor": "8.3-migration",
+      "timestamp": "2026-01-07T14:49:07Z"
+    },
+    "size": 710,
+    "lastModificationSignature": "9829b71fdabc44f2be3d454dd3eb78b96fa9589b3307da12bc7949e8b6ab0722",
+    "height": 16
+  }
+}

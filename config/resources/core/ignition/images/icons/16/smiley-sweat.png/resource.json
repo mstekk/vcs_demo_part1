@@ -1,0 +1,20 @@
+{
+  "scope": "A",
+  "version": 1,
+  "restricted": false,
+  "overridable": true,
+  "files": [
+    "smiley-sweat.png"
+  ],
+  "attributes": {
+    "width": 16,
+    "format": "PNG",
+    "lastModification": {
+      "actor": "8.3-migration",
+      "timestamp": "2026-01-07T14:49:07Z"
+    },
+    "size": 919,
+    "lastModificationSignature": "4fd2b33e0d84718c97e98c5af0b1e5fb9d905d9041102e6a27997089fb74860b",
+    "height": 16
+  }
+}

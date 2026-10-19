@@ -1,0 +1,20 @@
+{
+  "scope": "A",
+  "version": 1,
+  "restricted": false,
+  "overridable": true,
+  "files": [
+    "flag--exclamation.png"
+  ],
+  "attributes": {
+    "width": 16,
+    "format": "PNG",
+    "lastModification": {
+      "actor": "8.3-migration",
+      "timestamp": "2026-01-07T14:49:07Z"
+    },
+    "size": 832,
+    "lastModificationSignature": "04a26dc66610def7acda5bf22e7a662ef2d99a2640101fb3b751b8e5c3fce231",
+    "height": 16
+  }
+}

@@ -1,0 +1,18 @@
+{
+  "base": {
+    "style": {
+      "color": "#FFFFFF",
+      "fontSize": "12px"
+    }
+  },
+  "variants": [
+    {
+      "pseudo": "hover",
+      "style": {
+        "color": "#0F52A0",
+        "cursor": "pointer",
+        "fontSize": "12px"
+      }
+    }
+  ]
+}

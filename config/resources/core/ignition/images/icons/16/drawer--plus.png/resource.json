@@ -1,0 +1,20 @@
+{
+  "scope": "A",
+  "version": 1,
+  "restricted": false,
+  "overridable": true,
+  "files": [
+    "drawer--plus.png"
+  ],
+  "attributes": {
+    "width": 16,
+    "format": "PNG",
+    "lastModification": {
+      "actor": "8.3-migration",
+      "timestamp": "2026-01-07T14:49:07Z"
+    },
+    "size": 717,
+    "lastModificationSignature": "60641c7838d91b950d964f64a53e9cfe82d26fa5f5a9588dee7e909e9ff7a8f9",
+    "height": 16
+  }
+}

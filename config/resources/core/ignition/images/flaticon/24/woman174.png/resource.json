@@ -1,0 +1,20 @@
+{
+  "scope": "A",
+  "version": 1,
+  "restricted": false,
+  "overridable": true,
+  "files": [
+    "woman174.png"
+  ],
+  "attributes": {
+    "width": 24,
+    "format": "PNG",
+    "lastModification": {
+      "actor": "8.3-migration",
+      "timestamp": "2026-01-07T14:49:07Z"
+    },
+    "size": 526,
+    "lastModificationSignature": "e8e26f2153dd9b8006c90a88a90b8387de7b5361bccb68ad8f87cd7bf0801f63",
+    "height": 24
+  }
+}

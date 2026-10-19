@@ -1,0 +1,19 @@
+{
+  "scope": "A",
+  "description": "The default connection to Ignition\u0027s OPC-UA server.",
+  "version": 1,
+  "restricted": false,
+  "overridable": true,
+  "files": [
+    "config.json"
+  ],
+  "attributes": {
+    "lastModification": {
+      "actor": "admin",
+      "timestamp": "2026-01-27T17:47:27Z"
+    },
+    "uuid": "4565c61f-518d-4074-89d3-dd17c702ec33",
+    "lastModificationSignature": "0d36ae21e42bec00e5b32d086b8e49193a77534d23b74c18562e68346a46198e",
+    "enabled": true
+  }
+}

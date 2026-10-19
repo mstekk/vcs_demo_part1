@@ -1,0 +1,20 @@
+{
+  "scope": "A",
+  "version": 1,
+  "restricted": false,
+  "overridable": true,
+  "files": [
+    "wrench-screwdriver.png"
+  ],
+  "attributes": {
+    "width": 16,
+    "format": "PNG",
+    "lastModification": {
+      "actor": "8.3-migration",
+      "timestamp": "2026-01-07T14:49:07Z"
+    },
+    "size": 907,
+    "lastModificationSignature": "b897a1d334ee6dd7bf07f2ad823b5b7a5dbef241fa41827bd168f91e871190eb",
+    "height": 16
+  }
+}

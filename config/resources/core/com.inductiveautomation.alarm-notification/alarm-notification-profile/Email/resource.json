@@ -1,0 +1,19 @@
+{
+  "scope": "A",
+  "description": "SMTP",
+  "version": 1,
+  "restricted": false,
+  "overridable": true,
+  "files": [
+    "config.json"
+  ],
+  "attributes": {
+    "lastModification": {
+      "actor": "admin",
+      "timestamp": "2026-03-21T04:43:06Z"
+    },
+    "uuid": "56f3c698-b3e8-463e-a914-71f816c03486",
+    "lastModificationSignature": "6e4dc192d2a626b539c9749d0a79dc8b8f3d5c5276f76790c2f6d00a88e705f0",
+    "enabled": false
+  }
+}

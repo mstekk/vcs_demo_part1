@@ -1,0 +1,20 @@
+{
+  "scope": "A",
+  "version": 1,
+  "restricted": false,
+  "overridable": true,
+  "files": [
+    "sql-join-inner.png"
+  ],
+  "attributes": {
+    "width": 16,
+    "format": "PNG",
+    "lastModification": {
+      "actor": "8.3-migration",
+      "timestamp": "2026-01-07T14:49:07Z"
+    },
+    "size": 706,
+    "lastModificationSignature": "4627c4cc683205e87221854baf9ec0f09822ea2d51b1799723c4827db7e2f089",
+    "height": 16
+  }
+}

@@ -1,0 +1,20 @@
+{
+  "scope": "A",
+  "version": 1,
+  "restricted": false,
+  "overridable": true,
+  "files": [
+    "medal--pencil.png"
+  ],
+  "attributes": {
+    "width": 16,
+    "format": "PNG",
+    "lastModification": {
+      "actor": "8.3-migration",
+      "timestamp": "2026-01-07T14:49:07Z"
+    },
+    "size": 905,
+    "lastModificationSignature": "fe15b6b9bc95b0c33b6a2b9dedaf201060f21a42c77ab153411733a35e9a168b",
+    "height": 16
+  }
+}

@@ -1,0 +1,20 @@
+{
+  "scope": "A",
+  "version": 1,
+  "restricted": false,
+  "overridable": true,
+  "files": [
+    "task--arrow.png"
+  ],
+  "attributes": {
+    "width": 16,
+    "format": "PNG",
+    "lastModification": {
+      "actor": "8.3-migration",
+      "timestamp": "2026-01-07T14:49:07Z"
+    },
+    "size": 737,
+    "lastModificationSignature": "6bb5c57a90816a8f43f6019b21ba0ac5b93c479b6f889acc39b2ed9c82dd7178",
+    "height": 16
+  }
+}

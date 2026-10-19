@@ -1,0 +1,20 @@
+{
+  "scope": "A",
+  "version": 1,
+  "restricted": false,
+  "overridable": true,
+  "files": [
+    "alarm-clock--plus.png"
+  ],
+  "attributes": {
+    "width": 16,
+    "format": "PNG",
+    "lastModification": {
+      "actor": "8.3-migration",
+      "timestamp": "2026-01-07T14:49:07Z"
+    },
+    "size": 967,
+    "lastModificationSignature": "a4f596ac26cbe2b4b210efb323c869c9d2b00ef485af4e018f3def3cbf93b461",
+    "height": 16
+  }
+}

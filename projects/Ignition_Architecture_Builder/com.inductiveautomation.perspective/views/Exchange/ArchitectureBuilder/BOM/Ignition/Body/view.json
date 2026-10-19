@@ -1,0 +1,1589 @@
+{
+  "custom": {
+    "config": {
+      "load": {
+        "clients": 0,
+        "devices": 0,
+        "histTags": 0,
+        "tags": 0
+      },
+      "modules": {
+        "CL": [],
+        "IA": [
+          {
+            "name": "Platform"
+          },
+          {
+            "name": "OPC UA"
+          },
+          {
+            "name": "Perspective",
+            "selection": "Unlimited"
+          },
+          {
+            "name": "Tag Historian",
+            "selection": "Full"
+          },
+          {
+            "name": "Alarm Notification"
+          },
+          {
+            "name": "SQL Bridge"
+          }
+        ],
+        "SS": [],
+        "TPM": []
+      },
+      "resources": {
+        "cpu": {
+          "arm": false,
+          "cores": 2,
+          "frequency": 2
+        },
+        "disk": {
+          "capacity": 10
+        },
+        "os": {
+          "type": null,
+          "version": null
+        },
+        "ram": {
+          "capacity": 4
+        }
+      }
+    },
+    "expansion": {
+      "displayed": 2,
+      "expanded": 2
+    }
+  },
+  "params": {
+    "type": "Standard",
+    "uuid": "Ifd781f02",
+    "visibility": {
+      "display": {
+        "computing": false,
+        "gatewayConfig": false,
+        "support": true
+      },
+      "expanded": {
+        "CL": true,
+        "IA": true,
+        "SS": true,
+        "TPM": true,
+        "computing": false,
+        "gatewayConfig": false,
+        "support": true
+      }
+    }
+  },
+  "propConfig": {
+    "custom.config": {
+      "binding": {
+        "config": {
+          "expression": "property(\u0027session.custom.structure.configs.\u0027 + {view.params.uuid})"
+        },
+        "transforms": [
+          {
+            "code": "\tmodules \u003d {\"modules\": {\u0027IA\u0027:[],\u0027CL\u0027:[],\u0027SS\u0027:[],\u0027TPM\u0027:[]}}\n\tvisualizationModules \u003d 0\n\n\tfor vendor in value[\u0027config\u0027][\u0027modules\u0027]:\n\t\tif len(value[\u0027config\u0027][\u0027modules\u0027][vendor]) \u003e 0:\n\t\t\textendedModules \u003d []\n\n\t\t\tfor i in range(len(value[\u0027config\u0027][\u0027modules\u0027][vendor])):\n\t\t\t\tthisModule \u003d value[\u0027config\u0027][\u0027modules\u0027][vendor][i]\n\t\t\t\tif vendor \u003d\u003d \"IA\" and thisModule[\"name\"] in (\"Perspective\", \"Vision\"):\n\t\t\t\t\tif thisModule[\"selection\"] \u003d\u003d \"Unlimited\": \n\t\t\t\t\t\tvisualizationModules +\u003d 1\n\t\t\t\textendedModules.append(thisModule)\n\t\t\tif vendor \u003d\u003d \"IA\" and visualizationModules \u003d\u003d 2:\n\t\t\t\textendedModules.append({\"name\": \"Vision \u0026 Perspective Discount\"})\n\t\t\tmodules[\u0027modules\u0027][vendor] \u003d extendedModules\n\n\t# Standard Empty dictionary\n\tstandard \u003d {\n\t\t#\"redundant\": False,\n\t\t#\"development\": True,\n\t\t\"modules\": [],\n\t\t\"resources\": {\n\t\t\t\"os\": {\n\t\t\t\t\"type\": None,\n\t\t\t\t\"version\": None\n\t\t\t},\n\t\t\t\"cpu\": {\n\t\t\t\t\"cores\": 2,\n\t\t\t\t\"frequency\": 2,\n\t\t\t\t\"arm\": False\n\t\t\t},\n\t\t\t\"disk\": {\n\t\t\t\t\"capacity\": 10\n\t\t\t},\n\t\t\t\"ram\": {\n\t\t\t\t\"capacity\": 4\n\t  \t\t}\n\t\t},\n\t\t\"load\": {\n\t\t\t\"devices\": 0,\n\t\t\t\"clients\": 0,\n\t\t\t\"tags\": 0,\n\t\t\t\"histTags\": 0\n\t\t}\n\t}\n\n\t# Update \u0027standard\u0027 dictionary to combine with session props, which may be missing certain elements\n\tstandard.update(modules)\n\n\treturn standard",
+            "type": "script"
+          }
+        ],
+        "type": "expr"
+      },
+      "persistent": true
+    },
+    "custom.expansion": {
+      "binding": {
+        "config": {
+          "path": "view.params.visibility"
+        },
+        "transforms": [
+          {
+            "code": "\tif quality.isGood():\n\t\tdisplayed \u003d 0\n\t\texpanded \u003d 0\n\t\n\t\t# For display entries, make sure they\u0027re displayed\n\t\tfor entry in value[\"display\"].keys():\n\t\t\tif value[\"display\"][entry]:\n\t\t\t\tdisplayed +\u003d 1\n\t\t\t\tif value[\"expanded\"][entry]:\n\t\t\t\t\texpanded +\u003d 1\n\t\n\t\t# Handle all other entries (module vendors)\n\t\tfor entry in [x for x in value[\"expanded\"].keys() if x not in value[\"display\"].keys()]:\n\t\t\tif len(self.custom.config.modules[entry]) \u003e 0:\n\t\t\t\tdisplayed +\u003d 1\n\t\t\t\tif value[\"expanded\"][entry]:\n\t\t\t\t\texpanded +\u003d 1\n\t\n\t\treturn {\"displayed\": displayed, \"expanded\": expanded}",
+            "type": "script"
+          }
+        ],
+        "type": "property"
+      },
+      "onChange": {
+        "enabled": null,
+        "script": "\t# If none of the items are expanded (or all being displayed), send message to toggle the expand/collapse button\n\tif currentValue.value[\"expanded\"].value \u003d\u003d 0 or currentValue.value[\"displayed\"].value \u003d\u003d currentValue.value[\"expanded\"].value:\n\t\tpayload \u003d {\"allExpanded\": bool(currentValue.value[\"expanded\"].value), \"uuid\": self.params.uuid}\n\t\tsystem.perspective.sendMessage(\"toggleExpandCollapseAll\", payload)"
+      },
+      "persistent": true
+    },
+    "params.type": {
+      "paramDirection": "input",
+      "persistent": true
+    },
+    "params.uuid": {
+      "paramDirection": "input",
+      "persistent": true
+    },
+    "params.visibility": {
+      "paramDirection": "inout",
+      "persistent": true
+    }
+  },
+  "props": {},
+  "root": {
+    "children": [
+      {
+        "custom": {
+          "expandAll": true
+        },
+        "meta": {
+          "name": "Accordion"
+        },
+        "position": {
+          "grow": 1
+        },
+        "propConfig": {
+          "props.items[0].body.viewParams.type": {
+            "binding": {
+              "config": {
+                "path": "view.params.type"
+              },
+              "type": "property"
+            }
+          },
+          "props.items[0].body.viewParams.uuid": {
+            "binding": {
+              "config": {
+                "path": "view.params.uuid"
+              },
+              "type": "property"
+            }
+          },
+          "props.items[0].expanded": {
+            "binding": {
+              "config": {
+                "expression": "{view.params.visibility.expanded.gatewayConfig} \u0026\u0026 {view.params.visibility.display.gatewayConfig}"
+              },
+              "type": "expr"
+            }
+          },
+          "props.items[0].header.content.viewParams.UUID": {
+            "binding": {
+              "config": {
+                "path": "view.params.uuid"
+              },
+              "type": "property"
+            }
+          },
+          "props.items[0].header.content.viewParams.expanded": {
+            "binding": {
+              "config": {
+                "path": "view.params.visibility.expanded.gatewayConfig"
+              },
+              "type": "property"
+            }
+          },
+          "props.items[0].header.content.viewParams.type": {
+            "binding": {
+              "config": {
+                "path": "view.params.type"
+              },
+              "type": "property"
+            }
+          },
+          "props.items[0].header.style.borderBottomLeftRadius": {
+            "binding": {
+              "config": {
+                "path": "this.props.items[0].header.content.viewParams.expanded"
+              },
+              "transforms": [
+                {
+                  "fallback": "16px",
+                  "inputType": "scalar",
+                  "mappings": [
+                    {
+                      "input": true,
+                      "output": "0px"
+                    }
+                  ],
+                  "outputType": "scalar",
+                  "type": "map"
+                }
+              ],
+              "type": "property"
+            }
+          },
+          "props.items[0].header.style.borderBottomRightRadius": {
+            "binding": {
+              "config": {
+                "path": "this.props.items[0].header.content.viewParams.expanded"
+              },
+              "transforms": [
+                {
+                  "fallback": "16px",
+                  "inputType": "scalar",
+                  "mappings": [
+                    {
+                      "input": true,
+                      "output": "0px"
+                    }
+                  ],
+                  "outputType": "scalar",
+                  "type": "map"
+                }
+              ],
+              "type": "property"
+            }
+          },
+          "props.items[0].header.style.display": {
+            "binding": {
+              "config": {
+                "path": "view.params.visibility.display.gatewayConfig"
+              },
+              "transforms": [
+                {
+                  "fallback": "none",
+                  "inputType": "scalar",
+                  "mappings": [
+                    {
+                      "input": true,
+                      "output": "flex"
+                    }
+                  ],
+                  "outputType": "scalar",
+                  "type": "map"
+                }
+              ],
+              "type": "property"
+            }
+          },
+          "props.items[0].header.style.marginBottom": {
+            "binding": {
+              "config": {
+                "path": "this.props.items[0].header.content.viewParams.expanded"
+              },
+              "transforms": [
+                {
+                  "fallback": "4px",
+                  "inputType": "scalar",
+                  "mappings": [
+                    {
+                      "input": true,
+                      "output": "0px"
+                    }
+                  ],
+                  "outputType": "scalar",
+                  "type": "map"
+                }
+              ],
+              "type": "property"
+            }
+          },
+          "props.items[1].body.viewParams.modules": {
+            "binding": {
+              "config": {
+                "bidirectional": true,
+                "path": "view.custom.config.modules.IA"
+              },
+              "type": "property"
+            }
+          },
+          "props.items[1].body.viewParams.type": {
+            "binding": {
+              "config": {
+                "path": "view.params.type"
+              },
+              "type": "property"
+            }
+          },
+          "props.items[1].body.viewParams.uuid": {
+            "binding": {
+              "config": {
+                "path": "view.params.uuid"
+              },
+              "type": "property"
+            }
+          },
+          "props.items[1].expanded": {
+            "binding": {
+              "config": {
+                "path": "view.params.visibility.expanded.IA"
+              },
+              "type": "property"
+            }
+          },
+          "props.items[1].header.content.style.borderBottomLeftRadius": {
+            "binding": {
+              "config": {
+                "path": "this.props.items[1].header.content.viewParams.expanded"
+              },
+              "transforms": [
+                {
+                  "fallback": "16px",
+                  "inputType": "scalar",
+                  "mappings": [
+                    {
+                      "input": true,
+                      "output": "0px"
+                    }
+                  ],
+                  "outputType": "scalar",
+                  "type": "map"
+                }
+              ],
+              "type": "property"
+            }
+          },
+          "props.items[1].header.content.style.borderBottomRightRadius": {
+            "binding": {
+              "config": {
+                "path": "this.props.items[1].header.content.viewParams.expanded"
+              },
+              "transforms": [
+                {
+                  "fallback": "16px",
+                  "inputType": "scalar",
+                  "mappings": [
+                    {
+                      "input": true,
+                      "output": "0px"
+                    }
+                  ],
+                  "outputType": "scalar",
+                  "type": "map"
+                }
+              ],
+              "type": "property"
+            }
+          },
+          "props.items[1].header.content.style.marginBottom": {
+            "binding": {
+              "config": {
+                "path": "this.props.items[1].header.content.viewParams.expanded"
+              },
+              "transforms": [
+                {
+                  "fallback": "4px",
+                  "inputType": "scalar",
+                  "mappings": [
+                    {
+                      "input": true,
+                      "output": "0px"
+                    }
+                  ],
+                  "outputType": "scalar",
+                  "type": "map"
+                }
+              ],
+              "type": "property"
+            }
+          },
+          "props.items[1].header.content.viewParams.UUID": {
+            "binding": {
+              "config": {
+                "path": "view.params.uuid"
+              },
+              "type": "property"
+            }
+          },
+          "props.items[1].header.content.viewParams.expanded": {
+            "binding": {
+              "config": {
+                "path": "view.params.visibility.expanded.IA"
+              },
+              "type": "property"
+            }
+          },
+          "props.items[1].header.content.viewParams.type": {
+            "binding": {
+              "config": {
+                "path": "view.params.type"
+              },
+              "type": "property"
+            }
+          },
+          "props.items[2].body.viewParams.modules": {
+            "binding": {
+              "config": {
+                "path": "view.custom.config.modules.CL"
+              },
+              "transforms": [
+                {
+                  "expression": "if(isNull({value}),\r\n\tNone,\r\n\t{value})",
+                  "type": "expression"
+                }
+              ],
+              "type": "property"
+            }
+          },
+          "props.items[2].body.viewParams.type": {
+            "binding": {
+              "config": {
+                "path": "view.params.type"
+              },
+              "type": "property"
+            }
+          },
+          "props.items[2].body.viewParams.uuid": {
+            "binding": {
+              "config": {
+                "path": "view.params.uuid"
+              },
+              "type": "property"
+            }
+          },
+          "props.items[2].expanded": {
+            "binding": {
+              "config": {
+                "expression": "{view.params.visibility.expanded.CL} \u0026\u0026 (len({view.custom.config.modules.CL}) \u003e 0)"
+              },
+              "type": "expr"
+            }
+          },
+          "props.items[2].header.content.style.borderBottomLeftRadius": {
+            "binding": {
+              "config": {
+                "path": "this.props.items[2].header.content.viewParams.expanded"
+              },
+              "transforms": [
+                {
+                  "fallback": "16px",
+                  "inputType": "scalar",
+                  "mappings": [
+                    {
+                      "input": true,
+                      "output": "0px"
+                    }
+                  ],
+                  "outputType": "scalar",
+                  "type": "map"
+                }
+              ],
+              "type": "property"
+            }
+          },
+          "props.items[2].header.content.style.borderBottomRightRadius": {
+            "binding": {
+              "config": {
+                "path": "this.props.items[2].header.content.viewParams.expanded"
+              },
+              "transforms": [
+                {
+                  "fallback": "16px",
+                  "inputType": "scalar",
+                  "mappings": [
+                    {
+                      "input": true,
+                      "output": "0px"
+                    }
+                  ],
+                  "outputType": "scalar",
+                  "type": "map"
+                }
+              ],
+              "type": "property"
+            }
+          },
+          "props.items[2].header.content.style.marginBottom": {
+            "binding": {
+              "config": {
+                "path": "this.props.items[2].header.content.viewParams.expanded"
+              },
+              "transforms": [
+                {
+                  "fallback": "4px",
+                  "inputType": "scalar",
+                  "mappings": [
+                    {
+                      "input": true,
+                      "output": "0px"
+                    }
+                  ],
+                  "outputType": "scalar",
+                  "type": "map"
+                }
+              ],
+              "type": "property"
+            }
+          },
+          "props.items[2].header.content.viewParams.UUID": {
+            "binding": {
+              "config": {
+                "path": "view.params.uuid"
+              },
+              "type": "property"
+            }
+          },
+          "props.items[2].header.content.viewParams.expanded": {
+            "binding": {
+              "config": {
+                "expression": "{view.params.visibility.expanded.CL} \u0026\u0026 (len({view.custom.config.modules.CL}) \u003e 0)"
+              },
+              "type": "expr"
+            }
+          },
+          "props.items[2].header.content.viewParams.type": {
+            "binding": {
+              "config": {
+                "path": "view.params.type"
+              },
+              "type": "property"
+            }
+          },
+          "props.items[2].header.style.display": {
+            "binding": {
+              "config": {
+                "expression": "if(len({view.custom.config.modules.CL}) \u003e 0,\r\n\t\"flex\",\r\n\t\"none\")"
+              },
+              "type": "expr"
+            }
+          },
+          "props.items[3].body.viewParams.modules": {
+            "binding": {
+              "config": {
+                "path": "view.custom.config.modules.SS"
+              },
+              "transforms": [
+                {
+                  "expression": "if(isNull({value}),\r\n\tNone,\r\n\t{value})",
+                  "type": "expression"
+                }
+              ],
+              "type": "property"
+            }
+          },
+          "props.items[3].body.viewParams.type": {
+            "binding": {
+              "config": {
+                "path": "view.params.type"
+              },
+              "type": "property"
+            }
+          },
+          "props.items[3].body.viewParams.uuid": {
+            "binding": {
+              "config": {
+                "path": "view.params.uuid"
+              },
+              "type": "property"
+            }
+          },
+          "props.items[3].expanded": {
+            "binding": {
+              "config": {
+                "expression": "{view.params.visibility.expanded.SS} \u0026\u0026 (len({view.custom.config.modules.SS}) \u003e 0)"
+              },
+              "type": "expr"
+            }
+          },
+          "props.items[3].header.content.style.borderBottomLeftRadius": {
+            "binding": {
+              "config": {
+                "path": "this.props.items[3].header.content.viewParams.expanded"
+              },
+              "transforms": [
+                {
+                  "fallback": "16px",
+                  "inputType": "scalar",
+                  "mappings": [
+                    {
+                      "input": true,
+                      "output": "0px"
+                    }
+                  ],
+                  "outputType": "scalar",
+                  "type": "map"
+                }
+              ],
+              "type": "property"
+            }
+          },
+          "props.items[3].header.content.style.borderBottomRightRadius": {
+            "binding": {
+              "config": {
+                "path": "this.props.items[3].header.content.viewParams.expanded"
+              },
+              "transforms": [
+                {
+                  "fallback": "16px",
+                  "inputType": "scalar",
+                  "mappings": [
+                    {
+                      "input": true,
+                      "output": "0px"
+                    }
+                  ],
+                  "outputType": "scalar",
+                  "type": "map"
+                }
+              ],
+              "type": "property"
+            }
+          },
+          "props.items[3].header.content.style.marginBottom": {
+            "binding": {
+              "config": {
+                "path": "this.props.items[3].header.content.viewParams.expanded"
+              },
+              "transforms": [
+                {
+                  "fallback": "4px",
+                  "inputType": "scalar",
+                  "mappings": [
+                    {
+                      "input": true,
+                      "output": "0px"
+                    }
+                  ],
+                  "outputType": "scalar",
+                  "type": "map"
+                }
+              ],
+              "type": "property"
+            }
+          },
+          "props.items[3].header.content.viewParams.UUID": {
+            "binding": {
+              "config": {
+                "path": "view.params.uuid"
+              },
+              "type": "property"
+            }
+          },
+          "props.items[3].header.content.viewParams.expanded": {
+            "binding": {
+              "config": {
+                "bidirectional": true,
+                "path": "view.params.visibility.expanded.SS"
+              },
+              "type": "property"
+            }
+          },
+          "props.items[3].header.content.viewParams.type": {
+            "binding": {
+              "config": {
+                "path": "view.params.type"
+              },
+              "type": "property"
+            }
+          },
+          "props.items[3].header.style.display": {
+            "binding": {
+              "config": {
+                "expression": "if(len({view.custom.config.modules.SS}) \u003e 0,\r\n\t\"flex\",\r\n\t\"none\")"
+              },
+              "type": "expr"
+            }
+          },
+          "props.items[4].body.viewParams.modules": {
+            "binding": {
+              "config": {
+                "path": "view.custom.config.modules.TPM"
+              },
+              "transforms": [
+                {
+                  "expression": "if(isNull({value}),\r\n\tNone,\r\n\t{value})",
+                  "type": "expression"
+                }
+              ],
+              "type": "property"
+            }
+          },
+          "props.items[4].body.viewParams.type": {
+            "binding": {
+              "config": {
+                "path": "view.params.type"
+              },
+              "type": "property"
+            }
+          },
+          "props.items[4].body.viewParams.uuid": {
+            "binding": {
+              "config": {
+                "path": "view.params.uuid"
+              },
+              "type": "property"
+            }
+          },
+          "props.items[4].expanded": {
+            "binding": {
+              "config": {
+                "expression": "{view.params.visibility.expanded.TPM} \u0026\u0026 (len({view.custom.config.modules.TPM}) \u003e 0)"
+              },
+              "type": "expr"
+            }
+          },
+          "props.items[4].header.content.style.borderBottomLeftRadius": {
+            "binding": {
+              "config": {
+                "path": "this.props.items[4].header.content.viewParams.expanded"
+              },
+              "transforms": [
+                {
+                  "fallback": "16px",
+                  "inputType": "scalar",
+                  "mappings": [
+                    {
+                      "input": true,
+                      "output": "0px"
+                    }
+                  ],
+                  "outputType": "scalar",
+                  "type": "map"
+                }
+              ],
+              "type": "property"
+            }
+          },
+          "props.items[4].header.content.style.borderBottomRightRadius": {
+            "binding": {
+              "config": {
+                "path": "this.props.items[4].header.content.viewParams.expanded"
+              },
+              "transforms": [
+                {
+                  "fallback": "16px",
+                  "inputType": "scalar",
+                  "mappings": [
+                    {
+                      "input": true,
+                      "output": "0px"
+                    }
+                  ],
+                  "outputType": "scalar",
+                  "type": "map"
+                }
+              ],
+              "type": "property"
+            }
+          },
+          "props.items[4].header.content.style.marginBottom": {
+            "binding": {
+              "config": {
+                "path": "this.props.items[4].header.content.viewParams.expanded"
+              },
+              "transforms": [
+                {
+                  "fallback": "4px",
+                  "inputType": "scalar",
+                  "mappings": [
+                    {
+                      "input": true,
+                      "output": "0px"
+                    }
+                  ],
+                  "outputType": "scalar",
+                  "type": "map"
+                }
+              ],
+              "type": "property"
+            }
+          },
+          "props.items[4].header.content.viewParams.UUID": {
+            "binding": {
+              "config": {
+                "path": "view.params.uuid"
+              },
+              "type": "property"
+            }
+          },
+          "props.items[4].header.content.viewParams.expanded": {
+            "binding": {
+              "config": {
+                "path": "view.params.visibility.expanded.TPM"
+              },
+              "type": "property"
+            }
+          },
+          "props.items[4].header.content.viewParams.modules": {
+            "binding": {
+              "config": {
+                "path": "view.custom.config.modules.TPM"
+              },
+              "transforms": [
+                {
+                  "expression": "if(isNull({value}),\r\n\tNone,\r\n\t{value})",
+                  "type": "expression"
+                }
+              ],
+              "type": "property"
+            }
+          },
+          "props.items[4].header.content.viewParams.type": {
+            "binding": {
+              "config": {
+                "path": "view.params.type"
+              },
+              "type": "property"
+            }
+          },
+          "props.items[4].header.style.borderBottomLeftRadius": {
+            "binding": {
+              "config": {
+                "path": "this.props.items[4].header.content.viewParams.expanded"
+              },
+              "transforms": [
+                {
+                  "fallback": "16px",
+                  "inputType": "scalar",
+                  "mappings": [
+                    {
+                      "input": true,
+                      "output": "0px"
+                    }
+                  ],
+                  "outputType": "scalar",
+                  "type": "map"
+                }
+              ],
+              "type": "property"
+            }
+          },
+          "props.items[4].header.style.borderBottomRightRadius": {
+            "binding": {
+              "config": {
+                "path": "this.props.items[4].header.content.viewParams.expanded"
+              },
+              "transforms": [
+                {
+                  "fallback": "16px",
+                  "inputType": "scalar",
+                  "mappings": [
+                    {
+                      "input": true,
+                      "output": "0px"
+                    }
+                  ],
+                  "outputType": "scalar",
+                  "type": "map"
+                }
+              ],
+              "type": "property"
+            }
+          },
+          "props.items[4].header.style.display": {
+            "binding": {
+              "config": {
+                "expression": "if(len({view.custom.config.modules.TPM}) \u003e 0,\r\n\t\"flex\",\r\n\t\"none\")"
+              },
+              "type": "expr"
+            }
+          },
+          "props.items[4].header.style.marginBottom": {
+            "binding": {
+              "config": {
+                "path": "this.props.items[4].header.content.viewParams.expanded"
+              },
+              "transforms": [
+                {
+                  "fallback": "4px",
+                  "inputType": "scalar",
+                  "mappings": [
+                    {
+                      "input": true,
+                      "output": "0px"
+                    }
+                  ],
+                  "outputType": "scalar",
+                  "type": "map"
+                }
+              ],
+              "type": "property"
+            }
+          },
+          "props.items[5].body.viewParams.load": {
+            "binding": {
+              "config": {
+                "path": "view.custom.config.load"
+              },
+              "type": "property"
+            }
+          },
+          "props.items[5].body.viewParams.resources": {
+            "binding": {
+              "config": {
+                "path": "view.custom.config.resources"
+              },
+              "type": "property"
+            }
+          },
+          "props.items[5].body.viewParams.uuid": {
+            "binding": {
+              "config": {
+                "path": "view.params.uuid"
+              },
+              "type": "property"
+            }
+          },
+          "props.items[5].expanded": {
+            "binding": {
+              "config": {
+                "expression": "{view.params.visibility.display.computing} \u0026\u0026 {view.params.visibility.expanded.computing}"
+              },
+              "type": "expr"
+            }
+          },
+          "props.items[5].header.content.viewParams.UUID": {
+            "binding": {
+              "config": {
+                "path": "view.params.uuid"
+              },
+              "type": "property"
+            }
+          },
+          "props.items[5].header.content.viewParams.expanded": {
+            "binding": {
+              "config": {
+                "path": "view.params.visibility.expanded.computing"
+              },
+              "type": "property"
+            }
+          },
+          "props.items[5].header.style.borderBottomLeftRadius": {
+            "binding": {
+              "config": {
+                "path": "this.props.items[5].header.content.viewParams.expanded"
+              },
+              "transforms": [
+                {
+                  "fallback": "16px",
+                  "inputType": "scalar",
+                  "mappings": [
+                    {
+                      "input": true,
+                      "output": "0px"
+                    }
+                  ],
+                  "outputType": "scalar",
+                  "type": "map"
+                }
+              ],
+              "type": "property"
+            }
+          },
+          "props.items[5].header.style.borderBottomRightRadius": {
+            "binding": {
+              "config": {
+                "path": "this.props.items[5].header.content.viewParams.expanded"
+              },
+              "transforms": [
+                {
+                  "fallback": "16px",
+                  "inputType": "scalar",
+                  "mappings": [
+                    {
+                      "input": true,
+                      "output": "0px"
+                    }
+                  ],
+                  "outputType": "scalar",
+                  "type": "map"
+                }
+              ],
+              "type": "property"
+            }
+          },
+          "props.items[5].header.style.display": {
+            "binding": {
+              "config": {
+                "path": "view.params.visibility.display.computing"
+              },
+              "transforms": [
+                {
+                  "fallback": "none",
+                  "inputType": "scalar",
+                  "mappings": [
+                    {
+                      "input": true,
+                      "output": "flex"
+                    }
+                  ],
+                  "outputType": "scalar",
+                  "type": "map"
+                }
+              ],
+              "type": "property"
+            }
+          },
+          "props.items[5].header.style.marginBottom": {
+            "binding": {
+              "config": {
+                "path": "this.props.items[5].header.content.viewParams.expanded"
+              },
+              "transforms": [
+                {
+                  "fallback": "4px",
+                  "inputType": "scalar",
+                  "mappings": [
+                    {
+                      "input": true,
+                      "output": "0px"
+                    }
+                  ],
+                  "outputType": "scalar",
+                  "type": "map"
+                }
+              ],
+              "type": "property"
+            }
+          },
+          "props.items[6].body.viewParams.type": {
+            "binding": {
+              "config": {
+                "path": "view.params.type"
+              },
+              "type": "property"
+            }
+          },
+          "props.items[6].body.viewParams.uuid": {
+            "binding": {
+              "config": {
+                "path": "view.params.uuid"
+              },
+              "type": "property"
+            }
+          },
+          "props.items[6].expanded": {
+            "binding": {
+              "config": {
+                "expression": "{view.params.visibility.display.support} \u0026\u0026 {view.params.visibility.expanded.support}"
+              },
+              "type": "expr"
+            }
+          },
+          "props.items[6].header.content.viewParams.expanded": {
+            "binding": {
+              "config": {
+                "path": "view.params.visibility.expanded.support"
+              },
+              "type": "property"
+            }
+          },
+          "props.items[6].header.content.viewParams.type": {
+            "binding": {
+              "config": {
+                "path": "view.params.type"
+              },
+              "type": "property"
+            }
+          },
+          "props.items[6].header.content.viewParams.uuid": {
+            "binding": {
+              "config": {
+                "path": "view.params.uuid"
+              },
+              "type": "property"
+            }
+          },
+          "props.items[6].header.style.display": {
+            "binding": {
+              "config": {
+                "path": "view.params.visibility.display.support"
+              },
+              "transforms": [
+                {
+                  "fallback": "none",
+                  "inputType": "scalar",
+                  "mappings": [
+                    {
+                      "input": true,
+                      "output": "flex"
+                    }
+                  ],
+                  "outputType": "scalar",
+                  "type": "map"
+                }
+              ],
+              "type": "property"
+            }
+          }
+        },
+        "props": {
+          "items": [
+            {
+              "body": {
+                "height": "auto",
+                "style": {
+                  "borderBottomLeftRadius": "16px",
+                  "borderBottomRightRadius": "16px",
+                  "classes": "",
+                  "margin": "4px",
+                  "marginBottom": "8px",
+                  "marginTop": "0px",
+                  "paddingLeft": "16px",
+                  "paddingRight": "16px"
+                },
+                "useDefaultViewHeight": false,
+                "useDefaultViewWidth": false,
+                "viewParams": {},
+                "viewPath": "Exchange/ArchitectureBuilder/BOM/Ignition/GatewayConfig/Body"
+              },
+              "header": {
+                "content": {
+                  "style": {
+                    "classes": "",
+                    "color": "#FFFFFF"
+                  },
+                  "text": "",
+                  "type": "view",
+                  "useDefaultViewHeight": false,
+                  "useDefaultViewWidth": false,
+                  "viewParams": {},
+                  "viewPath": "Exchange/ArchitectureBuilder/BOM/Ignition/GatewayConfig/Header"
+                },
+                "height": "40px",
+                "reverse": false,
+                "style": {
+                  "backgroundColor": "--neutral-40",
+                  "borderTopLeftRadius": "16px",
+                  "borderTopRightRadius": "16px",
+                  "classes": "",
+                  "marginLeft": "4px",
+                  "marginRight": "4px",
+                  "marginTop": "8px"
+                },
+                "toggle": {
+                  "collapsedIcon": {
+                    "color": "",
+                    "path": "material/expand_more",
+                    "style": {
+                      "classes": "",
+                      "display": "none"
+                    }
+                  },
+                  "enabled": false,
+                  "expandedIcon": {
+                    "color": "",
+                    "path": "material/expand_less",
+                    "style": {
+                      "classes": "",
+                      "display": "none"
+                    }
+                  }
+                }
+              }
+            },
+            {
+              "body": {
+                "height": "auto",
+                "style": {
+                  "borderBottomLeftRadius": "12px",
+                  "borderBottomRightRadius": "12px",
+                  "borderStyle": "none",
+                  "classes": "",
+                  "margin": "4px",
+                  "marginBottom": "8px",
+                  "marginTop": "0px",
+                  "paddingBottom": "4px",
+                  "paddingLeft": "16px",
+                  "paddingRight": "16px"
+                },
+                "useDefaultViewHeight": false,
+                "useDefaultViewWidth": false,
+                "viewParams": {
+                  "vendor": "IA"
+                },
+                "viewPath": "Exchange/ArchitectureBuilder/BOM/Modules/Repeater"
+              },
+              "header": {
+                "content": {
+                  "style": {
+                    "borderTopLeftRadius": "16px",
+                    "borderTopRightRadius": "16px",
+                    "classes": "",
+                    "marginLeft": "4px",
+                    "marginRight": "4px",
+                    "marginTop": "4px"
+                  },
+                  "text": "Ignition Modules",
+                  "type": "view",
+                  "useDefaultViewHeight": false,
+                  "useDefaultViewWidth": false,
+                  "viewParams": {
+                    "vendor": "IA"
+                  },
+                  "viewPath": "Exchange/ArchitectureBuilder/BOM/Modules/Header"
+                },
+                "height": "40px",
+                "reverse": false,
+                "style": {
+                  "borderStyle": "none",
+                  "classes": "",
+                  "color": "#FFFFFF",
+                  "cursor": "auto",
+                  "display": "flex",
+                  "marginTop": "0px"
+                },
+                "toggle": {
+                  "collapsedIcon": {
+                    "color": "",
+                    "path": "material/expand_more",
+                    "style": {
+                      "classes": "",
+                      "display": "none"
+                    }
+                  },
+                  "enabled": false,
+                  "expandedIcon": {
+                    "color": "",
+                    "path": "material/expand_less",
+                    "style": {
+                      "classes": "",
+                      "color": "",
+                      "display": "none"
+                    }
+                  }
+                }
+              }
+            },
+            {
+              "body": {
+                "height": "auto",
+                "style": {
+                  "borderBottomLeftRadius": "16px",
+                  "borderBottomRightRadius": "16px",
+                  "classes": "",
+                  "margin": "4px",
+                  "marginBottom": "8px",
+                  "marginTop": "0px",
+                  "paddingLeft": "16px",
+                  "paddingRight": "16px",
+                  "paddingTop": "0px"
+                },
+                "useDefaultViewHeight": false,
+                "useDefaultViewWidth": false,
+                "viewParams": {
+                  "vendor": "CL"
+                },
+                "viewPath": "Exchange/ArchitectureBuilder/BOM/Modules/Repeater"
+              },
+              "header": {
+                "content": {
+                  "style": {
+                    "borderTopLeftRadius": "16px",
+                    "borderTopRightRadius": "16px",
+                    "classes": "",
+                    "marginLeft": "4px",
+                    "marginRight": "4px",
+                    "marginTop": "4px"
+                  },
+                  "text": "",
+                  "type": "view",
+                  "useDefaultViewHeight": false,
+                  "useDefaultViewWidth": false,
+                  "viewParams": {
+                    "vendor": "CL"
+                  },
+                  "viewPath": "Exchange/ArchitectureBuilder/BOM/Modules/Header"
+                },
+                "height": "40px",
+                "reverse": false,
+                "style": {
+                  "classes": "",
+                  "color": "#FFFFFF"
+                },
+                "toggle": {
+                  "collapsedIcon": {
+                    "color": "",
+                    "path": "material/expand_more",
+                    "style": {
+                      "classes": "",
+                      "display": "none"
+                    }
+                  },
+                  "enabled": false,
+                  "expandedIcon": {
+                    "color": "",
+                    "path": "material/expand_less",
+                    "style": {
+                      "classes": "",
+                      "display": "none"
+                    }
+                  }
+                }
+              }
+            },
+            {
+              "body": {
+                "height": "auto",
+                "style": {
+                  "borderBottomLeftRadius": "16px",
+                  "borderBottomRightRadius": "16px",
+                  "classes": "",
+                  "margin": "4px",
+                  "marginBottom": "8px",
+                  "marginTop": "0px",
+                  "paddingLeft": "16px",
+                  "paddingRight": "16px",
+                  "paddingTop": "0px"
+                },
+                "useDefaultViewHeight": false,
+                "useDefaultViewWidth": false,
+                "viewParams": {
+                  "vendor": "SS"
+                },
+                "viewPath": "Exchange/ArchitectureBuilder/BOM/Modules/Repeater"
+              },
+              "header": {
+                "content": {
+                  "style": {
+                    "borderTopLeftRadius": "16px",
+                    "borderTopRightRadius": "16px",
+                    "classes": "",
+                    "marginLeft": "4px",
+                    "marginRight": "4px",
+                    "marginTop": "4px"
+                  },
+                  "text": "",
+                  "type": "view",
+                  "useDefaultViewHeight": false,
+                  "useDefaultViewWidth": false,
+                  "viewParams": {
+                    "vendor": "SS"
+                  },
+                  "viewPath": "Exchange/ArchitectureBuilder/BOM/Modules/Header"
+                },
+                "height": "40px",
+                "reverse": false,
+                "style": {
+                  "classes": "",
+                  "color": "#FFFFFF"
+                },
+                "toggle": {
+                  "collapsedIcon": {
+                    "color": "",
+                    "path": "material/expand_more",
+                    "style": {
+                      "classes": "",
+                      "display": "none"
+                    }
+                  },
+                  "enabled": false,
+                  "expandedIcon": {
+                    "color": "",
+                    "path": "material/expand_less",
+                    "style": {
+                      "classes": "",
+                      "display": "none"
+                    }
+                  }
+                }
+              }
+            },
+            {
+              "body": {
+                "height": "auto",
+                "style": {
+                  "borderBottomLeftRadius": "16px",
+                  "borderBottomRightRadius": "16px",
+                  "classes": "",
+                  "margin": "4px",
+                  "marginBottom": "8px",
+                  "marginTop": "0px",
+                  "paddingLeft": "16px",
+                  "paddingRight": "16px",
+                  "paddingTop": "0px"
+                },
+                "useDefaultViewHeight": false,
+                "useDefaultViewWidth": false,
+                "viewParams": {
+                  "vendor": "TPM"
+                },
+                "viewPath": "Exchange/ArchitectureBuilder/BOM/Modules/Repeater"
+              },
+              "header": {
+                "content": {
+                  "style": {
+                    "borderTopLeftRadius": "16px",
+                    "borderTopRightRadius": "16px",
+                    "classes": "",
+                    "color": "#FFFFFF",
+                    "marginLeft": "4px",
+                    "marginRight": "4px",
+                    "marginTop": "4px"
+                  },
+                  "text": "",
+                  "type": "view",
+                  "useDefaultViewHeight": false,
+                  "useDefaultViewWidth": false,
+                  "viewParams": {
+                    "vendor": "TPM"
+                  },
+                  "viewPath": "Exchange/ArchitectureBuilder/BOM/Modules/Header"
+                },
+                "height": "40px",
+                "reverse": false,
+                "style": {
+                  "classes": ""
+                },
+                "toggle": {
+                  "collapsedIcon": {
+                    "color": "",
+                    "path": "material/expand_more",
+                    "style": {
+                      "classes": "",
+                      "display": "none"
+                    }
+                  },
+                  "enabled": false,
+                  "expandedIcon": {
+                    "color": "",
+                    "path": "material/expand_less",
+                    "style": {
+                      "classes": "",
+                      "display": "none"
+                    }
+                  }
+                }
+              }
+            },
+            {
+              "body": {
+                "height": "auto",
+                "style": {
+                  "borderBottomLeftRadius": "16px",
+                  "borderBottomRightRadius": "16px",
+                  "classes": "",
+                  "margin": "4px",
+                  "marginBottom": "8px",
+                  "marginTop": "0px",
+                  "paddingLeft": "16px",
+                  "paddingRight": "16px"
+                },
+                "useDefaultViewHeight": false,
+                "useDefaultViewWidth": false,
+                "viewParams": {},
+                "viewPath": "Exchange/ArchitectureBuilder/BOM/Resources/Ignition"
+              },
+              "header": {
+                "content": {
+                  "style": {
+                    "classes": "",
+                    "color": "#FFFFFF"
+                  },
+                  "text": "Computing Load \u0026 Resources",
+                  "type": "view",
+                  "useDefaultViewHeight": false,
+                  "useDefaultViewWidth": false,
+                  "viewParams": {},
+                  "viewPath": "Exchange/ArchitectureBuilder/BOM/Resources/Header"
+                },
+                "height": "40px",
+                "reverse": false,
+                "style": {
+                  "backgroundColor": "--neutral-40",
+                  "borderTopLeftRadius": "16px",
+                  "borderTopRightRadius": "16px",
+                  "classes": "",
+                  "marginLeft": "4px",
+                  "marginRight": "4px",
+                  "marginTop": "4px"
+                },
+                "toggle": {
+                  "collapsedIcon": {
+                    "color": "",
+                    "path": "material/expand_more",
+                    "style": {
+                      "classes": "",
+                      "display": "none"
+                    }
+                  },
+                  "enabled": false,
+                  "expandedIcon": {
+                    "color": "",
+                    "path": "material/expand_less",
+                    "style": {
+                      "classes": "",
+                      "display": "none"
+                    }
+                  }
+                }
+              }
+            },
+            {
+              "body": {
+                "height": "auto",
+                "style": {
+                  "classes": "",
+                  "margin": "4px",
+                  "marginTop": "0px"
+                },
+                "useDefaultViewHeight": false,
+                "useDefaultViewWidth": false,
+                "viewParams": {},
+                "viewPath": "Exchange/ArchitectureBuilder/BOM/Support/Body"
+              },
+              "header": {
+                "content": {
+                  "style": {
+                    "classes": ""
+                  },
+                  "text": "",
+                  "type": "view",
+                  "useDefaultViewHeight": false,
+                  "useDefaultViewWidth": false,
+                  "viewParams": {},
+                  "viewPath": "Exchange/ArchitectureBuilder/BOM/Support/Header"
+                },
+                "height": "40px",
+                "reverse": false,
+                "style": {
+                  "classes": "",
+                  "margin": "4px",
+                  "marginBottom": "0px"
+                },
+                "toggle": {
+                  "collapsedIcon": {
+                    "color": "",
+                    "path": "material/expand_more",
+                    "style": {
+                      "classes": "",
+                      "display": "none"
+                    }
+                  },
+                  "enabled": false,
+                  "expandedIcon": {
+                    "color": "",
+                    "path": "material/expand_less",
+                    "style": {
+                      "classes": "",
+                      "display": "none"
+                    }
+                  }
+                }
+              }
+            }
+          ],
+          "style": {
+            "borderBottomLeftRadius": "10px",
+            "borderBottomRightRadius": "10px",
+            "borderStyle": "none",
+            "borderTopLeftRadius": "10px",
+            "borderTopRightRadius": "10px"
+          }
+        },
+        "type": "ia.display.accordion"
+      }
+    ],
+    "meta": {
+      "name": "root"
+    },
+    "props": {
+      "direction": "column",
+      "style": {
+        "paddingLeft": 10,
+        "paddingRight": 10
+      }
+    },
+    "scripts": {
+      "customMethods": [],
+      "extensionFunctions": null,
+      "messageHandlers": [
+        {
+          "messageType": "toggleExpansion",
+          "pageScope": true,
+          "script": "\t# Verify UUID matches\n\tif payload[\"uuid\"] \u003d\u003d self.view.params.uuid:\n\t\tif payload[\"source\"] in (\"IA\", \"CL\", \"SS\", \"TPM\", \"computing\", \"gatewayConfig\", \"support\"):\n\t\t\t# Toggle expansion of module vendor\n\t\t\tself.view.params.visibility.expanded[payload[\"source\"]] \u003d payload[\"value\"]\n\t\telif payload[\"source\"] \u003d\u003d \"all\":\n\t\t\t# Toggle expansion of all entries\n\t\t\tfor entry in self.view.params.visibility.expanded:\n\t\t\t\tself.view.params.visibility.expanded[entry] \u003d payload[\"value\"]",
+          "sessionScope": false,
+          "viewScope": false
+        }
+      ]
+    },
+    "type": "ia.container.flex"
+  }
+}

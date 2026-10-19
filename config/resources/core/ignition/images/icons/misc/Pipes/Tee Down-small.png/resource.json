@@ -1,0 +1,20 @@
+{
+  "scope": "A",
+  "version": 1,
+  "restricted": false,
+  "overridable": true,
+  "files": [
+    "Tee Down-small.png"
+  ],
+  "attributes": {
+    "width": 32,
+    "format": "PNG",
+    "lastModification": {
+      "actor": "8.3-migration",
+      "timestamp": "2026-01-07T14:49:07Z"
+    },
+    "size": 3033,
+    "lastModificationSignature": "3eb4f942b1860ea69bbf806614fd10d7b910a4729c46b4c2efea0a7d24c0635f",
+    "height": 22
+  }
+}

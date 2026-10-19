@@ -1,0 +1,20 @@
+{
+  "scope": "A",
+  "version": 1,
+  "restricted": false,
+  "overridable": true,
+  "files": [
+    "funnel.png"
+  ],
+  "attributes": {
+    "width": 16,
+    "format": "PNG",
+    "lastModification": {
+      "actor": "8.3-migration",
+      "timestamp": "2026-01-07T14:49:07Z"
+    },
+    "size": 543,
+    "lastModificationSignature": "7d28fd5a08336a2932f45308ac5b2f9c5c913c4876c3f1d26ee4b30509f0464e",
+    "height": 16
+  }
+}

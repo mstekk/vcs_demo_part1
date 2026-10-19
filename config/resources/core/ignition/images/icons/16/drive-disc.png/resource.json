@@ -1,0 +1,20 @@
+{
+  "scope": "A",
+  "version": 1,
+  "restricted": false,
+  "overridable": true,
+  "files": [
+    "drive-disc.png"
+  ],
+  "attributes": {
+    "width": 16,
+    "format": "PNG",
+    "lastModification": {
+      "actor": "8.3-migration",
+      "timestamp": "2026-01-07T14:49:07Z"
+    },
+    "size": 771,
+    "lastModificationSignature": "a3d080f550368737c33e241d73fe2c27f8aefbc8d8f45d471b51884df2672d30",
+    "height": 16
+  }
+}

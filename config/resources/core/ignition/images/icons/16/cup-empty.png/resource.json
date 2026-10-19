@@ -1,0 +1,20 @@
+{
+  "scope": "A",
+  "version": 1,
+  "restricted": false,
+  "overridable": true,
+  "files": [
+    "cup-empty.png"
+  ],
+  "attributes": {
+    "width": 16,
+    "format": "PNG",
+    "lastModification": {
+      "actor": "8.3-migration",
+      "timestamp": "2026-01-07T14:49:07Z"
+    },
+    "size": 661,
+    "lastModificationSignature": "2bfd9c211c8e43968c595d81378f0f71406fb33dc0b93f4574c320df1b4b122d",
+    "height": 16
+  }
+}

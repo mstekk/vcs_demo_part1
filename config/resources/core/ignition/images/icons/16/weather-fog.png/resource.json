@@ -1,0 +1,20 @@
+{
+  "scope": "A",
+  "version": 1,
+  "restricted": false,
+  "overridable": true,
+  "files": [
+    "weather-fog.png"
+  ],
+  "attributes": {
+    "width": 16,
+    "format": "PNG",
+    "lastModification": {
+      "actor": "8.3-migration",
+      "timestamp": "2026-01-07T14:49:07Z"
+    },
+    "size": 600,
+    "lastModificationSignature": "badfdef8af0e3755c5a47aa09a6862a8bab77c8b5d0e7b4fd43e3ad73145429f",
+    "height": 16
+  }
+}

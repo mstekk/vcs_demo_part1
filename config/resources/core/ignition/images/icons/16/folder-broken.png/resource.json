@@ -1,0 +1,20 @@
+{
+  "scope": "A",
+  "version": 1,
+  "restricted": false,
+  "overridable": true,
+  "files": [
+    "folder-broken.png"
+  ],
+  "attributes": {
+    "width": 16,
+    "format": "PNG",
+    "lastModification": {
+      "actor": "8.3-migration",
+      "timestamp": "2026-01-07T14:49:07Z"
+    },
+    "size": 1440,
+    "lastModificationSignature": "d54f3752ec7c6b824dc3476e953af4a217b97b3cca0ab9c58b86a542d3ac8647",
+    "height": 16
+  }
+}

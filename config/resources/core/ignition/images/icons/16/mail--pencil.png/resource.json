@@ -1,0 +1,20 @@
+{
+  "scope": "A",
+  "version": 1,
+  "restricted": false,
+  "overridable": true,
+  "files": [
+    "mail--pencil.png"
+  ],
+  "attributes": {
+    "width": 16,
+    "format": "PNG",
+    "lastModification": {
+      "actor": "8.3-migration",
+      "timestamp": "2026-01-07T14:49:07Z"
+    },
+    "size": 660,
+    "lastModificationSignature": "3d7776a6eaf323aea89654d4e21d3d481095a422e056b733d5b4ec8a4be91e59",
+    "height": 16
+  }
+}

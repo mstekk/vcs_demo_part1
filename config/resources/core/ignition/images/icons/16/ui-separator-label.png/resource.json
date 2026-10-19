@@ -1,0 +1,20 @@
+{
+  "scope": "A",
+  "version": 1,
+  "restricted": false,
+  "overridable": true,
+  "files": [
+    "ui-separator-label.png"
+  ],
+  "attributes": {
+    "width": 16,
+    "format": "PNG",
+    "lastModification": {
+      "actor": "8.3-migration",
+      "timestamp": "2026-01-07T14:49:07Z"
+    },
+    "size": 244,
+    "lastModificationSignature": "18928650f74960e9c8db6791cb6a1a28a22205b4bc54a97a1bdf4d4f2fd8dde9",
+    "height": 16
+  }
+}

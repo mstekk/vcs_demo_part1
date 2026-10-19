@@ -1,0 +1,20 @@
+{
+  "scope": "A",
+  "version": 1,
+  "restricted": false,
+  "overridable": true,
+  "files": [
+    "user-business-gray-boss.png"
+  ],
+  "attributes": {
+    "width": 16,
+    "format": "PNG",
+    "lastModification": {
+      "actor": "8.3-migration",
+      "timestamp": "2026-01-07T14:49:07Z"
+    },
+    "size": 709,
+    "lastModificationSignature": "8694a4a770d5e7e118d139f1ea3aea0bb0c7d1e39151cd137b22555a2853b652",
+    "height": 16
+  }
+}

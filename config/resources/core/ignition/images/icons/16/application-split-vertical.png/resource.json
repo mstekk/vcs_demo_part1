@@ -1,0 +1,20 @@
+{
+  "scope": "A",
+  "version": 1,
+  "restricted": false,
+  "overridable": true,
+  "files": [
+    "application-split-vertical.png"
+  ],
+  "attributes": {
+    "width": 16,
+    "format": "PNG",
+    "lastModification": {
+      "actor": "8.3-migration",
+      "timestamp": "2026-01-07T14:49:07Z"
+    },
+    "size": 446,
+    "lastModificationSignature": "9377db8735b4d4f123ab53e3a914224e6d7c4154e30619a20dda7ddf64fb03df",
+    "height": 16
+  }
+}

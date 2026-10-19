@@ -1,0 +1,20 @@
+{
+  "scope": "A",
+  "version": 1,
+  "restricted": false,
+  "overridable": true,
+  "files": [
+    "Flange Top.png"
+  ],
+  "attributes": {
+    "width": 120,
+    "format": "PNG",
+    "lastModification": {
+      "actor": "8.3-migration",
+      "timestamp": "2026-01-07T14:49:07Z"
+    },
+    "size": 4470,
+    "lastModificationSignature": "49767eaa0278887682178819e876f76d2f376a59e82de866501f2d26f731fbba",
+    "height": 109
+  }
+}

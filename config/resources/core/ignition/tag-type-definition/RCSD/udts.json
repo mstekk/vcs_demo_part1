@@ -1,0 +1,346 @@
+[
+  {
+    "name": "Sample_Valve_Hand",
+    "parameters": {
+      "AlarmPriority": {
+        "dataType": "Integer",
+        "value": null
+      },
+      "Location": {
+        "dataType": "String",
+        "value": "Building A - Recycle Station"
+      },
+      "DeviceID": {
+        "dataType": "String",
+        "value": {
+          "bindType": "parameter",
+          "binding": "{InstanceName}"
+        }
+      },
+      "DeviceDescription": {
+        "dataType": "String",
+        "value": null
+      }
+    },
+    "tagType": "UdtType",
+    "tags": [
+      {
+        "valueSource": "memory",
+        "name": "Alarm_ActiveAcked",
+        "tagType": "AtomicTag"
+      },
+      {
+        "valueSource": "memory",
+        "alarms": [
+          {
+            "name": "Alarm"
+          }
+        ],
+        "name": "Alarm_ActiveUnacked",
+        "tagType": "AtomicTag"
+      },
+      {
+        "valueSource": "memory",
+        "dataType": "Boolean",
+        "name": "Auto",
+        "tagType": "AtomicTag"
+      },
+      {
+        "valueSource": "memory",
+        "dataType": "Int4",
+        "name": "LOR",
+        "tagType": "AtomicTag"
+      },
+      {
+        "name": "Metrics",
+        "tagType": "Folder",
+        "tags": [
+          {
+            "valueSource": "memory",
+            "dataType": "DateTime",
+            "name": "Last Stop",
+            "formatString": "yyyy-MM-dd h:mm:ss aa",
+            "value": 1769662800000,
+            "tagType": "AtomicTag"
+          },
+          {
+            "valueSource": "memory",
+            "name": "Start Counter",
+            "value": 981,
+            "tagType": "AtomicTag"
+          },
+          {
+            "valueSource": "memory",
+            "dataType": "DateTime",
+            "name": "Last Start",
+            "formatString": "yyyy-MM-dd h:mm:ss aa",
+            "value": 1769749200000,
+            "tagType": "AtomicTag"
+          },
+          {
+            "valueSource": "memory",
+            "name": "Run Time",
+            "value": 351312,
+            "tagType": "AtomicTag"
+          }
+        ]
+      },
+      {
+        "valueSource": "memory",
+        "dataType": "Boolean",
+        "name": "Value",
+        "value": 0,
+        "tagType": "AtomicTag"
+      }
+    ]
+  },
+  {
+    "name": "Sample_Analog",
+    "parameters": {
+      "unit": {
+        "dataType": "String",
+        "value": null
+      },
+      "Param Type": {
+        "dataType": "String",
+        "value": null
+      },
+      "Location": {
+        "dataType": "String",
+        "value": null
+      },
+      "DeviceID": {
+        "dataType": "String",
+        "value": {
+          "bindType": "parameter",
+          "binding": "{InstanceName}"
+        }
+      },
+      "DeviceDescription": {
+        "dataType": "String",
+        "value": null
+      }
+    },
+    "tagType": "UdtType",
+    "tags": [
+      {
+        "valueSource": "memory",
+        "name": "DeviceName",
+        "tagType": "AtomicTag"
+      },
+      {
+        "engUnit": {
+          "bindType": "parameter",
+          "binding": "{unit}"
+        },
+        "valueSource": "opc",
+        "opcItemPath": "ns\u003d1;s\u003d[Demo Tags]_Meta:Overview/Sensor 1/Temperature",
+        "dataType": "Float4",
+        "historyProvider": "sqlite",
+        "name": "TempValue",
+        "historyEnabled": true,
+        "tagType": "AtomicTag",
+        "opcServer": "Ignition OPC-UA Server"
+      },
+      {
+        "valueSource": "expr",
+        "expression": "({[.]TempValue}/150)*100",
+        "dataType": "Float8",
+        "historyProvider": "sqlite",
+        "name": "Value",
+        "historyEnabled": true,
+        "tagType": "AtomicTag"
+      }
+    ]
+  },
+  {
+    "name": "Sample_Pump",
+    "parameters": {
+      "AlarmPriority": {
+        "dataType": "Integer",
+        "value": null
+      },
+      "Location": {
+        "dataType": "String",
+        "value": "Building A - Recycle Station"
+      },
+      "DeviceID": {
+        "dataType": "String",
+        "value": {
+          "bindType": "parameter",
+          "binding": "{InstanceName}"
+        }
+      },
+      "DeviceDescription": {
+        "dataType": "String",
+        "value": null
+      }
+    },
+    "tagType": "UdtType",
+    "tags": [
+      {
+        "valueSource": "memory",
+        "name": "Alarm_ActiveAcked",
+        "tagType": "AtomicTag"
+      },
+      {
+        "valueSource": "memory",
+        "alarms": [
+          {
+            "name": "Alarm"
+          }
+        ],
+        "name": "Alarm_ActiveUnacked",
+        "tagType": "AtomicTag"
+      },
+      {
+        "valueSource": "memory",
+        "dataType": "Boolean",
+        "name": "Auto",
+        "tagType": "AtomicTag"
+      },
+      {
+        "valueSource": "memory",
+        "dataType": "Int4",
+        "name": "LOR",
+        "tagType": "AtomicTag"
+      },
+      {
+        "name": "Metrics",
+        "tagType": "Folder",
+        "tags": [
+          {
+            "valueSource": "memory",
+            "name": "Start Counter",
+            "value": 981,
+            "tagType": "AtomicTag"
+          },
+          {
+            "valueSource": "memory",
+            "name": "Run Time",
+            "value": 351312,
+            "tagType": "AtomicTag"
+          },
+          {
+            "valueSource": "memory",
+            "dataType": "DateTime",
+            "name": "Last Stop",
+            "formatString": "yyyy-MM-dd h:mm:ss aa",
+            "value": 1769662800000,
+            "tagType": "AtomicTag"
+          },
+          {
+            "valueSource": "memory",
+            "dataType": "DateTime",
+            "name": "Last Start",
+            "formatString": "yyyy-MM-dd h:mm:ss aa",
+            "value": 1769749200000,
+            "tagType": "AtomicTag"
+          }
+        ]
+      },
+      {
+        "valueSource": "memory",
+        "dataType": "Boolean",
+        "name": "Value",
+        "value": 0,
+        "tagType": "AtomicTag"
+      }
+    ]
+  },
+  {
+    "name": "Sample_Valve_Control",
+    "parameters": {
+      "AlarmPriority": {
+        "dataType": "Integer",
+        "value": null
+      },
+      "Location": {
+        "dataType": "String",
+        "value": "Building A - Recycle Station"
+      },
+      "DeviceID": {
+        "dataType": "String",
+        "value": {
+          "bindType": "parameter",
+          "binding": "{InstanceName}"
+        }
+      },
+      "DeviceDescription": {
+        "dataType": "String",
+        "value": null
+      }
+    },
+    "tagType": "UdtType",
+    "tags": [
+      {
+        "valueSource": "memory",
+        "name": "Alarm_ActiveAcked",
+        "tagType": "AtomicTag"
+      },
+      {
+        "valueSource": "memory",
+        "alarms": [
+          {
+            "name": "Alarm"
+          }
+        ],
+        "name": "Alarm_ActiveUnacked",
+        "tagType": "AtomicTag"
+      },
+      {
+        "valueSource": "memory",
+        "dataType": "Boolean",
+        "name": "Auto",
+        "tagType": "AtomicTag"
+      },
+      {
+        "valueSource": "memory",
+        "dataType": "Int4",
+        "name": "LOR",
+        "tagType": "AtomicTag"
+      },
+      {
+        "name": "Metrics",
+        "tagType": "Folder",
+        "tags": [
+          {
+            "valueSource": "memory",
+            "name": "Run Time",
+            "value": 351312,
+            "tagType": "AtomicTag"
+          },
+          {
+            "valueSource": "memory",
+            "dataType": "DateTime",
+            "name": "Last Stop",
+            "formatString": "yyyy-MM-dd h:mm:ss aa",
+            "value": 1769662800000,
+            "tagType": "AtomicTag"
+          },
+          {
+            "valueSource": "memory",
+            "name": "Start Counter",
+            "value": 981,
+            "tagType": "AtomicTag"
+          },
+          {
+            "valueSource": "memory",
+            "dataType": "DateTime",
+            "name": "Last Start",
+            "formatString": "yyyy-MM-dd h:mm:ss aa",
+            "value": 1769749200000,
+            "tagType": "AtomicTag"
+          }
+        ]
+      },
+      {
+        "valueSource": "memory",
+        "dataType": "Int4",
+        "name": "Value",
+        "value": 100,
+        "tagType": "AtomicTag"
+      }
+    ]
+  }
+]

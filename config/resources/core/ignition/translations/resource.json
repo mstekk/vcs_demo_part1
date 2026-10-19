@@ -1,0 +1,21 @@
+{
+  "scope": "A",
+  "version": 1,
+  "restricted": false,
+  "overridable": true,
+  "files": [
+    "es.json",
+    "en.json"
+  ],
+  "attributes": {
+    "lastModification": {
+      "actor": "8.3-migration",
+      "timestamp": "2026-01-07T14:49:51Z"
+    },
+    "ignorePunctuation": false,
+    "caseInsensitive": false,
+    "lastModificationSignature": "f85698ea27c0b4a9ddf5ee1536292c6bf32a05d2ce0b7fc9b859681d288a53be",
+    "ignoreWhitespace": false,
+    "ignoreTags": false
+  }
+}

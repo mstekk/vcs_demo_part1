@@ -1,0 +1,20 @@
+{
+  "scope": "A",
+  "version": 1,
+  "restricted": false,
+  "overridable": true,
+  "files": [
+    "telephone56.png"
+  ],
+  "attributes": {
+    "width": 24,
+    "format": "PNG",
+    "lastModification": {
+      "actor": "8.3-migration",
+      "timestamp": "2026-01-07T14:49:07Z"
+    },
+    "size": 515,
+    "lastModificationSignature": "166925e4118ddf8d4077c1374f678d76b7d2c063a0a96d6a05ddc899182256c9",
+    "height": 24
+  }
+}

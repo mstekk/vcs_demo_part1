@@ -1,0 +1,75 @@
+[
+  {
+    "valueSource": "opc",
+    "historyMaxAge": 2,
+    "opcItemPath": "ns\u003d2:s\u003dQuantum3.Quantum3.LU-GRA-RM5-DRIVE-AMPS",
+    "historicalDeadband": 0.005,
+    "writePermissions": {
+      "type": "AllOf",
+      "securityLevels": []
+    },
+    "historyTagGroup": "Default Historical",
+    "tagGroup": "Default",
+    "tagType": "AtomicTag",
+    "enabled": true,
+    "readOnly": false,
+    "historyProvider": "mysql",
+    "dataType": "Float4",
+    "name": "LU-GRA-RM5-DRIVE-AMPS",
+    "historyEnabled": true,
+    "readPermissions": {
+      "type": "AllOf",
+      "securityLevels": []
+    },
+    "sampleMode": "TagGroup",
+    "opcServer": "Kepware"
+  },
+  {
+    "valueSource": "expr",
+    "expression": "//runScript(\"return system.tag.queryTagHistory(rangeMinutes\u003d-10, paths\u003d[\u0027Test Scada Integrations/LU-GRA-RM5-DRIVE-AMPS\u0027], intervalSeconds\u003d10, returnSize\u003d1, aggregationMode\u003d\u0027Average\u0027, returnFormat\u003d\u0027Wide\u0027)\r\n//\", 60000)\r\nrunScript(\"shared.MovingAverage.getLast10MinAvg(\u0027[MySQL/ignition:default]test scada integrations/lu-gra-rm5-drive-amps\u0027)\"\r\n, 60000)",
+    "readOnly": false,
+    "dataType": "Float4",
+    "writePermissions": {
+      "type": "AllOf",
+      "securityLevels": []
+    },
+    "alarms": [
+      {
+        "mode": "AboveValue",
+        "activePipeline": "Supervisors",
+        "name": "RM 5 Drive Amps above Setpoint",
+        "priority": "High",
+        "setpointA": {
+          "bindType": "Tag",
+          "value": "[.]LU-GRA-RM5-DRIVE-AMPS_Alarm_SP"
+        }
+      }
+    ],
+    "name": "LU-GRA-RM5-DRIVE-AMPS_10minMovingAvg",
+    "executionMode": "TagGroupRate",
+    "readPermissions": {
+      "type": "AllOf",
+      "securityLevels": []
+    },
+    "tagGroup": "One Minute",
+    "tagType": "AtomicTag",
+    "enabled": false
+  },
+  {
+    "valueSource": "memory",
+    "readOnly": false,
+    "dataType": "Int4",
+    "writePermissions": {
+      "type": "AllOf",
+      "securityLevels": []
+    },
+    "name": "LU-GRA-RM5-DRIVE-AMPS_Alarm_SP",
+    "readPermissions": {
+      "type": "AllOf",
+      "securityLevels": []
+    },
+    "tagGroup": "Default",
+    "tagType": "AtomicTag",
+    "enabled": false
+  }
+]

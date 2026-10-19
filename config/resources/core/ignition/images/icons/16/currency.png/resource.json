@@ -1,0 +1,20 @@
+{
+  "scope": "A",
+  "version": 1,
+  "restricted": false,
+  "overridable": true,
+  "files": [
+    "currency.png"
+  ],
+  "attributes": {
+    "width": 16,
+    "format": "PNG",
+    "lastModification": {
+      "actor": "8.3-migration",
+      "timestamp": "2026-01-07T14:49:07Z"
+    },
+    "size": 687,
+    "lastModificationSignature": "bb9b921307cf1195457dd0408cd684fcff29c82e41f16ce79c3f3b13fe826967",
+    "height": 16
+  }
+}

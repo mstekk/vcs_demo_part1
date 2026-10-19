@@ -1,0 +1,20 @@
+{
+  "scope": "A",
+  "version": 1,
+  "restricted": false,
+  "overridable": true,
+  "files": [
+    "hammer5.png"
+  ],
+  "attributes": {
+    "width": 24,
+    "format": "PNG",
+    "lastModification": {
+      "actor": "8.3-migration",
+      "timestamp": "2026-01-07T14:49:07Z"
+    },
+    "size": 422,
+    "lastModificationSignature": "3f8421b6abce304c03f44f58b576781e4990330c7c3ef24e22d8b486db1d38c5",
+    "height": 24
+  }
+}

@@ -1,0 +1,20 @@
+{
+  "scope": "A",
+  "version": 1,
+  "restricted": false,
+  "overridable": true,
+  "files": [
+    "money--pencil.png"
+  ],
+  "attributes": {
+    "width": 16,
+    "format": "PNG",
+    "lastModification": {
+      "actor": "8.3-migration",
+      "timestamp": "2026-01-07T14:49:07Z"
+    },
+    "size": 639,
+    "lastModificationSignature": "67e96acfe6bfaf77ab80a50fe31914373ff55603e03710ed63b9539cf860e0e6",
+    "height": 16
+  }
+}

@@ -1,0 +1,20 @@
+{
+  "scope": "A",
+  "version": 1,
+  "restricted": false,
+  "overridable": true,
+  "files": [
+    "media-player-small-pink.png"
+  ],
+  "attributes": {
+    "width": 16,
+    "format": "PNG",
+    "lastModification": {
+      "actor": "8.3-migration",
+      "timestamp": "2026-01-07T14:49:07Z"
+    },
+    "size": 475,
+    "lastModificationSignature": "1156e286f6edafad23fdad73dd0fe04f50755b1e80c6fe9b679c4dd211f16bdf",
+    "height": 16
+  }
+}

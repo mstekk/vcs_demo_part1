@@ -1,0 +1,486 @@
+{
+  "custom": {
+    "display": "New 2 by Kymera"
+  },
+  "params": {
+    "currentModules": [],
+    "input": {
+      "author": "Kymera",
+      "desc": "Retrieves data from SNMP V1, V2c and V3 agents making it available via OPC so that Ignition and other OPC-UA compliant systems can monitor network health and computer statistics.",
+      "display": "New 2 by Kymera",
+      "enabled": true,
+      "id": "",
+      "image": "https://docs.inductiveautomation.com/img/Logo-Ignition-Check.svg",
+      "link": "https://www.kymerasystems.com/modules/",
+      "name": "New 2",
+      "price": "Contact Kymera",
+      "selected": false
+    },
+    "mode": ""
+  },
+  "propConfig": {
+    "custom.display": {
+      "binding": {
+        "config": {
+          "expression": "{view.params.input.name}+ \" by \" +{view.params.input.author}"
+        },
+        "type": "expr"
+      },
+      "onChange": {
+        "enabled": null,
+        "script": "\tif self.params.input!\u003dFalse:\n\t\tself.params.input.display\u003dcurrentValue.value"
+      },
+      "persistent": true
+    },
+    "params.currentModules": {
+      "paramDirection": "input",
+      "persistent": true
+    },
+    "params.input": {
+      "paramDirection": "inout",
+      "persistent": true
+    },
+    "params.mode": {
+      "paramDirection": "input",
+      "persistent": true
+    }
+  },
+  "props": {
+    "defaultSize": {
+      "height": 380,
+      "width": 484
+    }
+  },
+  "root": {
+    "children": [
+      {
+        "children": [
+          {
+            "meta": {
+              "name": "Icon",
+              "tooltip": {
+                "enabled": true
+              }
+            },
+            "position": {
+              "basis": "30px"
+            },
+            "propConfig": {
+              "meta.tooltip.text": {
+                "binding": {
+                  "config": {
+                    "path": "view.params.mode"
+                  },
+                  "transforms": [
+                    {
+                      "code": "\tif value\u003d\u003d\u0027Ignore\u0027:\n\t\tmessage\u003d \u0027be Ignored\u0027\n\telif value\u003d\u003d\u0027Overwrite\u0027:\n\t\tmessage\u003d  \u0027overwrite current Module\u0027\n\t\t\n\treturn \u0027Conflict in Current Modules, this module (\"{}\") will {}\u0027.format(self.view.params.input.display, message)",
+                      "type": "script"
+                    }
+                  ],
+                  "type": "property"
+                }
+              },
+              "meta.visible": {
+                "binding": {
+                  "config": {
+                    "path": "view.params.input.display"
+                  },
+                  "transforms": [
+                    {
+                      "code": "\treturn value in self.view.params.currentModules",
+                      "type": "script"
+                    }
+                  ],
+                  "type": "property"
+                }
+              }
+            },
+            "props": {
+              "color": "red",
+              "path": "material/warning"
+            },
+            "type": "ia.display.icon"
+          },
+          {
+            "meta": {
+              "name": "ModuleName"
+            },
+            "position": {
+              "grow": 1,
+              "shrink": 0
+            },
+            "propConfig": {
+              "props.params.backColor": {
+                "binding": {
+                  "config": {
+                    "path": "this.props.params.text"
+                  },
+                  "transforms": [
+                    {
+                      "code": "\tif value in [None, \u0027\u0027]:\n\t\treturn \"#FFCCCC\"\n\treturn \u0027\u0027",
+                      "type": "script"
+                    }
+                  ],
+                  "type": "property"
+                }
+              },
+              "props.params.text": {
+                "binding": {
+                  "config": {
+                    "bidirectional": true,
+                    "path": "view.params.input.name"
+                  },
+                  "type": "property"
+                }
+              }
+            },
+            "props": {
+              "params": {
+                "label": "Module Name:",
+                "labelSize": "120px"
+              },
+              "path": "Exchange/ArchitectureBuilder/General/TextInput"
+            },
+            "type": "ia.display.view"
+          }
+        ],
+        "meta": {
+          "name": "FlexContainer_1"
+        },
+        "position": {
+          "basis": "30px",
+          "shrink": 0
+        },
+        "props": {
+          "style": {
+            "marginBottom": "8px",
+            "marginLeft": "8px",
+            "marginRight": "8px",
+            "marginTop": "8px"
+          }
+        },
+        "type": "ia.container.flex"
+      },
+      {
+        "children": [
+          {
+            "meta": {
+              "name": "Image"
+            },
+            "position": {
+              "grow": 1,
+              "shrink": 0
+            },
+            "propConfig": {
+              "props.params.text": {
+                "binding": {
+                  "config": {
+                    "bidirectional": true,
+                    "path": "view.params.input.image"
+                  },
+                  "type": "property"
+                }
+              }
+            },
+            "props": {
+              "alignItems": "center",
+              "direction": "column",
+              "justify": "flex-end",
+              "params": {
+                "label": "Image:",
+                "labelSize": "150px"
+              },
+              "path": "Exchange/ArchitectureBuilder/General/TextInput"
+            },
+            "type": "ia.display.view"
+          },
+          {
+            "children": [
+              {
+                "events": {
+                  "component": {
+                    "onFileReceived": {
+                      "config": {
+                        "script": "\timport base64\n\tname\u003devent.file.name\n\t\n\text\u003dname.split(\".\")[-1]\n\t\n\tmime_types \u003d {\n\t    \u0027png\u0027: \u0027image/png\u0027,\n\t    \u0027jpg\u0027: \u0027image/jpeg\u0027,\n\t    \u0027jpeg\u0027: \u0027image/jpeg\u0027,\n\t    \u0027gif\u0027: \u0027image/gif\u0027,\n\t    \u0027svg\u0027: \u0027image/svg+xml\u0027,\n\t    # Add more mappings if necessary\n\t}\n\t# Function to convert file bytes to a base64-encoded string\n\tdef convert_file_to_base64(file_bytes, ext):\n\t\t# Open the image file in binary mode\n\t\tbase64_encoded_data \u003d base64.b64encode(file_bytes)\n\t\t# Convert bytes to string (Python 2.7)\n\t\tbase64_string \u003d base64_encoded_data.decode(\u0027utf-8\u0027)\n\t\tmime_type \u003d mime_types[ext.lower()]\n\t\tdata_url_prefix \u003d \u0027data:{};base64,\u0027.format(mime_type)\n\t\treturn data_url_prefix + base64_string\n\t\t\n\tsdata \u003d event.file.getBytes()\n\tbase64_image_string \u003d convert_file_to_base64(sdata, ext)\n\tself.parent.parent.getChild(\"Image\").props.params.text\u003dbase64_image_string"
+                      },
+                      "scope": "G",
+                      "type": "script"
+                    }
+                  }
+                },
+                "meta": {
+                  "name": "FileUpload"
+                },
+                "position": {
+                  "basis": "400px"
+                },
+                "props": {
+                  "supportedFileTypes": [
+                    "svg",
+                    "png",
+                    "jpg"
+                  ]
+                },
+                "type": "ia.input.fileupload"
+              }
+            ],
+            "meta": {
+              "name": "FlexContainer",
+              "tooltip": {
+                "enabled": true,
+                "text": "SVG Upload"
+              }
+            },
+            "position": {
+              "basis": "24px",
+              "shrink": 0
+            },
+            "type": "ia.container.flex"
+          }
+        ],
+        "meta": {
+          "name": "FlexContainer"
+        },
+        "position": {
+          "basis": "30px",
+          "shrink": 0
+        },
+        "props": {
+          "style": {
+            "marginBottom": "8px",
+            "marginLeft": "8px",
+            "marginRight": "8px"
+          }
+        },
+        "type": "ia.container.flex"
+      },
+      {
+        "meta": {
+          "name": "Price"
+        },
+        "position": {
+          "basis": "30px",
+          "shrink": 0
+        },
+        "propConfig": {
+          "props.params.value": {
+            "binding": {
+              "config": {
+                "bidirectional": true,
+                "path": "view.params.input.price"
+              },
+              "type": "property"
+            }
+          }
+        },
+        "props": {
+          "params": {
+            "label": "Price:",
+            "labelSize": 150
+          },
+          "path": "Exchange/ArchitectureBuilder/General/NumericInput",
+          "style": {
+            "marginBottom": "8px",
+            "marginLeft": "8px",
+            "marginRight": "8px"
+          }
+        },
+        "type": "ia.display.view"
+      },
+      {
+        "meta": {
+          "name": "Link"
+        },
+        "position": {
+          "basis": "30px",
+          "shrink": 0
+        },
+        "propConfig": {
+          "props.params.text": {
+            "binding": {
+              "config": {
+                "bidirectional": true,
+                "path": "view.params.input.link"
+              },
+              "type": "property"
+            }
+          }
+        },
+        "props": {
+          "params": {
+            "label": "Link:",
+            "labelSize": "150px"
+          },
+          "path": "Exchange/ArchitectureBuilder/General/TextInput",
+          "style": {
+            "marginBottom": "8px",
+            "marginLeft": "8px",
+            "marginRight": "8px"
+          }
+        },
+        "type": "ia.display.view"
+      },
+      {
+        "meta": {
+          "name": "Author"
+        },
+        "position": {
+          "basis": "30px",
+          "shrink": 0
+        },
+        "propConfig": {
+          "props.params.backColor": {
+            "binding": {
+              "config": {
+                "path": "this.props.params.text"
+              },
+              "transforms": [
+                {
+                  "code": "\tif value in [None, \u0027\u0027]:\n\t\treturn \"#FFCCCC\"\n\treturn \u0027\u0027",
+                  "type": "script"
+                }
+              ],
+              "type": "property"
+            }
+          },
+          "props.params.text": {
+            "binding": {
+              "config": {
+                "bidirectional": true,
+                "path": "view.params.input.author"
+              },
+              "type": "property"
+            }
+          }
+        },
+        "props": {
+          "params": {
+            "label": "Author:",
+            "labelSize": "150px"
+          },
+          "path": "Exchange/ArchitectureBuilder/General/TextInput",
+          "style": {
+            "marginBottom": "8px",
+            "marginLeft": "8px",
+            "marginRight": "8px"
+          }
+        },
+        "type": "ia.display.view"
+      },
+      {
+        "meta": {
+          "name": "Description"
+        },
+        "position": {
+          "basis": "30px",
+          "shrink": 0
+        },
+        "propConfig": {
+          "props.params.text": {
+            "binding": {
+              "config": {
+                "bidirectional": true,
+                "path": "view.params.input.desc"
+              },
+              "type": "property"
+            }
+          }
+        },
+        "props": {
+          "params": {
+            "label": "Description:",
+            "labelSize": "150px"
+          },
+          "path": "Exchange/ArchitectureBuilder/General/TextInput",
+          "style": {
+            "marginBottom": "8px",
+            "marginLeft": "8px",
+            "marginRight": "8px"
+          }
+        },
+        "type": "ia.display.view"
+      },
+      {
+        "children": [
+          {
+            "meta": {
+              "name": "EmbeddedView"
+            },
+            "position": {
+              "grow": 1
+            },
+            "propConfig": {
+              "props.params.desc": {
+                "binding": {
+                  "config": {
+                    "path": "view.params.input.desc"
+                  },
+                  "type": "property"
+                }
+              },
+              "props.params.image": {
+                "binding": {
+                  "config": {
+                    "path": "view.params.input.image"
+                  },
+                  "type": "property"
+                }
+              },
+              "props.params.link": {
+                "binding": {
+                  "config": {
+                    "path": "view.params.input.link"
+                  },
+                  "type": "property"
+                }
+              },
+              "props.params.name": {
+                "binding": {
+                  "config": {
+                    "path": "view.params.input.display"
+                  },
+                  "type": "property"
+                }
+              }
+            },
+            "props": {
+              "params": {
+                "enabled": true,
+                "selected": false
+              },
+              "path": "Exchange/ArchitectureBuilder/Modules/ModuleViewPlusEdition"
+            },
+            "type": "ia.display.view"
+          }
+        ],
+        "meta": {
+          "name": "FlexContainer_0"
+        },
+        "position": {
+          "shrink": 0
+        },
+        "props": {
+          "alignItems": "center",
+          "direction": "column",
+          "justify": "center"
+        },
+        "type": "ia.container.flex"
+      }
+    ],
+    "meta": {
+      "name": "root"
+    },
+    "props": {
+      "direction": "column",
+      "style": {
+        "borderBottomLeftRadius": "8px",
+        "borderBottomRightRadius": "8px",
+        "borderStyle": "solid",
+        "borderTopLeftRadius": "8px",
+        "borderTopRightRadius": "8px",
+        "margin": "4px"
+      }
+    },
+    "type": "ia.container.flex"
+  }
+}

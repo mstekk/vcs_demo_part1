@@ -1,0 +1,535 @@
+{
+  "custom": {
+    "connection": {
+      "allow": true,
+      "approval": false,
+      "limited": false,
+      "message": ""
+    },
+    "nameAndType": [
+      {
+        "name": "Frontend",
+        "type": "Standard Gateway",
+        "typeID": "standard"
+      },
+      {
+        "name": "Client",
+        "type": "Client",
+        "typeID": "Client"
+      }
+    ]
+  },
+  "params": {
+    "allowed": true,
+    "connection": {
+      "I6ca07755": {
+        "config": {
+          "connections": [
+            "Id1ee815e"
+          ],
+          "image": "ClientKeyboardBlue-Left",
+          "quantity": 1
+        },
+        "desc": "",
+        "name": "Client",
+        "type": "Client",
+        "uuid": "I6ca07755"
+      },
+      "Iaf9f7c5b": {
+        "config": {
+          "connections": [
+            "Ic5265860",
+            "I7a3ded68",
+            "I438bc958",
+            "I1dcb797b",
+            "Id1ee815e",
+            "Icebccd45"
+          ],
+          "development": false,
+          "displayModules": true,
+          "licenseKey": "",
+          "licenseKeyRedun": "",
+          "modules": {
+            "CL": [],
+            "IA": [
+              {
+                "name": "Platform"
+              },
+              {
+                "name": "OPC UA"
+              },
+              {
+                "name": "Perspective",
+                "selection": "Unlimited"
+              }
+            ],
+            "SS": [],
+            "TPM": []
+          },
+          "redundant": false,
+          "version": "8.1.x"
+        },
+        "desc": "",
+        "name": "Frontend",
+        "type": "standard",
+        "uuid": "Iaf9f7c5b"
+      }
+    },
+    "uuid": "Id1ee815e"
+  },
+  "propConfig": {
+    "custom.connection": {
+      "binding": {
+        "config": {
+          "path": "view.custom.nameAndType"
+        },
+        "transforms": [
+          {
+            "code": "\treturn exchange.architecturebuilder.viewCanvas.connectionRules.connectionCheck([self.custom.nameAndType[0].typeID,self.custom.nameAndType[1].typeID])",
+            "type": "script"
+          }
+        ],
+        "type": "property"
+      },
+      "persistent": true
+    },
+    "custom.nameAndType": {
+      "binding": {
+        "config": {
+          "struct": {
+            "configs": "{session.custom.structure.configs}",
+            "connection": "{view.params.connection}",
+            "uuid": "{view.params.uuid}"
+          },
+          "waitOnAll": true
+        },
+        "transforms": [
+          {
+            "code": "\tconnection\u003dvalue[\u0027connection\u0027]\n\tconfigs\u003dvalue[\u0027configs\u0027]\n\tuuid\u003dvalue[\u0027uuid\u0027]\n\tnames\u003d[]\n\tgateways\u003d[\u0027standard\u0027, \u0027cloud\u0027, \u0027edge\u0027, \u0027panel\u0027]\n\tconnectionType\u003dconfigs[uuid][\u0027config\u0027][\u0027connectionType\u0027]\n\tkeys\u003dconnection.keys()\n\tif connection[keys[0]][\u0027type\u0027] in gateways and connection[keys[1]][\u0027type\u0027] in gateways and connectionType\u003d\u003d\u0027Gateway Network\u0027:\n\t\toutgoing\u003dconfigs[uuid][\u0027config\u0027][\u0027Outgoing\u0027]\n\t\tkey1\u003d{\u0027typeID\u0027: connection[keys[1]][\u0027type\u0027], \u0027type\u0027:exchange.architecturebuilder.viewCanvas.connectionRules.getConnectionName(connection[keys[1]][\u0027type\u0027]), \u0027name\u0027: connection[keys[1]][\u0027name\u0027]}\n\t\tkey0\u003d{\u0027typeID\u0027: connection[keys[0]][\u0027type\u0027], \u0027type\u0027:exchange.architecturebuilder.viewCanvas.connectionRules.getConnectionName(connection[keys[0]][\u0027type\u0027]), \u0027name\u0027: connection[keys[0]][\u0027name\u0027]}\n\t\tif keys[1]\u003d\u003doutgoing:\n\t\t\tnames.insert(0,key1)\n\t\telse:\n\t\t\tnames.append(key1)\n\t\tif keys[0]\u003d\u003doutgoing:\n\t\t\tnames.insert(0,key0)\n\t\telse:\n\t\t\tnames.append(key0)\n\telse:\n\t\tfor x in connection:\n\t\t\tcomptype\u003dconnection[x][\u0027type\u0027]\n\t\t\tif comptype in gateways:\n\t\t\t\tnames.insert(0,{\u0027typeID\u0027: connection[x][\u0027type\u0027], \u0027type\u0027:exchange.architecturebuilder.viewCanvas.connectionRules.getConnectionName(connection[x][\u0027type\u0027]), \u0027name\u0027: connection[x][\u0027name\u0027]})\n\t\t\telse:\n\t\t\t\tnames.append({\u0027typeID\u0027: connection[x][\u0027type\u0027], \u0027type\u0027:exchange.architecturebuilder.viewCanvas.connectionRules.getConnectionName(connection[x][\u0027type\u0027]), \u0027name\u0027: connection[x][\u0027name\u0027]})\n\treturn names",
+            "type": "script"
+          }
+        ],
+        "type": "expr-struct"
+      },
+      "persistent": true
+    },
+    "params.allowed": {
+      "binding": {
+        "config": {
+          "path": "view.custom.connection.allow"
+        },
+        "type": "property"
+      },
+      "paramDirection": "output",
+      "persistent": true
+    },
+    "params.connection": {
+      "paramDirection": "input",
+      "persistent": true
+    },
+    "params.uuid": {
+      "paramDirection": "input",
+      "persistent": true
+    }
+  },
+  "props": {
+    "defaultSize": {
+      "height": 168,
+      "width": 506
+    }
+  },
+  "root": {
+    "children": [
+      {
+        "children": [
+          {
+            "meta": {
+              "name": "Label"
+            },
+            "propConfig": {
+              "props.text": {
+                "binding": {
+                  "config": {
+                    "struct": {
+                      "configs": "{session.custom.structure.configs}",
+                      "uuid": "{view.params.uuid}"
+                    },
+                    "waitOnAll": true
+                  },
+                  "transforms": [
+                    {
+                      "code": "\treturn \u0027{} Connection\u0027.format(value[\u0027configs\u0027] [value[\u0027uuid\u0027]][\u0027config\u0027][\u0027connectionType\u0027])",
+                      "type": "script"
+                    }
+                  ],
+                  "type": "expr-struct"
+                }
+              }
+            },
+            "props": {
+              "textStyle": {
+                "fontSize": "18px",
+                "fontWeight": "normal",
+                "paddingLeft": "4px"
+              }
+            },
+            "type": "ia.display.label"
+          }
+        ],
+        "meta": {
+          "name": "Header"
+        },
+        "props": {
+          "style": {
+            "borderBottomStyle": "solid",
+            "borderBottomWidth": 1
+          }
+        },
+        "type": "ia.container.flex"
+      },
+      {
+        "children": [
+          {
+            "events": {
+              "dom": {
+                "onClick": {
+                  "config": {
+                    "script": "\tuuid\u003dself.view.params.uuid\n\tpath\u003d\u0027Exchange/ArchitectureBuilder/Frames/EmbeddedViews/PipeConfig\u0027\n\tparams\u003d{\u0027uuid\u0027:uuid}\n\ttitle\u003d\u0027Connection Configuration\u0027\n\tpage\u003dself.page.props.pageId\n\tsystem.perspective.sendMessage(\u0027openPopup\u0027, {\u0027uuid\u0027:uuid, \u0027path\u0027:path,\u0027params\u0027:params,\u0027title\u0027:title, \u0027page\u0027: page},scope\u003d\u0027session\u0027)"
+                  },
+                  "scope": "G",
+                  "type": "script"
+                }
+              }
+            },
+            "meta": {
+              "name": "Connection",
+              "tooltip": {
+                "text": "Edge to Edge GWN not Allowed"
+              }
+            },
+            "position": {
+              "basis": "28px"
+            },
+            "propConfig": {
+              "props.color": {
+                "binding": {
+                  "config": {
+                    "path": "view.custom.connection"
+                  },
+                  "transforms": [
+                    {
+                      "code": "\tif not value[\u0027allow\u0027]:\n\t\treturn \u0027--error\u0027\n\telif value[\u0027limited\u0027]:\n\t\treturn \u0027#FF8C00\u0027\n\telif value[\u0027approval\u0027]: \n\t\treturn \u0027#D9D900\u0027\n\telse:\n\t\treturn \u0027#00D900\u0027",
+                      "type": "script"
+                    }
+                  ],
+                  "type": "property"
+                }
+              },
+              "props.path": {
+                "binding": {
+                  "config": {
+                    "path": "view.custom.connection"
+                  },
+                  "transforms": [
+                    {
+                      "code": "\tif not value[\u0027allow\u0027]:\n\t\treturn \u0027material/warning\u0027\n\telif value[\u0027limited\u0027]:\n\t\treturn \u0027material/error\u0027\n\telif value[\u0027approval\u0027]: \n\t\treturn \u0027material/check_circle\u0027\n\telse:\n\t\treturn \u0027material/check_circle\u0027",
+                      "type": "script"
+                    }
+                  ],
+                  "type": "property"
+                }
+              }
+            },
+            "props": {
+              "style": {
+                "cursor": "pointer",
+                "margin": 6,
+                "marginRight": "4px"
+              }
+            },
+            "type": "ia.display.icon"
+          },
+          {
+            "children": [
+              {
+                "meta": {
+                  "name": "connection1Name"
+                },
+                "position": {
+                  "grow": 1
+                },
+                "propConfig": {
+                  "props.text": {
+                    "binding": {
+                      "config": {
+                        "path": "view.custom.nameAndType[0].name"
+                      },
+                      "type": "property"
+                    }
+                  }
+                },
+                "props": {
+                  "textStyle": {
+                    "fontWeight": "bolder",
+                    "textAlign": "center"
+                  }
+                },
+                "type": "ia.display.label"
+              },
+              {
+                "meta": {
+                  "name": "connection1Type"
+                },
+                "propConfig": {
+                  "props.text": {
+                    "binding": {
+                      "config": {
+                        "path": "view.custom.nameAndType[0].type"
+                      },
+                      "type": "property"
+                    }
+                  }
+                },
+                "props": {
+                  "alignVertical": "bottom",
+                  "style": {
+                    "paddingRight": "4px"
+                  },
+                  "textStyle": {
+                    "fontSize": 10,
+                    "fontStyle": "italic",
+                    "textAlign": "center"
+                  }
+                },
+                "type": "ia.display.label"
+              }
+            ],
+            "meta": {
+              "name": "C1"
+            },
+            "props": {
+              "direction": "column",
+              "style": {
+                "marginRight": "4px"
+              }
+            },
+            "type": "ia.container.flex"
+          },
+          {
+            "meta": {
+              "name": "Label_1"
+            },
+            "props": {
+              "style": {
+                "marginRight": "8px"
+              },
+              "text": " - to - "
+            },
+            "type": "ia.display.label"
+          },
+          {
+            "children": [
+              {
+                "meta": {
+                  "name": "connection2Name"
+                },
+                "position": {
+                  "grow": 1
+                },
+                "propConfig": {
+                  "props.text": {
+                    "binding": {
+                      "config": {
+                        "path": "view.custom.nameAndType[1].name"
+                      },
+                      "type": "property"
+                    }
+                  }
+                },
+                "props": {
+                  "textStyle": {
+                    "fontWeight": "bolder",
+                    "textAlign": "center"
+                  }
+                },
+                "type": "ia.display.label"
+              },
+              {
+                "meta": {
+                  "name": "connection2Type"
+                },
+                "propConfig": {
+                  "props.text": {
+                    "binding": {
+                      "config": {
+                        "path": "view.custom.nameAndType[1].type"
+                      },
+                      "type": "property"
+                    }
+                  }
+                },
+                "props": {
+                  "alignVertical": "bottom",
+                  "style": {
+                    "paddingRight": "4px"
+                  },
+                  "textStyle": {
+                    "fontSize": 10,
+                    "fontStyle": "italic",
+                    "textAlign": "center"
+                  }
+                },
+                "type": "ia.display.label"
+              }
+            ],
+            "meta": {
+              "name": "C2"
+            },
+            "props": {
+              "direction": "column",
+              "style": {
+                "marginRight": "4px"
+              }
+            },
+            "type": "ia.container.flex"
+          },
+          {
+            "children": [
+              {
+                "events": {
+                  "dom": {
+                    "onClick": {
+                      "config": {
+                        "script": "\tconnectionUUID\u003dstr(self.view.params.uuid)\n\tfor uuid in self.view.params.connection:\n\t\tconnections\u003dself.session.custom.structure.configs[uuid][\u0027config\u0027][\u0027connections\u0027]\n\t\tfor connection in range(len(connections)):\n\t\t\tif str(connections[connection]) \u003d\u003dconnectionUUID:\n\t\t\t\tself.session.custom.structure.configs[uuid][\u0027config\u0027][\u0027connections\u0027].pop(connection)\n\t\t\t\tbreak\n\tself.session.custom.connections.pop(connectionUUID)\n\tself.session.custom.structure.configs.pop(connectionUUID)\n\tsystem.perspective.sendMessage(\u0027refreshViewCanvas\u0027, True, scope\u003d \u0027session\u0027)"
+                      },
+                      "scope": "G",
+                      "type": "script"
+                    }
+                  }
+                },
+                "meta": {
+                  "name": "DeleteConnection",
+                  "tooltip": {
+                    "text": "Edge to Edge GWN not Allowed"
+                  }
+                },
+                "position": {
+                  "basis": "34px",
+                  "shrink": 0
+                },
+                "props": {
+                  "path": "material/delete_sweep",
+                  "style": {
+                    "cursor": "pointer",
+                    "marginRight": "4px"
+                  }
+                },
+                "type": "ia.display.icon"
+              }
+            ],
+            "meta": {
+              "name": "FlexContainer"
+            },
+            "position": {
+              "basis": "34px",
+              "grow": 1
+            },
+            "props": {
+              "justify": "flex-end"
+            },
+            "type": "ia.container.flex"
+          }
+        ],
+        "meta": {
+          "name": "Connection"
+        },
+        "position": {
+          "shrink": 0
+        },
+        "type": "ia.container.flex"
+      },
+      {
+        "children": [
+          {
+            "meta": {
+              "name": "Label"
+            },
+            "position": {
+              "basis": "50px",
+              "grow": 1
+            },
+            "propConfig": {
+              "props.text": {
+                "binding": {
+                  "config": {
+                    "path": "view.custom.connection.message"
+                  },
+                  "type": "property"
+                }
+              },
+              "props.textStyle.color": {
+                "binding": {
+                  "config": {
+                    "path": "view.custom.connection"
+                  },
+                  "transforms": [
+                    {
+                      "code": "\tif not value[\u0027allow\u0027]:\n\t\treturn \u0027--error\u0027\n\telif value[\u0027limited\u0027]:\n\t\treturn \u0027#FF8C00\u0027\n\telif value[\u0027approval\u0027]: \n\t\treturn \u0027#D9D900\u0027\n\telse:\n\t\treturn \u0027#00D900\u0027",
+                      "type": "script"
+                    }
+                  ],
+                  "type": "property"
+                }
+              }
+            },
+            "props": {
+              "textStyle": {
+                "fontSize": 12,
+                "fontWeight": "bolder"
+              }
+            },
+            "type": "ia.display.label"
+          }
+        ],
+        "meta": {
+          "name": "FlexContainer"
+        },
+        "position": {
+          "shrink": 0
+        },
+        "propConfig": {
+          "position.display": {
+            "binding": {
+              "config": {
+                "path": "view.custom.connection"
+              },
+              "transforms": [
+                {
+                  "expression": "!{value}[\u0027allow\u0027]||\r\n{value}[\u0027limited\u0027]||\r\n{value}[\u0027approval\u0027]",
+                  "type": "expression"
+                }
+              ],
+              "type": "property"
+            }
+          }
+        },
+        "type": "ia.container.flex"
+      }
+    ],
+    "meta": {
+      "name": "root"
+    },
+    "props": {
+      "direction": "column",
+      "style": {
+        "backgroundColor": "--neutral-30",
+        "borderBottomLeftRadius": "8px",
+        "borderBottomRightRadius": "8px",
+        "borderTopLeftRadius": "8px",
+        "borderTopRightRadius": "8px",
+        "padding": "8px"
+      }
+    },
+    "type": "ia.container.flex"
+  }
+}

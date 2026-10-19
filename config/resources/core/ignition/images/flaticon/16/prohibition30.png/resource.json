@@ -1,0 +1,20 @@
+{
+  "scope": "A",
+  "version": 1,
+  "restricted": false,
+  "overridable": true,
+  "files": [
+    "prohibition30.png"
+  ],
+  "attributes": {
+    "width": 16,
+    "format": "PNG",
+    "lastModification": {
+      "actor": "8.3-migration",
+      "timestamp": "2026-01-07T14:49:07Z"
+    },
+    "size": 311,
+    "lastModificationSignature": "75593813644d71d68df9997d844d26a26d29a03919d5b01aeb47a7bda5913566",
+    "height": 16
+  }
+}

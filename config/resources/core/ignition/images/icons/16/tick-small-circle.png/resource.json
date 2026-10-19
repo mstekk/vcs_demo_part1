@@ -1,0 +1,20 @@
+{
+  "scope": "A",
+  "version": 1,
+  "restricted": false,
+  "overridable": true,
+  "files": [
+    "tick-small-circle.png"
+  ],
+  "attributes": {
+    "width": 16,
+    "format": "PNG",
+    "lastModification": {
+      "actor": "8.3-migration",
+      "timestamp": "2026-01-07T14:49:07Z"
+    },
+    "size": 332,
+    "lastModificationSignature": "17f9eaa8715199ec03e8313d7813415e89e592bce67989b0bb8e55492fcf1e20",
+    "height": 16
+  }
+}

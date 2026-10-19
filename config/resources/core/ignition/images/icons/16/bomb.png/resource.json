@@ -1,0 +1,20 @@
+{
+  "scope": "A",
+  "version": 1,
+  "restricted": false,
+  "overridable": true,
+  "files": [
+    "bomb.png"
+  ],
+  "attributes": {
+    "width": 16,
+    "format": "PNG",
+    "lastModification": {
+      "actor": "8.3-migration",
+      "timestamp": "2026-01-07T14:49:07Z"
+    },
+    "size": 849,
+    "lastModificationSignature": "33041b8594af20389e099d8043877d8b4848d879b589b72b9fde8b38cf2c5f09",
+    "height": 16
+  }
+}

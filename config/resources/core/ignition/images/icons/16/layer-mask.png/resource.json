@@ -1,0 +1,20 @@
+{
+  "scope": "A",
+  "version": 1,
+  "restricted": false,
+  "overridable": true,
+  "files": [
+    "layer-mask.png"
+  ],
+  "attributes": {
+    "width": 16,
+    "format": "PNG",
+    "lastModification": {
+      "actor": "8.3-migration",
+      "timestamp": "2026-01-07T14:49:07Z"
+    },
+    "size": 614,
+    "lastModificationSignature": "b2783c74ec47a6d31b75f0a7ddaeeb0d0984d5313b46c73e6993a2af369a2a6e",
+    "height": 16
+  }
+}

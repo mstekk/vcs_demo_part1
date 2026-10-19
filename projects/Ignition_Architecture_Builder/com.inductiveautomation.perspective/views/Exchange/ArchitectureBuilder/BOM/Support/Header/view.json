@@ -1,0 +1,219 @@
+{
+  "custom": {},
+  "params": {
+    "expanded": true,
+    "type": "Edge",
+    "uuid": "I55f7afb2"
+  },
+  "propConfig": {
+    "params.expanded": {
+      "paramDirection": "inout",
+      "persistent": true
+    },
+    "params.type": {
+      "paramDirection": "input",
+      "persistent": true
+    },
+    "params.uuid": {
+      "paramDirection": "input",
+      "persistent": true
+    }
+  },
+  "props": {
+    "defaultSize": {
+      "height": 40
+    }
+  },
+  "root": {
+    "children": [
+      {
+        "events": {
+          "dom": {
+            "onClick": {
+              "config": {
+                "script": "\t# Determine new value\n\tisExpanded \u003d not self.view.params.expanded\n\n\tif self.session.custom.audit.bom:\n\t\t# Log Support expanded / collapsed\n\t\tif isExpanded:\n\t\t\taction \u003d \"Expanded\"\n\t\telse:\n\t\t\taction \u003d \"Collapsed\"\n\t\tsystem.util.audit(action\u003daction, actionTarget\u003d\"BOM\", actionValue\u003d\"Ignition Support\", originatingSystem\u003d[\"uuid\",self.view.params.UUID,\"vendor\",self.view.params.vendor])\n\n\t# Send message (Exchange/ArchitectureBuilder/BOM/BillOfMaterials \u0026 Exchange/ArchitectureBuilder/BOM/Ignition/Body have handler)\n\tpayload \u003d {\u0027source\u0027: \u0027support\u0027, \u0027uuid\u0027: self.view.params.UUID, \u0027value\u0027: isExpanded}\n\tsystem.perspective.sendMessage(\"toggleExpansion\", payload)"
+              },
+              "scope": "G",
+              "type": "script"
+            }
+          }
+        },
+        "meta": {
+          "name": "Toggle",
+          "tooltip": {
+            "enabled": true,
+            "text": "Expand/Collapse"
+          }
+        },
+        "position": {
+          "basis": "30px"
+        },
+        "propConfig": {
+          "props.path": {
+            "binding": {
+              "config": {
+                "path": "view.params.expanded"
+              },
+              "transforms": [
+                {
+                  "fallback": "material/expand_more",
+                  "inputType": "scalar",
+                  "mappings": [
+                    {
+                      "input": true,
+                      "output": "material/expand_less"
+                    }
+                  ],
+                  "outputType": "scalar",
+                  "type": "map"
+                }
+              ],
+              "type": "property"
+            }
+          }
+        },
+        "props": {
+          "style": {
+            "cursor": "pointer"
+          }
+        },
+        "type": "ia.display.icon"
+      },
+      {
+        "meta": {
+          "name": "Title"
+        },
+        "position": {
+          "grow": 1
+        },
+        "props": {
+          "style": {
+            "marginLeft": "6px"
+          },
+          "text": "Annual Support"
+        },
+        "type": "ia.display.label"
+      },
+      {
+        "meta": {
+          "name": "price",
+          "tooltip": {}
+        },
+        "position": {
+          "shrink": 0
+        },
+        "propConfig": {
+          "custom.price": {
+            "binding": {
+              "config": {
+                "struct": {
+                  "config": "{session.custom.structure.configs}",
+                  "discount": "{session.custom.discount}",
+                  "eamUnlimited": "{session.custom.eamUnlimited}",
+                  "instance": "property(\"session.custom.structure.configs.\" + {view.params.uuid})",
+                  "type": "{view.params.type}",
+                  "uuid": "{view.params.uuid}"
+                },
+                "waitOnAll": true
+              },
+              "transforms": [
+                {
+                  "code": "\ttotal \u003d 0\n\tif value[\u0027type\u0027] \u003d\u003d \u0027Cloud\u0027:\n\t\treturn total\n\telse:\n\t\tfor vendor in (\"IA\", \"CL\"):\n\t\t\tif vendor in value[\u0027instance\u0027][\u0027config\u0027][\u0027modules\u0027]:\n\t\t\t\t# Build list of selected modules\n\t\t\t\tselectedModules \u003d []\n\t\t\t\tmoduleVendors \u003d value[\u0027instance\u0027][\u0027config\u0027][\u0027modules\u0027][vendor]\n\t\t\t\t# Include EAM Unlimited if UUID matches\n\t\t\t\tif vendor \u003d\u003d \"IA\" and value[\"eamUnlimited\"][\"selected\"] and value[\"eamUnlimited\"][\"UUID\"] \u003d\u003d value[\u0027uuid\u0027]:\n\t\t\t\t\tselectedModules.append({\"name\": \"EAM\", \"selection\": \"unlimited\"})\n\t\t\t\tfor m in moduleVendors:\n\t\t\t\t\tif \"selection\" in m.keys() and m[\"selection\"] not in (None, \"\"):\n\t\t\t\t\t\tselectedModules.append({\"name\": m[\"name\"], \"selection\": m[\"selection\"]})\n\t\t\t\t\telse:\n\t\t\t\t\t\tselectedModules.append(m[\"name\"])\n\t\t\t\ttotal +\u003d exchange.architecturebuilder.modules.getSupportTotal({vendor: selectedModules}, supportPlan\u003dvalue[\u0027instance\u0027][\u0027config\u0027][\u0027supportPlan\u0027], gwType\u003dvalue[\u0027type\u0027])[\"total\"]\n\t\treturn total",
+                  "type": "script"
+                }
+              ],
+              "type": "expr-struct"
+            }
+          },
+          "meta.textOriginal": {
+            "binding": {
+              "config": {
+                "expression": "\"Price after discount. (\" + numberFormat(coalesce({this.custom.price.total}, 0), \"$#,##0.00\") + \" Retail)\""
+              },
+              "type": "expr"
+            }
+          },
+          "meta.tooltip.enabled": {
+            "binding": {
+              "config": {
+                "expression": "{session.custom.discount} \u003e 0"
+              },
+              "type": "expr"
+            }
+          },
+          "meta.tooltip.text": {
+            "binding": {
+              "config": {
+                "expression": "{session.custom.discount} + \"% Discount\""
+              },
+              "type": "expr"
+            }
+          },
+          "props.text": {
+            "binding": {
+              "config": {
+                "expression": "numberFormat({this.custom.price} * (1 - ({session.custom.discount} / 100.0)), \u0027$#,##0.00\u0027)"
+              },
+              "type": "expr"
+            }
+          }
+        },
+        "props": {
+          "style": {
+            "marginLeft": "8px",
+            "marginRight": 8,
+            "textAlign": "right"
+          }
+        },
+        "scripts": {
+          "customMethods": [],
+          "extensionFunctions": null,
+          "messageHandlers": [
+            {
+              "messageType": "priceRefresh",
+              "pageScope": true,
+              "script": "\tlogger \u003d system.util.getLogger(\"BOM/Headers/ModuleVendor\")\n\n\tif payload[\u0027uuid\u0027] \u003d\u003d self.view.params.UUID:\n\t\tif payload[\u0027vendor\u0027] in (\u0027Standard\u0027, \u0027Edge\u0027, \u0027Cloud\u0027):\n\t\t\tpayloadVendor \u003d \u0027IA\u0027\n\t\telse:\n\t\t\tpayloadVendor \u003d payload[\u0027vendor\u0027]\n\n\t\tlogger.info(\"payload[\u0027vendor\u0027] \u003d \" + payloadVendor)\n\t\tif payloadVendor \u003d\u003d self.view.params.vendor: \n\t\t\tself.refreshBinding(\"custom.price\")",
+              "sessionScope": false,
+              "viewScope": false
+            }
+          ]
+        },
+        "type": "ia.display.label"
+      }
+    ],
+    "meta": {
+      "name": "root"
+    },
+    "propConfig": {
+      "props.style.borderBottomLeftRadius": {
+        "binding": {
+          "config": {
+            "expression": "if({view.params.expanded},\r\n\t\"0px\",\r\n\t\"16px\")"
+          },
+          "type": "expr"
+        }
+      },
+      "props.style.borderBottomRightRadius": {
+        "binding": {
+          "config": {
+            "expression": "if({view.params.expanded},\r\n\t\"0px\",\r\n\t\"16px\")"
+          },
+          "type": "expr"
+        }
+      }
+    },
+    "props": {
+      "style": {
+        "backgroundColor": "--ia-green",
+        "borderTopLeftRadius": "16px",
+        "borderTopRightRadius": "16px",
+        "color": "black",
+        "cursor": "auto",
+        "margin": "0px",
+        "marginBottom": "0px",
+        "marginTop": "0px"
+      }
+    },
+    "type": "ia.container.flex"
+  }
+}

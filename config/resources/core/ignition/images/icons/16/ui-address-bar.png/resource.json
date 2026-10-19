@@ -1,0 +1,20 @@
+{
+  "scope": "A",
+  "version": 1,
+  "restricted": false,
+  "overridable": true,
+  "files": [
+    "ui-address-bar.png"
+  ],
+  "attributes": {
+    "width": 16,
+    "format": "PNG",
+    "lastModification": {
+      "actor": "8.3-migration",
+      "timestamp": "2026-01-07T14:49:07Z"
+    },
+    "size": 349,
+    "lastModificationSignature": "abbe923ce2ac003b709be89eea47ec44343369402d7b70f71efac8ceabb040d5",
+    "height": 16
+  }
+}

@@ -1,0 +1,20 @@
+{
+  "scope": "A",
+  "version": 1,
+  "restricted": false,
+  "overridable": true,
+  "files": [
+    "applications-stack.png"
+  ],
+  "attributes": {
+    "width": 16,
+    "format": "PNG",
+    "lastModification": {
+      "actor": "8.3-migration",
+      "timestamp": "2026-01-07T14:49:07Z"
+    },
+    "size": 615,
+    "lastModificationSignature": "392b3ba6cd97bc2218afb2fee5126e308c1924caf34e5e71f279dd2bc1890408",
+    "height": 16
+  }
+}

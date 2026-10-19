@@ -1,0 +1,20 @@
+{
+  "scope": "A",
+  "version": 1,
+  "restricted": false,
+  "overridable": true,
+  "files": [
+    "frontal19.png"
+  ],
+  "attributes": {
+    "width": 24,
+    "format": "PNG",
+    "lastModification": {
+      "actor": "8.3-migration",
+      "timestamp": "2026-01-07T14:49:07Z"
+    },
+    "size": 568,
+    "lastModificationSignature": "4992a18008531867b2cd2ab9d7fe47833823c292587e1fbfa161a5e64a7675e8",
+    "height": 24
+  }
+}

@@ -1,0 +1,20 @@
+{
+  "scope": "A",
+  "version": 1,
+  "restricted": false,
+  "overridable": true,
+  "files": [
+    "Desalter Cutout Flip.png"
+  ],
+  "attributes": {
+    "width": 712,
+    "format": "PNG",
+    "lastModification": {
+      "actor": "8.3-migration",
+      "timestamp": "2026-01-07T14:49:07Z"
+    },
+    "size": 135459,
+    "lastModificationSignature": "11e3d1f09e0e0137c1da6fe2ad05808fee3df212b85c61cc0e393f274a801aab",
+    "height": 555
+  }
+}

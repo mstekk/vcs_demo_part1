@@ -1,0 +1,20 @@
+{
+  "scope": "A",
+  "version": 1,
+  "restricted": false,
+  "overridable": true,
+  "files": [
+    "smiley-cry.png"
+  ],
+  "attributes": {
+    "width": 16,
+    "format": "PNG",
+    "lastModification": {
+      "actor": "8.3-migration",
+      "timestamp": "2026-01-07T14:49:07Z"
+    },
+    "size": 785,
+    "lastModificationSignature": "8484c08cf16d90e0b1a40f022128a83b0302041feeb2d26bb16c742c790ff958",
+    "height": 16
+  }
+}

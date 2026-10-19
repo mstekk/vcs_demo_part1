@@ -1,0 +1,20 @@
+{
+  "scope": "A",
+  "version": 1,
+  "restricted": false,
+  "overridable": true,
+  "files": [
+    "clock--exclamation.png"
+  ],
+  "attributes": {
+    "width": 16,
+    "format": "PNG",
+    "lastModification": {
+      "actor": "8.3-migration",
+      "timestamp": "2026-01-07T14:49:07Z"
+    },
+    "size": 805,
+    "lastModificationSignature": "9d6427d9b79c3d9afe19f6d41f82e924b3deefbf68692ce218d40d2887f220a9",
+    "height": 16
+  }
+}

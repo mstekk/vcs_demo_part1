@@ -1,0 +1,20 @@
+{
+  "scope": "A",
+  "version": 1,
+  "restricted": false,
+  "overridable": true,
+  "files": [
+    "pendrive2.png"
+  ],
+  "attributes": {
+    "width": 24,
+    "format": "PNG",
+    "lastModification": {
+      "actor": "8.3-migration",
+      "timestamp": "2026-01-07T14:49:07Z"
+    },
+    "size": 405,
+    "lastModificationSignature": "a89b42c5c3b148320a6046390ca0c51bc7e02ebefab657db961e7fd0ebe71173",
+    "height": 24
+  }
+}

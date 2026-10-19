@@ -1,0 +1,20 @@
+{
+  "scope": "A",
+  "version": 1,
+  "restricted": false,
+  "overridable": true,
+  "files": [
+    "chessgame.png"
+  ],
+  "attributes": {
+    "width": 24,
+    "format": "PNG",
+    "lastModification": {
+      "actor": "8.3-migration",
+      "timestamp": "2026-01-07T14:49:07Z"
+    },
+    "size": 334,
+    "lastModificationSignature": "30c1be81d8e1d62d2bf890ee53e2337ba52926a4e76fca1b8c28d0aff5aaed37",
+    "height": 24
+  }
+}

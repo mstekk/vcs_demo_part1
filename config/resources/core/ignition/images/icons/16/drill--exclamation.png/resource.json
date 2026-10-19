@@ -1,0 +1,20 @@
+{
+  "scope": "A",
+  "version": 1,
+  "restricted": false,
+  "overridable": true,
+  "files": [
+    "drill--exclamation.png"
+  ],
+  "attributes": {
+    "width": 16,
+    "format": "PNG",
+    "lastModification": {
+      "actor": "8.3-migration",
+      "timestamp": "2026-01-07T14:49:07Z"
+    },
+    "size": 881,
+    "lastModificationSignature": "c1ddf79d2034b9eaf03847586a93ea0fd5b33229fbca74d13dd394c9f1b058f3",
+    "height": 16
+  }
+}

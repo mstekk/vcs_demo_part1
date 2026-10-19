@@ -1,0 +1,20 @@
+{
+  "scope": "A",
+  "version": 1,
+  "restricted": false,
+  "overridable": true,
+  "files": [
+    "Shutoff Valve Small.png"
+  ],
+  "attributes": {
+    "width": 29,
+    "format": "PNG",
+    "lastModification": {
+      "actor": "8.3-migration",
+      "timestamp": "2026-01-07T14:49:07Z"
+    },
+    "size": 2728,
+    "lastModificationSignature": "2051104d8f582d678d6498640fcf395f7bac23327922bb14582589186a7fac94",
+    "height": 60
+  }
+}

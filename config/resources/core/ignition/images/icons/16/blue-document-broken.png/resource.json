@@ -1,0 +1,20 @@
+{
+  "scope": "A",
+  "version": 1,
+  "restricted": false,
+  "overridable": true,
+  "files": [
+    "blue-document-broken.png"
+  ],
+  "attributes": {
+    "width": 16,
+    "format": "PNG",
+    "lastModification": {
+      "actor": "8.3-migration",
+      "timestamp": "2026-01-07T14:49:07Z"
+    },
+    "size": 1658,
+    "lastModificationSignature": "f11a381b4e73a4d99cde7df0c9b4f2ce7608b1949d409c393fcefb5f560642ff",
+    "height": 16
+  }
+}

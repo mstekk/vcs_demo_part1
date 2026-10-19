@@ -1,0 +1,20 @@
+{
+  "scope": "A",
+  "version": 1,
+  "restricted": false,
+  "overridable": true,
+  "files": [
+    "Button 12 Bezel.png"
+  ],
+  "attributes": {
+    "width": 107,
+    "format": "PNG",
+    "lastModification": {
+      "actor": "8.3-migration",
+      "timestamp": "2026-01-07T14:49:07Z"
+    },
+    "size": 6243,
+    "lastModificationSignature": "47fd3cbb10396e8af7a91f05a72530ed1313e25861fcbd57c190e26d9f12bd20",
+    "height": 107
+  }
+}

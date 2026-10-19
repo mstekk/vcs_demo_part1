@@ -1,0 +1,20 @@
+{
+  "scope": "A",
+  "version": 1,
+  "restricted": false,
+  "overridable": true,
+  "files": [
+    "quill--minus.png"
+  ],
+  "attributes": {
+    "width": 16,
+    "format": "PNG",
+    "lastModification": {
+      "actor": "8.3-migration",
+      "timestamp": "2026-01-07T14:49:07Z"
+    },
+    "size": 803,
+    "lastModificationSignature": "c9e55f8ac96120dfc7bf12a1a1cc15899b7a724285f8b092275f1eab181eb518",
+    "height": 16
+  }
+}

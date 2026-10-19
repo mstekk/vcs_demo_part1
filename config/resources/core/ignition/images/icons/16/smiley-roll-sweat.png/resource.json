@@ -1,0 +1,20 @@
+{
+  "scope": "A",
+  "version": 1,
+  "restricted": false,
+  "overridable": true,
+  "files": [
+    "smiley-roll-sweat.png"
+  ],
+  "attributes": {
+    "width": 16,
+    "format": "PNG",
+    "lastModification": {
+      "actor": "8.3-migration",
+      "timestamp": "2026-01-07T14:49:07Z"
+    },
+    "size": 921,
+    "lastModificationSignature": "e91c2f19805d48ab234d2d01b96afe6a676a61006ad35f7f23f6c8b1b49b7a44",
+    "height": 16
+  }
+}

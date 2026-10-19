@@ -1,0 +1,20 @@
+{
+  "scope": "A",
+  "version": 1,
+  "restricted": false,
+  "overridable": true,
+  "files": [
+    "television--pencil.png"
+  ],
+  "attributes": {
+    "width": 16,
+    "format": "PNG",
+    "lastModification": {
+      "actor": "8.3-migration",
+      "timestamp": "2026-01-07T14:49:07Z"
+    },
+    "size": 658,
+    "lastModificationSignature": "cbdef58d506665d762b17e1b47e0b52b2a31667ea1baf54f84b0a0bdc4080a0b",
+    "height": 16
+  }
+}

@@ -1,0 +1,20 @@
+{
+  "scope": "A",
+  "version": 1,
+  "restricted": false,
+  "overridable": true,
+  "files": [
+    "pilot_light_green.png"
+  ],
+  "attributes": {
+    "width": 301,
+    "format": "PNG",
+    "lastModification": {
+      "actor": "8.3-migration",
+      "timestamp": "2026-01-07T14:49:07Z"
+    },
+    "size": 119942,
+    "lastModificationSignature": "c4632d88806557eb45477ad6c6e80444ba62f984274373f43914b070f2a205a7",
+    "height": 301
+  }
+}

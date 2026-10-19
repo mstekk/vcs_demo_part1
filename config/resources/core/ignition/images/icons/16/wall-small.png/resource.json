@@ -1,0 +1,20 @@
+{
+  "scope": "A",
+  "version": 1,
+  "restricted": false,
+  "overridable": true,
+  "files": [
+    "wall-small.png"
+  ],
+  "attributes": {
+    "width": 16,
+    "format": "PNG",
+    "lastModification": {
+      "actor": "8.3-migration",
+      "timestamp": "2026-01-07T14:49:07Z"
+    },
+    "size": 420,
+    "lastModificationSignature": "d049ecd871bb44f821238b61af6c848b1938fcc72c04bfe54c76803f9ef5a747",
+    "height": 16
+  }
+}

@@ -1,0 +1,20 @@
+{
+  "scope": "A",
+  "version": 1,
+  "restricted": false,
+  "overridable": true,
+  "files": [
+    "clock-history-frame.png"
+  ],
+  "attributes": {
+    "width": 16,
+    "format": "PNG",
+    "lastModification": {
+      "actor": "8.3-migration",
+      "timestamp": "2026-01-07T14:49:07Z"
+    },
+    "size": 870,
+    "lastModificationSignature": "9dd6692e95d7e99cae0e14d73b23b31fa646aecb727df76097b82974cc1fb3c4",
+    "height": 16
+  }
+}

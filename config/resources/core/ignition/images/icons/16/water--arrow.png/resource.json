@@ -1,0 +1,20 @@
+{
+  "scope": "A",
+  "version": 1,
+  "restricted": false,
+  "overridable": true,
+  "files": [
+    "water--arrow.png"
+  ],
+  "attributes": {
+    "width": 16,
+    "format": "PNG",
+    "lastModification": {
+      "actor": "8.3-migration",
+      "timestamp": "2026-01-07T14:49:07Z"
+    },
+    "size": 707,
+    "lastModificationSignature": "486b2c9e29dd9f3f0b2f3c9c22bce031473190b549ea398dd28b02bc25048c4b",
+    "height": 16
+  }
+}

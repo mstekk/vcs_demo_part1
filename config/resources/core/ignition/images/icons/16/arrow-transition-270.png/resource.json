@@ -1,0 +1,20 @@
+{
+  "scope": "A",
+  "version": 1,
+  "restricted": false,
+  "overridable": true,
+  "files": [
+    "arrow-transition-270.png"
+  ],
+  "attributes": {
+    "width": 16,
+    "format": "PNG",
+    "lastModification": {
+      "actor": "8.3-migration",
+      "timestamp": "2026-01-07T14:49:07Z"
+    },
+    "size": 745,
+    "lastModificationSignature": "4edb81340866eb70283afb574bd09e1f2907741bcbc7ef361cd983f493aff2c8",
+    "height": 16
+  }
+}

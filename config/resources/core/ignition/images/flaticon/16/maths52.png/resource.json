@@ -1,0 +1,20 @@
+{
+  "scope": "A",
+  "version": 1,
+  "restricted": false,
+  "overridable": true,
+  "files": [
+    "maths52.png"
+  ],
+  "attributes": {
+    "width": 16,
+    "format": "PNG",
+    "lastModification": {
+      "actor": "8.3-migration",
+      "timestamp": "2026-01-07T14:49:07Z"
+    },
+    "size": 388,
+    "lastModificationSignature": "75b0dec8155b59bc8f297daa51d778b6dae3bb035d35a8d93c6d4bdd378184c3",
+    "height": 16
+  }
+}

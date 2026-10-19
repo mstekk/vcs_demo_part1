@@ -1,0 +1,20 @@
+{
+  "scope": "A",
+  "version": 1,
+  "restricted": false,
+  "overridable": true,
+  "files": [
+    "smiley-mad.png"
+  ],
+  "attributes": {
+    "width": 16,
+    "format": "PNG",
+    "lastModification": {
+      "actor": "8.3-migration",
+      "timestamp": "2026-01-07T14:49:07Z"
+    },
+    "size": 782,
+    "lastModificationSignature": "19903bbc16774661acef9a7be933107e77f2c0a3702118fdca6f0091b9c7251c",
+    "height": 16
+  }
+}

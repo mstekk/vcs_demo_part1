@@ -1,0 +1,20 @@
+{
+  "scope": "A",
+  "version": 1,
+  "restricted": false,
+  "overridable": true,
+  "files": [
+    "WHI.png"
+  ],
+  "attributes": {
+    "width": 1533,
+    "format": "PNG",
+    "lastModification": {
+      "actor": "8.3-migration",
+      "timestamp": "2026-01-07T14:49:07Z"
+    },
+    "size": 430252,
+    "lastModificationSignature": "02dd1a4eff4e5028a68927b9434cf868b0ba7736c3d7d9d3cdac86885e69af47",
+    "height": 768
+  }
+}

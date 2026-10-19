@@ -1,0 +1,20 @@
+{
+  "scope": "A",
+  "version": 1,
+  "restricted": false,
+  "overridable": true,
+  "files": [
+    "exclamation-diamond.png"
+  ],
+  "attributes": {
+    "width": 16,
+    "format": "PNG",
+    "lastModification": {
+      "actor": "8.3-migration",
+      "timestamp": "2026-01-07T14:49:07Z"
+    },
+    "size": 696,
+    "lastModificationSignature": "caa9f9afe0a1297a0c113d502f20762cfece6c3e03b6cd784427a4ef571c4df6",
+    "height": 16
+  }
+}

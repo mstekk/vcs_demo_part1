@@ -1,0 +1,379 @@
+{
+  "custom": {
+    "key": null,
+    "zoom": 1.3
+  },
+  "params": {},
+  "propConfig": {
+    "custom.key": {
+      "binding": {
+        "config": {
+          "struct": {
+            "components": "{session.custom.components}",
+            "configs": "{session.custom.structure.configs}",
+            "connections": "{session.custom.connections}",
+            "containers": "{session.custom.containers}"
+          },
+          "waitOnAll": true
+        },
+        "transforms": [
+          {
+            "code": "\tcomponents\u003dsystem.util.jsonDecode(system.util.jsonEncode(value[\u0027components\u0027]))\n\tcontainers\u003dsystem.util.jsonDecode(system.util.jsonEncode(value[\u0027containers\u0027]))\n\tconnections\u003dvalue[\u0027connections\u0027]\n\tconfigs\u003dvalue[\u0027configs\u0027]\n\talefts\u003d[]\n\tatops\u003d[]\n\tarights\u003d[]\n\tabottoms\u003d[]\n\tfor x in components:\n\t\ttop\u003dcomponents[x][\u0027top\u0027]\n\t\tleft\u003dcomponents[x][\u0027left\u0027]\n\t\twidth\u003dcomponents[x][\u0027width\u0027]\n\t\theight\u003dcomponents[x][\u0027height\u0027]\n\t\tatops.append(top)\n\t\talefts.append(left)\n\t\tarights.append(left+width)\n\t\tabottoms.append(top+height)\n\tfor x in containers:\n\t\tkey\u003dx.keys()[0]\n\t\ttop\u003dx[key][\u0027top\u0027]\n\t\tleft\u003dx[key][\u0027left\u0027]\n\t\twidth\u003dx[key][\u0027width\u0027]\n\t\theight\u003dx[key][\u0027height\u0027]\n\t\tatops.append(top)\n\t\talefts.append(left)\n\t\tarights.append(left+width)\n\t\tabottoms.append(top+height)\n\tleftMin\u003dmin(alefts)\n\ttopMin\u003dmin(atops)\n\trightMax\u003dmax(arights)\n\tbottomMax\u003dmax(abottoms)\n\ttotalWidth\u003drightMax-leftMin\n\ttotalHeight\u003dbottomMax-topMin\n\tmultiplier\u003d1\n#\tif totalWidth\u003eself.props.defaultSize.width or totalHeight\u003eself.props.defaultSize.height:\n\tmultipliers\u003d[float(totalWidth)/(self.page.props.dimensions.viewport.width),float(totalHeight)/(self.page.props.dimensions.viewport.height-50)]\n\tmultiplier\u003dmax(multipliers)\n\tself.custom.zoom\u003dmultiplier\n\tfor x in components:\n\t\tcomponents[x][\u0027top\u0027]-\u003dtopMin\n\t\tcomponents[x][\u0027left\u0027]-\u003dleftMin\n\tfor x in containers:\n\t\tkey\u003dx.keys()[0] \n\t\tx[key][\u0027top\u0027]-\u003dtopMin\n\t\tx[key][\u0027left\u0027]-\u003dleftMin\n\t\n\tcomponentInstances\u003d[]\n\tfor component in components.keys():\n\t\tconfig\u003dvalue[\u0027configs\u0027][component]\n#\t\tif \u0027type\u0027 in value[\u0027configs\u0027][component].keys() and value[\u0027configs\u0027][component][\u0027type\u0027] in [\u0027standard\u0027, \u0027edge\u0027, \u0027panel\u0027, \u0027cloud\u0027]:\n#\t\t\tsystem.perspective.print(value[\u0027configs\u0027][component][\u0027type\u0027])\n\t\tviewCanvas\u003dcomponents[component]\n\t\tcomponentInstances.append(exchange.architecturebuilder.viewCanvas.compileComponents.createViewCanvasComponents(viewCanvas, config, 3, \"gateway\"))\n\n\tconnectionsInstances\u003d[]\n\n\tfor uuid in value[\u0027connections\u0027]:\n\t\tconnections\u003dvalue[\u0027connections\u0027][uuid].keys()\n\t\ttops\u003d[]\n\t\tlefts\u003d[]\n\t\trights\u003d[]\n\t\tbottoms\u003d[]\n\t\tfor component in connections:\n\t\t\tc\u003dcomponents[component]\n\t\t\ttops.append(c[\u0027top\u0027])\n\t\t\tlefts.append(c[\u0027left\u0027])\n\t\t\trights.append(c[\u0027left\u0027]+c[\u0027width\u0027])\n\t\t\tbottoms.append(c[\u0027top\u0027]+c[\u0027height\u0027])\n\t\t\tviewPath\u003d\u0027Exchange/ArchitectureBuilder/Frames/Pipes\u0027\n\t\t\ttop\u003dmin(tops)\n\t\t\theight\u003dmax(bottoms)-top\n\t\t\tleft\u003dmin(lefts)\n\t\t\twidth\u003dmax(rights)-left\n\t\tconnectionsInstances.append({\n\t\t  \"top\": \"{}px\".format(top),\n\t\t  \"left\": \"{}px\".format(left),\n\t\t  \"bottom\": \"auto\",\n\t\t  \"width\": \"{}px\".format(width),\n\t\t  \"style\": {\n\t\t    \"classes\": \"pipe\"\n\t\t  },\n\t\t  \"right\": \"auto\",\n\t\t  \"position\": \"absolute\",\n\t\t  \"viewParams\": configs[uuid],\n\t\t  \"viewPath\": viewPath,\n\t\t  \"zIndex\": 1,\n\t\t  \"height\": \"{}px\".format(height),\n\t\t}\n\t\t)\n\n\tcontainerInstances\u003d[]\n\tfor container in containers:\n\t\tuuid\u003dcontainer.keys()[0]\n\t\tviewCanvas\u003dcontainer[uuid]\n\t\tconfig\u003dvalue[\u0027configs\u0027][uuid]\n\t\tcontainerInstances.append(exchange.architecturebuilder.viewCanvas.compileComponents.createViewCanvasComponents(viewCanvas, config,0))\n\n\treturn containerInstances+connectionsInstances+componentInstances",
+            "type": "script"
+          }
+        ],
+        "type": "expr-struct"
+      },
+      "persistent": true
+    },
+    "custom.zoom": {
+      "persistent": true
+    }
+  },
+  "props": {
+    "defaultSize": {
+      "height": 321,
+      "width": 646
+    }
+  },
+  "root": {
+    "children": [
+      {
+        "meta": {
+          "name": "TextInput"
+        },
+        "position": {
+          "basis": "34px",
+          "shrink": 0
+        },
+        "props": {
+          "params": {
+            "label": "Email To:",
+            "labelSize": "100px",
+            "text": "tgoetz@inductiveautomation.com"
+          },
+          "path": "Exchange/ArchitectureBuilder/General/TextInput",
+          "style": {
+            "background": "--neutral-30",
+            "margin": "8px",
+            "marginRight": "50px"
+          }
+        },
+        "type": "ia.display.view"
+      },
+      {
+        "children": [
+          {
+            "meta": {
+              "domId": "canvas",
+              "name": "ViewCanvas"
+            },
+            "position": {
+              "grow": 1
+            },
+            "propConfig": {
+              "props.instances": {
+                "binding": {
+                  "config": {
+                    "path": "view.custom.key"
+                  },
+                  "type": "property"
+                }
+              }
+            },
+            "props": {
+              "enableTransitions": false,
+              "transitionSettings": {
+                "duration": "1s",
+                "timingFunction": "linear"
+              },
+              "useDefaultViewHeight": false,
+              "useDefaultViewWidth": false
+            },
+            "type": "ia.display.viewcanvas"
+          }
+        ],
+        "meta": {
+          "domId": "screenshot",
+          "name": "FlexContainer"
+        },
+        "position": {
+          "basis": "100%",
+          "grow": 1
+        },
+        "props": {
+          "direction": "column"
+        },
+        "type": "ia.container.flex"
+      },
+      {
+        "children": [
+          {
+            "custom": {
+              "captureMode": "entire-page",
+              "distribute": true,
+              "elementId": "screenshot",
+              "imageName": "screenshot",
+              "mode": "onclick"
+            },
+            "meta": {
+              "name": "IFrame_0"
+            },
+            "position": {
+              "grow": 1
+            },
+            "propConfig": {
+              "custom.distribute": {
+                "binding": {
+                  "config": {
+                    "path": "../../Configure/Distribute.props.selected"
+                  },
+                  "enabled": false,
+                  "type": "property"
+                }
+              },
+              "custom.mode": {
+                "binding": {
+                  "config": {
+                    "path": "view.custom.mode"
+                  },
+                  "enabled": false,
+                  "type": "property"
+                }
+              },
+              "props.src": {
+                "binding": {
+                  "config": {
+                    "struct": {
+                      "captureMode": "{this.custom.captureMode}",
+                      "distribute": "{this.custom.distribute}",
+                      "elementId": "{this.custom.elementId}",
+                      "imageName": "{this.custom.imageName}",
+                      "mode": "{this.custom.mode}",
+                      "sendTo": "{.../TextInput.props.params.text}",
+                      "session": "{session.props.id}"
+                    },
+                    "waitOnAll": true
+                  },
+                  "transforms": [
+                    {
+                      "code": "\t#return \u0027\u0027\n\tparams \u003d dict(value)\n\tparams[\u0027project\u0027] \u003d system.project.getProjectName()\n\treturn exchange.perspective_screenshot.url.get(self.session.props.gateway.address.strip(\u0027:\u0027), **params)",
+                      "type": "script"
+                    }
+                  ],
+                  "type": "expr-struct"
+                }
+              }
+            },
+            "props": {
+              "style": {
+                "borderStyle": "none",
+                "height": 40,
+                "outlineStyle": "none",
+                "overflow": "visible",
+                "position": "absolute",
+                "right": 5,
+                "top": 5,
+                "width": 40
+              }
+            },
+            "type": "ia.display.iframe"
+          }
+        ],
+        "events": {
+          "dom": {
+            "onMouseDown": {
+              "config": {
+                "script": "\tself.parent.custom.display\u003dself.getSibling(\"Toast\").position.display\u003dTrue\n\tself.parent.custom.message\u003d \u0027Sending to {}...\u0027.format(self.getSibling(\"TextInput\").props.params.text)\n\tself.parent.custom.sending\u003d True"
+              },
+              "scope": "G",
+              "type": "script"
+            }
+          }
+        },
+        "meta": {
+          "name": "Button"
+        },
+        "type": "ia.container.flex"
+      },
+      {
+        "children": [
+          {
+            "meta": {
+              "name": "Label"
+            },
+            "position": {
+              "shrink": 0
+            },
+            "propConfig": {
+              "props.text": {
+                "binding": {
+                  "config": {
+                    "path": "/root.custom.message"
+                  },
+                  "type": "property"
+                }
+              }
+            },
+            "props": {
+              "textStyle": {
+                "color": "Black",
+                "textAlign": "right"
+              }
+            },
+            "type": "ia.display.label"
+          },
+          {
+            "meta": {
+              "name": "Icon"
+            },
+            "position": {
+              "basis": "28px",
+              "shrink": 0
+            },
+            "propConfig": {
+              "props.path": {
+                "binding": {
+                  "config": {
+                    "path": "/root.custom.sending"
+                  },
+                  "transforms": [
+                    {
+                      "fallback": "material/check",
+                      "inputType": "scalar",
+                      "mappings": [
+                        {
+                          "input": true,
+                          "output": "material/attach_email"
+                        }
+                      ],
+                      "outputType": "scalar",
+                      "type": "map"
+                    }
+                  ],
+                  "type": "property"
+                }
+              }
+            },
+            "props": {
+              "color": "Black",
+              "style": {
+                "marginLeft": "4px"
+              }
+            },
+            "type": "ia.display.icon"
+          }
+        ],
+        "meta": {
+          "name": "Toast"
+        },
+        "position": {
+          "basis": "34px",
+          "shrink": 0
+        },
+        "propConfig": {
+          "position.display": {
+            "binding": {
+              "config": {
+                "path": "parent.custom.display"
+              },
+              "type": "property"
+            }
+          },
+          "props.style.backgroundColor": {
+            "binding": {
+              "config": {
+                "path": "parent.custom.sending"
+              },
+              "transforms": [
+                {
+                  "fallback": "#00AC00",
+                  "inputType": "scalar",
+                  "mappings": [
+                    {
+                      "input": true,
+                      "output": "#D9D900"
+                    }
+                  ],
+                  "outputType": "scalar",
+                  "type": "map"
+                }
+              ],
+              "type": "property"
+            }
+          }
+        },
+        "props": {
+          "alignItems": "center",
+          "justify": "center",
+          "style": {
+            "borderBottomLeftRadius": 16,
+            "borderBottomRightRadius": 16,
+            "borderStyle": "solid",
+            "borderTopLeftRadius": 16,
+            "borderTopRightRadius": 16,
+            "height": 34,
+            "left": 32,
+            "position": "absolute",
+            "right": 32,
+            "top": 35
+          }
+        },
+        "type": "ia.container.flex"
+      }
+    ],
+    "custom": {
+      "close": false,
+      "closeTime": null,
+      "display": false,
+      "message": "Sending",
+      "sending": false,
+      "trigger": false
+    },
+    "meta": {
+      "name": "root"
+    },
+    "propConfig": {
+      "custom.close": {
+        "binding": {
+          "config": {
+            "expression": "dateIsAfter(now(), {this.custom.closeTime}) \u0026\u0026 {this.custom.display} \u0026\u0026 !{this.custom.sending}"
+          },
+          "type": "expr"
+        },
+        "onChange": {
+          "enabled": null,
+          "script": "\tif currentValue.value:\n\t\tsystem.perspective.closePopup(\u0027Email\u0027)"
+        },
+        "persistent": true
+      }
+    },
+    "props": {
+      "direction": "column",
+      "style": {
+        "backgroundColor": "--neutral-20"
+      }
+    },
+    "scripts": {
+      "customMethods": [],
+      "extensionFunctions": null,
+      "messageHandlers": [
+        {
+          "messageType": "sendingEmail",
+          "pageScope": false,
+          "script": "\t#system.util.sendMessage(project,\u0027sendingEmail\u0027, {\u0027session\u0027: session, \u0027sendTo\u0027: sendTo})\n\t#system.perspective.sendMessage(\u0027sendingEmail\u0027, payload, scope\u003d\u0027session\u0027)\n\tmessage\u003d\u0027Sending Architecture To \"{}\"...\u0027.format(payload[\u0027sendTo\u0027])\n\tself.custom.message\u003dmessage\n\tself.custom.display\u003dTrue\n\tself.custom.sending\u003dTrue",
+          "sessionScope": true,
+          "viewScope": false
+        },
+        {
+          "messageType": "emailSent",
+          "pageScope": false,
+          "script": "\t#system.util.sendMessage(project,\u0027emailSent\u0027, {\u0027session\u0027: session, \u0027sendTo\u0027: sendTo, \u0027message\u0027: message})\n\t#system.perspective.sendMessage(\u0027emailSent\u0027, payload, scope\u003d\u0027session\u0027)\n\tmessage\u003d\u0027Architecture Email Sent To \"{}\"...\u0027.format(payload[\u0027sendTo\u0027])\n\tself.custom.message\u003dmessage\n\tself.custom.display\u003dTrue\n\tself.custom.sending\u003dFalse\n\tself.custom.closeTime\u003dsystem.date.addSeconds(system.date.now(), 3)",
+          "sessionScope": true,
+          "viewScope": false
+        }
+      ]
+    },
+    "type": "ia.container.flex"
+  }
+}

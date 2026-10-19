@@ -1,0 +1,20 @@
+{
+  "scope": "A",
+  "version": 1,
+  "restricted": false,
+  "overridable": true,
+  "files": [
+    "application-dialog.png"
+  ],
+  "attributes": {
+    "width": 16,
+    "format": "PNG",
+    "lastModification": {
+      "actor": "8.3-migration",
+      "timestamp": "2026-01-07T14:49:07Z"
+    },
+    "size": 541,
+    "lastModificationSignature": "f847b1469cddcee2de96fd2b80702db80d3c115698ec3a2c2289b99aa4eb9697",
+    "height": 16
+  }
+}

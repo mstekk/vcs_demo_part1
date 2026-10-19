@@ -1,0 +1,20 @@
+{
+  "scope": "A",
+  "version": 1,
+  "restricted": false,
+  "overridable": true,
+  "files": [
+    "ui-button-navigation.png"
+  ],
+  "attributes": {
+    "width": 16,
+    "format": "PNG",
+    "lastModification": {
+      "actor": "8.3-migration",
+      "timestamp": "2026-01-07T14:49:07Z"
+    },
+    "size": 407,
+    "lastModificationSignature": "54b0e4f6939a9baa98eb0338d76863781e6a91de8012d7694cb9465c98ba2734",
+    "height": 16
+  }
+}

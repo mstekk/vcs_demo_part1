@@ -1,0 +1,792 @@
+{
+  "custom": {
+    "addConnection": false,
+    "allowConnection": {
+      "allow": true,
+      "approval": false,
+      "limited": false,
+      "message": ""
+    },
+    "availibleConnections": [],
+    "connection": [],
+    "establishedConnections": [],
+    "pinned": false
+  },
+  "params": {},
+  "propConfig": {
+    "custom.addConnection": {
+      "binding": {
+        "config": {
+          "path": "session.custom.requestConnection"
+        },
+        "type": "property"
+      },
+      "onChange": {
+        "enabled": null,
+        "script": "\tsystem.perspective.sendMessage(\u0027connectionEnabled\u0027, {\u0027connect\u0027:currentValue.value}, scope\u003d\u0027session\u0027)\n\tself.custom.connection\u003d[]"
+      },
+      "persistent": true
+    },
+    "custom.allowConnection": {
+      "binding": {
+        "config": {
+          "path": "view.custom.connection"
+        },
+        "transforms": [
+          {
+            "code": "\tavailiblevalue\u003d[]\n\tconnectionTypes\u003d[]\n\toptions\u003d[]\n\tconnections\u003d{\u0027allow\u0027: True, \u0027limited\u0027: False, \u0027approval\u0027: False, \u0027message\u0027: \u0027\u0027}\n\tif len(value)\u003d\u003d2:\n\t\tfor connection in value:\n\t\t\tconnectionTypes.append(connection[\u0027type\u0027])\n\t\tconnections\u003dexchange.architecturebuilder.viewCanvas.connectionRules.connectionCheck(connectionTypes)\n\treturn connections\n#\t\t#return connectionTypes\n#\t\t#Test GWN Connection\n#\t\tavailibleGWCs\u003d[\u0027standard\u0027, \u0027cloud\u0027,\u0027edge\u0027,\u0027panel\u0027]\n#\t\tif connectionTypes[0] in availibleGWCs and connectionTypes[1] in availibleGWCs:\n#\t\t\t#self.getChild(\"ConnectionType\").getChild(\"Dropdown\").props.value\u003d\u0027Gateway Network\u0027\n#\t\t\tavailiblevalue.append(\u0027Gateway Network\u0027)\n#\t\t\n#\t\tavailibleDeviceCs\u003d[\u0027standard\u0027,\u0027edge\u0027, \u0027panel\u0027]\n#\t\tif (\u0027Device\u0027 in connectionTypes or (connectionTypes[0] in availibleDeviceCs and connectionTypes[1] in availibleDeviceCs)) and (connectionTypes[0] in availibleDeviceCs or connectionTypes[1] in availibleDeviceCs):\n#\t\t\tavailiblevalue.append(\u0027OPCDevice\u0027)\t\n#\t\t\t\n#\t\t\t\n#\t\tavailibleStandards\u003d[\u0027standard\u0027,\u0027edge\u0027, \u0027panel\u0027,\u0027cloud\u0027, \u0027Connector\u0027, \u0027MongoDB\u0027, \u0027Load Balancer\u0027, \u0027Comms\u0027, \u0027Client\u0027]\n#\t\tif connectionTypes[0] in availibleStandards and connectionTypes[1] in availibleStandards:\n#\t\t\t#self.getChild(\"ConnectionType\").getChild(\"Dropdown\").props.value\u003d\u0027Gateway Network\u0027\n#\t\t\tavailiblevalue.append(\u0027Standard\u0027)\t\t\n#\t\t\n#\t\tavailibleMQTTCs\u003d[\u0027standard\u0027,\u0027edge\u0027, \u0027panel\u0027,\u0027cloud\u0027, \u0027Connector\u0027, \u0027Device\u0027, \u0027Comms\u0027]\n#\t\tif connectionTypes[0] in availibleMQTTCs and connectionTypes[1] in availibleMQTTCs:\n#\t\t\t#self.getChild(\"ConnectionType\").getChild(\"Dropdown\").props.value\u003d\u0027Gateway Network\u0027\n#\t\t\tavailiblevalue.append(\u0027MQTT\u0027)\t\t\n#\t\t\t\n#\t\tavailibleDBCs\u003d[\u0027standard\u0027,\u0027cloud\u0027]\n#\t\tif \u0027Database\u0027 in connectionTypes and (connectionTypes[0] in availibleDBCs or connectionTypes[1] in availibleDBCs):\n#\t\t\tavailiblevalue.append(\u0027DB\u0027)\n#\t\n#\t\t#Test Device Connection\n#\n#\t\t\n#\t\t\t\n#\t\tfor option in availiblevalue:\t\t\t\n#\t\t\toptions.append({\n#\t\t\t\t  \"value\": option,\n#\t\t\t\t  \"label\": option\n#\t\t\t\t})\t\n#\t\t\n#\treturn options",
+            "type": "script"
+          }
+        ],
+        "type": "property"
+      },
+      "persistent": true
+    },
+    "custom.availibleConnections": {
+      "binding": {
+        "config": {
+          "path": "view.custom.connection"
+        },
+        "transforms": [
+          {
+            "code": "\tavailiblevalue\u003d[]\n\tconnectionTypes\u003d[]\n\toptions\u003d[]\n\tif len(value)\u003d\u003d2:\n\t\tfor connection in value:\n\t\t\tconnectionTypes.append(connection[\u0027type\u0027])\n\t\t\t\n\treturn exchange.architecturebuilder.viewCanvas.connectionRules.availibleConnections(connectionTypes)\n#\t\t#return connectionTypes\n#\t\t#Test GWN Connection\n#\t\tavailibleGWCs\u003d[\u0027standard\u0027, \u0027cloud\u0027,\u0027edge\u0027,\u0027panel\u0027]\n#\t\tif connectionTypes[0] in availibleGWCs and connectionTypes[1] in availibleGWCs:\n#\t\t\t#self.getChild(\"ConnectionType\").getChild(\"Dropdown\").props.value\u003d\u0027Gateway Network\u0027\n#\t\t\tavailiblevalue.append(\u0027Gateway Network\u0027)\n#\t\t\n#\t\tavailibleDeviceCs\u003d[\u0027standard\u0027,\u0027edge\u0027, \u0027panel\u0027]\n#\t\tif (\u0027Device\u0027 in connectionTypes or (connectionTypes[0] in availibleDeviceCs and connectionTypes[1] in availibleDeviceCs)) and (connectionTypes[0] in availibleDeviceCs or connectionTypes[1] in availibleDeviceCs):\n#\t\t\tavailiblevalue.append(\u0027OPCDevice\u0027)\t\n#\t\t\t\n#\t\t\t\n#\t\tavailibleStandards\u003d[\u0027standard\u0027,\u0027edge\u0027, \u0027panel\u0027,\u0027cloud\u0027, \u0027Connector\u0027, \u0027MongoDB\u0027, \u0027Load Balancer\u0027, \u0027Comms\u0027, \u0027Client\u0027]\n#\t\tif connectionTypes[0] in availibleStandards and connectionTypes[1] in availibleStandards:\n#\t\t\t#self.getChild(\"ConnectionType\").getChild(\"Dropdown\").props.value\u003d\u0027Gateway Network\u0027\n#\t\t\tavailiblevalue.append(\u0027Standard\u0027)\t\t\n#\t\t\n#\t\tavailibleMQTTCs\u003d[\u0027standard\u0027,\u0027edge\u0027, \u0027panel\u0027,\u0027cloud\u0027, \u0027Connector\u0027, \u0027Device\u0027, \u0027Comms\u0027]\n#\t\tif connectionTypes[0] in availibleMQTTCs and connectionTypes[1] in availibleMQTTCs:\n#\t\t\t#self.getChild(\"ConnectionType\").getChild(\"Dropdown\").props.value\u003d\u0027Gateway Network\u0027\n#\t\t\tavailiblevalue.append(\u0027MQTT\u0027)\t\t\n#\t\t\t\n#\t\tavailibleDBCs\u003d[\u0027standard\u0027,\u0027cloud\u0027]\n#\t\tif \u0027Database\u0027 in connectionTypes and (connectionTypes[0] in availibleDBCs or connectionTypes[1] in availibleDBCs):\n#\t\t\tavailiblevalue.append(\u0027DB\u0027)\n#\t\n#\t\t#Test Device Connection\n#\n#\t\t\n#\t\t\t\n#\t\tfor option in availiblevalue:\t\t\t\n#\t\t\toptions.append({\n#\t\t\t\t  \"value\": option,\n#\t\t\t\t  \"label\": option\n#\t\t\t\t})\t\n#\t\t\n#\treturn options",
+            "type": "script"
+          }
+        ],
+        "type": "property"
+      },
+      "persistent": true
+    },
+    "custom.connection": {
+      "persistent": true
+    },
+    "custom.establishedConnections": {
+      "binding": {
+        "config": {
+          "struct": {
+            "configs": "{session.custom.structure.configs}",
+            "connection": "{view.custom.connection}",
+            "connections": "{session.custom.connections}",
+            "uuid": "{view.params.uuid}"
+          },
+          "waitOnAll": true
+        },
+        "transforms": [
+          {
+            "code": "\tconnection\u003dvalue[\u0027connection\u0027]\n\tconnections\u003dvalue[\u0027connections\u0027]\n\testablishedConnections\u003d[]\n\tif len(value[\u0027connection\u0027])\u003d\u003d2:\n\t\tuuid0\u003dconnection[0][\u0027uuid\u0027]\n\t\tuuid1\u003dconnection[1][\u0027uuid\u0027]\n\t\tfor x in connections:\n\t\t\tif uuid0 in connections[x].keys() and uuid1 in connections[x].keys():\n\t\t\t\testablishedConnections.append(value[\u0027configs\u0027][x][\u0027config\u0027][\u0027connectionType\u0027])\n\treturn establishedConnections\n\t\t\t\t",
+            "type": "script"
+          }
+        ],
+        "type": "expr-struct"
+      },
+      "persistent": true
+    },
+    "custom.pinned": {
+      "persistent": true
+    },
+    "custom.preDefinedConnections": {
+      "binding": {
+        "config": {
+          "struct": {
+            "defined": "{/root/ConnectionType/Dropdown.props.value}",
+            "established": "{view.custom.establishedConnections}"
+          },
+          "waitOnAll": true
+        },
+        "transforms": [
+          {
+            "code": "\treturn exchange.architecturebuilder.viewCanvas.connectionRules.preEstablishedConnectionRules(value[\u0027defined\u0027], value[\u0027established\u0027])",
+            "type": "script"
+          }
+        ],
+        "type": "expr-struct"
+      }
+    }
+  },
+  "props": {
+    "defaultSize": {
+      "height": 388,
+      "width": 300
+    }
+  },
+  "root": {
+    "children": [
+      {
+        "children": [
+          {
+            "meta": {
+              "name": "Label"
+            },
+            "position": {
+              "basis": "50px",
+              "grow": 1
+            },
+            "props": {
+              "style": {
+                "marginLeft": "8px"
+              },
+              "text": "Create Connections",
+              "textStyle": {
+                "fontWeight": "bolder"
+              }
+            },
+            "type": "ia.display.label"
+          },
+          {
+            "events": {
+              "dom": {
+                "onClick": {
+                  "config": {
+                    "script": "\tself.view.custom.pinned\u003d not self.view.custom.pinned"
+                  },
+                  "scope": "G",
+                  "type": "script"
+                }
+              }
+            },
+            "meta": {
+              "name": "Icon"
+            },
+            "position": {
+              "basis": "30px"
+            },
+            "propConfig": {
+              "props.color": {
+                "binding": {
+                  "config": {
+                    "path": "view.custom.pinned"
+                  },
+                  "transforms": [
+                    {
+                      "fallback": null,
+                      "inputType": "scalar",
+                      "mappings": [
+                        {
+                          "input": false,
+                          "output": "white"
+                        },
+                        {
+                          "input": true,
+                          "output": "green"
+                        }
+                      ],
+                      "outputType": "scalar",
+                      "type": "map"
+                    }
+                  ],
+                  "type": "property"
+                }
+              }
+            },
+            "props": {
+              "path": "material/push_pin",
+              "style": {
+                "cursor": "pointer",
+                "paddingRight": "4px",
+                "paddingTop": "4px"
+              }
+            },
+            "type": "ia.display.icon"
+          },
+          {
+            "events": {
+              "dom": {
+                "onClick": {
+                  "config": {
+                    "script": "\tself.session.custom.requestConnection\u003dFalse"
+                  },
+                  "scope": "G",
+                  "type": "script"
+                }
+              }
+            },
+            "meta": {
+              "name": "Icon_0"
+            },
+            "position": {
+              "basis": "30px"
+            },
+            "props": {
+              "path": "material/close",
+              "style": {
+                "cursor": "pointer",
+                "paddingRight": "4px",
+                "paddingTop": "4px"
+              }
+            },
+            "type": "ia.display.icon"
+          }
+        ],
+        "meta": {
+          "name": "FlexContainer"
+        },
+        "position": {
+          "basis": "32px",
+          "shrink": 0
+        },
+        "props": {
+          "justify": "flex-end",
+          "style": {
+            "filter": "drop-shadow(2px 2px 2px #000000)"
+          }
+        },
+        "type": "ia.container.flex"
+      },
+      {
+        "meta": {
+          "name": "AutoConnect"
+        },
+        "position": {
+          "shrink": 0
+        },
+        "propConfig": {
+          "position.display": {
+            "binding": {
+              "config": {
+                "path": "view.custom.addConnection"
+              },
+              "type": "property"
+            }
+          }
+        },
+        "props": {
+          "label": {
+            "style": {
+              "filter": "drop-shadow(2px 2px 2px #000000)"
+            },
+            "text": "Auto Apply Connections"
+          }
+        },
+        "type": "ia.input.toggle-switch"
+      },
+      {
+        "children": [
+          {
+            "meta": {
+              "name": "Label"
+            },
+            "position": {
+              "grow": 1
+            },
+            "propConfig": {
+              "props.text": {
+                "binding": {
+                  "config": {
+                    "expression": "property(\"session.custom.structure.configs.\"+ {view.custom.connection[0].uuid} +\".name\")"
+                  },
+                  "overlayOptOut": true,
+                  "transforms": [
+                    {
+                      "code": "\tif value is None:\n\t\treturn \"Connection 1...\"\n\telse:\n\t\treturn value",
+                      "type": "script"
+                    }
+                  ],
+                  "type": "expr"
+                }
+              }
+            },
+            "type": "ia.display.label"
+          },
+          {
+            "meta": {
+              "name": "Label_0"
+            },
+            "position": {
+              "basis": "32px"
+            },
+            "propConfig": {
+              "props.text": {
+                "binding": {
+                  "config": {
+                    "expression": "property(\"session.custom.structure.configs.\"+ {view.custom.connection[1].uuid} +\".name\")"
+                  },
+                  "transforms": [
+                    {
+                      "code": "\tif value is None:\n\t\treturn \"Connection 2...\"\n\telse:\n\t\treturn value",
+                      "type": "script"
+                    }
+                  ],
+                  "type": "expr"
+                }
+              }
+            },
+            "type": "ia.display.label"
+          },
+          {
+            "children": [
+              {
+                "meta": {
+                  "name": "Icon",
+                  "tooltip": {
+                    "text": "Edge to Edge GWN not Allowed"
+                  }
+                },
+                "position": {
+                  "basis": "24px"
+                },
+                "propConfig": {
+                  "props.color": {
+                    "binding": {
+                      "config": {
+                        "struct": {
+                          "allowConnection": "{view.custom.allowConnection}",
+                          "connectionEstablished": "{view.custom.preDefinedConnections}"
+                        },
+                        "waitOnAll": true
+                      },
+                      "transforms": [
+                        {
+                          "code": "\tif not value[\u0027allowConnection\u0027][\u0027allow\u0027]:\n\t\treturn \u0027--error\u0027\n\telif value[\u0027allowConnection\u0027][\u0027limited\u0027]:\n\t\treturn \u0027#FF8C00\u0027\n\telif value[\u0027allowConnection\u0027][\u0027approval\u0027]: \n\t\treturn \u0027#D9D900\u0027\n\telif not value[\u0027connectionEstablished\u0027][\u0027allow\u0027]:\n\t\treturn \u0027--error\u0027\n\telif value[\u0027connectionEstablished\u0027][\u0027limited\u0027]:\n\t\treturn \u0027#FF8C00\u0027\n\telif value[\u0027connectionEstablished\u0027][\u0027approval\u0027]: \n\t\treturn \u0027#D9D900\u0027\n\telse:\n\t\treturn \u0027#D9D900\u0027",
+                          "type": "script"
+                        }
+                      ],
+                      "type": "expr-struct"
+                    }
+                  },
+                  "props.path": {
+                    "binding": {
+                      "config": {
+                        "struct": {
+                          "allowConnection": "{view.custom.allowConnection}",
+                          "connectionEstablished": "{view.custom.preDefinedConnections}"
+                        },
+                        "waitOnAll": true
+                      },
+                      "transforms": [
+                        {
+                          "code": "\tif not value[\u0027allowConnection\u0027][\u0027allow\u0027]:\n\t\treturn \u0027material/warning\u0027\n\telif value[\u0027allowConnection\u0027][\u0027limited\u0027]:\n\t\treturn \u0027material/error\u0027\n\telif value[\u0027allowConnection\u0027][\u0027approval\u0027]: \n\t\treturn \u0027material/check_circle\u0027\n\telif not value[\u0027connectionEstablished\u0027][\u0027allow\u0027]:\n\t\treturn \u0027material/warning\u0027\n\telif value[\u0027connectionEstablished\u0027][\u0027limited\u0027]:\n\t\treturn \u0027material/error\u0027\n\telif value[\u0027connectionEstablished\u0027][\u0027approval\u0027]: \n\t\treturn \u0027material/check_circle\u0027\n\telse:\n\t\treturn \u0027material/check_circle\u0027",
+                          "type": "script"
+                        }
+                      ],
+                      "type": "expr-struct"
+                    }
+                  }
+                },
+                "type": "ia.display.icon"
+              },
+              {
+                "meta": {
+                  "name": "Label"
+                },
+                "position": {
+                  "basis": "50px",
+                  "grow": 1
+                },
+                "propConfig": {
+                  "props.text": {
+                    "binding": {
+                      "config": {
+                        "struct": {
+                          "allowConnection": "{view.custom.allowConnection}",
+                          "connectionEstablished": "{view.custom.preDefinedConnections}"
+                        },
+                        "waitOnAll": true
+                      },
+                      "transforms": [
+                        {
+                          "code": "\tif not value[\u0027allowConnection\u0027][\u0027allow\u0027] or value[\u0027allowConnection\u0027][\u0027limited\u0027] or value[\u0027allowConnection\u0027][\u0027approval\u0027]: \n\t\treturn value[\u0027allowConnection\u0027][\u0027message\u0027]\n\tif not value[\u0027connectionEstablished\u0027][\u0027allow\u0027] or value[\u0027connectionEstablished\u0027][\u0027limited\u0027] or value[\u0027connectionEstablished\u0027][\u0027approval\u0027]: \n\t\treturn value[\u0027connectionEstablished\u0027][\u0027message\u0027]\n\telse:\n\t\treturn \u0027\u0027",
+                          "type": "script"
+                        }
+                      ],
+                      "type": "expr-struct"
+                    }
+                  }
+                },
+                "props": {
+                  "textStyle": {
+                    "fontSize": 10
+                  }
+                },
+                "type": "ia.display.label"
+              }
+            ],
+            "meta": {
+              "name": "FlexContainer"
+            },
+            "position": {
+              "basis": "32px"
+            },
+            "propConfig": {
+              "position.display": {
+                "binding": {
+                  "config": {
+                    "struct": {
+                      "allowConnection": "{view.custom.allowConnection}",
+                      "allowEstablished": "{view.custom.preDefinedConnections}"
+                    },
+                    "waitOnAll": true
+                  },
+                  "transforms": [
+                    {
+                      "expression": "(!{value}[\u0027allowConnection\u0027][\u0027allow\u0027]||\r\n{value}[\u0027allowConnection\u0027][\u0027limited\u0027]||\r\n{value}[\u0027allowConnection\u0027][\u0027approval\u0027])\r\n||\r\n({value}[\u0027allowEstablished\u0027][\u0027message\u0027]!\u003d\u0027\u0027\u0026\u0026(!{value}[\u0027allowEstablished\u0027][\u0027allow\u0027]||\r\n{value}[\u0027allowEstablished\u0027][\u0027limited\u0027]||\r\n{value}[\u0027allowEstablished\u0027][\u0027approval\u0027]))",
+                      "type": "expression"
+                    }
+                  ],
+                  "type": "expr-struct"
+                }
+              }
+            },
+            "type": "ia.container.flex"
+          }
+        ],
+        "meta": {
+          "name": "SelectedConnections"
+        },
+        "propConfig": {
+          "position.display": {
+            "binding": {
+              "config": {
+                "path": "view.custom.addConnection"
+              },
+              "type": "property"
+            }
+          }
+        },
+        "props": {
+          "direction": "column",
+          "style": {
+            "marginLeft": "16px"
+          }
+        },
+        "type": "ia.container.flex"
+      },
+      {
+        "children": [
+          {
+            "meta": {
+              "name": "Label"
+            },
+            "position": {
+              "grow": 1
+            },
+            "props": {
+              "text": "Select Connection Type"
+            },
+            "type": "ia.display.label"
+          },
+          {
+            "meta": {
+              "name": "Dropdown"
+            },
+            "position": {
+              "basis": "36px"
+            },
+            "propConfig": {
+              "props.options": {
+                "binding": {
+                  "config": {
+                    "path": "view.custom.availibleConnections"
+                  },
+                  "type": "property"
+                },
+                "onChange": {
+                  "enabled": null,
+                  "script": "\tif len(currentValue.value)\u003e0:\n\t\tself.props.value\u003dself.props.options[0][\u0027label\u0027]"
+                }
+              }
+            },
+            "type": "ia.input.dropdown"
+          },
+          {
+            "meta": {
+              "name": "RadioGroup"
+            },
+            "position": {
+              "grow": 1
+            },
+            "propConfig": {
+              "props.selectedIcon.path": {
+                "binding": {
+                  "config": {
+                    "expression": "if({this.props.radios[0].selected},\u0027material/linear_scale\u0027,\r\nif({this.props.radios[1].selected},\u0027material/timeline\u0027,\u0027material/radio_button_checked\u0027))"
+                  },
+                  "type": "expr"
+                }
+              }
+            },
+            "props": {
+              "index": 1,
+              "radios": [
+                {
+                  "selected": false,
+                  "text": "Direct",
+                  "value": "Direct"
+                },
+                {
+                  "selected": true,
+                  "text": "Segmented",
+                  "value": "Segmented"
+                }
+              ],
+              "selectedIcon": {
+                "color": {
+                  "enabled": "--success"
+                },
+                "style": {
+                  "borderBottomLeftRadius": "16px",
+                  "borderBottomRightRadius": "16px",
+                  "borderColor": "--success",
+                  "borderStyle": "solid",
+                  "borderTopLeftRadius": "16px",
+                  "borderTopRightRadius": "16px",
+                  "borderWidth": 2
+                }
+              },
+              "value": "Segmented"
+            },
+            "type": "ia.input.radio-group"
+          }
+        ],
+        "meta": {
+          "name": "ConnectionType"
+        },
+        "position": {
+          "shrink": 0
+        },
+        "propConfig": {
+          "position.display": {
+            "binding": {
+              "config": {
+                "path": "view.custom.connection"
+              },
+              "transforms": [
+                {
+                  "code": "\treturn len(value)\u003d\u003d2",
+                  "type": "script"
+                }
+              ],
+              "type": "property"
+            }
+          }
+        },
+        "props": {
+          "direction": "column",
+          "style": {
+            "margin": "8px"
+          }
+        },
+        "type": "ia.container.flex"
+      },
+      {
+        "children": [
+          {
+            "meta": {
+              "name": "Label"
+            },
+            "position": {
+              "basis": "32px"
+            },
+            "props": {
+              "style": {
+                "marginLeft": "8px"
+              },
+              "text": "Select Outgoing Connection"
+            },
+            "type": "ia.display.label"
+          },
+          {
+            "meta": {
+              "name": "RadioGroup"
+            },
+            "position": {
+              "grow": 1
+            },
+            "propConfig": {
+              "props.radios[0].text": {
+                "binding": {
+                  "config": {
+                    "expression": "property(\"session.custom.structure.configs.\"+ {view.custom.connection[1].uuid} +\".name\")"
+                  },
+                  "type": "expr"
+                }
+              },
+              "props.radios[0].value": {
+                "binding": {
+                  "config": {
+                    "path": "view.custom.connection[1].uuid"
+                  },
+                  "type": "property"
+                }
+              },
+              "props.radios[1].text": {
+                "binding": {
+                  "config": {
+                    "expression": "property(\"session.custom.structure.configs.\"+ {view.custom.connection[0].uuid} +\".name\")"
+                  },
+                  "type": "expr"
+                }
+              },
+              "props.radios[1].value": {
+                "binding": {
+                  "config": {
+                    "path": "view.custom.connection[0].uuid"
+                  },
+                  "type": "property"
+                }
+              }
+            },
+            "props": {
+              "index": 1,
+              "radios": [
+                {
+                  "selected": false
+                },
+                {
+                  "selected": true
+                }
+              ],
+              "value": null
+            },
+            "type": "ia.input.radio-group"
+          }
+        ],
+        "meta": {
+          "name": "GatewayNetwork"
+        },
+        "propConfig": {
+          "position.display": {
+            "binding": {
+              "config": {
+                "expression": "{../ConnectionType/Dropdown.props.value}\u003d\u0027Gateway Network\u0027 \u0026\u0026 {view.custom.addConnection} \u0026\u0026 len({view.custom.connection})\u003d2"
+              },
+              "type": "expr"
+            }
+          }
+        },
+        "props": {
+          "direction": "column"
+        },
+        "type": "ia.container.flex"
+      },
+      {
+        "events": {
+          "component": {
+            "onActionPerformed": {
+              "config": {
+                "script": "\tself.createConnection()"
+              },
+              "scope": "G",
+              "type": "script"
+            }
+          }
+        },
+        "meta": {
+          "name": "Button"
+        },
+        "position": {
+          "basis": "34px"
+        },
+        "propConfig": {
+          "position.display": {
+            "binding": {
+              "config": {
+                "path": "view.custom.addConnection"
+              },
+              "type": "property"
+            }
+          },
+          "props.enabled": {
+            "binding": {
+              "config": {
+                "struct": {
+                  "connection": "{view.custom.connection}",
+                  "eConnect": "{view.custom.preDefinedConnections.allow}",
+                  "message": "{view.custom.allowConnection.allow}"
+                },
+                "waitOnAll": true
+              },
+              "transforms": [
+                {
+                  "code": "\tif not value[\u0027message\u0027]:\n\t\treturn value[\u0027message\u0027] \n\telif not value[\u0027eConnect\u0027]:\n\t\treturn value[\u0027eConnect\u0027]\t\n\telse:\n\t\tif len(value[\u0027connection\u0027])!\u003d2:\n\t\t\treturn False\n\t\telif value[\u0027connection\u0027][0][\u0027uuid\u0027]!\u003dvalue[\u0027connection\u0027][1][\u0027uuid\u0027]:\t\n\t\t\treturn True\n\t\telse:\n\t\t\treturn False",
+                  "type": "script"
+                }
+              ],
+              "type": "expr-struct"
+            },
+            "onChange": {
+              "enabled": null,
+              "script": "\tif currentValue.value:\n\t\tif len(self.view.custom.connection)\u003d\u003d2 and self.getSibling(\"AutoConnect\").props.selected and self.view.custom.allowConnection.allow and self.view.custom.preDefinedConnections.allow:\n\t\t\tself.createConnection()"
+            }
+          }
+        },
+        "props": {
+          "style": {
+            "classes": "Exchange/ArchitectureBuilder/buttonHover",
+            "margin": "4px"
+          },
+          "text": "Apply Connection"
+        },
+        "scripts": {
+          "customMethods": [
+            {
+              "name": "createConnection",
+              "params": [],
+              "script": "\tfrom exchange.architecturebuilder.viewCanvas.auditEvents import insertAuditEvent\n\tconnection\u003d{}\n\tconfig\u003d{}\n\tconnectionType\u003dself.parent.getChild(\"ConnectionType\").getChild(\"Dropdown\").props.value\n\toutgoing\u003dself.parent.getChild(\"GatewayNetwork\").getChild(\"RadioGroup\").props.value\n\tlineType\u003dself.parent.getChild(\"ConnectionType\").getChild(\"RadioGroup\").props.value\n\t\n\tconfig[\u0027connectionType\u0027]\u003dconnectionType\n\tif connectionType\u003d\u003d\u0027Gateway Network\u0027:\n\t\tconfig[\u0027Outgoing\u0027]\u003doutgoing\n\tconfig[\u0027lineType\u0027]\u003dlineType\n\tconfig[\u0027adjust\u0027]\u003d0\n\tconfig[\u0027dashed\u0027]\u003dFalse\n\tuuid\u003dexchange.architecturebuilder.uuid.newUuid()\n\tc0uuid\u003dself.view.custom.connection[0].uuid\n\tc0x\u003dself.view.custom.connection[0].x\n\tc0y\u003dself.view.custom.connection[0].y\n\tc1uuid\u003dself.view.custom.connection[1].uuid\n\tc1x\u003dself.view.custom.connection[1].x\n\tc1y\u003dself.view.custom.connection[1].y\n\tparams\u003d{\n\t\t\t  \"name\": \"Connection\",\n\t\t\t  \"type\": \"Connection\",\n\t\t\t  \"uuid\": uuid,\n\t\t\t  \"config\": config,\n\t\t\t  \"desc\": \"\"\n\t\t\t}\n\t\t\n\tself.session.custom.connections[uuid]\u003d{c0uuid: {\u0027x\u0027: c0x, \u0027y\u0027: c0y},c1uuid: {\u0027x\u0027: c1x, \u0027y\u0027: c1y}}\n\tself.session.custom.structure.configs[uuid]\u003dparams\n\toriginatingSystem\u003d[\u0027uuid\u0027,uuid]\n\tinsertAuditEvent(self.session.custom.audit.layout, \"Created\", \"Connection\", actionValue\u003dconnectionType + \", \" + c0uuid + \", \" + c1uuid, originatingSystem\u003doriginatingSystem)\n\t\n\t\n\tif \u0027connections\u0027 in self.session.custom.structure.configs[c0uuid][\u0027config\u0027]:\n\t\tself.session.custom.structure.configs[c0uuid][\u0027config\u0027][\u0027connections\u0027].append(uuid)\n\telse:\n\t\tself.session.custom.structure.configs[c0uuid][\u0027config\u0027][\u0027connections\u0027]\u003d[uuid]\n\tif \u0027connections\u0027 in self.session.custom.structure.configs[c1uuid][\u0027config\u0027]:\n\t\tself.session.custom.structure.configs[c1uuid][\u0027config\u0027][\u0027connections\u0027].append(uuid)\n\telse:\n\t\tself.session.custom.structure.configs[c1uuid][\u0027config\u0027][\u0027connections\u0027]\u003d[uuid]\n\t\n\tif not self.view.custom.pinned:\n\t\tself.session.custom.requestConnection\u003dFalse\n\telse:\n\t\tself.view.custom.connection\u003d[]\n\tself.parent.getChild(\"ConnectionType\").getChild(\"Dropdown\").props.value\u003dNone"
+            }
+          ],
+          "extensionFunctions": null,
+          "messageHandlers": []
+        },
+        "type": "ia.input.button"
+      }
+    ],
+    "meta": {
+      "name": "root"
+    },
+    "props": {
+      "direction": "column",
+      "style": {
+        "backgroundColor": "#555555D9",
+        "borderBottomLeftRadius": "8px",
+        "borderBottomRightRadius": "8px",
+        "borderStyle": "solid",
+        "borderTopLeftRadius": "8px",
+        "borderTopRightRadius": "8px",
+        "margin": "4px",
+        "paddingBottom": "4px"
+      }
+    },
+    "scripts": {
+      "customMethods": [],
+      "extensionFunctions": null,
+      "messageHandlers": [
+        {
+          "messageType": "connectionPath",
+          "pageScope": true,
+          "script": "\t#system.perspective.sendMessage(\u0027connectionPath\u0027, {\u0027uuid\u0027: self.view.params.params.uuid, \u0027type\u0027: self.view.params.params.type, \u0027x\u0027: x,\u0027y\u0027: y} ,scope\u003d\u0027session\u0027)\n\tconnections\u003dself.view.custom.connection\n\t\n\tif len(connections)\u003c2:\n\t\tself.view.custom.connection.append(payload)\n\telse:\n\t\tself.view.custom.connection\u003d[payload]\n\t\n\n\n",
+          "sessionScope": true,
+          "viewScope": false
+        },
+        {
+          "messageType": "connectionEnabled",
+          "pageScope": true,
+          "script": "\twarning\u003dself.getChild(\"SelectedConnections\").getChild(\"FlexContainer\")\n\tself.view.custom.connection\u003d[]\n\t",
+          "sessionScope": true,
+          "viewScope": false
+        },
+        {
+          "messageType": "requestConnection",
+          "pageScope": true,
+          "script": "\t#system.perspective.sendMessage(\u0027requestConnection\u0027, True)\n\tself.session.custom.rendering.connections\u003dTrue\n\tif self.session.custom.requestConnection\u003d\u003dFalse:\n\t\tself.session.custom.requestConnection\u003dTrue\n\t\tsystem.perspective.sendMessage(\u0027panInteract\u0027, {\u0027action\u0027:\u0027Interact\u0027},scope\u003d\u0027session\u0027)\n\telif len(self.view.custom.connection)!\u003d2:\n\t\tself.session.custom.requestConnection\u003dFalse\n\t\tself.view.custom.connection\u003d[]\n\telse:\n\t\tif self.view.custom.allowConnection.allow and self.view.custom.preDefinedConnections.allow:\n\t\t\tconnection\u003d{}\n\t\t\tconfig\u003d{}\n\t\t\tconnectionType\u003dself.getChild(\"ConnectionType\").getChild(\"Dropdown\").props.value\n\t\t\toutgoing\u003dself.getChild(\"GatewayNetwork\").getChild(\"RadioGroup\").props.value\n\t\t\tlineType\u003dself.getChild(\"ConnectionType\").getChild(\"RadioGroup\").props.value\n\t\t\t\n\t\t\tconfig[\u0027connectionType\u0027]\u003dconnectionType\n\t\t\tif connectionType\u003d\u003d\u0027Gateway Network\u0027:\n\t\t\t\tconfig[\u0027Outgoing\u0027]\u003doutgoing\n\t\t\tconfig[\u0027lineType\u0027]\u003dlineType\n\t\t\tuuid\u003dexchange.architecturebuilder.uuid.newUuid()\n\t\t\tc0uuid\u003dself.view.custom.connection[0].uuid\n\t\t\tc0x\u003dself.view.custom.connection[0].x\n\t\t\tc0y\u003dself.view.custom.connection[0].y\n\t\t\tc1uuid\u003dself.view.custom.connection[1].uuid\n\t\t\tc1x\u003dself.view.custom.connection[1].x\n\t\t\tc1y\u003dself.view.custom.connection[1].y\n\t\t\tparams\u003d{\n\t\t\t\t\t  \"name\": \"Connection\",\n\t\t\t\t\t  \"type\": \"Connection\",\n\t\t\t\t\t  \"uuid\": uuid,\n\t\t\t\t\t  \"config\": config,\n\t\t\t\t\t  \"desc\": \"\"\n\t\t\t\t\t}\n\t\t\t\t\n\t\t\tself.session.custom.connections[uuid]\u003d{c0uuid: {\u0027x\u0027: c0x, \u0027y\u0027: c0y},c1uuid: {\u0027x\u0027: c1x, \u0027y\u0027: c1y}}\n\t\t\tself.session.custom.structure.configs[uuid]\u003dparams\n\t\t\t\n\t\t\tif \u0027connections\u0027 in self.session.custom.structure.configs[c0uuid][\u0027config\u0027]:\n\t\t\t\tself.session.custom.structure.configs[c0uuid][\u0027config\u0027][\u0027connections\u0027].append(uuid)\n\t\t\telse:\n\t\t\t\tself.session.custom.structure.configs[c0uuid][\u0027config\u0027][\u0027connections\u0027]\u003d[uuid]\n\t\t\tif \u0027connections\u0027 in self.session.custom.structure.configs[c1uuid][\u0027config\u0027]:\n\t\t\t\tself.session.custom.structure.configs[c1uuid][\u0027config\u0027][\u0027connections\u0027].append(uuid)\n\t\t\telse:\n\t\t\t\tself.session.custom.structure.configs[c1uuid][\u0027config\u0027][\u0027connections\u0027]\u003d[uuid]\n\t\t\t\t\n\t\t\tself.session.custom.requestConnection\u003dFalse",
+          "sessionScope": true,
+          "viewScope": false
+        },
+        {
+          "messageType": "cancelConfigs",
+          "pageScope": false,
+          "script": "\twarning\u003dself.getChild(\"SelectedConnections\").getChild(\"FlexContainer\")\n\tself.view.custom.addConnection\u003dFalse",
+          "sessionScope": true,
+          "viewScope": false
+        },
+        {
+          "messageType": "connectionEnabledStatus",
+          "pageScope": true,
+          "script": "\t#system.perspective.sendMessage(\u0027connectionEnabledStatus\u0027, scope\u003d\u0027session\u0027)\n\tself.view.custom.addConnection\u003dFalse\n\t#system.perspective.sendMessage(\u0027connectionEnabled\u0027, {\u0027connect\u0027:self.props.selected}, scope\u003d\u0027session\u0027)",
+          "sessionScope": false,
+          "viewScope": false
+        }
+      ]
+    },
+    "type": "ia.container.flex"
+  }
+}

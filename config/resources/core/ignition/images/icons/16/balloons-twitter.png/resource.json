@@ -1,0 +1,20 @@
+{
+  "scope": "A",
+  "version": 1,
+  "restricted": false,
+  "overridable": true,
+  "files": [
+    "balloons-twitter.png"
+  ],
+  "attributes": {
+    "width": 16,
+    "format": "PNG",
+    "lastModification": {
+      "actor": "8.3-migration",
+      "timestamp": "2026-01-07T14:49:07Z"
+    },
+    "size": 935,
+    "lastModificationSignature": "dbb53e51a37505d1cf80d3809994b17a40fc72246a1a1031b31bb0d21d8da454",
+    "height": 16
+  }
+}

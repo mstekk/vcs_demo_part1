@@ -1,0 +1,20 @@
+{
+  "scope": "A",
+  "version": 1,
+  "restricted": false,
+  "overridable": true,
+  "files": [
+    "multiplication2.png"
+  ],
+  "attributes": {
+    "width": 16,
+    "format": "PNG",
+    "lastModification": {
+      "actor": "8.3-migration",
+      "timestamp": "2026-01-07T14:49:07Z"
+    },
+    "size": 256,
+    "lastModificationSignature": "8d1053eae883f0179b18e8aa0f5ad8bd90c07397c2af8bdb4c6e1940c7b49bda",
+    "height": 16
+  }
+}

@@ -1,0 +1,20 @@
+{
+  "scope": "A",
+  "version": 1,
+  "restricted": false,
+  "overridable": true,
+  "files": [
+    "rain81.png"
+  ],
+  "attributes": {
+    "width": 24,
+    "format": "PNG",
+    "lastModification": {
+      "actor": "8.3-migration",
+      "timestamp": "2026-01-07T14:49:07Z"
+    },
+    "size": 501,
+    "lastModificationSignature": "0a08ae584e5773695ad765141257b79b05b35bac063c368a071c4e9952c5417f",
+    "height": 24
+  }
+}

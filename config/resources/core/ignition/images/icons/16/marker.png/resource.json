@@ -1,0 +1,20 @@
+{
+  "scope": "A",
+  "version": 1,
+  "restricted": false,
+  "overridable": true,
+  "files": [
+    "marker.png"
+  ],
+  "attributes": {
+    "width": 16,
+    "format": "PNG",
+    "lastModification": {
+      "actor": "8.3-migration",
+      "timestamp": "2026-01-07T14:49:07Z"
+    },
+    "size": 497,
+    "lastModificationSignature": "82e3d31fd40486c60fc0c2553d6b15c31c3e2df2ba5d2e2779064c1277c61f01",
+    "height": 16
+  }
+}

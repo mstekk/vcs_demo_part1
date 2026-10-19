@@ -1,0 +1,83 @@
+{
+  "custom": {},
+  "params": {},
+  "props": {
+    "defaultSize": {
+      "height": 1030,
+      "width": 1770
+    }
+  },
+  "root": {
+    "children": [
+      {
+        "meta": {
+          "name": "Desktop"
+        },
+        "position": {
+          "size": "large"
+        },
+        "props": {
+          "params": {
+            "controls": {
+              "click": false,
+              "in": false,
+              "out": false,
+              "pan": false,
+              "reset": false,
+              "zoom": false
+            },
+            "panning": false,
+            "params_scale": 0.45,
+            "params_x": 92.82828282828271,
+            "params_y": 187.03282828282832,
+            "viewParams": {
+              "text": "Your Text Here"
+            },
+            "viewPath": "Screens/WTF/Anita Smith/Overview (Full Size)"
+          },
+          "path": "Screens/WTF/Anita Smith/Desktop/Overview (Pan Out)"
+        },
+        "type": "ia.display.view"
+      },
+      {
+        "children": [
+          {
+            "meta": {
+              "name": "Tablet"
+            },
+            "position": {
+              "size": "large"
+            },
+            "props": {
+              "path": "Screens/WTF/Anita Smith/Tablet/Overview (Pan Out)"
+            },
+            "type": "ia.display.view"
+          },
+          {
+            "meta": {
+              "name": "Phone"
+            },
+            "props": {
+              "path": "Screens/WTF/Anita Smith/Mobile/Overview"
+            },
+            "type": "ia.display.view"
+          }
+        ],
+        "meta": {
+          "name": "BreakpointContainer"
+        },
+        "props": {
+          "breakpoint": 850
+        },
+        "type": "ia.container.breakpt"
+      }
+    ],
+    "meta": {
+      "name": "root"
+    },
+    "props": {
+      "breakpoint": 1200
+    },
+    "type": "ia.container.breakpt"
+  }
+}

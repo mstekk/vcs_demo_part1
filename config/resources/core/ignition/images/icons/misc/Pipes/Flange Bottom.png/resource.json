@@ -1,0 +1,20 @@
+{
+  "scope": "A",
+  "version": 1,
+  "restricted": false,
+  "overridable": true,
+  "files": [
+    "Flange Bottom.png"
+  ],
+  "attributes": {
+    "width": 120,
+    "format": "PNG",
+    "lastModification": {
+      "actor": "8.3-migration",
+      "timestamp": "2026-01-07T14:49:07Z"
+    },
+    "size": 4054,
+    "lastModificationSignature": "a0d14bfaecc19be9663c625f2a1f166ec878d1db8c834b20394eed01259128f1",
+    "height": 109
+  }
+}

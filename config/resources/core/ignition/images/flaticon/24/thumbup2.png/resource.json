@@ -1,0 +1,20 @@
+{
+  "scope": "A",
+  "version": 1,
+  "restricted": false,
+  "overridable": true,
+  "files": [
+    "thumbup2.png"
+  ],
+  "attributes": {
+    "width": 24,
+    "format": "PNG",
+    "lastModification": {
+      "actor": "8.3-migration",
+      "timestamp": "2026-01-07T14:49:07Z"
+    },
+    "size": 431,
+    "lastModificationSignature": "9980a507184b93121cbaa7198c31437a5745f79cee49a9a29e8c5bd41355824d",
+    "height": 24
+  }
+}

@@ -1,0 +1,20 @@
+{
+  "scope": "A",
+  "version": 1,
+  "restricted": false,
+  "overridable": true,
+  "files": [
+    "question-octagon.png"
+  ],
+  "attributes": {
+    "width": 16,
+    "format": "PNG",
+    "lastModification": {
+      "actor": "8.3-migration",
+      "timestamp": "2026-01-07T14:49:07Z"
+    },
+    "size": 660,
+    "lastModificationSignature": "23f06b9fc204448533fe168ab183a8c7f0e80e94a6be10d363ffaba563ccc279",
+    "height": 16
+  }
+}

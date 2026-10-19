@@ -1,0 +1,141 @@
+{
+  "custom": {
+    "structure": []
+  },
+  "params": {},
+  "propConfig": {
+    "custom.structure": {
+      "binding": {
+        "config": {
+          "struct": {
+            "components": "{session.custom.components}",
+            "configs": "{session.custom.structure.configs}",
+            "containers": "{session.custom.containers}",
+            "showUUID": "{session.custom.showUUID}"
+          },
+          "waitOnAll": true
+        },
+        "transforms": [
+          {
+            "code": "\tfrom exchange.architecturebuilder.viewCanvas.connectionRules import getIconByType\n\t\n\tdef get_instance_coords(instance):\n\t    top \u003d instance[\u0027top\u0027]\n\t    bottom \u003d instance[\u0027height\u0027] + top\n\t    left \u003d instance[\u0027left\u0027]\n\t    right \u003d instance[\u0027width\u0027] + left\n\t    return [top, bottom, left, right]\n\t\n\t# Function to check if an instance is within a container\n\tdef instance_in_container(instance_coords, container_coords):\n\t    top1, bottom1, left1, right1 \u003d instance_coords\n\t    top2, bottom2, left2, right2 \u003d container_coords\n\t    return top1 \u003e\u003d top2 and bottom1 \u003c\u003d bottom2 and left1 \u003e\u003d left2 and right1 \u003c\u003d right2\n\t\n\t# Function to get information about a component\n\tdef get_component_info(component, type_id\u003d0):\n\t    component_name \u003d configs[component][\u0027name\u0027]\n\t    component_type \u003d configs[component][\u0027type\u0027]\n\t    icon\u003d{}\n\t    icon\u003dsystem.util.jsonDecode(system.util.jsonEncode(getIconByType(component_type)))\n\t    label\u003dcomponent_name\n\t    \n\t    if value[\u0027showUUID\u0027]:\n\t    \tlabel+\u003d\u0027 ({})\u0027.format(component)\n\t    items\u003d[]\n\t    if component_type in [\u0027standard\u0027,\u0027edge\u0027,\u0027panel\u0027,\u0027cloud\u0027]:\n\t    \tmodules\u003dconfigs[component][\u0027config\u0027][\u0027modules\u0027]\n\t    \tif configs[component][\u0027config\u0027][\u0027redundant\u0027]:\n\t    \t\tlabel+\u003d\u0027 (+ Redundant)\u0027\n\t    \t\ticon[\u0027path\u0027]\u003d\"material/swap_horizontal_circle\"\n\t    \t\ticon[\u0027style\u0027]\u003d{\"backgroundImage\": \"linear-gradient(var(--cirrusLink), #355980)\"}\n\t    \t\n\t    \tfor vendor in modules.keys():\n\t\t\t\tvendorColor\u003d\"--neutral-40\"\n\t\t\t\tif vendor\u003d\u003d\"IA\":\n\t\t\t\t\tvendorColor\u003d\"--standard\"\n\t\t\t\telif vendor\u003d\u003d\"CL\":\n\t\t\t\t\tvendorColor\u003d\"--cirrusLink\"\n\t\t\t\telif vendor\u003d\u003d\"SS\":\n\t\t\t\t\tvendorColor\u003d\"--sepasoft\"\n\t\t\t\tfor module in modules[vendor]:\n\t\t\t\t\tmodulelabel\u003dmodule[\u0027name\u0027]\n\t\t\t\t\tsubitem\u003d[]\n\t\t\t\t\tif \u0027selection\u0027 in module.keys():\n\t\t\t\t\t\tsubitem\u003d[\n\t\t\t\t\t\t\t{\"label\": \u0027({})\u0027.format(module[\u0027selection\u0027]),\n\t\t\t\t\t        \"expanded\": True,\n\t\t\t\t\t        \"data\": {\"modules\":modules.keys(),\"uuid\": component, \"vendor\":vendor},\n\t\t\t\t\t        \"icon\":{\"path\":\"material/info\"},\n\t\t\t\t\t        \"items\":[]\n\t\t\t\t\t    \t}\n\t\t\t\t\t    ]\n\t\t\t\t\t\n\t\t\t\t\titems.append({\n\t\t\t\t\t    \"label\": modulelabel,\n\t\t\t\t\t    \"expanded\": False,\n\t\t\t\t\t    \"data\": {\"modules\":modules.keys(),\"uuid\": component, \"vendor\":vendor},\n\t\t\t\t\t    \"icon\":{\"path\":\"material/stop\", \"color\": vendorColor},\n\t\t\t\t\t    \"items\":subitem\n\t\t\t\t\t})\n\t    \t\t\t\n\t    \n\t    \n\t    \n\t    data \u003d {\n#\t        \"uuid\": component_uuid,\n\t        \"label\": label,\n\t        \"expanded\": True, #component_type\u003d\u003d\"Container\" or ,\n\t        \"data\": {\"uuid\": component, \u0027type\u0027: component_type, \u0027name\u0027: component_name},\n\t        \"icon\":icon,\n\t        \"items\":items\n\t    }\n\t\n\t    if type_id \u003d\u003d 0:\n\t        component_connections \u003d configs[component][\u0027config\u0027].get(\u0027connections\u0027, [])\n\t        data[\u0027data\u0027][\u0027connections\u0027] \u003d component_connections\n\t    else:\n\t        data[\u0027items\u0027] \u003d []\n\t\n\t    return data\n\t\n\t# Main code\n\tcontainers \u003d value[\u0027containers\u0027]\n\tcomponents \u003d value[\u0027components\u0027]\n\tconfigs \u003d value[\u0027configs\u0027]\n\tstructure \u003d []  # List to hold the hierarchical structure of containers and components\n\t\n\tcontainer_coords_all \u003d {}  # Dictionary to store coordinates of containers\n\tcontainers_collected \u003d []  # List to track collected containers\n\tcomponents_collected \u003d []  # List to track collected components\n\t\n\theadCoords\u003d[]\n#\tfor headC in containers:\n#\t\tif headC.keys()[0]\u003d\u003dvalue[\u0027headUUID\u0027]:\n#\t\t\theadCoords\u003dget_instance_coords(headC[value[\u0027headUUID\u0027]])  # Get container coordinates\n#\t\t\tbreak\n\t# Iterate through containers in reverse order\n\tfor container in reversed(containers):\n\t    container_uuid \u003d container.keys()[0]  # Extract container UUID\n\t    if container_uuid not in containers_collected:\n\t        container_coords \u003d get_instance_coords(container[container_uuid])  # Get container coordinates\n#\t        if instance_in_container(container_coords,headCoords):\n\t        container_coords_all[container_uuid] \u003d container_coords  # Store container coordinates\n\t        site \u003d get_component_info(container_uuid, 1)  # Get component information for container\n\t        site[\u0027items\u0027] \u003d []  # Initialize contents list for container\n\t        # Iterate through components\n\t        for component, comp_instance in components.iteritems():\n\t            component_coords \u003d get_instance_coords(comp_instance)  # Get component coordinates\n\t            # Check if component is within container and not collected yet\n\t            if instance_in_container(component_coords, container_coords) and component not in components_collected:\n\t                components_collected.append(component)  # Mark component as collected\n\t                component_data \u003d get_component_info(component)  # Get component information\n\t                site[\u0027items\u0027].append(component_data)  # Add component to container\u0027s contents\n\t        structure.append(site)  # Add container to structure\n\t#List root uuids\n\t\n\trootComponents\u003d[]\n\tfor item in components.keys():\n\t\tif item not in components_collected:\n#\t\t\treturn get_component_info(item, type_id\u003d0)#*****************************************************************************\n\t\t\trootComponents.append(get_component_info(item, type_id\u003d0))\n\t#return rootComponents\n\n\tuuid_popped \u003d []  # List to track popped UUIDs\n\t\n\t# Iterate through structure to handle nested containers\n\tfor container_index, container_data in enumerate(structure):\n\t    container_uuid \u003d container_data[\u0027data\u0027][\u0027uuid\u0027]\n\t    container_coords \u003d container_coords_all[container_uuid]\n\t    # Iterate through structure again to find nested containers\n\t    for subcontainer_index, subcontainer_data in enumerate(structure):\n\t        subcontainer_uuid \u003d subcontainer_data[\u0027data\u0027][\u0027uuid\u0027]\n\t        subcontainer_coords \u003d container_coords_all[subcontainer_uuid]\n\t        # Check if subcontainer is nested within container and not yet popped\n\t        if subcontainer_uuid !\u003d container_uuid and instance_in_container(subcontainer_coords, container_coords) and subcontainer_uuid not in uuid_popped:\n\t            # Add nested subcontainer to container\u0027s contents\n\t            structure[container_index][\u0027items\u0027].append(structure[subcontainer_index].copy())\n\t            uuid_popped.append(subcontainer_uuid)  # Mark subcontainer UUID as popped\n\t\n\t\n\t# Filter out popped containers from the final structure\n\tfinal_structure \u003d [pop_items for pop_items in structure if pop_items[\u0027data\u0027][\u0027uuid\u0027] not in uuid_popped]\n#\tfinal_structure[0][\u0027expanded\u0027]\u003dTrue\n\treturn rootComponents+final_structure  # Return the final hierarchical structure\n\t#return final_structure  # Return the final hierarchical structure",
+            "type": "script"
+          }
+        ],
+        "type": "expr-struct"
+      },
+      "persistent": true
+    }
+  },
+  "props": {
+    "defaultSize": {
+      "height": 780,
+      "width": 474
+    }
+  },
+  "root": {
+    "children": [
+      {
+        "meta": {
+          "name": "Label"
+        },
+        "props": {
+          "text": "Architecture Structure"
+        },
+        "type": "ia.display.label"
+      },
+      {
+        "children": [
+          {
+            "events": {
+              "component": {
+                "onItemClicked": {
+                  "config": {
+                    "script": "\tif \u0027type\u0027 in event.data.keys():\n\t\ttypeid\u003devent.data[\u0027type\u0027]\n\t\tuuid\u003devent.data[\u0027uuid\u0027]\n\t\tif typeid !\u003d \u0027Container\u0027:\n\t\t\tpath\u003dexchange.architecturebuilder.viewCanvas.connectionRules.getComponentPath(typeid, view\u003d\u0027Config\u0027)\n\t\telse:\n\t\t\tpath\u003d\u0027Exchange/ArchitectureBuilder/Frames/EmbeddedViews/SiteConfig\u0027\n\t\tsystem.perspective.openPopup(uuid, path, {\u0027uuid\u0027: uuid}, title\u003devent.data[\u0027name\u0027],position\u003d{\u0027height\u0027:\u0027auto\u0027})\n\telif \u0027modules\u0027 in event.data.keys():\n\t\tuuid\u003devent.data[\u0027uuid\u0027]\n\t\tvendor\u003devent.data[\u0027vendor\u0027]\n\t\tsystem.perspective.sendMessage(\u0027openPopup\u0027, {\n\t\t\t\t\t\u0027uuid\u0027:\u0027modules\u0027, \n\t\t\t\t\t\u0027path\u0027:\u0027Exchange/ArchitectureBuilder/Modules/ModuleSelection\u0027,\n\t\t\t\t\t\u0027params\u0027:{\n\t\t\t\t\t\t\u0027gatewayUUID\u0027:uuid, \u0027providerFlag\u0027:vendor},\n\t\t\t\t\t\u0027title\u0027:\u0027Module Selection\u0027},scope\u003d\u0027session\u0027)"
+                  },
+                  "scope": "G",
+                  "type": "script"
+                }
+              }
+            },
+            "meta": {
+              "name": "Tree"
+            },
+            "position": {
+              "shrink": 0
+            },
+            "propConfig": {
+              "props.items": {
+                "binding": {
+                  "config": {
+                    "path": "view.custom.structure"
+                  },
+                  "type": "property"
+                }
+              }
+            },
+            "props": {
+              "appearance": {
+                "defaultNodeIcons": {
+                  "collapsed": {
+                    "path": "material/folder"
+                  },
+                  "empty": {
+                    "path": "material/stop"
+                  },
+                  "expanded": {
+                    "path": "material/folder_open"
+                  }
+                },
+                "expandIcons": {
+                  "collapsed": {
+                    "path": "material/arrow_right"
+                  },
+                  "expanded": {
+                    "path": "material/arrow_drop_down"
+                  }
+                },
+                "textOverflow": "truncate"
+              },
+              "style": {
+                "fontSize": 10,
+                "marginTop": "8px",
+                "overflowX": "hidden"
+              }
+            },
+            "type": "ia.display.tree"
+          }
+        ],
+        "meta": {
+          "name": "FlexContainer"
+        },
+        "position": {
+          "grow": 1
+        },
+        "props": {
+          "direction": "column",
+          "style": {
+            "overflow": "hidden",
+            "overflowX": "hidden"
+          }
+        },
+        "type": "ia.container.flex"
+      }
+    ],
+    "meta": {
+      "name": "root"
+    },
+    "props": {
+      "direction": "column",
+      "style": {
+        "backgroundColor": "--neutral-30",
+        "borderBottomLeftRadius": "16px",
+        "borderBottomRightRadius": "16px",
+        "borderTopLeftRadius": "16px",
+        "borderTopRightRadius": "16px",
+        "margin": "8px",
+        "padding": "16px"
+      }
+    },
+    "type": "ia.container.flex"
+  }
+}

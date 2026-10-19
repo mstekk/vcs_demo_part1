@@ -1,0 +1,358 @@
+{
+  "custom": {},
+  "params": {
+    "tagPath": "[default]Demo/Valve"
+  },
+  "propConfig": {
+    "params.tagPath": {
+      "paramDirection": "input",
+      "persistent": true
+    }
+  },
+  "props": {
+    "defaultSize": {
+      "height": 100,
+      "width": 110
+    }
+  },
+  "root": {
+    "children": [
+      {
+        "meta": {
+          "name": "Label_0"
+        },
+        "position": {
+          "basis": "40px"
+        },
+        "propConfig": {
+          "props.text": {
+            "binding": {
+              "config": {
+                "fallbackDelay": 2.5,
+                "mode": "indirect",
+                "references": {
+                  "1": "{view.params.tagPath}"
+                },
+                "tagPath": "{1}/Parameters.DeviceName"
+              },
+              "type": "tag"
+            }
+          }
+        },
+        "props": {
+          "textStyle": {
+            "classes": "ComponentName"
+          }
+        },
+        "type": "ia.display.label"
+      },
+      {
+        "events": {
+          "dom": {
+            "onClick": {
+              "config": {
+                "draggable": false,
+                "id": "popup",
+                "modal": true,
+                "overlayDismiss": false,
+                "position": {
+                  "bottom": 100,
+                  "left": 100,
+                  "right": 100,
+                  "top": 100
+                },
+                "positionType": "exact",
+                "resizable": false,
+                "showCloseIcon": false,
+                "type": "open",
+                "viewPath": "Popups/Demo/Popup",
+                "viewportBound": true
+              },
+              "scope": "C",
+              "type": "popup"
+            }
+          }
+        },
+        "meta": {
+          "name": "Valve"
+        },
+        "position": {
+          "basis": "100px"
+        },
+        "propConfig": {
+          "props.elements[0].style.classes": {
+            "binding": {
+              "config": {
+                "path": "parent.custom.classStyle"
+              },
+              "type": "property"
+            }
+          },
+          "props.elements[1].style.classes": {
+            "binding": {
+              "config": {
+                "path": "parent.custom.classStyle"
+              },
+              "type": "property"
+            }
+          },
+          "props.elements[2].style.classes": {
+            "binding": {
+              "config": {
+                "path": "parent.custom.classStyle"
+              },
+              "type": "property"
+            }
+          },
+          "props.elements[3].style.classes": {
+            "binding": {
+              "config": {
+                "path": "parent.custom.classStyle"
+              },
+              "type": "property"
+            }
+          },
+          "props.elements[4].style.classes": {
+            "binding": {
+              "config": {
+                "path": "parent.custom.classStyle"
+              },
+              "type": "property"
+            }
+          },
+          "props.elements[5].style.classes": {
+            "binding": {
+              "config": {
+                "path": "parent.custom.classStyle"
+              },
+              "type": "property"
+            }
+          },
+          "props.elements[6].style.classes": {
+            "binding": {
+              "config": {
+                "path": "parent.custom.classStyle"
+              },
+              "type": "property"
+            }
+          }
+        },
+        "props": {
+          "elements": [
+            {
+              "height": "100",
+              "name": "rect",
+              "style": {},
+              "type": "rect",
+              "width": "50",
+              "x": "48",
+              "y": "43"
+            },
+            {
+              "height": "30",
+              "name": "rect",
+              "style": {},
+              "type": "rect",
+              "width": "10",
+              "x": "68",
+              "y": "13"
+            },
+            {
+              "height": "10",
+              "name": "rect",
+              "style": {},
+              "type": "rect",
+              "width": "80",
+              "x": "33",
+              "y": "3"
+            },
+            {
+              "height": "60",
+              "name": "rect",
+              "style": {},
+              "type": "rect",
+              "width": "15",
+              "x": "128",
+              "y": "83"
+            },
+            {
+              "height": "60",
+              "name": "rect",
+              "style": {},
+              "type": "rect",
+              "width": "15",
+              "x": "3",
+              "y": "83"
+            },
+            {
+              "d": "M98 88L128 93V133L98 138V88Z",
+              "name": "path",
+              "style": {},
+              "type": "path"
+            },
+            {
+              "d": "M48 88L18 93V133L48 138V88Z",
+              "name": "path",
+              "style": {},
+              "type": "path"
+            }
+          ],
+          "fill": {
+            "paint": "transparent"
+          },
+          "style": {
+            "classes": "HoverSelect"
+          },
+          "viewBox": "0 0 146 146"
+        },
+        "type": "ia.shapes.svg"
+      },
+      {
+        "meta": {
+          "name": "Label"
+        },
+        "position": {
+          "basis": "30px"
+        },
+        "propConfig": {
+          "props.text": {
+            "binding": {
+              "config": {
+                "path": "parent.custom.status"
+              },
+              "transforms": [
+                {
+                  "fallback": "Non-Telemetered",
+                  "inputType": "scalar",
+                  "mappings": [
+                    {
+                      "input": 0,
+                      "output": "Closed"
+                    },
+                    {
+                      "input": 1,
+                      "output": "Open"
+                    },
+                    {
+                      "input": 2,
+                      "output": "Non-Telemetered"
+                    },
+                    {
+                      "input": 10,
+                      "output": "Failed"
+                    },
+                    {
+                      "input": 11,
+                      "output": "Warning"
+                    },
+                    {
+                      "input": 12,
+                      "output": "Notice"
+                    },
+                    {
+                      "input": 20,
+                      "output": "Failed"
+                    },
+                    {
+                      "input": 21,
+                      "output": "Warning"
+                    },
+                    {
+                      "input": 22,
+                      "output": "Notice"
+                    }
+                  ],
+                  "outputType": "scalar",
+                  "type": "map"
+                }
+              ],
+              "type": "property"
+            }
+          }
+        },
+        "props": {
+          "textStyle": {
+            "classes": "ComponentDisplay"
+          }
+        },
+        "type": "ia.display.label"
+      }
+    ],
+    "meta": {
+      "name": "root"
+    },
+    "propConfig": {
+      "custom.classStyle": {
+        "binding": {
+          "config": {
+            "path": "this.custom.status"
+          },
+          "transforms": [
+            {
+              "fallback": "Status/NonTelemetered",
+              "inputType": "scalar",
+              "mappings": [
+                {
+                  "input": 0,
+                  "output": "Status/Stopped"
+                },
+                {
+                  "input": 1,
+                  "output": "Status/Running"
+                },
+                {
+                  "input": 2,
+                  "output": "Status/NonTelemetered"
+                },
+                {
+                  "input": 10,
+                  "output": "Alarms/ActiveAcked_Critical"
+                },
+                {
+                  "input": 11,
+                  "output": "Alarms/ActiveAcked_High"
+                },
+                {
+                  "input": 12,
+                  "output": "Alarms/ActiveAcked_Low"
+                },
+                {
+                  "input": 20,
+                  "output": "Alarms/ActiveUnacked_Critical"
+                },
+                {
+                  "input": 21,
+                  "output": "Alarms/ActiveUnacked_High"
+                },
+                {
+                  "input": 22,
+                  "output": "Alarms/ActiveUnacked_Low"
+                }
+              ],
+              "outputType": "scalar",
+              "type": "map"
+            }
+          ],
+          "type": "property"
+        }
+      },
+      "custom.status": {
+        "binding": {
+          "config": {
+            "fallbackDelay": 2.5,
+            "mode": "indirect",
+            "references": {
+              "1": "{view.params.tagPath}"
+            },
+            "tagPath": "{1}/Value"
+          },
+          "type": "tag"
+        }
+      }
+    },
+    "props": {
+      "direction": "column"
+    },
+    "type": "ia.container.flex"
+  }
+}

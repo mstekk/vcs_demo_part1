@@ -1,0 +1,20 @@
+{
+  "scope": "A",
+  "version": 1,
+  "restricted": false,
+  "overridable": true,
+  "files": [
+    "tank-flat btm.png"
+  ],
+  "attributes": {
+    "width": 366,
+    "format": "PNG",
+    "lastModification": {
+      "actor": "8.3-migration",
+      "timestamp": "2026-01-07T14:49:07Z"
+    },
+    "size": 10582,
+    "lastModificationSignature": "45e02a2eba143256e923ec2ea1127fcf9f30f3b9b1304effdf21d7b7381650f0",
+    "height": 83
+  }
+}

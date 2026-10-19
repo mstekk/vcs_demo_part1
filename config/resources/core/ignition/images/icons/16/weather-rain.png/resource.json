@@ -1,0 +1,20 @@
+{
+  "scope": "A",
+  "version": 1,
+  "restricted": false,
+  "overridable": true,
+  "files": [
+    "weather-rain.png"
+  ],
+  "attributes": {
+    "width": 16,
+    "format": "PNG",
+    "lastModification": {
+      "actor": "8.3-migration",
+      "timestamp": "2026-01-07T14:49:07Z"
+    },
+    "size": 625,
+    "lastModificationSignature": "3917e95cb9c83ddd8cc9af047b00b30ce917a8ee4b07efae9f013df32ea5db4c",
+    "height": 16
+  }
+}

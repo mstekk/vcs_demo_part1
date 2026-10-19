@@ -1,0 +1,20 @@
+{
+  "scope": "A",
+  "version": 1,
+  "restricted": false,
+  "overridable": true,
+  "files": [
+    "drive-medium.png"
+  ],
+  "attributes": {
+    "width": 16,
+    "format": "PNG",
+    "lastModification": {
+      "actor": "8.3-migration",
+      "timestamp": "2026-01-07T14:49:07Z"
+    },
+    "size": 1335,
+    "lastModificationSignature": "799c2eecd3ddf252e0601d81117a7335bd3824c9d7c718cba4ccda63ad81532a",
+    "height": 16
+  }
+}

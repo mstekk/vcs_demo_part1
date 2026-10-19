@@ -1,0 +1,20 @@
+{
+  "scope": "A",
+  "version": 1,
+  "restricted": false,
+  "overridable": true,
+  "files": [
+    "shoppingbag7.png"
+  ],
+  "attributes": {
+    "width": 24,
+    "format": "PNG",
+    "lastModification": {
+      "actor": "8.3-migration",
+      "timestamp": "2026-01-07T14:49:07Z"
+    },
+    "size": 342,
+    "lastModificationSignature": "03306dcb3443ccf60f0e060830860894d3908509916b0ce343dae4b00a8b55b8",
+    "height": 24
+  }
+}

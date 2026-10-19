@@ -1,0 +1,20 @@
+{
+  "scope": "A",
+  "version": 1,
+  "restricted": false,
+  "overridable": true,
+  "files": [
+    "globe--arrow.png"
+  ],
+  "attributes": {
+    "width": 16,
+    "format": "PNG",
+    "lastModification": {
+      "actor": "8.3-migration",
+      "timestamp": "2026-01-07T14:49:07Z"
+    },
+    "size": 927,
+    "lastModificationSignature": "9f157c5450f7cdacfbf146dcd4dfdef2376718fb9a4f204e8719561f91d42b6d",
+    "height": 16
+  }
+}

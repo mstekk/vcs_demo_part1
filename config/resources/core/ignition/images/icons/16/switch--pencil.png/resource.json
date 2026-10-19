@@ -1,0 +1,20 @@
+{
+  "scope": "A",
+  "version": 1,
+  "restricted": false,
+  "overridable": true,
+  "files": [
+    "switch--pencil.png"
+  ],
+  "attributes": {
+    "width": 16,
+    "format": "PNG",
+    "lastModification": {
+      "actor": "8.3-migration",
+      "timestamp": "2026-01-07T14:49:07Z"
+    },
+    "size": 687,
+    "lastModificationSignature": "dfe98fb647fbd582235ff5cd4ec72df8ce270a4e270308551ca3d830d5fd1129",
+    "height": 16
+  }
+}

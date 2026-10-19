@@ -1,0 +1,20 @@
+{
+  "scope": "A",
+  "version": 1,
+  "restricted": false,
+  "overridable": true,
+  "files": [
+    "report-paper.png"
+  ],
+  "attributes": {
+    "width": 16,
+    "format": "PNG",
+    "lastModification": {
+      "actor": "8.3-migration",
+      "timestamp": "2026-01-07T14:49:07Z"
+    },
+    "size": 457,
+    "lastModificationSignature": "7360dda7c930303e94d85d0b91617dfa9a2875a57a28b80f5849cad5463b5029",
+    "height": 16
+  }
+}

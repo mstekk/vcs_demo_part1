@@ -1,0 +1,20 @@
+{
+  "scope": "A",
+  "version": 1,
+  "restricted": false,
+  "overridable": true,
+  "files": [
+    "telephone55.png"
+  ],
+  "attributes": {
+    "width": 24,
+    "format": "PNG",
+    "lastModification": {
+      "actor": "8.3-migration",
+      "timestamp": "2026-01-07T14:49:07Z"
+    },
+    "size": 453,
+    "lastModificationSignature": "de1fe3468eb7c89e6f683f6ca97a931d14cc8a6bff7b5f549a3466c150c2bd7a",
+    "height": 24
+  }
+}

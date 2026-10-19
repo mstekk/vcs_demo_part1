@@ -1,0 +1,20 @@
+{
+  "scope": "A",
+  "version": 1,
+  "restricted": false,
+  "overridable": true,
+  "files": [
+    "right_round_white.png"
+  ],
+  "attributes": {
+    "width": 32,
+    "format": "PNG",
+    "lastModification": {
+      "actor": "8.3-migration",
+      "timestamp": "2026-01-07T14:49:07Z"
+    },
+    "size": 858,
+    "lastModificationSignature": "34fd26f09a164f729e357ba9d85ab2ecd132a479073b0e00e647fb1844f78cc2",
+    "height": 32
+  }
+}

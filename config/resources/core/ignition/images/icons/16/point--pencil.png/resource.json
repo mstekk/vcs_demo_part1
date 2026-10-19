@@ -1,0 +1,20 @@
+{
+  "scope": "A",
+  "version": 1,
+  "restricted": false,
+  "overridable": true,
+  "files": [
+    "point--pencil.png"
+  ],
+  "attributes": {
+    "width": 16,
+    "format": "PNG",
+    "lastModification": {
+      "actor": "8.3-migration",
+      "timestamp": "2026-01-07T14:49:07Z"
+    },
+    "size": 886,
+    "lastModificationSignature": "8647e1145a23035f6d689dae67fd670c8d8ba7fe1236acc1372f813d9d16ee14",
+    "height": 16
+  }
+}

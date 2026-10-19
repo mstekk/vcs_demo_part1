@@ -1,0 +1,20 @@
+{
+  "scope": "A",
+  "version": 1,
+  "restricted": false,
+  "overridable": true,
+  "files": [
+    "keyboard--pencil.png"
+  ],
+  "attributes": {
+    "width": 16,
+    "format": "PNG",
+    "lastModification": {
+      "actor": "8.3-migration",
+      "timestamp": "2026-01-07T14:49:07Z"
+    },
+    "size": 662,
+    "lastModificationSignature": "24b87eb71c9edede29c6b033e7fcd11866af3e2d8e66a01920b4ea65d9cc0d17",
+    "height": 16
+  }
+}

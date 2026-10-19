@@ -1,0 +1,10 @@
+{
+  "classname": "sun.jdbc.odbc.JdbcOdbcDriver",
+  "defaultPropInstructions": "",
+  "defaultProps": "",
+  "defaultTranslator": "GENERIC",
+  "defaultValidationQuery": "SELECT 1",
+  "type": "GENERIC",
+  "urlFormat": "jdbc:odbc:\u003cdata-source-name\u003e",
+  "urlInstructions": "The URL for the JDBC-ODBC bridge is simply jdbc:odbc:\u003cb\u003edsn\u003c/b\u003e\u003cbr\u003eThe given \u003cb\u003edsn\u003c/b\u003e must be configured on the host computer that the Gateway is running on."
+}

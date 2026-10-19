@@ -1,0 +1,20 @@
+{
+  "scope": "A",
+  "version": 1,
+  "restricted": false,
+  "overridable": true,
+  "files": [
+    "receipt-excel-text.png"
+  ],
+  "attributes": {
+    "width": 16,
+    "format": "PNG",
+    "lastModification": {
+      "actor": "8.3-migration",
+      "timestamp": "2026-01-07T14:49:07Z"
+    },
+    "size": 619,
+    "lastModificationSignature": "a33eb5594b52f60e00a67e8dc9d578eed429a0b21405163847218fd3bac648e4",
+    "height": 16
+  }
+}

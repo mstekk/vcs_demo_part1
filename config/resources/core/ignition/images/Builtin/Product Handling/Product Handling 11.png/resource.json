@@ -1,0 +1,20 @@
+{
+  "scope": "A",
+  "version": 1,
+  "restricted": false,
+  "overridable": true,
+  "files": [
+    "Product Handling 11.png"
+  ],
+  "attributes": {
+    "width": 180,
+    "format": "PNG",
+    "lastModification": {
+      "actor": "8.3-migration",
+      "timestamp": "2026-01-07T14:49:07Z"
+    },
+    "size": 12609,
+    "lastModificationSignature": "ccd02694da78e4fe7d01d101c027b4b9f7c8b3ab12a16bd761d2f2c445603c7b",
+    "height": 297
+  }
+}

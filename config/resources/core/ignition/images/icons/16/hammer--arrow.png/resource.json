@@ -1,0 +1,20 @@
+{
+  "scope": "A",
+  "version": 1,
+  "restricted": false,
+  "overridable": true,
+  "files": [
+    "hammer--arrow.png"
+  ],
+  "attributes": {
+    "width": 16,
+    "format": "PNG",
+    "lastModification": {
+      "actor": "8.3-migration",
+      "timestamp": "2026-01-07T14:49:07Z"
+    },
+    "size": 752,
+    "lastModificationSignature": "b3248e9a49af24bcf972c52f43fb0d6e1f527c3549f33dc9f45bbd613f5ab6b4",
+    "height": 16
+  }
+}

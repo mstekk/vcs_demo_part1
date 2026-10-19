@@ -1,0 +1,20 @@
+{
+  "scope": "A",
+  "version": 1,
+  "restricted": false,
+  "overridable": true,
+  "files": [
+    "cake.png"
+  ],
+  "attributes": {
+    "width": 16,
+    "format": "PNG",
+    "lastModification": {
+      "actor": "8.3-migration",
+      "timestamp": "2026-01-07T14:49:07Z"
+    },
+    "size": 837,
+    "lastModificationSignature": "7d41a92a9565204a6abd8bbd6ac1cf96ad756757dcdee6c0bba77c1dcf524d8c",
+    "height": 16
+  }
+}

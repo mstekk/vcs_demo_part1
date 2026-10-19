@@ -1,0 +1,286 @@
+{
+  "custom": {
+    "gateways": [
+      "Standard ()",
+      "Standard ()"
+    ]
+  },
+  "params": {},
+  "propConfig": {
+    "custom.gateways": {
+      "binding": {
+        "config": {
+          "path": "session.custom.structure"
+        },
+        "transforms": [
+          {
+            "code": "\n\tdef search(array, entry, path):\n\t\tfor e in entry:\n\t\t\tif e[\u0027type\u0027] \u003d\u003d \u0027Container\u0027:\n\t\t\t\t# Recursively search for contents\n\t\t\t\tif path \u003d\u003d \u0027\u0027:\n\t\t\t\t\tsearch(array, e[\u0027contents\u0027], e[\u0027uuid\u0027])\n\t\t\t\telse:\n\t\t\t\t\tsearch(array, e[\u0027contents\u0027], path + \u0027/\u0027 + e[\u0027uuid\u0027])\n\n\t\t\tif e[\u0027type\u0027] in (\u0027standard\u0027, \u0027edge\u0027, \u0027panel\u0027, \u0027cloud\u0027):\n\t\t\t\t# Get license key\n\t\t\t\t#licenseKey \u003d \n\t\t\t\tarray.append(e[\u0027name\u0027] + \u0027 (\u0027 + value[\u0027configs\u0027][e[\u0027uuid\u0027]][\u0027config\u0027][\u0027licenseKey\u0027] + \u0027)\u0027)\n\t\t\t\t# Get Ignition Edition\n#\t\t\t\tgwType \u003d value[\u0027configs\u0027][e[\u0027uuid\u0027]][\u0027type\u0027].capitalize()\n\n#\t\t\t\titem[\u0027header\u0027][\u0027content\u0027][\u0027viewParams\u0027] \u003d {\n#\t\t\t\t\t\"name\": e[\u0027name\u0027],\n#\t\t\t\t\t\"parents\": path,\n#\t\t\t\t\t\"type\": gwType,\n#\t\t\t\t\t\"uuid\": e[\u0027uuid\u0027]\n#\t\t\t\t}\n\t\t\t\t# Set body properties\n#\t\t\t\titem[\u0027body\u0027][\u0027viewPath\u0027] \u003d \"Exchange/ArchitectureBuilder/BOM/Ignition/Body\"\n#\t\t\t\titem[\u0027body\u0027][\u0027viewParams\u0027] \u003d {\n#\t\t\t\t\t\"type\": gwType,\n#\t\t\t\t\t\"uuid\": e[\u0027uuid\u0027]\n#\t\t\t\t}\n\t\t\t\t# Append to accordion list\n\n\t\treturn array\n\n\t# Simplify structure (only include connections to non-gateways)\n\tGWarray \u003d search([], value[\u0027structure\u0027], \u0027\u0027)\n\n\treturn GWarray",
+            "type": "script"
+          }
+        ],
+        "type": "property"
+      },
+      "persistent": true
+    }
+  },
+  "props": {
+    "defaultSize": {
+      "height": 135,
+      "width": 400
+    }
+  },
+  "root": {
+    "children": [
+      {
+        "children": [
+          {
+            "meta": {
+              "name": "Unlimited"
+            },
+            "position": {
+              "basis": "32px",
+              "shrink": 0
+            },
+            "propConfig": {
+              "props.selected": {
+                "binding": {
+                  "config": {
+                    "path": "session.custom.eamUnlimited.selected"
+                  },
+                  "type": "property"
+                }
+              }
+            },
+            "props": {
+              "text": "Use EAM Unlimited"
+            },
+            "type": "ia.input.checkbox"
+          },
+          {
+            "children": [
+              {
+                "meta": {
+                  "name": "Label"
+                },
+                "position": {
+                  "shrink": 0
+                },
+                "props": {
+                  "style": {
+                    "marginLeft": "2px",
+                    "marginRight": "6px"
+                  },
+                  "text": "Gateway:",
+                  "textStyle": {
+                    "fontWeight": "normal",
+                    "textAlign": "center"
+                  }
+                },
+                "type": "ia.display.label"
+              },
+              {
+                "meta": {
+                  "name": "Dropdown"
+                },
+                "position": {
+                  "grow": 1
+                },
+                "propConfig": {
+                  "props.enabled": {
+                    "binding": {
+                      "config": {
+                        "path": ".../Unlimited.props.selected"
+                      },
+                      "type": "property"
+                    }
+                  },
+                  "props.options": {
+                    "binding": {
+                      "config": {
+                        "expression": "{session.custom.structure}"
+                      },
+                      "transforms": [
+                        {
+                          "code": "\n\tdef search(options, entry, path):\n\t\tfor e in entry:\n\t\t\tif e[\u0027type\u0027] \u003d\u003d \u0027Container\u0027:\n\t\t\t\t# Recursively search for gateways\n\t\t\t\tif path \u003d\u003d \u0027\u0027:\n\t\t\t\t\tsearch(options, e[\u0027contents\u0027], e[\u0027uuid\u0027])\n\t\t\t\telse:\n\t\t\t\t\tsearch(options, e[\u0027contents\u0027], path + \u0027/\u0027 + e[\u0027uuid\u0027])\n\n\t\t\tif e[\u0027type\u0027] in (\u0027standard\u0027):\n\t\t\t\tif not value[\u0027configs\u0027][e[\u0027uuid\u0027]][\u0027config\u0027][\u0027development\u0027]:\n\t\t\t\t\t# Look up license key\n\t\t\t\t\tkey \u003d value[\u0027configs\u0027][e[\u0027uuid\u0027]][\u0027config\u0027][\u0027licenseKey\u0027] or \"No Key\"\n\t\t\t\t\t# Build label\n\t\t\t\t\tlabel \u003d \"%s (%s)\" % (e[\u0027name\u0027], key)\n\t\t\t\t\tval \u003d e[\u0027uuid\u0027]\n\t\t\t\t\t# Append label/value dictionary\n\t\t\t\t\toptions.append({\u0027label\u0027: label, \u0027value\u0027: val})\n\t\treturn options\n\n\t# Build list of gateways\n\tGWarray \u003d search([], value[\u0027structure\u0027], \u0027\u0027)\n\n\treturn GWarray",
+                          "type": "script"
+                        }
+                      ],
+                      "type": "expr"
+                    }
+                  },
+                  "props.value": {
+                    "binding": {
+                      "config": {
+                        "path": "session.custom.eamUnlimited.UUID"
+                      },
+                      "type": "property"
+                    }
+                  }
+                },
+                "props": {
+                  "style": {
+                    "marginRight": 6
+                  }
+                },
+                "type": "ia.input.dropdown"
+              }
+            ],
+            "meta": {
+              "name": "FlexContainer"
+            },
+            "position": {
+              "basis": "36px"
+            },
+            "type": "ia.container.flex"
+          }
+        ],
+        "meta": {
+          "name": "Settings"
+        },
+        "position": {
+          "shrink": 0
+        },
+        "props": {
+          "direction": "column",
+          "style": {
+            "backgroundColor": "--neutral-20",
+            "borderBottomLeftRadius": "16px",
+            "borderBottomRightRadius": "16px",
+            "borderColor": "--neutral-60",
+            "borderStyle": "solid",
+            "borderTopLeftRadius": "16px",
+            "borderTopRightRadius": "16px",
+            "borderWidth": "2px",
+            "margin": "8px",
+            "marginBottom": "0px",
+            "marginTop": "8px",
+            "padding": "4px"
+          }
+        },
+        "type": "ia.container.flex"
+      },
+      {
+        "children": [
+          {
+            "events": {
+              "component": {
+                "onActionPerformed": {
+                  "config": {
+                    "script": "\tif self.session.custom.audit.eam:\n\t\tif self.parent.parent.getChild(\"Settings\").getChild(\"Unlimited\").props.selected:\n\t\t\tactionValue \u003d \"selected: \" + self.parent.parent.getChild(\"Settings\").getChild(\"FlexContainer\").getChild(\"Dropdown\").props.value\n\t\telse:\n\t\t\tactionValue \u003d \"unselected\"\n\t\t# Log EAM Unlimited popup opened\n\t\tsystem.util.audit(action\u003d\"OK\", actionTarget\u003d\"EAM Unlimited\", actionValue\u003dactionValue)\n\tself.parent.writeSelections(close\u003dTrue)"
+                  },
+                  "scope": "G",
+                  "type": "script"
+                }
+              }
+            },
+            "meta": {
+              "name": "OK"
+            },
+            "position": {
+              "basis": "60px",
+              "grow": 1
+            },
+            "props": {
+              "style": {
+                "margin": "8px",
+                "marginTop": "8px",
+                "overflow": "auto"
+              },
+              "text": "OK"
+            },
+            "type": "ia.input.button"
+          },
+          {
+            "events": {
+              "component": {
+                "onActionPerformed": {
+                  "config": {
+                    "script": "\tif self.session.custom.audit.eam:\n\t\t# Log EAM Unlimited popup opened\n\t\tsystem.util.audit(action\u003d\"Close\", actionTarget\u003d\"EAM Unlimited\")\n\tsystem.perspective.closePopup(\"EamUnlimited\")"
+                  },
+                  "scope": "G",
+                  "type": "script"
+                }
+              }
+            },
+            "meta": {
+              "name": "Cancel"
+            },
+            "position": {
+              "basis": "60px",
+              "grow": 1
+            },
+            "props": {
+              "primary": false,
+              "style": {
+                "backgroundColor": "--neutral-50",
+                "margin": "8px",
+                "marginTop": "8px",
+                "overflow": "auto"
+              },
+              "text": "Cancel"
+            },
+            "type": "ia.input.button"
+          },
+          {
+            "events": {
+              "component": {
+                "onActionPerformed": {
+                  "config": {
+                    "script": "\tif self.session.custom.audit.eam:\n\t\tif self.parent.parent.getChild(\"Settings\").getChild(\"Unlimited\").props.selected:\n\t\t\tactionValue \u003d \"selected: \" + self.parent.parent.getChild(\"Settings\").getChild(\"FlexContainer\").getChild(\"Dropdown\").props.value\n\t\telse:\n\t\t\tactionValue \u003d \"unselected\"\n\t\t# Log EAM Unlimited popup opened\n\t\tsystem.util.audit(action\u003d\"Apply\", actionTarget\u003d\"EAM Unlimited\", actionValue\u003dactionValue)\n\tself.parent.writeSelections(close\u003dFalse)"
+                  },
+                  "scope": "G",
+                  "type": "script"
+                }
+              }
+            },
+            "meta": {
+              "name": "Apply"
+            },
+            "position": {
+              "basis": "60px",
+              "grow": 1
+            },
+            "props": {
+              "primary": false,
+              "style": {
+                "backgroundColor": "--neutral-50",
+                "margin": "8px",
+                "marginTop": "8px",
+                "overflow": "auto"
+              },
+              "text": "Apply"
+            },
+            "type": "ia.input.button"
+          }
+        ],
+        "meta": {
+          "name": "Buttons"
+        },
+        "position": {
+          "shrink": 0
+        },
+        "scripts": {
+          "customMethods": [
+            {
+              "name": "writeSelections",
+              "params": [
+                "close"
+              ],
+              "script": "\tself.session.custom.eamUnlimited.selected \u003d self.parent.getChild(\"Settings\").getChild(\"Unlimited\").props.selected\n\tself.session.custom.eamUnlimited.UUID \u003d self.parent.getChild(\"Settings\").getChild(\"FlexContainer\").getChild(\"Dropdown\").props.value\n\n\tif close:\n\t\tsystem.perspective.closePopup(\"EamUnlimited\")"
+            }
+          ],
+          "extensionFunctions": null,
+          "messageHandlers": []
+        },
+        "type": "ia.container.flex"
+      }
+    ],
+    "meta": {
+      "name": "root"
+    },
+    "props": {
+      "direction": "column"
+    },
+    "type": "ia.container.flex"
+  }
+}

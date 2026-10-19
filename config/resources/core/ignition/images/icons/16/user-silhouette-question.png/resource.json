@@ -1,0 +1,20 @@
+{
+  "scope": "A",
+  "version": 1,
+  "restricted": false,
+  "overridable": true,
+  "files": [
+    "user-silhouette-question.png"
+  ],
+  "attributes": {
+    "width": 16,
+    "format": "PNG",
+    "lastModification": {
+      "actor": "8.3-migration",
+      "timestamp": "2026-01-07T14:49:07Z"
+    },
+    "size": 606,
+    "lastModificationSignature": "6d3aa94711223c4d94eb89aa5ba24af237062b912db6067970a77d11de853059",
+    "height": 16
+  }
+}

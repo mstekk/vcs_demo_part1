@@ -1,0 +1,20 @@
+{
+  "scope": "A",
+  "version": 1,
+  "restricted": false,
+  "overridable": true,
+  "files": [
+    "battery--exclamation-21c3545138e1122c6cdd9134e3e7b3de.png"
+  ],
+  "attributes": {
+    "width": 16,
+    "format": "PNG",
+    "lastModification": {
+      "actor": "8.3-migration",
+      "timestamp": "2026-01-07T14:49:07Z"
+    },
+    "size": 704,
+    "lastModificationSignature": "0f97fc31516ba0acec7319d7cb9f6d127e26a2b650836b6477f79193a22a4aa5",
+    "height": 16
+  }
+}

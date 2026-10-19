@@ -1,0 +1,20 @@
+{
+  "scope": "A",
+  "version": 1,
+  "restricted": false,
+  "overridable": true,
+  "files": [
+    "edit-bold.png"
+  ],
+  "attributes": {
+    "width": 16,
+    "format": "PNG",
+    "lastModification": {
+      "actor": "8.3-migration",
+      "timestamp": "2026-01-07T14:49:07Z"
+    },
+    "size": 258,
+    "lastModificationSignature": "c8ee3cb35b8ed4f8a89d0e80d7e0b9fedef010724987a96cd897dc9d2fba52a7",
+    "height": 16
+  }
+}

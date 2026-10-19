@@ -1,0 +1,20 @@
+{
+  "scope": "A",
+  "version": 1,
+  "restricted": false,
+  "overridable": true,
+  "files": [
+    "eraser-small.png"
+  ],
+  "attributes": {
+    "width": 16,
+    "format": "PNG",
+    "lastModification": {
+      "actor": "8.3-migration",
+      "timestamp": "2026-01-07T14:49:07Z"
+    },
+    "size": 407,
+    "lastModificationSignature": "4c6583b8972fcf02f8a0ee420d1796ee74812d0ed335fde30659e54d25443e38",
+    "height": 16
+  }
+}

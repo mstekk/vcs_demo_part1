@@ -1,0 +1,20 @@
+{
+  "scope": "A",
+  "version": 1,
+  "restricted": false,
+  "overridable": true,
+  "files": [
+    "downarrow28.png"
+  ],
+  "attributes": {
+    "width": 16,
+    "format": "PNG",
+    "lastModification": {
+      "actor": "8.3-migration",
+      "timestamp": "2026-01-07T14:49:07Z"
+    },
+    "size": 321,
+    "lastModificationSignature": "502d56871015309c3748ad2393d02519e4955f0f8005d0449efb4282030520da",
+    "height": 16
+  }
+}

@@ -1,0 +1,297 @@
+{
+  "custom": {},
+  "params": {
+    "deviceName": "value",
+    "status": "acked alarm critical",
+    "tagPath": "value"
+  },
+  "propConfig": {
+    "params.deviceName": {
+      "paramDirection": "input",
+      "persistent": true
+    },
+    "params.status": {
+      "paramDirection": "input",
+      "persistent": true
+    },
+    "params.tagPath": {
+      "paramDirection": "input",
+      "persistent": true
+    }
+  },
+  "props": {
+    "defaultSize": {
+      "height": 200,
+      "width": 200
+    }
+  },
+  "root": {
+    "children": [
+      {
+        "meta": {
+          "name": "Label"
+        },
+        "position": {
+          "basis": "40px"
+        },
+        "propConfig": {
+          "props.text": {
+            "binding": {
+              "config": {
+                "path": "view.params.deviceName"
+              },
+              "type": "property"
+            }
+          }
+        },
+        "props": {
+          "textStyle": {
+            "classes": "ComponentName"
+          }
+        },
+        "type": "ia.display.label"
+      },
+      {
+        "meta": {
+          "name": "Pump"
+        },
+        "position": {
+          "basis": "144px"
+        },
+        "propConfig": {
+          "custom.style": {
+            "binding": {
+              "config": {
+                "path": "parent.custom.status"
+              },
+              "transforms": [
+                {
+                  "code": "\tstyles \u003d {\n\t\t0: \"Status/NonTelemetered\",\n\t\t1: \"Status/Running\",\n\t\t2: \"Status/Stopped\",\n\t\t10: \"Alarms/ActiveUnacked_Critical\",\n\t\t11: \"Alarms/ActiveUnacked_High\",\n\t\t12: \"Alarms/ActiveUnacked_Low\",\n\t\t20: \"Alarms/ActiveAcked_Critical\",\n\t\t21: \"Alarms/ActiveAcked_High\",\n\t\t22: \"Alarms/ActiveAcked_Low\",\n\t}\n\n\tclass_value \u003d styles.get(value, \"Status/NonTelemetered\")  # fallback to default\n\tresult \u003d {\n\t\t\"classes\": class_value,\n\t\t\"strokeWidth\": \"5\"\n\t}\n\t\n\treturn result",
+                  "type": "script"
+                }
+              ],
+              "type": "property"
+            }
+          },
+          "props.elements[0].style": {
+            "binding": {
+              "config": {
+                "path": "this.custom.style"
+              },
+              "type": "property"
+            }
+          },
+          "props.elements[1].style": {
+            "binding": {
+              "config": {
+                "path": "this.custom.style"
+              },
+              "type": "property"
+            }
+          },
+          "props.elements[2].style": {
+            "binding": {
+              "config": {
+                "path": "this.custom.style"
+              },
+              "type": "property"
+            }
+          },
+          "props.elements[3].style": {
+            "binding": {
+              "config": {
+                "path": "this.custom.style"
+              },
+              "type": "property"
+            }
+          },
+          "props.elements[4].style": {
+            "binding": {
+              "config": {
+                "path": "this.custom.style"
+              },
+              "type": "property"
+            }
+          },
+          "props.elements[5].style": {
+            "binding": {
+              "config": {
+                "path": "this.custom.style"
+              },
+              "type": "property"
+            }
+          },
+          "props.elements[6].style": {
+            "binding": {
+              "config": {
+                "path": "this.custom.style"
+              },
+              "type": "property"
+            }
+          },
+          "props.elements[7].style": {
+            "binding": {
+              "config": {
+                "path": "this.custom.style"
+              },
+              "type": "property"
+            }
+          },
+          "props.elements[8].style": {
+            "binding": {
+              "config": {
+                "path": "this.custom.style"
+              },
+              "type": "property"
+            }
+          },
+          "props.elements[9].style": {
+            "binding": {
+              "config": {
+                "path": "this.custom.style"
+              },
+              "type": "property"
+            }
+          }
+        },
+        "props": {
+          "elements": [
+            {
+              "d": "M25.4305 173.565H84.6411L40.0922 264H4.00195L25.4305 173.565Z",
+              "name": "path",
+              "type": "path"
+            },
+            {
+              "d": "M206.446 173.565H147.235L191.784 264H227.874L206.446 173.565Z",
+              "name": "path",
+              "type": "path"
+            },
+            {
+              "clipRule": "evenodd",
+              "d": "M188.4 19.8261L114.528 4V88.7826L210.393 99.5217L281.446 88.7826V100.087H304.002V20.9565H281.446V32.2609L234.641 28.3043L188.4 19.8261Z",
+              "name": "path",
+              "type": "path"
+            },
+            {
+              "cx": "116.784",
+              "cy": "117.043",
+              "name": "ellipse",
+              "rx": "112.782",
+              "ry": "113.043",
+              "type": "ellipse"
+            },
+            {
+              "cx": "116.784",
+              "cy": "117.043",
+              "name": "ellipse",
+              "rx": "84.5865",
+              "ry": "84.7826",
+              "type": "ellipse"
+            },
+            {
+              "name": "line",
+              "type": "line",
+              "x1": "115.9",
+              "x2": "115.9",
+              "y1": "32.2607",
+              "y2": "201.826"
+            },
+            {
+              "name": "line",
+              "type": "line",
+              "x1": 30,
+              "x2": 199.2,
+              "y1": 114.543,
+              "y2": "114.543"
+            },
+            {
+              "name": "line",
+              "transform": "matrix(0.706287 -0.707925 0.706287 0.707925 53.5886 176.994)",
+              "type": "line",
+              "x2": "169.369",
+              "y1": "-2.5",
+              "y2": "-2.5"
+            },
+            {
+              "name": "line",
+              "transform": "matrix(0.706287 0.707925 -0.706287 0.707925 53.5886 57.0933)",
+              "type": "line",
+              "x2": "169.369",
+              "y1": "-2.5",
+              "y2": "-2.5"
+            },
+            {
+              "cx": "116.784",
+              "cy": "117.044",
+              "name": "ellipse",
+              "rx": "28.1955",
+              "ry": "28.2609",
+              "type": "ellipse"
+            }
+          ],
+          "fill": {
+            "paint": "transparent"
+          },
+          "viewBox": "0 0 307 267"
+        },
+        "type": "ia.shapes.svg"
+      },
+      {
+        "meta": {
+          "name": "Label_0"
+        },
+        "position": {
+          "basis": "30px"
+        },
+        "propConfig": {
+          "props.text": {
+            "binding": {
+              "config": {
+                "path": "parent.custom.status"
+              },
+              "transforms": [
+                {
+                  "code": "\tstyles \u003d {\n\t\t0: \"Non-Telemetered\",\n\t\t1: \"Running\",\n\t\t2: \"Stopped\",\n\t\t10: \"Critical Alarm - Unacknowledged\",\n\t\t11: \"High Alarm - Unacknowledged\",\n\t\t12: \"Low Alarm - Unacknowledged\",\n\t\t20: \"Critical ALarm - Acknowledged\",\n\t\t21: \"High Alarm - Acknowledged\",\n\t\t22: \"Low Alarm - Acknowledged\"\n\t\t}\n\t\t\n\tstatus \u003d styles.get(value, \"Non-Telemetered\")\n\t\n\treturn status",
+                  "type": "script"
+                }
+              ],
+              "type": "property"
+            }
+          }
+        },
+        "props": {
+          "textStyle": {
+            "classes": "ComponentDisplay"
+          }
+        },
+        "type": "ia.display.label"
+      }
+    ],
+    "meta": {
+      "name": "root"
+    },
+    "position": {
+      "statusLabel": "value"
+    },
+    "propConfig": {
+      "custom.status": {
+        "binding": {
+          "config": {
+            "path": "view.params.status"
+          },
+          "transforms": [
+            {
+              "code": "\tstatus \u003d {\n\t\t\u0027nontelemetered\u0027: 0,\n\t\t\u0027running\u0027: 1,\n\t\t\u0027stopped\u0027: 2,\n\t\t\u0027unacked alarm critical\u0027: 10,\n\t\t\u0027unacked alarm high\u0027: 11,\n\t\t\u0027unacked alarm low\u0027: 12,\n\t\t\u0027acked alarm critical\u0027: 20,\n\t\t\u0027acked alarm high\u0027: 21,\n\t\t\u0027acked alarm low\u0027: 22\n\t\t}\n\t\n\tstatusValue \u003d status.get(value,0)\n\treturn statusValue",
+              "type": "script"
+            }
+          ],
+          "type": "property"
+        }
+      }
+    },
+    "props": {
+      "direction": "column"
+    },
+    "type": "ia.container.flex"
+  }
+}

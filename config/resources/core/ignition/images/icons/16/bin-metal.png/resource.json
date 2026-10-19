@@ -1,0 +1,20 @@
+{
+  "scope": "A",
+  "version": 1,
+  "restricted": false,
+  "overridable": true,
+  "files": [
+    "bin-metal.png"
+  ],
+  "attributes": {
+    "width": 16,
+    "format": "PNG",
+    "lastModification": {
+      "actor": "8.3-migration",
+      "timestamp": "2026-01-07T14:49:07Z"
+    },
+    "size": 669,
+    "lastModificationSignature": "b381e76de84fc203725840dfcdf0aec91746aa1a22eac95f23582bcf3e64f438",
+    "height": 16
+  }
+}

@@ -1,0 +1,19 @@
+{
+  "scope": "A",
+  "description": "Default On-Call Roster",
+  "version": 1,
+  "restricted": false,
+  "overridable": true,
+  "files": [
+    "config.json"
+  ],
+  "attributes": {
+    "lastModification": {
+      "actor": "admin",
+      "timestamp": "2026-01-19T17:47:25Z"
+    },
+    "uuid": "a7bda8a6-f61f-45a6-af01-66e0ff01a58e",
+    "lastModificationSignature": "d1ac82c60cfdc900dbe3f2da9dd3f329d290489dd6e1e653be98890c606ff8e9",
+    "enabled": true
+  }
+}

@@ -1,0 +1,20 @@
+{
+  "scope": "A",
+  "version": 1,
+  "restricted": false,
+  "overridable": true,
+  "files": [
+    "camcorder.png"
+  ],
+  "attributes": {
+    "width": 16,
+    "format": "PNG",
+    "lastModification": {
+      "actor": "8.3-migration",
+      "timestamp": "2026-01-07T14:49:07Z"
+    },
+    "size": 696,
+    "lastModificationSignature": "a4307312e910f58ba9205874a718f00ad814eac8c4b43cb6ee4f64185fdbc3c3",
+    "height": 16
+  }
+}

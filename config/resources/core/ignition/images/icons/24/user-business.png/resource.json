@@ -1,0 +1,20 @@
+{
+  "scope": "A",
+  "version": 1,
+  "restricted": false,
+  "overridable": true,
+  "files": [
+    "user-business.png"
+  ],
+  "attributes": {
+    "width": 24,
+    "format": "PNG",
+    "lastModification": {
+      "actor": "8.3-migration",
+      "timestamp": "2026-01-07T14:49:07Z"
+    },
+    "size": 1973,
+    "lastModificationSignature": "8ae166500ba86ac5d4bbdf5edea0fe2f35087e0a4250f53ecd4480d1bf2e70f2",
+    "height": 24
+  }
+}

@@ -1,0 +1,20 @@
+{
+  "scope": "A",
+  "version": 1,
+  "restricted": false,
+  "overridable": true,
+  "files": [
+    "wooden-box--pencil.png"
+  ],
+  "attributes": {
+    "width": 16,
+    "format": "PNG",
+    "lastModification": {
+      "actor": "8.3-migration",
+      "timestamp": "2026-01-07T14:49:07Z"
+    },
+    "size": 606,
+    "lastModificationSignature": "8db5bd8463367ac28c27e382dec46a64c3f0dc1ffc1b10a76d8ebfff2b5fc473",
+    "height": 16
+  }
+}

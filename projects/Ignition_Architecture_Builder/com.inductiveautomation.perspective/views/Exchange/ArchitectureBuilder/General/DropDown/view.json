@@ -1,0 +1,118 @@
+{
+  "custom": {},
+  "params": {
+    "label": "value",
+    "labelSize": "auto",
+    "options": [],
+    "value": null
+  },
+  "propConfig": {
+    "params.label": {
+      "paramDirection": "input",
+      "persistent": true
+    },
+    "params.labelSize": {
+      "paramDirection": "input",
+      "persistent": true
+    },
+    "params.options": {
+      "paramDirection": "input",
+      "persistent": true
+    },
+    "params.value": {
+      "paramDirection": "inout",
+      "persistent": true
+    }
+  },
+  "props": {
+    "defaultSize": {
+      "height": 44
+    }
+  },
+  "root": {
+    "children": [
+      {
+        "meta": {
+          "name": "label"
+        },
+        "position": {
+          "shrink": 0
+        },
+        "propConfig": {
+          "position.basis": {
+            "binding": {
+              "config": {
+                "path": "view.params.labelSize"
+              },
+              "type": "property"
+            }
+          },
+          "props.text": {
+            "binding": {
+              "config": {
+                "path": "view.params.label"
+              },
+              "type": "property"
+            }
+          }
+        },
+        "props": {
+          "style": {
+            "marginRight": "4px"
+          },
+          "textStyle": {
+            "textAlign": "right"
+          }
+        },
+        "type": "ia.display.label"
+      },
+      {
+        "meta": {
+          "name": "Dropdown"
+        },
+        "position": {
+          "basis": "256px",
+          "grow": 1
+        },
+        "propConfig": {
+          "props.options": {
+            "binding": {
+              "config": {
+                "path": "view.params.options"
+              },
+              "transforms": [
+                {
+                  "code": "\toptions\u003d[]\n\tvalue\u003dsystem.util.jsonDecode(system.util.jsonEncode(value))\n\tif isinstance(value, list):\n\t\tif all(isinstance(item, dict) for item in value):\n\t\t\treturn value\n\t\telse:\n\t\t\tfor x in value:\n\t\t\t\toptions.append(\n\t\t\t\t{\n\t\t\t\t\"value\": x,\n\t\t\t\t\"label\": x\n\t\t\t\t}\n\t\t\t\t)\n\t\t\treturn options\n\telse:\n\t\treturn []  # Not a list\n\t\n\t",
+                  "type": "script"
+                }
+              ],
+              "type": "property"
+            }
+          },
+          "props.value": {
+            "binding": {
+              "config": {
+                "bidirectional": true,
+                "path": "view.params.value"
+              },
+              "type": "property"
+            }
+          }
+        },
+        "props": {
+          "allowCustomOptions": true,
+          "showClearIcon": true,
+          "style": {
+            "paddingBottom": "2px",
+            "paddingTop": "2px"
+          }
+        },
+        "type": "ia.input.dropdown"
+      }
+    ],
+    "meta": {
+      "name": "root"
+    },
+    "type": "ia.container.flex"
+  }
+}

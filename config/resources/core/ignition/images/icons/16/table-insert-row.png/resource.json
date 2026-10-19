@@ -1,0 +1,20 @@
+{
+  "scope": "A",
+  "version": 1,
+  "restricted": false,
+  "overridable": true,
+  "files": [
+    "table-insert-row.png"
+  ],
+  "attributes": {
+    "width": 16,
+    "format": "PNG",
+    "lastModification": {
+      "actor": "8.3-migration",
+      "timestamp": "2026-01-07T14:49:07Z"
+    },
+    "size": 580,
+    "lastModificationSignature": "b79933359444646c62cda0e90e9c20a8c2a8833d0d5b1d26714ed7a89d7583c6",
+    "height": 16
+  }
+}

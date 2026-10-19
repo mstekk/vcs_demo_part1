@@ -1,0 +1,20 @@
+{
+  "scope": "A",
+  "version": 1,
+  "restricted": false,
+  "overridable": true,
+  "files": [
+    "blue-document-clock.png"
+  ],
+  "attributes": {
+    "width": 16,
+    "format": "PNG",
+    "lastModification": {
+      "actor": "8.3-migration",
+      "timestamp": "2026-01-07T14:49:07Z"
+    },
+    "size": 766,
+    "lastModificationSignature": "6025d6d2e41fc10cf2db82db448fca7252fd1d23b78041e4e6962a86cd583c6a",
+    "height": 16
+  }
+}

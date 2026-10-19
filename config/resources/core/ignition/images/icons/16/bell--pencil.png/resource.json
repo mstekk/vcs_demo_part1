@@ -1,0 +1,20 @@
+{
+  "scope": "A",
+  "version": 1,
+  "restricted": false,
+  "overridable": true,
+  "files": [
+    "bell--pencil.png"
+  ],
+  "attributes": {
+    "width": 16,
+    "format": "PNG",
+    "lastModification": {
+      "actor": "8.3-migration",
+      "timestamp": "2026-01-07T14:49:07Z"
+    },
+    "size": 944,
+    "lastModificationSignature": "eade13b0e03677bff9833f9e095fe3fddd6bec935cdfa2940a9ef1662386b5fc",
+    "height": 16
+  }
+}

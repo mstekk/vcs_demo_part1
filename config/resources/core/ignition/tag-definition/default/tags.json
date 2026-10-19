@@ -1,0 +1,53 @@
+[
+  {
+    "dataType": "String",
+    "name": "User1",
+    "enabled": true,
+    "tagType": "AtomicTag"
+  },
+  {
+    "valueSource": "memory",
+    "dataType": "Boolean",
+    "alarms": [
+      {
+        "setpointA": 1.0,
+        "activePipeline": "test/test",
+        "name": "Alarm",
+        "priority": "High"
+      }
+    ],
+    "name": "twilio test alarm",
+    "tagType": "AtomicTag"
+  },
+  {
+    "valueSource": "derived",
+    "deriveExpressionGetter": "if({source}, \"Primary Keware Server\", \"Secondary Kepware Server\")",
+    "dataType": "String",
+    "deriveExpressionSetter": "",
+    "sourceTagPath": "[~]OPC 1 Connected.value",
+    "name": "OPC Server",
+    "tagType": "AtomicTag"
+  },
+  {
+    "valueSource": "memory",
+    "dataType": "Boolean",
+    "name": "OPC 1 Connected",
+    "defaultValue": true,
+    "tagType": "AtomicTag"
+  },
+  {
+    "valueSource": "derived",
+    "deriveExpressionGetter": "!{source}",
+    "dataType": "Boolean",
+    "sourceTagPath": "[~]OPC 1 Connected.value",
+    "name": "OPC 2 Connected",
+    "value": false,
+    "tagType": "AtomicTag"
+  },
+  {
+    "dataType": "String",
+    "name": "User2",
+    "enabled": true,
+    "tagType": "AtomicTag"
+  }
+]

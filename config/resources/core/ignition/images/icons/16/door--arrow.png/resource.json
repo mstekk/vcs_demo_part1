@@ -1,0 +1,20 @@
+{
+  "scope": "A",
+  "version": 1,
+  "restricted": false,
+  "overridable": true,
+  "files": [
+    "door--arrow.png"
+  ],
+  "attributes": {
+    "width": 16,
+    "format": "PNG",
+    "lastModification": {
+      "actor": "8.3-migration",
+      "timestamp": "2026-01-07T14:49:07Z"
+    },
+    "size": 594,
+    "lastModificationSignature": "42c1ca0aa6b495ff7b51e301640381b5e1b5ea4e4cbb9994e2ccc39d2c7d082a",
+    "height": 16
+  }
+}

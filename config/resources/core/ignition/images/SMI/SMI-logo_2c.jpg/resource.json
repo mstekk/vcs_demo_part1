@@ -1,0 +1,20 @@
+{
+  "scope": "A",
+  "version": 1,
+  "restricted": false,
+  "overridable": true,
+  "files": [
+    "SMI-logo_2c.jpg"
+  ],
+  "attributes": {
+    "width": 425,
+    "format": "JPEG",
+    "lastModification": {
+      "actor": "8.3-migration",
+      "timestamp": "2026-01-07T14:49:07Z"
+    },
+    "size": 9842,
+    "lastModificationSignature": "b1157b6589402b8717ede745de995684c1b5691afe493763a44117aede5992f6",
+    "height": 123
+  }
+}

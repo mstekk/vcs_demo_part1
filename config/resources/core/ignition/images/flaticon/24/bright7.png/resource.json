@@ -1,0 +1,20 @@
+{
+  "scope": "A",
+  "version": 1,
+  "restricted": false,
+  "overridable": true,
+  "files": [
+    "bright7.png"
+  ],
+  "attributes": {
+    "width": 24,
+    "format": "PNG",
+    "lastModification": {
+      "actor": "8.3-migration",
+      "timestamp": "2026-01-07T14:49:07Z"
+    },
+    "size": 578,
+    "lastModificationSignature": "d84e1af4437f8f6683e697d33820b7f3f2ef43c86397b7e0bfe8543d8137aea7",
+    "height": 24
+  }
+}

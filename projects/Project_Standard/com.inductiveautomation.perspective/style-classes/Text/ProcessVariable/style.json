@@ -1,0 +1,10 @@
+{
+  "base": {
+    "style": {
+      "color": "#0053FF",
+      "fontFamily": "calibri",
+      "fontSize": "14pt",
+      "fontWeight": "bold"
+    }
+  }
+}

@@ -1,0 +1,20 @@
+{
+  "scope": "A",
+  "version": 1,
+  "restricted": false,
+  "overridable": true,
+  "files": [
+    "bell--exclamation-48c3545140d5ca610a8023e4fe249e7d.png"
+  ],
+  "attributes": {
+    "width": 16,
+    "format": "PNG",
+    "lastModification": {
+      "actor": "8.3-migration",
+      "timestamp": "2026-01-07T14:49:07Z"
+    },
+    "size": 828,
+    "lastModificationSignature": "e1aba14eb6657b7a00d77a8480a6ca1c2c9a398c967746f73134e9e11fd1511f",
+    "height": 16
+  }
+}

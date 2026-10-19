@@ -1,0 +1,20 @@
+{
+  "scope": "A",
+  "version": 1,
+  "restricted": false,
+  "overridable": true,
+  "files": [
+    "control-stop-180-small.png"
+  ],
+  "attributes": {
+    "width": 16,
+    "format": "PNG",
+    "lastModification": {
+      "actor": "8.3-migration",
+      "timestamp": "2026-01-07T14:49:07Z"
+    },
+    "size": 305,
+    "lastModificationSignature": "87793ecae8e499eb6cc6ccaf68dcd1268d6acbecbc1bc5772df6335b3e261a75",
+    "height": 16
+  }
+}

@@ -1,0 +1,536 @@
+{
+  "custom": {},
+  "params": {
+    "displayName": true,
+    "displayStatus": true,
+    "isControllable": true,
+    "tagPath": "[RCSD]WTF/Anita-B-Smith/NR-V1-1"
+  },
+  "propConfig": {
+    "params.displayName": {
+      "paramDirection": "input",
+      "persistent": true
+    },
+    "params.displayStatus": {
+      "paramDirection": "input",
+      "persistent": true
+    },
+    "params.isControllable": {
+      "paramDirection": "input",
+      "persistent": true
+    },
+    "params.tagPath": {
+      "paramDirection": "input",
+      "persistent": true
+    }
+  },
+  "props": {
+    "defaultSize": {
+      "height": 120,
+      "width": 200
+    }
+  },
+  "root": {
+    "children": [
+      {
+        "children": [
+          {
+            "meta": {
+              "name": "Label"
+            },
+            "position": {
+              "height": "auto",
+              "width": "auto",
+              "y": -12
+            },
+            "propConfig": {
+              "meta.visible": {
+                "binding": {
+                  "config": {
+                    "path": "view.params.displayStatus"
+                  },
+                  "type": "property"
+                }
+              },
+              "props.text": {
+                "binding": {
+                  "config": {
+                    "expression": "if(\r\n  !{/root.custom.isLocal},\r\n  \"\",\r\n  if({/root.custom.isLocal}, \"L\", \"R\")\r\n  +\r\n  if({/root.custom.isAuto}, \"A\", \"M\")\r\n)"
+                  },
+                  "type": "expr"
+                }
+              }
+            },
+            "props": {
+              "textStyle": {
+                "classes": "Text/ProcessVariable",
+                "textAlign": "right"
+              }
+            },
+            "type": "ia.display.label"
+          },
+          {
+            "events": {
+              "dom": {
+                "onClick": {
+                  "config": {
+                    "draggable": false,
+                    "id": "popup",
+                    "modal": true,
+                    "overlayDismiss": false,
+                    "position": {
+                      "bottom": 100,
+                      "left": 100,
+                      "right": 100,
+                      "top": 100
+                    },
+                    "positionType": "exact",
+                    "resizable": false,
+                    "showCloseIcon": false,
+                    "type": "open",
+                    "viewPath": "Popups/Demo/Popup",
+                    "viewportBound": true
+                  },
+                  "scope": "C",
+                  "type": "popup"
+                }
+              }
+            },
+            "meta": {
+              "name": "Valve"
+            },
+            "position": {
+              "height": 50,
+              "rotate": {
+                "angle": "-90deg"
+              },
+              "width": 50,
+              "x": 1.6303800000000002,
+              "y": 1.9477
+            },
+            "propConfig": {
+              "custom.stroke": {
+                "binding": {
+                  "config": {
+                    "path": "session.props.theme"
+                  },
+                  "transforms": [
+                    {
+                      "expression": "if(indexOf({value},\u0027ight\u0027)\u003e0, \u0027#2D2D2D\u0027,\u0027#808080\u0027)",
+                      "type": "expression"
+                    }
+                  ],
+                  "type": "property"
+                }
+              },
+              "props.elements[0].style.classes": {
+                "binding": {
+                  "config": {
+                    "path": "/root.custom.classStyle"
+                  },
+                  "type": "property"
+                }
+              },
+              "props.elements[0].style.stroke": {
+                "binding": {
+                  "config": {
+                    "path": "this.custom.stroke"
+                  },
+                  "type": "property"
+                }
+              },
+              "props.elements[1].style.classes": {
+                "binding": {
+                  "config": {
+                    "path": "/root.custom.classStyle"
+                  },
+                  "type": "property"
+                }
+              },
+              "props.elements[1].style.stroke": {
+                "binding": {
+                  "config": {
+                    "path": "this.custom.stroke"
+                  },
+                  "type": "property"
+                }
+              },
+              "props.elements[2].style.classes": {
+                "binding": {
+                  "config": {
+                    "path": "/root.custom.classStyle"
+                  },
+                  "type": "property"
+                }
+              },
+              "props.elements[2].style.stroke": {
+                "binding": {
+                  "config": {
+                    "path": "this.custom.stroke"
+                  },
+                  "type": "property"
+                }
+              },
+              "props.elements[3].style.classes": {
+                "binding": {
+                  "config": {
+                    "path": "/root.custom.classStyle"
+                  },
+                  "type": "property"
+                }
+              },
+              "props.elements[3].style.stroke": {
+                "binding": {
+                  "config": {
+                    "path": "this.custom.stroke"
+                  },
+                  "type": "property"
+                }
+              },
+              "props.elements[4].style.classes": {
+                "binding": {
+                  "config": {
+                    "path": "/root.custom.classStyle"
+                  },
+                  "type": "property"
+                }
+              },
+              "props.elements[4].style.stroke": {
+                "binding": {
+                  "config": {
+                    "path": "this.custom.stroke"
+                  },
+                  "type": "property"
+                }
+              },
+              "props.elements[5].style.classes": {
+                "binding": {
+                  "config": {
+                    "path": "/root.custom.classStyle"
+                  },
+                  "type": "property"
+                }
+              },
+              "props.elements[5].style.stroke": {
+                "binding": {
+                  "config": {
+                    "path": "this.custom.stroke"
+                  },
+                  "type": "property"
+                }
+              },
+              "props.elements[6].style.classes": {
+                "binding": {
+                  "config": {
+                    "path": "/root.custom.classStyle"
+                  },
+                  "type": "property"
+                }
+              },
+              "props.elements[6].style.stroke": {
+                "binding": {
+                  "config": {
+                    "path": "this.custom.stroke"
+                  },
+                  "type": "property"
+                }
+              }
+            },
+            "props": {
+              "elements": [
+                {
+                  "height": "100",
+                  "name": "rect",
+                  "style": {
+                    "strokeWidth": "2"
+                  },
+                  "type": "rect",
+                  "width": 50,
+                  "x": "48",
+                  "y": "43"
+                },
+                {
+                  "height": "30",
+                  "name": "rect",
+                  "style": {
+                    "strokeWidth": "2"
+                  },
+                  "type": "rect",
+                  "width": "10",
+                  "x": "68",
+                  "y": "13"
+                },
+                {
+                  "height": "10",
+                  "name": "rect",
+                  "style": {
+                    "strokeWidth": "2"
+                  },
+                  "type": "rect",
+                  "width": "80",
+                  "x": "33",
+                  "y": "3"
+                },
+                {
+                  "height": "60",
+                  "name": "rect",
+                  "style": {
+                    "strokeWidth": "2"
+                  },
+                  "type": "rect",
+                  "width": "15",
+                  "x": "128",
+                  "y": "83"
+                },
+                {
+                  "height": "60",
+                  "name": "rect",
+                  "style": {
+                    "strokeWidth": "2"
+                  },
+                  "type": "rect",
+                  "width": "15",
+                  "x": "3",
+                  "y": "83"
+                },
+                {
+                  "d": "M98 88L128 93V133L98 138V88Z",
+                  "name": "path",
+                  "style": {
+                    "strokeWidth": "2"
+                  },
+                  "type": "path"
+                },
+                {
+                  "d": "M48 88L18 93V133L48 138V88Z",
+                  "name": "path",
+                  "style": {
+                    "strokeWidth": "2"
+                  },
+                  "type": "path"
+                }
+              ],
+              "fill": {
+                "paint": "transparent"
+              },
+              "style": {
+                "classes": "HoverSelect"
+              },
+              "viewBox": "0 0 146 146"
+            },
+            "type": "ia.shapes.svg"
+          },
+          {
+            "meta": {
+              "name": "Device Name"
+            },
+            "position": {
+              "height": "auto",
+              "width": "auto",
+              "x": -45,
+              "y": 44.4116
+            },
+            "propConfig": {
+              "meta.visible": {
+                "binding": {
+                  "config": {
+                    "path": "view.params.displayName"
+                  },
+                  "type": "property"
+                }
+              },
+              "props.text": {
+                "binding": {
+                  "config": {
+                    "fallbackDelay": 2.5,
+                    "mode": "indirect",
+                    "references": {
+                      "1": "{view.params.tagPath}"
+                    },
+                    "tagPath": "{1}/Parameters.DeviceID"
+                  },
+                  "type": "tag"
+                }
+              }
+            },
+            "props": {
+              "textStyle": {
+                "classes": "Text/Labels",
+                "textAlign": "right"
+              }
+            },
+            "type": "ia.display.label"
+          }
+        ],
+        "meta": {
+          "name": "CoordinateContainer"
+        },
+        "props": {
+          "style": {
+            "overflow": "visible"
+          }
+        },
+        "type": "ia.container.coord"
+      },
+      {
+        "children": [
+          {
+            "meta": {
+              "name": "Status"
+            },
+            "propConfig": {
+              "position.display": {
+                "binding": {
+                  "config": {
+                    "path": "view.params.displayStatus"
+                  },
+                  "type": "property"
+                }
+              },
+              "props.text": {
+                "binding": {
+                  "config": {
+                    "path": "/root.custom.status"
+                  },
+                  "transforms": [
+                    {
+                      "expression": "if(\r\n  {value} \u003d 0,\r\n  \"Closed\",\r\n  if(\r\n    {value} \u003e 0 \u0026\u0026 {value} \u003c 99,\r\n    \"Travel\",\r\n    if(\r\n      {value} \u003d 100,\r\n      \"Open\",\r\n      \"NonTelemetered\"\r\n    )\r\n  )\r\n)",
+                      "type": "expression"
+                    }
+                  ],
+                  "type": "property"
+                }
+              }
+            },
+            "props": {
+              "textStyle": {
+                "classes": "Text/ProcessVariable",
+                "textAlign": "center"
+              }
+            },
+            "type": "ia.display.label"
+          },
+          {
+            "meta": {
+              "name": "Speed"
+            },
+            "propConfig": {
+              "position.display": {
+                "binding": {
+                  "config": {
+                    "path": "view.params.isControllable"
+                  },
+                  "transforms": [
+                    {
+                      "expression": "{value}\r\n\u0026\u0026\r\n{view.params.displayStatus}",
+                      "type": "expression"
+                    }
+                  ],
+                  "type": "property"
+                }
+              },
+              "props.text": {
+                "binding": {
+                  "config": {
+                    "path": "/root.custom.status"
+                  },
+                  "transforms": [
+                    {
+                      "expression": "{value}+\u0027%\u0027",
+                      "type": "expression"
+                    }
+                  ],
+                  "type": "property"
+                }
+              }
+            },
+            "props": {
+              "textStyle": {
+                "classes": "Text/ProcessVariable",
+                "textAlign": "center"
+              }
+            },
+            "type": "ia.display.label"
+          }
+        ],
+        "meta": {
+          "name": "FlexContainer"
+        },
+        "props": {
+          "alignItems": "flex-start",
+          "direction": "column",
+          "style": {
+            "marginLeft": 10
+          }
+        },
+        "type": "ia.container.flex"
+      }
+    ],
+    "meta": {
+      "name": "root"
+    },
+    "propConfig": {
+      "custom.classStyle": {
+        "binding": {
+          "config": {
+            "path": "this.custom.status"
+          },
+          "transforms": [
+            {
+              "expression": "if(\r\n  {value} \u003d 0,\r\n  \"Status/Stopped\",\r\n  if(\r\n    {value} \u003e 0 \u0026\u0026 {value} \u003c 99,\r\n    \"Status/Travel\",\r\n    if(\r\n      {value} \u003d 100,\r\n      \"Status/Running\",\r\n      \"Status/NonTelemetered\"\r\n    )\r\n  )\r\n)",
+              "type": "expression"
+            }
+          ],
+          "type": "property"
+        }
+      },
+      "custom.isAuto": {
+        "binding": {
+          "config": {
+            "fallbackDelay": 2.5,
+            "mode": "indirect",
+            "references": {
+              "1": "{view.params.tagPath}"
+            },
+            "tagPath": "{1}/Auto"
+          },
+          "type": "tag"
+        }
+      },
+      "custom.isLocal": {
+        "binding": {
+          "config": {
+            "fallbackDelay": 2.5,
+            "mode": "indirect",
+            "references": {
+              "1": "{view.params.tagPath}"
+            },
+            "tagPath": "{1}/LOR"
+          },
+          "type": "tag"
+        }
+      },
+      "custom.status": {
+        "binding": {
+          "config": {
+            "fallbackDelay": 2.5,
+            "mode": "indirect",
+            "references": {
+              "1": "{view.params.tagPath}"
+            },
+            "tagPath": "{1}/Value"
+          },
+          "type": "tag"
+        }
+      }
+    },
+    "props": {
+      "alignItems": "center",
+      "justify": "center",
+      "style": {
+        "overflow": "visible"
+      }
+    },
+    "type": "ia.container.flex"
+  }
+}

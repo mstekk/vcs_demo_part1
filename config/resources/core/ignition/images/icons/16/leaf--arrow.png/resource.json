@@ -1,0 +1,20 @@
+{
+  "scope": "A",
+  "version": 1,
+  "restricted": false,
+  "overridable": true,
+  "files": [
+    "leaf--arrow.png"
+  ],
+  "attributes": {
+    "width": 16,
+    "format": "PNG",
+    "lastModification": {
+      "actor": "8.3-migration",
+      "timestamp": "2026-01-07T14:49:07Z"
+    },
+    "size": 657,
+    "lastModificationSignature": "8ef4db14a129a9ec5d41069c52d599d57c5b3b0f0040ba21e5fbfad7853e8ba4",
+    "height": 16
+  }
+}

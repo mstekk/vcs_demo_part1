@@ -1,0 +1,6488 @@
+{
+  "custom": {},
+  "params": {
+    "focusedArea": "IE Vessels",
+    "params_scale": 0.85,
+    "params_x": 905,
+    "params_y": 630
+  },
+  "propConfig": {
+    "params.focusedArea": {
+      "paramDirection": "inout",
+      "persistent": true
+    },
+    "params.params_scale": {
+      "paramDirection": "inout",
+      "persistent": true
+    },
+    "params.params_x": {
+      "paramDirection": "inout",
+      "persistent": true
+    },
+    "params.params_y": {
+      "paramDirection": "inout",
+      "persistent": true
+    }
+  },
+  "props": {
+    "defaultSize": {
+      "height": 2110,
+      "width": 3690
+    }
+  },
+  "root": {
+    "children": [
+      {
+        "children": [
+          {
+            "events": {
+              "dom": {
+                "onClick": {
+                  "config": {
+                    "script": "\tsystem.perspective.navigate(\u0027/WTF/Anita-B-Smith/EDB\u0027)\n\n\tsystem.perspective.alterDock(\u0027navMain\u0027,{\u0027size\u0027:150})"
+                  },
+                  "scope": "G",
+                  "type": "script"
+                }
+              }
+            },
+            "meta": {
+              "name": "navTo_Water-EDB",
+              "tooltip": {
+                "enabled": true,
+                "text": "Navigate to EDB Screen"
+              }
+            },
+            "position": {
+              "height": 663,
+              "width": 1280.01,
+              "x": 2253.17,
+              "y": 1427.73
+            },
+            "props": {
+              "style": {
+                "classes": "Nav/Overview_Hover",
+                "cursor": "pointer"
+              }
+            },
+            "type": "ia.container.coord"
+          },
+          {
+            "meta": {
+              "name": "navTo_Wells",
+              "tooltip": {
+                "enabled": true,
+                "text": "Navigate to Wells Screen"
+              }
+            },
+            "position": {
+              "height": 899.91,
+              "width": 1599.84,
+              "x": 179.9931548461914,
+              "y": 1134.8635888671874
+            },
+            "props": {
+              "style": {
+                "classes": "Nav/Overview_Hover",
+                "cursor": "pointer"
+              }
+            },
+            "type": "ia.container.coord"
+          },
+          {
+            "events": {
+              "dom": {
+                "onClick": {
+                  "config": {
+                    "script": "\tsystem.perspective.navigate(\u0027/WTF/Anita-B-Smith/NR-Vessels\u0027)\n\n\tsystem.perspective.alterDock(\u0027navMain\u0027,{\u0027size\u0027:150})"
+                  },
+                  "scope": "G",
+                  "type": "script"
+                }
+              }
+            },
+            "meta": {
+              "name": "navTo_NR-Vessels",
+              "tooltip": {
+                "enabled": true,
+                "text": "Navigate to Nitrate Removal Vessel Screen"
+              }
+            },
+            "position": {
+              "height": 1079.9,
+              "width": 1928,
+              "x": 5.2932,
+              "y": 3.87011
+            },
+            "props": {
+              "style": {
+                "classes": "Nav/Overview_Hover",
+                "cursor": "pointer"
+              }
+            },
+            "type": "ia.container.coord"
+          },
+          {
+            "events": {
+              "dom": {
+                "onClick": {
+                  "config": {
+                    "script": "\tsystem.perspective.navigate(\u0027/WTF/Anita-B-Smith/Water-Softener\u0027)\n\n\tsystem.perspective.alterDock(\u0027navMain\u0027,{\u0027size\u0027:150})"
+                  },
+                  "scope": "G",
+                  "type": "script"
+                }
+              }
+            },
+            "meta": {
+              "name": "navTo_Water-Softener",
+              "tooltip": {
+                "enabled": true,
+                "text": "Navigate to Water Softener Screen"
+              }
+            },
+            "position": {
+              "height": 709,
+              "width": 1376,
+              "x": 2180.62,
+              "y": 7.6080000000000005
+            },
+            "props": {
+              "style": {
+                "classes": "Nav/Overview_Hover",
+                "cursor": "pointer"
+              }
+            },
+            "type": "ia.container.coord"
+          },
+          {
+            "events": {
+              "dom": {
+                "onClick": {
+                  "config": {
+                    "script": "\tsystem.perspective.navigate(\u0027/WTF/Anita-B-Smith/Waste-and-Recycle\u0027)\n\n\tsystem.perspective.alterDock(\u0027navMain\u0027,{\u0027size\u0027:150})"
+                  },
+                  "scope": "G",
+                  "type": "script"
+                }
+              }
+            },
+            "meta": {
+              "name": "navTo_Water-Waste and Recycle",
+              "tooltip": {
+                "enabled": true,
+                "text": "Navigate to Waste \u0026 Recycle Screen"
+              }
+            },
+            "position": {
+              "height": 668.03,
+              "width": 1280.01,
+              "x": 2246.55,
+              "y": 735.822625
+            },
+            "props": {
+              "style": {
+                "classes": "Nav/Overview_Hover",
+                "cursor": "pointer"
+              }
+            },
+            "type": "ia.container.coord"
+          },
+          {
+            "meta": {
+              "name": "CoordinateContainer_5"
+            },
+            "position": {
+              "height": 21.94,
+              "width": 30.06,
+              "x": 777.3,
+              "y": 974
+            },
+            "props": {
+              "style": {
+                "borderTopStyle": "dashed",
+                "borderTopWidth": 3
+              }
+            },
+            "type": "ia.container.coord"
+          },
+          {
+            "meta": {
+              "name": "CoordinateContainer_7"
+            },
+            "position": {
+              "height": 21.94,
+              "width": 30.06,
+              "x": 260.3,
+              "y": 974
+            },
+            "props": {
+              "style": {
+                "borderTopStyle": "dashed",
+                "borderTopWidth": 3
+              }
+            },
+            "type": "ia.container.coord"
+          },
+          {
+            "meta": {
+              "name": "CoordinateContainer_10"
+            },
+            "position": {
+              "height": 21.94,
+              "width": 30.06,
+              "x": 1294.5,
+              "y": 974.2
+            },
+            "props": {
+              "style": {
+                "borderTopStyle": "dashed",
+                "borderTopWidth": 3
+              }
+            },
+            "type": "ia.container.coord"
+          },
+          {
+            "meta": {
+              "name": "CoordinateContainer_0"
+            },
+            "position": {
+              "height": 20.04,
+              "width": 19.92,
+              "x": 290.9,
+              "y": 122.3
+            },
+            "propConfig": {
+              "props.style.classes": {
+                "binding": {
+                  "config": {
+                    "expression": "\u0027Theme/bg-\u0027+{session.props.theme}"
+                  },
+                  "type": "expr"
+                }
+              }
+            },
+            "props": {
+              "style": {
+                "borderStyle": "dashed",
+                "borderWidth": 3
+              }
+            },
+            "type": "ia.container.coord"
+          },
+          {
+            "meta": {
+              "name": "CoordinateContainer"
+            },
+            "position": {
+              "height": 21.94,
+              "width": 30.06,
+              "x": 260.9,
+              "y": 130.3
+            },
+            "props": {
+              "style": {
+                "borderTopStyle": "dashed",
+                "borderTopWidth": 3
+              }
+            },
+            "type": "ia.container.coord"
+          },
+          {
+            "meta": {
+              "name": "IE Vessel 1"
+            },
+            "position": {
+              "height": 250.03,
+              "width": 160.09,
+              "x": 220.94,
+              "y": 299.62
+            },
+            "props": {
+              "params": {
+                "displayName": false,
+                "displayStatus": true,
+                "tagPath": "[RCSD]WTF/Anita-B-Smith/NR-FIT-1"
+              },
+              "path": "Devices/Vessel"
+            },
+            "type": "ia.display.view"
+          },
+          {
+            "meta": {
+              "name": "IE Vessel 2"
+            },
+            "position": {
+              "height": 250.03,
+              "width": 160.09,
+              "x": 738.16,
+              "y": 299.62
+            },
+            "props": {
+              "params": {
+                "displayName": false,
+                "displayStatus": true,
+                "tagPath": "[RCSD]WTF/Anita-B-Smith/NR-FIT-1"
+              },
+              "path": "Devices/Vessel"
+            },
+            "type": "ia.display.view"
+          },
+          {
+            "meta": {
+              "name": "IE Vessel 3"
+            },
+            "position": {
+              "height": 250.03,
+              "width": 160.09,
+              "x": 1255.02,
+              "y": 299.62
+            },
+            "props": {
+              "params": {
+                "displayLabel": true,
+                "displayName": false,
+                "tagPath": "[RCSD]WTF/Anita-B-Smith/NR-FIT-1"
+              },
+              "path": "Devices/Vessel"
+            },
+            "type": "ia.display.view"
+          },
+          {
+            "meta": {
+              "name": "Label"
+            },
+            "position": {
+              "height": 29.96,
+              "width": 102.14,
+              "x": 1283.64,
+              "y": 315.23
+            },
+            "props": {
+              "text": "IE Vessel 3",
+              "textStyle": {
+                "classes": "Text/Labels",
+                "color": "#2B2B2B",
+                "textAlign": "center"
+              }
+            },
+            "type": "ia.display.label"
+          },
+          {
+            "meta": {
+              "name": "Label_0"
+            },
+            "position": {
+              "height": 29.96,
+              "width": 102.14,
+              "x": 766.42,
+              "y": 315.23
+            },
+            "props": {
+              "text": "IE Vessel 2",
+              "textStyle": {
+                "classes": "Text/Labels",
+                "color": "#2B2B2B",
+                "textAlign": "center"
+              }
+            },
+            "type": "ia.display.label"
+          },
+          {
+            "meta": {
+              "name": "Label_1"
+            },
+            "position": {
+              "height": 29.96,
+              "width": 102.14,
+              "x": 249.56,
+              "y": 315.23
+            },
+            "props": {
+              "text": "IE Vessel 1",
+              "textStyle": {
+                "classes": "Text/Labels",
+                "color": "#2B2B2B",
+                "textAlign": "center"
+              }
+            },
+            "type": "ia.display.label"
+          },
+          {
+            "meta": {
+              "name": "NR-V1-1"
+            },
+            "position": {
+              "height": 120,
+              "width": 200,
+              "x": 191.457,
+              "y": 159.408
+            },
+            "props": {
+              "params": {
+                "displayName": true,
+                "displayStatus": false,
+                "isControllable": true,
+                "tagPath": "[RCSD]WTF/Anita-B-Smith/NR-V1-1",
+                "x-orientation": false
+              },
+              "path": "Devices/Valve_Control",
+              "style": {
+                "overflow": "visible"
+              },
+              "useDefaultViewHeight": true,
+              "useDefaultViewWidth": true
+            },
+            "type": "ia.display.view"
+          },
+          {
+            "meta": {
+              "name": "Label_28"
+            },
+            "position": {
+              "height": 32.07,
+              "width": 78.96,
+              "x": 1654.4723320007324,
+              "y": 635.0218492126464
+            },
+            "props": {
+              "text": "BT-V1",
+              "textStyle": {
+                "classes": "ComponentName"
+              }
+            },
+            "type": "ia.display.label"
+          },
+          {
+            "meta": {
+              "name": "NR-V1-4"
+            },
+            "position": {
+              "height": 90,
+              "rotate": {
+                "angle": 0
+              },
+              "width": 200,
+              "x": 60.85,
+              "y": 87.3
+            },
+            "props": {
+              "params": {
+                "label": "Influent",
+                "one_TagPath": "[RCSD]WTF/Anita-B-Smith/NR-FIT-1",
+                "quantity": 2,
+                "three_TagPath": "[RCSD]WTF/Anita-B-Smith/BT-LIT",
+                "two_TagPath": "[RCSD]WTF/Anita-B-Smith/RP-PIT-1-2"
+              },
+              "path": "Templates/Analog Display",
+              "style": {
+                "overflow": "visible"
+              },
+              "useDefaultViewHeight": true,
+              "useDefaultViewWidth": true
+            },
+            "type": "ia.display.view"
+          },
+          {
+            "meta": {
+              "name": "CoordinateContainer_1"
+            },
+            "position": {
+              "height": 20.04,
+              "width": 19.92,
+              "x": 808.4,
+              "y": 122.3
+            },
+            "propConfig": {
+              "props.style.classes": {
+                "binding": {
+                  "config": {
+                    "expression": "\u0027Theme/bg-\u0027+{session.props.theme}"
+                  },
+                  "type": "expr"
+                }
+              }
+            },
+            "props": {
+              "style": {
+                "borderStyle": "dashed",
+                "borderWidth": 3
+              }
+            },
+            "type": "ia.container.coord"
+          },
+          {
+            "meta": {
+              "name": "CoordinateContainer_2"
+            },
+            "position": {
+              "height": 21.94,
+              "width": 30.06,
+              "x": 778.4,
+              "y": 130.3
+            },
+            "props": {
+              "style": {
+                "borderTopStyle": "dashed",
+                "borderTopWidth": 3
+              }
+            },
+            "type": "ia.container.coord"
+          },
+          {
+            "meta": {
+              "name": "NR-V1-5"
+            },
+            "position": {
+              "height": 90,
+              "rotate": {
+                "angle": 0
+              },
+              "width": 200,
+              "x": 578.43,
+              "y": 87.3
+            },
+            "props": {
+              "params": {
+                "label": "Influent",
+                "one_TagPath": "[RCSD]WTF/Anita-B-Smith/NR-FIT-2",
+                "quantity": 2,
+                "three_TagPath": "[RCSD]WTF/Anita-B-Smith/BT-LIT",
+                "two_TagPath": "[RCSD]WTF/Anita-B-Smith/RP-PIT-1-2"
+              },
+              "path": "Templates/Analog Display",
+              "style": {
+                "overflow": "visible"
+              },
+              "useDefaultViewHeight": true,
+              "useDefaultViewWidth": true
+            },
+            "type": "ia.display.view"
+          },
+          {
+            "meta": {
+              "name": "CoordinateContainer_3"
+            },
+            "position": {
+              "height": 20.04,
+              "width": 19.92,
+              "x": 1324.7,
+              "y": 122.3
+            },
+            "propConfig": {
+              "props.style.classes": {
+                "binding": {
+                  "config": {
+                    "expression": "\u0027Theme/bg-\u0027+{session.props.theme}"
+                  },
+                  "type": "expr"
+                }
+              }
+            },
+            "props": {
+              "style": {
+                "borderStyle": "dashed",
+                "borderWidth": 3
+              }
+            },
+            "type": "ia.container.coord"
+          },
+          {
+            "meta": {
+              "name": "CoordinateContainer_4"
+            },
+            "position": {
+              "height": 21.94,
+              "width": 30.06,
+              "x": 1294.7,
+              "y": 130.3
+            },
+            "props": {
+              "style": {
+                "borderTopStyle": "dashed",
+                "borderTopWidth": 3
+              }
+            },
+            "type": "ia.container.coord"
+          },
+          {
+            "meta": {
+              "name": "NR-V1-6"
+            },
+            "position": {
+              "height": 90,
+              "rotate": {
+                "angle": 0
+              },
+              "width": 200,
+              "x": 1094.65,
+              "y": 87.3
+            },
+            "props": {
+              "params": {
+                "label": "Influent",
+                "one_TagPath": "[RCSD]WTF/Anita-B-Smith/NR-FIT-1",
+                "quantity": 2,
+                "three_TagPath": "[RCSD]WTF/Anita-B-Smith/BT-LIT",
+                "two_TagPath": "[RCSD]WTF/Anita-B-Smith/RP-PIT-1-2"
+              },
+              "path": "Templates/Analog Display",
+              "style": {
+                "overflow": "visible"
+              },
+              "useDefaultViewHeight": true,
+              "useDefaultViewWidth": true
+            },
+            "type": "ia.display.view"
+          },
+          {
+            "meta": {
+              "name": "IE Vessel 4"
+            },
+            "position": {
+              "height": 320.09,
+              "width": 180.01,
+              "x": 2554.6,
+              "y": 82.92
+            },
+            "props": {
+              "params": {
+                "displayName": false,
+                "displayStatus": false,
+                "tagPath": "[RCSD]WTF/Anita-B-Smith/ION Exchange/Vessel 1"
+              },
+              "path": "Devices/Vessel"
+            },
+            "type": "ia.display.view"
+          },
+          {
+            "meta": {
+              "name": "Label_12"
+            },
+            "position": {
+              "height": 46,
+              "width": 102.14,
+              "x": 2593.71,
+              "y": 153.4
+            },
+            "props": {
+              "text": "Water Softener",
+              "textStyle": {
+                "classes": "ComponentName",
+                "color": "#2B2B2B"
+              }
+            },
+            "type": "ia.display.label"
+          },
+          {
+            "meta": {
+              "name": "IE Vessel 6"
+            },
+            "position": {
+              "height": 200.03,
+              "width": 149.95,
+              "x": 2719.04,
+              "y": 861.93
+            },
+            "props": {
+              "params": {
+                "displayName": false,
+                "tagPath": "[default]Demo/Tank"
+              },
+              "path": "Devices/Tank"
+            },
+            "type": "ia.display.view"
+          },
+          {
+            "meta": {
+              "name": "Label_11"
+            },
+            "position": {
+              "height": 64.99,
+              "width": 149.95,
+              "x": 2719.04,
+              "y": 798.42
+            },
+            "props": {
+              "text": "Waste Tank",
+              "textStyle": {
+                "classes": "Text/Labels"
+              }
+            },
+            "type": "ia.display.label"
+          },
+          {
+            "meta": {
+              "name": "IE Vessel 7"
+            },
+            "position": {
+              "height": 200.03,
+              "width": 149.95,
+              "x": 2359.37,
+              "y": 861.93
+            },
+            "props": {
+              "params": {
+                "displayName": false,
+                "tagPath": "[default]Demo/Tank"
+              },
+              "path": "Devices/Tank"
+            },
+            "type": "ia.display.view"
+          },
+          {
+            "meta": {
+              "name": "Label_31"
+            },
+            "position": {
+              "height": 64.99,
+              "width": 149.95,
+              "x": 2359.37,
+              "y": 798.42
+            },
+            "props": {
+              "text": "Waste Tank",
+              "textStyle": {
+                "classes": "Text/Labels"
+              }
+            },
+            "type": "ia.display.label"
+          },
+          {
+            "meta": {
+              "name": "IE Vessel 8"
+            },
+            "position": {
+              "height": 200.03,
+              "width": 149.95,
+              "x": 2539.02,
+              "y": 861.93
+            },
+            "props": {
+              "params": {
+                "displayName": false,
+                "tagPath": "[default]Demo/Tank"
+              },
+              "path": "Devices/Tank"
+            },
+            "type": "ia.display.view"
+          },
+          {
+            "meta": {
+              "name": "Label_32"
+            },
+            "position": {
+              "height": 64.99,
+              "width": 149.95,
+              "x": 2539.02,
+              "y": 798.42
+            },
+            "props": {
+              "text": "Waste Tank",
+              "textStyle": {
+                "classes": "Text/Labels"
+              }
+            },
+            "type": "ia.display.label"
+          },
+          {
+            "meta": {
+              "name": "IE Vessel 5"
+            },
+            "position": {
+              "height": 130,
+              "width": 150,
+              "x": 3049.07,
+              "y": 817.949
+            },
+            "props": {
+              "params": {
+                "displayName": false,
+                "displayStatus": false,
+                "isVFD": false,
+                "tagPath": "[RCSD]WTF/Anita-B-Smith/BP1"
+              },
+              "path": "Devices/Pump",
+              "useDefaultViewHeight": true,
+              "useDefaultViewWidth": true
+            },
+            "type": "ia.display.view"
+          },
+          {
+            "meta": {
+              "name": "Label_33"
+            },
+            "position": {
+              "height": 32.07,
+              "width": 115.18,
+              "x": 3066.39,
+              "y": 819.52
+            },
+            "props": {
+              "text": "Waste P-1",
+              "textStyle": {
+                "classes": "Text/Labels",
+                "textAlign": "center"
+              }
+            },
+            "type": "ia.display.label"
+          },
+          {
+            "meta": {
+              "name": "IE Vessel 9"
+            },
+            "position": {
+              "height": 47.05,
+              "width": 48.17,
+              "x": -12758.13,
+              "y": -12681.1
+            },
+            "props": {
+              "params": {
+                "displayName": false,
+                "displayStatus": false,
+                "tagPath": "[default]Demo/Tank"
+              },
+              "path": "Devices/Pump"
+            },
+            "type": "ia.display.view"
+          },
+          {
+            "meta": {
+              "name": "Label_34"
+            },
+            "position": {
+              "height": 32.07,
+              "width": 115.18,
+              "x": -12796.89,
+              "y": -12704.94
+            },
+            "props": {
+              "text": "Waste PP",
+              "textStyle": {
+                "classes": "ComponentName"
+              }
+            },
+            "type": "ia.display.label"
+          },
+          {
+            "meta": {
+              "name": "Label_35"
+            },
+            "position": {
+              "height": 32.07,
+              "width": 115.18,
+              "x": 3066.39,
+              "y": 939.58
+            },
+            "props": {
+              "text": "Waste P-2",
+              "textStyle": {
+                "classes": "Text/Labels"
+              }
+            },
+            "type": "ia.display.label"
+          },
+          {
+            "meta": {
+              "name": "IE Vessel 11"
+            },
+            "position": {
+              "height": 220,
+              "width": 150,
+              "x": 244.1,
+              "y": 1513.13
+            },
+            "props": {
+              "params": {
+                "displayName": false,
+                "displayStatus": false,
+                "isVFD": true,
+                "tagPath": "[RCSD]WTF/Anita-B-Smith/Well 6"
+              },
+              "path": "Devices/Well",
+              "style": {
+                "overflow": "visible"
+              },
+              "useDefaultViewHeight": true,
+              "useDefaultViewWidth": true
+            },
+            "type": "ia.display.view"
+          },
+          {
+            "meta": {
+              "name": "IE Vessel 12"
+            },
+            "position": {
+              "height": 220,
+              "width": 150,
+              "x": 244.1,
+              "y": 1755.1
+            },
+            "props": {
+              "params": {
+                "displayName": false,
+                "displayStatus": false,
+                "isVFD": true,
+                "tagPath": "[RCSD]WTF/Anita-B-Smith/Well 4"
+              },
+              "path": "Devices/Well",
+              "style": {
+                "overflow": "visible"
+              },
+              "useDefaultViewHeight": true,
+              "useDefaultViewWidth": true
+            },
+            "type": "ia.display.view"
+          },
+          {
+            "meta": {
+              "name": "Label_36"
+            },
+            "position": {
+              "height": 32.07,
+              "width": 78.96,
+              "x": 279.6,
+              "y": 1510.27
+            },
+            "props": {
+              "text": "WELL 6",
+              "textStyle": {
+                "classes": "ComponentName"
+              }
+            },
+            "type": "ia.display.label"
+          },
+          {
+            "meta": {
+              "name": "Label_37"
+            },
+            "position": {
+              "height": 32.07,
+              "width": 78.96,
+              "x": 279.6,
+              "y": 1752.14
+            },
+            "props": {
+              "text": "WELL 4",
+              "textStyle": {
+                "classes": "ComponentName"
+              }
+            },
+            "type": "ia.display.label"
+          },
+          {
+            "meta": {
+              "name": "RCSD - EDB Removal System"
+            },
+            "position": {
+              "height": 300.04,
+              "width": 119.89,
+              "x": 2577.78,
+              "y": 1544.94
+            },
+            "props": {
+              "elements": [
+                {
+                  "fill": "#F0F0F0",
+                  "height": "109",
+                  "name": "rect",
+                  "stroke": {
+                    "paint": "black"
+                  },
+                  "type": "rect",
+                  "width": "49",
+                  "x": "0.5",
+                  "y": "24.5"
+                },
+                {
+                  "fill": "#F0F0F0",
+                  "height": "24",
+                  "name": "rect",
+                  "stroke": {
+                    "paint": "black"
+                  },
+                  "type": "rect",
+                  "width": "29",
+                  "x": "10.5",
+                  "y": "0.5"
+                }
+              ],
+              "fill": {
+                "paint": "transparent"
+              },
+              "viewBox": "0 0 50 134"
+            },
+            "type": "ia.shapes.svg"
+          },
+          {
+            "meta": {
+              "name": "Label_38"
+            },
+            "position": {
+              "height": 32.07,
+              "width": 115.18,
+              "x": 2246.5,
+              "y": 1750.67
+            },
+            "props": {
+              "text": "Blower 1",
+              "textStyle": {
+                "classes": "Text/Labels"
+              }
+            },
+            "type": "ia.display.label"
+          },
+          {
+            "meta": {
+              "name": "Label_39"
+            },
+            "position": {
+              "height": 32.07,
+              "width": 115.18,
+              "x": 2246.5,
+              "y": 1872.63
+            },
+            "props": {
+              "text": "Blower 2",
+              "textStyle": {
+                "classes": "Text/Labels"
+              }
+            },
+            "type": "ia.display.label"
+          },
+          {
+            "meta": {
+              "name": "IE Vessel 15"
+            },
+            "position": {
+              "height": 200.03,
+              "width": 149.95,
+              "x": 2266.29,
+              "y": 1120.41
+            },
+            "props": {
+              "params": {
+                "displayName": false,
+                "tagPath": "[RCSD]WTF/Anita-B-Smith/RT-LIT"
+              },
+              "path": "Devices/Tank"
+            },
+            "type": "ia.display.view"
+          },
+          {
+            "meta": {
+              "name": "Label_40"
+            },
+            "position": {
+              "height": 64.99,
+              "width": 149.95,
+              "x": 2266.29,
+              "y": 1056.69
+            },
+            "props": {
+              "text": "Recycle Tank",
+              "textStyle": {
+                "classes": "Text/Labels"
+              }
+            },
+            "type": "ia.display.label"
+          },
+          {
+            "meta": {
+              "name": "Label_41"
+            },
+            "position": {
+              "height": 32.07,
+              "width": 162,
+              "x": 3042.57,
+              "y": 1112.6
+            },
+            "props": {
+              "text": "Cartridge Filter",
+              "textStyle": {
+                "classes": "Text/Labels"
+              }
+            },
+            "type": "ia.display.label"
+          },
+          {
+            "meta": {
+              "name": "Label_42"
+            },
+            "position": {
+              "height": 32.07,
+              "width": 115.18,
+              "x": 2703.1,
+              "y": 1274.44
+            },
+            "props": {
+              "text": "Recycle P-2",
+              "textStyle": {
+                "classes": "Text/Labels"
+              }
+            },
+            "type": "ia.display.label"
+          },
+          {
+            "meta": {
+              "name": "RCSD - Cartridge Filter"
+            },
+            "position": {
+              "height": 82.08,
+              "width": 48.17,
+              "x": 3097.9,
+              "y": 1142.35
+            },
+            "props": {
+              "elements": [
+                {
+                  "d": "M21 31V1H1V31",
+                  "fill": "#F0F0F0",
+                  "name": "path",
+                  "stroke": {
+                    "paint": "black"
+                  },
+                  "type": "path"
+                },
+                {
+                  "d": "M21 30.5C21 37.4036 16.5228 43 11 43C5.47715 43 1 37.4036 1 30.5",
+                  "fill": "#F0F0F0",
+                  "name": "path",
+                  "stroke": {
+                    "paint": "black"
+                  },
+                  "type": "path"
+                }
+              ],
+              "fill": {
+                "paint": "transparent"
+              },
+              "preserveAspectRatio": "none",
+              "viewBox": "0 0 22 44"
+            },
+            "type": "ia.shapes.svg"
+          },
+          {
+            "meta": {
+              "name": "Label_43"
+            },
+            "position": {
+              "height": 32.07,
+              "width": 162,
+              "x": 3042.57,
+              "y": 1258.62
+            },
+            "props": {
+              "text": "Cartridge Filter",
+              "textStyle": {
+                "classes": "Text/Labels"
+              }
+            },
+            "type": "ia.display.label"
+          },
+          {
+            "meta": {
+              "name": "RCSD - Cartridge Filter_0"
+            },
+            "position": {
+              "height": 82.08,
+              "width": 48.17,
+              "x": 3097.53,
+              "y": 1288.58
+            },
+            "props": {
+              "elements": [
+                {
+                  "d": "M21 31V1H1V31",
+                  "fill": "#F0F0F0",
+                  "name": "path",
+                  "stroke": {
+                    "paint": "black"
+                  },
+                  "type": "path"
+                },
+                {
+                  "d": "M21 30.5C21 37.4036 16.5228 43 11 43C5.47715 43 1 37.4036 1 30.5",
+                  "fill": "#F0F0F0",
+                  "name": "path",
+                  "stroke": {
+                    "paint": "black"
+                  },
+                  "type": "path"
+                }
+              ],
+              "fill": {
+                "paint": "transparent"
+              },
+              "preserveAspectRatio": "none",
+              "viewBox": "0 0 22 44"
+            },
+            "type": "ia.shapes.svg"
+          },
+          {
+            "meta": {
+              "name": "Label_44"
+            },
+            "position": {
+              "height": 32.07,
+              "width": 115.18,
+              "x": 2703.1,
+              "y": 1129.9
+            },
+            "props": {
+              "text": "Recycle P-1",
+              "textStyle": {
+                "classes": "Text/Labels"
+              }
+            },
+            "type": "ia.display.label"
+          },
+          {
+            "meta": {
+              "name": "IE Vessel 18"
+            },
+            "position": {
+              "height": 200.03,
+              "width": 149.95,
+              "x": 2805.96,
+              "y": 437.19
+            },
+            "props": {
+              "params": {
+                "displayName": false,
+                "tagPath": "[default]Demo/Tank"
+              },
+              "path": "Devices/Tank"
+            },
+            "type": "ia.display.view"
+          },
+          {
+            "meta": {
+              "name": "Label_5"
+            },
+            "position": {
+              "height": 46,
+              "width": 149.95,
+              "x": 2807.96,
+              "y": 428.57
+            },
+            "props": {
+              "text": "Brine Tank",
+              "textStyle": {
+                "textAlign": "center"
+              }
+            },
+            "type": "ia.display.label"
+          },
+          {
+            "meta": {
+              "name": "IE Vessel 19"
+            },
+            "position": {
+              "height": 120,
+              "width": 150,
+              "x": 3127,
+              "y": 452.145
+            },
+            "props": {
+              "params": {
+                "displayName": true,
+                "displayStatus": false,
+                "isVFD": false,
+                "tagPath": "[RCSD]WTF/Anita-B-Smith/BP1"
+              },
+              "path": "Devices/Pump",
+              "style": {
+                "overflow": "visible"
+              },
+              "useDefaultViewHeight": true,
+              "useDefaultViewWidth": true
+            },
+            "type": "ia.display.view"
+          },
+          {
+            "meta": {
+              "name": "Label_47"
+            },
+            "position": {
+              "height": 32.07,
+              "width": 115.18,
+              "x": 2926.5,
+              "y": 1864.61
+            },
+            "props": {
+              "text": "Booster P-3",
+              "textStyle": {
+                "classes": "Text/Labels"
+              }
+            },
+            "type": "ia.display.label"
+          },
+          {
+            "meta": {
+              "name": "Label_48"
+            },
+            "position": {
+              "height": 32.07,
+              "width": 115.18,
+              "x": 2926.5,
+              "y": 1752.78
+            },
+            "props": {
+              "text": "Booster P-2",
+              "textStyle": {
+                "classes": "Text/Labels"
+              }
+            },
+            "type": "ia.display.label"
+          },
+          {
+            "meta": {
+              "name": "Label_49"
+            },
+            "position": {
+              "height": 32.07,
+              "width": 115.18,
+              "x": 2926.5,
+              "y": 1640.74
+            },
+            "props": {
+              "text": "Booster P-1",
+              "textStyle": {
+                "classes": "Text/Labels"
+              }
+            },
+            "type": "ia.display.label"
+          },
+          {
+            "meta": {
+              "name": "Label_2"
+            },
+            "position": {
+              "height": 85.03,
+              "width": 115.18,
+              "x": 2686.44,
+              "y": 1991.63
+            },
+            "props": {
+              "style": {
+                "borderColor": "#2B2B2B",
+                "borderStyle": "solid",
+                "borderWidth": 4
+              },
+              "text": "Air Gap Structure",
+              "textStyle": {
+                "fontFamily": "sans-serif",
+                "fontSize": "16px",
+                "textAlign": "center"
+              }
+            },
+            "type": "ia.display.label"
+          },
+          {
+            "meta": {
+              "name": "Label_3"
+            },
+            "position": {
+              "height": 70.05,
+              "width": 82.94,
+              "x": 3169.97,
+              "y": 1870.94
+            },
+            "props": {
+              "style": {
+                "borderColor": "#2B2B2B",
+                "borderStyle": "solid",
+                "borderWidth": 4
+              },
+              "text": "NO₃ Analyzer",
+              "textStyle": {
+                "fontFamily": "sans-serif",
+                "fontSize": "16px",
+                "textAlign": "center"
+              }
+            },
+            "type": "ia.display.label"
+          },
+          {
+            "meta": {
+              "name": "CoordinateContainer_9"
+            },
+            "position": {
+              "height": 24.9,
+              "rotate": {
+                "angle": "45deg"
+              },
+              "width": 24.99,
+              "x": 2730.63,
+              "y": 1663.95
+            },
+            "props": {
+              "style": {
+                "borderBottomColor": "#2B2B2B",
+                "borderBottomStyle": "solid",
+                "borderBottomWidth": 3,
+                "borderRightColor": "#2B2B2B",
+                "borderRightStyle": "solid",
+                "borderRightWidth": 3
+              }
+            },
+            "type": "ia.container.coord"
+          },
+          {
+            "meta": {
+              "name": "Label_4"
+            },
+            "position": {
+              "height": 70.05,
+              "width": 82.94,
+              "x": 896.81,
+              "y": 1368.76
+            },
+            "props": {
+              "style": {
+                "borderColor": "#2B2B2B",
+                "borderStyle": "solid",
+                "borderWidth": 4
+              },
+              "text": "NO₃ Analyzer",
+              "textStyle": {
+                "fontFamily": "sans-serif",
+                "fontSize": "16px",
+                "textAlign": "center"
+              }
+            },
+            "type": "ia.display.label"
+          },
+          {
+            "meta": {
+              "name": "custom arrow"
+            },
+            "position": {
+              "height": 32.92,
+              "width": 93.09,
+              "x": 3359.77,
+              "y": 900.76
+            },
+            "props": {
+              "elements": [
+                {
+                  "d": "M0.5 0.5V9.5H31.0869L35.3145 5L31.0869 0.5H0.5Z",
+                  "name": "path",
+                  "stroke": {
+                    "paint": "#2B2B2B"
+                  },
+                  "type": "path"
+                }
+              ],
+              "fill": {
+                "paint": "transparent"
+              },
+              "preserveAspectRatio": "none",
+              "viewBox": "0 0 36 10"
+            },
+            "type": "ia.shapes.svg"
+          },
+          {
+            "meta": {
+              "name": "custom arrow_0"
+            },
+            "position": {
+              "height": 31.02,
+              "width": 99.97,
+              "x": 3356.51,
+              "y": 1295.96
+            },
+            "props": {
+              "elements": [
+                {
+                  "d": "M0.5 0.5V9.5H31.0869L35.3145 5L31.0869 0.5H0.5Z",
+                  "name": "path",
+                  "stroke": {
+                    "paint": "#2B2B2B"
+                  },
+                  "type": "path"
+                }
+              ],
+              "fill": {
+                "paint": "transparent"
+              },
+              "preserveAspectRatio": "none",
+              "viewBox": "0 0 36 10"
+            },
+            "type": "ia.shapes.svg"
+          },
+          {
+            "meta": {
+              "name": "custom arrow_1"
+            },
+            "position": {
+              "height": 31.02,
+              "width": 99.97,
+              "x": 3356.51,
+              "y": 1627.02
+            },
+            "props": {
+              "elements": [
+                {
+                  "d": "M0.5 0.5V9.5H31.0869L35.3145 5L31.0869 0.5H0.5Z",
+                  "name": "path",
+                  "stroke": {
+                    "paint": "#2B2B2B"
+                  },
+                  "type": "path"
+                }
+              ],
+              "fill": {
+                "paint": "transparent"
+              },
+              "preserveAspectRatio": "none",
+              "viewBox": "0 0 36 10"
+            },
+            "type": "ia.shapes.svg"
+          },
+          {
+            "meta": {
+              "name": "custom arrow_2"
+            },
+            "position": {
+              "height": 31.02,
+              "width": 99.97,
+              "x": 3356.51,
+              "y": 1774.09
+            },
+            "props": {
+              "elements": [
+                {
+                  "d": "M0.5 0.5V9.5H31.0869L35.3145 5L31.0869 0.5H0.5Z",
+                  "name": "path",
+                  "stroke": {
+                    "paint": "#2B2B2B"
+                  },
+                  "type": "path"
+                }
+              ],
+              "fill": {
+                "paint": "transparent"
+              },
+              "preserveAspectRatio": "none",
+              "viewBox": "0 0 36 10"
+            },
+            "type": "ia.shapes.svg"
+          },
+          {
+            "meta": {
+              "name": "Label_6"
+            },
+            "position": {
+              "height": 85.03,
+              "width": 115.18,
+              "x": 3339.85,
+              "y": 1494.93
+            },
+            "props": {
+              "style": {
+                "borderColor": "#2B2B2B",
+                "borderStyle": "solid",
+                "borderWidth": 4
+              },
+              "text": "Hypochlorite Chlorination System",
+              "textStyle": {
+                "fontFamily": "sans-serif",
+                "fontSize": "16px",
+                "textAlign": "center"
+              }
+            },
+            "type": "ia.display.label"
+          },
+          {
+            "meta": {
+              "name": "custom arrow_3"
+            },
+            "position": {
+              "height": 31.02,
+              "width": 99.97,
+              "x": 2989.96,
+              "y": 2018.64
+            },
+            "props": {
+              "elements": [
+                {
+                  "d": "M0.5 0.5V9.5H31.0869L35.3145 5L31.0869 0.5H0.5Z",
+                  "fill": "white",
+                  "name": "path",
+                  "stroke": {
+                    "paint": "black"
+                  },
+                  "type": "path"
+                }
+              ],
+              "fill": {
+                "paint": "transparent"
+              },
+              "preserveAspectRatio": "none",
+              "viewBox": "0 0 36 10"
+            },
+            "type": "ia.shapes.svg"
+          },
+          {
+            "meta": {
+              "name": "custom arrow_4"
+            },
+            "position": {
+              "height": 31.02,
+              "width": 99.97,
+              "x": 1073.92,
+              "y": 1468.98
+            },
+            "props": {
+              "elements": [
+                {
+                  "d": "M0.5 0.5V9.5H31.0869L35.3145 5L31.0869 0.5H0.5Z",
+                  "name": "path",
+                  "stroke": {
+                    "paint": "#2B2B2B"
+                  },
+                  "type": "path"
+                }
+              ],
+              "fill": {
+                "paint": "transparent"
+              },
+              "preserveAspectRatio": "none",
+              "viewBox": "0 0 36 10"
+            },
+            "type": "ia.shapes.svg"
+          },
+          {
+            "meta": {
+              "name": "custom arrow_5"
+            },
+            "position": {
+              "height": 32.92,
+              "width": 93.09,
+              "x": 3359.77,
+              "y": 97.9
+            },
+            "props": {
+              "elements": [
+                {
+                  "d": "M0.5 0.5V9.5H31.0869L35.3145 5L31.0869 0.5H0.5Z",
+                  "name": "path",
+                  "stroke": {
+                    "paint": "#2B2B2B"
+                  },
+                  "type": "path"
+                }
+              ],
+              "fill": {
+                "paint": "transparent"
+              },
+              "preserveAspectRatio": "none",
+              "viewBox": "0 0 36 10"
+            },
+            "type": "ia.shapes.svg"
+          },
+          {
+            "events": {
+              "dom": {
+                "onClick": {
+                  "config": {
+                    "script": "#\tself.view.params.focusedArea \u003d \u0027IE Vessels\u0027\n#\tself.view.params.params_scale \u003d 0.9\n#\tself.view.params.params_x \u003d 900\n#\tself.view.params.params_y \u003d 650\n\n\tsystem.perspective.navigate(\u0027/WTF/Anita-B-Smith/NR-Vessels\u0027)\n\t\n\tself.session.custom.Navigation.WTF.Anita_B_Smith.NR_Vessels \u003d True\n\tsystem.perspective.alterDock(\u0027navMain\u0027,{\u0027size\u0027:150})"
+                  },
+                  "enabled": false,
+                  "scope": "G",
+                  "type": "script"
+                }
+              }
+            },
+            "meta": {
+              "name": "Label_50"
+            },
+            "position": {
+              "height": 40.09,
+              "width": 386.11,
+              "x": 880.87,
+              "y": 13.29
+            },
+            "props": {
+              "style": {
+                "borderBottomStyle": "double",
+                "borderBottomWidth": 5,
+                "borderLeftStyle": "none",
+                "borderRightStyle": "none",
+                "borderTopStyle": "none"
+              },
+              "text": "NITRATE REMOVAL VESSELS",
+              "textStyle": {
+                "classes": "Text/Labels"
+              }
+            },
+            "type": "ia.display.label"
+          },
+          {
+            "meta": {
+              "name": "NR-V1-7"
+            },
+            "position": {
+              "height": 60,
+              "rotate": {
+                "angle": 0
+              },
+              "width": 200,
+              "x": 577.331,
+              "y": 944.992
+            },
+            "props": {
+              "params": {
+                "label": "Effluent",
+                "one_TagPath": "[RCSD]WTF/Anita-B-Smith/NR-pHIT-2",
+                "quantity": 1,
+                "three_TagPath": "[RCSD]WTF/Anita-B-Smith/BT-LIT",
+                "two_TagPath": "[RCSD]WTF/Anita-B-Smith/NR-pHIT-2"
+              },
+              "path": "Templates/Analog Display",
+              "useDefaultViewHeight": true,
+              "useDefaultViewWidth": true
+            },
+            "type": "ia.display.view"
+          },
+          {
+            "meta": {
+              "name": "CoordinateContainer_6"
+            },
+            "position": {
+              "height": 20.04,
+              "width": 19.92,
+              "x": 807.3,
+              "y": 965
+            },
+            "propConfig": {
+              "props.style.classes": {
+                "binding": {
+                  "config": {
+                    "expression": "\u0027Theme/bg-\u0027+{session.props.theme}"
+                  },
+                  "type": "expr"
+                }
+              }
+            },
+            "props": {
+              "style": {
+                "borderStyle": "dashed",
+                "borderWidth": 3
+              }
+            },
+            "type": "ia.container.coord"
+          },
+          {
+            "meta": {
+              "name": "NR-V1-8"
+            },
+            "position": {
+              "height": 60,
+              "rotate": {
+                "angle": 0
+              },
+              "width": 200,
+              "x": 60.3085,
+              "y": 944.987
+            },
+            "props": {
+              "params": {
+                "label": "Effluent",
+                "one_TagPath": "[RCSD]WTF/Anita-B-Smith/NR-pHIT-1",
+                "quantity": 1,
+                "three_TagPath": "[RCSD]WTF/Anita-B-Smith/BT-LIT",
+                "two_TagPath": "[RCSD]WTF/Anita-B-Smith/RP-PIT-1-1"
+              },
+              "path": "Templates/Analog Display",
+              "useDefaultViewHeight": true,
+              "useDefaultViewWidth": true
+            },
+            "type": "ia.display.view"
+          },
+          {
+            "meta": {
+              "name": "CoordinateContainer_8"
+            },
+            "position": {
+              "height": 20.04,
+              "width": 19.92,
+              "x": 290.3,
+              "y": 965
+            },
+            "propConfig": {
+              "props.style.classes": {
+                "binding": {
+                  "config": {
+                    "expression": "\u0027Theme/bg-\u0027+{session.props.theme}"
+                  },
+                  "type": "expr"
+                }
+              }
+            },
+            "props": {
+              "style": {
+                "borderStyle": "dashed",
+                "borderWidth": 3
+              }
+            },
+            "type": "ia.container.coord"
+          },
+          {
+            "meta": {
+              "name": "NR-V1-9"
+            },
+            "position": {
+              "height": 60,
+              "rotate": {
+                "angle": 0
+              },
+              "width": 200,
+              "x": 1094.51,
+              "y": 945.2
+            },
+            "props": {
+              "params": {
+                "label": "Effluent",
+                "one_TagPath": "[RCSD]WTF/Anita-B-Smith/NR-pHIT-3",
+                "quantity": 1,
+                "three_TagPath": "[RCSD]WTF/Anita-B-Smith/BT-LIT",
+                "two_TagPath": "[RCSD]WTF/Anita-B-Smith/NR-pHIT-3"
+              },
+              "path": "Templates/Analog Display",
+              "useDefaultViewHeight": true,
+              "useDefaultViewWidth": true
+            },
+            "type": "ia.display.view"
+          },
+          {
+            "meta": {
+              "name": "CoordinateContainer_11"
+            },
+            "position": {
+              "height": 20.04,
+              "width": 19.92,
+              "x": 1324.5,
+              "y": 965.2
+            },
+            "propConfig": {
+              "props.style.classes": {
+                "binding": {
+                  "config": {
+                    "expression": "\u0027Theme/bg-\u0027+{session.props.theme}"
+                  },
+                  "type": "expr"
+                }
+              }
+            },
+            "props": {
+              "style": {
+                "borderStyle": "dashed",
+                "borderWidth": 3
+              }
+            },
+            "type": "ia.container.coord"
+          },
+          {
+            "meta": {
+              "name": "NR-V1-10"
+            },
+            "position": {
+              "height": 60,
+              "rotate": {
+                "angle": 0
+              },
+              "width": 200,
+              "x": 1695.95,
+              "y": 87.232
+            },
+            "props": {
+              "params": {
+                "label": "Raw Water pH",
+                "one_TagPath": "[RCSD]WTF/Anita-B-Smith/RW-pHIT",
+                "quantity": 1,
+                "three_TagPath": "[RCSD]WTF/Anita-B-Smith/BT-LIT",
+                "two_TagPath": "[RCSD]WTF/Anita-B-Smith/RP-PIT-1-1"
+              },
+              "path": "Templates/Analog Display",
+              "useDefaultViewWidth": true
+            },
+            "type": "ia.display.view"
+          },
+          {
+            "meta": {
+              "name": "CoordinateContainer_12"
+            },
+            "position": {
+              "height": 40,
+              "width": 30,
+              "x": 1665.76,
+              "y": 77.65
+            },
+            "props": {
+              "style": {
+                "borderBottomStyle": "dashed",
+                "borderBottomWidth": 3,
+                "borderLeftStyle": "dashed",
+                "borderLeftWidth": 3,
+                "borderTopStyle": "none"
+              }
+            },
+            "type": "ia.container.coord"
+          },
+          {
+            "meta": {
+              "name": "CoordinateContainer_13"
+            },
+            "position": {
+              "height": 20.04,
+              "width": 19.92,
+              "x": 1658.15,
+              "y": 59.29
+            },
+            "propConfig": {
+              "props.style.classes": {
+                "binding": {
+                  "config": {
+                    "expression": "\u0027Theme/bg-\u0027+{session.props.theme}"
+                  },
+                  "type": "expr"
+                }
+              }
+            },
+            "props": {
+              "style": {
+                "borderStyle": "dashed",
+                "borderWidth": 3
+              }
+            },
+            "type": "ia.container.coord"
+          },
+          {
+            "meta": {
+              "name": "LinearScale"
+            },
+            "position": {
+              "height": 148.97,
+              "width": 99.97,
+              "x": 2418.05,
+              "y": 1145.94
+            },
+            "propConfig": {
+              "props.indicators[1].label": {
+                "binding": {
+                  "config": {
+                    "path": "this.props.indicators[1].value"
+                  },
+                  "transforms": [
+                    {
+                      "expression": "numberFormat({value}, \"#00.0\u0027ft\u0027\")",
+                      "type": "expression"
+                    }
+                  ],
+                  "type": "property"
+                }
+              },
+              "props.indicators[1].value": {
+                "binding": {
+                  "config": {
+                    "fallbackDelay": 2.5,
+                    "mode": "direct",
+                    "tagPath": "[RCSD]WTF/Anita-B-Smith/RT-LIT/TempValue"
+                  },
+                  "type": "tag"
+                }
+              }
+            },
+            "props": {
+              "fineTicks": {
+                "length": 2,
+                "span": 0
+              },
+              "indicators": [
+                {
+                  "color": "#FF0000",
+                  "extent": 20,
+                  "indicatorStyle": "range",
+                  "label": "",
+                  "labelAngle": 0,
+                  "labelColor": "",
+                  "length": 15,
+                  "opacity": 0.5,
+                  "stroke": 1.5,
+                  "value": 130
+                },
+                {
+                  "color": "#4747FF",
+                  "extent": 4,
+                  "indicatorStyle": "wedge",
+                  "labelAngle": -30,
+                  "labelColor": "",
+                  "length": 20,
+                  "opacity": 1,
+                  "stroke": 2
+                }
+              ],
+              "labels": {
+                "style": {
+                  "fontSize": "12px"
+                }
+              },
+              "majorTicks": {
+                "length": 10,
+                "span": 50
+              },
+              "maxValue": 150,
+              "minorTicks": {
+                "length": 5
+              },
+              "mirror": true
+            },
+            "type": "ia.display.linear-scale"
+          },
+          {
+            "meta": {
+              "name": "Sparkline_0"
+            },
+            "position": {
+              "height": 147.07,
+              "width": 148.14,
+              "x": 2267.73,
+              "y": 1147.21
+            },
+            "propConfig": {
+              "props.points": {
+                "binding": {
+                  "config": {
+                    "avoidScanClassValidation": true,
+                    "dateRange": {
+                      "mostRecent": "1",
+                      "mostRecentUnits": "MIN"
+                    },
+                    "enableValueCache": true,
+                    "ignoreBadQuality": false,
+                    "polling": {
+                      "enabled": false,
+                      "rate": "1"
+                    },
+                    "preventInterpolation": false,
+                    "returnFormat": "Wide",
+                    "returnSize": {
+                      "type": "RAW"
+                    },
+                    "tags": [
+                      {
+                        "path": "[RCSD]WTF/Anita-B-Smith/RT-LIT/TempValue"
+                      }
+                    ],
+                    "valueFormat": "DATASET"
+                  },
+                  "type": "tag-history"
+                }
+              }
+            },
+            "props": {
+              "desired": {
+                "fill": {
+                  "color": "#DBEEFF",
+                  "opacity": 1
+                },
+                "high": 120,
+                "low": 20,
+                "stroke": {
+                  "width": 0
+                }
+              },
+              "range": {
+                "high": 150,
+                "low": 0
+              },
+              "width": 1
+            },
+            "type": "ia.display.sparkline"
+          },
+          {
+            "meta": {
+              "name": "LinearScale_0"
+            },
+            "position": {
+              "height": 148.97,
+              "width": 99.97,
+              "x": 2956.64,
+              "y": 465.25
+            },
+            "propConfig": {
+              "props.indicators[1].label": {
+                "binding": {
+                  "config": {
+                    "path": "this.props.indicators[1].value"
+                  },
+                  "transforms": [
+                    {
+                      "expression": "numberFormat({value}, \"#00.0\u0027ft\u0027\")",
+                      "type": "expression"
+                    }
+                  ],
+                  "type": "property"
+                }
+              },
+              "props.indicators[1].value": {
+                "binding": {
+                  "config": {
+                    "fallbackDelay": 2.5,
+                    "mode": "direct",
+                    "tagPath": "[RCSD]WTF/Anita-B-Smith/BT-LIT/TempValue"
+                  },
+                  "type": "tag"
+                }
+              }
+            },
+            "props": {
+              "fineTicks": {
+                "length": 2,
+                "span": 0
+              },
+              "indicators": [
+                {
+                  "color": "#FF0000",
+                  "extent": 20,
+                  "indicatorStyle": "range",
+                  "label": "",
+                  "labelAngle": 0,
+                  "labelColor": "",
+                  "length": 15,
+                  "opacity": 0.5,
+                  "stroke": 1.5,
+                  "value": 130
+                },
+                {
+                  "color": "#4747FF",
+                  "extent": 4,
+                  "indicatorStyle": "wedge",
+                  "labelAngle": -30,
+                  "labelColor": "",
+                  "length": 20,
+                  "opacity": 1,
+                  "stroke": 2
+                }
+              ],
+              "labels": {
+                "style": {
+                  "fontSize": "12px"
+                }
+              },
+              "majorTicks": {
+                "length": 10,
+                "span": 50
+              },
+              "maxValue": 150,
+              "minorTicks": {
+                "length": 5
+              },
+              "mirror": true
+            },
+            "type": "ia.display.linear-scale"
+          },
+          {
+            "meta": {
+              "name": "Sparkline_1"
+            },
+            "position": {
+              "height": 146,
+              "width": 148.14,
+              "x": 2806.69,
+              "y": 464.14
+            },
+            "propConfig": {
+              "props.points": {
+                "binding": {
+                  "config": {
+                    "avoidScanClassValidation": true,
+                    "dateRange": {
+                      "mostRecent": "1",
+                      "mostRecentUnits": "MIN"
+                    },
+                    "enableValueCache": true,
+                    "ignoreBadQuality": false,
+                    "polling": {
+                      "enabled": true,
+                      "rate": "1"
+                    },
+                    "preventInterpolation": false,
+                    "returnFormat": "Wide",
+                    "returnSize": {
+                      "type": "RAW"
+                    },
+                    "tags": [
+                      {
+                        "path": "[RCSD]WTF/Anita-B-Smith/BT-LIT/TempValue"
+                      }
+                    ],
+                    "valueFormat": "DATASET"
+                  },
+                  "type": "tag-history"
+                }
+              }
+            },
+            "props": {
+              "desired": {
+                "fill": {
+                  "color": "#DBEEFF",
+                  "opacity": 1
+                },
+                "high": 120,
+                "low": 20,
+                "stroke": {
+                  "width": 0
+                }
+              },
+              "range": {
+                "high": 150,
+                "low": 0
+              },
+              "width": 1
+            },
+            "type": "ia.display.sparkline"
+          },
+          {
+            "meta": {
+              "name": "NR-V1-11"
+            },
+            "position": {
+              "height": 60,
+              "rotate": {
+                "angle": 0
+              },
+              "width": 199.93,
+              "x": 2508.96,
+              "y": 1082.69
+            },
+            "props": {
+              "params": {
+                "label": "Suction",
+                "one_TagPath": "[RCSD]WTF/Anita-B-Smith/NR-FIT-1",
+                "quantity": 1,
+                "three_TagPath": "[RCSD]WTF/Anita-B-Smith/BT-LIT",
+                "two_TagPath": "[RCSD]WTF/Anita-B-Smith/RP-PIT-1-1"
+              },
+              "path": "Templates/Analog Display",
+              "style": {
+                "overflow": "visible"
+              },
+              "useDefaultViewHeight": true
+            },
+            "type": "ia.display.view"
+          },
+          {
+            "meta": {
+              "name": "NR-V1-12"
+            },
+            "position": {
+              "height": 60,
+              "rotate": {
+                "angle": 0
+              },
+              "width": 199.93,
+              "x": 2809.95,
+              "y": 1070.56
+            },
+            "props": {
+              "params": {
+                "label": "Discharge",
+                "one_TagPath": "[RCSD]WTF/Anita-B-Smith/NR-FIT-1",
+                "quantity": 1,
+                "three_TagPath": "[RCSD]WTF/Anita-B-Smith/BT-LIT",
+                "two_TagPath": "[RCSD]WTF/Anita-B-Smith/RP-PIT-1-1"
+              },
+              "path": "Templates/Analog Display",
+              "style": {
+                "overflow": "visible"
+              },
+              "useDefaultViewHeight": true
+            },
+            "type": "ia.display.view"
+          },
+          {
+            "meta": {
+              "name": "CoordinateContainer_14"
+            },
+            "position": {
+              "height": 29.96,
+              "width": 30.06,
+              "x": 2607,
+              "y": 1280
+            },
+            "props": {
+              "style": {
+                "borderBottomStyle": "none",
+                "borderLeftStyle": "dashed",
+                "borderLeftWidth": 3,
+                "borderRightStyle": "none",
+                "borderTopStyle": "none"
+              }
+            },
+            "type": "ia.container.coord"
+          },
+          {
+            "meta": {
+              "name": "CoordinateContainer_15"
+            },
+            "position": {
+              "height": 20.04,
+              "width": 19.92,
+              "x": 2599,
+              "y": 1310
+            },
+            "propConfig": {
+              "props.style.classes": {
+                "binding": {
+                  "config": {
+                    "expression": "\u0027Theme/bg-\u0027+{session.props.theme}"
+                  },
+                  "type": "expr"
+                }
+              }
+            },
+            "props": {
+              "style": {
+                "borderStyle": "dashed",
+                "borderWidth": 3
+              }
+            },
+            "type": "ia.container.coord"
+          },
+          {
+            "meta": {
+              "name": "NR-V1-13"
+            },
+            "position": {
+              "height": 60,
+              "rotate": {
+                "angle": 0
+              },
+              "width": 199.93,
+              "x": 2508.96,
+              "y": 1219.95
+            },
+            "props": {
+              "params": {
+                "label": "Suction",
+                "one_TagPath": "[RCSD]WTF/Anita-B-Smith/NR-FIT-1",
+                "quantity": 1,
+                "three_TagPath": "[RCSD]WTF/Anita-B-Smith/BT-LIT",
+                "two_TagPath": "[RCSD]WTF/Anita-B-Smith/RP-PIT-1-1"
+              },
+              "path": "Templates/Analog Display",
+              "style": {
+                "overflow": "visible"
+              },
+              "useDefaultViewHeight": true
+            },
+            "type": "ia.display.view"
+          },
+          {
+            "meta": {
+              "name": "NR-V1-14"
+            },
+            "position": {
+              "height": 60,
+              "rotate": {
+                "angle": 0
+              },
+              "width": 199.93,
+              "x": 2809.95,
+              "y": 1210.93
+            },
+            "props": {
+              "params": {
+                "label": "Discharge",
+                "one_TagPath": "[RCSD]WTF/Anita-B-Smith/NR-FIT-1",
+                "quantity": 1,
+                "three_TagPath": "[RCSD]WTF/Anita-B-Smith/BT-LIT",
+                "two_TagPath": "[RCSD]WTF/Anita-B-Smith/RP-PIT-1-1"
+              },
+              "path": "Templates/Analog Display",
+              "style": {
+                "overflow": "visible"
+              },
+              "useDefaultViewHeight": true
+            },
+            "type": "ia.display.view"
+          },
+          {
+            "meta": {
+              "name": "CoordinateContainer_16"
+            },
+            "position": {
+              "height": 20.04,
+              "width": 19.92,
+              "x": 2900,
+              "y": 1300.9
+            },
+            "propConfig": {
+              "props.style.classes": {
+                "binding": {
+                  "config": {
+                    "expression": "\u0027Theme/bg-\u0027+{session.props.theme}"
+                  },
+                  "type": "expr"
+                }
+              }
+            },
+            "props": {
+              "style": {
+                "borderStyle": "dashed",
+                "borderWidth": 3
+              }
+            },
+            "type": "ia.container.coord"
+          },
+          {
+            "meta": {
+              "name": "CoordinateContainer_17"
+            },
+            "position": {
+              "height": 29.96,
+              "width": 30.06,
+              "x": 2909,
+              "y": 1270.9
+            },
+            "props": {
+              "style": {
+                "borderBottomStyle": "none",
+                "borderLeftStyle": "dashed",
+                "borderLeftWidth": 3,
+                "borderRightStyle": "none",
+                "borderTopStyle": "none"
+              }
+            },
+            "type": "ia.container.coord"
+          },
+          {
+            "meta": {
+              "name": "CoordinateContainer_18"
+            },
+            "position": {
+              "height": 20.04,
+              "width": 19.92,
+              "x": 2599,
+              "y": 1172.7
+            },
+            "propConfig": {
+              "props.style.classes": {
+                "binding": {
+                  "config": {
+                    "expression": "\u0027Theme/bg-\u0027+{session.props.theme}"
+                  },
+                  "type": "expr"
+                }
+              }
+            },
+            "props": {
+              "style": {
+                "borderStyle": "dashed",
+                "borderWidth": 3
+              }
+            },
+            "type": "ia.container.coord"
+          },
+          {
+            "meta": {
+              "name": "CoordinateContainer_19"
+            },
+            "position": {
+              "height": 29.96,
+              "width": 30.06,
+              "x": 2607,
+              "y": 1142.7
+            },
+            "props": {
+              "style": {
+                "borderBottomStyle": "none",
+                "borderLeftStyle": "dashed",
+                "borderLeftWidth": 3,
+                "borderRightStyle": "none",
+                "borderTopStyle": "none"
+              }
+            },
+            "type": "ia.container.coord"
+          },
+          {
+            "meta": {
+              "name": "CoordinateContainer_20"
+            },
+            "position": {
+              "height": 20.04,
+              "width": 19.92,
+              "x": 2900,
+              "y": 1160.6
+            },
+            "propConfig": {
+              "props.style.classes": {
+                "binding": {
+                  "config": {
+                    "expression": "\u0027Theme/bg-\u0027+{session.props.theme}"
+                  },
+                  "type": "expr"
+                }
+              }
+            },
+            "props": {
+              "style": {
+                "borderStyle": "dashed",
+                "borderWidth": 3
+              }
+            },
+            "type": "ia.container.coord"
+          },
+          {
+            "meta": {
+              "name": "CoordinateContainer_21"
+            },
+            "position": {
+              "height": 29.96,
+              "width": 30.06,
+              "x": 2909,
+              "y": 1130.6
+            },
+            "props": {
+              "style": {
+                "borderBottomStyle": "none",
+                "borderLeftStyle": "dashed",
+                "borderLeftWidth": 3,
+                "borderRightStyle": "none",
+                "borderTopStyle": "none"
+              }
+            },
+            "type": "ia.container.coord"
+          },
+          {
+            "meta": {
+              "name": "CoordinateContainer_22"
+            },
+            "position": {
+              "height": 20.04,
+              "width": 19.92,
+              "x": 2635.01,
+              "y": 567.38
+            },
+            "propConfig": {
+              "props.style.classes": {
+                "binding": {
+                  "config": {
+                    "expression": "\u0027Theme/bg-\u0027+{session.props.theme}"
+                  },
+                  "type": "expr"
+                }
+              }
+            },
+            "props": {
+              "style": {
+                "borderStyle": "dashed",
+                "borderWidth": 3
+              }
+            },
+            "type": "ia.container.coord"
+          },
+          {
+            "meta": {
+              "name": "CoordinateContainer_23"
+            },
+            "position": {
+              "height": 30,
+              "width": 246,
+              "x": 2390.99,
+              "y": 547.76
+            },
+            "props": {
+              "style": {
+                "borderBottomStyle": "dashed",
+                "borderBottomWidth": 3,
+                "borderLeftStyle": "dashed",
+                "borderLeftWidth": 3,
+                "borderRightStyle": "none",
+                "borderTopStyle": "none",
+                "borderTopWidth": 3
+              }
+            },
+            "type": "ia.container.coord"
+          },
+          {
+            "meta": {
+              "name": "NR-V1-15"
+            },
+            "position": {
+              "height": 60,
+              "rotate": {
+                "angle": 0
+              },
+              "width": 199.93,
+              "x": 2270.11,
+              "y": 487.78
+            },
+            "props": {
+              "params": {
+                "label": "Dilution Water",
+                "oneUnit": "psi",
+                "one_Param": "Pressure",
+                "one_TagPath": "[RCSD]WTF/Anita-B-Smith/NR-FIT-1",
+                "quantity": 1,
+                "three_TagPath": "[RCSD]WTF/Anita-B-Smith/BT-LIT",
+                "twoUnit": "GPM",
+                "two_Param": "Flow",
+                "two_TagPath": "[RCSD]WTF/Anita-B-Smith/RP-PIT-1-1"
+              },
+              "path": "Templates/Analog Display",
+              "style": {
+                "overflow": "visible"
+              },
+              "useDefaultViewHeight": true
+            },
+            "type": "ia.display.view"
+          },
+          {
+            "meta": {
+              "name": "CoordinateContainer_24"
+            },
+            "position": {
+              "height": 18.99,
+              "width": 18.83,
+              "x": 3321.1,
+              "y": 627.94
+            },
+            "propConfig": {
+              "props.style.classes": {
+                "binding": {
+                  "config": {
+                    "expression": "\u0027Theme/bg-\u0027+{session.props.theme}"
+                  },
+                  "type": "expr"
+                }
+              }
+            },
+            "props": {
+              "style": {
+                "borderStyle": "dashed",
+                "borderWidth": 3
+              }
+            },
+            "type": "ia.container.coord"
+          },
+          {
+            "meta": {
+              "name": "CoordinateContainer_25"
+            },
+            "position": {
+              "height": 30,
+              "width": 101.05,
+              "x": 3339.85,
+              "y": 608.73
+            },
+            "props": {
+              "style": {
+                "borderBottomStyle": "dashed",
+                "borderBottomWidth": 3,
+                "borderLeftStyle": "none",
+                "borderLeftWidth": 3,
+                "borderRightStyle": "dashed",
+                "borderRightWidth": 3,
+                "borderTopStyle": "none"
+              }
+            },
+            "type": "ia.container.coord"
+          },
+          {
+            "meta": {
+              "name": "CoordinateContainer_26"
+            },
+            "position": {
+              "height": 20.04,
+              "width": 19.92,
+              "x": 2307.1,
+              "y": 655.5
+            },
+            "propConfig": {
+              "props.style.classes": {
+                "binding": {
+                  "config": {
+                    "expression": "\u0027Theme/bg-\u0027+{session.props.theme}"
+                  },
+                  "type": "expr"
+                }
+              }
+            },
+            "props": {
+              "style": {
+                "borderStyle": "dashed",
+                "borderWidth": 3
+              }
+            },
+            "type": "ia.container.coord"
+          },
+          {
+            "meta": {
+              "name": "CoordinateContainer_27"
+            },
+            "position": {
+              "height": 12,
+              "width": 30.06,
+              "x": 2316.1,
+              "y": 643.5
+            },
+            "props": {
+              "style": {
+                "borderBottomStyle": "none",
+                "borderLeftStyle": "dashed",
+                "borderLeftWidth": 3,
+                "borderRightStyle": "none",
+                "borderTopStyle": "none"
+              }
+            },
+            "type": "ia.container.coord"
+          },
+          {
+            "events": {
+              "dom": {
+                "onClick": {
+                  "config": {
+                    "script": "\tself.view.params.focusedArea \u003d \u0027Water Softener\u0027\n\tself.view.params.params_scale \u003d 1.25\n\tself.view.params.params_x \u003d -950\n\tself.view.params.params_y \u003d 770"
+                  },
+                  "scope": "G",
+                  "type": "script"
+                }
+              }
+            },
+            "meta": {
+              "name": "Label_57"
+            },
+            "position": {
+              "height": 40.09,
+              "width": 386.11,
+              "x": 2729.18,
+              "y": 13.5
+            },
+            "props": {
+              "style": {
+                "borderBottomStyle": "double",
+                "borderBottomWidth": 5,
+                "borderLeftStyle": "none",
+                "borderRightStyle": "none",
+                "borderTopStyle": "none",
+                "cursor": "pointer"
+              },
+              "text": "WATER SOFTENER",
+              "textStyle": {
+                "classes": "Text/Labels"
+              }
+            },
+            "type": "ia.display.label"
+          },
+          {
+            "events": {
+              "dom": {
+                "onClick": {
+                  "config": {
+                    "script": "\tself.view.params.focusedArea \u003d \u0027Waste and Recycle\u0027\n\tself.view.params.params_scale \u003d 1.25\n\tself.view.params.params_x \u003d -950\n\tself.view.params.params_y \u003d 80"
+                  },
+                  "scope": "G",
+                  "type": "script"
+                }
+              }
+            },
+            "meta": {
+              "name": "Label_58"
+            },
+            "position": {
+              "height": 40.09,
+              "width": 386.11,
+              "x": 2729.18,
+              "y": 761.08
+            },
+            "props": {
+              "style": {
+                "borderBottomStyle": "double",
+                "borderBottomWidth": 5,
+                "borderLeftStyle": "none",
+                "borderRightStyle": "none",
+                "borderTopStyle": "none",
+                "cursor": "pointer"
+              },
+              "text": "WASTE \u0026 RECYCLE",
+              "textStyle": {
+                "classes": "Text/Labels"
+              }
+            },
+            "type": "ia.display.label"
+          },
+          {
+            "events": {
+              "dom": {
+                "onClick": {
+                  "config": {
+                    "script": "\tself.view.params.focusedArea \u003d \u0027EDB\u0027\n\tself.view.params.params_scale \u003d 1.25\n\tself.view.params.params_x \u003d -950\n\tself.view.params.params_y \u003d -650"
+                  },
+                  "scope": "G",
+                  "type": "script"
+                }
+              }
+            },
+            "meta": {
+              "name": "Label_59"
+            },
+            "position": {
+              "height": 40.09,
+              "width": 386.11,
+              "x": 2729.18,
+              "y": 1448.09
+            },
+            "props": {
+              "style": {
+                "borderBottomStyle": "double",
+                "borderBottomWidth": 5,
+                "borderLeftStyle": "none",
+                "borderRightStyle": "none",
+                "borderTopStyle": "none",
+                "cursor": "pointer"
+              },
+              "text": "EDB",
+              "textStyle": {
+                "classes": "Text/Labels"
+              }
+            },
+            "type": "ia.display.label"
+          },
+          {
+            "events": {
+              "dom": {
+                "onClick": {
+                  "config": {
+                    "script": "\tself.view.params.focusedArea \u003d \u0027Waste and Recycle\u0027\n\tself.view.params.params_scale \u003d 0.9\n\tself.view.params.params_x \u003d 1000\n\tself.view.params.params_y \u003d -450"
+                  },
+                  "scope": "G",
+                  "type": "script"
+                }
+              }
+            },
+            "meta": {
+              "name": "Label_60"
+            },
+            "position": {
+              "height": 40.09,
+              "width": 386.11,
+              "x": 741.06,
+              "y": 1148.89
+            },
+            "props": {
+              "style": {
+                "borderBottomStyle": "double",
+                "borderBottomWidth": 5,
+                "borderLeftStyle": "none",
+                "borderRightStyle": "none",
+                "borderTopStyle": "none",
+                "cursor": "pointer"
+              },
+              "text": "WELLS",
+              "textStyle": {
+                "classes": "Text/Labels"
+              }
+            },
+            "type": "ia.display.label"
+          },
+          {
+            "meta": {
+              "name": "NR-V1-17"
+            },
+            "position": {
+              "height": 60,
+              "rotate": {
+                "angle": 0
+              },
+              "width": 199.93,
+              "x": 2217.14,
+              "y": 585.53
+            },
+            "props": {
+              "params": {
+                "label": "Brine Concentration",
+                "one_TagPath": "[RCSD]WTF/Anita-B-Smith/NR-FIT-1",
+                "quantity": 1,
+                "tagPath": "[RCSD]WTF/Anita-B-Smith/BRI-CIT",
+                "three_TagPath": "[RCSD]WTF/Anita-B-Smith/BT-LIT",
+                "two_TagPath": "[RCSD]WTF/Anita-B-Smith/RP-PIT-1-1"
+              },
+              "path": "Templates/Analog Display",
+              "style": {
+                "overflow": "visible"
+              },
+              "useDefaultViewHeight": true
+            },
+            "type": "ia.display.view"
+          },
+          {
+            "meta": {
+              "name": "NR-V1-16"
+            },
+            "position": {
+              "height": 60,
+              "rotate": {
+                "angle": 0
+              },
+              "width": 199.93,
+              "x": 3340.12,
+              "y": 549.07
+            },
+            "props": {
+              "params": {
+                "label": "Concentrated Brine",
+                "one_TagPath": "[RCSD]WTF/Anita-B-Smith/NR-FIT-1",
+                "quantity": 1,
+                "three_TagPath": "[RCSD]WTF/Anita-B-Smith/BT-LIT",
+                "two_TagPath": "[RCSD]WTF/Anita-B-Smith/RP-PIT-1-1"
+              },
+              "path": "Templates/Analog Display",
+              "style": {
+                "overflow": "visible"
+              },
+              "useDefaultViewHeight": true
+            },
+            "type": "ia.display.view"
+          },
+          {
+            "meta": {
+              "name": "NR-V4-16"
+            },
+            "position": {
+              "height": 120,
+              "rotate": {
+                "angle": 0
+              },
+              "width": 200,
+              "x": 616.1,
+              "y": 1340.04
+            },
+            "props": {
+              "params": {
+                "displayName": false,
+                "displayStatus": false,
+                "isControllable": true,
+                "tagPath": "[RCSD]WTF/Anita-B-Smith/BS-V1",
+                "x-orientation": true
+              },
+              "path": "Devices/Valve_Control",
+              "style": {
+                "overflow": "visible"
+              },
+              "useDefaultViewHeight": true,
+              "useDefaultViewWidth": true
+            },
+            "type": "ia.display.view"
+          },
+          {
+            "meta": {
+              "name": "NR-V4-17"
+            },
+            "position": {
+              "height": 120,
+              "rotate": {
+                "angle": 0
+              },
+              "width": 200,
+              "x": 616.1,
+              "y": 1421.07
+            },
+            "props": {
+              "params": {
+                "displayName": false,
+                "displayStatus": false,
+                "isControllable": true,
+                "tagPath": "[RCSD]WTF/Anita-B-Smith/BS-V1",
+                "x-orientation": true
+              },
+              "path": "Devices/Valve_Control",
+              "style": {
+                "overflow": "visible"
+              },
+              "useDefaultViewHeight": true,
+              "useDefaultViewWidth": true
+            },
+            "type": "ia.display.view"
+          },
+          {
+            "meta": {
+              "name": "NR-V4-18"
+            },
+            "position": {
+              "height": 120,
+              "rotate": {
+                "angle": 0
+              },
+              "width": 200,
+              "x": 616.1,
+              "y": 1553
+            },
+            "props": {
+              "params": {
+                "displayName": false,
+                "displayStatus": false,
+                "isControllable": true,
+                "tagPath": "[RCSD]WTF/Anita-B-Smith/BS-V1",
+                "x-orientation": true
+              },
+              "path": "Devices/Valve_Control",
+              "style": {
+                "overflow": "visible"
+              },
+              "useDefaultViewHeight": true,
+              "useDefaultViewWidth": true
+            },
+            "type": "ia.display.view"
+          },
+          {
+            "meta": {
+              "name": "NR-V4-19"
+            },
+            "position": {
+              "height": 120,
+              "rotate": {
+                "angle": 0
+              },
+              "width": 200,
+              "x": 616.09,
+              "y": 1684
+            },
+            "props": {
+              "params": {
+                "displayName": false,
+                "displayStatus": false,
+                "isControllable": true,
+                "tagPath": "[RCSD]WTF/Anita-B-Smith/BS-V1",
+                "x-orientation": true
+              },
+              "path": "Devices/Valve_Control",
+              "style": {
+                "overflow": "visible"
+              },
+              "useDefaultViewHeight": true,
+              "useDefaultViewWidth": true
+            },
+            "type": "ia.display.view"
+          },
+          {
+            "meta": {
+              "name": "NR-V4-20"
+            },
+            "position": {
+              "height": 120,
+              "rotate": {
+                "angle": 0
+              },
+              "width": 200,
+              "x": 616.09,
+              "y": 1793.96
+            },
+            "props": {
+              "params": {
+                "displayName": false,
+                "displayStatus": false,
+                "isControllable": true,
+                "tagPath": "[RCSD]WTF/Anita-B-Smith/BS-V1",
+                "x-orientation": true
+              },
+              "path": "Devices/Valve_Control",
+              "style": {
+                "overflow": "visible"
+              },
+              "useDefaultViewHeight": true,
+              "useDefaultViewWidth": true
+            },
+            "type": "ia.display.view"
+          },
+          {
+            "meta": {
+              "name": "NR-V4-21"
+            },
+            "position": {
+              "height": 120,
+              "rotate": {
+                "angle": 0
+              },
+              "width": 200,
+              "x": 616.09,
+              "y": 1925
+            },
+            "props": {
+              "params": {
+                "displayName": false,
+                "displayStatus": false,
+                "isControllable": true,
+                "tagPath": "[RCSD]WTF/Anita-B-Smith/BS-V1",
+                "x-orientation": true
+              },
+              "path": "Devices/Valve_Control",
+              "style": {
+                "overflow": "visible"
+              },
+              "useDefaultViewHeight": true,
+              "useDefaultViewWidth": true
+            },
+            "type": "ia.display.view"
+          },
+          {
+            "meta": {
+              "name": "NR-V4-22"
+            },
+            "position": {
+              "height": 120,
+              "rotate": {
+                "angle": 0
+              },
+              "width": 200,
+              "x": 828.98,
+              "y": 1684
+            },
+            "props": {
+              "params": {
+                "displayName": false,
+                "displayStatus": false,
+                "isControllable": true,
+                "tagPath": "[RCSD]WTF/Anita-B-Smith/BS-V1",
+                "x-orientation": true
+              },
+              "path": "Devices/Valve_Control",
+              "style": {
+                "overflow": "visible"
+              },
+              "useDefaultViewHeight": true,
+              "useDefaultViewWidth": true
+            },
+            "type": "ia.display.view"
+          },
+          {
+            "meta": {
+              "name": "NR-V4-23"
+            },
+            "position": {
+              "height": 120,
+              "rotate": {
+                "angle": 0
+              },
+              "width": 200,
+              "x": 828.98,
+              "y": 1925
+            },
+            "props": {
+              "params": {
+                "displayName": false,
+                "displayStatus": false,
+                "isControllable": true,
+                "tagPath": "[RCSD]WTF/Anita-B-Smith/BS-V1",
+                "x-orientation": true
+              },
+              "path": "Devices/Valve_Control",
+              "style": {
+                "overflow": "visible"
+              },
+              "useDefaultViewHeight": true,
+              "useDefaultViewWidth": true
+            },
+            "type": "ia.display.view"
+          },
+          {
+            "meta": {
+              "name": "NR-V4-24"
+            },
+            "position": {
+              "height": 120,
+              "rotate": {
+                "angle": 0
+              },
+              "width": 200,
+              "x": 880.759,
+              "y": 1215.42
+            },
+            "props": {
+              "params": {
+                "displayName": false,
+                "displayStatus": false,
+                "isControllable": true,
+                "tagPath": "[RCSD]WTF/Anita-B-Smith/BS-V1",
+                "x-orientation": true
+              },
+              "path": "Devices/Valve_Control",
+              "style": {
+                "overflow": "visible"
+              },
+              "useDefaultViewHeight": true,
+              "useDefaultViewWidth": true
+            },
+            "type": "ia.display.view"
+          },
+          {
+            "meta": {
+              "name": "NR-V4-28"
+            },
+            "position": {
+              "height": 120,
+              "rotate": {
+                "angle": 0
+              },
+              "width": 200,
+              "x": 2806.93,
+              "y": 114.820703125
+            },
+            "props": {
+              "params": {
+                "displayName": true,
+                "displayStatus": false,
+                "isControllable": true,
+                "tagPath": "[RCSD]WTF/Anita-B-Smith/BT-V2",
+                "x-orientation": true
+              },
+              "path": "Devices/Valve_Control",
+              "style": {
+                "overflow": "visible"
+              },
+              "useDefaultViewHeight": true,
+              "useDefaultViewWidth": true
+            },
+            "type": "ia.display.view"
+          },
+          {
+            "meta": {
+              "name": "NR-V4-29"
+            },
+            "position": {
+              "height": 120,
+              "rotate": {
+                "angle": 0
+              },
+              "width": 200,
+              "x": 2624.06,
+              "y": 600.183
+            },
+            "props": {
+              "params": {
+                "displayName": true,
+                "displayStatus": false,
+                "isControllable": true,
+                "tagPath": "[RCSD]WTF/Anita-B-Smith/BS-V1",
+                "x-orientation": true
+              },
+              "path": "Devices/Valve_Control",
+              "style": {
+                "overflow": "visible"
+              },
+              "useDefaultViewHeight": true,
+              "useDefaultViewWidth": true
+            },
+            "type": "ia.display.view"
+          },
+          {
+            "meta": {
+              "name": "NR-V4-30"
+            },
+            "position": {
+              "height": 120,
+              "rotate": {
+                "angle": 0
+              },
+              "width": 200,
+              "x": 2624.06,
+              "y": 465.253
+            },
+            "props": {
+              "params": {
+                "displayName": true,
+                "displayStatus": false,
+                "isControllable": true,
+                "tagPath": "[RCSD]WTF/Anita-B-Smith/BT-V3",
+                "x-orientation": true
+              },
+              "path": "Devices/Valve_Control",
+              "style": {
+                "overflow": "visible"
+              },
+              "useDefaultViewHeight": true,
+              "useDefaultViewWidth": true
+            },
+            "type": "ia.display.view"
+          },
+          {
+            "meta": {
+              "name": "NR-V4-31"
+            },
+            "position": {
+              "height": 120,
+              "rotate": {
+                "angle": 0
+              },
+              "width": 200,
+              "x": 2450.93,
+              "y": 494.163
+            },
+            "props": {
+              "params": {
+                "displayName": true,
+                "displayStatus": false,
+                "isControllable": true,
+                "tagPath": "[RCSD]WTF/Anita-B-Smith/BS-V3",
+                "x-orientation": true
+              },
+              "path": "Devices/Valve_Control",
+              "style": {
+                "overflow": "visible"
+              },
+              "useDefaultViewHeight": true,
+              "useDefaultViewWidth": true
+            },
+            "type": "ia.display.view"
+          },
+          {
+            "meta": {
+              "name": "NR-V4-32"
+            },
+            "position": {
+              "height": 120,
+              "rotate": {
+                "angle": 0
+              },
+              "width": 200,
+              "x": 2535.84,
+              "y": 563.04
+            },
+            "props": {
+              "params": {
+                "displayName": true,
+                "displayStatus": false,
+                "isControllable": true,
+                "tagPath": "[RCSD]WTF/Anita-B-Smith/BS-V2",
+                "x-orientation": false
+              },
+              "path": "Devices/Valve_Control",
+              "style": {
+                "overflow": "visible"
+              },
+              "useDefaultViewHeight": true,
+              "useDefaultViewWidth": true
+            },
+            "type": "ia.display.view"
+          },
+          {
+            "meta": {
+              "name": "NR-V4-33"
+            },
+            "position": {
+              "height": 120,
+              "width": 200,
+              "x": 1631,
+              "y": 699.63
+            },
+            "props": {
+              "params": {
+                "displayName": true,
+                "displayStatus": false,
+                "isControllable": true,
+                "tagPath": "[RCSD]WTF/Anita-B-Smith/BT-V1",
+                "x-orientation": true
+              },
+              "path": "Devices/Valve_Control",
+              "useDefaultViewHeight": true,
+              "useDefaultViewWidth": true
+            },
+            "type": "ia.display.view"
+          },
+          {
+            "meta": {
+              "name": "NR-V1-33"
+            },
+            "position": {
+              "height": 60,
+              "rotate": {
+                "angle": 0
+              },
+              "width": 200,
+              "x": 1439,
+              "y": 945.2
+            },
+            "props": {
+              "params": {
+                "label": "Waste Conductivity",
+                "one_TagPath": "[RCSD]WTF/Anita-B-Smith/NR-pHIT-3",
+                "quantity": 1,
+                "three_TagPath": "[RCSD]WTF/Anita-B-Smith/BT-LIT",
+                "two_TagPath": "[RCSD]WTF/Anita-B-Smith/NR-pHIT-3"
+              },
+              "path": "Templates/Analog Display",
+              "style": {
+                "overflow": "visible"
+              },
+              "useDefaultViewHeight": true,
+              "useDefaultViewWidth": true
+            },
+            "type": "ia.display.view"
+          },
+          {
+            "meta": {
+              "name": "CoordinateContainer_28"
+            },
+            "position": {
+              "height": 20,
+              "width": 20,
+              "x": 1401,
+              "y": 924
+            },
+            "propConfig": {
+              "props.style.classes": {
+                "binding": {
+                  "config": {
+                    "expression": "\u0027Theme/bg-\u0027+{session.props.theme}"
+                  },
+                  "type": "expr"
+                }
+              }
+            },
+            "props": {
+              "style": {
+                "borderStyle": "dashed",
+                "borderWidth": 3
+              }
+            },
+            "type": "ia.container.coord"
+          },
+          {
+            "meta": {
+              "name": "CoordinateContainer_29"
+            },
+            "position": {
+              "height": 33,
+              "width": 30,
+              "x": 1409,
+              "y": 942
+            },
+            "props": {
+              "style": {
+                "borderBottomStyle": "dashed",
+                "borderBottomWidth": 3,
+                "borderLeftStyle": "dashed",
+                "borderLeftWidth": 3,
+                "borderTopStyle": "none"
+              }
+            },
+            "type": "ia.container.coord"
+          },
+          {
+            "meta": {
+              "name": "IE Vessel 20"
+            },
+            "position": {
+              "height": 120,
+              "width": 150,
+              "x": 3127,
+              "y": 574
+            },
+            "props": {
+              "params": {
+                "displayName": true,
+                "displayStatus": false,
+                "isVFD": false,
+                "tagPath": "[RCSD]WTF/Anita-B-Smith/BP2"
+              },
+              "path": "Devices/Pump",
+              "style": {
+                "overflow": "visible"
+              },
+              "useDefaultViewHeight": true,
+              "useDefaultViewWidth": true
+            },
+            "type": "ia.display.view"
+          },
+          {
+            "meta": {
+              "name": "NR-V1-2"
+            },
+            "position": {
+              "height": 120,
+              "width": 200,
+              "x": 709,
+              "y": 159
+            },
+            "props": {
+              "params": {
+                "displayName": true,
+                "displayStatus": false,
+                "isControllable": true,
+                "tagPath": "[RCSD]WTF/Anita-B-Smith/NR-V1-2",
+                "x-orientation": false
+              },
+              "path": "Devices/Valve_Control",
+              "style": {
+                "overflow": "visible"
+              },
+              "useDefaultViewHeight": true,
+              "useDefaultViewWidth": true
+            },
+            "type": "ia.display.view"
+          },
+          {
+            "meta": {
+              "name": "NR-V1-3"
+            },
+            "position": {
+              "height": 120,
+              "width": 200,
+              "x": 1227,
+              "y": 159
+            },
+            "props": {
+              "params": {
+                "displayName": true,
+                "displayStatus": false,
+                "isControllable": true,
+                "tagPath": "[RCSD]WTF/Anita-B-Smith/NR-V1-3",
+                "x-orientation": false
+              },
+              "path": "Devices/Valve_Control",
+              "style": {
+                "overflow": "visible"
+              },
+              "useDefaultViewHeight": true,
+              "useDefaultViewWidth": true
+            },
+            "type": "ia.display.view"
+          },
+          {
+            "meta": {
+              "name": "NR-V1-18"
+            },
+            "position": {
+              "height": 120,
+              "width": 200,
+              "x": 1440.44,
+              "y": 238.99
+            },
+            "props": {
+              "params": {
+                "displayName": true,
+                "displayStatus": false,
+                "isControllable": true,
+                "tagPath": "[RCSD]WTF/Anita-B-Smith/NR-V3-3",
+                "x-orientation": false
+              },
+              "path": "Devices/Valve_Control",
+              "style": {
+                "overflow": "visible"
+              },
+              "useDefaultViewHeight": true,
+              "useDefaultViewWidth": true
+            },
+            "type": "ia.display.view"
+          },
+          {
+            "meta": {
+              "name": "NR-V1-19"
+            },
+            "position": {
+              "height": 120,
+              "width": 200,
+              "x": 911.44,
+              "y": 238.99
+            },
+            "props": {
+              "params": {
+                "displayName": true,
+                "displayStatus": false,
+                "isControllable": true,
+                "tagPath": "[RCSD]WTF/Anita-B-Smith/NR-V3-2",
+                "x-orientation": false
+              },
+              "path": "Devices/Valve_Control",
+              "style": {
+                "overflow": "visible"
+              },
+              "useDefaultViewHeight": true,
+              "useDefaultViewWidth": true
+            },
+            "type": "ia.display.view"
+          },
+          {
+            "meta": {
+              "name": "NR-V1-20"
+            },
+            "position": {
+              "height": 120,
+              "width": 200,
+              "x": 390.44,
+              "y": 238.99
+            },
+            "props": {
+              "params": {
+                "displayName": true,
+                "displayStatus": false,
+                "isControllable": true,
+                "tagPath": "[RCSD]WTF/Anita-B-Smith/NR-V3-1",
+                "x-orientation": false
+              },
+              "path": "Devices/Valve_Control",
+              "style": {
+                "overflow": "visible"
+              },
+              "useDefaultViewHeight": true,
+              "useDefaultViewWidth": true
+            },
+            "type": "ia.display.view"
+          },
+          {
+            "meta": {
+              "name": "NR-V1-21"
+            },
+            "position": {
+              "height": 120,
+              "width": 200,
+              "x": -1.56,
+              "y": 318.99
+            },
+            "props": {
+              "params": {
+                "displayName": true,
+                "displayStatus": false,
+                "isControllable": true,
+                "tagPath": "[RCSD]WTF/Anita-B-Smith/NR-V4-1",
+                "x-orientation": false
+              },
+              "path": "Devices/Valve_Control",
+              "style": {
+                "overflow": "visible"
+              },
+              "useDefaultViewHeight": true,
+              "useDefaultViewWidth": true
+            },
+            "type": "ia.display.view"
+          },
+          {
+            "meta": {
+              "name": "NR-V1-22"
+            },
+            "position": {
+              "height": 120,
+              "width": 200,
+              "x": 514.44,
+              "y": 318.99
+            },
+            "props": {
+              "params": {
+                "displayName": true,
+                "displayStatus": false,
+                "isControllable": true,
+                "tagPath": "[RCSD]WTF/Anita-B-Smith/NR-V4-2",
+                "x-orientation": false
+              },
+              "path": "Devices/Valve_Control",
+              "style": {
+                "overflow": "visible"
+              },
+              "useDefaultViewHeight": true,
+              "useDefaultViewWidth": true
+            },
+            "type": "ia.display.view"
+          },
+          {
+            "meta": {
+              "name": "NR-V1-23"
+            },
+            "position": {
+              "height": 120,
+              "width": 200,
+              "x": 1027.44,
+              "y": 318.99
+            },
+            "props": {
+              "params": {
+                "displayName": true,
+                "displayStatus": false,
+                "isControllable": true,
+                "tagPath": "[RCSD]WTF/Anita-B-Smith/NR-V4-3",
+                "x-orientation": false
+              },
+              "path": "Devices/Valve_Control",
+              "style": {
+                "overflow": "visible"
+              },
+              "useDefaultViewHeight": true,
+              "useDefaultViewWidth": true
+            },
+            "type": "ia.display.view"
+          },
+          {
+            "meta": {
+              "name": "NR-V1-24"
+            },
+            "position": {
+              "height": 120,
+              "width": 200,
+              "x": 1384.43,
+              "y": 383.98
+            },
+            "props": {
+              "params": {
+                "displayName": true,
+                "displayStatus": false,
+                "isControllable": true,
+                "tagPath": "[RCSD]WTF/Anita-B-Smith/NR-V6-3",
+                "x-orientation": false
+              },
+              "path": "Devices/Valve_Control",
+              "style": {
+                "overflow": "visible"
+              },
+              "useDefaultViewHeight": true,
+              "useDefaultViewWidth": true
+            },
+            "type": "ia.display.view"
+          },
+          {
+            "meta": {
+              "name": "NR-V1-25"
+            },
+            "position": {
+              "height": 120,
+              "width": 200,
+              "x": 869.43,
+              "y": 383.98
+            },
+            "props": {
+              "params": {
+                "displayName": true,
+                "displayStatus": false,
+                "isControllable": true,
+                "tagPath": "[RCSD]WTF/Anita-B-Smith/NR-V6-2",
+                "x-orientation": false
+              },
+              "path": "Devices/Valve_Control",
+              "style": {
+                "overflow": "visible"
+              },
+              "useDefaultViewHeight": true,
+              "useDefaultViewWidth": true
+            },
+            "type": "ia.display.view"
+          },
+          {
+            "meta": {
+              "name": "NR-V1-26"
+            },
+            "position": {
+              "height": 120,
+              "width": 200,
+              "x": 350.43,
+              "y": 383.98
+            },
+            "props": {
+              "params": {
+                "displayName": true,
+                "displayStatus": false,
+                "isControllable": true,
+                "tagPath": "[RCSD]WTF/Anita-B-Smith/NR-V6-1",
+                "x-orientation": false
+              },
+              "path": "Devices/Valve_Control",
+              "style": {
+                "overflow": "visible"
+              },
+              "useDefaultViewHeight": true,
+              "useDefaultViewWidth": true
+            },
+            "type": "ia.display.view"
+          },
+          {
+            "meta": {
+              "name": "NR-V4-34"
+            },
+            "position": {
+              "height": 120,
+              "width": 200,
+              "x": 1631,
+              "y": 868.957
+            },
+            "props": {
+              "params": {
+                "displayName": true,
+                "displayStatus": false,
+                "isControllable": true,
+                "tagPath": "[RCSD]WTF/Anita-B-Smith/RT-V1",
+                "x-orientation": true
+              },
+              "path": "Devices/Valve_Control",
+              "useDefaultViewHeight": true,
+              "useDefaultViewWidth": true
+            },
+            "type": "ia.display.view"
+          },
+          {
+            "meta": {
+              "name": "NR-V4-35"
+            },
+            "position": {
+              "height": 120,
+              "width": 200,
+              "x": 1631,
+              "y": 786.714
+            },
+            "props": {
+              "params": {
+                "displayName": true,
+                "displayStatus": false,
+                "isControllable": true,
+                "tagPath": "[RCSD]WTF/Anita-B-Smith/WT-V1",
+                "x-orientation": true
+              },
+              "path": "Devices/Valve_Control",
+              "useDefaultViewHeight": true,
+              "useDefaultViewWidth": true
+            },
+            "type": "ia.display.view"
+          },
+          {
+            "meta": {
+              "name": "NR-V1-27"
+            },
+            "position": {
+              "height": 120,
+              "width": 200,
+              "x": 1225.75,
+              "y": 770.809
+            },
+            "props": {
+              "params": {
+                "displayName": true,
+                "displayStatus": false,
+                "isControllable": true,
+                "tagPath": "[RCSD]WTF/Anita-B-Smith/NR-V2-3",
+                "x-orientation": false
+              },
+              "path": "Devices/Valve_Control",
+              "style": {
+                "overflow": "visible"
+              },
+              "useDefaultViewHeight": true,
+              "useDefaultViewWidth": true
+            },
+            "type": "ia.display.view"
+          },
+          {
+            "meta": {
+              "name": "NR-V1-28"
+            },
+            "position": {
+              "height": 120,
+              "width": 200,
+              "x": 708,
+              "y": 771
+            },
+            "props": {
+              "params": {
+                "displayName": true,
+                "displayStatus": false,
+                "isControllable": true,
+                "tagPath": "[RCSD]WTF/Anita-B-Smith/NR-V2-2",
+                "x-orientation": false
+              },
+              "path": "Devices/Valve_Control",
+              "style": {
+                "overflow": "visible"
+              },
+              "useDefaultViewHeight": true,
+              "useDefaultViewWidth": true
+            },
+            "type": "ia.display.view"
+          },
+          {
+            "meta": {
+              "name": "NR-V1-29"
+            },
+            "position": {
+              "height": 120,
+              "width": 200,
+              "x": 190,
+              "y": 771
+            },
+            "props": {
+              "params": {
+                "displayName": true,
+                "displayStatus": false,
+                "isControllable": true,
+                "tagPath": "[RCSD]WTF/Anita-B-Smith/NR-V2-1",
+                "x-orientation": false
+              },
+              "path": "Devices/Valve_Control",
+              "style": {
+                "overflow": "visible"
+              },
+              "useDefaultViewHeight": true,
+              "useDefaultViewWidth": true
+            },
+            "type": "ia.display.view"
+          },
+          {
+            "meta": {
+              "name": "NR-V1-30"
+            },
+            "position": {
+              "height": 120,
+              "width": 200,
+              "x": 92,
+              "y": 688
+            },
+            "props": {
+              "params": {
+                "displayName": true,
+                "displayStatus": false,
+                "isControllable": true,
+                "tagPath": "[RCSD]WTF/Anita-B-Smith/NR-V5-1",
+                "x-orientation": false
+              },
+              "path": "Devices/Valve_Control",
+              "style": {
+                "overflow": "visible"
+              },
+              "useDefaultViewHeight": true,
+              "useDefaultViewWidth": true
+            },
+            "type": "ia.display.view"
+          },
+          {
+            "meta": {
+              "name": "NR-V1-31"
+            },
+            "position": {
+              "height": 120,
+              "width": 200,
+              "x": 607,
+              "y": 688
+            },
+            "props": {
+              "params": {
+                "displayName": true,
+                "displayStatus": false,
+                "isControllable": true,
+                "tagPath": "[RCSD]WTF/Anita-B-Smith/NR-V5-1",
+                "x-orientation": false
+              },
+              "path": "Devices/Valve_Control",
+              "style": {
+                "overflow": "visible"
+              },
+              "useDefaultViewHeight": true,
+              "useDefaultViewWidth": true
+            },
+            "type": "ia.display.view"
+          },
+          {
+            "meta": {
+              "name": "NR-V1-32"
+            },
+            "position": {
+              "height": 120,
+              "width": 200,
+              "x": 1125,
+              "y": 688
+            },
+            "props": {
+              "params": {
+                "displayName": true,
+                "displayStatus": false,
+                "isControllable": true,
+                "tagPath": "[RCSD]WTF/Anita-B-Smith/NR-V5-1",
+                "x-orientation": false
+              },
+              "path": "Devices/Valve_Control",
+              "style": {
+                "overflow": "visible"
+              },
+              "useDefaultViewHeight": true,
+              "useDefaultViewWidth": true
+            },
+            "type": "ia.display.view"
+          },
+          {
+            "meta": {
+              "name": "IE Vessel 10"
+            },
+            "position": {
+              "height": 130,
+              "width": 150,
+              "x": 3049,
+              "y": 936
+            },
+            "props": {
+              "params": {
+                "displayName": false,
+                "displayStatus": false,
+                "isVFD": false,
+                "tagPath": "[RCSD]WTF/Anita-B-Smith/BP1"
+              },
+              "path": "Devices/Pump",
+              "useDefaultViewHeight": true,
+              "useDefaultViewWidth": true
+            },
+            "type": "ia.display.view"
+          },
+          {
+            "meta": {
+              "name": "NR-V4-36"
+            },
+            "position": {
+              "height": 120,
+              "rotate": {
+                "angle": 0
+              },
+              "width": 200,
+              "x": 3204,
+              "y": 1248.25
+            },
+            "props": {
+              "params": {
+                "displayName": true,
+                "displayStatus": false,
+                "isControllable": true,
+                "tagPath": "[RCSD]WTF/Anita-B-Smith/RT-V2",
+                "x-orientation": true
+              },
+              "path": "Devices/Valve_Control",
+              "style": {
+                "overflow": "visible"
+              },
+              "useDefaultViewHeight": true,
+              "useDefaultViewWidth": true
+            },
+            "type": "ia.display.view"
+          },
+          {
+            "meta": {
+              "name": "IE Vessel 24"
+            },
+            "position": {
+              "height": 130,
+              "width": 150,
+              "x": 2909,
+              "y": 1637
+            },
+            "props": {
+              "params": {
+                "displayName": false,
+                "displayStatus": false,
+                "isVFD": false,
+                "tagPath": "[RCSD]WTF/Anita-B-Smith/BP1"
+              },
+              "path": "Devices/Pump",
+              "useDefaultViewHeight": true,
+              "useDefaultViewWidth": true
+            },
+            "type": "ia.display.view"
+          },
+          {
+            "meta": {
+              "name": "IE Vessel 25"
+            },
+            "position": {
+              "height": 130,
+              "width": 150,
+              "x": 2909,
+              "y": 1749
+            },
+            "props": {
+              "params": {
+                "displayName": false,
+                "displayStatus": false,
+                "isVFD": false,
+                "tagPath": "[RCSD]WTF/Anita-B-Smith/BP1"
+              },
+              "path": "Devices/Pump",
+              "useDefaultViewHeight": true,
+              "useDefaultViewWidth": true
+            },
+            "type": "ia.display.view"
+          },
+          {
+            "meta": {
+              "name": "IE Vessel 26"
+            },
+            "position": {
+              "height": 130,
+              "width": 150,
+              "x": 2909,
+              "y": 1863
+            },
+            "props": {
+              "params": {
+                "displayName": false,
+                "displayStatus": false,
+                "isVFD": false,
+                "tagPath": "[RCSD]WTF/Anita-B-Smith/BP1"
+              },
+              "path": "Devices/Pump",
+              "useDefaultViewHeight": true,
+              "useDefaultViewWidth": true
+            },
+            "type": "ia.display.view"
+          },
+          {
+            "meta": {
+              "name": "NR-V4-37"
+            },
+            "position": {
+              "height": 120,
+              "rotate": {
+                "angle": 0
+              },
+              "width": 200,
+              "x": 2208,
+              "y": 1473
+            },
+            "props": {
+              "params": {
+                "displayName": false,
+                "displayStatus": false,
+                "isControllable": true,
+                "tagPath": "[RCSD]WTF/Anita-B-Smith/RT-V2",
+                "x-orientation": true
+              },
+              "path": "Devices/Valve_Control",
+              "style": {
+                "overflow": "visible"
+              },
+              "useDefaultViewHeight": true,
+              "useDefaultViewWidth": true
+            },
+            "type": "ia.display.view"
+          },
+          {
+            "meta": {
+              "name": "NR-V4-38"
+            },
+            "position": {
+              "height": 120,
+              "rotate": {
+                "angle": 0
+              },
+              "width": 200,
+              "x": 2208,
+              "y": 1626
+            },
+            "props": {
+              "params": {
+                "displayName": false,
+                "displayStatus": false,
+                "isControllable": true,
+                "tagPath": "[RCSD]WTF/Anita-B-Smith/RT-V2",
+                "x-orientation": true
+              },
+              "path": "Devices/Valve_Control",
+              "style": {
+                "overflow": "visible"
+              },
+              "useDefaultViewHeight": true,
+              "useDefaultViewWidth": true
+            },
+            "type": "ia.display.view"
+          },
+          {
+            "meta": {
+              "name": "IE Vessel 27"
+            },
+            "position": {
+              "height": 130,
+              "width": 150,
+              "x": 2229,
+              "y": 1747
+            },
+            "props": {
+              "params": {
+                "displayName": false,
+                "displayStatus": false,
+                "isVFD": false,
+                "tagPath": "[RCSD]WTF/Anita-B-Smith/BP1"
+              },
+              "path": "Devices/Pump",
+              "useDefaultViewHeight": true,
+              "useDefaultViewWidth": true
+            },
+            "type": "ia.display.view"
+          },
+          {
+            "meta": {
+              "name": "IE Vessel 28"
+            },
+            "position": {
+              "height": 130,
+              "width": 150,
+              "x": 2229,
+              "y": 1868
+            },
+            "props": {
+              "params": {
+                "displayName": false,
+                "displayStatus": false,
+                "isVFD": false,
+                "tagPath": "[RCSD]WTF/Anita-B-Smith/BP1"
+              },
+              "path": "Devices/Pump",
+              "useDefaultViewHeight": true,
+              "useDefaultViewWidth": true
+            },
+            "type": "ia.display.view"
+          },
+          {
+            "meta": {
+              "name": "IE Vessel 29"
+            },
+            "position": {
+              "height": 130,
+              "width": 150,
+              "x": 2685.6,
+              "y": 1271.77
+            },
+            "props": {
+              "params": {
+                "displayName": false,
+                "displayStatus": false,
+                "isVFD": false,
+                "tagPath": "[RCSD]WTF/Anita-B-Smith/BP1"
+              },
+              "path": "Devices/Pump",
+              "useDefaultViewHeight": true,
+              "useDefaultViewWidth": true
+            },
+            "type": "ia.display.view"
+          },
+          {
+            "meta": {
+              "name": "IE Vessel 30"
+            },
+            "position": {
+              "height": 130,
+              "width": 150,
+              "x": 2685.6,
+              "y": 1131
+            },
+            "props": {
+              "params": {
+                "displayName": false,
+                "displayStatus": false,
+                "isVFD": false,
+                "tagPath": "[RCSD]WTF/Anita-B-Smith/BP1"
+              },
+              "path": "Devices/Pump",
+              "useDefaultViewHeight": true,
+              "useDefaultViewWidth": true
+            },
+            "type": "ia.display.view"
+          }
+        ],
+        "meta": {
+          "name": "CoordinateContainer"
+        },
+        "position": {
+          "basis": "200px",
+          "grow": 1
+        },
+        "props": {
+          "pipes": [
+            {
+              "appearance": "p\u0026id",
+              "end": "arrowOutward",
+              "fill": "",
+              "flanges": true,
+              "lineVariant": "midArrow",
+              "name": "pipe_62",
+              "origin": {
+                "connections": [
+                  {
+                    "connections": [
+                      {
+                        "connections": [
+                          {
+                            "connections": [
+                              {
+                                "connections": [
+                                  {
+                                    "x": 1406.06,
+                                    "y": 360.39
+                                  }
+                                ],
+                                "x": 1492.99,
+                                "y": 360.39
+                              },
+                              {
+                                "connections": [
+                                  {
+                                    "connections": [
+                                      {
+                                        "x": 887.39,
+                                        "y": 360.39
+                                      }
+                                    ],
+                                    "x": 979.39,
+                                    "y": 360.39
+                                  },
+                                  {
+                                    "connections": [
+                                      {
+                                        "connections": [
+                                          {
+                                            "x": 373.07,
+                                            "y": 360.39
+                                          }
+                                        ],
+                                        "x": 459.99,
+                                        "y": 360.39
+                                      }
+                                    ],
+                                    "x": 459.99,
+                                    "y": 664.23
+                                  }
+                                ],
+                                "x": 979.39,
+                                "y": 664.23
+                              }
+                            ],
+                            "x": 1492.99,
+                            "y": 664.23
+                          }
+                        ],
+                        "x": 3330.07,
+                        "y": 664.23
+                      }
+                    ],
+                    "x": 3330.07,
+                    "y": 492.9
+                  }
+                ],
+                "x": 3218.87,
+                "y": 492.9
+              },
+              "start": "none",
+              "stroke": "#2B2B2B",
+              "visible": true,
+              "width": 3
+            },
+            {
+              "appearance": "p\u0026id",
+              "end": "arrowOutward",
+              "fill": "",
+              "flanges": true,
+              "lineVariant": "midArrow",
+              "name": "pipe_37",
+              "origin": {
+                "connections": [
+                  {
+                    "connections": [
+                      {
+                        "x": 1136.58,
+                        "y": 927.98
+                      }
+                    ],
+                    "x": 1136.58,
+                    "y": 269.02
+                  }
+                ],
+                "x": 1283.64,
+                "y": 269.02
+              },
+              "start": "none",
+              "stroke": "#2B2B2B",
+              "visible": true,
+              "width": 3
+            },
+            {
+              "appearance": "p\u0026id",
+              "end": "arrowOutward",
+              "fill": "",
+              "flanges": true,
+              "lineVariant": "midArrow",
+              "name": "pipe_35",
+              "origin": {
+                "connections": [
+                  {
+                    "connections": [
+                      {
+                        "x": 622.62,
+                        "y": 927.98
+                      }
+                    ],
+                    "x": 622.62,
+                    "y": 269.02
+                  }
+                ],
+                "x": 766.42,
+                "y": 269.02
+              },
+              "start": "none",
+              "stroke": "#2B2B2B",
+              "visible": true,
+              "width": 3
+            },
+            {
+              "appearance": "p\u0026id",
+              "end": "arrowOutward",
+              "fill": "",
+              "flanges": true,
+              "lineVariant": "midArrow",
+              "name": "pipe_46",
+              "origin": {
+                "connections": [
+                  {
+                    "connections": [
+                      {
+                        "connections": [
+                          {
+                            "x": 1343.4,
+                            "y": 740.19
+                          }
+                        ],
+                        "x": 1549.13,
+                        "y": 740.19
+                      },
+                      {
+                        "connections": [
+                          {
+                            "x": 1234.02,
+                            "y": 927.98
+                          }
+                        ],
+                        "x": 1234.02,
+                        "y": 699.04
+                      }
+                    ],
+                    "x": 1549.13,
+                    "y": 699.04
+                  }
+                ],
+                "x": 1549.13,
+                "y": 315.23
+              },
+              "start": "none",
+              "stroke": "#2B2B2B",
+              "visible": true,
+              "width": 3
+            },
+            {
+              "appearance": "p\u0026id",
+              "end": "arrowOutward",
+              "fill": "",
+              "flanges": true,
+              "lineVariant": "midArrow",
+              "name": "pipe_44",
+              "origin": {
+                "connections": [
+                  {
+                    "connections": [
+                      {
+                        "connections": [
+                          {
+                            "x": 826.54,
+                            "y": 740.19
+                          }
+                        ],
+                        "x": 1018.87,
+                        "y": 740.19
+                      },
+                      {
+                        "connections": [
+                          {
+                            "x": 716.79,
+                            "y": 927.98
+                          }
+                        ],
+                        "x": 716.79,
+                        "y": 699.04
+                      }
+                    ],
+                    "x": 1018.87,
+                    "y": 699.04
+                  }
+                ],
+                "x": 1018.87,
+                "y": 315.23
+              },
+              "start": "none",
+              "stroke": "#2B2B2B",
+              "visible": true,
+              "width": 3
+            },
+            {
+              "appearance": "p\u0026id",
+              "end": "arrowOutward",
+              "fill": "",
+              "flanges": true,
+              "lineVariant": "midArrow",
+              "name": "pipe_42",
+              "origin": {
+                "connections": [
+                  {
+                    "connections": [
+                      {
+                        "connections": [
+                          {
+                            "x": 310.04,
+                            "y": 740.19
+                          }
+                        ],
+                        "x": 499.47,
+                        "y": 740.19
+                      },
+                      {
+                        "connections": [
+                          {
+                            "x": 201.02,
+                            "y": 927.98
+                          }
+                        ],
+                        "x": 201.02,
+                        "y": 699.04
+                      }
+                    ],
+                    "x": 499.47,
+                    "y": 699.04
+                  }
+                ],
+                "x": 499.47,
+                "y": 315.23
+              },
+              "start": "none",
+              "stroke": "#2B2B2B",
+              "visible": true,
+              "width": 3
+            },
+            {
+              "appearance": "p\u0026id",
+              "end": "none",
+              "fill": "",
+              "flanges": true,
+              "lineVariant": "midArrow",
+              "name": "pipe_63",
+              "origin": {
+                "connections": [
+                  {
+                    "x": 3302.9,
+                    "y": 615.06
+                  }
+                ],
+                "x": 3218.15,
+                "y": 615.06
+              },
+              "start": "none",
+              "stroke": "#2B2B2B",
+              "visible": true,
+              "width": 3
+            },
+            {
+              "appearance": "p\u0026id",
+              "end": "none",
+              "fill": "",
+              "flanges": true,
+              "lineVariant": "midArrow",
+              "name": "pipe_54",
+              "origin": {
+                "connections": [
+                  {
+                    "connections": [
+                      {
+                        "x": 3260.89,
+                        "y": 1279.93
+                      }
+                    ],
+                    "x": 3260.89,
+                    "y": 1171.05
+                  }
+                ],
+                "x": 3137.01,
+                "y": 1171.05
+              },
+              "start": "none",
+              "stroke": "#2B2B2B",
+              "visible": true,
+              "width": 3
+            },
+            {
+              "appearance": "p\u0026id",
+              "end": "arrowOutward",
+              "fill": "",
+              "flanges": true,
+              "lineVariant": "midArrow",
+              "name": "pipe_36",
+              "origin": {
+                "connections": [
+                  {
+                    "connections": [
+                      {
+                        "connections": [
+                          {
+                            "connections": [
+                              {
+                                "connections": [
+                                  {
+                                    "connections": [
+                                      {
+                                        "connections": [
+                                          {
+                                            "connections": [
+                                              {
+                                                "x": 2341.26,
+                                                "y": 1129.9
+                                              }
+                                            ],
+                                            "x": 2341.26,
+                                            "y": 1103.74
+                                          }
+                                        ],
+                                        "x": 2005.14,
+                                        "y": 1103.74
+                                      }
+                                    ],
+                                    "x": 2005.14,
+                                    "y": 933.04
+                                  },
+                                  {
+                                    "connections": [
+                                      {
+                                        "connections": [
+                                          {
+                                            "connections": [
+                                              {
+                                                "connections": [
+                                                  {
+                                                    "connections": [
+                                                      {
+                                                        "connections": [],
+                                                        "x": 2794.37,
+                                                        "y": 1056.69
+                                                      }
+                                                    ],
+                                                    "x": 2794.37,
+                                                    "y": 850.96
+                                                  },
+                                                  {
+                                                    "connections": [],
+                                                    "x": 2614.36,
+                                                    "y": 1056.69
+                                                  }
+                                                ],
+                                                "x": 2614.36,
+                                                "y": 850.96
+                                              },
+                                              {
+                                                "connections": [
+                                                  {
+                                                    "connections": [
+                                                      {
+                                                        "connections": [
+                                                          {
+                                                            "x": 3097.9,
+                                                            "y": 987.06
+                                                          },
+                                                          {
+                                                            "connections": [
+                                                              {
+                                                                "x": 3097.9,
+                                                                "y": 867.42
+                                                              }
+                                                            ],
+                                                            "x": 2995.03,
+                                                            "y": 867.42
+                                                          }
+                                                        ],
+                                                        "x": 2995.03,
+                                                        "y": 987.06
+                                                      }
+                                                    ],
+                                                    "x": 2995.03,
+                                                    "y": 1056.69
+                                                  }
+                                                ],
+                                                "x": 2434.35,
+                                                "y": 1056.69
+                                              }
+                                            ],
+                                            "x": 2434.35,
+                                            "y": 850.96
+                                          },
+                                          {
+                                            "connections": [
+                                              {
+                                                "x": 2565.1,
+                                                "y": 242.86
+                                              }
+                                            ],
+                                            "x": 2151.83,
+                                            "y": 242.86
+                                          }
+                                        ],
+                                        "x": 2151.83,
+                                        "y": 850.96
+                                      }
+                                    ],
+                                    "x": 1620.85,
+                                    "y": 850.96
+                                  }
+                                ],
+                                "x": 1620.85,
+                                "y": 933.04
+                              },
+                              {
+                                "connections": [
+                                  {
+                                    "connections": [
+                                      {
+                                        "connections": [
+                                          {
+                                            "connections": [
+                                              {
+                                                "x": 2880.58,
+                                                "y": 453.02
+                                              }
+                                            ],
+                                            "x": 2880.58,
+                                            "y": 424.74
+                                          }
+                                        ],
+                                        "x": 2169.94,
+                                        "y": 424.74
+                                      }
+                                    ],
+                                    "x": 2169.94,
+                                    "y": 764.03
+                                  }
+                                ],
+                                "x": 1578.11,
+                                "y": 764.03
+                              }
+                            ],
+                            "x": 1578.11,
+                            "y": 933.04
+                          }
+                        ],
+                        "x": 105.04,
+                        "y": 933.04
+                      }
+                    ],
+                    "x": 105.04,
+                    "y": 269.02
+                  }
+                ],
+                "x": 244.85,
+                "y": 269.02
+              },
+              "start": "none",
+              "stroke": "#2B2B2B",
+              "visible": true,
+              "width": 3
+            },
+            {
+              "appearance": "p\u0026id",
+              "end": "arrowOutward",
+              "fill": "",
+              "flanges": true,
+              "lineVariant": "solid",
+              "name": "pipe_32",
+              "origin": {
+                "connections": [
+                  {
+                    "x": 1335.07,
+                    "y": 1012.38
+                  }
+                ],
+                "x": 1335.07,
+                "y": 515.05
+              },
+              "start": "none",
+              "stroke": "#2B2B2B",
+              "visible": true,
+              "width": 7
+            },
+            {
+              "appearance": "p\u0026id",
+              "end": "arrowOutward",
+              "fill": "",
+              "flanges": true,
+              "lineVariant": "solid",
+              "name": "pipe_33",
+              "origin": {
+                "connections": [
+                  {
+                    "x": 817.85,
+                    "y": 1012.38
+                  }
+                ],
+                "x": 817.85,
+                "y": 515.05
+              },
+              "start": "none",
+              "stroke": "#2B2B2B",
+              "visible": true,
+              "width": 7
+            },
+            {
+              "appearance": "p\u0026id",
+              "end": "arrowOutward",
+              "fill": "",
+              "flanges": true,
+              "lineVariant": "solid",
+              "name": "pipe_30",
+              "origin": {
+                "connections": [
+                  {
+                    "connections": [
+                      {
+                        "x": 826.54,
+                        "y": 1398.09
+                      }
+                    ],
+                    "x": 826.54,
+                    "y": 1278.66
+                  }
+                ],
+                "x": 1415.12,
+                "y": 1278.66
+              },
+              "start": "none",
+              "stroke": "#2B2B2B",
+              "visible": true,
+              "width": 3
+            },
+            {
+              "appearance": "p\u0026id",
+              "end": "arrowOutward",
+              "fill": "",
+              "flanges": true,
+              "lineVariant": "solid",
+              "name": "pipe_27",
+              "origin": {
+                "connections": [
+                  {
+                    "connections": [
+                      {
+                        "connections": [
+                          {
+                            "x": 826.54,
+                            "y": 1409.9
+                          }
+                        ],
+                        "x": 826.54,
+                        "y": 1483.75
+                      }
+                    ],
+                    "x": 474.12,
+                    "y": 1483.75
+                  }
+                ],
+                "x": 474.12,
+                "y": 1822.62
+              },
+              "start": "none",
+              "stroke": "#2B2B2B",
+              "visible": true,
+              "width": 3
+            },
+            {
+              "appearance": "p\u0026id",
+              "end": "arrowOutward",
+              "fill": "",
+              "flanges": true,
+              "lineVariant": "solid",
+              "name": "pipe_24",
+              "origin": {
+                "connections": [
+                  {
+                    "connections": [
+                      {
+                        "connections": [],
+                        "x": 2686.44,
+                        "y": 2034.25
+                      }
+                    ],
+                    "x": 534.97,
+                    "y": 2034.25
+                  }
+                ],
+                "x": 534.97,
+                "y": 1697.71
+              },
+              "start": "none",
+              "stroke": "#2B2B2B",
+              "visible": true,
+              "width": 3
+            },
+            {
+              "appearance": "p\u0026id",
+              "end": "arrowOutward",
+              "fill": "",
+              "flanges": true,
+              "lineVariant": "solid",
+              "name": "pipe_22",
+              "origin": {
+                "connections": [
+                  {
+                    "x": 2744.03,
+                    "y": 1991.63
+                  }
+                ],
+                "x": 2744.03,
+                "y": 1690.95
+              },
+              "start": "none",
+              "stroke": "#2B2B2B",
+              "visible": true,
+              "width": 3
+            },
+            {
+              "appearance": "p\u0026id",
+              "end": "none",
+              "fill": "",
+              "flanges": true,
+              "lineVariant": "midArrow",
+              "name": "pipe_0",
+              "origin": {
+                "connections": [
+                  {
+                    "connections": [
+                      {
+                        "x": 826.54,
+                        "y": 1747.08
+                      }
+                    ],
+                    "x": 826.54,
+                    "y": 1616.05
+                  }
+                ],
+                "x": 335.4,
+                "y": 1616.05
+              },
+              "start": "none",
+              "stroke": "#2B2B2B",
+              "visible": true,
+              "width": 7
+            },
+            {
+              "appearance": "p\u0026id",
+              "end": "none",
+              "fill": "#2B2B2B",
+              "flanges": true,
+              "lineVariant": "solid",
+              "name": "pipe_2",
+              "origin": {
+                "connections": [
+                  {
+                    "connections": [
+                      {
+                        "x": 708.83,
+                        "y": 1988.04
+                      }
+                    ],
+                    "x": 607.77,
+                    "y": 1988.04
+                  },
+                  {
+                    "x": 708.83,
+                    "y": 1747.08
+                  }
+                ],
+                "x": 607.77,
+                "y": 1747.08
+              },
+              "start": "none",
+              "stroke": "#2B2B2B",
+              "visible": true,
+              "width": 7
+            },
+            {
+              "appearance": "simple",
+              "end": "none",
+              "fill": "#2B2B2B",
+              "flanges": true,
+              "lineVariant": "solid",
+              "name": "pipe_4",
+              "origin": {
+                "connections": [
+                  {
+                    "connections": [
+                      {
+                        "connections": [
+                          {
+                            "x": 708.83,
+                            "y": 1988.04
+                          }
+                        ],
+                        "x": 1039.15,
+                        "y": 1988.04
+                      }
+                    ],
+                    "x": 1039.15,
+                    "y": 1747.08
+                  }
+                ],
+                "x": 708.83,
+                "y": 1747.08
+              },
+              "start": "none",
+              "stroke": "#2B2B2B",
+              "visible": true,
+              "width": 7
+            },
+            {
+              "appearance": "p\u0026id",
+              "end": "none",
+              "fill": "",
+              "flanges": true,
+              "lineVariant": "midArrow",
+              "name": "pipe_5",
+              "origin": {
+                "connections": [
+                  {
+                    "connections": [
+                      {
+                        "connections": [
+                          {
+                            "connections": [
+                              {
+                                "connections": [
+                                  {
+                                    "connections": [
+                                      {
+                                        "connections": [
+                                          {
+                                            "connections": [
+                                              {
+                                                "connections": [
+                                                  {
+                                                    "connections": [
+                                                      {
+                                                        "connections": [],
+                                                        "x": 2299.97,
+                                                        "y": 1690.74
+                                                      }
+                                                    ],
+                                                    "x": 1978.34,
+                                                    "y": 1690.74
+                                                  }
+                                                ],
+                                                "x": 1978.34,
+                                                "y": 1022.08
+                                              }
+                                            ],
+                                            "x": 300.63,
+                                            "y": 1022.08
+                                          }
+                                        ],
+                                        "x": 300.63,
+                                        "y": 67.94
+                                      },
+                                      {
+                                        "x": 817.85,
+                                        "y": 495.01
+                                      }
+                                    ],
+                                    "x": 817.85,
+                                    "y": 67.94
+                                  },
+                                  {
+                                    "x": 1335.07,
+                                    "y": 495.01
+                                  }
+                                ],
+                                "x": 1335.07,
+                                "y": 67.94
+                              }
+                            ],
+                            "x": 2123.94,
+                            "y": 67.94
+                          },
+                          {
+                            "connections": [],
+                            "x": 2299.97,
+                            "y": 1537.13
+                          }
+                        ],
+                        "x": 2123.94,
+                        "y": 1537.13
+                      }
+                    ],
+                    "x": 2123.94,
+                    "y": 1858.07
+                  }
+                ],
+                "x": 1039.15,
+                "y": 1858.07
+              },
+              "start": "none",
+              "stroke": "#2B2B2B",
+              "visible": true,
+              "width": 7
+            },
+            {
+              "appearance": "p\u0026id",
+              "end": "none",
+              "fill": "",
+              "flanges": true,
+              "lineVariant": "midArrow",
+              "name": "pipe_1",
+              "origin": {
+                "connections": [
+                  {
+                    "connections": [
+                      {
+                        "x": 826.54,
+                        "y": 1988.04
+                      }
+                    ],
+                    "x": 826.54,
+                    "y": 1858.07
+                  }
+                ],
+                "x": 335.4,
+                "y": 1858.07
+              },
+              "start": "none",
+              "stroke": "#2B2B2B",
+              "visible": true,
+              "width": 7
+            },
+            {
+              "appearance": "auto",
+              "end": "none",
+              "fill": "",
+              "flanges": true,
+              "lineVariant": "solid",
+              "name": "pipe",
+              "origin": {
+                "x": 718.97,
+                "y": 1747.08
+              },
+              "start": "none",
+              "stroke": "",
+              "visible": true,
+              "width": 10
+            },
+            {
+              "appearance": "auto",
+              "end": "none",
+              "fill": "",
+              "flanges": true,
+              "lineVariant": "solid",
+              "name": "pipe_3",
+              "origin": {
+                "x": 718.97,
+                "y": 1988.04
+              },
+              "start": "none",
+              "stroke": "",
+              "visible": true,
+              "width": 10
+            },
+            {
+              "appearance": "p\u0026id",
+              "end": "arrowOutward",
+              "fill": "",
+              "flanges": true,
+              "lineVariant": "solid",
+              "name": "pipe_6",
+              "origin": {
+                "connections": [
+                  {
+                    "x": 2577.78,
+                    "y": 1616.05
+                  }
+                ],
+                "x": 2500.63,
+                "y": 1616.05
+              },
+              "start": "none",
+              "stroke": "#2B2B2B",
+              "visible": true,
+              "width": 7
+            },
+            {
+              "appearance": "simple",
+              "end": "arrowOutward",
+              "fill": "#2B2B2B",
+              "flanges": true,
+              "lineVariant": "solid",
+              "name": "pipe_7",
+              "origin": {
+                "connections": [
+                  {
+                    "connections": [
+                      {
+                        "connections": [
+                          {
+                            "x": 2320.98,
+                            "y": 1537.13
+                          }
+                        ],
+                        "x": 2500.63,
+                        "y": 1537.13
+                      }
+                    ],
+                    "x": 2500.63,
+                    "y": 1690.74
+                  }
+                ],
+                "x": 2320.98,
+                "y": 1690.74
+              },
+              "start": "none",
+              "stroke": "#2B2B2B",
+              "visible": true,
+              "width": 6
+            },
+            {
+              "appearance": "p\u0026id",
+              "end": "arrowOutward",
+              "fill": "",
+              "flanges": true,
+              "lineVariant": "solid",
+              "name": "pipe_8",
+              "origin": {
+                "connections": [
+                  {
+                    "connections": [
+                      {
+                        "connections": [
+                          {
+                            "x": 2577.78,
+                            "y": 1750.67
+                          }
+                        ],
+                        "x": 2461.15,
+                        "y": 1750.67
+                      }
+                    ],
+                    "x": 2461.15,
+                    "y": 1786.96
+                  }
+                ],
+                "x": 2327.13,
+                "y": 1786.96
+              },
+              "start": "none",
+              "stroke": "#2B2B2B",
+              "visible": true,
+              "width": 3
+            },
+            {
+              "appearance": "simple",
+              "end": "none",
+              "fill": "#2B2B2B",
+              "flanges": true,
+              "lineVariant": "solid",
+              "name": "pipe_11",
+              "origin": {
+                "connections": [
+                  {
+                    "connections": [
+                      {
+                        "connections": [
+                          {
+                            "connections": [
+                              {
+                                "connections": [],
+                                "x": 2996.84,
+                                "y": 1901.95
+                              }
+                            ],
+                            "x": 3121.8,
+                            "y": 1901.95
+                          },
+                          {
+                            "connections": [],
+                            "x": 3004.09,
+                            "y": 1789.07
+                          }
+                        ],
+                        "x": 3121.8,
+                        "y": 1789.07
+                      }
+                    ],
+                    "x": 3121.8,
+                    "y": 1677.03
+                  }
+                ],
+                "x": 2996.84,
+                "y": 1677.03
+              },
+              "start": "none",
+              "stroke": "#2B2B2B",
+              "visible": true,
+              "width": 6
+            },
+            {
+              "appearance": "p\u0026id",
+              "end": "none",
+              "fill": "",
+              "flanges": true,
+              "lineVariant": "midArrow",
+              "name": "pipe_12",
+              "origin": {
+                "connections": [
+                  {
+                    "x": 3356.51,
+                    "y": 1789.59
+                  }
+                ],
+                "x": 3121.8,
+                "y": 1789.59
+              },
+              "start": "none",
+              "stroke": "#2B2B2B",
+              "visible": true,
+              "width": 7
+            },
+            {
+              "appearance": "p\u0026id",
+              "end": "none",
+              "fill": "",
+              "flanges": true,
+              "lineVariant": "midArrow",
+              "name": "pipe_13",
+              "origin": {
+                "connections": [
+                  {
+                    "connections": [
+                      {
+                        "x": 3356.51,
+                        "y": 1642.52
+                      }
+                    ],
+                    "x": 3275.01,
+                    "y": 1642.52
+                  }
+                ],
+                "x": 3275.01,
+                "y": 1750.67
+              },
+              "start": "none",
+              "stroke": "#2B2B2B",
+              "visible": true,
+              "width": 3
+            },
+            {
+              "appearance": "simple",
+              "end": "none",
+              "fill": "#2B2B2B",
+              "flanges": true,
+              "lineVariant": "solid",
+              "name": "pipe_14",
+              "origin": {
+                "connections": [
+                  {
+                    "x": 3275.01,
+                    "y": 1723.66
+                  }
+                ],
+                "x": 3275.01,
+                "y": 1786.96
+              },
+              "start": "none",
+              "stroke": "#2B2B2B",
+              "visible": true,
+              "width": 2.5
+            },
+            {
+              "appearance": "p\u0026id",
+              "end": "arrowOutward",
+              "fill": "",
+              "flanges": true,
+              "lineVariant": "solid",
+              "name": "pipe_15",
+              "origin": {
+                "connections": [
+                  {
+                    "connections": [
+                      {
+                        "connections": [
+                          {
+                            "x": 2577.78,
+                            "y": 1797.72
+                          }
+                        ],
+                        "x": 2500.63,
+                        "y": 1797.72
+                      }
+                    ],
+                    "x": 2500.63,
+                    "y": 1908.92
+                  }
+                ],
+                "x": 2327.13,
+                "y": 1908.92
+              },
+              "start": "none",
+              "stroke": "#2B2B2B",
+              "visible": true,
+              "width": 3
+            },
+            {
+              "appearance": "simple",
+              "end": "none",
+              "fill": "#2B2B2B",
+              "flanges": true,
+              "lineVariant": "solid",
+              "name": "pipe_16",
+              "origin": {
+                "connections": [
+                  {
+                    "x": 3211.47,
+                    "y": 1870.94
+                  }
+                ],
+                "x": 3211.47,
+                "y": 1789.07
+              },
+              "start": "none",
+              "stroke": "#2B2B2B",
+              "visible": true,
+              "width": 2.5
+            },
+            {
+              "appearance": "p\u0026id",
+              "end": "arrowOutward",
+              "fill": "",
+              "flanges": true,
+              "lineVariant": "solid",
+              "name": "pipe_17",
+              "origin": {
+                "connections": [
+                  {
+                    "connections": [
+                      {
+                        "connections": [
+                          {
+                            "connections": [
+                              {
+                                "x": 2759.96,
+                                "y": 1994.58
+                              }
+                            ],
+                            "x": 2759.96,
+                            "y": 1953.02
+                          }
+                        ],
+                        "x": 3179.39,
+                        "y": 1953.02
+                      }
+                    ],
+                    "x": 3211.47,
+                    "y": 1953.02
+                  }
+                ],
+                "x": 3211.47,
+                "y": 1940.94
+              },
+              "start": "none",
+              "stroke": "#2B2B2B",
+              "visible": true,
+              "width": 3
+            },
+            {
+              "appearance": "simple",
+              "end": "none",
+              "fill": "#2B2B2B",
+              "flanges": true,
+              "lineVariant": "solid",
+              "name": "pipe_19",
+              "origin": {
+                "connections": [
+                  {
+                    "x": 3302.9,
+                    "y": 1844.98
+                  }
+                ],
+                "x": 3302.9,
+                "y": 1789.07
+              },
+              "start": "none",
+              "stroke": "#2B2B2B",
+              "visible": true,
+              "width": 2.5
+            },
+            {
+              "appearance": "p\u0026id",
+              "end": "arrowOutward",
+              "fill": "",
+              "flanges": true,
+              "lineVariant": "solid",
+              "name": "pipe_20",
+              "origin": {
+                "connections": [
+                  {
+                    "connections": [
+                      {
+                        "connections": [
+                          {
+                            "x": 2783.51,
+                            "y": 1994.58
+                          }
+                        ],
+                        "x": 2783.51,
+                        "y": 1979.6
+                      }
+                    ],
+                    "x": 3302.9,
+                    "y": 1979.6
+                  }
+                ],
+                "x": 3302.9,
+                "y": 1844.98
+              },
+              "start": "none",
+              "stroke": "#2B2B2B",
+              "visible": true,
+              "width": 3
+            },
+            {
+              "appearance": "p\u0026id",
+              "end": "arrowOutward",
+              "fill": "",
+              "flanges": true,
+              "lineVariant": "solid",
+              "name": "pipe_21",
+              "origin": {
+                "connections": [
+                  {
+                    "connections": [
+                      {
+                        "x": 2742.94,
+                        "y": 1675.76
+                      }
+                    ],
+                    "x": 2742.94,
+                    "y": 1622.8
+                  }
+                ],
+                "x": 2683.18,
+                "y": 1622.8
+              },
+              "start": "none",
+              "stroke": "#2B2B2B",
+              "visible": true,
+              "width": 3
+            },
+            {
+              "appearance": "simple",
+              "end": "none",
+              "fill": "#2B2B2B",
+              "flanges": true,
+              "lineVariant": "solid",
+              "name": "pipe_23",
+              "origin": {
+                "connections": [
+                  {
+                    "x": 534.97,
+                    "y": 1697.71
+                  }
+                ],
+                "x": 534.97,
+                "y": 1616.05
+              },
+              "start": "none",
+              "stroke": "#2B2B2B",
+              "visible": true,
+              "width": 2.5
+            },
+            {
+              "appearance": "simple",
+              "end": "none",
+              "fill": "#2B2B2B",
+              "flanges": true,
+              "lineVariant": "solid",
+              "name": "pipe_25",
+              "origin": {
+                "connections": [
+                  {
+                    "x": 474.12,
+                    "y": 1822.62
+                  }
+                ],
+                "x": 474.12,
+                "y": 1858.07
+              },
+              "start": "none",
+              "stroke": "#2B2B2B",
+              "visible": true,
+              "width": 2.5
+            },
+            {
+              "appearance": "auto",
+              "end": "none",
+              "fill": "#2B2B2B",
+              "flanges": true,
+              "lineVariant": "solid",
+              "name": "pipe_26",
+              "origin": {
+                "connections": [
+                  {
+                    "x": 419.07,
+                    "y": 1616.05
+                  }
+                ],
+                "x": 419.07,
+                "y": 1579.97
+              },
+              "start": "none",
+              "stroke": "#2B2B2B",
+              "visible": true,
+              "width": 2.5
+            },
+            {
+              "appearance": "p\u0026id",
+              "end": "arrowOutward",
+              "fill": "",
+              "flanges": true,
+              "lineVariant": "solid",
+              "name": "pipe_28",
+              "origin": {
+                "connections": [
+                  {
+                    "connections": [
+                      {
+                        "x": 896.81,
+                        "y": 1403.78
+                      }
+                    ],
+                    "x": 419.07,
+                    "y": 1403.78
+                  }
+                ],
+                "x": 419.07,
+                "y": 1579.97
+              },
+              "start": "none",
+              "stroke": "#2B2B2B",
+              "visible": true,
+              "width": 3
+            },
+            {
+              "appearance": "simple",
+              "end": "none",
+              "fill": "#2B2B2B",
+              "flanges": true,
+              "lineVariant": "solid",
+              "name": "pipe_29",
+              "origin": {
+                "connections": [
+                  {
+                    "x": 1414.03,
+                    "y": 1278.66
+                  }
+                ],
+                "x": 1414.03,
+                "y": 1022.08
+              },
+              "start": "none",
+              "stroke": "#2B2B2B",
+              "visible": true,
+              "width": 2.5
+            },
+            {
+              "appearance": "auto",
+              "end": "none",
+              "fill": "#2B2B2B",
+              "flanges": true,
+              "lineVariant": "solid",
+              "name": "pipe_31",
+              "origin": {
+                "connections": [
+                  {
+                    "x": 826.54,
+                    "y": 1421.72
+                  }
+                ],
+                "x": 826.54,
+                "y": 1373.61
+              },
+              "start": "none",
+              "stroke": "#2B2B2B",
+              "visible": true,
+              "width": 2.5
+            },
+            {
+              "appearance": "auto",
+              "end": "none",
+              "fill": "",
+              "flanges": true,
+              "lineVariant": "solid",
+              "name": "pipe_34",
+              "origin": {
+                "x": 1721.9,
+                "y": 933.04
+              },
+              "start": "none",
+              "stroke": "",
+              "visible": true,
+              "width": 10
+            },
+            {
+              "appearance": "simple",
+              "end": "none",
+              "fill": "#2B2B2B",
+              "flanges": true,
+              "lineVariant": "solid",
+              "name": "pipe_38",
+              "origin": {
+                "connections": [
+                  {
+                    "x": 300.63,
+                    "y": 269.02
+                  }
+                ],
+                "x": 236.88,
+                "y": 269.02
+              },
+              "start": "none",
+              "stroke": "#2B2B2B",
+              "visible": true,
+              "width": 2.5
+            },
+            {
+              "appearance": "simple",
+              "end": "none",
+              "fill": "#2B2B2B",
+              "flanges": true,
+              "lineVariant": "solid",
+              "name": "pipe_39",
+              "origin": {
+                "connections": [
+                  {
+                    "x": 817.49,
+                    "y": 269.02
+                  }
+                ],
+                "x": 753.38,
+                "y": 269.02
+              },
+              "start": "none",
+              "stroke": "#2B2B2B",
+              "visible": true,
+              "width": 2.5
+            },
+            {
+              "appearance": "simple",
+              "end": "none",
+              "fill": "#2B2B2B",
+              "flanges": true,
+              "lineVariant": "solid",
+              "name": "pipe_40",
+              "origin": {
+                "connections": [
+                  {
+                    "x": 1335.07,
+                    "y": 269.02
+                  }
+                ],
+                "x": 1270.6,
+                "y": 269.02
+              },
+              "start": "none",
+              "stroke": "#2B2B2B",
+              "visible": true,
+              "width": 2.5
+            },
+            {
+              "appearance": "simple",
+              "end": "none",
+              "fill": "#2B2B2B",
+              "flanges": true,
+              "lineVariant": "solid",
+              "name": "pipe_41",
+              "origin": {
+                "connections": [
+                  {
+                    "connections": [
+                      {
+                        "x": 499.47,
+                        "y": 308.69
+                      }
+                    ],
+                    "x": 499.47,
+                    "y": 177.24
+                  }
+                ],
+                "x": 300.63,
+                "y": 177.24
+              },
+              "start": "none",
+              "stroke": "#2B2B2B",
+              "visible": true,
+              "width": 2.5
+            },
+            {
+              "appearance": "simple",
+              "end": "none",
+              "fill": "#2B2B2B",
+              "flanges": true,
+              "lineVariant": "solid",
+              "name": "pipe_43",
+              "origin": {
+                "connections": [
+                  {
+                    "connections": [
+                      {
+                        "x": 1018.87,
+                        "y": 299.62
+                      }
+                    ],
+                    "x": 1018.87,
+                    "y": 177.24
+                  }
+                ],
+                "x": 817.49,
+                "y": 177.24
+              },
+              "start": "none",
+              "stroke": "#2B2B2B",
+              "visible": true,
+              "width": 2.5
+            },
+            {
+              "appearance": "simple",
+              "end": "none",
+              "fill": "#2B2B2B",
+              "flanges": true,
+              "lineVariant": "solid",
+              "name": "pipe_45",
+              "origin": {
+                "connections": [
+                  {
+                    "connections": [
+                      {
+                        "x": 1549.13,
+                        "y": 299.62
+                      }
+                    ],
+                    "x": 1549.13,
+                    "y": 177.24
+                  }
+                ],
+                "x": 1335.07,
+                "y": 177.24
+              },
+              "start": "none",
+              "stroke": "#2B2B2B",
+              "visible": true,
+              "width": 2.5
+            },
+            {
+              "appearance": "auto",
+              "end": "none",
+              "fill": "",
+              "flanges": true,
+              "lineVariant": "solid",
+              "name": "pipe_47",
+              "origin": {
+                "x": 1721.9,
+                "y": 850.96
+              },
+              "start": "none",
+              "stroke": "",
+              "visible": true,
+              "width": 10
+            },
+            {
+              "appearance": "auto",
+              "end": "none",
+              "fill": "",
+              "flanges": true,
+              "lineVariant": "solid",
+              "name": "pipe_48",
+              "origin": {
+                "x": 1721.17,
+                "y": 764.03
+              },
+              "start": "none",
+              "stroke": "",
+              "visible": true,
+              "width": 10
+            },
+            {
+              "appearance": "p\u0026id",
+              "end": "arrowOutward",
+              "fill": "",
+              "flanges": true,
+              "lineVariant": "midArrow",
+              "name": "pipe_51",
+              "origin": {
+                "connections": [
+                  {
+                    "x": 3097.53,
+                    "y": 1310.94
+                  }
+                ],
+                "x": 2774.09,
+                "y": 1310.94
+              },
+              "start": "none",
+              "stroke": "#2B2B2B",
+              "visible": true,
+              "width": 3
+            },
+            {
+              "appearance": "simple",
+              "end": "none",
+              "fill": "#2B2B2B",
+              "flanges": true,
+              "lineVariant": "solid",
+              "name": "pipe_52",
+              "origin": {
+                "connections": [
+                  {
+                    "x": 3021.11,
+                    "y": 1306.51
+                  },
+                  {
+                    "x": 3097.9,
+                    "y": 1170.84
+                  },
+                  {
+                    "connections": [],
+                    "x": 2778.07,
+                    "y": 1170.84
+                  }
+                ],
+                "x": 3021.11,
+                "y": 1170.84
+              },
+              "start": "none",
+              "stroke": "#2B2B2B",
+              "visible": true,
+              "width": 2.5
+            },
+            {
+              "appearance": "p\u0026id",
+              "end": "none",
+              "fill": "",
+              "flanges": true,
+              "lineVariant": "midArrow",
+              "name": "pipe_53",
+              "origin": {
+                "connections": [
+                  {
+                    "x": 3356.51,
+                    "y": 1311.46
+                  }
+                ],
+                "x": 3137.01,
+                "y": 1311.46
+              },
+              "start": "none",
+              "stroke": "#2B2B2B",
+              "visible": true,
+              "width": 3
+            },
+            {
+              "appearance": "simple",
+              "end": "none",
+              "fill": "#2B2B2B",
+              "flanges": true,
+              "lineVariant": "solid",
+              "name": "pipe_55",
+              "origin": {
+                "connections": [
+                  {
+                    "x": 3260.89,
+                    "y": 1310.94
+                  }
+                ],
+                "x": 3260.89,
+                "y": 1279.93
+              },
+              "start": "none",
+              "stroke": "#2B2B2B",
+              "visible": true,
+              "width": 2.5
+            },
+            {
+              "appearance": "auto",
+              "end": "arrowOutward",
+              "fill": "#2B2B2B",
+              "flanges": true,
+              "lineVariant": "midArrow",
+              "name": "pipe_59",
+              "origin": {
+                "connections": [
+                  {
+                    "connections": [
+                      {
+                        "connections": [
+                          {
+                            "connections": [
+                              {
+                                "connections": [],
+                                "x": 3143.17,
+                                "y": 975.03
+                              }
+                            ],
+                            "x": 3260.89,
+                            "y": 975.03
+                          }
+                        ],
+                        "x": 3260.89,
+                        "y": 917.01
+                      }
+                    ],
+                    "x": 3260.89,
+                    "y": 856.03
+                  }
+                ],
+                "x": 3141,
+                "y": 856.03
+              },
+              "start": "none",
+              "stroke": "#2B2B2B",
+              "visible": true,
+              "width": 2.5
+            },
+            {
+              "appearance": "p\u0026id",
+              "end": "none",
+              "fill": "",
+              "flanges": true,
+              "lineVariant": "midArrow",
+              "name": "pipe_60",
+              "origin": {
+                "connections": [
+                  {
+                    "x": 3360.49,
+                    "y": 917.01
+                  }
+                ],
+                "x": 3260.89,
+                "y": 917.01
+              },
+              "start": "none",
+              "stroke": "#2B2B2B",
+              "visible": true,
+              "width": 3
+            },
+            {
+              "appearance": "simple",
+              "end": "none",
+              "fill": "#2B2B2B",
+              "flanges": true,
+              "lineVariant": "solid",
+              "name": "pipe_64",
+              "origin": {
+                "connections": [
+                  {
+                    "x": 3330.07,
+                    "y": 615.06
+                  }
+                ],
+                "x": 3275.01,
+                "y": 615.06
+              },
+              "start": "none",
+              "stroke": "#2B2B2B",
+              "visible": true,
+              "width": 2.5
+            },
+            {
+              "appearance": "simple",
+              "end": "none",
+              "fill": "#2B2B2B",
+              "flanges": true,
+              "lineVariant": "solid",
+              "name": "pipe_66",
+              "origin": {
+                "connections": [
+                  {
+                    "x": 2644.42,
+                    "y": 664.23
+                  }
+                ],
+                "x": 2644.42,
+                "y": 626.04
+              },
+              "start": "none",
+              "stroke": "#2B2B2B",
+              "visible": true,
+              "width": 2.5
+            },
+            {
+              "appearance": "p\u0026id",
+              "end": "arrowOutward",
+              "fill": "",
+              "flanges": true,
+              "lineVariant": "midArrow",
+              "name": "pipe_65",
+              "origin": {
+                "connections": [
+                  {
+                    "connections": [
+                      {
+                        "x": 2644.42,
+                        "y": 654.94
+                      },
+                      {
+                        "x": 2806.69,
+                        "y": 529.4
+                      }
+                    ],
+                    "x": 2644.42,
+                    "y": 529.4
+                  }
+                ],
+                "x": 2644.42,
+                "y": 380.43
+              },
+              "start": "none",
+              "stroke": "#2B2B2B",
+              "visible": true,
+              "width": 3
+            },
+            {
+              "appearance": "simple",
+              "end": "none",
+              "fill": "#2B2B2B",
+              "flanges": true,
+              "lineVariant": "solid",
+              "name": "pipe_67",
+              "origin": {
+                "connections": [
+                  {
+                    "connections": [
+                      {
+                        "x": 3255.09,
+                        "y": 1786.96
+                      }
+                    ],
+                    "x": 3255.09,
+                    "y": 1537.35
+                  }
+                ],
+                "x": 3339.85,
+                "y": 1537.35
+              },
+              "start": "none",
+              "stroke": "#2B2B2B",
+              "visible": true,
+              "width": 2.5
+            },
+            {
+              "appearance": "simple",
+              "end": "none",
+              "fill": "#2B2B2B",
+              "flanges": true,
+              "lineVariant": "solid",
+              "name": "pipe_69",
+              "origin": {
+                "connections": [
+                  {
+                    "x": 3233.36,
+                    "y": 1786.96
+                  }
+                ],
+                "x": 3233.36,
+                "y": 1738.64
+              },
+              "start": "none",
+              "stroke": "#2B2B2B",
+              "visible": true,
+              "width": 2.5
+            },
+            {
+              "appearance": "p\u0026id",
+              "end": "none",
+              "fill": "",
+              "flanges": true,
+              "lineVariant": "midArrow",
+              "name": "pipe_70",
+              "origin": {
+                "connections": [
+                  {
+                    "x": 2989.96,
+                    "y": 2034.25
+                  }
+                ],
+                "x": 2794.37,
+                "y": 2034.25
+              },
+              "start": "none",
+              "stroke": "#2B2B2B",
+              "visible": true,
+              "width": 3
+            },
+            {
+              "appearance": "p\u0026id",
+              "end": "none",
+              "fill": "",
+              "flanges": true,
+              "lineVariant": "midArrow",
+              "name": "pipe_71",
+              "origin": {
+                "connections": [
+                  {
+                    "connections": [
+                      {
+                        "x": 1074.29,
+                        "y": 1483.75
+                      }
+                    ],
+                    "x": 938.31,
+                    "y": 1483.75
+                  }
+                ],
+                "x": 938.31,
+                "y": 1438.76
+              },
+              "start": "none",
+              "stroke": "#2B2B2B",
+              "visible": true,
+              "width": 3
+            },
+            {
+              "appearance": "p\u0026id",
+              "end": "arrowOutward",
+              "fill": "",
+              "flanges": true,
+              "lineVariant": "midArrow",
+              "name": "pipe_72",
+              "origin": {
+                "connections": [
+                  {
+                    "connections": [
+                      {
+                        "connections": [
+                          {
+                            "connections": [
+                              {
+                                "x": 2734.61,
+                                "y": 1182.87
+                              }
+                            ],
+                            "x": 2500.63,
+                            "y": 1182.87
+                          },
+                          {
+                            "x": 2734.61,
+                            "y": 1320.44
+                          }
+                        ],
+                        "x": 2500.63,
+                        "y": 1320.44
+                      }
+                    ],
+                    "x": 2340.9,
+                    "y": 1320.44
+                  }
+                ],
+                "x": 2341.26,
+                "y": 1290.48
+              },
+              "start": "none",
+              "stroke": "#2B2B2B",
+              "visible": true,
+              "width": 3
+            },
+            {
+              "appearance": "p\u0026id",
+              "end": "arrowOutward",
+              "fill": "",
+              "flanges": true,
+              "lineVariant": "midArrow",
+              "name": "pipe_49",
+              "origin": {
+                "connections": [
+                  {
+                    "connections": [
+                      {
+                        "connections": [
+                          {
+                            "x": 3177.58,
+                            "y": 626.04
+                          },
+                          {
+                            "connections": [
+                              {
+                                "connections": [
+                                  {
+                                    "x": 2725.92,
+                                    "y": 177.24
+                                  }
+                                ],
+                                "x": 3066.39,
+                                "y": 177.24
+                              },
+                              {
+                                "x": 3177.58,
+                                "y": 505.98
+                              }
+                            ],
+                            "x": 3066.39,
+                            "y": 505.98
+                          }
+                        ],
+                        "x": 3066.39,
+                        "y": 626.04
+                      }
+                    ],
+                    "x": 2880.94,
+                    "y": 626.04
+                  }
+                ],
+                "x": 2880.94,
+                "y": 490.15
+              },
+              "start": "none",
+              "stroke": "#2B2B2B",
+              "visible": true,
+              "width": 3
+            },
+            {
+              "appearance": "p\u0026id",
+              "end": "none",
+              "fill": "",
+              "flanges": true,
+              "lineVariant": "midArrow",
+              "name": "pipe_68",
+              "origin": {
+                "connections": [
+                  {
+                    "connections": [
+                      {
+                        "connections": [
+                          {
+                            "connections": [
+                              {
+                                "connections": [
+                                  {
+                                    "connections": [
+                                      {
+                                        "x": 2644.42,
+                                        "y": 114.57
+                                      },
+                                      {
+                                        "connections": [
+                                          {
+                                            "connections": [
+                                              {
+                                                "x": 2642,
+                                                "y": 557.94
+                                              }
+                                            ],
+                                            "x": 2484.69,
+                                            "y": 557.94
+                                          }
+                                        ],
+                                        "x": 2484.69,
+                                        "y": 67.94
+                                      }
+                                    ],
+                                    "x": 2644.42,
+                                    "y": 67.94
+                                  },
+                                  {
+                                    "connections": [
+                                      {
+                                        "x": 3359.77,
+                                        "y": 114.57
+                                      }
+                                    ],
+                                    "x": 3021.11,
+                                    "y": 114.57
+                                  }
+                                ],
+                                "x": 3021.11,
+                                "y": 67.94
+                              }
+                            ],
+                            "x": 3577.45,
+                            "y": 67.94
+                          }
+                        ],
+                        "x": 3577.45,
+                        "y": 1468.77
+                      }
+                    ],
+                    "x": 3233.36,
+                    "y": 1468.77
+                  }
+                ],
+                "x": 3233.36,
+                "y": 1750.67
+              },
+              "start": "none",
+              "stroke": "#2B2B2B",
+              "visible": true,
+              "width": 3
+            },
+            {
+              "appearance": "p\u0026id",
+              "end": "none",
+              "fill": "",
+              "flanges": true,
+              "lineVariant": "midArrow",
+              "name": "pipe_10",
+              "origin": {
+                "connections": [
+                  {
+                    "connections": [
+                      {
+                        "x": 2971.13,
+                        "y": 1795
+                      },
+                      {
+                        "connections": [
+                          {
+                            "x": 2980,
+                            "y": 1685
+                          }
+                        ],
+                        "x": 2845.44,
+                        "y": 1685
+                      },
+                      {
+                        "connections": [
+                          {
+                            "x": 2980,
+                            "y": 1910
+                          }
+                        ],
+                        "x": 2845.44,
+                        "y": 1910
+                      }
+                    ],
+                    "x": 2845.44,
+                    "y": 1795
+                  }
+                ],
+                "x": 2691.15,
+                "y": 1795
+              },
+              "start": "none",
+              "stroke": "#2B2B2B",
+              "visible": true,
+              "width": 7
+            }
+          ],
+          "style": {
+            "overflow": "visible"
+          }
+        },
+        "type": "ia.container.coord"
+      }
+    ],
+    "meta": {
+      "name": "root"
+    },
+    "props": {
+      "direction": "column",
+      "style": {
+        "classes": "Background",
+        "overflow": "visible"
+      }
+    },
+    "type": "ia.container.flex"
+  }
+}

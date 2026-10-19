@@ -1,0 +1,20 @@
+{
+  "scope": "A",
+  "version": 1,
+  "restricted": false,
+  "overridable": true,
+  "files": [
+    "lifebuoy.png"
+  ],
+  "attributes": {
+    "width": 24,
+    "format": "PNG",
+    "lastModification": {
+      "actor": "8.3-migration",
+      "timestamp": "2026-01-07T14:49:07Z"
+    },
+    "size": 1465,
+    "lastModificationSignature": "2fd31f70b86a6ff2ca022172cd8b54395eba08e62a75be5c6771d8e73b4deb47",
+    "height": 24
+  }
+}

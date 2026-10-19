@@ -1,0 +1,2338 @@
+{
+  "custom": {
+    "allConnect": false,
+    "areaRelocate": false,
+    "connect": false,
+    "connectType": "N/A",
+    "reSize": false,
+    "reSizeCorner": "",
+    "relocate": false
+  },
+  "params": {
+    "params": {
+      "config": {
+        "connections": [],
+        "development": false,
+        "displayModules": true,
+        "licenseKey": "",
+        "licenseKeyRedun": "",
+        "modules": {
+          "CL": [],
+          "IA": [
+            {
+              "name": "Platform"
+            },
+            {
+              "name": "OPC UA"
+            },
+            {
+              "name": "Perspective",
+              "selection": "Unlimited"
+            },
+            {
+              "name": "Tag Historian",
+              "selection": "Full"
+            },
+            {
+              "name": "Alarm Notification"
+            },
+            {
+              "name": "SQL Bridge"
+            }
+          ],
+          "SS": [],
+          "TPM": []
+        },
+        "redundant": false,
+        "supportPlan": "Total",
+        "version": "8.1.x"
+      },
+      "desc": "",
+      "name": "Standard",
+      "type": "standard",
+      "uuid": ""
+    },
+    "selected": false,
+    "viewPath": "Exchange/ArchitectureBuilder/Components/Server/Main"
+  },
+  "propConfig": {
+    "custom.allConnect": {
+      "persistent": true
+    },
+    "custom.areaRelocate": {
+      "onChange": {
+        "enabled": null,
+        "script": "\tif self.custom.areaRelocate:\n\t\tsystem.perspective.sendMessage(\u0027adjustContainerPosition\u0027, {\u0027uuid\u0027:self.params.params[\u0027uuid\u0027]},scope\u003d\u0027session\u0027)\n\telse:\n\t\tsystem.perspective.sendMessage(\u0027adjustContainerPosition\u0027, False,scope\u003d\u0027session\u0027)\t"
+      },
+      "persistent": true
+    },
+    "custom.connect": {
+      "binding": {
+        "config": {
+          "path": "session.custom.requestConnection"
+        },
+        "type": "property"
+      },
+      "persistent": true
+    },
+    "custom.connectType": {
+      "persistent": true
+    },
+    "custom.reSize": {
+      "onChange": {
+        "enabled": null,
+        "script": "\tif self.params.params.type.lower() in [\u0027note\u0027, \u0027container\u0027]: \n\t\tparams\u003dsystem.util.jsonDecode(system.util.jsonEncode(self.params))\n\t\tif self.custom.reSize:\n\t\t\tsystem.perspective.sendMessage(\u0027adjustSize\u0027, params,scope\u003d\u0027session\u0027)\n\t\telse:\n\t\t\t\tsystem.perspective.sendMessage(\u0027adjustSize\u0027, False,scope\u003d\u0027session\u0027)\t"
+      },
+      "persistent": true
+    },
+    "custom.reSizeCorner": {
+      "onChange": {
+        "enabled": null,
+        "script": "\tif self.custom.reSizeCorner!\u003d\u0027\u0027:\n\t\tsystem.perspective.sendMessage(\u0027adjustCorner\u0027, {\u0027corner\u0027:currentValue.value},scope\u003d\u0027session\u0027)\n\t\tself.custom.reSizeCorner\u003d\u0027\u0027"
+      },
+      "persistent": true
+    },
+    "custom.relocate": {
+      "onChange": {
+        "enabled": null,
+        "script": "\tif currentValue.value:\n\t\tsystem.perspective.sendMessage(\u0027adjustPosition\u0027, {\u0027params\u0027:self.params.params},scope\u003d\u0027session\u0027)\n\telse:\n\t\tsystem.perspective.sendMessage(\u0027adjustPosition\u0027, False, scope\u003d\u0027session\u0027)\t"
+      },
+      "persistent": true
+    },
+    "params.params": {
+      "paramDirection": "inout",
+      "persistent": true
+    },
+    "params.selected": {
+      "paramDirection": "input",
+      "persistent": true
+    },
+    "params.viewPath": {
+      "paramDirection": "input",
+      "persistent": true
+    }
+  },
+  "props": {
+    "defaultSize": {
+      "height": 100,
+      "width": 100
+    }
+  },
+  "root": {
+    "children": [
+      {
+        "meta": {
+          "name": "EmbeddedView"
+        },
+        "position": {
+          "grow": 1
+        },
+        "propConfig": {
+          "props.params": {
+            "binding": {
+              "config": {
+                "bidirectional": true,
+                "path": "view.params.params"
+              },
+              "type": "property"
+            }
+          },
+          "props.path": {
+            "binding": {
+              "config": {
+                "path": "view.params.viewPath"
+              },
+              "type": "property"
+            }
+          }
+        },
+        "props": {
+          "style": {
+            "overflow": "visible"
+          }
+        },
+        "type": "ia.display.view"
+      },
+      {
+        "meta": {
+          "name": "Icon"
+        },
+        "position": {
+          "basis": "30px"
+        },
+        "propConfig": {
+          "position.display": {
+            "binding": {
+              "config": {
+                "expression": "{view.custom.relocate}||{view.custom.areaRelocate}"
+              },
+              "type": "expr"
+            }
+          }
+        },
+        "props": {
+          "path": "material/zoom_out_map",
+          "style": {
+            "backgroundColor": "#D5D5D54D",
+            "classes": "",
+            "cursor": "all-scroll",
+            "height": "98%",
+            "left": "1%",
+            "overflow": "hidden",
+            "position": "absolute",
+            "top": "1%",
+            "width": "98%"
+          }
+        },
+        "type": "ia.display.icon"
+      },
+      {
+        "children": [
+          {
+            "custom": {
+              "x": 0.5,
+              "y": 1
+            },
+            "events": {
+              "dom": {
+                "onClick": {
+                  "config": {
+                    "script": "\tself.parent.sendConnectionLoc(x\u003dself.custom.x,y\u003dself.custom.y)"
+                  },
+                  "scope": "G",
+                  "type": "script"
+                }
+              }
+            },
+            "meta": {
+              "name": "N"
+            },
+            "position": {
+              "x": 0.5
+            },
+            "propConfig": {
+              "position.height": {
+                "binding": {
+                  "config": {
+                    "path": "session.custom.touch"
+                  },
+                  "transforms": [
+                    {
+                      "fallback": 0.3,
+                      "inputType": "scalar",
+                      "mappings": [
+                        {
+                          "input": true,
+                          "output": 0.15
+                        }
+                      ],
+                      "outputType": "scalar",
+                      "type": "map"
+                    }
+                  ],
+                  "type": "property"
+                }
+              },
+              "position.width": {
+                "binding": {
+                  "config": {
+                    "path": "session.custom.touch"
+                  },
+                  "transforms": [
+                    {
+                      "fallback": 0.3,
+                      "inputType": "scalar",
+                      "mappings": [
+                        {
+                          "input": true,
+                          "output": 0.15
+                        }
+                      ],
+                      "outputType": "scalar",
+                      "type": "map"
+                    }
+                  ],
+                  "type": "property"
+                }
+              }
+            },
+            "props": {
+              "path": "material/my_location",
+              "style": {
+                "classes": "Exchange/ArchitectureBuilder/hoverIcons/connectorIcons",
+                "cursor": "pointer",
+                "overflow": "hidden",
+                "transform": "translate(-50%,-50%)",
+                "z-index": 9999
+              }
+            },
+            "type": "ia.display.icon"
+          },
+          {
+            "custom": {
+              "x": 0.75,
+              "y": 1
+            },
+            "events": {
+              "dom": {
+                "onClick": {
+                  "config": {
+                    "script": "\tself.parent.sendConnectionLoc(x\u003dself.custom.x,y\u003dself.custom.y)"
+                  },
+                  "scope": "G",
+                  "type": "script"
+                }
+              }
+            },
+            "meta": {
+              "name": "NNE"
+            },
+            "position": {
+              "x": 0.75
+            },
+            "propConfig": {
+              "meta.visible": {
+                "binding": {
+                  "config": {
+                    "path": "session.custom.touch"
+                  },
+                  "type": "property"
+                }
+              },
+              "position.height": {
+                "binding": {
+                  "config": {
+                    "path": "session.custom.touch"
+                  },
+                  "transforms": [
+                    {
+                      "fallback": 0.3,
+                      "inputType": "scalar",
+                      "mappings": [
+                        {
+                          "input": true,
+                          "output": 0.15
+                        }
+                      ],
+                      "outputType": "scalar",
+                      "type": "map"
+                    }
+                  ],
+                  "type": "property"
+                }
+              },
+              "position.width": {
+                "binding": {
+                  "config": {
+                    "path": "session.custom.touch"
+                  },
+                  "transforms": [
+                    {
+                      "fallback": 0.3,
+                      "inputType": "scalar",
+                      "mappings": [
+                        {
+                          "input": true,
+                          "output": 0.15
+                        }
+                      ],
+                      "outputType": "scalar",
+                      "type": "map"
+                    }
+                  ],
+                  "type": "property"
+                }
+              }
+            },
+            "props": {
+              "path": "material/my_location",
+              "style": {
+                "classes": "Exchange/ArchitectureBuilder/hoverIcons/connectorIcons",
+                "cursor": "pointer",
+                "overflow": "hidden",
+                "transform": "translate(-50%,-50%)"
+              }
+            },
+            "type": "ia.display.icon"
+          },
+          {
+            "custom": {
+              "x": 1,
+              "y": 1
+            },
+            "events": {
+              "dom": {
+                "onClick": {
+                  "config": {
+                    "script": "\tself.parent.sendConnectionLoc(x\u003dself.custom.x,y\u003dself.custom.y)"
+                  },
+                  "scope": "G",
+                  "type": "script"
+                }
+              }
+            },
+            "meta": {
+              "name": "NE"
+            },
+            "position": {
+              "x": 1
+            },
+            "propConfig": {
+              "position.height": {
+                "binding": {
+                  "config": {
+                    "path": "session.custom.touch"
+                  },
+                  "transforms": [
+                    {
+                      "fallback": 0.3,
+                      "inputType": "scalar",
+                      "mappings": [
+                        {
+                          "input": true,
+                          "output": 0.15
+                        }
+                      ],
+                      "outputType": "scalar",
+                      "type": "map"
+                    }
+                  ],
+                  "type": "property"
+                }
+              },
+              "position.width": {
+                "binding": {
+                  "config": {
+                    "path": "session.custom.touch"
+                  },
+                  "transforms": [
+                    {
+                      "fallback": 0.3,
+                      "inputType": "scalar",
+                      "mappings": [
+                        {
+                          "input": true,
+                          "output": 0.15
+                        }
+                      ],
+                      "outputType": "scalar",
+                      "type": "map"
+                    }
+                  ],
+                  "type": "property"
+                }
+              }
+            },
+            "props": {
+              "path": "material/my_location",
+              "style": {
+                "classes": "Exchange/ArchitectureBuilder/hoverIcons/connectorIcons",
+                "cursor": "pointer",
+                "overflow": "visible",
+                "transform": "translate(-50%,-50%)"
+              }
+            },
+            "type": "ia.display.icon"
+          },
+          {
+            "custom": {
+              "x": 1,
+              "y": 0.75
+            },
+            "events": {
+              "dom": {
+                "onClick": {
+                  "config": {
+                    "script": "\tself.parent.sendConnectionLoc(x\u003dself.custom.x,y\u003dself.custom.y)"
+                  },
+                  "scope": "G",
+                  "type": "script"
+                }
+              }
+            },
+            "meta": {
+              "name": "ENE"
+            },
+            "position": {
+              "x": 1,
+              "y": 0.25
+            },
+            "propConfig": {
+              "meta.visible": {
+                "binding": {
+                  "config": {
+                    "path": "session.custom.touch"
+                  },
+                  "type": "property"
+                }
+              },
+              "position.height": {
+                "binding": {
+                  "config": {
+                    "path": "session.custom.touch"
+                  },
+                  "transforms": [
+                    {
+                      "fallback": 0.3,
+                      "inputType": "scalar",
+                      "mappings": [
+                        {
+                          "input": true,
+                          "output": 0.15
+                        }
+                      ],
+                      "outputType": "scalar",
+                      "type": "map"
+                    }
+                  ],
+                  "type": "property"
+                }
+              },
+              "position.width": {
+                "binding": {
+                  "config": {
+                    "path": "session.custom.touch"
+                  },
+                  "transforms": [
+                    {
+                      "fallback": 0.3,
+                      "inputType": "scalar",
+                      "mappings": [
+                        {
+                          "input": true,
+                          "output": 0.15
+                        }
+                      ],
+                      "outputType": "scalar",
+                      "type": "map"
+                    }
+                  ],
+                  "type": "property"
+                }
+              }
+            },
+            "props": {
+              "path": "material/my_location",
+              "style": {
+                "classes": "Exchange/ArchitectureBuilder/hoverIcons/connectorIcons",
+                "cursor": "pointer",
+                "overflow": "visible",
+                "transform": "translate(-50%,-50%)"
+              }
+            },
+            "type": "ia.display.icon"
+          },
+          {
+            "custom": {
+              "x": 1,
+              "y": 0.5
+            },
+            "events": {
+              "dom": {
+                "onClick": {
+                  "config": {
+                    "script": "\tself.parent.sendConnectionLoc(x\u003dself.custom.x,y\u003dself.custom.y)"
+                  },
+                  "scope": "G",
+                  "type": "script"
+                }
+              }
+            },
+            "meta": {
+              "name": "E"
+            },
+            "position": {
+              "x": 1,
+              "y": 0.5
+            },
+            "propConfig": {
+              "position.height": {
+                "binding": {
+                  "config": {
+                    "path": "session.custom.touch"
+                  },
+                  "transforms": [
+                    {
+                      "fallback": 0.3,
+                      "inputType": "scalar",
+                      "mappings": [
+                        {
+                          "input": true,
+                          "output": 0.15
+                        }
+                      ],
+                      "outputType": "scalar",
+                      "type": "map"
+                    }
+                  ],
+                  "type": "property"
+                }
+              },
+              "position.width": {
+                "binding": {
+                  "config": {
+                    "path": "session.custom.touch"
+                  },
+                  "transforms": [
+                    {
+                      "fallback": 0.3,
+                      "inputType": "scalar",
+                      "mappings": [
+                        {
+                          "input": true,
+                          "output": 0.15
+                        }
+                      ],
+                      "outputType": "scalar",
+                      "type": "map"
+                    }
+                  ],
+                  "type": "property"
+                }
+              }
+            },
+            "props": {
+              "path": "material/my_location",
+              "style": {
+                "classes": "Exchange/ArchitectureBuilder/hoverIcons/connectorIcons",
+                "cursor": "pointer",
+                "overflow": "visible",
+                "transform": "translate(-50%,-50%)"
+              }
+            },
+            "type": "ia.display.icon"
+          },
+          {
+            "custom": {
+              "x": 1,
+              "y": 0.25
+            },
+            "events": {
+              "dom": {
+                "onClick": {
+                  "config": {
+                    "script": "\tself.parent.sendConnectionLoc(x\u003dself.custom.x,y\u003dself.custom.y)\n"
+                  },
+                  "scope": "G",
+                  "type": "script"
+                }
+              }
+            },
+            "meta": {
+              "name": "ESE"
+            },
+            "position": {
+              "x": 1,
+              "y": 0.75
+            },
+            "propConfig": {
+              "meta.visible": {
+                "binding": {
+                  "config": {
+                    "path": "session.custom.touch"
+                  },
+                  "type": "property"
+                }
+              },
+              "position.height": {
+                "binding": {
+                  "config": {
+                    "path": "session.custom.touch"
+                  },
+                  "transforms": [
+                    {
+                      "fallback": 0.3,
+                      "inputType": "scalar",
+                      "mappings": [
+                        {
+                          "input": true,
+                          "output": 0.15
+                        }
+                      ],
+                      "outputType": "scalar",
+                      "type": "map"
+                    }
+                  ],
+                  "type": "property"
+                }
+              },
+              "position.width": {
+                "binding": {
+                  "config": {
+                    "path": "session.custom.touch"
+                  },
+                  "transforms": [
+                    {
+                      "fallback": 0.3,
+                      "inputType": "scalar",
+                      "mappings": [
+                        {
+                          "input": true,
+                          "output": 0.15
+                        }
+                      ],
+                      "outputType": "scalar",
+                      "type": "map"
+                    }
+                  ],
+                  "type": "property"
+                }
+              }
+            },
+            "props": {
+              "path": "material/my_location",
+              "style": {
+                "classes": "Exchange/ArchitectureBuilder/hoverIcons/connectorIcons",
+                "cursor": "pointer",
+                "overflow": "visible",
+                "transform": "translate(-50%,-50%)"
+              }
+            },
+            "type": "ia.display.icon"
+          },
+          {
+            "custom": {
+              "x": 1,
+              "y": 0
+            },
+            "events": {
+              "dom": {
+                "onClick": {
+                  "config": {
+                    "script": "\tself.parent.sendConnectionLoc(x\u003dself.custom.x,y\u003dself.custom.y)"
+                  },
+                  "scope": "G",
+                  "type": "script"
+                }
+              }
+            },
+            "meta": {
+              "name": "SE"
+            },
+            "position": {
+              "x": 1,
+              "y": 1
+            },
+            "propConfig": {
+              "position.height": {
+                "binding": {
+                  "config": {
+                    "path": "session.custom.touch"
+                  },
+                  "transforms": [
+                    {
+                      "fallback": 0.3,
+                      "inputType": "scalar",
+                      "mappings": [
+                        {
+                          "input": true,
+                          "output": 0.15
+                        }
+                      ],
+                      "outputType": "scalar",
+                      "type": "map"
+                    }
+                  ],
+                  "type": "property"
+                }
+              },
+              "position.width": {
+                "binding": {
+                  "config": {
+                    "path": "session.custom.touch"
+                  },
+                  "transforms": [
+                    {
+                      "fallback": 0.3,
+                      "inputType": "scalar",
+                      "mappings": [
+                        {
+                          "input": true,
+                          "output": 0.15
+                        }
+                      ],
+                      "outputType": "scalar",
+                      "type": "map"
+                    }
+                  ],
+                  "type": "property"
+                }
+              }
+            },
+            "props": {
+              "path": "material/my_location",
+              "style": {
+                "classes": "Exchange/ArchitectureBuilder/hoverIcons/connectorIcons",
+                "cursor": "pointer",
+                "overflow": "visible",
+                "transform": "translate(-50%,-50%)"
+              }
+            },
+            "type": "ia.display.icon"
+          },
+          {
+            "custom": {
+              "x": 0.75,
+              "y": 0
+            },
+            "events": {
+              "dom": {
+                "onClick": {
+                  "config": {
+                    "script": "\tself.parent.sendConnectionLoc(x\u003dself.custom.x,y\u003dself.custom.y)\n"
+                  },
+                  "scope": "G",
+                  "type": "script"
+                }
+              }
+            },
+            "meta": {
+              "name": "SSE"
+            },
+            "position": {
+              "x": 0.75,
+              "y": 1
+            },
+            "propConfig": {
+              "meta.visible": {
+                "binding": {
+                  "config": {
+                    "path": "session.custom.touch"
+                  },
+                  "type": "property"
+                }
+              },
+              "position.height": {
+                "binding": {
+                  "config": {
+                    "path": "session.custom.touch"
+                  },
+                  "transforms": [
+                    {
+                      "fallback": 0.3,
+                      "inputType": "scalar",
+                      "mappings": [
+                        {
+                          "input": true,
+                          "output": 0.15
+                        }
+                      ],
+                      "outputType": "scalar",
+                      "type": "map"
+                    }
+                  ],
+                  "type": "property"
+                }
+              },
+              "position.width": {
+                "binding": {
+                  "config": {
+                    "path": "session.custom.touch"
+                  },
+                  "transforms": [
+                    {
+                      "fallback": 0.3,
+                      "inputType": "scalar",
+                      "mappings": [
+                        {
+                          "input": true,
+                          "output": 0.15
+                        }
+                      ],
+                      "outputType": "scalar",
+                      "type": "map"
+                    }
+                  ],
+                  "type": "property"
+                }
+              }
+            },
+            "props": {
+              "path": "material/my_location",
+              "style": {
+                "classes": "Exchange/ArchitectureBuilder/hoverIcons/connectorIcons",
+                "cursor": "pointer",
+                "overflow": "visible",
+                "transform": "translate(-50%,-50%)"
+              }
+            },
+            "type": "ia.display.icon"
+          },
+          {
+            "custom": {
+              "x": 0.5,
+              "y": 0
+            },
+            "events": {
+              "dom": {
+                "onClick": {
+                  "config": {
+                    "script": "\tself.parent.sendConnectionLoc(x\u003dself.custom.x,y\u003dself.custom.y)"
+                  },
+                  "scope": "G",
+                  "type": "script"
+                }
+              }
+            },
+            "meta": {
+              "name": "S"
+            },
+            "position": {
+              "x": 0.5,
+              "y": 1
+            },
+            "propConfig": {
+              "position.height": {
+                "binding": {
+                  "config": {
+                    "path": "session.custom.touch"
+                  },
+                  "transforms": [
+                    {
+                      "fallback": 0.3,
+                      "inputType": "scalar",
+                      "mappings": [
+                        {
+                          "input": true,
+                          "output": 0.15
+                        }
+                      ],
+                      "outputType": "scalar",
+                      "type": "map"
+                    }
+                  ],
+                  "type": "property"
+                }
+              },
+              "position.width": {
+                "binding": {
+                  "config": {
+                    "path": "session.custom.touch"
+                  },
+                  "transforms": [
+                    {
+                      "fallback": 0.3,
+                      "inputType": "scalar",
+                      "mappings": [
+                        {
+                          "input": true,
+                          "output": 0.15
+                        }
+                      ],
+                      "outputType": "scalar",
+                      "type": "map"
+                    }
+                  ],
+                  "type": "property"
+                }
+              }
+            },
+            "props": {
+              "path": "material/my_location",
+              "style": {
+                "classes": "Exchange/ArchitectureBuilder/hoverIcons/connectorIcons",
+                "cursor": "pointer",
+                "overflow": "visible",
+                "transform": "translate(-50%,-50%)"
+              }
+            },
+            "type": "ia.display.icon"
+          },
+          {
+            "custom": {
+              "x": 0.25,
+              "y": 0
+            },
+            "events": {
+              "dom": {
+                "onClick": {
+                  "config": {
+                    "script": "\tself.parent.sendConnectionLoc(x\u003dself.custom.x,y\u003dself.custom.y)"
+                  },
+                  "scope": "G",
+                  "type": "script"
+                }
+              }
+            },
+            "meta": {
+              "name": "SSW"
+            },
+            "position": {
+              "x": 0.25,
+              "y": 1
+            },
+            "propConfig": {
+              "meta.visible": {
+                "binding": {
+                  "config": {
+                    "path": "session.custom.touch"
+                  },
+                  "type": "property"
+                }
+              },
+              "position.height": {
+                "binding": {
+                  "config": {
+                    "path": "session.custom.touch"
+                  },
+                  "transforms": [
+                    {
+                      "fallback": 0.3,
+                      "inputType": "scalar",
+                      "mappings": [
+                        {
+                          "input": true,
+                          "output": 0.15
+                        }
+                      ],
+                      "outputType": "scalar",
+                      "type": "map"
+                    }
+                  ],
+                  "type": "property"
+                }
+              },
+              "position.width": {
+                "binding": {
+                  "config": {
+                    "path": "session.custom.touch"
+                  },
+                  "transforms": [
+                    {
+                      "fallback": 0.3,
+                      "inputType": "scalar",
+                      "mappings": [
+                        {
+                          "input": true,
+                          "output": 0.15
+                        }
+                      ],
+                      "outputType": "scalar",
+                      "type": "map"
+                    }
+                  ],
+                  "type": "property"
+                }
+              }
+            },
+            "props": {
+              "path": "material/my_location",
+              "style": {
+                "classes": "Exchange/ArchitectureBuilder/hoverIcons/connectorIcons",
+                "cursor": "pointer",
+                "overflow": "visible",
+                "transform": "translate(-50%,-50%)"
+              }
+            },
+            "type": "ia.display.icon"
+          },
+          {
+            "custom": {
+              "x": 0,
+              "y": 0
+            },
+            "events": {
+              "dom": {
+                "onClick": {
+                  "config": {
+                    "script": "\tself.parent.sendConnectionLoc(x\u003dself.custom.x,y\u003dself.custom.y)"
+                  },
+                  "scope": "G",
+                  "type": "script"
+                }
+              }
+            },
+            "meta": {
+              "name": "SW"
+            },
+            "position": {
+              "y": 1
+            },
+            "propConfig": {
+              "position.height": {
+                "binding": {
+                  "config": {
+                    "path": "session.custom.touch"
+                  },
+                  "transforms": [
+                    {
+                      "fallback": 0.3,
+                      "inputType": "scalar",
+                      "mappings": [
+                        {
+                          "input": true,
+                          "output": 0.15
+                        }
+                      ],
+                      "outputType": "scalar",
+                      "type": "map"
+                    }
+                  ],
+                  "type": "property"
+                }
+              },
+              "position.width": {
+                "binding": {
+                  "config": {
+                    "path": "session.custom.touch"
+                  },
+                  "transforms": [
+                    {
+                      "fallback": 0.3,
+                      "inputType": "scalar",
+                      "mappings": [
+                        {
+                          "input": true,
+                          "output": 0.15
+                        }
+                      ],
+                      "outputType": "scalar",
+                      "type": "map"
+                    }
+                  ],
+                  "type": "property"
+                }
+              }
+            },
+            "props": {
+              "path": "material/my_location",
+              "style": {
+                "classes": "Exchange/ArchitectureBuilder/hoverIcons/connectorIcons",
+                "cursor": "pointer",
+                "overflow": "visible",
+                "transform": "translate(-50%,-50%)"
+              }
+            },
+            "type": "ia.display.icon"
+          },
+          {
+            "custom": {
+              "x": 0,
+              "y": 0.25
+            },
+            "events": {
+              "dom": {
+                "onClick": {
+                  "config": {
+                    "script": "\tself.parent.sendConnectionLoc(x\u003dself.custom.x,y\u003dself.custom.y)"
+                  },
+                  "scope": "G",
+                  "type": "script"
+                }
+              }
+            },
+            "meta": {
+              "name": "WSE"
+            },
+            "position": {
+              "y": 0.75
+            },
+            "propConfig": {
+              "meta.visible": {
+                "binding": {
+                  "config": {
+                    "path": "session.custom.touch"
+                  },
+                  "type": "property"
+                }
+              },
+              "position.height": {
+                "binding": {
+                  "config": {
+                    "path": "session.custom.touch"
+                  },
+                  "transforms": [
+                    {
+                      "fallback": 0.3,
+                      "inputType": "scalar",
+                      "mappings": [
+                        {
+                          "input": true,
+                          "output": 0.15
+                        }
+                      ],
+                      "outputType": "scalar",
+                      "type": "map"
+                    }
+                  ],
+                  "type": "property"
+                }
+              },
+              "position.width": {
+                "binding": {
+                  "config": {
+                    "path": "session.custom.touch"
+                  },
+                  "transforms": [
+                    {
+                      "fallback": 0.3,
+                      "inputType": "scalar",
+                      "mappings": [
+                        {
+                          "input": true,
+                          "output": 0.15
+                        }
+                      ],
+                      "outputType": "scalar",
+                      "type": "map"
+                    }
+                  ],
+                  "type": "property"
+                }
+              }
+            },
+            "props": {
+              "path": "material/my_location",
+              "style": {
+                "classes": "Exchange/ArchitectureBuilder/hoverIcons/connectorIcons",
+                "cursor": "pointer",
+                "overflow": "visible",
+                "transform": "translate(-50%,-50%)"
+              }
+            },
+            "type": "ia.display.icon"
+          },
+          {
+            "custom": {
+              "x": 0,
+              "y": 0.5
+            },
+            "events": {
+              "dom": {
+                "onClick": {
+                  "config": {
+                    "script": "\tself.parent.sendConnectionLoc(x\u003dself.custom.x,y\u003dself.custom.y)"
+                  },
+                  "scope": "G",
+                  "type": "script"
+                }
+              }
+            },
+            "meta": {
+              "name": "W"
+            },
+            "position": {
+              "y": 0.5
+            },
+            "propConfig": {
+              "position.height": {
+                "binding": {
+                  "config": {
+                    "path": "session.custom.touch"
+                  },
+                  "transforms": [
+                    {
+                      "fallback": 0.3,
+                      "inputType": "scalar",
+                      "mappings": [
+                        {
+                          "input": true,
+                          "output": 0.15
+                        }
+                      ],
+                      "outputType": "scalar",
+                      "type": "map"
+                    }
+                  ],
+                  "type": "property"
+                }
+              },
+              "position.width": {
+                "binding": {
+                  "config": {
+                    "path": "session.custom.touch"
+                  },
+                  "transforms": [
+                    {
+                      "fallback": 0.3,
+                      "inputType": "scalar",
+                      "mappings": [
+                        {
+                          "input": true,
+                          "output": 0.15
+                        }
+                      ],
+                      "outputType": "scalar",
+                      "type": "map"
+                    }
+                  ],
+                  "type": "property"
+                }
+              }
+            },
+            "props": {
+              "path": "material/my_location",
+              "style": {
+                "classes": "Exchange/ArchitectureBuilder/hoverIcons/connectorIcons",
+                "cursor": "pointer",
+                "overflow": "visible",
+                "transform": "translate(-50%,-50%)"
+              }
+            },
+            "type": "ia.display.icon"
+          },
+          {
+            "custom": {
+              "x": 0,
+              "y": 0.75
+            },
+            "events": {
+              "dom": {
+                "onClick": {
+                  "config": {
+                    "script": "\tself.parent.sendConnectionLoc(x\u003dself.custom.x,y\u003dself.custom.y)"
+                  },
+                  "scope": "G",
+                  "type": "script"
+                }
+              }
+            },
+            "meta": {
+              "name": "WNW"
+            },
+            "position": {
+              "y": 0.25
+            },
+            "propConfig": {
+              "meta.visible": {
+                "binding": {
+                  "config": {
+                    "path": "session.custom.touch"
+                  },
+                  "type": "property"
+                }
+              },
+              "position.height": {
+                "binding": {
+                  "config": {
+                    "path": "session.custom.touch"
+                  },
+                  "transforms": [
+                    {
+                      "fallback": 0.3,
+                      "inputType": "scalar",
+                      "mappings": [
+                        {
+                          "input": true,
+                          "output": 0.15
+                        }
+                      ],
+                      "outputType": "scalar",
+                      "type": "map"
+                    }
+                  ],
+                  "type": "property"
+                }
+              },
+              "position.width": {
+                "binding": {
+                  "config": {
+                    "path": "session.custom.touch"
+                  },
+                  "transforms": [
+                    {
+                      "fallback": 0.3,
+                      "inputType": "scalar",
+                      "mappings": [
+                        {
+                          "input": true,
+                          "output": 0.15
+                        }
+                      ],
+                      "outputType": "scalar",
+                      "type": "map"
+                    }
+                  ],
+                  "type": "property"
+                }
+              }
+            },
+            "props": {
+              "path": "material/my_location",
+              "style": {
+                "classes": "Exchange/ArchitectureBuilder/hoverIcons/connectorIcons",
+                "cursor": "pointer",
+                "overflow": "visible",
+                "transform": "translate(-50%,-50%)"
+              }
+            },
+            "type": "ia.display.icon"
+          },
+          {
+            "custom": {
+              "x": 0,
+              "y": 1
+            },
+            "events": {
+              "dom": {
+                "onClick": {
+                  "config": {
+                    "script": "\tself.parent.sendConnectionLoc(x\u003dself.custom.x,y\u003dself.custom.y)"
+                  },
+                  "scope": "G",
+                  "type": "script"
+                }
+              }
+            },
+            "meta": {
+              "name": "NW"
+            },
+            "propConfig": {
+              "position.height": {
+                "binding": {
+                  "config": {
+                    "path": "session.custom.touch"
+                  },
+                  "transforms": [
+                    {
+                      "fallback": 0.3,
+                      "inputType": "scalar",
+                      "mappings": [
+                        {
+                          "input": true,
+                          "output": 0.15
+                        }
+                      ],
+                      "outputType": "scalar",
+                      "type": "map"
+                    }
+                  ],
+                  "type": "property"
+                }
+              },
+              "position.width": {
+                "binding": {
+                  "config": {
+                    "path": "session.custom.touch"
+                  },
+                  "transforms": [
+                    {
+                      "fallback": 0.3,
+                      "inputType": "scalar",
+                      "mappings": [
+                        {
+                          "input": true,
+                          "output": 0.15
+                        }
+                      ],
+                      "outputType": "scalar",
+                      "type": "map"
+                    }
+                  ],
+                  "type": "property"
+                }
+              }
+            },
+            "props": {
+              "path": "material/my_location",
+              "style": {
+                "classes": "Exchange/ArchitectureBuilder/hoverIcons/connectorIcons",
+                "cursor": "pointer",
+                "overflow": "visible",
+                "transform": "translate(-50%,-50%)"
+              }
+            },
+            "type": "ia.display.icon"
+          },
+          {
+            "custom": {
+              "x": 0.25,
+              "y": 1
+            },
+            "events": {
+              "dom": {
+                "onClick": {
+                  "config": {
+                    "script": "\tself.parent.sendConnectionLoc(x\u003dself.custom.x,y\u003dself.custom.y)\n"
+                  },
+                  "scope": "G",
+                  "type": "script"
+                }
+              }
+            },
+            "meta": {
+              "name": "NNW"
+            },
+            "position": {
+              "x": 0.25
+            },
+            "propConfig": {
+              "meta.visible": {
+                "binding": {
+                  "config": {
+                    "path": "session.custom.touch"
+                  },
+                  "type": "property"
+                }
+              },
+              "position.height": {
+                "binding": {
+                  "config": {
+                    "path": "session.custom.touch"
+                  },
+                  "transforms": [
+                    {
+                      "fallback": 0.3,
+                      "inputType": "scalar",
+                      "mappings": [
+                        {
+                          "input": true,
+                          "output": 0.15
+                        }
+                      ],
+                      "outputType": "scalar",
+                      "type": "map"
+                    }
+                  ],
+                  "type": "property"
+                }
+              },
+              "position.width": {
+                "binding": {
+                  "config": {
+                    "path": "session.custom.touch"
+                  },
+                  "transforms": [
+                    {
+                      "fallback": 0.3,
+                      "inputType": "scalar",
+                      "mappings": [
+                        {
+                          "input": true,
+                          "output": 0.15
+                        }
+                      ],
+                      "outputType": "scalar",
+                      "type": "map"
+                    }
+                  ],
+                  "type": "property"
+                }
+              }
+            },
+            "props": {
+              "path": "material/my_location",
+              "style": {
+                "classes": "Exchange/ArchitectureBuilder/hoverIcons/connectorIcons",
+                "cursor": "pointer",
+                "overflow": "visible",
+                "transform": "translate(-50%,-50%)"
+              }
+            },
+            "type": "ia.display.icon"
+          }
+        ],
+        "meta": {
+          "name": "Connect"
+        },
+        "position": {
+          "basis": "200px"
+        },
+        "propConfig": {
+          "position.display": {
+            "binding": {
+              "config": {
+                "struct": {
+                  "connect": "{session.custom.requestConnection}",
+                  "modify": "{session.custom.adjustConnections}",
+                  "type": "{view.params.params.type}",
+                  "uuid": "{view.params.params.uuid}"
+                },
+                "waitOnAll": true
+              },
+              "transforms": [
+                {
+                  "code": "\tif (value[\u0027type\u0027] not in [\"Container\",\"Note\"] and value[\u0027connect\u0027]):\n\t\treturn True\n\telif len(value[\u0027modify\u0027].keys())\u003e0:\n\t\treturn value[\u0027uuid\u0027] in value[\u0027modify\u0027][\u0027components\u0027]\n\treturn False",
+                  "type": "script"
+                }
+              ],
+              "type": "expr-struct"
+            }
+          }
+        },
+        "props": {
+          "mode": "percent",
+          "style": {
+            "height": "98%",
+            "left": "1%",
+            "overflow": "hidden",
+            "overflowX": "hidden",
+            "overflowY": "hidden",
+            "position": "absolute",
+            "top": "1%",
+            "width": "98%",
+            "z-index": 9999
+          }
+        },
+        "scripts": {
+          "customMethods": [
+            {
+              "name": "sendConnectionLoc",
+              "params": [
+                "x",
+                "y"
+              ],
+              "script": "\tsystem.perspective.print(\"x:{}, y: {}\".format(x,y))\n\tif len(self.session.custom.adjustConnections)\u003d\u003d0:\n\t\tsystem.perspective.sendMessage(\u0027connectionPath\u0027, {\u0027uuid\u0027: self.view.params.params.uuid, \u0027type\u0027: self.view.params.params.type, \u0027x\u0027: x,\u0027y\u0027: y} ,scope\u003d\u0027session\u0027)\n\telse:\n\t\tuuid\u003dself.session.custom.adjustConnections.uuid\n\t\tself.session.custom.connections[uuid][self.view.params.params.uuid][\u0027x\u0027]\u003dx\n\t\tself.session.custom.connections[uuid][self.view.params.params.uuid][\u0027y\u0027]\u003dy\n\t\tself.session.custom.adjustConnections\u003d{}\n\t\tpath\u003d\u0027Exchange/ArchitectureBuilder/Frames/EmbeddedViews/PipeConfig\u0027\n\t\tparams\u003d{\u0027uuid\u0027:uuid}\n\t\ttitle\u003d\u0027Connection Configuration\u0027\n\t\tsystem.perspective.sendMessage(\u0027openPopup\u0027, {\u0027uuid\u0027:uuid, \u0027path\u0027:path,\u0027params\u0027:params,\u0027title\u0027:title},scope\u003d\u0027session\u0027)\n\t\t"
+            }
+          ],
+          "extensionFunctions": null,
+          "messageHandlers": []
+        },
+        "type": "ia.container.coord"
+      },
+      {
+        "events": {
+          "dom": {
+            "onClick": {
+              "config": {
+                "script": "\tself.parent.requestContextMenu()"
+              },
+              "scope": "G",
+              "type": "script"
+            }
+          }
+        },
+        "meta": {
+          "name": "Icon_0"
+        },
+        "position": {
+          "basis": "20px"
+        },
+        "propConfig": {
+          "position.display": {
+            "binding": {
+              "config": {
+                "expression": "!{../Connect.position.display}"
+              },
+              "type": "expr"
+            }
+          },
+          "props.color": {
+            "binding": {
+              "config": {
+                "path": "view.params.params.config"
+              },
+              "transforms": [
+                {
+                  "code": "\tif \u0027labelColor\u0027 in value.keys():\n\t\treturn value[\u0027labelColor\u0027]\n\treturn \u0027white\u0027",
+                  "type": "script"
+                }
+              ],
+              "type": "property"
+            }
+          }
+        },
+        "props": {
+          "path": "material/menu_open",
+          "style": {
+            "classes": "iconHover",
+            "cursor": "pointer",
+            "height": "20px",
+            "overflow": "hidden",
+            "position": "absolute",
+            "right": "2px",
+            "top": "2px",
+            "width": "20px",
+            "zindex": 1000
+          }
+        },
+        "type": "ia.display.icon"
+      },
+      {
+        "children": [
+          {
+            "events": {
+              "dom": {
+                "onMouseDown": {
+                  "config": {
+                    "script": "\tself.view.custom.reSizeCorner\u003d\u0027NW\u0027"
+                  },
+                  "scope": "G",
+                  "type": "script"
+                }
+              }
+            },
+            "meta": {
+              "name": "TopLeft"
+            },
+            "position": {
+              "height": 0.25,
+              "width": 0.25
+            },
+            "props": {
+              "style": {
+                "borderLeftStyle": "solid",
+                "borderTopStyle": "solid",
+                "cursor": "crosshair"
+              }
+            },
+            "type": "ia.container.flex"
+          },
+          {
+            "events": {
+              "dom": {
+                "onMouseDown": {
+                  "config": {
+                    "script": "\tself.view.custom.reSizeCorner\u003d\u0027SE\u0027"
+                  },
+                  "scope": "G",
+                  "type": "script"
+                }
+              }
+            },
+            "meta": {
+              "name": "BottomRight"
+            },
+            "position": {
+              "height": 0.25,
+              "width": 0.25,
+              "x": 0.75,
+              "y": 0.75
+            },
+            "props": {
+              "style": {
+                "borderBottomStyle": "solid",
+                "borderRightStyle": "solid",
+                "cursor": "crosshair"
+              }
+            },
+            "type": "ia.container.flex"
+          },
+          {
+            "events": {
+              "dom": {
+                "onMouseDown": {
+                  "config": {
+                    "script": "\tself.view.custom.reSizeCorner\u003d\u0027NE\u0027"
+                  },
+                  "scope": "G",
+                  "type": "script"
+                }
+              }
+            },
+            "meta": {
+              "name": "TopRight"
+            },
+            "position": {
+              "height": 0.25,
+              "width": 0.25,
+              "x": 0.75
+            },
+            "props": {
+              "style": {
+                "borderRightStyle": "solid",
+                "borderTopStyle": "solid",
+                "cursor": "crosshair"
+              }
+            },
+            "type": "ia.container.flex"
+          },
+          {
+            "events": {
+              "dom": {
+                "onMouseDown": {
+                  "config": {
+                    "script": "\tself.view.custom.reSizeCorner\u003d\u0027SW\u0027"
+                  },
+                  "scope": "G",
+                  "type": "script"
+                }
+              }
+            },
+            "meta": {
+              "name": "BottomLeft"
+            },
+            "position": {
+              "height": 0.25,
+              "width": 0.25,
+              "y": 0.75
+            },
+            "props": {
+              "style": {
+                "borderBottomStyle": "solid",
+                "borderLeftStyle": "solid",
+                "cursor": "crosshair"
+              }
+            },
+            "type": "ia.container.flex"
+          }
+        ],
+        "events": {
+          "dom": {
+            "onMouseUp": {
+              "config": {
+                "script": "\tself.view.custom.reSizeCorner\u003d\u0027\u0027"
+              },
+              "enabled": false,
+              "scope": "G",
+              "type": "script"
+            }
+          }
+        },
+        "meta": {
+          "name": "Resize"
+        },
+        "position": {
+          "basis": "200px"
+        },
+        "propConfig": {
+          "position.display": {
+            "binding": {
+              "config": {
+                "path": "view.custom.reSize"
+              },
+              "type": "property"
+            }
+          }
+        },
+        "props": {
+          "mode": "percent",
+          "style": {
+            "backgroundColor": "#D5D5D54D",
+            "bottom": "4px",
+            "left": "4px",
+            "overflow": "hidden",
+            "position": "absolute",
+            "right": "4px",
+            "top": "4px"
+          }
+        },
+        "type": "ia.container.coord"
+      },
+      {
+        "meta": {
+          "name": "Description",
+          "tooltip": {
+            "enabled": true,
+            "location": "bottom",
+            "style": {
+              "fontSize": 8,
+              "whiteSpace": "pre"
+            },
+            "sustain": 3000
+          }
+        },
+        "position": {
+          "basis": "15%",
+          "shrink": 0
+        },
+        "propConfig": {
+          "meta.tooltip.text": {
+            "binding": {
+              "config": {
+                "path": "view.params.params.desc"
+              },
+              "transforms": [
+                {
+                  "code": "\treturn \u0027Description:\\n{}\u0027.format(value)",
+                  "type": "script"
+                }
+              ],
+              "type": "property"
+            }
+          },
+          "position.display": {
+            "binding": {
+              "config": {
+                "expression": "{view.params.params.desc}!\u003d\u0027\u0027\u0026\u0026{view.params.params.type}!\u003d\"Note\""
+              },
+              "type": "expr"
+            }
+          },
+          "props.style.top": {
+            "binding": {
+              "config": {
+                "expression": "if({view.params.params.type}\u003d\"Container\", \"3%\",\"20%\")"
+              },
+              "type": "expr"
+            }
+          }
+        },
+        "props": {
+          "color": "#FFFF00",
+          "path": "material/description",
+          "style": {
+            "classes": "iconHover",
+            "height": "15%",
+            "left": "3%",
+            "opacity": 0.5,
+            "overflow": "hidden",
+            "position": "absolute",
+            "width": "15%",
+            "zindex": 1000
+          }
+        },
+        "type": "ia.display.icon"
+      }
+    ],
+    "events": {
+      "dom": {
+        "onClick": {
+          "config": {
+            "script": "\tif self.session.custom.moveModules!\u003dFalse:\n\t\tif self.session.custom.moveModules.type \u003d\u003d self.view.params.params.type:\n\t\t\tmoveToModules\u003dsystem.util.jsonDecode(system.util.jsonEncode(self.view.params.params.config.modules))\n\t\t\tmoveModules\u003dsystem.util.jsonDecode(system.util.jsonEncode(self.session.custom.moveModules.modules))\n\t\t\tmoveFromModules\u003dsystem.util.jsonDecode(system.util.jsonEncode(self.session.custom.structure.configs[self.session.custom.moveModules.uuid][\"config\"][\"modules\"]))\n\t\t\tmoved\u003d[]\n\t\t\tstayed\u003d[]\n\t\t\toriginName\u003dself.session.custom.structure.configs[self.session.custom.moveModules.uuid][\"name\"]\n\t\t\tfor key in moveModules:\n\t\t\t\tif key in moveToModules and key in moveFromModules:\n\t\t\t\t\tfor module in moveModules[key]:\n\t\t\t\t\t# Check if the module is already in moveToModules\n\t\t\t\t\t\tif module not in moveToModules[key]:\n\t\t\t\t\t\t\tmoved.append(module[\u0027name\u0027])\n\t\t\t\t\t\t\tmoveToModules[key].append(module)  # Add to moveToModules\n\t\t\t\t\t\t\ttry:\n\t\t\t\t\t\t\t\tmoveFromModules[key].remove(module)  # Remove from moveFromModules\n\t\t\t\t\t\t\texcept:\n\t\t\t\t\t\t\t\tpass\n\t\t\t\t\t\telse:\n\t\t\t\t\t\t\tif module not in moveFromModules[key]:\n\t\t\t\t\t\t\t\tmoveToModules[key].append(module) \n\t\t\t\t\t\t\tstayed.append(module[\u0027name\u0027])\n\t\t\t\t\t\t\t\n\t\t\tself.session.custom.structure.configs[self.session.custom.moveModules.uuid][\"config\"][\"modules\"]\u003dmoveFromModules\n\t\t\tself.session.custom.structure.configs[self.view.params.params.uuid][\"config\"][\"modules\"]\u003dmoveToModules\n\t\t\t\n\t\t\tself.session.custom.moveModules\u003dFalse\n\t\t\tmessage\u003d\u0027{} of {} Module(s) have successfully been moved from \"{}\" to \"{}\"\\nMoved: {}\\nRetained: {}\u0027.format(len(moved), len(moved)+len(stayed), originName, self.view.params.params.name,\", \".join(moved),\", \".join(stayed))\n\t\n\t\t\tsystem.perspective.sendMessage(\"Toast\", {\"message\": message, \"delay\": 5, \"color\": \"--success\", \"textColor\": \"Black\"}, scope\u003d\"session\")"
+          },
+          "scope": "G",
+          "type": "script"
+        },
+        "onDoubleClick": {
+          "config": {
+            "script": "\tself.relocate()"
+          },
+          "scope": "G",
+          "type": "script"
+        },
+        "onMouseEnter": {
+          "config": {
+            "script": "\tself.session.custom.viewCanvas.componentHover\u003dself.view.params.params.uuid"
+          },
+          "scope": "G",
+          "type": "script"
+        },
+        "onMouseLeave": {
+          "config": {
+            "script": "\tself.session.custom.viewCanvas.componentHover\u003dFalse"
+          },
+          "scope": "G",
+          "type": "script"
+        }
+      }
+    },
+    "meta": {
+      "contextMenu": {
+        "enabled": true,
+        "items": [
+          {
+            "icon": {
+              "color": "",
+              "path": "material/edit",
+              "style": {}
+            },
+            "link": {
+              "target": "self",
+              "url": ""
+            },
+            "message": {
+              "payload": {},
+              "scope": "page",
+              "type": ""
+            },
+            "method": {
+              "name": "reSize",
+              "params": {}
+            },
+            "style": {
+              "classes": "",
+              "display": "flex"
+            },
+            "text": "Adjust",
+            "type": "submenu"
+          },
+          {
+            "children": [],
+            "icon": {
+              "color": "",
+              "path": "",
+              "style": {}
+            },
+            "link": {
+              "target": "self",
+              "url": ""
+            },
+            "message": {
+              "payload": {},
+              "scope": "page",
+              "type": ""
+            },
+            "method": {
+              "name": "",
+              "params": {}
+            },
+            "style": {
+              "classes": ""
+            },
+            "text": "menu-item",
+            "type": "separator"
+          },
+          null,
+          null,
+          {
+            "children": [],
+            "icon": {
+              "color": "",
+              "path": "material/content_paste",
+              "style": {}
+            },
+            "link": {
+              "target": "self",
+              "url": ""
+            },
+            "message": {
+              "payload": {},
+              "scope": "session",
+              "type": "pasteComponent"
+            },
+            "method": {
+              "name": "",
+              "params": {}
+            },
+            "style": {
+              "classes": ""
+            },
+            "text": "Paste ctrl+Shift+v",
+            "type": "message"
+          },
+          {
+            "children": [],
+            "icon": {
+              "color": "",
+              "path": "material/request_quote",
+              "style": {}
+            },
+            "link": {
+              "target": "self",
+              "url": ""
+            },
+            "message": {
+              "payload": {},
+              "scope": "session",
+              "type": "goToAnchor"
+            },
+            "method": {
+              "name": "",
+              "params": {
+                "uuid": "value"
+              }
+            },
+            "style": {
+              "classes": ""
+            },
+            "text": "View In BOM"
+          },
+          {
+            "children": [],
+            "icon": {
+              "color": "",
+              "path": "material/timeline",
+              "style": {}
+            },
+            "link": {
+              "target": "self",
+              "url": ""
+            },
+            "message": {
+              "payload": {},
+              "scope": "page",
+              "type": ""
+            },
+            "method": {
+              "name": "showConnections",
+              "params": {}
+            },
+            "style": {
+              "classes": ""
+            },
+            "type": "method"
+          }
+        ]
+      },
+      "name": "root"
+    },
+    "propConfig": {
+      "meta.contextMenu.items[0].children": {
+        "binding": {
+          "config": {
+            "path": "view.params.params.type"
+          },
+          "transforms": [
+            {
+              "code": "\tif value.lower() \u003d\u003d\u0027container\u0027:\n\t\treturn [\n\t\t  {\n\t\t    \"text\": \"Resize (ctrl+r)\",\n\t\t    \"icon\": {\n\t\t      \"path\": \"material/photo_size_select_small\",\n\t\t      \"color\": \"\",\n\t\t      \"style\": {}\n\t\t    },\n\t\t    \"style\": {\n\t\t      \"classes\": \"\"\n\t\t    },\n\t\t    \"type\": \"method\",\n\t\t    \"children\": [],\n\t\t    \"link\": {\n\t\t      \"url\": \"\",\n\t\t      \"target\": \"self\"\n\t\t    },\n\t\t    \"method\": {\n\t\t      \"name\": \"reSize\",\n\t\t      \"params\": {}\n\t\t    },\n\t\t    \"message\": {\n\t\t      \"type\": \"\",\n\t\t      \"payload\": {},\n\t\t      \"scope\": \"page\"\n\t\t    }\n\t\t  },\n\t\t  {\n\t\t    \"text\": \"Move (cltr+m)\",\n\t\t    \"icon\": {\n\t\t      \"path\": \"material/location_on\",\n\t\t      \"color\": \"\",\n\t\t      \"style\": {}\n\t\t    },\n\t\t    \"style\": {\n\t\t      \"classes\": \"\"\n\t\t    },\n\t\t    \"type\": \"method\",\n\t\t    \"children\": [],\n\t\t    \"link\": {\n\t\t      \"url\": \"\",\n\t\t      \"target\": \"self\"\n\t\t    },\n\t\t    \"method\": {\n\t\t      \"name\": \"relocate\",\n\t\t      \"params\": {}\n\t\t    },\n\t\t    \"message\": {\n\t\t      \"type\": \"\",\n\t\t      \"payload\": {},\n\t\t      \"scope\": \"page\"\n\t\t    }\n\t\t  },\n\t\t  {\n\t\t    \"text\": \"Cancel (esc)\",\n\t\t    \"icon\": {\n\t\t      \"path\": \"material/cancel\",\n\t\t      \"color\": \"\",\n\t\t      \"style\": {}\n\t\t    },\n\t\t    \"style\": {\n\t\t      \"classes\": \"\"\n\t\t    },\n\t\t    \"type\": \"method\",\n\t\t    \"children\": [],\n\t\t    \"link\": {\n\t\t      \"url\": \"\",\n\t\t      \"target\": \"self\"\n\t\t    },\n\t\t    \"method\": {\n\t\t      \"name\": \"cancel\",\n\t\t      \"params\": {}\n\t\t    },\n\t\t    \"message\": {\n\t\t      \"type\": \"\",\n\t\t      \"payload\": {},\n\t\t      \"scope\": \"page\"\n\t\t    }\n\t\t  },\n\t\t  {\n\t\t    \"text\": \"Relocate Container (alt+m)\",\n\t\t    \"icon\": {\n\t\t      \"path\": \"material/move_to_inbox\",\n\t\t      \"color\": \"\",\n\t\t      \"style\": {}\n\t\t    },\n\t\t    \"style\": {\n\t\t      \"classes\": \"\"\n\t\t    },\n\t\t    \"type\": \"method\",\n\t\t    \"children\": [],\n\t\t    \"link\": {\n\t\t      \"url\": \"\",\n\t\t      \"target\": \"self\"\n\t\t    },\n\t\t    \"method\": {\n\t\t      \"name\": \"relocateContainer\",\n\t\t      \"params\": {}\n\t\t    },\n\t\t    \"message\": {\n\t\t      \"type\": \"\",\n\t\t      \"payload\": {},\n\t\t      \"scope\": \"page\"\n\t\t    }\n\t\t  },\n\t\t    {\n\t\t      \"text\": \"Organize Containers\",\n\t\t      \"icon\": {\n\t\t        \"path\": \"material/layers\",\n\t\t        \"color\": \"\",\n\t\t        \"style\": {}\n\t\t      },\n\t\t      \"style\": {\n\t\t        \"classes\": \"\"\n\t\t      },\n\t\t      \"type\": \"submenu\",\n\t\t      \"children\": [\n\t\t        {\n\t\t          \"text\": \"Send To Front\",\n\t\t          \"icon\": {\n\t\t            \"path\": \"material/fast_forward\",\n\t\t            \"color\": \"\",\n\t\t            \"style\": {}\n\t\t          },\n\t\t          \"style\": {\n\t\t            \"classes\": \"\"\n\t\t          },\n\t\t          \"type\": \"method\",\n\t\t          \"children\": [],\n\t\t          \"link\": {\n\t\t            \"url\": \"\",\n\t\t            \"target\": \"self\"\n\t\t          },\n\t\t          \"method\": {\n\t\t            \"name\": \"sendTo\",\n\t\t            \"params\": {\n\t\t              \"sendTo\": \"front\"\n\t\t            }\n\t\t          },\n\t\t          \"message\": {\n\t\t            \"type\": \"\",\n\t\t            \"payload\": {},\n\t\t            \"scope\": \"page\"\n\t\t          }\n\t\t        },\n\t\t        {\n\t\t          \"text\": \"Send To Back\",\n\t\t          \"icon\": {\n\t\t            \"path\": \"material/fast_rewind\",\n\t\t            \"color\": \"\",\n\t\t            \"style\": {}\n\t\t          },\n\t\t          \"style\": {\n\t\t            \"classes\": \"\"\n\t\t          },\n\t\t          \"type\": \"method\",\n\t\t          \"children\": [],\n\t\t          \"link\": {\n\t\t            \"url\": \"\",\n\t\t            \"target\": \"self\"\n\t\t          },\n\t\t          \"method\": {\n\t\t            \"name\": \"sendTo\",\n\t\t            \"params\": {\n\t\t              \"sendTo\": \"back\"\n\t\t            }\n\t\t          },\n\t\t          \"message\": {\n\t\t            \"type\": \"\",\n\t\t            \"payload\": {},\n\t\t            \"scope\": \"page\"\n\t\t          }\n\t\t        },\n\t\t        {\n\t\t          \"text\": \"Send Forward\",\n\t\t          \"icon\": {\n\t\t            \"path\": \"material/play_arrow\",\n\t\t            \"color\": \"\",\n\t\t            \"style\": {}\n\t\t          },\n\t\t          \"style\": {\n\t\t            \"classes\": \"\"\n\t\t          },\n\t\t          \"type\": \"method\",\n\t\t          \"children\": [],\n\t\t          \"link\": {\n\t\t            \"url\": \"\",\n\t\t            \"target\": \"self\"\n\t\t          },\n\t\t          \"method\": {\n\t\t            \"name\": \"sendTo\",\n\t\t            \"params\": {\n\t\t              \"sendTo\": \"forward\"\n\t\t            }\n\t\t          },\n\t\t          \"message\": {\n\t\t            \"type\": \"\",\n\t\t            \"payload\": {},\n\t\t            \"scope\": \"page\"\n\t\t          }\n\t\t        },\n\t\t        {\n\t\t          \"text\": \"Send Backward\",\n\t\t          \"icon\": {\n\t\t            \"path\": \"material/play_arrow\",\n\t\t            \"color\": \"\",\n\t\t            \"style\": {\n\t\t              \"transform\": \"rotate(180deg)\"\n\t\t            }\n\t\t          },\n\t\t          \"style\": {\n\t\t            \"classes\": \"\"\n\t\t          },\n\t\t          \"type\": \"method\",\n\t\t          \"children\": [],\n\t\t          \"link\": {\n\t\t            \"url\": \"\",\n\t\t            \"target\": \"self\"\n\t\t          },\n\t\t          \"method\": {\n\t\t            \"name\": \"sendTo\",\n\t\t            \"params\": {\n\t\t              \"sendTo\": \"backward\"\n\t\t            }\n\t\t          },\n\t\t          \"message\": {\n\t\t            \"type\": \"\",\n\t\t            \"payload\": {},\n\t\t            \"scope\": \"page\"\n\t\t          }\n\t\t        }\n\t\t      ],\n\t\t      \"link\": {\n\t\t        \"url\": \"\",\n\t\t        \"target\": \"self\"\n\t\t      },\n\t\t      \"method\": {\n\t\t        \"name\": \"\",\n\t\t        \"params\": {}\n\t\t      },\n\t\t      \"message\": {\n\t\t        \"type\": \"\",\n\t\t        \"payload\": {},\n\t\t        \"scope\": \"page\"\n\t\t      }\n\t\t    }\n\t\t  \n\t\t]\n\telif value.lower() \u003d\u003d\u0027note\u0027:\n\t\treturn [\n\t\t  {\n\t\t    \"text\": \"Resize (ctrl+r)\",\n\t\t    \"icon\": {\n\t\t      \"path\": \"material/photo_size_select_small\",\n\t\t      \"color\": \"\",\n\t\t      \"style\": {}\n\t\t    },\n\t\t    \"style\": {\n\t\t      \"classes\": \"\"\n\t\t    },\n\t\t    \"type\": \"method\",\n\t\t    \"children\": [],\n\t\t    \"link\": {\n\t\t      \"url\": \"\",\n\t\t      \"target\": \"self\"\n\t\t    },\n\t\t    \"method\": {\n\t\t      \"name\": \"reSize\",\n\t\t      \"params\": {}\n\t\t    },\n\t\t    \"message\": {\n\t\t      \"type\": \"\",\n\t\t      \"payload\": {},\n\t\t      \"scope\": \"page\"\n\t\t    }\n\t\t  },\n\t\t  {\n\t\t    \"text\": \"Move (cltr+m)\",\n\t\t    \"icon\": {\n\t\t      \"path\": \"material/location_on\",\n\t\t      \"color\": \"\",\n\t\t      \"style\": {}\n\t\t    },\n\t\t    \"style\": {\n\t\t      \"classes\": \"\"\n\t\t    },\n\t\t    \"type\": \"method\",\n\t\t    \"children\": [],\n\t\t    \"link\": {\n\t\t      \"url\": \"\",\n\t\t      \"target\": \"self\"\n\t\t    },\n\t\t    \"method\": {\n\t\t      \"name\": \"relocate\",\n\t\t      \"params\": {}\n\t\t    },\n\t\t    \"message\": {\n\t\t      \"type\": \"\",\n\t\t      \"payload\": {},\n\t\t      \"scope\": \"page\"\n\t\t    }\n\t\t  },\n\t\t  {\n\t\t    \"text\": \"Cancel (esc)\",\n\t\t    \"icon\": {\n\t\t      \"path\": \"material/cancel\",\n\t\t      \"color\": \"\",\n\t\t      \"style\": {}\n\t\t    },\n\t\t    \"style\": {\n\t\t      \"classes\": \"\"\n\t\t    },\n\t\t    \"type\": \"method\",\n\t\t    \"children\": [],\n\t\t    \"link\": {\n\t\t      \"url\": \"\",\n\t\t      \"target\": \"self\"\n\t\t    },\n\t\t    \"method\": {\n\t\t      \"name\": \"cancel\",\n\t\t      \"params\": {}\n\t\t    },\n\t\t    \"message\": {\n\t\t      \"type\": \"\",\n\t\t      \"payload\": {},\n\t\t      \"scope\": \"page\"\n\t\t    }\n\t\t  }\n\t\t]\n\telse:\n\t\treturn [\n\t\t  {\n\t\t    \"text\": \"Move (cltr+m)\",\n\t\t    \"icon\": {\n\t\t      \"path\": \"material/location_on\",\n\t\t      \"color\": \"\",\n\t\t      \"style\": {}\n\t\t    },\n\t\t    \"style\": {\n\t\t      \"classes\": \"\"\n\t\t    },\n\t\t    \"type\": \"method\",\n\t\t    \"children\": [],\n\t\t    \"link\": {\n\t\t      \"url\": \"\",\n\t\t      \"target\": \"self\"\n\t\t    },\n\t\t    \"method\": {\n\t\t      \"name\": \"relocate\",\n\t\t      \"params\": {}\n\t\t    },\n\t\t    \"message\": {\n\t\t      \"type\": \"\",\n\t\t      \"payload\": {},\n\t\t      \"scope\": \"page\"\n\t\t    }\n\t\t  },\n\t\t  {\n\t\t    \"text\": \"Cancel (esc)\",\n\t\t    \"icon\": {\n\t\t      \"path\": \"material/cancel\",\n\t\t      \"color\": \"\",\n\t\t      \"style\": {}\n\t\t    },\n\t\t    \"style\": {\n\t\t      \"classes\": \"\"\n\t\t    },\n\t\t    \"type\": \"method\",\n\t\t    \"children\": [],\n\t\t    \"link\": {\n\t\t      \"url\": \"\",\n\t\t      \"target\": \"self\"\n\t\t    },\n\t\t    \"method\": {\n\t\t      \"name\": \"cancel\",\n\t\t      \"params\": {}\n\t\t    },\n\t\t    \"message\": {\n\t\t      \"type\": \"\",\n\t\t      \"payload\": {},\n\t\t      \"scope\": \"page\"\n\t\t    }\n\t\t  }\n\t\t]",
+              "type": "script"
+            }
+          ],
+          "type": "property"
+        }
+      },
+      "meta.contextMenu.items[2]": {
+        "binding": {
+          "config": {
+            "path": "view.params.params.type"
+          },
+          "transforms": [
+            {
+              "code": "\tif value.lower() \u003d\u003d\u0027container\u0027:\n\t\treturn {\n\t\t\t  \"text\": \"Delete\",\n\t\t\t  \"icon\": {\n\t\t\t    \"path\": \"material/delete_forever\",\n\t\t\t    \"color\": \"\",\n\t\t\t    \"style\": {}\n\t\t\t  },\n\t\t\t  \"style\": {\n\t\t\t    \"classes\": \"\"\n\t\t\t  },\n\t\t\t  \"type\": \"submenu\",\n\t\t\t  \"children\": [\n\t\t\t    {\n\t\t\t      \"method\": {\n\t\t\t        \"name\": \"deleteComponent\",\n\t\t\t        \"params\": {}\n\t\t\t      },\n\t\t\t      \"children\": [],\n\t\t\t      \"icon\": {\n\t\t\t        \"path\": \"material/delete_forever\",\n\t\t\t        \"color\": \"\",\n\t\t\t        \"style\": {}\n\t\t\t      },\n\t\t\t      \"link\": {\n\t\t\t        \"url\": \"\",\n\t\t\t        \"target\": \"self\"\n\t\t\t      },\n\t\t\t      \"style\": {\n\t\t\t        \"classes\": \"\"\n\t\t\t      },\n\t\t\t      \"text\": \"Area\",\n\t\t\t      \"type\": \"method\",\n\t\t\t      \"message\": {\n\t\t\t        \"payload\": {},\n\t\t\t        \"scope\": \"page\",\n\t\t\t        \"type\": \"\"\n\t\t\t      }\n\t\t\t    },\n\t\t\t    {\n\t\t\t      \"method\": {\n\t\t\t        \"name\": \"deleteContent\",\n\t\t\t        \"params\": {\n\t\t\t          \"content\": True\n\t\t\t        }\n\t\t\t      },\n\t\t\t      \"children\": [],\n\t\t\t      \"icon\": {\n\t\t\t        \"path\": \"material/clear_all\",\n\t\t\t        \"color\": \"\",\n\t\t\t        \"style\": {}\n\t\t\t      },\n\t\t\t      \"link\": {\n\t\t\t        \"url\": \"\",\n\t\t\t        \"target\": \"self\"\n\t\t\t      },\n\t\t\t      \"style\": {\n\t\t\t        \"classes\": \"\"\n\t\t\t      },\n\t\t\t      \"text\": \"Content\",\n\t\t\t      \"type\": \"method\",\n\t\t\t      \"message\": {\n\t\t\t        \"payload\": {},\n\t\t\t        \"scope\": \"page\",\n\t\t\t        \"type\": \"\"\n\t\t\t      }\n\t\t\t    },\n\t\t\t    {\n\t\t\t      \"text\": \"Area and Content\",\n\t\t\t      \"icon\": {\n\t\t\t        \"path\": \"material/delete_sweep\",\n\t\t\t        \"color\": \"\",\n\t\t\t        \"style\": {}\n\t\t\t      },\n\t\t\t      \"style\": {\n\t\t\t        \"classes\": \"\"\n\t\t\t      },\n\t\t\t      \"type\": \"method\",\n\t\t\t      \"children\": [],\n\t\t\t      \"link\": {\n\t\t\t        \"url\": \"\",\n\t\t\t        \"target\": \"self\"\n\t\t\t      },\n\t\t\t      \"method\": {\n\t\t\t        \"name\": \"deleteContent\",\n\t\t\t        \"params\": {\n\t\t\t          \"content\": False\n\t\t\t        }\n\t\t\t      },\n\t\t\t      \"message\": {\n\t\t\t        \"type\": \"\",\n\t\t\t        \"payload\": {},\n\t\t\t        \"scope\": \"page\"\n\t\t\t      }\n\t\t\t    }\n\t\t\t  ],\n\t\t\t  \"link\": {\n\t\t\t    \"url\": \"\",\n\t\t\t    \"target\": \"self\"\n\t\t\t  },\n\t\t\t  \"method\": {\n\t\t\t    \"name\": \"deleteComponent\",\n\t\t\t    \"params\": {}\n\t\t\t  },\n\t\t\t  \"message\": {\n\t\t\t    \"type\": \"\",\n\t\t\t    \"payload\": {},\n\t\t\t    \"scope\": \"page\"\n\t\t\t  }\n\t\t\t}\n\telse:\n\t\treturn {\n\t\t\t  \"text\": \"Delete Component\",\n\t\t\t  \"icon\": {\n\t\t\t    \"path\": \"material/delete_forever\",\n\t\t\t    \"color\": \"\",\n\t\t\t    \"style\": {}\n\t\t\t  },\n\t\t\t  \"style\": {\n\t\t\t    \"classes\": \"\"\n\t\t\t  },\n\t\t\t  \"type\": \"method\",\n\t\t\t  \"children\": [],\n\t\t\t  \"link\": {\n\t\t\t    \"url\": \"\",\n\t\t\t    \"target\": \"self\"\n\t\t\t  },\n\t\t\t  \"method\": {\n\t\t\t    \"name\": \"deleteComponent\",\n\t\t\t    \"params\": {}\n\t\t\t  },\n\t\t\t  \"message\": {\n\t\t\t    \"type\": \"\",\n\t\t\t    \"payload\": {},\n\t\t\t    \"scope\": \"page\"\n\t\t\t  }\n\t\t\t}",
+              "type": "script"
+            }
+          ],
+          "type": "property"
+        }
+      },
+      "meta.contextMenu.items[3]": {
+        "binding": {
+          "config": {
+            "path": "view.params.params.type"
+          },
+          "transforms": [
+            {
+              "code": "\tif value.lower() \u003d\u003d\u0027container\u0027:\n\t\treturn {\n\t\t  \"text\": \"Copy\",\n\t\t  \"icon\": {\n\t\t    \"path\": \"material/content_copy\",\n\t\t    \"color\": \"\",\n\t\t    \"style\": {}\n\t\t  },\n\t\t  \"style\": {\n\t\t    \"classes\": \"\"\n\t\t  },\n\t\t  \"type\": \"submenu\",\n\t\t  \"children\": [\n\t\t    {\n\t\t      \"text\": \"Area\",\n\t\t      \"icon\": {\n\t\t        \"path\": \"material/content_copy\",\n\t\t        \"color\": \"\",\n\t\t        \"style\": {}\n\t\t      },\n\t\t      \"style\": {\n\t\t        \"classes\": \"\"\n\t\t      },\n\t\t      \"type\": \"method\",\n\t\t      \"children\": [],\n\t\t      \"link\": {\n\t\t        \"url\": \"\",\n\t\t        \"target\": \"self\"\n\t\t      },\n\t\t      \"method\": {\n\t\t        \"name\": \"copyComponent\",\n\t\t        \"params\": {}\n\t\t      },\n\t\t      \"message\": {\n\t\t        \"type\": \"\",\n\t\t        \"payload\": {},\n\t\t        \"scope\": \"page\"\n\t\t      }\n\t\t    },\n\t\t    {\n\t\t      \"text\": \"Area and Content\",\n\t\t      \"icon\": {\n\t\t        \"path\": \"material/content_copy\",\n\t\t        \"color\": \"\",\n\t\t        \"style\": {}\n\t\t      },\n\t\t      \"style\": {\n\t\t        \"classes\": \"\"\n\t\t      },\n\t\t      \"type\": \"method\",\n\t\t      \"children\": [],\n\t\t      \"link\": {\n\t\t        \"url\": \"\",\n\t\t        \"target\": \"self\"\n\t\t      },\n\t\t      \"method\": {\n\t\t        \"name\": \"copyContent\",\n\t\t        \"params\": {}\n\t\t      },\n\t\t      \"message\": {\n\t\t        \"type\": \"\",\n\t\t        \"payload\": {},\n\t\t        \"scope\": \"page\"\n\t\t      }\n\t\t    }\n\t\t  ],\n\t\t  \"link\": {\n\t\t    \"url\": \"\",\n\t\t    \"target\": \"self\"\n\t\t  },\n\t\t  \"method\": {\n\t\t    \"name\": \"copyComponent\",\n\t\t    \"params\": {}\n\t\t  },\n\t\t  \"message\": {\n\t\t    \"type\": \"\",\n\t\t    \"payload\": {},\n\t\t    \"scope\": \"page\"\n\t\t  }\n\t\t}\n\telse:\n\t\treturn {\n\t\t\t  \"text\": \"Copy\",\n\t\t\t  \"icon\": {\n\t\t\t    \"path\": \"material/content_copy\",\n\t\t\t    \"color\": \"\",\n\t\t\t    \"style\": {}\n\t\t\t  },\n\t\t\t  \"style\": {\n\t\t\t    \"classes\": \"\"\n\t\t\t  },\n\t\t\t  \"type\": \"method\",\n\t\t\t  \"children\": [],\n\t\t\t  \"link\": {\n\t\t\t    \"url\": \"\",\n\t\t\t    \"target\": \"self\"\n\t\t\t  },\n\t\t\t  \"method\": {\n\t\t\t    \"name\": \"copyComponent\",\n\t\t\t    \"params\": {}\n\t\t\t  },\n\t\t\t  \"message\": {\n\t\t\t    \"type\": \"\",\n\t\t\t    \"payload\": {},\n\t\t\t    \"scope\": \"page\"\n\t\t\t  }\n\t\t\t}",
+              "type": "script"
+            }
+          ],
+          "type": "property"
+        }
+      },
+      "meta.contextMenu.items[4].style.display": {
+        "binding": {
+          "config": {
+            "expression": "if({view.params.params.type}\u003d\"Container\",\u0027flex\u0027,\u0027none\u0027)"
+          },
+          "type": "expr"
+        }
+      },
+      "meta.contextMenu.items[5].message.payload.uuid": {
+        "binding": {
+          "config": {
+            "path": "view.params.params.uuid"
+          },
+          "type": "property"
+        }
+      },
+      "meta.contextMenu.items[5].style.display": {
+        "binding": {
+          "config": {
+            "path": "view.params.params.type"
+          },
+          "transforms": [
+            {
+              "code": "\tif value in [\u0027standard\u0027, \u0027cloud\u0027, \u0027edge\u0027, \u0027panel\u0027]:\n\t\treturn \u0027flex\u0027\n\telse:\n\t\treturn \u0027none\u0027",
+              "type": "script"
+            }
+          ],
+          "type": "property"
+        }
+      },
+      "meta.contextMenu.items[5].type": {
+        "binding": {
+          "config": {
+            "path": "view.params.params.type"
+          },
+          "transforms": [
+            {
+              "code": "\tservers\u003d[\u0027standard\u0027,\u0027cloud\u0027, \u0027edge\u0027,\u0027panel\u0027]\n\tif value in servers:\n\t\treturn \"message\"\n\treturn \"separator\"",
+              "type": "script"
+            }
+          ],
+          "type": "property"
+        }
+      },
+      "meta.contextMenu.items[6].style.display": {
+        "binding": {
+          "config": {
+            "path": "view.params.params.type"
+          },
+          "transforms": [
+            {
+              "fallback": "flex",
+              "inputType": "scalar",
+              "mappings": [
+                {
+                  "input": "Container",
+                  "output": "none"
+                },
+                {
+                  "input": "Note",
+                  "output": "none"
+                }
+              ],
+              "outputType": "scalar",
+              "type": "map"
+            }
+          ],
+          "type": "property"
+        }
+      },
+      "meta.contextMenu.items[6].text": {
+        "binding": {
+          "config": {
+            "expression": "{view.params.params.uuid}\u003d{session.custom.showConnections}"
+          },
+          "transforms": [
+            {
+              "fallback": "Show All Connections",
+              "inputType": "scalar",
+              "mappings": [
+                {
+                  "input": false,
+                  "output": "Show My Connections"
+                }
+              ],
+              "outputType": "scalar",
+              "type": "map"
+            }
+          ],
+          "type": "expr"
+        }
+      },
+      "props.style.classes": {
+        "binding": {
+          "config": {
+            "expression": "if({./Connect.position.display},\u0027\u0027,\u0027Exchange/ArchitectureBuilder/DragFrame/Hover\u0027)"
+          },
+          "type": "expr"
+        }
+      },
+      "props.style.filter": {
+        "binding": {
+          "config": {
+            "path": "session.custom.moveModules"
+          },
+          "transforms": [
+            {
+              "code": "\tif value\u003d\u003dFalse:\n\t\treturn \"\"\n\telif value[\u0027type\u0027]\u003d\u003dself.view.params.params.type and value[\u0027uuid\u0027]!\u003dself.view.params.params.uuid:\n\t\treturn \"\"\n\telse:\n\t\treturn \u0027grayscale(1)\u0027",
+              "type": "script"
+            }
+          ],
+          "type": "property"
+        }
+      },
+      "props.style.pointer-events": {
+        "binding": {
+          "config": {
+            "path": "session.custom.moveModules"
+          },
+          "transforms": [
+            {
+              "code": "\tif value\u003d\u003dFalse:\n\t\treturn \"auto\"\n\telif value[\u0027type\u0027]\u003d\u003dself.view.params.params.type and value[\u0027uuid\u0027]!\u003dself.view.params.params.uuid:\n\t\treturn \"auto\"\n\telse:\n\t\treturn \u0027none\u0027",
+              "type": "script"
+            }
+          ],
+          "type": "property"
+        }
+      }
+    },
+    "props": {
+      "direction": "column",
+      "style": {
+        "borderBottomLeftRadius": "6px",
+        "borderBottomRightRadius": "6px",
+        "borderTopLeftRadius": "6px",
+        "borderTopRightRadius": "6px",
+        "overflow": "hidden"
+      }
+    },
+    "scripts": {
+      "customMethods": [
+        {
+          "name": "reSize",
+          "params": [],
+          "script": "\tif self.view.custom.reSize:\n\t\tsystem.perspective.sendMessage(\u0027cancelConfigs\u0027,True)\n\telse:\n\t\tsystem.perspective.sendMessage(\u0027selectFrame\u0027,{\u0027selected\u0027: True})\n\t\tself.view.custom.reSize\u003dTrue\n\t\tself.view.custom.relocate\u003dFalse\n\t\tself.view.custom.connect\u003dFalse\n\t\tself.view.custom.allConnect\u003dFalse\n\t\tself.view.custom.areaRelocate\u003dFalse"
+        },
+        {
+          "name": "relocate",
+          "params": [],
+          "script": "\t\n\tif self.view.custom.relocate:\n\t\tsystem.perspective.sendMessage(\u0027cancelConfigs\u0027,True)\n\telse:\n\t\tsystem.perspective.sendMessage(\u0027selectFrame\u0027,{\u0027selected\u0027: True})\n\t\tself.view.custom.relocate\u003d True\n\t\tself.view.custom.reSize\u003dFalse\n\t\tself.view.custom.connect\u003dFalse\n\t\tself.view.custom.allConnect\u003dFalse\n\t\tself.view.custom.areaRelocate\u003dFalse\n\t"
+        },
+        {
+          "name": "connect",
+          "params": [],
+          "script": "\tif self.view.custom.connect:\n\t\tsystem.perspective.sendMessage(\u0027cancelConfigs\u0027,True)\n\telif self.view.params.typeID!\u003d\"container\":\n\t\tsystem.perspective.sendMessage(\u0027selectFrame\u0027,{\u0027selected\u0027: True})\n\t\tself.view.custom.connect\u003d True\n\t\tself.view.custom.allConnect\u003dTrue\n\t\tself.view.custom.reSize\u003dFalse\n\t\tself.view.custom.relocate\u003dFalse\n\t\tself.view.custom.areaRelocate\u003dFalse"
+        },
+        {
+          "name": "cancel",
+          "params": [],
+          "script": "\tsystem.perspective.sendMessage(\u0027cancelConfigs\u0027,True)"
+        },
+        {
+          "name": "deleteComponent",
+          "params": [],
+          "script": "\tuuid\u003dself.view.params.params.uuid\n\tsystem.perspective.sendMessage(\u0027selectFrame\u0027,{\u0027selected\u0027: True})\n\tsystem.perspective.sendMessage(\u0027deleteComponent\u0027, {\u0027uuid\u0027:uuid,\u0027type\u0027: self.view.params.params.type})\n\t\n\t"
+        },
+        {
+          "name": "deselect",
+          "params": [],
+          "script": "\t# implement your method here\n\tself.view.custom.connect\u003d False\n\tself.view.custom.allConnect\u003dFalse\n\tself.view.custom.reSize\u003dFalse\n\tself.view.custom.relocate\u003dFalse\n\tself.view.custom.areaRelocate\u003dFalse"
+        },
+        {
+          "name": "copyComponent",
+          "params": [],
+          "script": "\t# implement your method here\n\tsystem.perspective.sendMessage(\u0027copyComponent\u0027, self.view.params.params.uuid)"
+        },
+        {
+          "name": "relocateContainer",
+          "params": [],
+          "script": "\tif self.view.custom.areaRelocate:\n\t\tsystem.perspective.sendMessage(\u0027cancelConfigs\u0027,True)\n\telse:\n\t\tsystem.perspective.sendMessage(\u0027selectFrame\u0027,{\u0027selected\u0027: True})\n\t\tself.view.custom.relocate\u003d False\n\t\tself.view.custom.reSize\u003dFalse\n\t\tself.view.custom.connect\u003dFalse\n\t\tself.view.custom.allConnect\u003dFalse\n\t\tself.view.custom.areaRelocate\u003dTrue"
+        },
+        {
+          "name": "sendTo",
+          "params": [
+            "sendTo"
+          ],
+          "script": "\tcontainers\u003dsystem.util.jsonDecode(system.util.jsonEncode(self.session.custom.containers))\n\tuuid\u003dself.view.params.params.uuid\n\tfor x in range(len(containers)):\n\t\tif uuid in containers[x].keys():\n\t\t\tcontainerIndex\u003dx\n\t\n\tif sendTo\u003d\u003d\u0027back\u0027:\n\t\titem\u003dcontainers.pop(containerIndex)\n\t\tcontainers.insert(0,item)\n\telif sendTo\u003d\u003d\u0027front\u0027:\n\t\titem\u003dcontainers.pop(containerIndex)\n\t\tcontainers.append(item)\n\telif sendTo\u003d\u003d\u0027forward\u0027:\n\t\titem\u003dcontainers.pop(containerIndex)\n\t\tcontainers.insert(containerIndex+1,item)\n\telif sendTo\u003d\u003d\u0027backward\u0027:\n\t\tsystem.perspective.print(containerIndex)\n\t\tsystem.perspective.print(containers)\t\n\t\tif containerIndex-1 \u003e 0 and len(containers)\u003e2:\n\t\t\titem\u003dcontainers.pop(containerIndex)\n\t\t\tsystem.perspective.print(containerIndex)\n\t\t\tsystem.perspective.print(containers)\n\t\t\tcontainers.insert(containerIndex-1,item)\n\t\telif len(containers)\u003d\u003d2:\n\t\t\titem\u003dcontainers.pop(containerIndex)\n\t\t\tcontainers.insert(0,item)\n\tself.session.custom.containers\u003dcontainers"
+        },
+        {
+          "name": "deleteContent",
+          "params": [
+            "content"
+          ],
+          "script": "\tuuid\u003dself.view.params.params.uuid\n\tsystem.perspective.sendMessage(\u0027selectFrame\u0027,{\u0027selected\u0027: True})\n\tsystem.perspective.sendMessage(\u0027deleteContent\u0027, {\u0027uuid\u0027:uuid,\u0027type\u0027: self.view.params.params.type, \u0027content\u0027: content})"
+        },
+        {
+          "name": "copyContent",
+          "params": [],
+          "script": "\t# implement your method here\n\tsystem.perspective.sendMessage(\u0027copyArea\u0027, {\u0027uuid\u0027:self.view.params.params.uuid})"
+        },
+        {
+          "name": "showConnections",
+          "params": [],
+          "script": "\tif self.view.params.params.type\u003d\u003d \"Container\":\n\t\tself.session.custom.showConnections\u003dFalse\n\telif self.session.custom.showConnections\u003d\u003dself.view.params.params.uuid:\n\t\tself.session.custom.showConnections\u003dFalse\n\telse:\n\t\tself.session.custom.showConnections\u003dself.view.params.params.uuid"
+        },
+        {
+          "name": "removeModules",
+          "params": [
+            "uuid",
+            "modules"
+          ],
+          "script": "\tdef remove_matching_modules(dict1, dict2):\n\t\tfor key in dict1:\n\t\t\tif key in dict2 and isinstance(dict1[key], list) and isinstance(dict2[key], list):\n\t\t\t\tdict1[key] \u003d [item for item in dict1[key] if item not in dict2[key]]\n\t\treturn dict1\n\tsystem.perspective.print(\"Modules Removed\")\n\tcurrentModules\u003dsystem.util.jsonDecode(system.util.jsonEncode(self.session.custom.structure.configs[uuid][\"config\"][\"modules\"]))\n\tupdatedModules\u003dremove_matching_modules(currentModules, modules)\n\tself.session.custom.structure.configs[uuid][\"config\"][\"modules\"]\u003dupdatedModules"
+        }
+      ],
+      "extensionFunctions": null,
+      "messageHandlers": [
+        {
+          "messageType": "stopRelocate",
+          "pageScope": true,
+          "script": "\tsystem.perspective.sendMessage(\u0027cancelConfigs\u0027,True)\n\t#if payload[\u0027uuid\u0027]\u003d\u003dself.view.params.params.uuid:\n\t#\tself.view.custom.relocate\u003dFalse",
+          "sessionScope": true,
+          "viewScope": false
+        },
+        {
+          "messageType": "cancelConfigs",
+          "pageScope": true,
+          "script": "\t# implement your handler here\n\tself.view.custom.connect\u003dFalse\n\tself.view.custom.allConnect\u003dFalse\n\tself.view.custom.reSize\u003dFalse\n\tself.view.custom.relocate\u003dFalse\n\tself.view.custom.areaRelocate\u003dFalse",
+          "sessionScope": true,
+          "viewScope": false
+        },
+        {
+          "messageType": "clearCornerSelect",
+          "pageScope": true,
+          "script": "\t# implement your handler here\n\tself.view.custom.reSizeCorner\u003d\u0027\u0027",
+          "sessionScope": true,
+          "viewScope": false
+        },
+        {
+          "messageType": "keystroke",
+          "pageScope": true,
+          "script": "\t# implement your handler here\n\tuuid\u003dself.view.params.params.uuid\n\tif self.session.custom.viewCanvas.componentHover\u003d\u003duuid:\n\t\tif payload[\u0027type\u0027]\u003d\u003d\u0027ctrlm\u0027:\n\t\t\tself.relocate()\n\t\t\t\n\t\telif payload[\u0027type\u0027]\u003d\u003d\u0027ctrlr\u0027 and self.view.params.params.type.lower() in [\u0027note\u0027, \u0027container\u0027]:\n\t\t\tself.reSize()\n\n\t\telif payload[\u0027type\u0027]\u003d\u003d\u0027ctrlc\u0027:\n\t\t\tself.copyComponent()\n\n\t\telif payload[\u0027type\u0027]\u003d\u003d\u0027ctrlShiftm\u0027 and self.view.params.params.type\u003d\u003d\u0027Container\u0027:\n\t\t\tself.relocateContainer()\n\t\n#\telse:\n#\t\tself.deselect()\n",
+          "sessionScope": true,
+          "viewScope": false
+        },
+        {
+          "messageType": "connectionEnabled",
+          "pageScope": false,
+          "script": "\t#system.perspective.sendMessage(\u0027connectionEnabled\u0027, {\u0027connect\u0027:currentValue.value, \u0027connectType\u0027:\u0027GWN\u0027})\n\tif self.view.params.params.type!\u003d\"Container\" and self.view.params.params.type!\u003d\u0027Note\u0027:# and self.view.params.params.type!\u003d\u0027Custom\u0027:\n\t\tself.view.custom.connect\u003dpayload[\u0027connect\u0027]\n\t\tself.view.custom.allConnect\u003dpayload[\u0027connect\u0027]\n\t\n\t",
+          "sessionScope": false,
+          "viewScope": false
+        }
+      ]
+    },
+    "type": "ia.container.flex"
+  }
+}

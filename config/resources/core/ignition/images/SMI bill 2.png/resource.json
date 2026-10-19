@@ -1,0 +1,20 @@
+{
+  "scope": "A",
+  "version": 1,
+  "restricted": false,
+  "overridable": true,
+  "files": [
+    "SMI bill 2.png"
+  ],
+  "attributes": {
+    "width": 814,
+    "format": "PNG",
+    "lastModification": {
+      "actor": "8.3-migration",
+      "timestamp": "2026-01-07T14:49:07Z"
+    },
+    "size": 133817,
+    "lastModificationSignature": "cf8f0b84399fb4275d0f3c597538b19aeccbae13a837d056502b34f5782d3f5e",
+    "height": 1052
+  }
+}

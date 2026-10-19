@@ -1,0 +1,130 @@
+{
+  "custom": {},
+  "params": {
+    "color": "var(--neutral-80)",
+    "docs": [
+      "https://docs.inductiveautomation.com/docs/8.1/ignition-modules/opc-ua",
+      "https://docs.inductiveautomation.com/docs/8.1/ignition-modules/opc-ua",
+      "https://docs.inductiveautomation.com/docs/8.1/ignition-modules/opc-ua/third-party-opc-servers/opc-com"
+    ],
+    "typeid": [
+      "value"
+    ]
+  },
+  "propConfig": {
+    "params.color": {
+      "paramDirection": "input",
+      "persistent": true
+    },
+    "params.docs": {
+      "paramDirection": "input",
+      "persistent": true
+    },
+    "params.typeid": {
+      "paramDirection": "input",
+      "persistent": true
+    }
+  },
+  "props": {
+    "defaultSize": {
+      "height": 335,
+      "width": 644
+    }
+  },
+  "root": {
+    "children": [
+      {
+        "events": {
+          "dom": {
+            "onClick": {
+              "config": {
+                "script": "\tpages\u003dself.view.params.docs\n\tfor url in pages:\n\t\tsystem.perspective.navigate(url\u003durl, newTab\u003dTrue)"
+              },
+              "scope": "G",
+              "type": "script"
+            }
+          }
+        },
+        "meta": {
+          "name": "svg-path (11)"
+        },
+        "position": {
+          "basis": "32px"
+        },
+        "propConfig": {
+          "props.elements[0].style.stroke": {
+            "binding": {
+              "config": {
+                "path": "view.params.color"
+              },
+              "type": "property"
+            }
+          },
+          "props.elements[1].style.fill": {
+            "binding": {
+              "config": {
+                "path": "view.params.color"
+              },
+              "type": "property"
+            }
+          },
+          "props.elements[1].text": {
+            "binding": {
+              "config": {
+                "path": "view.params.typeid"
+              },
+              "transforms": [
+                {
+                  "code": "\treturn \u0027, \u0027.join(value)",
+                  "type": "script"
+                }
+              ],
+              "type": "property"
+            }
+          }
+        },
+        "props": {
+          "elements": [
+            {
+              "fill": "transparent",
+              "name": "line",
+              "points": "10,10 30,10",
+              "style": {
+                "fill": "#ACAC00",
+                "pointer-events": "none",
+                "stroke-linecap": "round",
+                "stroke-linejoin": "round",
+                "stroke-width": 6
+              },
+              "type": "polyline"
+            },
+            {
+              "name": "x",
+              "style": {
+                "fontSize": "100%",
+                "fontWeight": 900
+              },
+              "type": "text",
+              "x": 40,
+              "y": "75%"
+            }
+          ],
+          "preserveAspectRatio": "xMinYMin",
+          "style": {
+            "cursor": "pointer",
+            "overflow": "hidden"
+          },
+          "viewBox": "0 0 300 20"
+        },
+        "type": "ia.shapes.svg"
+      }
+    ],
+    "meta": {
+      "name": "root"
+    },
+    "props": {
+      "direction": "column"
+    },
+    "type": "ia.container.flex"
+  }
+}

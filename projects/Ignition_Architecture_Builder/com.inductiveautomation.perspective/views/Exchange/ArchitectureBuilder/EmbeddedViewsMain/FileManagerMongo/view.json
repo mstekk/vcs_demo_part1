@@ -1,0 +1,1236 @@
+{
+  "custom": {
+    "connectors": {
+      "SE-Notes": [
+        "application-lists",
+        "se-notes"
+      ],
+      "se-notes-arch": [
+        "Sandbox",
+        "Customers",
+        "Templates"
+      ]
+    },
+    "date": {
+      "$": [
+        "ts",
+        192,
+        1721298332315
+      ],
+      "$ts": 1721298332315
+    },
+    "hasRole": true,
+    "isUser": false,
+    "loadPath": {}
+  },
+  "events": {
+    "system": {
+      "onStartup": {
+        "config": {
+          "script": "\tself.getChild(\"root\").refreshConnections()"
+        },
+        "scope": "G",
+        "type": "script"
+      }
+    }
+  },
+  "params": {},
+  "propConfig": {
+    "custom.connectors": {
+      "persistent": true
+    },
+    "custom.hasRole": {
+      "binding": {
+        "config": {
+          "expression": "if({session.custom.public}, true, isAuthorized(false, \u0027Authenticated/Roles/Administrator\u0027, \u0027Authenticated/Roles/\u0027+{session.custom.admin.role}))"
+        },
+        "type": "expr"
+      },
+      "persistent": true
+    },
+    "custom.isUser": {
+      "binding": {
+        "config": {
+          "struct": {
+            "loadPath": "{view.custom.loadPath}",
+            "user": "{session.props.auth.user.userName}"
+          },
+          "waitOnAll": true
+        },
+        "transforms": [
+          {
+            "code": "\tif \u0027userName\u0027 in value[\u0027loadPath\u0027].keys():\n\t\treturn value[\u0027loadPath\u0027][\u0027userName\u0027]\u003d\u003dvalue[\u0027user\u0027]\n\treturn False",
+            "type": "script"
+          }
+        ],
+        "type": "expr-struct"
+      },
+      "persistent": true
+    }
+  },
+  "props": {
+    "defaultSize": {
+      "height": 644,
+      "width": 451
+    }
+  },
+  "root": {
+    "children": [
+      {
+        "children": [
+          {
+            "custom": {
+              "connectors": [
+                {
+                  "description": null,
+                  "error": null,
+                  "name": "SE-Notes",
+                  "status": "Valid"
+                },
+                {
+                  "description": null,
+                  "error": null,
+                  "name": "se-notes-arch",
+                  "status": "Valid"
+                }
+              ],
+              "date": {
+                "$": [
+                  "ts",
+                  192,
+                  1726146819371
+                ],
+                "$ts": 1726146819371
+              }
+            },
+            "meta": {
+              "name": "Tree"
+            },
+            "position": {
+              "basis": "200px",
+              "grow": 1
+            },
+            "propConfig": {
+              "props.items": {
+                "binding": {
+                  "config": {
+                    "path": "session.custom.admin.disabledMongoConnections"
+                  },
+                  "transforms": [
+                    {
+                      "code": "\n\tdef getConnectorState(name):\n\t\tallow\u003dTrue\n\t\tfor connector in self.session.custom.admin.mongoAccess:\n\t\t\tif name\u003d\u003dconnector[\u0027name\u0027]:\n\t\t\t\tallow\u003dconnector[\u0027allow\u0027]\n\t\t\t\tbreak\n\t\treturn allow\n\t\n\tself.custom.date\u003dsystem.date.now()\n\tconnectors\u003dsystem.mongodb.listConnectorInfo()\n\tself.custom.connectors\u003dconnectors\n\titems\u003d[]\n\tfor connector in connectors:\n\t\tif connector[\u0027name\u0027] not in value:\n\t\t\ttry:\n\t\t\t\tconnectorName\u003dconnector[\u0027name\u0027]\n\t\t\t\tconnectorJson\u003d{\"label\": connector[\u0027name\u0027],\n\t\t\t\t\t  \"expanded\": True,\n\t\t\t\t\t  \"data\": {\u0027connector\u0027: connectorName, \u0027collections\u0027:[]},\n\t\t\t\t\t  \"items\": []\n\t\t\t\t\t}\n\t\t\t\t\n\t\t\t\tcollections\u003dsystem.mongodb.listCollectionNames(connectorName)\n\t\t\t\tconnector[\u0027collections\u0027]\u003d{}\n\t\t\t\tconnectorJson[\u0027data\u0027][\u0027collections\u0027]\u003dcollections\n\t\t\t\tfor collection in collections:\n\t\t\t\t\tconnector[\u0027collections\u0027][collection]\u003d[]\n\t\t\t\t\tarchsFiles\u003d[]\n\t\t\t\t\thasRole\u003dself.view.custom.hasRole\n\t\t\t\t\ttry:\n\t\t\t\t\t\tarchs\u003dsystem.mongodb.find(connectorName, collection, {},{\u0027filename\u0027:1, \u0027userName\u0027:1})\n\t\t\t\t\t\t\n\t\t\t\t\t\tfor arch in archs:\n\t\t\t\t\t\t\tuserName\u003d\u0027N/A\u0027\n\t\t\t\t\t\t\tif \u0027userName\u0027 in arch.keys():\n\t\t\t\t\t\t\t\tuserName\u003darch[\u0027userName\u0027]\n\t\t\t\t\t\t\tif userName\u003d\u003dself.session.props.auth.user.userName or hasRole:\n\t\t\t\t\t\t\t\ticon\u003d{\"path\": \"material/insert_drive_file\", \"color\": \"--standard\", \"style\": {}}\n\t\t\t\t\t\t\telse:\n\t\t\t\t\t\t\t\ticon\u003d{\"path\": \"material/remove_red_eye\", \"color\": \"--neutral-50\", \"style\": {}}\n\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\tarchsFiles.append({\"label\": arch[\u0027filename\u0027],\n\t\t\t\t\t\t\t  \"expanded\": True,\n\t\t\t\t\t\t\t  \"data\": {\u0027connector\u0027: connectorName, \u0027collection\u0027:collection, \u0027id\u0027:arch[\u0027_id\u0027], \u0027userName\u0027: userName, \u0027filename\u0027:arch[\u0027filename\u0027]},\n\t\t\t\t\t\t\t  \u0027icon\u0027: icon,\n\t\t\t\t\t\t\t  \"items\": []\n\t\t\t\t\t\t\t})\n\t\t\t\t\texcept:\n\t\t\t\t\t\tpass\n\t\t\t\t\t\t\n\t\t\t\t\tconnectorJson[\u0027items\u0027].append({\"label\": collection,\n\t\t\t\t\t\t\t  \"expanded\": True,\n\t\t\t\t\t\t\t  \"data\": {\u0027connector\u0027: connectorName, \u0027collection\u0027:collection},\n\t\t\t\t\t\t\t  \"items\": archsFiles\n\t\t\t\t\t\t\t})\n\t\t\t\titems.append(connectorJson)\n\t\t\texcept:\n\t\t\t\tpass\n\treturn items",
+                      "type": "script"
+                    }
+                  ],
+                  "type": "property"
+                }
+              },
+              "props.selectionData": {
+                "onChange": {
+                  "enabled": null,
+                  "script": "\tif len(self.props.selectionData)\u003e0:\n\t\tselection\u003dself.props.selectionData[0].value\t\n\t\tkeys\u003dselection.keys()\n\t\tif \u0027connector\u0027 in keys and \u0027collection\u0027 in keys and \u0027id\u0027 in keys:\n\t\t\tself.view.custom.loadPath\u003dselection\n\t\telse:\n\t\t\tself.view.custom.loadPath\u003d{}\n\telse:\n\t\tself.view.custom.loadPath\u003d{}"
+                }
+              }
+            },
+            "props": {
+              "appearance": {
+                "defaultNodeIcons": {
+                  "collapsed": {
+                    "path": "material/folder"
+                  },
+                  "expanded": {
+                    "path": "material/folder_open"
+                  }
+                },
+                "expandIcons": {
+                  "collapsed": {
+                    "path": "material/arrow_right"
+                  },
+                  "expanded": {
+                    "path": "material/arrow_drop_down"
+                  }
+                },
+                "selectedStyle": {
+                  "color": "--edge"
+                }
+              },
+              "style": {
+                "backgroundColor": "--neutral-10",
+                "marginBottom": "8px",
+                "min-height": "300px"
+              }
+            },
+            "type": "ia.display.tree"
+          },
+          {
+            "children": [
+              {
+                "meta": {
+                  "name": "Dropdown"
+                },
+                "position": {
+                  "basis": "29px",
+                  "shrink": 0
+                },
+                "propConfig": {
+                  "props.options": {
+                    "binding": {
+                      "config": {
+                        "struct": {
+                          "connectors": "{view.custom.connectors}",
+                          "disabled": "{session.custom.admin.disabledMongoConnections}"
+                        },
+                        "waitOnAll": true
+                      },
+                      "transforms": [
+                        {
+                          "code": "\toptions\u003d[]\n\tfor connector in value[\u0027connectors\u0027].keys():\n\t\tif connector not in value[\u0027disabled\u0027]:\n\t\t\toptions.append({\n\t\t\t\t  \"value\": connector,\n\t\t\t\t  \"label\": connector\n\t\t\t\t})\n\treturn options",
+                          "type": "script"
+                        }
+                      ],
+                      "type": "expr-struct"
+                    }
+                  }
+                },
+                "props": {
+                  "placeholder": {
+                    "text": "Select Connector..."
+                  },
+                  "showClearIcon": true,
+                  "style": {
+                    "marginBottom": "8px"
+                  },
+                  "value": null
+                },
+                "type": "ia.input.dropdown"
+              },
+              {
+                "meta": {
+                  "name": "Dropdown_0"
+                },
+                "position": {
+                  "basis": "29px",
+                  "shrink": 0
+                },
+                "propConfig": {
+                  "props.options": {
+                    "binding": {
+                      "config": {
+                        "expression": "{view.custom.connectors}[{../Dropdown.props.value}]"
+                      },
+                      "transforms": [
+                        {
+                          "code": "\tif value is None:\n\t\treturn []\n\telse:\n\t\toptions\u003d[]\n\t\tfor x in value:\n\t\t\toptions.append({\u0027label\u0027:x,\u0027value\u0027:x})\n\t\treturn options",
+                          "type": "script"
+                        }
+                      ],
+                      "type": "expr"
+                    },
+                    "onChange": {
+                      "enabled": null,
+                      "script": "\tif len(currentValue.value)\u003d\u003d0:\n\t\tself.props.value\u003dNone"
+                    }
+                  }
+                },
+                "props": {
+                  "placeholder": {
+                    "text": "Select Collection..."
+                  },
+                  "showClearIcon": true,
+                  "style": {
+                    "marginBottom": "8px"
+                  },
+                  "value": null
+                },
+                "type": "ia.input.dropdown"
+              },
+              {
+                "custom": {
+                  "test": {
+                    "canvasSize": {
+                      "height": 900,
+                      "width": 1000
+                    },
+                    "components": {
+                      "I5bb1c984": {
+                        "height": 100,
+                        "left": 380,
+                        "primaryViewPath": "Exchange/ArchitectureBuilder/Components/Database/Main",
+                        "top": 320,
+                        "width": 100
+                      },
+                      "I60cdb068": {
+                        "height": 100,
+                        "left": 180,
+                        "primaryViewPath": "Exchange/ArchitectureBuilder/Components/Device/Main",
+                        "top": 540,
+                        "width": 100
+                      },
+                      "I714d6b21": {
+                        "height": 100,
+                        "left": 560,
+                        "primaryViewPath": "Exchange/ArchitectureBuilder/Components/Server/Main",
+                        "top": 320,
+                        "width": 100
+                      },
+                      "I8db6eec0": {
+                        "height": 100,
+                        "left": 760,
+                        "primaryViewPath": "Exchange/ArchitectureBuilder/Components/Client/Main",
+                        "top": 380,
+                        "width": 100
+                      },
+                      "I92a2a863": {
+                        "height": 100,
+                        "left": 380,
+                        "primaryViewPath": "Exchange/ArchitectureBuilder/Components/Server/Main",
+                        "top": 160,
+                        "width": 100
+                      },
+                      "I9c31a795": {
+                        "height": 100,
+                        "left": 760,
+                        "primaryViewPath": "Exchange/ArchitectureBuilder/Components/Client/Main",
+                        "top": 500,
+                        "width": 100
+                      },
+                      "Ib1370020": {
+                        "height": 100,
+                        "left": 760,
+                        "primaryViewPath": "Exchange/ArchitectureBuilder/Components/Client/Main",
+                        "top": 140,
+                        "width": 100
+                      },
+                      "Ib602774f": {
+                        "height": 100,
+                        "left": 180,
+                        "primaryViewPath": "Exchange/ArchitectureBuilder/Components/Device/Main",
+                        "top": 420,
+                        "width": 100
+                      },
+                      "Id2e2fcc3": {
+                        "height": 100,
+                        "left": 760,
+                        "primaryViewPath": "Exchange/ArchitectureBuilder/Components/Client/Main",
+                        "top": 260,
+                        "width": 100
+                      },
+                      "Ie8925b51": {
+                        "height": 100,
+                        "left": 180,
+                        "primaryViewPath": "Exchange/ArchitectureBuilder/Components/Device/Main",
+                        "top": 100,
+                        "width": 100
+                      },
+                      "If595af30": {
+                        "height": 100,
+                        "left": 180,
+                        "primaryViewPath": "Exchange/ArchitectureBuilder/Components/Device/Main",
+                        "top": 220,
+                        "width": 100
+                      },
+                      "If879a196": {
+                        "height": 100,
+                        "left": 380,
+                        "primaryViewPath": "Exchange/ArchitectureBuilder/Components/Server/Main",
+                        "top": 480,
+                        "width": 100
+                      }
+                    },
+                    "config": {
+                      "I00ef99e5": {
+                        "config": {
+                          "backColor": "#808080",
+                          "labelColor": "#000000",
+                          "location": {
+                            "lat": null,
+                            "lng": null
+                          },
+                          "quantity": 1
+                        },
+                        "desc": "",
+                        "name": "site",
+                        "type": "Container",
+                        "uuid": "I00ef99e5"
+                      },
+                      "I0bf3667d": {
+                        "config": {
+                          "backColor": "#808080",
+                          "labelColor": "#000000",
+                          "location": {
+                            "lat": null,
+                            "lng": null
+                          },
+                          "quantity": 1
+                        },
+                        "desc": "",
+                        "name": "site",
+                        "type": "Container",
+                        "uuid": "I0bf3667d"
+                      },
+                      "I0d4c6eca": {
+                        "config": {
+                          "connectionType": "DB",
+                          "lineType": "Segmented"
+                        },
+                        "desc": "",
+                        "name": "Connection",
+                        "type": "Connection",
+                        "uuid": "I0d4c6eca"
+                      },
+                      "I236f2bde": {
+                        "config": {
+                          "connectionType": "Client",
+                          "lineType": "Segmented"
+                        },
+                        "desc": "",
+                        "name": "Connection",
+                        "type": "Connection",
+                        "uuid": "I236f2bde"
+                      },
+                      "I392d0d49": {
+                        "config": {
+                          "connectionType": "Client",
+                          "lineType": "Segmented"
+                        },
+                        "desc": "",
+                        "name": "Connection",
+                        "type": "Connection",
+                        "uuid": "I392d0d49"
+                      },
+                      "I3fd02433": {
+                        "config": {
+                          "Outgoing": "",
+                          "connectionType": "Device Driver",
+                          "lineType": "Segmented"
+                        },
+                        "desc": "",
+                        "name": "Connection",
+                        "type": "Connection",
+                        "uuid": "I3fd02433"
+                      },
+                      "I45290060": {
+                        "config": {
+                          "Outgoing": "",
+                          "connectionType": "Client",
+                          "lineType": "Segmented"
+                        },
+                        "desc": "",
+                        "name": "Connection",
+                        "type": "Connection",
+                        "uuid": "I45290060"
+                      },
+                      "I48a703ef": {
+                        "config": {
+                          "Outgoing": "If879a196",
+                          "connectionType": "Gateway Network",
+                          "lineType": "Segmented"
+                        },
+                        "desc": "",
+                        "name": "Connection",
+                        "type": "Connection",
+                        "uuid": "I48a703ef"
+                      },
+                      "I48cca8d3": {
+                        "config": {
+                          "backColor": "#808080",
+                          "labelColor": "#000000",
+                          "location": {
+                            "lat": null,
+                            "lng": null
+                          },
+                          "quantity": 1
+                        },
+                        "desc": "",
+                        "name": "site",
+                        "type": "Container",
+                        "uuid": "I48cca8d3"
+                      },
+                      "I49c4e4bf": {
+                        "config": {
+                          "backColor": "#808080",
+                          "labelColor": "#000000",
+                          "location": {
+                            "lat": null,
+                            "lng": null
+                          },
+                          "quantity": 1
+                        },
+                        "desc": "",
+                        "name": "Backend Gateways",
+                        "type": "Container",
+                        "uuid": "I49c4e4bf"
+                      },
+                      "I5bb1c984": {
+                        "config": {
+                          "DBType": "PostgreSQL",
+                          "connections": [
+                            "If4094c27",
+                            "I0d4c6eca"
+                          ]
+                        },
+                        "desc": "",
+                        "name": "Database",
+                        "type": "Database",
+                        "uuid": "I5bb1c984"
+                      },
+                      "I60cdb068": {
+                        "config": {
+                          "PLCType": "",
+                          "connections": [
+                            "I3fd02433"
+                          ],
+                          "image": "PLCBlue-Left",
+                          "ips": [],
+                          "model": "",
+                          "quantity": 1,
+                          "tagCount": 0
+                        },
+                        "desc": "",
+                        "name": "Device",
+                        "type": "Device",
+                        "uuid": "I60cdb068"
+                      },
+                      "I6e15ecc3": {
+                        "config": {
+                          "Outgoing": "",
+                          "connectionType": "Device Driver",
+                          "lineType": "Segmented"
+                        },
+                        "desc": "",
+                        "name": "Connection",
+                        "type": "Connection",
+                        "uuid": "I6e15ecc3"
+                      },
+                      "I714d6b21": {
+                        "config": {
+                          "connections": [
+                            "I236f2bde",
+                            "I392d0d49",
+                            "I45290060",
+                            "I7bdb76e5",
+                            "I48a703ef"
+                          ],
+                          "development": false,
+                          "displayModules": true,
+                          "licenseKey": "",
+                          "licenseKeyRedun": "",
+                          "modules": {
+                            "CL": [],
+                            "IA": [
+                              {
+                                "name": "Platform"
+                              },
+                              {
+                                "name": "OPC UA"
+                              }
+                            ],
+                            "SS": [],
+                            "TPM": []
+                          },
+                          "redundant": false,
+                          "version": "8.1.x"
+                        },
+                        "desc": "",
+                        "name": "Frontend",
+                        "type": "standard",
+                        "uuid": "I714d6b21"
+                      },
+                      "I7a32a474": {
+                        "config": {
+                          "Outgoing": "",
+                          "connectionType": "Device Driver",
+                          "lineType": "Segmented"
+                        },
+                        "desc": "",
+                        "name": "Connection",
+                        "type": "Connection",
+                        "uuid": "I7a32a474"
+                      },
+                      "I7bdb76e5": {
+                        "config": {
+                          "Outgoing": "I92a2a863",
+                          "connectionType": "Gateway Network",
+                          "lineType": "Segmented"
+                        },
+                        "desc": "",
+                        "name": "Connection",
+                        "type": "Connection",
+                        "uuid": "I7bdb76e5"
+                      },
+                      "I8db6eec0": {
+                        "config": {
+                          "connections": [
+                            "I236f2bde"
+                          ],
+                          "image": "ClientLaptopWhite-Left",
+                          "quantity": 1
+                        },
+                        "desc": "",
+                        "name": "Client",
+                        "type": "Client",
+                        "uuid": "I8db6eec0"
+                      },
+                      "I92a2a863": {
+                        "config": {
+                          "connections": [
+                            "I7bdb76e5",
+                            "I0d4c6eca",
+                            "Ia06b38ea",
+                            "I6e15ecc3"
+                          ],
+                          "development": false,
+                          "displayModules": true,
+                          "licenseKey": "",
+                          "licenseKeyRedun": "",
+                          "modules": {
+                            "CL": [],
+                            "IA": [
+                              {
+                                "name": "Platform"
+                              },
+                              {
+                                "name": "OPC UA"
+                              }
+                            ],
+                            "SS": [],
+                            "TPM": []
+                          },
+                          "redundant": false,
+                          "version": "8.1.x"
+                        },
+                        "desc": "",
+                        "name": "Backend1",
+                        "type": "standard",
+                        "uuid": "I92a2a863"
+                      },
+                      "I97b15134": {
+                        "config": {
+                          "backColor": "#808080",
+                          "labelColor": "#000000",
+                          "location": {
+                            "lat": null,
+                            "lng": null
+                          },
+                          "quantity": 1
+                        },
+                        "desc": "",
+                        "name": "site",
+                        "type": "Container",
+                        "uuid": "I97b15134"
+                      },
+                      "I9c31a795": {
+                        "config": {
+                          "connections": [],
+                          "image": "CellPhoneWhite",
+                          "quantity": 1
+                        },
+                        "desc": "",
+                        "name": "Client",
+                        "type": "Client",
+                        "uuid": "I9c31a795"
+                      },
+                      "Ia06b38ea": {
+                        "config": {
+                          "Outgoing": "",
+                          "connectionType": "Device Driver",
+                          "lineType": "Segmented"
+                        },
+                        "desc": "",
+                        "name": "Connection",
+                        "type": "Connection",
+                        "uuid": "Ia06b38ea"
+                      },
+                      "Ib1370020": {
+                        "config": {
+                          "connections": [
+                            "I45290060"
+                          ],
+                          "image": "HMI-Ignition",
+                          "quantity": 1
+                        },
+                        "desc": "",
+                        "name": "Client",
+                        "type": "Client",
+                        "uuid": "Ib1370020"
+                      },
+                      "Ib602774f": {
+                        "config": {
+                          "PLCType": "",
+                          "connections": [
+                            "I7a32a474"
+                          ],
+                          "image": "PLCBlue-Left",
+                          "ips": [],
+                          "model": "",
+                          "quantity": 1,
+                          "tagCount": 0
+                        },
+                        "desc": "",
+                        "name": "Device",
+                        "type": "Device",
+                        "uuid": "Ib602774f"
+                      },
+                      "Id2e2fcc3": {
+                        "config": {
+                          "connections": [
+                            "I392d0d49"
+                          ],
+                          "image": "ClientKeyboardWhite-Left",
+                          "quantity": 1
+                        },
+                        "desc": "",
+                        "name": "Client",
+                        "type": "Client",
+                        "uuid": "Id2e2fcc3"
+                      },
+                      "Ie8925b51": {
+                        "config": {
+                          "PLCType": "",
+                          "connections": [
+                            "Ia06b38ea"
+                          ],
+                          "image": "PLCBlue-Left",
+                          "ips": [],
+                          "model": "",
+                          "quantity": 1,
+                          "tagCount": 0
+                        },
+                        "desc": "",
+                        "name": "Device",
+                        "type": "Device",
+                        "uuid": "Ie8925b51"
+                      },
+                      "If4094c27": {
+                        "config": {
+                          "connectionType": "DB",
+                          "lineType": "Segmented"
+                        },
+                        "desc": "",
+                        "name": "Connection",
+                        "type": "Connection",
+                        "uuid": "If4094c27"
+                      },
+                      "If55223f7": {
+                        "config": {
+                          "backColor": "#808080",
+                          "labelColor": "#000000",
+                          "location": {
+                            "lat": null,
+                            "lng": null
+                          },
+                          "quantity": 1
+                        },
+                        "desc": "",
+                        "name": "Frontend Gateway",
+                        "type": "Container",
+                        "uuid": "If55223f7"
+                      },
+                      "If595af30": {
+                        "config": {
+                          "PLCType": "",
+                          "connections": [
+                            "I6e15ecc3"
+                          ],
+                          "image": "PLCBlue-Left",
+                          "ips": [],
+                          "model": "",
+                          "quantity": 1,
+                          "tagCount": 0
+                        },
+                        "desc": "",
+                        "name": "Device",
+                        "type": "Device",
+                        "uuid": "If595af30"
+                      },
+                      "If879a196": {
+                        "config": {
+                          "connections": [
+                            "I48a703ef",
+                            "If4094c27",
+                            "I3fd02433",
+                            "I7a32a474"
+                          ],
+                          "development": false,
+                          "displayModules": true,
+                          "licenseKey": "",
+                          "licenseKeyRedun": "",
+                          "modules": {
+                            "CL": [],
+                            "IA": [
+                              {
+                                "name": "Platform"
+                              },
+                              {
+                                "name": "OPC UA"
+                              }
+                            ],
+                            "SS": [],
+                            "TPM": []
+                          },
+                          "redundant": false,
+                          "version": "8.1.x"
+                        },
+                        "desc": "",
+                        "name": "Backend2",
+                        "type": "standard",
+                        "uuid": "If879a196"
+                      }
+                    },
+                    "connections": {
+                      "I0d4c6eca": {
+                        "I5bb1c984": {
+                          "x": 0.5,
+                          "y": 1
+                        },
+                        "I92a2a863": {
+                          "x": 0.5,
+                          "y": 0
+                        }
+                      },
+                      "I236f2bde": {
+                        "I714d6b21": {
+                          "x": 1,
+                          "y": 0.5
+                        },
+                        "I8db6eec0": {
+                          "x": 0,
+                          "y": 0.5
+                        }
+                      },
+                      "I392d0d49": {
+                        "I714d6b21": {
+                          "x": 1,
+                          "y": 0.5
+                        },
+                        "Id2e2fcc3": {
+                          "x": 0,
+                          "y": 0.5
+                        }
+                      },
+                      "I3fd02433": {
+                        "I60cdb068": {
+                          "x": 1,
+                          "y": 0.5
+                        },
+                        "If879a196": {
+                          "x": 0,
+                          "y": 0.5
+                        }
+                      },
+                      "I45290060": {
+                        "I714d6b21": {
+                          "x": 1,
+                          "y": 0.5
+                        },
+                        "Ib1370020": {
+                          "x": 0,
+                          "y": 0.5
+                        }
+                      },
+                      "I48a703ef": {
+                        "I714d6b21": {
+                          "x": 0,
+                          "y": 0.5
+                        },
+                        "If879a196": {
+                          "x": 1,
+                          "y": 0.5
+                        }
+                      },
+                      "I6e15ecc3": {
+                        "I92a2a863": {
+                          "x": 0,
+                          "y": 0.5
+                        },
+                        "If595af30": {
+                          "x": 1,
+                          "y": 0.5
+                        }
+                      },
+                      "I7a32a474": {
+                        "Ib602774f": {
+                          "x": 1,
+                          "y": 0.5
+                        },
+                        "If879a196": {
+                          "x": 0,
+                          "y": 0.5
+                        }
+                      },
+                      "I7bdb76e5": {
+                        "I714d6b21": {
+                          "x": 0,
+                          "y": 0.5
+                        },
+                        "I92a2a863": {
+                          "x": 1,
+                          "y": 0.5
+                        }
+                      },
+                      "Ia06b38ea": {
+                        "I92a2a863": {
+                          "x": 0,
+                          "y": 0.5
+                        },
+                        "Ie8925b51": {
+                          "x": 1,
+                          "y": 0.5
+                        }
+                      },
+                      "If4094c27": {
+                        "I5bb1c984": {
+                          "x": 0.5,
+                          "y": 0
+                        },
+                        "If879a196": {
+                          "x": 0.5,
+                          "y": 1
+                        }
+                      }
+                    },
+                    "containers": [
+                      {
+                        "I49c4e4bf": {
+                          "height": 500,
+                          "left": 360,
+                          "primaryViewPath": "Exchange/ArchitectureBuilder/Frames/Site",
+                          "top": 140,
+                          "width": 140
+                        }
+                      },
+                      {
+                        "If55223f7": {
+                          "height": 500,
+                          "left": 540,
+                          "primaryViewPath": "Exchange/ArchitectureBuilder/Frames/Site",
+                          "top": 140,
+                          "width": 140
+                        }
+                      }
+                    ],
+                    "filename": "Scale-Out",
+                    "meetingId": "",
+                    "saveDate": {
+                      "$": [
+                        "ts",
+                        192,
+                        1717520491428
+                      ],
+                      "$ts": 1717004700928
+                    }
+                  }
+                },
+                "events": {
+                  "component": {
+                    "onActionPerformed": {
+                      "config": {
+                        "script": "\tdocId\u003dself.view.custom.loadPath.id\n\tconnector\u003dself.view.custom.loadPath.connector\n\tcollection\u003dself.view.custom.loadPath.collection\n\tfilename\u003dself.view.custom.loadPath.filename\n\tfrom system.mongodb.types import ObjectId\n\tfilter \u003d {\"_id\":ObjectId(docId)}\n\tdoc\u003dsystem.mongodb.findOne(connector, collection, filter)\n\t\n\tdel doc[\u0027_id\u0027]\n\t\n\t#copy to other mongoDB Collection\n\tnewConnector\u003dself.getSibling(\"Dropdown\").props.value\n\tnewCollection\u003dself.getSibling(\"Dropdown_0\").props.value\n\tsystem.mongodb.insertOne(newConnector, newCollection, doc)\n\t# Specify unique field values to locate specific document. Here we are specifying the known _id of the document.\n\t  \n\t#Delete mongo data from collection\n\tsystem.mongodb.deleteOne(connector, collection, filter)\n\n\tself.parent.parent.getChild(\"Tree\").props.selection\u003d[]\n\tself.parent.parent.getChild(\"Tree\").props.selectionData\u003d[]\n\tself.parent.parent.getChild(\"Tree\").refreshBinding(\"props.items\")\n\t\n\tmessage\u003d\u0027\"{}\" Successfully Moved From \"{}:{}\" To \"{}:{}\"\u0027.format(filename, connector, collection, newConnector, newCollection)\n\tsystem.perspective.sendMessage(\"Toast\", {\"message\": message, \"delay\": 5, \"color\": \"--success\"}, scope\u003d\"session\")"
+                      },
+                      "scope": "G",
+                      "type": "script"
+                    }
+                  }
+                },
+                "meta": {
+                  "name": "AddFolder"
+                },
+                "position": {
+                  "shrink": 0
+                },
+                "propConfig": {
+                  "props.enabled": {
+                    "binding": {
+                      "config": {
+                        "expression": "({../Dropdown.props.value}!\u003dnull \u0026\u0026\r\n{../Dropdown_0.props.value}!\u003dnull \u0026\u0026\r\nlen({view.custom.loadPath})\u003e0)\u0026\u0026\r\n({view.custom.hasRole}||{view.custom.isUser})"
+                      },
+                      "type": "expr"
+                    }
+                  }
+                },
+                "props": {
+                  "image": {
+                    "icon": {
+                      "path": "material/double_arrow"
+                    }
+                  },
+                  "text": "Move File"
+                },
+                "type": "ia.input.button"
+              }
+            ],
+            "meta": {
+              "name": "Move"
+            },
+            "props": {
+              "direction": "column",
+              "style": {
+                "borderStyle": "solid",
+                "borderWidth": "1px",
+                "marginBottom": "8px",
+                "padding": "4px"
+              }
+            },
+            "type": "ia.container.flex"
+          },
+          {
+            "children": [
+              {
+                "meta": {
+                  "name": "TextField"
+                },
+                "position": {
+                  "basis": "29px",
+                  "shrink": 0
+                },
+                "props": {
+                  "deferUpdates": false,
+                  "placeholder": "New Name...",
+                  "style": {
+                    "marginBottom": "8px"
+                  }
+                },
+                "type": "ia.input.text-field"
+              },
+              {
+                "events": {
+                  "component": {
+                    "onActionPerformed": {
+                      "config": {
+                        "script": "\tnewFilename\u003dself.getSibling(\"TextField\").props.text\n\toldFilename\u003dself.view.custom.loadPath.filename\n\tdocID\u003dself.view.custom.loadPath.id\n\tconnector\u003dself.view.custom.loadPath.connector\n\tcollection\u003dself.view.custom.loadPath.collection\n\t\n\tfrom system.mongodb.types import ObjectId\n\t \n\t# Specify unique field values to locate specific document. Here we are specifying the known _id of the document.\n\tfilter \u003d {\"_id\": ObjectId(docID)}\n\t \n\t# Specify document fields to update for found BSON document(s). \u0027accounts\u0027 is an existing field on the document.\n\tupdates \u003d [\n\t            {\"$set\":\n\t                {\n\t                    \"filename\": newFilename\n\t                }\n\t            }\n\t        ]\n\t   \n\t# Apply parameters for function call.\n\tsystem.mongodb.updateOne(connector, collection, filter, updates)\n\tself.parent.parent.getChild(\"Tree\").props.selection\u003d[]\n\tself.parent.parent.getChild(\"Tree\").props.selectionData\u003d[]\n\tself.parent.parent.getChild(\"Tree\").refreshBinding(\u0027props.items\u0027)\n\tmessage\u003d\u0027\"{}\"\\n Successfully Renamed To\\n\"{}\"\u0027.format(oldFilename, newFilename)\n\tsystem.perspective.sendMessage(\"Toast\", {\"message\": message, \"delay\": 3, \"color\": \"--success\"}, scope\u003d\"session\")"
+                      },
+                      "scope": "G",
+                      "type": "script"
+                    }
+                  }
+                },
+                "meta": {
+                  "name": "AddFolder"
+                },
+                "position": {
+                  "shrink": 0
+                },
+                "propConfig": {
+                  "props.enabled": {
+                    "binding": {
+                      "config": {
+                        "expression": "({../TextField.props.text}!\u003d\u0027\u0027\u0026\u0026 \r\nlen({view.custom.loadPath})\u003e3)\u0026\u0026\r\n({view.custom.hasRole}||{view.custom.isUser})"
+                      },
+                      "type": "expr"
+                    }
+                  }
+                },
+                "props": {
+                  "image": {
+                    "icon": {
+                      "path": "material/create_new_folder"
+                    }
+                  },
+                  "text": "Rename"
+                },
+                "type": "ia.input.button"
+              }
+            ],
+            "meta": {
+              "name": "Rename"
+            },
+            "propConfig": {
+              "custom.folderName": {
+                "binding": {
+                  "config": {
+                    "path": "./TextField.props.text"
+                  },
+                  "type": "property"
+                }
+              }
+            },
+            "props": {
+              "direction": "column",
+              "style": {
+                "borderStyle": "solid",
+                "borderWidth": "1px",
+                "marginBottom": "8px",
+                "padding": "4px"
+              }
+            },
+            "type": "ia.container.flex"
+          },
+          {
+            "events": {
+              "component": {
+                "onActionPerformed": {
+                  "config": {
+                    "script": "\tfrom system.mongodb.types import ObjectId\n\tfilename\u003dself.view.custom.loadPath.filename\n\tconnector\u003dself.view.custom.loadPath.connector\n\tcollection\u003dself.view.custom.loadPath.collection\n\t# Specify unique field values to locate specific document. Here we are specifying the known _id of the document.\n\tfilter \u003d {\"_id\": ObjectId(self.view.custom.loadPath.id)}\n\t   \n\t# Apply parameters for function call.\n\tsystem.mongodb.deleteOne(connector, collection, filter)\n\tself.getSibling(\"Tree\").refreshBinding(\"props.items\")\n\tself.getSibling(\"Tree\").props.selection\u003d[]\n\tself.getSibling(\"Tree\").props.selectionData\u003d[]\n\tself.props.value\u003d0\n\tmessage\u003d\u0027\"{}\" Deleted Successfully\u0027.format(filename)\n\tsystem.perspective.sendMessage(\"Toast\", {\"message\": message, \"delay\": 3, \"color\": \"--success\", \"textColor\": \"Black\"}, scope\u003d\"session\")"
+                  },
+                  "scope": "G",
+                  "type": "script"
+                }
+              }
+            },
+            "meta": {
+              "name": "OneShotButton",
+              "tooltip": {}
+            },
+            "position": {
+              "basis": "28px",
+              "shrink": 0
+            },
+            "propConfig": {
+              "meta.tooltip.enabled": {
+                "binding": {
+                  "config": {
+                    "path": "../Tree.props.selectionData[0].value.userName"
+                  },
+                  "overlayOptOut": true,
+                  "transforms": [
+                    {
+                      "fallback": true,
+                      "inputType": "scalar",
+                      "mappings": [
+                        {
+                          "input": null,
+                          "output": false
+                        }
+                      ],
+                      "outputType": "scalar",
+                      "type": "map"
+                    }
+                  ],
+                  "type": "property"
+                }
+              },
+              "meta.tooltip.text": {
+                "binding": {
+                  "config": {
+                    "path": "../Tree.props.selectionData[0].value.userName"
+                  },
+                  "transforms": [
+                    {
+                      "code": "\treturn \"Architecture Owned By ({})\" .format(value)",
+                      "type": "script"
+                    }
+                  ],
+                  "type": "property"
+                }
+              },
+              "props.confirm.text": {
+                "binding": {
+                  "config": {
+                    "path": "../Tree.props.selectionData[0].value.filename"
+                  },
+                  "overlayOptOut": true,
+                  "transforms": [
+                    {
+                      "code": "\treturn \u0027Are you sure you want to delete\\n\"{}\"\u0027.format(value)",
+                      "type": "script"
+                    }
+                  ],
+                  "type": "property"
+                }
+              },
+              "props.enabled": {
+                "binding": {
+                  "config": {
+                    "expression": "len({view.custom.loadPath})\u003e3\u0026\u0026\r\n({view.custom.hasRole}||{view.custom.isUser})"
+                  },
+                  "type": "expr"
+                }
+              },
+              "props.readyState.text": {
+                "binding": {
+                  "config": {
+                    "path": "../Tree.props.selectionData"
+                  },
+                  "transforms": [
+                    {
+                      "code": "\tif len(value)\u003e0 and \u0027value\u0027 in value[0].keys():\n\t\treturn \u0027Delete \"{}\"\u0027.format(value[0][\u0027value\u0027][\u0027filename\u0027])\n\treturn \u0027Delete\u0027",
+                      "type": "script"
+                    }
+                  ],
+                  "type": "property"
+                }
+              }
+            },
+            "props": {
+              "confirm": {
+                "enabled": true
+              },
+              "readyState": {
+                "icon": {
+                  "style": {
+                    "height": "24px",
+                    "width": "2rem"
+                  }
+                }
+              },
+              "writingState": {
+                "icon": {
+                  "path": "material/hourglass_empty",
+                  "style": {
+                    "height": "24px",
+                    "width": "2rem"
+                  }
+                },
+                "text": "Deleting..."
+              }
+            },
+            "type": "ia.input.oneshotbutton"
+          }
+        ],
+        "meta": {
+          "name": "FileManager"
+        },
+        "position": {
+          "basis": "285px",
+          "grow": 1
+        },
+        "props": {
+          "direction": "column",
+          "style": {
+            "margin": "8px"
+          }
+        },
+        "type": "ia.container.flex"
+      }
+    ],
+    "custom": {
+      "connectors": [
+        {
+          "description": null,
+          "error": null,
+          "name": "SE-Notes",
+          "status": "Valid"
+        },
+        {
+          "description": null,
+          "error": null,
+          "name": "se-notes-arch",
+          "status": "Valid"
+        }
+      ],
+      "date": {
+        "$": [
+          "ts",
+          192,
+          1726146819373
+        ],
+        "$ts": 1726146819373
+      }
+    },
+    "meta": {
+      "name": "root"
+    },
+    "scripts": {
+      "customMethods": [
+        {
+          "name": "refreshConnections",
+          "params": [],
+          "script": "\tlogger\u003dsystem.util.getLogger(\u0027LoadMongoData\u0027)\n\tdef getConnectorState(name):\n\t\tallow\u003dTrue\n\t\tfor connector in self.session.custom.admin.mongoAccess:\n\t\t\tif name\u003d\u003dconnector[\u0027name\u0027]:\n\t\t\t\tallow\u003dconnector[\u0027allow\u0027]\n\t\t\t\tbreak\n\t\treturn allow\n\t\n\tself.custom.date\u003dsystem.date.now()\n\tconnectors\u003dsystem.mongodb.listConnectorInfo()\n\tself.custom.connectors\u003dconnectors\n\titems\u003d{}\n\tfor connector in connectors:\n\t\tif connector[\u0027status\u0027]\u003d\u003d\u0027Valid\u0027:\n\t\t\tconnectorName\u003dconnector[\u0027name\u0027]\n\t\t\titems[connectorName]\u003dsystem.mongodb.listCollectionNames(connectorName)\n\t\telse:\n\t\t\tlogger.warn(\u0027MongoDB [{}] is Faulted, check that Database(s) and Collection(s) are configured in DB manager\u0027.format(connector[\u0027name\u0027]))\n\t\n\tself.view.custom.connectors\u003ditems"
+        }
+      ],
+      "extensionFunctions": null,
+      "messageHandlers": []
+    },
+    "type": "ia.container.flex"
+  }
+}

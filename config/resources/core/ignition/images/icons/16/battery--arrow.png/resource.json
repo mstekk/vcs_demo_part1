@@ -1,0 +1,20 @@
+{
+  "scope": "A",
+  "version": 1,
+  "restricted": false,
+  "overridable": true,
+  "files": [
+    "battery--arrow.png"
+  ],
+  "attributes": {
+    "width": 16,
+    "format": "PNG",
+    "lastModification": {
+      "actor": "8.3-migration",
+      "timestamp": "2026-01-07T14:49:07Z"
+    },
+    "size": 799,
+    "lastModificationSignature": "7608d0033656fe13b6cc0e5e3e8abafbd8a49a5c50a6c6aa23b74ef028741407",
+    "height": 16
+  }
+}

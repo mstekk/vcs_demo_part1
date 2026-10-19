@@ -1,0 +1,10 @@
+{
+  "classname": "com.ibm.db2.jcc.DB2Driver",
+  "defaultPropInstructions": "",
+  "defaultProps": "",
+  "defaultTranslator": "DB2",
+  "defaultValidationQuery": "select 1 from sysibm.sysdummy1",
+  "type": "DB2",
+  "urlFormat": "jdbc:db2://localhost:50000/SAMPLE",
+  "urlInstructions": "\u003cbr/\u003eThe format of the DB2 connect URL is:\u003cbr\u003e\u003ccode\u003edb2://\u003cb\u003ehost\u003c/b\u003e:\u003cb\u003eport\u003c/b\u003e/\u003cb\u003edatabase\u003c/b\u003e\u003c/code\u003e\u003cbr\u003eWith the three parameters (in bold) \u003cul style\u003d\"list-style-type:none;margin-left:10px;\"\u003e\u003cli\u003e\u003cb\u003ehost\u003c/b\u003e: The host name or IP address of the database server.\u003c/li\u003e\u003cli\u003e\u003cb\u003eport\u003c/b\u003e: The port that the database server is running on. DB2 default port is \u003cb\u003e50000\u003c/b\u003e.\u003c/li\u003e\u003cli\u003e\u003cb\u003edatabase\u003c/b\u003e: The name of the logical database that you are connecting to on the DB2 server.\u003c/li\u003e\u003c/ul\u003e"
+}

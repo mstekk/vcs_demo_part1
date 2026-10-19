@@ -1,0 +1,20 @@
+{
+  "scope": "A",
+  "version": 1,
+  "restricted": false,
+  "overridable": true,
+  "files": [
+    "Conveyor 2.png"
+  ],
+  "attributes": {
+    "width": 180,
+    "format": "PNG",
+    "lastModification": {
+      "actor": "8.3-migration",
+      "timestamp": "2026-01-07T14:49:07Z"
+    },
+    "size": 6330,
+    "lastModificationSignature": "e1dc3138bd036936e42f49aa757834196517a4cb4e61c6bbab4fd5a10e84d285",
+    "height": 45
+  }
+}

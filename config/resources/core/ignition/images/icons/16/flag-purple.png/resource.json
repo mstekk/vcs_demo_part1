@@ -1,0 +1,20 @@
+{
+  "scope": "A",
+  "version": 1,
+  "restricted": false,
+  "overridable": true,
+  "files": [
+    "flag-purple.png"
+  ],
+  "attributes": {
+    "width": 16,
+    "format": "PNG",
+    "lastModification": {
+      "actor": "8.3-migration",
+      "timestamp": "2026-01-07T14:49:07Z"
+    },
+    "size": 698,
+    "lastModificationSignature": "73aa5e635ee0419a6c677e84d2ff914cda645985150314312e3cd4fe23f59e00",
+    "height": 16
+  }
+}

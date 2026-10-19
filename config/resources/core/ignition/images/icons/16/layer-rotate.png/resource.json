@@ -1,0 +1,20 @@
+{
+  "scope": "A",
+  "version": 1,
+  "restricted": false,
+  "overridable": true,
+  "files": [
+    "layer-rotate.png"
+  ],
+  "attributes": {
+    "width": 16,
+    "format": "PNG",
+    "lastModification": {
+      "actor": "8.3-migration",
+      "timestamp": "2026-01-07T14:49:07Z"
+    },
+    "size": 614,
+    "lastModificationSignature": "073b36c27342eea2de570848672f65ef45c37d8e5c2c1110205b30619c02b2a0",
+    "height": 16
+  }
+}

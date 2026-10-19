@@ -1,0 +1,20 @@
+{
+  "scope": "A",
+  "version": 1,
+  "restricted": false,
+  "overridable": true,
+  "files": [
+    "wrench--pencil.png"
+  ],
+  "attributes": {
+    "width": 16,
+    "format": "PNG",
+    "lastModification": {
+      "actor": "8.3-migration",
+      "timestamp": "2026-01-07T14:49:07Z"
+    },
+    "size": 850,
+    "lastModificationSignature": "5e1bee65f8688a14fd9bf84a5cce7b0dc5218b3d6e8728c65f292f69629d971f",
+    "height": 16
+  }
+}

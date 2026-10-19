@@ -1,0 +1,20 @@
+{
+  "scope": "A",
+  "version": 1,
+  "restricted": false,
+  "overridable": true,
+  "files": [
+    "mahjong--exclamation.png"
+  ],
+  "attributes": {
+    "width": 16,
+    "format": "PNG",
+    "lastModification": {
+      "actor": "8.3-migration",
+      "timestamp": "2026-01-07T14:49:07Z"
+    },
+    "size": 669,
+    "lastModificationSignature": "a1ffb7ede1cb81c1a76e1badf88df6d252bf99e7ba6b67397212d3a358a75e59",
+    "height": 16
+  }
+}

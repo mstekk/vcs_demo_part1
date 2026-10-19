@@ -1,0 +1,20 @@
+{
+  "scope": "A",
+  "version": 1,
+  "restricted": false,
+  "overridable": true,
+  "files": [
+    "quaver29.png"
+  ],
+  "attributes": {
+    "width": 24,
+    "format": "PNG",
+    "lastModification": {
+      "actor": "8.3-migration",
+      "timestamp": "2026-01-07T14:49:07Z"
+    },
+    "size": 453,
+    "lastModificationSignature": "bbde537daacc37c61ca2dac83484fec769da38e3e78bc73796960dd03e2df999",
+    "height": 24
+  }
+}

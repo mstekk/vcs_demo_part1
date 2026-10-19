@@ -1,0 +1,20 @@
+{
+  "scope": "A",
+  "version": 1,
+  "restricted": false,
+  "overridable": true,
+  "files": [
+    "Shutoff Valve 270.png"
+  ],
+  "attributes": {
+    "width": 427,
+    "format": "PNG",
+    "lastModification": {
+      "actor": "8.3-migration",
+      "timestamp": "2026-01-07T14:49:07Z"
+    },
+    "size": 12901,
+    "lastModificationSignature": "256a75da9dfa697c3b86f04f1c4b990c5822d0a74497220716d9b4dd6ee392f7",
+    "height": 206
+  }
+}

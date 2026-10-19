@@ -1,0 +1,20 @@
+{
+  "scope": "A",
+  "version": 1,
+  "restricted": false,
+  "overridable": true,
+  "files": [
+    "earthglobe9.png"
+  ],
+  "attributes": {
+    "width": 24,
+    "format": "PNG",
+    "lastModification": {
+      "actor": "8.3-migration",
+      "timestamp": "2026-01-07T14:49:07Z"
+    },
+    "size": 644,
+    "lastModificationSignature": "90777b579a9cb0f66ad11246017166e699ee09d250ec7d2dee92d1fc3815a203",
+    "height": 24
+  }
+}

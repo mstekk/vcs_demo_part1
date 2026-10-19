@@ -1,0 +1,20 @@
+{
+  "scope": "A",
+  "version": 1,
+  "restricted": false,
+  "overridable": true,
+  "files": [
+    "card-address.png"
+  ],
+  "attributes": {
+    "width": 16,
+    "format": "PNG",
+    "lastModification": {
+      "actor": "8.3-migration",
+      "timestamp": "2026-01-07T14:49:07Z"
+    },
+    "size": 636,
+    "lastModificationSignature": "2cba76518b4aa69b3af3cc0eb3e5c659d7d48125d049cf1a63bfc7c001be26c0",
+    "height": 16
+  }
+}

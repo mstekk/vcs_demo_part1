@@ -1,0 +1,20 @@
+{
+  "scope": "A",
+  "version": 1,
+  "restricted": false,
+  "overridable": true,
+  "files": [
+    "smiley-red.png"
+  ],
+  "attributes": {
+    "width": 16,
+    "format": "PNG",
+    "lastModification": {
+      "actor": "8.3-migration",
+      "timestamp": "2026-01-07T14:49:07Z"
+    },
+    "size": 769,
+    "lastModificationSignature": "93a1d162d25b8af89a9bb76afef635b7afe7bee838a73d7f05b48272f29b4016",
+    "height": 16
+  }
+}

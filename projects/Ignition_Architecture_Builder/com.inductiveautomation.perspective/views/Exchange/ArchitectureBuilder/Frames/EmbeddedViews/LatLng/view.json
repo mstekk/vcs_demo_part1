@@ -1,0 +1,162 @@
+{
+  "custom": {},
+  "params": {
+    "lat": null,
+    "lng": null,
+    "uuid": "value"
+  },
+  "propConfig": {
+    "params.lat": {
+      "paramDirection": "inout",
+      "persistent": true
+    },
+    "params.lng": {
+      "paramDirection": "inout",
+      "persistent": true
+    },
+    "params.uuid": {
+      "paramDirection": "input",
+      "persistent": true
+    }
+  },
+  "props": {
+    "defaultSize": {
+      "height": 69
+    }
+  },
+  "root": {
+    "children": [
+      {
+        "children": [
+          {
+            "meta": {
+              "name": "Lat"
+            },
+            "propConfig": {
+              "props.params.value": {
+                "binding": {
+                  "config": {
+                    "bidirectional": true,
+                    "path": "view.params.lat"
+                  },
+                  "type": "property"
+                }
+              }
+            },
+            "props": {
+              "params": {
+                "label": "Latitude:",
+                "labelSize": 100,
+                "precision": 6
+              },
+              "path": "Exchange/ArchitectureBuilder/General/NumericInput",
+              "style": {
+                "margin": "8px",
+                "marginBottom": "0px",
+                "marginTop": 0
+              }
+            },
+            "type": "ia.display.view"
+          },
+          {
+            "meta": {
+              "name": "Lng"
+            },
+            "propConfig": {
+              "props.params.value": {
+                "binding": {
+                  "config": {
+                    "bidirectional": true,
+                    "path": "view.params.lng"
+                  },
+                  "type": "property"
+                }
+              }
+            },
+            "props": {
+              "params": {
+                "label": "Longitude:",
+                "labelSize": 100,
+                "precision": 6
+              },
+              "path": "Exchange/ArchitectureBuilder/General/NumericInput",
+              "style": {
+                "margin": "8px",
+                "marginBottom": "0px"
+              }
+            },
+            "type": "ia.display.view"
+          }
+        ],
+        "meta": {
+          "name": "Define"
+        },
+        "position": {
+          "grow": 1
+        },
+        "props": {
+          "direction": "column"
+        },
+        "type": "ia.container.flex"
+      },
+      {
+        "events": {
+          "dom": {
+            "onClick": {
+              "config": {
+                "draggable": true,
+                "id": "SelectLocation",
+                "modal": true,
+                "overlayDismiss": false,
+                "resizable": true,
+                "showCloseIcon": true,
+                "title": "Select Location",
+                "type": "open",
+                "viewParams": {
+                  "lat": "{/root/Define/Lat.props.params.value}",
+                  "lng": "{/root/Define/Lng.props.params.value}",
+                  "uuid": "{view.params.uuid}"
+                },
+                "viewPath": "Exchange/ArchitectureBuilder/Map/embeddedViews/SelectLocation",
+                "viewportBound": false
+              },
+              "scope": "C",
+              "type": "popup"
+            }
+          }
+        },
+        "meta": {
+          "name": "Icon"
+        },
+        "position": {
+          "basis": "30px",
+          "shrink": 0
+        },
+        "props": {
+          "path": "material/map",
+          "style": {
+            "cursor": "pointer"
+          }
+        },
+        "type": "ia.display.icon"
+      }
+    ],
+    "meta": {
+      "name": "root"
+    },
+    "scripts": {
+      "customMethods": [],
+      "extensionFunctions": null,
+      "messageHandlers": [
+        {
+          "messageType": "areaLocation",
+          "pageScope": true,
+          "script": "\t#\tsystem.perspective.sendMessage(\u0027areaLocation\u0027, {\u0027lat\u0027: self.view.custom.lat, \u0027lng\u0027: self.view.custom.lng, \u0027uuid\u0027: self.view.params.uuid})\n\tif payload[\u0027uuid\u0027]\u003d\u003dself.view.params.uuid:\n\t\tself.view.params.lat\u003dpayload[\u0027lat\u0027]\n\t\tself.view.params.lng\u003dpayload[\u0027lng\u0027]",
+          "sessionScope": false,
+          "viewScope": false
+        }
+      ]
+    },
+    "type": "ia.container.flex"
+  }
+}

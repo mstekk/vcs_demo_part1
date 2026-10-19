@@ -1,0 +1,43 @@
+{
+  "custom": {},
+  "params": {},
+  "props": {},
+  "root": {
+    "children": [
+      {
+        "meta": {
+          "name": "Pan Zoom iFrame"
+        },
+        "position": {
+          "height": "100%",
+          "width": "100%"
+        },
+        "props": {
+          "params": {
+            "inputs": {
+              "detailedBreakpoint": 1.1,
+              "height": "800px",
+              "targetDetailedURL": "/embedme/detailed",
+              "targetURL": "/embedme/simple",
+              "width": "650px"
+            }
+          },
+          "path": "Exchange/Pan Zoom iFrame/Pan Zoom iFrame",
+          "style": {
+            "touch-action": "none"
+          }
+        },
+        "type": "ia.display.view"
+      }
+    ],
+    "meta": {
+      "name": "root"
+    },
+    "props": {
+      "style": {
+        "touch-action": "none"
+      }
+    },
+    "type": "ia.container.coord"
+  }
+}

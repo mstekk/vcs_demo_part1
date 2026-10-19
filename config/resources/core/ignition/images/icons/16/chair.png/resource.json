@@ -1,0 +1,20 @@
+{
+  "scope": "A",
+  "version": 1,
+  "restricted": false,
+  "overridable": true,
+  "files": [
+    "chair.png"
+  ],
+  "attributes": {
+    "width": 16,
+    "format": "PNG",
+    "lastModification": {
+      "actor": "8.3-migration",
+      "timestamp": "2026-01-07T14:49:07Z"
+    },
+    "size": 621,
+    "lastModificationSignature": "88c55f3dd485039a9be7cb40c3f75fcf870a911a31dbce8834bba301e7e678e8",
+    "height": 16
+  }
+}

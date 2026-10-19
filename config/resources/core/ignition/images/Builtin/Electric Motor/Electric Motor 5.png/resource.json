@@ -1,0 +1,20 @@
+{
+  "scope": "A",
+  "version": 1,
+  "restricted": false,
+  "overridable": true,
+  "files": [
+    "Electric Motor 5.png"
+  ],
+  "attributes": {
+    "width": 90,
+    "format": "PNG",
+    "lastModification": {
+      "actor": "8.3-migration",
+      "timestamp": "2026-01-07T14:49:07Z"
+    },
+    "size": 2101,
+    "lastModificationSignature": "9a5210f5d1764ce87f7bb5fce90248fbfc57523d24d2fc084f8c9901379975fc",
+    "height": 72
+  }
+}

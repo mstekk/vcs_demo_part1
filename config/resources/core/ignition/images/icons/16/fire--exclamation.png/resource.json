@@ -1,0 +1,20 @@
+{
+  "scope": "A",
+  "version": 1,
+  "restricted": false,
+  "overridable": true,
+  "files": [
+    "fire--exclamation.png"
+  ],
+  "attributes": {
+    "width": 16,
+    "format": "PNG",
+    "lastModification": {
+      "actor": "8.3-migration",
+      "timestamp": "2026-01-07T14:49:07Z"
+    },
+    "size": 722,
+    "lastModificationSignature": "a55ce3cee7c5de28e8eb26912d449d5c20e11c8a420f8d8ce0bc02a90624cb75",
+    "height": 16
+  }
+}

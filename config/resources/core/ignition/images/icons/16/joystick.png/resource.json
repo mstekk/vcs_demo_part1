@@ -1,0 +1,20 @@
+{
+  "scope": "A",
+  "version": 1,
+  "restricted": false,
+  "overridable": true,
+  "files": [
+    "joystick.png"
+  ],
+  "attributes": {
+    "width": 16,
+    "format": "PNG",
+    "lastModification": {
+      "actor": "8.3-migration",
+      "timestamp": "2026-01-07T14:49:07Z"
+    },
+    "size": 552,
+    "lastModificationSignature": "96fddd18a8f49789f1ca40715437f962adfbb2f445d55f5aeeabf2a70d4920f8",
+    "height": 16
+  }
+}

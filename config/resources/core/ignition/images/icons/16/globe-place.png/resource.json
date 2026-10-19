@@ -1,0 +1,20 @@
+{
+  "scope": "A",
+  "version": 1,
+  "restricted": false,
+  "overridable": true,
+  "files": [
+    "globe-place.png"
+  ],
+  "attributes": {
+    "width": 16,
+    "format": "PNG",
+    "lastModification": {
+      "actor": "8.3-migration",
+      "timestamp": "2026-01-07T14:49:07Z"
+    },
+    "size": 807,
+    "lastModificationSignature": "4d969c088619638edbee9eec8dda1c6bfb14bce1930331d47c58dcf0575db49b",
+    "height": 16
+  }
+}

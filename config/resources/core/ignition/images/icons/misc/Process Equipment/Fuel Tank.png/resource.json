@@ -1,0 +1,20 @@
+{
+  "scope": "A",
+  "version": 1,
+  "restricted": false,
+  "overridable": true,
+  "files": [
+    "Fuel Tank.png"
+  ],
+  "attributes": {
+    "width": 299,
+    "format": "PNG",
+    "lastModification": {
+      "actor": "8.3-migration",
+      "timestamp": "2026-01-07T14:49:07Z"
+    },
+    "size": 27995,
+    "lastModificationSignature": "bdb08edff677a7f2714faf90b9e957cce6aadf5adbc68178a049a29736b8cb2f",
+    "height": 296
+  }
+}

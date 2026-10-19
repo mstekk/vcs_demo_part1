@@ -1,0 +1,58 @@
+{
+  "custom": {},
+  "params": {},
+  "props": {},
+  "root": {
+    "children": [
+      {
+        "meta": {
+          "name": "NR-V6-7"
+        },
+        "position": {
+          "height": 110,
+          "rotate": {
+            "angle": "00deg"
+          },
+          "width": 100,
+          "x": 42.87,
+          "y": 45.599999999999994
+        },
+        "props": {
+          "params": {
+            "deviceName": "NR-V1-1",
+            "dimension": {
+              "height": 100,
+              "width": 100
+            },
+            "displayLabel": true,
+            "displayValue": true,
+            "isTelemetered": false,
+            "tagPath": "[RCSD]WTF/Anita-B-Smith/NR-V1-1"
+          },
+          "path": "Devices/Valve_Control_v1",
+          "useDefaultViewHeight": true
+        },
+        "type": "ia.display.view"
+      },
+      {
+        "meta": {
+          "name": "Icon"
+        },
+        "position": {
+          "height": 249,
+          "width": 277,
+          "x": 197,
+          "y": 238
+        },
+        "props": {
+          "path": "rcsd/process"
+        },
+        "type": "ia.display.icon"
+      }
+    ],
+    "meta": {
+      "name": "root"
+    },
+    "type": "ia.container.coord"
+  }
+}

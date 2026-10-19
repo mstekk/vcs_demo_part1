@@ -1,0 +1,20 @@
+{
+  "scope": "A",
+  "version": 1,
+  "restricted": false,
+  "overridable": true,
+  "files": [
+    "left207.png"
+  ],
+  "attributes": {
+    "width": 32,
+    "format": "PNG",
+    "lastModification": {
+      "actor": "8.3-migration",
+      "timestamp": "2026-01-07T14:49:07Z"
+    },
+    "size": 281,
+    "lastModificationSignature": "840e13ee763476902e3ee80c424fc4613a0af5a772838eaebb8a545c9c830d76",
+    "height": 32
+  }
+}

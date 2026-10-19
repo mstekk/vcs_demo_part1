@@ -1,0 +1,20 @@
+{
+  "scope": "A",
+  "version": 1,
+  "restricted": false,
+  "overridable": true,
+  "files": [
+    "balloon--exclamation.png"
+  ],
+  "attributes": {
+    "width": 16,
+    "format": "PNG",
+    "lastModification": {
+      "actor": "8.3-migration",
+      "timestamp": "2026-01-07T14:49:07Z"
+    },
+    "size": 869,
+    "lastModificationSignature": "01d1342d0481e7b50f49b94792c19fd0f1b7498e5448921d7052eeaf3822f3dc",
+    "height": 16
+  }
+}

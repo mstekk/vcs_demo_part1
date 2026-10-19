@@ -1,0 +1,20 @@
+{
+  "scope": "A",
+  "version": 1,
+  "restricted": false,
+  "overridable": true,
+  "files": [
+    "document-php.png"
+  ],
+  "attributes": {
+    "width": 16,
+    "format": "PNG",
+    "lastModification": {
+      "actor": "8.3-migration",
+      "timestamp": "2026-01-07T14:49:07Z"
+    },
+    "size": 669,
+    "lastModificationSignature": "1c8c0a956b70ede0961f379663ac4a23556f2b1e38d2b78e9d7d8eb38c00e80a",
+    "height": 16
+  }
+}

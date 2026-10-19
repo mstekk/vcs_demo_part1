@@ -1,0 +1,20 @@
+{
+  "scope": "A",
+  "version": 1,
+  "restricted": false,
+  "overridable": true,
+  "files": [
+    "water.png"
+  ],
+  "attributes": {
+    "width": 16,
+    "format": "PNG",
+    "lastModification": {
+      "actor": "8.3-migration",
+      "timestamp": "2026-01-07T14:49:07Z"
+    },
+    "size": 538,
+    "lastModificationSignature": "36f1cf43ddc9da8f3652a9cbd625861bfdca733e2e9125da4feef3f162d0dfbd",
+    "height": 16
+  }
+}

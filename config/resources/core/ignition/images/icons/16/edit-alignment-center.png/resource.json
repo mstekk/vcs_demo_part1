@@ -1,0 +1,20 @@
+{
+  "scope": "A",
+  "version": 1,
+  "restricted": false,
+  "overridable": true,
+  "files": [
+    "edit-alignment-center.png"
+  ],
+  "attributes": {
+    "width": 16,
+    "format": "PNG",
+    "lastModification": {
+      "actor": "8.3-migration",
+      "timestamp": "2026-01-07T14:49:07Z"
+    },
+    "size": 235,
+    "lastModificationSignature": "468b972fb65ef4f4f07eef29185f2dcb2ffd61cd6c6812d84c343acc0fcd3f6d",
+    "height": 16
+  }
+}

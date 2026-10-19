@@ -1,0 +1,20 @@
+{
+  "scope": "A",
+  "version": 1,
+  "restricted": false,
+  "overridable": true,
+  "files": [
+    "Side-Stripper grey.png"
+  ],
+  "attributes": {
+    "width": 69,
+    "format": "PNG",
+    "lastModification": {
+      "actor": "8.3-migration",
+      "timestamp": "2026-01-07T14:49:07Z"
+    },
+    "size": 7514,
+    "lastModificationSignature": "2d58f31484ec219126ab07a1ecdadf6120e00340b5e56a82c043185622a8f286",
+    "height": 400
+  }
+}

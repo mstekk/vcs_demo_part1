@@ -1,0 +1,20 @@
+{
+  "scope": "A",
+  "version": 1,
+  "restricted": false,
+  "overridable": true,
+  "files": [
+    "camcorder--exclamation.png"
+  ],
+  "attributes": {
+    "width": 16,
+    "format": "PNG",
+    "lastModification": {
+      "actor": "8.3-migration",
+      "timestamp": "2026-01-07T14:49:07Z"
+    },
+    "size": 849,
+    "lastModificationSignature": "2e6930805517c42e1deee3e8a3e88bce5ef254b3f3e2ab1cdeed80d098403526",
+    "height": 16
+  }
+}

@@ -1,0 +1,20 @@
+{
+  "scope": "A",
+  "version": 1,
+  "restricted": false,
+  "overridable": true,
+  "files": [
+    "spray--pencil.png"
+  ],
+  "attributes": {
+    "width": 16,
+    "format": "PNG",
+    "lastModification": {
+      "actor": "8.3-migration",
+      "timestamp": "2026-01-07T14:49:07Z"
+    },
+    "size": 712,
+    "lastModificationSignature": "11a1aa17cd7acb902f91bfa335d33ea8de06196301fdda7d64588ebc59355ff1",
+    "height": 16
+  }
+}

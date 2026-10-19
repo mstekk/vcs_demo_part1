@@ -1,0 +1,20 @@
+{
+  "scope": "A",
+  "version": 1,
+  "restricted": false,
+  "overridable": true,
+  "files": [
+    "bargraph.png"
+  ],
+  "attributes": {
+    "width": 24,
+    "format": "PNG",
+    "lastModification": {
+      "actor": "8.3-migration",
+      "timestamp": "2026-01-07T14:49:07Z"
+    },
+    "size": 222,
+    "lastModificationSignature": "4841e8cc98d7e9d387e6ad08a8588df5dd507aa141b247c8c758c96e206114d6",
+    "height": 24
+  }
+}

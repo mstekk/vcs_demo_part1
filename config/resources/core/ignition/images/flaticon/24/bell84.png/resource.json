@@ -1,0 +1,20 @@
+{
+  "scope": "A",
+  "version": 1,
+  "restricted": false,
+  "overridable": true,
+  "files": [
+    "bell84.png"
+  ],
+  "attributes": {
+    "width": 24,
+    "format": "PNG",
+    "lastModification": {
+      "actor": "8.3-migration",
+      "timestamp": "2026-01-07T14:49:07Z"
+    },
+    "size": 400,
+    "lastModificationSignature": "6933a94af5c6a047fc781f8a4ff01d3979ceb2da126a75ba7abefce0d77f52e8",
+    "height": 24
+  }
+}

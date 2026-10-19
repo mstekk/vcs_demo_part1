@@ -1,0 +1,379 @@
+{
+  "custom": {},
+  "params": {
+    "displayName": true,
+    "displayStatus": true,
+    "tagPath": "[default]Demo/Tank"
+  },
+  "propConfig": {
+    "params.displayName": {
+      "paramDirection": "input",
+      "persistent": true
+    },
+    "params.displayStatus": {
+      "paramDirection": "input",
+      "persistent": true
+    },
+    "params.tagPath": {
+      "paramDirection": "input",
+      "persistent": true
+    }
+  },
+  "props": {
+    "defaultSize": {
+      "height": 300,
+      "width": 200
+    }
+  },
+  "root": {
+    "children": [
+      {
+        "children": [
+          {
+            "meta": {
+              "name": "Label_0"
+            },
+            "position": {
+              "grow": 1,
+              "height": 1,
+              "width": 1
+            },
+            "props": {
+              "text": "Label",
+              "textStyle": {
+                "classes": "ComponentDisplay"
+              }
+            },
+            "type": "ia.display.label"
+          },
+          {
+            "custom": {
+              "color": "#8A8AFF",
+              "value_as_percent": 50
+            },
+            "meta": {
+              "name": "CoordinateContainer"
+            },
+            "position": {
+              "basis": "6%",
+              "height": 0.6913,
+              "width": 0.975,
+              "x": 0.025,
+              "y": 0.3087
+            },
+            "type": "ia.container.coord"
+          }
+        ],
+        "meta": {
+          "name": "FlexContainer_0"
+        },
+        "position": {
+          "basis": "30px",
+          "display": false
+        },
+        "props": {
+          "style": {
+            "padding": 10
+          }
+        },
+        "type": "ia.container.flex"
+      },
+      {
+        "meta": {
+          "name": "Label"
+        },
+        "position": {
+          "basis": "40px"
+        },
+        "propConfig": {
+          "position.display": {
+            "binding": {
+              "config": {
+                "path": "view.params.displayName"
+              },
+              "type": "property"
+            }
+          },
+          "props.text": {
+            "binding": {
+              "config": {
+                "fallbackDelay": 2.5,
+                "mode": "indirect",
+                "references": {
+                  "1": "{view.params.tagPath}"
+                },
+                "tagPath": "{1}/DeviceName"
+              },
+              "type": "tag"
+            }
+          }
+        },
+        "props": {
+          "textStyle": {
+            "classes": "ComponentName"
+          }
+        },
+        "type": "ia.display.label"
+      },
+      {
+        "children": [
+          {
+            "meta": {
+              "name": "Tank"
+            },
+            "position": {
+              "height": 1,
+              "width": 0.9999
+            },
+            "props": {
+              "elements": [
+                {
+                  "height": "625.628",
+                  "name": "rect",
+                  "style": {
+                    "classes": "",
+                    "fill": "#F0F0F0",
+                    "stroke": "#2B2B2B",
+                    "strokeWidth": "5"
+                  },
+                  "type": "rect",
+                  "width": "800",
+                  "x": "3",
+                  "y": "110.936"
+                },
+                {
+                  "d": "M403 3C184.549 3 6.99855 50.4718 3.06659 109.437H802.933C799.001 50.4718 621.451 3 403 3Z",
+                  "name": "path",
+                  "style": {
+                    "classes": "",
+                    "fill": "#F0F0F0",
+                    "stroke": "#2B2B2B",
+                    "strokeWidth": "5"
+                  },
+                  "type": "path"
+                },
+                {
+                  "d": "M403 845C620.833 845 797.997 797.796 802.896 739.063H3.10409C8.00254 797.796 185.167 845 403 845Z",
+                  "name": "path",
+                  "style": {
+                    "classes": "",
+                    "fill": "#F0F0F0",
+                    "stroke": "#2B2B2B",
+                    "strokeWidth": "5"
+                  },
+                  "type": "path"
+                }
+              ],
+              "fill": {
+                "paint": "transparent"
+              },
+              "preserveAspectRatio": "none",
+              "viewBox": "0 0 806 848"
+            },
+            "type": "ia.shapes.svg"
+          },
+          {
+            "children": [
+              {
+                "meta": {
+                  "name": "CoordinateContainer"
+                },
+                "position": {
+                  "height": 1.3735,
+                  "width": 1.1566,
+                  "x": -0.0114
+                },
+                "propConfig": {
+                  "props.style.backgroundColor": {
+                    "binding": {
+                      "config": {
+                        "path": "parent.custom.color"
+                      },
+                      "type": "property"
+                    }
+                  }
+                },
+                "props": {
+                  "style": {
+                    "overflow": "hidden"
+                  }
+                },
+                "type": "ia.container.coord"
+              },
+              {
+                "meta": {
+                  "name": "CoordinateContainer_0"
+                },
+                "position": {
+                  "width": 1.1566
+                },
+                "propConfig": {
+                  "position.height": {
+                    "binding": {
+                      "config": {
+                        "expression": "1.0 - {parent.custom.value_as_percent}/100"
+                      },
+                      "type": "expr"
+                    }
+                  }
+                },
+                "props": {
+                  "style": {
+                    "backgroundColor": "#F0F0F0",
+                    "overflow": "hidden"
+                  }
+                },
+                "type": "ia.container.coord"
+              },
+              {
+                "meta": {
+                  "name": "Sparkline"
+                },
+                "position": {
+                  "height": 0.7386,
+                  "width": 1,
+                  "y": 0.2679
+                },
+                "propConfig": {
+                  "props.points": {
+                    "binding": {
+                      "config": {
+                        "aggregate": "MinMax",
+                        "avoidScanClassValidation": true,
+                        "dateRange": {
+                          "mostRecent": "1",
+                          "mostRecentUnits": "HOUR"
+                        },
+                        "enableValueCache": true,
+                        "ignoreBadQuality": false,
+                        "polling": {
+                          "enabled": false,
+                          "rate": "30"
+                        },
+                        "preventInterpolation": false,
+                        "returnFormat": "Wide",
+                        "returnSize": {
+                          "numRows": "100",
+                          "type": "FIXED"
+                        },
+                        "tags": [
+                          {
+                            "path": "[default]Demo/Tank/Value"
+                          }
+                        ],
+                        "valueFormat": "DATASET"
+                      },
+                      "type": "tag-history"
+                    }
+                  }
+                },
+                "props": {
+                  "color": "#D90000"
+                },
+                "type": "ia.display.sparkline"
+              }
+            ],
+            "meta": {
+              "name": "CoordinateContainer"
+            },
+            "position": {
+              "height": 0.7286,
+              "width": 0.9778,
+              "x": 0.0139,
+              "y": 0.1357
+            },
+            "propConfig": {
+              "custom.color": {
+                "binding": {
+                  "config": {
+                    "path": "this.custom.value_as_percent"
+                  },
+                  "transforms": [
+                    {
+                      "expression": "toStr({value})",
+                      "type": "expression"
+                    },
+                    {
+                      "fallback": "#D5D5D5",
+                      "inputType": "range",
+                      "mappings": [
+                        {
+                          "input": {
+                            "max": 100,
+                            "min": 0
+                          },
+                          "output": "#DBEEFF"
+                        }
+                      ],
+                      "outputType": "scalar",
+                      "type": "map"
+                    }
+                  ],
+                  "type": "property"
+                }
+              },
+              "custom.value_as_percent": {
+                "binding": {
+                  "config": {
+                    "path": "/root.custom.value"
+                  },
+                  "type": "property"
+                }
+              },
+              "meta.visible": {
+                "binding": {
+                  "config": {
+                    "path": "view.params.displayStatus"
+                  },
+                  "type": "property"
+                }
+              }
+            },
+            "props": {
+              "mode": "percent",
+              "style": {
+                "overflow": "hidden"
+              }
+            },
+            "type": "ia.container.coord"
+          }
+        ],
+        "meta": {
+          "name": "CoordinateContainer"
+        },
+        "position": {
+          "grow": 1
+        },
+        "props": {
+          "mode": "percent",
+          "style": {
+            "padding": 10
+          }
+        },
+        "type": "ia.container.coord"
+      }
+    ],
+    "meta": {
+      "name": "root"
+    },
+    "propConfig": {
+      "custom.value": {
+        "binding": {
+          "config": {
+            "fallbackDelay": 2.5,
+            "mode": "indirect",
+            "references": {
+              "1": "{view.params.tagPath}"
+            },
+            "tagPath": "{1}/Value"
+          },
+          "type": "tag"
+        }
+      }
+    },
+    "props": {
+      "direction": "column"
+    },
+    "type": "ia.container.flex"
+  }
+}

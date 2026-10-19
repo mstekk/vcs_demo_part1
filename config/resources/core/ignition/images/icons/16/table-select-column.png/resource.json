@@ -1,0 +1,20 @@
+{
+  "scope": "A",
+  "version": 1,
+  "restricted": false,
+  "overridable": true,
+  "files": [
+    "table-select-column.png"
+  ],
+  "attributes": {
+    "width": 16,
+    "format": "PNG",
+    "lastModification": {
+      "actor": "8.3-migration",
+      "timestamp": "2026-01-07T14:49:07Z"
+    },
+    "size": 569,
+    "lastModificationSignature": "b08ed645e6c7b1e368b13ae76d4b46899fb927101b8219ae49b26688b5e27d64",
+    "height": 16
+  }
+}

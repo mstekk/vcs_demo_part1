@@ -1,0 +1,20 @@
+{
+  "scope": "A",
+  "version": 1,
+  "restricted": false,
+  "overridable": true,
+  "files": [
+    "flag--arrow.png"
+  ],
+  "attributes": {
+    "width": 16,
+    "format": "PNG",
+    "lastModification": {
+      "actor": "8.3-migration",
+      "timestamp": "2026-01-07T14:49:07Z"
+    },
+    "size": 802,
+    "lastModificationSignature": "71f9260ecfd2dcea9fceb4da5aad079b7456c31a8ba9ce7ffd2113264dc8b5d5",
+    "height": 16
+  }
+}

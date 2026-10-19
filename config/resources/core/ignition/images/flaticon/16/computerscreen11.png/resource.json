@@ -1,0 +1,20 @@
+{
+  "scope": "A",
+  "version": 1,
+  "restricted": false,
+  "overridable": true,
+  "files": [
+    "computerscreen11.png"
+  ],
+  "attributes": {
+    "width": 16,
+    "format": "PNG",
+    "lastModification": {
+      "actor": "8.3-migration",
+      "timestamp": "2026-01-07T14:49:07Z"
+    },
+    "size": 343,
+    "lastModificationSignature": "31d49242f43519d0616b64efe8e765478b7705e33efb44ca03ba6d31b249595f",
+    "height": 16
+  }
+}

@@ -1,0 +1,474 @@
+{
+  "custom": {
+    "connectors": [
+      {
+        "allow": true,
+        "collections": [
+          {
+            "allow": true,
+            "name": "Sandbox"
+          },
+          {
+            "allow": true,
+            "name": "Customers"
+          },
+          {
+            "allow": true,
+            "name": "Templates"
+          }
+        ],
+        "name": "se-notes-arch"
+      }
+    ]
+  },
+  "events": {
+    "system": {
+      "onStartup": {
+        "config": {
+          "script": "\tlogger\u003dsystem.util.getLogger(\u0027admin\u0027)\n\tdef getConnectorState(name):\n\t\t\"\"\"\tRetrieves the state (allow, exists, index) of a connector with the given name.\n\t\tArgs:\n\t\t\tname (str): The name of the connector to retrieve state for.\n\t\t\tmongo_access (list): List of MongoDB connector objects.\n\t\tReturns:\n\t\t\tlist: A list containing [allow (bool), exists (bool), index (int)].\n\t\t\"\"\"\n\t\tallow\u003dTrue\n\t\texists\u003dFalse\n\t\tindex\u003d0\n\t\ti\u003d0\n\t\ttry:\n\t\t\tfor connector in self.session.custom.admin.mongoAccess:\n\t\t\t\tif name\u003d\u003dconnector[\u0027name\u0027]:\n\t\t\t\t\tallow \u003d collection[\u0027allow\u0027] if \u0027allow\u0027 in collection else True\n\t\t\t\t\texists\u003dTrue\n\t\t\t\t\tindex\u003di\n\t\t\t\t\tbreak\n\t\t\t\ti+\u003d1\n\t\texcept Exception as e:\n\t\t\tlogger.warn(\u0027{}\u0027.format(e))  # Log the error with trace level\n\t\t\tpass\n\t\treturn [allow,exists,index]\n\n\tdef getCollectionState(name,index):\n\t\t\"\"\"\tRetrieves the state (allow) of a collection with the given name from MongoDB.\n\t\tArgs:\n\t\t\tname (str): The name of the collection to retrieve state for.\n\t\t\tmongo_access (list): List of MongoDB connector objects.\n\t\tReturns:\n\t\t\tbool: True if the collection is allowed, False otherwise.\n\t\t\"\"\"\n\t\tallow\u003dTrue\n\t\ttry:\n\t\t\tfor collection in self.session.custom.admin.mongoAccess[index].collections:\n\t\t\t\tif name\u003d\u003dcollection[\u0027name\u0027]:\n\t\t\t\t\tallow \u003d collection[\u0027allow\u0027] if \u0027allow\u0027 in collection else True\n\t\t\t\t\tsystem.perspective.print(allow)\n\t\t\t\t\tbreak\n\t\texcept Exception as e:\n\t\t\tlogger.warn(\u0027{}\u0027.format(e))  # Log the error with trace level\n\t\treturn allow \n\t\n\tconnectors\u003dsystem.mongodb.listConnectorInfo()\n\tconnectorDrop\u003d[]\n\tfor connector in connectors:\n\t\tif connector[\u0027status\u0027]\u003d\u003d\u0027Valid\u0027 and connector[\u0027name\u0027] not in self.session.custom.admin.disabledMongoConnections:\n\t\t\tconnectorAllow\u003dgetConnectorState(connector[\u0027name\u0027])\n\t\t\texists\u003dconnectorAllow[1]\n\t\t\tindex\u003dconnectorAllow[2]\n\t\t\tcollections\u003dsystem.mongodb.listCollectionNames(connector[\u0027name\u0027])\n\t\t\tcollectionDrop\u003d[]\n\t\t\t\n\t\t\tfor collection in collections:\n\t\t\t\tcollectionAllow\u003dTrue\n\t\t\t\tif exists:\n\t\t\t\t\tcollectionAllow\u003dgetCollectionState(collection,index)\n\t\t\t\tcollectionDrop.append({\u0027name\u0027: collection, \u0027allow\u0027: collectionAllow})\n\t\t\t\n\t\t\tconnectorDrop.append({\n\t\t\t  \"name\": connector[\u0027name\u0027],\n\t\t\t  \"allow\": connectorAllow[0],\n\t\t\t  \"collections\": collectionDrop\n\t\t\t}) \n\tself.custom.connectors\u003dconnectorDrop\n"
+        },
+        "scope": "G",
+        "type": "script"
+      }
+    }
+  },
+  "params": {},
+  "props": {
+    "defaultSize": {
+      "height": 712,
+      "width": 504
+    }
+  },
+  "root": {
+    "children": [
+      {
+        "children": [
+          {
+            "meta": {
+              "name": "Label"
+            },
+            "position": {
+              "grow": 1
+            },
+            "props": {
+              "text": "Administrator Settings"
+            },
+            "type": "ia.display.label"
+          },
+          {
+            "events": {
+              "dom": {
+                "onClick": {
+                  "config": {
+                    "draggable": true,
+                    "id": "5_aE8PBB",
+                    "modal": false,
+                    "overlayDismiss": false,
+                    "resizable": true,
+                    "showCloseIcon": true,
+                    "title": "Asana Configure",
+                    "type": "open",
+                    "viewParams": {
+                      "token": "{session.custom.AsanaSettings.token}"
+                    },
+                    "viewPath": "Exchange/AsanaIntegration/Asana",
+                    "viewportBound": true
+                  },
+                  "scope": "C",
+                  "type": "popup"
+                }
+              }
+            },
+            "meta": {
+              "name": "Icon_0"
+            },
+            "position": {
+              "basis": "30px"
+            },
+            "propConfig": {
+              "position.display": {
+                "binding": {
+                  "config": {
+                    "expression": "if({session.custom.public}, true,isAuthorized(false, \u0027Authenticated/Roles/Administrator\u0027, \u0027Authenticated/Roles/\u0027+{session.custom.admin.role}))"
+                  },
+                  "type": "expr"
+                }
+              }
+            },
+            "props": {
+              "path": "material/bug_report",
+              "style": {
+                "cursor": "pointer"
+              }
+            },
+            "type": "ia.display.icon"
+          }
+        ],
+        "meta": {
+          "name": "Header"
+        },
+        "position": {
+          "shrink": 0
+        },
+        "props": {
+          "justify": "space-between",
+          "style": {
+            "fontSize": "20px",
+            "fontWeight": "bolder",
+            "margin": "4px"
+          }
+        },
+        "type": "ia.container.flex"
+      },
+      {
+        "children": [
+          {
+            "meta": {
+              "name": "Label"
+            },
+            "position": {
+              "shrink": 0
+            },
+            "props": {
+              "text": "File Management Option:"
+            },
+            "type": "ia.display.label"
+          },
+          {
+            "meta": {
+              "name": "RadioGroup"
+            },
+            "position": {
+              "basis": "35px",
+              "grow": 1
+            },
+            "propConfig": {
+              "props.value": {
+                "binding": {
+                  "config": {
+                    "bidirectional": true,
+                    "path": "session.custom.saveToMongo"
+                  },
+                  "type": "property"
+                }
+              }
+            },
+            "props": {
+              "index": 1,
+              "radios": [
+                {
+                  "selected": false,
+                  "text": "MongoDB",
+                  "value": true
+                },
+                {
+                  "selected": true,
+                  "text": "File System",
+                  "value": false
+                }
+              ]
+            },
+            "type": "ia.input.radio-group"
+          }
+        ],
+        "meta": {
+          "name": "FlexContainer"
+        },
+        "position": {
+          "basis": "Auto",
+          "shrink": 0
+        },
+        "props": {
+          "style": {
+            "margin": "8px",
+            "marginBottom": "0px"
+          }
+        },
+        "type": "ia.container.flex"
+      },
+      {
+        "meta": {
+          "name": "SaveDisabled"
+        },
+        "position": {
+          "shrink": 0
+        },
+        "propConfig": {
+          "props.selected": {
+            "binding": {
+              "config": {
+                "path": "session.custom.admin.savingDisabled"
+              },
+              "type": "property"
+            }
+          }
+        },
+        "props": {
+          "style": {
+            "margin": "8px",
+            "marginBottom": "0px",
+            "marginTop": "0px"
+          },
+          "text": "Disable Saving"
+        },
+        "type": "ia.input.checkbox"
+      },
+      {
+        "meta": {
+          "name": "DeleteDisable"
+        },
+        "position": {
+          "shrink": 0
+        },
+        "propConfig": {
+          "props.selected": {
+            "binding": {
+              "config": {
+                "path": "session.custom.admin.deletingDisabled"
+              },
+              "type": "property"
+            }
+          }
+        },
+        "props": {
+          "style": {
+            "margin": "8px",
+            "marginTop": 0
+          },
+          "text": "Disable File Management"
+        },
+        "type": "ia.input.checkbox"
+      },
+      {
+        "events": {
+          "component": {
+            "onActionPerformed": {
+              "config": {
+                "draggable": true,
+                "id": "TPM",
+                "modal": false,
+                "overlayDismiss": false,
+                "resizable": true,
+                "showCloseIcon": true,
+                "title": "3rd Party Module Editor",
+                "type": "open",
+                "viewPath": "Exchange/ArchitectureBuilder/Modules/ThirdPartyModules/Main",
+                "viewportBound": false
+              },
+              "scope": "C",
+              "type": "popup"
+            }
+          }
+        },
+        "meta": {
+          "name": "Button"
+        },
+        "position": {
+          "shrink": 0
+        },
+        "props": {
+          "style": {
+            "classes": "Exchange/ArchitectureBuilder/buttonHover",
+            "margin": "8px"
+          },
+          "text": "3rd Party Module Manager"
+        },
+        "type": "ia.input.button"
+      },
+      {
+        "meta": {
+          "name": "Connectors"
+        },
+        "position": {
+          "shrink": 0
+        },
+        "propConfig": {
+          "position.display": {
+            "binding": {
+              "config": {
+                "path": "session.custom.saveToMongo"
+              },
+              "type": "property"
+            }
+          },
+          "props.params.connectors": {
+            "binding": {
+              "config": {
+                "bidirectional": true,
+                "path": "view.custom.connectors"
+              },
+              "type": "property"
+            }
+          }
+        },
+        "props": {
+          "path": "Exchange/ArchitectureBuilder/Admin/Embedded/Connectors",
+          "style": {
+            "max-height": "425px"
+          }
+        },
+        "type": "ia.display.view"
+      },
+      {
+        "children": [
+          {
+            "events": {
+              "component": {
+                "onActionPerformed": {
+                  "config": {
+                    "script": "\tself.session.custom.admin.savingDisabled\u003dself.parent.parent.getChild(\"SaveDisabled\").props.selected\n\tself.session.custom.admin.deletingDisabled\u003dself.parent.parent.getChild(\"DeleteDisable\").props.selected\n\tself.session.custom.admin.mongoAccess\u003dself.view.custom.connectors\n\tsystem.perspective.closePopup(\u0027adminTools\u0027)"
+                  },
+                  "scope": "G",
+                  "type": "script"
+                }
+              }
+            },
+            "meta": {
+              "name": "Ok"
+            },
+            "position": {
+              "basis": "33%",
+              "grow": 1
+            },
+            "props": {
+              "style": {
+                "classes": "Exchange/ArchitectureBuilder/buttonHover",
+                "marginLeft": "8px",
+                "marginRight": "8px"
+              },
+              "text": "OK"
+            },
+            "type": "ia.input.button"
+          },
+          {
+            "events": {
+              "component": {
+                "onActionPerformed": {
+                  "config": {
+                    "script": "\t#close pop-ups\n\tsystem.perspective.closePopup(\u0027adminTools\u0027)"
+                  },
+                  "scope": "G",
+                  "type": "script"
+                }
+              }
+            },
+            "meta": {
+              "name": "Cancel"
+            },
+            "position": {
+              "basis": "33%",
+              "grow": 1
+            },
+            "props": {
+              "style": {
+                "classes": "Exchange/ArchitectureBuilder/buttonHover",
+                "marginLeft": "8px",
+                "marginRight": "8px"
+              },
+              "text": "Cancel"
+            },
+            "type": "ia.input.button"
+          },
+          {
+            "events": {
+              "component": {
+                "onActionPerformed": {
+                  "config": {
+                    "script": "\t#set session property admin to selected props\n\tself.session.custom.admin.savingDisabled\u003dself.parent.parent.getChild(\"SaveDisabled\").props.selected\n\tself.session.custom.admin.deletingDisabled\u003dself.parent.parent.getChild(\"DeleteDisable\").props.selected\n\tself.session.custom.admin.mongoAccess\u003dself.view.custom.connectors"
+                  },
+                  "scope": "G",
+                  "type": "script"
+                }
+              }
+            },
+            "meta": {
+              "name": "Apply"
+            },
+            "position": {
+              "basis": "33%",
+              "grow": 1
+            },
+            "props": {
+              "style": {
+                "classes": "Exchange/ArchitectureBuilder/buttonHover",
+                "marginLeft": "8px",
+                "marginRight": "8px"
+              },
+              "text": "Apply"
+            },
+            "type": "ia.input.button"
+          }
+        ],
+        "meta": {
+          "name": "Apply_0"
+        },
+        "position": {
+          "basis": "34px",
+          "shrink": 0
+        },
+        "props": {
+          "justify": "space-around",
+          "style": {
+            "marginBottom": "8px",
+            "marginTop": "8px"
+          }
+        },
+        "type": "ia.container.flex"
+      },
+      {
+        "events": {
+          "component": {
+            "onActionPerformed": {
+              "config": {
+                "script": "\tself.session.custom.AsanaSettings\u003d{\n\t\t\t\"token\": \"\"\n\t\t}\n\tself.session.custom.admin\u003d{\n\t\t\t\"deletingDisabled\": False,\n\t\t\t\"disabledMongoConnections\": [],\n\t\t\t\"mongoAccess\": [],\n\t\t\t\"role\": \"\",\n\t\t\t\"savingDisabled\": False\n\t\t}\n\tself.session.custom.audit\u003d{\n\t\t\t\"bom\": False,\n\t\t\t\"eam\": False,\n\t\t\t\"global\": False,\n\t\t\t\"layout\": False,\n\t\t\t\"se-notes\": False\n\t\t}\n\tself.session.custom.canvasSize\u003d{\n\t\t\t\"height\": 960,\n\t\t\t\"width\": 720\n\t\t}\n\tself.session.custom.components\u003d{}\n\tself.session.custom.connections\u003d{}\n\tself.session.custom.containers\u003d[]\n\tself.session.custom.defaultSize\u003d100\n\tself.session.custom.discount\u003d0\n\tself.session.custom.eamUnlimited\u003d{\n\t\t\t\"UUID\": \"\",\n\t\t\t\"selected\": False\n\t\t}\n\tself.session.custom.moduleFlyOut\u003d False\n\tself.session.custom.mongo\u003d{\n\t\t\t\"mongoArchs\": {\n\t\t\t\"collection\": None,\n\t\t\t\"connector\": None\n\t\t\t},\n\t\t\t\"mongoNotes\": {\n\t\t\t\"collection\": None,\n\t\t\t\"connector\": None\n\t\t\t}\n\t\t}\n\tself.session.custom.notesLink\u003d \"\"\n\tself.session.custom.public\u003d True\n\tself.session.custom.rendering\u003d {\n\t\t\t\"Client\": True,\n\t\t\t\"Comms\": True,\n\t\t\t\"Connections\": {\n\t\t\t\"Client\": True,\n\t\t\t\"DB\": True,\n\t\t\t\"Device Driver\": True,\n\t\t\t\"Gateway Network\": True,\n\t\t\t\"MQTT\": True,\n\t\t\t\"MongoDB\": True,\n\t\t\t\"OPC-COM\": True,\n\t\t\t\"OPC-UA\": True,\n\t\t\t\"Standard\": True\n\t\t\t},\n\t\t\t\"Connector\": True,\n\t\t\t\"Custom\": True,\n\t\t\t\"Database\": True,\n\t\t\t\"Device\": True,\n\t\t\t\"Firewall\": True,\n\t\t\t\"IIOT\": True,\n\t\t\t\"LoadBalancer\": True,\n\t\t\t\"MongoDB\": True,\n\t\t\t\"Note\": True,\n\t\t\t\"OPCUA\": True,\n\t\t\t\"ReverseProxy\": True,\n\t\t\t\"Usersource\": True,\n\t\t\t\"area\": True,\n\t\t\t\"cloud\": True,\n\t\t\t\"connections\": True,\n\t\t\t\"edge\": True,\n\t\t\t\"fourIR\": True,\n\t\t\t\"panel\": True,\n\t\t\t\"server\": True,\n\t\t\t\"standard\": True\n\t\t}\n\tself.session.custom.requestConnection\u003d False\n\tself.session.custom.saveToMongo\u003d False\n\tself.session.custom.showDescriptions\u003d False\n\tself.session.custom.showUUID\u003d False\n\tself.session.custom.snapPixels\u003d 20\n\tself.session.custom.structure\u003d {\n\t\t\"configs\": {},\n\t\t\"source\": \"layout\",\n\t\t\"structure\": []\n\t}\n\tself.session.custom.touch\u003d True\n\tself.session.custom.viewCanvas\u003d {\n\t\t\t\"componentHover\": \"\"\n\t\t}\n"
+              },
+              "scope": "G",
+              "type": "script"
+            }
+          }
+        },
+        "meta": {
+          "name": "Button_0"
+        },
+        "position": {
+          "basis": "34px"
+        },
+        "propConfig": {
+          "position.display": {
+            "binding": {
+              "config": {
+                "path": "session.props.device.type"
+              },
+              "transforms": [
+                {
+                  "code": "\treturn value\u003d\u003d\u0027designer\u0027",
+                  "type": "script"
+                }
+              ],
+              "type": "property"
+            }
+          }
+        },
+        "props": {
+          "style": {
+            "classes": "Exchange/ArchitectureBuilder/buttonHover",
+            "margin": "8px"
+          },
+          "text": "Prep Session Props For Exchange"
+        },
+        "type": "ia.input.button"
+      }
+    ],
+    "meta": {
+      "name": "root"
+    },
+    "props": {
+      "direction": "column",
+      "style": {
+        "margin": "4px",
+        "overflow": "hidden"
+      }
+    },
+    "type": "ia.container.flex"
+  }
+}

@@ -1,0 +1,20 @@
+{
+  "scope": "A",
+  "version": 1,
+  "restricted": false,
+  "overridable": true,
+  "files": [
+    "clouds51.png"
+  ],
+  "attributes": {
+    "width": 24,
+    "format": "PNG",
+    "lastModification": {
+      "actor": "8.3-migration",
+      "timestamp": "2026-01-07T14:49:07Z"
+    },
+    "size": 479,
+    "lastModificationSignature": "ea73b9a77d86537a4f0fa371f7349ef9d60bdd91d741e20187e75a0fc41a4bd3",
+    "height": 24
+  }
+}

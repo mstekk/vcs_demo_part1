@@ -1,0 +1,20 @@
+{
+  "scope": "A",
+  "version": 1,
+  "restricted": false,
+  "overridable": true,
+  "files": [
+    "door-open.png"
+  ],
+  "attributes": {
+    "width": 16,
+    "format": "PNG",
+    "lastModification": {
+      "actor": "8.3-migration",
+      "timestamp": "2026-01-07T14:49:07Z"
+    },
+    "size": 542,
+    "lastModificationSignature": "61a381162e2f2e39ba4f29bd49fa4822af0a450df768408a403e3d2b1c9f0d06",
+    "height": 16
+  }
+}

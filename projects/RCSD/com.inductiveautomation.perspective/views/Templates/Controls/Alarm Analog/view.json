@@ -1,0 +1,477 @@
+{
+  "custom": {},
+  "params": {},
+  "props": {
+    "defaultSize": {
+      "height": 300,
+      "width": 400
+    }
+  },
+  "root": {
+    "children": [
+      {
+        "meta": {
+          "name": "Label"
+        },
+        "position": {
+          "basis": "40px"
+        },
+        "props": {
+          "style": {
+            "borderBottomStyle": "solid",
+            "borderBottomWidth": 1,
+            "marginLeft": 20,
+            "marginRight": 20
+          },
+          "text": "ALARM CONFIGURATION",
+          "textStyle": {
+            "classes": "Text/Labels",
+            "textAlign": "center"
+          }
+        },
+        "type": "ia.display.label"
+      },
+      {
+        "meta": {
+          "name": "Enable"
+        },
+        "position": {
+          "basis": "30px"
+        },
+        "props": {
+          "selected": true,
+          "style": {
+            "classes": "Text/Labels",
+            "marginLeft": 30,
+            "marginRight": 30,
+            "marginTop": 10
+          },
+          "text": "Enable Alarm"
+        },
+        "type": "ia.input.checkbox"
+      },
+      {
+        "children": [
+          {
+            "meta": {
+              "name": "Enable"
+            },
+            "position": {
+              "basis": "50%"
+            },
+            "propConfig": {
+              "props.enabled": {
+                "binding": {
+                  "config": {
+                    "path": ".../Enable.props.selected"
+                  },
+                  "type": "property"
+                }
+              }
+            },
+            "props": {
+              "style": {
+                "classes": "Text/Labels",
+                "textAlign": "start"
+              },
+              "text": "High High SP"
+            },
+            "type": "ia.input.checkbox"
+          },
+          {
+            "meta": {
+              "name": "NumericEntryField"
+            },
+            "position": {
+              "basis": "50%"
+            },
+            "propConfig": {
+              "props.enabled": {
+                "binding": {
+                  "config": {
+                    "path": "../Enable.props.selected"
+                  },
+                  "transforms": [
+                    {
+                      "expression": "{value}\u0026\u0026{.../Enable.props.selected}",
+                      "type": "expression"
+                    }
+                  ],
+                  "type": "property"
+                }
+              }
+            },
+            "props": {
+              "align": "center",
+              "style": {
+                "borderBottomLeftRadius": 0,
+                "borderBottomRightRadius": 0,
+                "borderBottomStyle": "solid",
+                "borderLeftStyle": "none",
+                "borderRightStyle": "none",
+                "borderTopStyle": "none",
+                "classes": "Text/Setpoints",
+                "textAlign": "center"
+              }
+            },
+            "type": "ia.input.numeric-entry-field"
+          }
+        ],
+        "meta": {
+          "name": "SP Hi-Hi"
+        },
+        "position": {
+          "basis": "30px"
+        },
+        "props": {
+          "style": {
+            "marginBottom": 5,
+            "marginLeft": 10,
+            "marginRight": 10,
+            "marginTop": 10
+          }
+        },
+        "type": "ia.container.flex"
+      },
+      {
+        "children": [
+          {
+            "meta": {
+              "name": "Enable"
+            },
+            "position": {
+              "basis": "50%"
+            },
+            "propConfig": {
+              "props.enabled": {
+                "binding": {
+                  "config": {
+                    "path": ".../Enable.props.selected"
+                  },
+                  "type": "property"
+                }
+              }
+            },
+            "props": {
+              "style": {
+                "classes": "Text/Labels",
+                "textAlign": "start"
+              },
+              "text": "High SP"
+            },
+            "type": "ia.input.checkbox"
+          },
+          {
+            "meta": {
+              "name": "NumericEntryField"
+            },
+            "position": {
+              "basis": "50%"
+            },
+            "propConfig": {
+              "props.enabled": {
+                "binding": {
+                  "config": {
+                    "path": "../Enable.props.selected"
+                  },
+                  "transforms": [
+                    {
+                      "expression": "{value}\u0026\u0026{.../Enable.props.selected}",
+                      "type": "expression"
+                    }
+                  ],
+                  "type": "property"
+                }
+              }
+            },
+            "props": {
+              "align": "center",
+              "style": {
+                "borderBottomLeftRadius": 0,
+                "borderBottomRightRadius": 0,
+                "borderBottomStyle": "solid",
+                "borderLeftStyle": "none",
+                "borderRightStyle": "none",
+                "borderTopStyle": "none",
+                "classes": "Text/Setpoints",
+                "textAlign": "center"
+              }
+            },
+            "type": "ia.input.numeric-entry-field"
+          }
+        ],
+        "meta": {
+          "name": "SP Hi"
+        },
+        "position": {
+          "basis": "30px"
+        },
+        "props": {
+          "style": {
+            "marginBottom": 5,
+            "marginLeft": 10,
+            "marginRight": 10,
+            "marginTop": 5
+          }
+        },
+        "type": "ia.container.flex"
+      },
+      {
+        "children": [
+          {
+            "meta": {
+              "name": "Enable"
+            },
+            "position": {
+              "basis": "50%"
+            },
+            "propConfig": {
+              "props.enabled": {
+                "binding": {
+                  "config": {
+                    "path": ".../Enable.props.selected"
+                  },
+                  "type": "property"
+                }
+              }
+            },
+            "props": {
+              "style": {
+                "classes": "Text/Labels",
+                "textAlign": "start"
+              },
+              "text": "Low SP"
+            },
+            "type": "ia.input.checkbox"
+          },
+          {
+            "meta": {
+              "name": "NumericEntryField"
+            },
+            "position": {
+              "basis": "50%"
+            },
+            "propConfig": {
+              "props.enabled": {
+                "binding": {
+                  "config": {
+                    "path": "../Enable.props.selected"
+                  },
+                  "transforms": [
+                    {
+                      "expression": "{value}\u0026\u0026{.../Enable.props.selected}",
+                      "type": "expression"
+                    }
+                  ],
+                  "type": "property"
+                }
+              }
+            },
+            "props": {
+              "align": "center",
+              "style": {
+                "borderBottomLeftRadius": 0,
+                "borderBottomRightRadius": 0,
+                "borderBottomStyle": "solid",
+                "borderLeftStyle": "none",
+                "borderRightStyle": "none",
+                "borderTopStyle": "none",
+                "classes": "Text/Setpoints",
+                "textAlign": "center"
+              }
+            },
+            "type": "ia.input.numeric-entry-field"
+          }
+        ],
+        "meta": {
+          "name": "SP Lo"
+        },
+        "position": {
+          "basis": "30px"
+        },
+        "props": {
+          "style": {
+            "marginBottom": 5,
+            "marginLeft": 10,
+            "marginRight": 10,
+            "marginTop": 5
+          }
+        },
+        "type": "ia.container.flex"
+      },
+      {
+        "children": [
+          {
+            "meta": {
+              "name": "Enable"
+            },
+            "position": {
+              "basis": "50%"
+            },
+            "propConfig": {
+              "props.enabled": {
+                "binding": {
+                  "config": {
+                    "path": ".../Enable.props.selected"
+                  },
+                  "type": "property"
+                }
+              }
+            },
+            "props": {
+              "style": {
+                "classes": "Text/Labels",
+                "textAlign": "start"
+              },
+              "text": "Low Low SP"
+            },
+            "type": "ia.input.checkbox"
+          },
+          {
+            "meta": {
+              "name": "NumericEntryField"
+            },
+            "position": {
+              "basis": "50%"
+            },
+            "propConfig": {
+              "props.enabled": {
+                "binding": {
+                  "config": {
+                    "path": "../Enable.props.selected"
+                  },
+                  "transforms": [
+                    {
+                      "expression": "{value}\u0026\u0026{.../Enable.props.selected}",
+                      "type": "expression"
+                    }
+                  ],
+                  "type": "property"
+                }
+              }
+            },
+            "props": {
+              "align": "center",
+              "style": {
+                "borderBottomLeftRadius": 0,
+                "borderBottomRightRadius": 0,
+                "borderBottomStyle": "solid",
+                "borderLeftStyle": "none",
+                "borderRightStyle": "none",
+                "borderTopStyle": "none",
+                "classes": "Text/Setpoints",
+                "textAlign": "center"
+              }
+            },
+            "type": "ia.input.numeric-entry-field"
+          }
+        ],
+        "meta": {
+          "name": "SP Lo-Lo"
+        },
+        "position": {
+          "basis": "30px"
+        },
+        "props": {
+          "style": {
+            "marginBottom": 5,
+            "marginLeft": 10,
+            "marginRight": 10,
+            "marginTop": 5
+          }
+        },
+        "type": "ia.container.flex"
+      },
+      {
+        "children": [
+          {
+            "meta": {
+              "name": "Label"
+            },
+            "position": {
+              "basis": "50%"
+            },
+            "props": {
+              "text": "Alarm Delay:",
+              "textStyle": {
+                "classes": "Text/Labels"
+              }
+            },
+            "type": "ia.display.label"
+          },
+          {
+            "meta": {
+              "name": "NumericEntryField"
+            },
+            "position": {
+              "basis": "30%"
+            },
+            "propConfig": {
+              "props.enabled": {
+                "binding": {
+                  "config": {
+                    "path": ".../Enable.props.selected"
+                  },
+                  "type": "property"
+                }
+              }
+            },
+            "props": {
+              "style": {
+                "borderBottomLeftRadius": 0,
+                "borderBottomRightRadius": 0,
+                "borderBottomStyle": "solid",
+                "borderLeftStyle": "none",
+                "borderRightStyle": "none",
+                "borderTopStyle": "none",
+                "classes": "Text/Setpoints",
+                "textAlign": "center"
+              }
+            },
+            "type": "ia.input.numeric-entry-field"
+          },
+          {
+            "meta": {
+              "name": "Label_0"
+            },
+            "position": {
+              "basis": "20%"
+            },
+            "props": {
+              "text": "sec",
+              "textStyle": {
+                "classes": "Text/Units"
+              }
+            },
+            "type": "ia.display.label"
+          }
+        ],
+        "meta": {
+          "name": "Alarm Delay"
+        },
+        "position": {
+          "basis": "30px"
+        },
+        "props": {
+          "style": {
+            "marginBottom": 10,
+            "marginLeft": 30,
+            "marginRight": 30,
+            "marginTop": 5
+          }
+        },
+        "type": "ia.container.flex"
+      }
+    ],
+    "meta": {
+      "name": "root"
+    },
+    "props": {
+      "direction": "column",
+      "style": {
+        "borderStyle": "none"
+      }
+    },
+    "type": "ia.container.flex"
+  }
+}

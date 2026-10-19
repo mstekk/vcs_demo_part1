@@ -1,0 +1,20 @@
+{
+  "scope": "A",
+  "version": 1,
+  "restricted": false,
+  "overridable": true,
+  "files": [
+    "briefcase--minus.png"
+  ],
+  "attributes": {
+    "width": 16,
+    "format": "PNG",
+    "lastModification": {
+      "actor": "8.3-migration",
+      "timestamp": "2026-01-07T14:49:07Z"
+    },
+    "size": 694,
+    "lastModificationSignature": "660e531443ed47ba4b3c00aaa0992a7fa8c4815699a0b8dced06f51f29eee546",
+    "height": 16
+  }
+}

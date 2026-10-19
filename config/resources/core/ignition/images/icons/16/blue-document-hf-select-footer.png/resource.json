@@ -1,0 +1,20 @@
+{
+  "scope": "A",
+  "version": 1,
+  "restricted": false,
+  "overridable": true,
+  "files": [
+    "blue-document-hf-select-footer.png"
+  ],
+  "attributes": {
+    "width": 16,
+    "format": "PNG",
+    "lastModification": {
+      "actor": "8.3-migration",
+      "timestamp": "2026-01-07T14:49:07Z"
+    },
+    "size": 623,
+    "lastModificationSignature": "2c2a14b237846c2cdc4c2d069b748cdf735b26f4c079141f89e76f7c551eca6c",
+    "height": 16
+  }
+}

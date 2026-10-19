@@ -1,0 +1,877 @@
+{
+  "custom": {
+    "development": false,
+    "redundant": false,
+    "trial": false
+  },
+  "params": {
+    "expanded": true,
+    "name": "Sample",
+    "parents": "",
+    "supportCosts": true,
+    "type": "Standard",
+    "uuid": "I1e7c5e45"
+  },
+  "propConfig": {
+    "custom.development": {
+      "binding": {
+        "config": {
+          "expression": "coalesce(property(\"session.custom.structure.configs.\" + {view.params.uuid})[\u0027config\u0027][\u0027development\u0027], false)"
+        },
+        "type": "expr"
+      },
+      "persistent": true
+    },
+    "custom.redundant": {
+      "binding": {
+        "config": {
+          "expression": "coalesce(property(\"session.custom.structure.configs.\" + {view.params.uuid})[\u0027config\u0027][\u0027redundant\u0027], false)"
+        },
+        "type": "expr"
+      },
+      "persistent": true
+    },
+    "custom.trial": {
+      "binding": {
+        "config": {
+          "expression": "coalesce(property(\"session.custom.structure.configs.\" + {view.params.uuid})[\u0027config\u0027][\u0027trial\u0027], false)"
+        },
+        "type": "expr"
+      },
+      "persistent": true
+    },
+    "params.expanded": {
+      "paramDirection": "input",
+      "persistent": true
+    },
+    "params.name": {
+      "paramDirection": "input",
+      "persistent": true
+    },
+    "params.parents": {
+      "paramDirection": "input",
+      "persistent": true
+    },
+    "params.supportCosts": {
+      "paramDirection": "input",
+      "persistent": true
+    },
+    "params.type": {
+      "paramDirection": "input",
+      "persistent": true
+    },
+    "params.uuid": {
+      "paramDirection": "input",
+      "persistent": true
+    }
+  },
+  "props": {
+    "defaultSize": {
+      "height": 80,
+      "width": 1200
+    }
+  },
+  "root": {
+    "children": [
+      {
+        "children": [
+          {
+            "children": [
+              {
+                "events": {
+                  "dom": {
+                    "onClick": {
+                      "config": {
+                        "script": "\t# Determine new value\n\tisExpanded \u003d not self.view.params.expanded\n\n\t# Call message handler\n\tpayload \u003d {\u0027source\u0027: \u0027entry\u0027, \u0027uuid\u0027: self.view.params.uuid, \u0027value\u0027: isExpanded}\n\tsystem.perspective.sendMessage(\"toggleExpansion\", payload)"
+                      },
+                      "scope": "G",
+                      "type": "script"
+                    }
+                  }
+                },
+                "meta": {
+                  "name": "ExpandGateway",
+                  "tooltip": {
+                    "enabled": true
+                  }
+                },
+                "position": {
+                  "basis": "30px",
+                  "shrink": 0
+                },
+                "propConfig": {
+                  "meta.tooltip.text": {
+                    "binding": {
+                      "config": {
+                        "path": "view.params.expanded"
+                      },
+                      "transforms": [
+                        {
+                          "fallback": "Expand Gateway",
+                          "inputType": "scalar",
+                          "mappings": [
+                            {
+                              "input": true,
+                              "output": "Collapse Gateway"
+                            }
+                          ],
+                          "outputType": "scalar",
+                          "type": "map"
+                        }
+                      ],
+                      "type": "property"
+                    }
+                  },
+                  "props.path": {
+                    "binding": {
+                      "config": {
+                        "path": "view.params.expanded"
+                      },
+                      "transforms": [
+                        {
+                          "fallback": "material/expand_more",
+                          "inputType": "scalar",
+                          "mappings": [
+                            {
+                              "input": true,
+                              "output": "material/expand_less"
+                            }
+                          ],
+                          "outputType": "scalar",
+                          "type": "map"
+                        }
+                      ],
+                      "type": "property"
+                    }
+                  }
+                },
+                "props": {
+                  "style": {
+                    "cursor": "pointer"
+                  }
+                },
+                "type": "ia.display.icon"
+              },
+              {
+                "custom": {
+                  "expanded": true
+                },
+                "events": {
+                  "dom": {
+                    "onClick": {
+                      "config": {
+                        "script": "\t# Determine new value\n\tisExpanded \u003d not self.custom.expanded\n\n\t# Call message handler\n\tpayload \u003d {\u0027source\u0027: \u0027all\u0027, \u0027uuid\u0027: self.view.params.uuid, \u0027value\u0027: isExpanded}\n\tsystem.perspective.sendMessage(\"toggleExpansion\", payload)"
+                      },
+                      "scope": "G",
+                      "type": "script"
+                    }
+                  }
+                },
+                "meta": {
+                  "name": "ExpandAccordion",
+                  "tooltip": {
+                    "enabled": true
+                  }
+                },
+                "position": {
+                  "basis": "30px",
+                  "shrink": 0
+                },
+                "propConfig": {
+                  "meta.tooltip.text": {
+                    "binding": {
+                      "config": {
+                        "path": "this.custom.expanded"
+                      },
+                      "transforms": [
+                        {
+                          "fallback": "Expand Gateway Attributes",
+                          "inputType": "scalar",
+                          "mappings": [
+                            {
+                              "input": true,
+                              "output": "Collapse Gateway Attributes"
+                            }
+                          ],
+                          "outputType": "scalar",
+                          "type": "map"
+                        }
+                      ],
+                      "type": "property"
+                    }
+                  },
+                  "props.path": {
+                    "binding": {
+                      "config": {
+                        "path": "this.custom.expanded"
+                      },
+                      "transforms": [
+                        {
+                          "fallback": "material/open_in_full",
+                          "inputType": "scalar",
+                          "mappings": [
+                            {
+                              "input": true,
+                              "output": "material/close_fullscreen"
+                            }
+                          ],
+                          "outputType": "scalar",
+                          "type": "map"
+                        }
+                      ],
+                      "type": "property"
+                    }
+                  }
+                },
+                "props": {
+                  "style": {
+                    "cursor": "pointer"
+                  }
+                },
+                "type": "ia.display.icon"
+              }
+            ],
+            "meta": {
+              "name": "Icons"
+            },
+            "position": {
+              "basis": "60px",
+              "grow": 1,
+              "shrink": 0
+            },
+            "props": {
+              "alignItems": "baseline",
+              "style": {
+                "marginTop": "4px"
+              }
+            },
+            "type": "ia.container.flex"
+          },
+          {
+            "children": [
+              {
+                "meta": {
+                  "name": "Left"
+                },
+                "position": {
+                  "grow": 1
+                },
+                "propConfig": {
+                  "props.style.box-shadow": {
+                    "binding": {
+                      "config": {
+                        "expression": "\"0 -10px 0 0 var(\" + {this.props.style.color} + \")\""
+                      },
+                      "type": "expr"
+                    }
+                  },
+                  "props.style.color": {
+                    "binding": {
+                      "config": {
+                        "expression": "\"--\" + lower({view.params.type})"
+                      },
+                      "type": "expr"
+                    }
+                  }
+                },
+                "props": {
+                  "style": {
+                    "backgroundColor": "#00000000",
+                    "borderTopRightRadius": "10px",
+                    "fontWeight": "bolder",
+                    "margin": "0px",
+                    "paddingLeft": "15px"
+                  }
+                },
+                "type": "ia.display.label"
+              },
+              {
+                "children": [
+                  {
+                    "events": {
+                      "dom": {
+                        "onClick": {
+                          "config": {
+                            "script": "\tpath\u003d\u0027Exchange/ArchitectureBuilder/Components/Server/Config\u0027\n\tsystem.perspective.openPopup(self.view.params.uuid, path, params \u003d {\"uuid\": self.view.params.uuid}, title \u003d \"Gateway Configuration\", viewportBound \u003d True, resizable \u003d False)\n"
+                          },
+                          "scope": "G",
+                          "type": "script"
+                        }
+                      }
+                    },
+                    "meta": {
+                      "name": "Config",
+                      "tooltip": {
+                        "enabled": true,
+                        "text": "Open Gateway Configuration"
+                      }
+                    },
+                    "position": {
+                      "basis": "26px",
+                      "shrink": 0
+                    },
+                    "props": {
+                      "path": "material/settings",
+                      "style": {
+                        "classes": "iconRotate",
+                        "cursor": "pointer",
+                        "marginRight": "4px",
+                        "overflow": "hidden"
+                      }
+                    },
+                    "type": "ia.display.icon"
+                  },
+                  {
+                    "meta": {
+                      "name": "Text"
+                    },
+                    "position": {
+                      "grow": 1,
+                      "shrink": 0
+                    },
+                    "propConfig": {
+                      "props.style.borderColor": {
+                        "binding": {
+                          "config": {
+                            "expression": "\"--\" + lower({view.params.type})"
+                          },
+                          "type": "expr"
+                        }
+                      },
+                      "props.text": {
+                        "binding": {
+                          "config": {
+                            "expression": "case({view.params.type},\r\n\t\u0027Edge\u0027, \u0027Edge IIoT\u0027,\r\n\t\u0027Panel\u0027, \u0027Edge Panel\u0027,\r\n\t{view.params.type})\r\n+ \" Edition\""
+                          },
+                          "type": "expr"
+                        }
+                      }
+                    },
+                    "props": {
+                      "style": {
+                        "color": "#FFFFFF",
+                        "fontWeight": "bolder"
+                      },
+                      "textStyle": {
+                        "fontFamily": "monospace",
+                        "fontSize": "18px",
+                        "letterSpacing": "1.5px",
+                        "textAlign": "start",
+                        "textTransform": "uppercase"
+                      }
+                    },
+                    "type": "ia.display.label"
+                  },
+                  {
+                    "events": {
+                      "dom": {
+                        "onClick": {
+                          "config": {
+                            "script": "\tpath\u003d\u0027Exchange/ArchitectureBuilder/Components/Server/Config\u0027\n\tsystem.perspective.openPopup(self.view.params.uuid, path, params \u003d {\"uuid\": self.view.params.uuid}, title \u003d \"Gateway Configuration\", viewportBound \u003d True, resizable \u003d False)\n"
+                          },
+                          "scope": "G",
+                          "type": "script"
+                        }
+                      }
+                    },
+                    "meta": {
+                      "name": "Redundancy",
+                      "tooltip": {
+                        "enabled": true,
+                        "text": "Redundant Gateway"
+                      }
+                    },
+                    "position": {
+                      "basis": "24px",
+                      "shrink": 0
+                    },
+                    "propConfig": {
+                      "position.display": {
+                        "binding": {
+                          "config": {
+                            "path": "view.custom.redundant"
+                          },
+                          "type": "property"
+                        }
+                      }
+                    },
+                    "props": {
+                      "path": "material/filter_2",
+                      "style": {
+                        "classes": "",
+                        "marginLeft": "4px",
+                        "overflow": "hidden"
+                      }
+                    },
+                    "type": "ia.display.icon"
+                  },
+                  {
+                    "events": {
+                      "dom": {
+                        "onClick": {
+                          "config": {
+                            "script": "\tpath\u003d\u0027Exchange/ArchitectureBuilder/Components/Server/Config\u0027\n\tsystem.perspective.openPopup(self.view.params.uuid, path, params \u003d {\"uuid\": self.view.params.uuid}, title \u003d \"Gateway Configuration\", viewportBound \u003d True, resizable \u003d False)\n"
+                          },
+                          "scope": "G",
+                          "type": "script"
+                        }
+                      }
+                    },
+                    "meta": {
+                      "name": "Development",
+                      "tooltip": {
+                        "enabled": true,
+                        "text": "Development Gateway"
+                      }
+                    },
+                    "position": {
+                      "basis": "24px",
+                      "shrink": 0
+                    },
+                    "propConfig": {
+                      "position.display": {
+                        "binding": {
+                          "config": {
+                            "path": "view.custom.development"
+                          },
+                          "type": "property"
+                        }
+                      }
+                    },
+                    "props": {
+                      "path": "material/bug_report",
+                      "style": {
+                        "classes": "",
+                        "marginLeft": "4px",
+                        "overflow": "hidden"
+                      }
+                    },
+                    "type": "ia.display.icon"
+                  }
+                ],
+                "meta": {
+                  "name": "Center"
+                },
+                "position": {
+                  "grow": 1,
+                  "shrink": 0
+                },
+                "propConfig": {
+                  "custom.padding": {
+                    "binding": {
+                      "config": {
+                        "expression": "// 20px normal, plus 10 for each icon displayed\r\n20 + \r\nif({view.custom.redundant}, 10, 0) +\r\nif({view.custom.development}, 10, 0)\r\n+ \"px\""
+                      },
+                      "type": "expr"
+                    }
+                  },
+                  "props.style.backgroundColor": {
+                    "binding": {
+                      "config": {
+                        "expression": "\"--\" + lower({view.params.type})"
+                      },
+                      "type": "expr"
+                    }
+                  },
+                  "props.style.borderColor": {
+                    "binding": {
+                      "config": {
+                        "expression": "\"--\" + lower({view.params.type})"
+                      },
+                      "type": "expr"
+                    }
+                  },
+                  "props.style.paddingLeft": {
+                    "binding": {
+                      "config": {
+                        "path": "this.custom.padding"
+                      },
+                      "type": "property"
+                    }
+                  },
+                  "props.style.paddingRight": {
+                    "binding": {
+                      "config": {
+                        "path": "this.custom.padding"
+                      },
+                      "type": "property"
+                    }
+                  }
+                },
+                "props": {
+                  "justify": "center",
+                  "style": {
+                    "borderBottomLeftRadius": "10px",
+                    "borderBottomRightRadius": "10px",
+                    "overflow": "hidden"
+                  }
+                },
+                "type": "ia.container.flex"
+              },
+              {
+                "meta": {
+                  "name": "Right"
+                },
+                "position": {
+                  "grow": 1
+                },
+                "propConfig": {
+                  "props.style.box-shadow": {
+                    "binding": {
+                      "config": {
+                        "expression": "\"0 -10px 0 0 var(\" + {this.props.style.color} + \")\""
+                      },
+                      "type": "expr"
+                    }
+                  },
+                  "props.style.color": {
+                    "binding": {
+                      "config": {
+                        "expression": "\"--\" + lower({view.params.type})"
+                      },
+                      "type": "expr"
+                    }
+                  }
+                },
+                "props": {
+                  "style": {
+                    "backgroundColor": "#00000000",
+                    "borderTopLeftRadius": "10px",
+                    "fontWeight": "bolder",
+                    "margin": "0px",
+                    "paddingRight": "15px"
+                  }
+                },
+                "type": "ia.display.label"
+              }
+            ],
+            "meta": {
+              "name": "Type"
+            },
+            "position": {
+              "shrink": 0
+            },
+            "props": {
+              "justify": "center"
+            },
+            "type": "ia.container.flex"
+          },
+          {
+            "meta": {
+              "name": "Cost",
+              "tooltip": {
+                "enabled": true
+              }
+            },
+            "position": {
+              "basis": "60px",
+              "grow": 1,
+              "shrink": 0
+            },
+            "propConfig": {
+              "custom.price": {
+                "binding": {
+                  "config": {
+                    "struct": {
+                      "config": "property(\"session.custom.structure.configs.\" + {view.params.uuid})",
+                      "discount": "{session.custom.discount}",
+                      "eamUnlimited": "{session.custom.eamUnlimited}",
+                      "supportCosts": "{view.params.supportCosts}",
+                      "type": "{view.params.type}"
+                    },
+                    "waitOnAll": true
+                  },
+                  "transforms": [
+                    {
+                      "code": "\tif self.view.params.type \u003d\u003d \u0027Cloud\u0027:\n\t\treturnVal \u003d {\u0027msg\u0027: \u0027Check Provider\u0027, \u0027total\u0027: 0, \u0027retailTotal\u0027: 0, \u0027eamCost\u0027: 0, \u0027licenseDiscounted\u0027: 0, \u0027supportDiscounted\u0027: 0}\n\telif self.view.custom.trial:\n\t\treturnVal \u003d {\u0027total\u0027: 0, \u0027licenseDiscounted\u0027: 0, \u0027supportDiscounted\u0027: 0}\n\telse:\n\t\treturnVal \u003d {\u0027eamCost\u0027: 0}\n\t\teamCost \u003d 0\n\t\t# Build list of selected modules\n\t\tselections \u003d {}\n\t\tfor vendor in value[\u0027config\u0027][\u0027config\u0027][\u0027modules\u0027]:\n\t\t\tselectedModules \u003d []\n\t\t\tif len(value[\u0027config\u0027][\u0027config\u0027][\u0027modules\u0027][vendor]) \u003e 0:\n\t\t\t\tfor m in value[\u0027config\u0027][\u0027config\u0027][\u0027modules\u0027][vendor]:\n\t\t\t\t\tif \"selection\" in m.keys() and m[\"selection\"] is not None:\n\t\t\t\t\t\tselectedModules.append({\"name\": m[\"name\"], \"selection\": m[\"selection\"]})\n\t\t\t\t\telse:\n\t\t\t\t\t\tselectedModules.append(m[\"name\"])\n\t\t\t\tselections[vendor] \u003d selectedModules\n\t\t\t# Handle EAM Unlimited\n\t\t\tif vendor \u003d\u003d \"IA\" and value[\"eamUnlimited\"][\"selected\"]:\n\t\t\t\tif len(filter(lambda module: module \u003d\u003d \"EAM\", selections[\"IA\"])) \u003e 0:\n\t\t\t\t\tfor module in selections[\"IA\"]:\n\t\t\t\t\t\tif module \u003d\u003d \"EAM\":\n\t\t\t\t\t\t\tselections[\"IA\"].remove(module)\n\t\t\t\t\t\t\tbreak\n\t\t\t\tif value[\"eamUnlimited\"][\"UUID\"] \u003d\u003d self.view.params.uuid:\n\t\t\t\t\tselectedModules.append({\"name\": \"EAM\", \"selection\": \"unlimited\"})\n\t\t\t\t\treturnVal[\u0027eamCost\u0027] \u003d exchange.architecturebuilder.modules.getEamUnlimited()\n\n\t\treturnVal[\u0027licenseBase\u0027] \u003d exchange.architecturebuilder.modules.getRetailTotal(selections, gwType\u003dvalue[\u0027type\u0027])[\u0027total\u0027]\n\t\treturnVal[\u0027supportBase\u0027] \u003d exchange.architecturebuilder.modules.getSupportTotal(selections, supportPlan\u003dvalue[\u0027config\u0027][\u0027config\u0027][\u0027supportPlan\u0027], gwType\u003dvalue[\u0027type\u0027])[\u0027total\u0027]\n\n\t\t# Calculate total with discounts and redundancy\n\t\tlicense \u003d returnVal[\u0027licenseBase\u0027]\n\t\tsupport \u003d returnVal[\u0027supportBase\u0027]\n\t\tif value[\u0027config\u0027][\u0027config\u0027][\u0027redundant\u0027]:\n\t\t\tlicense \u003d license * 1.5\n\t\t\tsupport \u003d support * 1.5\n\t\tif value[\u0027config\u0027][\u0027config\u0027][\u0027development\u0027]:\n\t\t\tlicense \u003d license * 0.5\n\t\t\tsupport \u003d support * 0.5\n\t\treturnVal[\u0027licenseRetail\u0027] \u003d license\n\t\treturnVal[\u0027supportRetail\u0027] \u003d support\n\t\treturnVal[\u0027retailTotal\u0027] \u003d license + support\n\t\treturnVal[\u0027licenseDiscounted\u0027] \u003d (license * (1 - (value[\u0027discount\u0027] / 100.0)))\n\t\treturnVal[\u0027supportDiscounted\u0027] \u003d support * 0.9 if value[\u0027discount\u0027] \u003e 0 else support\n\t\treturnVal[\u0027total\u0027] \u003d returnVal[\u0027licenseDiscounted\u0027] + (returnVal[\u0027supportDiscounted\u0027] if value[\"supportCosts\"] else 0)\n\treturn returnVal",
+                      "type": "script"
+                    }
+                  ],
+                  "type": "expr-struct"
+                }
+              },
+              "meta.tooltip.text": {
+                "binding": {
+                  "config": {
+                    "expression": "if({view.params.type} \u003d \u0027Cloud\u0027,\r\n\t\"License cost dependent on Cloud Provider, Region, and Instance Type. Total Care Support included.\",\r\n\t\"License: \" + numberFormat({this.custom.price.licenseDiscounted}, \"$#,##0.00\") + \"; Support: \" + \r\n\tif({view.params.supportCosts},\r\n\t\tnumberFormat({this.custom.price.supportDiscounted}, \"$#,##0.00\"),\r\n\t\t\"Not calculated\"))"
+                  },
+                  "type": "expr"
+                }
+              },
+              "props.text": {
+                "binding": {
+                  "config": {
+                    "path": "this.custom.price"
+                  },
+                  "transforms": [
+                    {
+                      "expression": "numberFormat({value}[\u0027total\u0027], \"$#,##0.00\")\r\n+\r\nif(len({value}[\u0027msg\u0027])\u003e0,\r\n\t\"+\",\r\n\t\"\")",
+                      "type": "expression"
+                    }
+                  ],
+                  "type": "property"
+                }
+              }
+            },
+            "props": {
+              "style": {
+                "cursor": "help",
+                "marginRight": 8,
+                "textAlign": "right"
+              },
+              "textStyle": {
+                "overflow": "visible"
+              }
+            },
+            "type": "ia.display.label"
+          }
+        ],
+        "meta": {
+          "name": "Top"
+        },
+        "position": {
+          "shrink": 0
+        },
+        "props": {
+          "justify": "space-between"
+        },
+        "type": "ia.container.flex"
+      },
+      {
+        "children": [
+          {
+            "children": [
+              {
+                "meta": {
+                  "name": "FlexRepeater"
+                },
+                "position": {
+                  "grow": 1
+                },
+                "propConfig": {
+                  "props.instances": {
+                    "binding": {
+                      "config": {
+                        "struct": {
+                          "gateway": "{view.params.uuid}",
+                          "parents": "{view.params.parents}"
+                        },
+                        "waitOnAll": true
+                      },
+                      "transforms": [
+                        {
+                          "code": "\timport copy\n\n\titems \u003d []\n\n\tdefault \u003d {\n\t  \"instanceStyle\": {\n\t    \"classes\": \"\"\n\t  },\n\t  \"instancePosition\": {},\n\t  \"uuid\": \"abcd1234\",\n\t  \"entry\": False\n\t}\n\n\t# Add parent UUIDs\n\tif len(value[\u0027parents\u0027]) \u003e 0:\n\t\tuuids \u003d value[\u0027parents\u0027].split(\"@\")\n\t\tfor uuid in uuids:\n\t\t\tentry \u003d copy.deepcopy(default)\n\t\t\tentry[\u0027uuid\u0027] \u003d uuid\n\t\t\titems.append(entry)\n\n\t# Add item UUID\n\tentry \u003d copy.deepcopy(default)\n\tentry[\u0027uuid\u0027] \u003d value[\u0027gateway\u0027]\n\tentry[\u0027entry\u0027] \u003d True\n\titems.append(entry)\n\n\treturn items",
+                          "type": "script"
+                        }
+                      ],
+                      "type": "expr-struct"
+                    }
+                  }
+                },
+                "props": {
+                  "elementPosition": {
+                    "basis": "auto",
+                    "shrink": 0
+                  },
+                  "elementStyle": {
+                    "padding": "3px"
+                  },
+                  "justify": "center",
+                  "path": "Exchange/ArchitectureBuilder/BOM/Breadcrumb",
+                  "useDefaultViewHeight": false,
+                  "useDefaultViewWidth": false,
+                  "wrap": "wrap"
+                },
+                "type": "ia.display.flex-repeater"
+              }
+            ],
+            "meta": {
+              "name": "Breadcrumbs"
+            },
+            "position": {
+              "grow": 1
+            },
+            "props": {
+              "justify": "space-between",
+              "wrap": "wrap"
+            },
+            "type": "ia.container.flex"
+          }
+        ],
+        "meta": {
+          "name": "Info"
+        },
+        "position": {
+          "grow": 1,
+          "shrink": 0
+        },
+        "props": {
+          "alignContent": "center",
+          "alignItems": "center",
+          "justify": "space-between",
+          "wrap": "wrap"
+        },
+        "type": "ia.container.flex"
+      }
+    ],
+    "meta": {
+      "name": "root"
+    },
+    "propConfig": {
+      "meta.domId": {
+        "binding": {
+          "config": {
+            "path": "view.params.uuid"
+          },
+          "type": "property"
+        }
+      },
+      "props.style.borderBottomColor": {
+        "binding": {
+          "config": {
+            "expression": "\"--\" + lower({view.params.type})"
+          },
+          "type": "expr"
+        }
+      },
+      "props.style.borderBottomLeftRadius": {
+        "binding": {
+          "config": {
+            "path": "view.params.expanded"
+          },
+          "transforms": [
+            {
+              "fallback": "16px",
+              "inputType": "scalar",
+              "mappings": [
+                {
+                  "input": true,
+                  "output": "0px"
+                }
+              ],
+              "outputType": "scalar",
+              "type": "map"
+            }
+          ],
+          "type": "property"
+        }
+      },
+      "props.style.borderBottomRightRadius": {
+        "binding": {
+          "config": {
+            "path": "view.params.expanded"
+          },
+          "transforms": [
+            {
+              "fallback": "16px",
+              "inputType": "scalar",
+              "mappings": [
+                {
+                  "input": true,
+                  "output": "0px"
+                }
+              ],
+              "outputType": "scalar",
+              "type": "map"
+            }
+          ],
+          "type": "property"
+        }
+      },
+      "props.style.borderBottomStyle": {
+        "binding": {
+          "config": {
+            "path": "view.params.expanded"
+          },
+          "transforms": [
+            {
+              "fallback": "solid",
+              "inputType": "scalar",
+              "mappings": [
+                {
+                  "input": true,
+                  "output": "none"
+                }
+              ],
+              "outputType": "scalar",
+              "type": "map"
+            }
+          ],
+          "type": "property"
+        }
+      },
+      "props.style.borderLeftColor": {
+        "binding": {
+          "config": {
+            "expression": "\"--\" + lower({view.params.type})"
+          },
+          "type": "expr"
+        }
+      },
+      "props.style.borderRightColor": {
+        "binding": {
+          "config": {
+            "expression": "\"--\" + lower({view.params.type})"
+          },
+          "type": "expr"
+        }
+      },
+      "props.style.borderTopColor": {
+        "binding": {
+          "config": {
+            "expression": "\"--\" + lower({view.params.type})"
+          },
+          "type": "expr"
+        }
+      },
+      "props.style.marginBottom": {
+        "binding": {
+          "config": {
+            "path": "view.params.expanded"
+          },
+          "transforms": [
+            {
+              "fallback": "16px",
+              "inputType": "scalar",
+              "mappings": [
+                {
+                  "input": true,
+                  "output": "0px"
+                }
+              ],
+              "outputType": "scalar",
+              "type": "map"
+            }
+          ],
+          "type": "property"
+        }
+      }
+    },
+    "props": {
+      "alignContent": "space-between",
+      "direction": "column",
+      "style": {
+        "borderLeftStyle": "solid",
+        "borderRightStyle": "solid",
+        "borderTopLeftRadius": "16px",
+        "borderTopRightRadius": "16px",
+        "borderTopStyle": "solid",
+        "cursor": "auto"
+      }
+    },
+    "scripts": {
+      "customMethods": [],
+      "extensionFunctions": null,
+      "messageHandlers": [
+        {
+          "messageType": "toggleExpandCollapseAll",
+          "pageScope": true,
+          "script": "\t# Toggle custom \u0027expanded\u0027 property to drive changing the expand all / collapse all icon\n\tif self.view.params.uuid \u003d\u003d payload[\"uuid\"]:\n\t\tself.getChild(\"Top\").getChild(\"Icons\").getChild(\"ExpandAccordion\").custom.expanded \u003d payload[\"allExpanded\"]",
+          "sessionScope": false,
+          "viewScope": false
+        }
+      ]
+    },
+    "type": "ia.container.flex"
+  }
+}

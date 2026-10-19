@@ -1,0 +1,20 @@
+{
+  "scope": "A",
+  "version": 1,
+  "restricted": false,
+  "overridable": true,
+  "files": [
+    "layout-join.png"
+  ],
+  "attributes": {
+    "width": 16,
+    "format": "PNG",
+    "lastModification": {
+      "actor": "8.3-migration",
+      "timestamp": "2026-01-07T14:49:07Z"
+    },
+    "size": 382,
+    "lastModificationSignature": "e44d96afdc631c228dea5d1ce8849f69caa1bf79a36034aff1fdcee9805d8aa1",
+    "height": 16
+  }
+}

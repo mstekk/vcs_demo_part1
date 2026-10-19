@@ -1,0 +1,20 @@
+{
+  "scope": "A",
+  "version": 1,
+  "restricted": false,
+  "overridable": true,
+  "files": [
+    "mouse14.png"
+  ],
+  "attributes": {
+    "width": 16,
+    "format": "PNG",
+    "lastModification": {
+      "actor": "8.3-migration",
+      "timestamp": "2026-01-07T14:49:07Z"
+    },
+    "size": 379,
+    "lastModificationSignature": "473bddc94edad10a297180849fda2dbf1a4d5e2f4e5f9c37504a712443823064",
+    "height": 16
+  }
+}

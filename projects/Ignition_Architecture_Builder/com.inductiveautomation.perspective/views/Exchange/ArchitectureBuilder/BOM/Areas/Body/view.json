@@ -1,0 +1,281 @@
+{
+  "custom": {
+    "price": {
+      "licenseDiscounted": 0,
+      "msg": "",
+      "retailTotal": 0,
+      "supportBase": 0,
+      "supportDiscounted": 0,
+      "total": 0
+    }
+  },
+  "params": {
+    "children": [
+      "I197bc229"
+    ],
+    "parents": "",
+    "supportCosts": "True",
+    "uuid": "Iddca194a"
+  },
+  "propConfig": {
+    "custom.price": {
+      "binding": {
+        "config": {
+          "struct": {
+            "areaUUIDs": "{view.params.children}",
+            "configs": "{session.custom.structure.configs}",
+            "discount": "{session.custom.discount}",
+            "eamUnlimited": "{session.custom.eamUnlimited}",
+            "supportCosts": "{view.params.supportCosts}"
+          },
+          "waitOnAll": true
+        },
+        "transforms": [
+          {
+            "code": "\treturnVal \u003d {\u0027msg\u0027: \u0027\u0027, \u0027total\u0027: 0, \u0027retailTotal\u0027: 0, \u0027licenseDiscounted\u0027: 0, \u0027supportBase\u0027: 0, \u0027supportDiscounted\u0027: 0}\n\ttotal \u003d 0\n\n\tfor uuid in value[\u0027areaUUIDs\u0027]:\n\t\tif value[\u0027configs\u0027][uuid][\u0027type\u0027] \u003d\u003d \u0027cloud\u0027:\n\t\t\treturnVal[\u0027msg\u0027] \u003d \u0027Check Provider\u0027\n\t\telif value[\u0027configs\u0027][uuid][\u0027config\u0027][\u0027trial\u0027]:\n\t\t\tpass\n\t\telse:\n\t\t\t# Build list of selected modules\n\t\t\tselections \u003d {}\n\t\t\tfor vendor in value[\u0027configs\u0027][uuid][\u0027config\u0027][\u0027modules\u0027]:\n\t\t\t\tselectedModules \u003d []\n\t\t\t\tif len(value[\u0027configs\u0027][uuid][\u0027config\u0027][\u0027modules\u0027][vendor]) \u003e 0:\n\t\t\t\t\tfor m in value[\u0027configs\u0027][uuid][\u0027config\u0027][\u0027modules\u0027][vendor]:\n\t\t\t\t\t\tif \"selection\" in m.keys() and m[\"selection\"] is not None:\n\t\t\t\t\t\t\tselectedModules.append({\"name\": m[\"name\"], \"selection\": m[\"selection\"]})\n\t\t\t\t\t\telse:\n\t\t\t\t\t\t\tselectedModules.append(m[\"name\"])\n\t\t\t\t\tselections[vendor] \u003d selectedModules\n\t\t\t\t# Handle EAM Unlimited\n\t\t\t\tif vendor \u003d\u003d \"IA\" and value[\"eamUnlimited\"][\"selected\"]:\n\t\t\t\t\tif len(filter(lambda module: module \u003d\u003d \"EAM\", selections[\"IA\"])) \u003e 0:\n\t\t\t\t\t\tfor module in selections[\"IA\"]:\n\t\t\t\t\t\t\tif module \u003d\u003d \"EAM\":\n\t\t\t\t\t\t\t\tselections[\"IA\"].remove(module)\n\t\t\t\t\t\t\t\tbreak\n\t\t\t\t\tif value[\"eamUnlimited\"][\"UUID\"] \u003d\u003d uuid:\n\t\t\t\t\t\tselectedModules.append({\"name\": \"EAM\", \"selection\": \"unlimited\"})\n\t\t\tlicense \u003d exchange.architecturebuilder.modules.getRetailTotal(selections, gwType\u003dvalue[\u0027configs\u0027][uuid][\u0027type\u0027])[\u0027total\u0027]\n\t\t\tsupport \u003d exchange.architecturebuilder.modules.getSupportTotal(selections, supportPlan\u003dvalue[\u0027configs\u0027][uuid][\u0027config\u0027][\u0027supportPlan\u0027], gwType\u003dvalue[\u0027configs\u0027][uuid][\u0027type\u0027])[\u0027total\u0027]\n\n\t\t\t# Calculate total with discounts and redundancy\n\t\t\tif value[\u0027configs\u0027][uuid][\u0027config\u0027][\u0027redundant\u0027]:\n\t\t\t\tlicense \u003d license * 1.5\n\t\t\t\tsupport \u003d support * 1.5\n\t\t\tif value[\u0027configs\u0027][uuid][\u0027config\u0027][\u0027development\u0027]:\n\t\t\t\tlicense \u003d license * 0.5\n\t\t\t\tsupport \u003d support * 0.5\n\t\t\treturnVal[\u0027retailTotal\u0027] +\u003d (license + support)\n\t\t\tlicenseDiscounted \u003d (license * (1 - (value[\u0027discount\u0027] / 100.0)))\n\t\t\treturnVal[\u0027licenseDiscounted\u0027] +\u003d licenseDiscounted\n\t\t\treturnVal[\u0027supportBase\u0027] +\u003d support\n\t\t\tsupportDiscounted \u003d support * 0.9 if value[\u0027discount\u0027] \u003e 0 else support\n\t\t\treturnVal[\u0027supportDiscounted\u0027] +\u003d supportDiscounted\n\t\t\treturnVal[\u0027total\u0027] +\u003d (licenseDiscounted + (supportDiscounted if value[\"supportCosts\"] else 0))\n\treturn returnVal",
+            "type": "script"
+          }
+        ],
+        "type": "expr-struct"
+      },
+      "persistent": true
+    },
+    "params.children": {
+      "paramDirection": "input",
+      "persistent": true
+    },
+    "params.parents": {
+      "paramDirection": "input",
+      "persistent": true
+    },
+    "params.supportCosts": {
+      "paramDirection": "input",
+      "persistent": true
+    },
+    "params.uuid": {
+      "paramDirection": "input",
+      "persistent": true
+    }
+  },
+  "props": {
+    "defaultSize": {
+      "height": 44,
+      "width": 1200
+    }
+  },
+  "root": {
+    "children": [
+      {
+        "children": [
+          {
+            "children": [
+              {
+                "meta": {
+                  "name": "FlexRepeater"
+                },
+                "position": {
+                  "grow": 1
+                },
+                "propConfig": {
+                  "props.instances": {
+                    "binding": {
+                      "config": {
+                        "struct": {
+                          "gateway": "{view.params.uuid}",
+                          "parents": "{view.params.parents}"
+                        },
+                        "waitOnAll": true
+                      },
+                      "transforms": [
+                        {
+                          "code": "\timport copy\n\n\titems \u003d []\n\n\tdefault \u003d {\n\t  \"instanceStyle\": {\n\t    \"classes\": \"\"\n\t  },\n\t  \"instancePosition\": {},\n\t  \"uuid\": \"abcd1234\",\n\t  \"entry\": False\n\t}\n\n\t# Add parent UUIDs\n\tif len(value[\u0027parents\u0027]) \u003e 0:\n\t\tuuids \u003d value[\u0027parents\u0027].split(\"@\")\n\t\tfor uuid in uuids:\n\t\t\tentry \u003d copy.deepcopy(default)\n\t\t\tentry[\u0027uuid\u0027] \u003d uuid\n\t\t\titems.append(entry)\n\n\t# Add item UUID\n\tentry \u003d copy.deepcopy(default)\n\tentry[\u0027uuid\u0027] \u003d value[\u0027gateway\u0027]\n\tentry[\u0027entry\u0027] \u003d True\n\titems.append(entry)\n\n\treturn items",
+                          "type": "script"
+                        }
+                      ],
+                      "type": "expr-struct"
+                    }
+                  }
+                },
+                "props": {
+                  "elementPosition": {
+                    "basis": "auto",
+                    "shrink": 0
+                  },
+                  "elementStyle": {
+                    "padding": "3px"
+                  },
+                  "justify": "center",
+                  "path": "Exchange/ArchitectureBuilder/BOM/Breadcrumb",
+                  "useDefaultViewHeight": false,
+                  "useDefaultViewWidth": false,
+                  "wrap": "wrap"
+                },
+                "type": "ia.display.flex-repeater"
+              }
+            ],
+            "meta": {
+              "name": "Breadcrumbs"
+            },
+            "position": {
+              "grow": 1
+            },
+            "props": {
+              "justify": "space-between",
+              "wrap": "wrap"
+            },
+            "type": "ia.container.flex"
+          },
+          {
+            "meta": {
+              "name": "Cost",
+              "tooltip": {
+                "enabled": true,
+                "text": "Cost of all Ignition Gateways in this and child areas"
+              }
+            },
+            "position": {
+              "shrink": 0
+            },
+            "propConfig": {
+              "props.text": {
+                "binding": {
+                  "config": {
+                    "path": "view.custom.price"
+                  },
+                  "transforms": [
+                    {
+                      "expression": "numberFormat({value}[\u0027total\u0027], \"$#,##0.00\")\r\n+\r\nif(len({value}[\u0027msg\u0027])\u003e0,\r\n\t\"+\",\r\n\t\"\")",
+                      "type": "expression"
+                    }
+                  ],
+                  "type": "property"
+                }
+              }
+            },
+            "props": {
+              "style": {
+                "cursor": "help",
+                "marginRight": 8,
+                "textAlign": "right"
+              },
+              "textStyle": {
+                "overflow": "visible"
+              }
+            },
+            "type": "ia.display.label"
+          }
+        ],
+        "meta": {
+          "name": "Info"
+        },
+        "position": {
+          "grow": 1,
+          "shrink": 0
+        },
+        "props": {
+          "alignContent": "center",
+          "alignItems": "center",
+          "justify": "space-between",
+          "wrap": "wrap"
+        },
+        "type": "ia.container.flex"
+      }
+    ],
+    "meta": {
+      "name": "root"
+    },
+    "propConfig": {
+      "meta.domId": {
+        "binding": {
+          "config": {
+            "path": "view.params.uuid"
+          },
+          "type": "property"
+        }
+      },
+      "props.style.borderBottomLeftRadius": {
+        "binding": {
+          "config": {
+            "path": "view.params.expanded"
+          },
+          "transforms": [
+            {
+              "fallback": "16px",
+              "inputType": "scalar",
+              "mappings": [
+                {
+                  "input": true,
+                  "output": "0px"
+                }
+              ],
+              "outputType": "scalar",
+              "type": "map"
+            }
+          ],
+          "type": "property"
+        }
+      },
+      "props.style.borderBottomRightRadius": {
+        "binding": {
+          "config": {
+            "path": "view.params.expanded"
+          },
+          "transforms": [
+            {
+              "fallback": "16px",
+              "inputType": "scalar",
+              "mappings": [
+                {
+                  "input": true,
+                  "output": "0px"
+                }
+              ],
+              "outputType": "scalar",
+              "type": "map"
+            }
+          ],
+          "type": "property"
+        }
+      },
+      "props.style.borderBottomStyle": {
+        "binding": {
+          "config": {
+            "path": "view.params.expanded"
+          },
+          "transforms": [
+            {
+              "fallback": "solid",
+              "inputType": "scalar",
+              "mappings": [
+                {
+                  "input": true,
+                  "output": "none"
+                }
+              ],
+              "outputType": "scalar",
+              "type": "map"
+            }
+          ],
+          "type": "property"
+        }
+      }
+    },
+    "props": {
+      "alignContent": "space-between",
+      "direction": "column",
+      "style": {
+        "borderBottomColor": "--neutral-100",
+        "borderLeftColor": "--neutral-100",
+        "borderLeftStyle": "solid",
+        "borderRightColor": "--neutral-100",
+        "borderRightStyle": "solid",
+        "borderTopColor": "--neutral-100",
+        "borderTopLeftRadius": "16px",
+        "borderTopRightRadius": "16px",
+        "borderTopStyle": "solid",
+        "cursor": "auto"
+      }
+    },
+    "type": "ia.container.flex"
+  }
+}

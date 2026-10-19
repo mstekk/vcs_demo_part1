@@ -1,0 +1,20 @@
+{
+  "scope": "A",
+  "version": 1,
+  "restricted": false,
+  "overridable": true,
+  "files": [
+    "ui-radio-button.png"
+  ],
+  "attributes": {
+    "width": 16,
+    "format": "PNG",
+    "lastModification": {
+      "actor": "8.3-migration",
+      "timestamp": "2026-01-07T14:49:07Z"
+    },
+    "size": 463,
+    "lastModificationSignature": "81f73fe8c6d5050da22749f2f4a278986dbef1978c1ad7f706b8e43ba7a5d66b",
+    "height": 16
+  }
+}

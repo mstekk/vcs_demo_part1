@@ -1,0 +1,20 @@
+{
+  "scope": "A",
+  "version": 1,
+  "restricted": false,
+  "overridable": true,
+  "files": [
+    "Small Tank.png"
+  ],
+  "attributes": {
+    "width": 211,
+    "format": "PNG",
+    "lastModification": {
+      "actor": "8.3-migration",
+      "timestamp": "2026-01-07T14:49:07Z"
+    },
+    "size": 16016,
+    "lastModificationSignature": "3a5f41ac0040c4f8f4355c56b3c81202a19115d7ec62aa059096b34ecbef0d5f",
+    "height": 367
+  }
+}

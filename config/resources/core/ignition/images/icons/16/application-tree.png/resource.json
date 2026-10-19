@@ -1,0 +1,20 @@
+{
+  "scope": "A",
+  "version": 1,
+  "restricted": false,
+  "overridable": true,
+  "files": [
+    "application-tree.png"
+  ],
+  "attributes": {
+    "width": 16,
+    "format": "PNG",
+    "lastModification": {
+      "actor": "8.3-migration",
+      "timestamp": "2026-01-07T14:49:07Z"
+    },
+    "size": 573,
+    "lastModificationSignature": "0c7e6d30f4d200ae772aea8aa43c39d0c326e285107628f6ad65c4b930383059",
+    "height": 16
+  }
+}

@@ -1,0 +1,307 @@
+{
+  "custom": {
+    "params": null
+  },
+  "params": {
+    "uuid": "Icd7e8b9e"
+  },
+  "propConfig": {
+    "custom.params": {
+      "binding": {
+        "config": {
+          "expression": "property(\u0027session.custom.structure.configs.\u0027+{view.params.uuid})"
+        },
+        "type": "expr"
+      },
+      "persistent": true
+    },
+    "params.uuid": {
+      "paramDirection": "input",
+      "persistent": true
+    }
+  },
+  "props": {
+    "defaultSize": {
+      "height": 415,
+      "width": 404
+    }
+  },
+  "root": {
+    "children": [
+      {
+        "meta": {
+          "name": "Name"
+        },
+        "position": {
+          "shrink": 0
+        },
+        "propConfig": {
+          "props.params.text": {
+            "binding": {
+              "config": {
+                "bidirectional": true,
+                "path": "view.custom.params.name"
+              },
+              "type": "property"
+            }
+          }
+        },
+        "props": {
+          "params": {
+            "label": "Client Name:",
+            "labelSize": 120
+          },
+          "path": "Exchange/ArchitectureBuilder/General/TextInput",
+          "style": {
+            "margin": "8px"
+          }
+        },
+        "type": "ia.display.view"
+      },
+      {
+        "meta": {
+          "name": "DropDown"
+        },
+        "propConfig": {
+          "props.params.value": {
+            "binding": {
+              "config": {
+                "bidirectional": true,
+                "path": "view.custom.params.config.image"
+              },
+              "type": "property"
+            }
+          }
+        },
+        "props": {
+          "params": {
+            "label": "Display Image:",
+            "labelSize": 120,
+            "options": [
+              {
+                "label": "Cell Tower",
+                "value": "Cell-Tower"
+              },
+              {
+                "label": "Satellite",
+                "value": "Satellite"
+              },
+              {
+                "label": "LIMs",
+                "value": "LIMs"
+              }
+            ]
+          },
+          "path": "Exchange/ArchitectureBuilder/General/DropDown",
+          "style": {
+            "margin": "8px",
+            "marginTop": "0px"
+          }
+        },
+        "type": "ia.display.view"
+      },
+      {
+        "meta": {
+          "name": "Description"
+        },
+        "position": {
+          "basis": "161px",
+          "grow": 1
+        },
+        "propConfig": {
+          "props.params.desc": {
+            "binding": {
+              "config": {
+                "bidirectional": true,
+                "path": "view.custom.params.desc"
+              },
+              "type": "property"
+            }
+          }
+        },
+        "props": {
+          "path": "Exchange/ArchitectureBuilder/General/TextArea",
+          "style": {
+            "margin": 8
+          }
+        },
+        "type": "ia.display.view"
+      },
+      {
+        "children": [
+          {
+            "events": {
+              "component": {
+                "onActionPerformed": {
+                  "config": {
+                    "script": "\tfrom exchange.architecturebuilder.viewCanvas.auditEvents import insertAuditEvent\n\toriginatingSystem\u003d[\"source\",\"Layout\" ,\u0027uuid\u0027,self.view.params.uuid]\n\tinsertAuditEvent(self.session.custom.audit.layout, \"Component Configured\", self.view.custom.params.type, actionValue\u003dsystem.util.jsonEncode(self.view.custom.params.config), originatingSystem\u003doriginatingSystem)\n\tpayload\u003dsystem.util.jsonDecode(system.util.jsonEncode(self.view.custom.params))\n\tsystem.perspective.sendMessage(\u0027updateViewParams\u0027, payload, scope\u003d\u0027session\u0027)\n\tsystem.perspective.closePopup(self.view.params.uuid)"
+                  },
+                  "scope": "G",
+                  "type": "script"
+                }
+              }
+            },
+            "meta": {
+              "name": "Ok"
+            },
+            "position": {
+              "basis": "33%",
+              "grow": 1
+            },
+            "props": {
+              "style": {
+                "classes": "Exchange/ArchitectureBuilder/buttonHover",
+                "marginLeft": "8px",
+                "marginRight": "8px"
+              },
+              "text": "OK"
+            },
+            "type": "ia.input.button"
+          },
+          {
+            "events": {
+              "component": {
+                "onActionPerformed": {
+                  "config": {
+                    "script": "\tsystem.perspective.closePopup(self.view.params.uuid)"
+                  },
+                  "scope": "G",
+                  "type": "script"
+                }
+              }
+            },
+            "meta": {
+              "name": "Cancel"
+            },
+            "position": {
+              "basis": "33%",
+              "grow": 1
+            },
+            "props": {
+              "style": {
+                "classes": "Exchange/ArchitectureBuilder/buttonHover",
+                "marginLeft": "8px",
+                "marginRight": "8px"
+              },
+              "text": "Cancel"
+            },
+            "type": "ia.input.button"
+          },
+          {
+            "events": {
+              "component": {
+                "onActionPerformed": {
+                  "config": {
+                    "script": "\tfrom exchange.architecturebuilder.viewCanvas.auditEvents import insertAuditEvent\n\toriginatingSystem\u003d[\"source\",\"Layout\" ,\u0027uuid\u0027,self.view.params.uuid]\n\tinsertAuditEvent(self.session.custom.audit.layout, \"Component Configured\", self.view.custom.params.type, actionValue\u003dsystem.util.jsonEncode(self.view.custom.params.config), originatingSystem\u003doriginatingSystem)\n\tpayload\u003dsystem.util.jsonDecode(system.util.jsonEncode(self.view.custom.params))\n\tsystem.perspective.sendMessage(\u0027updateViewParams\u0027, payload, scope\u003d\u0027session\u0027)"
+                  },
+                  "scope": "G",
+                  "type": "script"
+                }
+              }
+            },
+            "meta": {
+              "name": "Apply"
+            },
+            "position": {
+              "basis": "33%",
+              "grow": 1
+            },
+            "props": {
+              "style": {
+                "classes": "Exchange/ArchitectureBuilder/buttonHover",
+                "marginLeft": "8px",
+                "marginRight": "8px"
+              },
+              "text": "Apply"
+            },
+            "type": "ia.input.button"
+          }
+        ],
+        "meta": {
+          "name": "Apply"
+        },
+        "position": {
+          "basis": "34px",
+          "shrink": 0
+        },
+        "props": {
+          "justify": "space-around",
+          "style": {
+            "marginBottom": "8px",
+            "marginTop": "8px"
+          }
+        },
+        "type": "ia.container.flex"
+      },
+      {
+        "events": {
+          "component": {
+            "onActionPerformed": {
+              "config": {
+                "script": "\tself.deleteComponent()\n\tsystem.perspective.closePopup(self.view.params.uuid)"
+              },
+              "scope": "G",
+              "type": "script"
+            }
+          }
+        },
+        "meta": {
+          "name": "DeleteComponent"
+        },
+        "position": {
+          "basis": "42px",
+          "shrink": 0
+        },
+        "props": {
+          "confirm": {
+            "enabled": true
+          },
+          "readyState": {
+            "icon": {
+              "style": {
+                "height": "24px",
+                "width": "2rem"
+              }
+            },
+            "text": "Delete Component"
+          },
+          "style": {
+            "classes": "Exchange/ArchitectureBuilder/buttonHover",
+            "marginBottom": "8px",
+            "marginLeft": "8px",
+            "marginRight": "8px"
+          },
+          "writingState": {
+            "icon": {
+              "path": "material/hourglass_empty",
+              "style": {
+                "height": "24px",
+                "width": "2rem"
+              }
+            },
+            "text": "Writing..."
+          }
+        },
+        "scripts": {
+          "customMethods": [
+            {
+              "name": "deleteComponent",
+              "params": [],
+              "script": "\tuuid\u003dself.view.params.uuid\n\ttypeID\u003dself.view.custom.params.type\n\tsystem.perspective.sendMessage(\u0027selectFrame\u0027,{\u0027selected\u0027: True})\n\tsystem.perspective.sendMessage(\u0027deleteComponent\u0027, {\u0027uuid\u0027:uuid,\u0027type\u0027: typeID }, scope\u003d\"session\")"
+            }
+          ],
+          "extensionFunctions": null,
+          "messageHandlers": []
+        },
+        "type": "ia.input.oneshotbutton"
+      }
+    ],
+    "meta": {
+      "name": "root"
+    },
+    "props": {
+      "direction": "column"
+    },
+    "type": "ia.container.flex"
+  }
+}

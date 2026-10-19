@@ -1,0 +1,20 @@
+{
+  "scope": "A",
+  "version": 1,
+  "restricted": false,
+  "overridable": true,
+  "files": [
+    "interface13.png"
+  ],
+  "attributes": {
+    "width": 24,
+    "format": "PNG",
+    "lastModification": {
+      "actor": "8.3-migration",
+      "timestamp": "2026-01-07T14:49:07Z"
+    },
+    "size": 367,
+    "lastModificationSignature": "ef7bd2fd3afa3fd4e289e4d74106f5df9011bcf6847f4af7280a31e9c60c6fc7",
+    "height": 24
+  }
+}

@@ -1,0 +1,20 @@
+{
+  "scope": "A",
+  "version": 1,
+  "restricted": false,
+  "overridable": true,
+  "files": [
+    "layer-shape-polyline.png"
+  ],
+  "attributes": {
+    "width": 16,
+    "format": "PNG",
+    "lastModification": {
+      "actor": "8.3-migration",
+      "timestamp": "2026-01-07T14:49:07Z"
+    },
+    "size": 431,
+    "lastModificationSignature": "8911393fa31b9f834a877f80d04bd7e92bfd9f9b62e9ba604f64c5704e7576ec",
+    "height": 16
+  }
+}

@@ -1,0 +1,20 @@
+{
+  "scope": "A",
+  "version": 1,
+  "restricted": false,
+  "overridable": true,
+  "files": [
+    "cassette.png"
+  ],
+  "attributes": {
+    "width": 16,
+    "format": "PNG",
+    "lastModification": {
+      "actor": "8.3-migration",
+      "timestamp": "2026-01-07T14:49:07Z"
+    },
+    "size": 552,
+    "lastModificationSignature": "f8958641ec893bd15e3a313c57f104e49a5b7f23060c2533202dfef471ef33d9",
+    "height": 16
+  }
+}

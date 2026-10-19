@@ -1,0 +1,20 @@
+{
+  "scope": "A",
+  "version": 1,
+  "restricted": false,
+  "overridable": true,
+  "files": [
+    "application-network.png"
+  ],
+  "attributes": {
+    "width": 16,
+    "format": "PNG",
+    "lastModification": {
+      "actor": "8.3-migration",
+      "timestamp": "2026-01-07T14:49:07Z"
+    },
+    "size": 597,
+    "lastModificationSignature": "68670eb8bb8aa165081a1e870e3d205875e5cc2b99b7a223667dc0d2ab98ed91",
+    "height": 16
+  }
+}

@@ -1,0 +1,20 @@
+{
+  "scope": "A",
+  "version": 1,
+  "restricted": false,
+  "overridable": true,
+  "files": [
+    "currency-yen.png"
+  ],
+  "attributes": {
+    "width": 16,
+    "format": "PNG",
+    "lastModification": {
+      "actor": "8.3-migration",
+      "timestamp": "2026-01-07T14:49:07Z"
+    },
+    "size": 556,
+    "lastModificationSignature": "98303cddcab30f43f3a1190b22ddf119fbfebc5547e33fbe18c8029dadf3218f",
+    "height": 16
+  }
+}

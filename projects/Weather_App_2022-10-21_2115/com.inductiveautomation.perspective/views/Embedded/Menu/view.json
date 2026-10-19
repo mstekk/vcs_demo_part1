@@ -1,0 +1,107 @@
+{
+  "custom": {},
+  "params": {
+    "Page": "Locations"
+  },
+  "propConfig": {
+    "params.Page": {
+      "paramDirection": "inout",
+      "persistent": true
+    },
+    "params.icon": {
+      "paramDirection": "input",
+      "persistent": true
+    }
+  },
+  "props": {
+    "defaultSize": {
+      "height": 56,
+      "width": 600
+    }
+  },
+  "root": {
+    "children": [
+      {
+        "events": {
+          "dom": {
+            "onClick": {
+              "config": {
+                "script": "\tself.view.params.Page \u003d \"Locations\""
+              },
+              "scope": "G",
+              "type": "script"
+            }
+          }
+        },
+        "meta": {
+          "name": "Icon"
+        },
+        "position": {
+          "basis": "30px"
+        },
+        "props": {
+          "path": "material/location_on"
+        },
+        "type": "ia.display.icon"
+      },
+      {
+        "events": {
+          "dom": {
+            "onClick": {
+              "config": {
+                "script": "\tself.view.params.Page \u003d \"Map\""
+              },
+              "scope": "G",
+              "type": "script"
+            }
+          }
+        },
+        "meta": {
+          "name": "Icon_1"
+        },
+        "position": {
+          "basis": "30px"
+        },
+        "props": {
+          "path": "material/map"
+        },
+        "type": "ia.display.icon"
+      },
+      {
+        "events": {
+          "dom": {
+            "onClick": {
+              "config": {
+                "script": "\tself.view.params.Page \u003d \"Settings\""
+              },
+              "scope": "G",
+              "type": "script"
+            }
+          }
+        },
+        "meta": {
+          "name": "Icon_0"
+        },
+        "position": {
+          "basis": "30px"
+        },
+        "props": {
+          "path": "material/settings"
+        },
+        "type": "ia.display.icon"
+      }
+    ],
+    "meta": {
+      "name": "root"
+    },
+    "props": {
+      "justify": "space-around",
+      "style": {
+        "borderTopStyle": "solid",
+        "borderTopWidth": "1px",
+        "classes": "Title/Title"
+      }
+    },
+    "type": "ia.container.flex"
+  }
+}

@@ -1,0 +1,20 @@
+{
+  "scope": "A",
+  "version": 1,
+  "restricted": false,
+  "overridable": true,
+  "files": [
+    "arrow-180-small.png"
+  ],
+  "attributes": {
+    "width": 16,
+    "format": "PNG",
+    "lastModification": {
+      "actor": "8.3-migration",
+      "timestamp": "2026-01-07T14:49:07Z"
+    },
+    "size": 426,
+    "lastModificationSignature": "e9ab00c1e3e4f2a47b54c03090334191c31e5ed4f3d698e44345176b871b6acf",
+    "height": 16
+  }
+}

@@ -1,0 +1,319 @@
+/* Direct stylesheet authoring is an advanced feature. Knowledge of CSS required.*/
+
+:root {
+	/* Custom color variables */
+	--edge: #78D175;
+	--panel: #78D175;
+	--cloud: #25A4E9;
+	--standard: #FF8C00;
+	--cirrusLink: #156D97;
+	--sepasoft: #2DA449;
+	/* Inductive Automation Colors */
+	--ia-darkgray: #39464B;
+	--ia-green: #8DC63E;
+	--ia-gray: #445C6D;
+	
+	/* Ignition Colors */
+	--ignition-orange: #F7901E;
+	--ignition-blue: #003E69;
+	--ignition-darkblue: #002143;
+
+	/* Ignition Edge Colors */
+	--edge-green: #78D175;
+	--edge-gray: #283439;
+	--edge-dark-gray: #1E2528;
+	--edge-light-gray: #4E5558;
+
+}
+
+.file-upload-modal {
+    width: 265px;
+    transform: translate(102%, -50%);
+}
+
+/* Scrollbar styling */
+::-webkit-scrollbar {
+  width: 16px;
+  height: 16px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  padding: 2px;
+  box-shadow: inset 0 0 5px grey; 
+  border-radius: 5px;
+}
+ 
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: var(--neutral-90); 
+  border-radius: 8px;
+  box-shadow: inset 0 0 5px var(--neutral-30); 
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover { 
+  background:var(--neutral-70);  */
+} 
+
+
+div [data-component="ia.display.viewcanvas"] div:has(.psc-gateway){
+	overflow: hidden !important;
+}
+
+div [data-component="ia.display.viewcanvas"] div:has(.psc-gateway):hover{
+	overflow: visible !important;
+	z-index: 9999 !important;
+}
+
+div [data-component="ia.display.viewcanvas"] div:has(.psc-area){
+	overflow: hidden !important;
+}
+
+div [data-component="ia.display.viewcanvas"] div:has(.psc-area):hover{
+	overflow: visible !important;
+	/*z-index: 1 !important;*/
+}
+
+div [data-component="ia.display.viewcanvas"] div:has(.psc-gatewayPin){
+	overflow: visible !important;
+	/*z-index: 9999 !important;*/
+}
+div [data-component="ia.display.viewcanvas"] div:has(.psc-allGateways){
+	overflow: visible !important;
+	/*z-index: 999 !important;*/
+}
+
+
+.psc-componentShadow {
+	filter: drop-shadow(10px 15px 5px #00000060);
+}
+
+.psc-controlIconHover{
+	filter: drop-shadow(0px 0px 5px var(--neutral-30));
+}
+
+.psc-controlIconHover:hover{
+	filter: drop-shadow(0px 0px 5px var(--neutral-30));
+	transform: scale(120%);
+	cursor: pointer;
+}
+
+
+
+.psc-iconHover:hover {
+	transform: scale(120%);
+	filter: drop-shadow(4px 4px 5px #000000);
+}
+
+.psc-pipehover:hover {
+    filter: drop-shadow(0px 0px 2px #000000) drop-shadow(0px 0px 2px #000000) drop-shadow(0px 0px 4px #FFFFFF) drop-shadow(0px 0px 6px #FFFFFF);
+    z-index: 9999 !important;
+}
+
+
+div [data-component="ia.display.viewcanvas"] div:has(.psc-pipe){
+	pointer-events: none;
+}
+
+.psc-iconRotate {
+  /* Adjust these styles for your icon */
+  /* display: inline-block;*/
+  transform-origin: 50% 50%;
+  transition: transform 0.75s ease-in-out; /* Animation duration and timing */
+}
+
+.psc-iconRotate:hover {
+	transform: rotate(360deg); /* Rotate 360 degrees on hover */
+}
+.psc-iconRotate:checked{
+  /* Apply animation on click */
+  transform: translateX(-100%) rotate(-360deg);
+}
+
+/***** Accordion Component *****/
+/* Override accordion component's border & background color
+.ia_piping{
+	pointer-events: none;
+}
+.ia_piping:hover{
+	fill: red;
+}*/
+
+.ia_accordionComponent{
+	border: none;
+	background-color: var(--neutral-10);
+}
+/* Hide accordion component's border on body elements */
+.ia_accordionComponent__body {
+	border-bottom: none;
+}
+/* Override accordion component's background color on header elements */
+.ia_accordionComponent__header {
+	background-color: var(--neutral-10);
+}
+/* Override accordion component empty background */
+.ia_accordionComponent__emptyRow {
+    background-color: var(--neutral-10);
+}
+/* Override border when focusing on item */
+:focus {
+	outline: 0px solid var(--callToAction--hover);
+}
+
+
+/*******************************/
+/* Override map popup background*/
+.leaflet-popup-content-wrapper, .leaflet-popup-tip{
+	background: var(--neutral-10);
+	color: var(--neutral-100);
+}
+
+/* Override map popup min-height*/
+.flex-container{
+	min-height: 0px !important;
+}
+/* Icon Hover Grow*/
+.psc-iconHoverGrow:hover {
+  transform: scale(1.750);
+  overflow: visible;
+}
+
+.resize-zone{
+	background-color: var(--neutral-30);
+}
+
+.dock-border .drag-border{
+	border: none !important;
+}
+
+.drag-icon{
+	fill: var(--neutral-100) !important;
+	z-index:9999;
+	pointer-events: none;
+	
+}
+/*.ia_popup {
+	width: auto !important; 
+}*/
+/*Tooltip Formatting*/
+.ia_componentTooltip{
+	font-size: 14px;
+	padding: 4px;
+	color: var(--neutral-100);
+	background-color: var(--neutral-30);
+	border-radius: 8px;
+	border-style: solid;
+	border-color: var(--neutral-100);
+	border-width: 1px;
+}
+
+.psc-componentTooltip{
+	font-size: 14px;
+	padding: 4px;
+	color: var(--neutral-100);
+	background-color: var(--neutral-30);
+	border-radius: 8px;
+	border-style: solid;
+	border-color: var(--neutral-100);
+	border-width: 1px;
+}
+
+.psc-containerTooltip {
+  marginTop: 16px
+}
+
+.psc-hiddenToolTip {
+  display: none;
+  opacity: 0;
+  animation: showComponent 0.5s backwards;
+  background-color: var(--neutral-30);
+  z-index: 9999;
+}
+
+@keyframes showComponent {
+  0% {
+      opacity: 0;
+  }
+  99% {
+      display: none;
+      opacity: 0;
+  }
+  100% {
+      display: block;
+      opacity: 1;
+  }
+}
+
+.psc-containerTooltip:hover .psc-hiddenToolTip{
+  display: block;
+  animation: showComponent 0.5s forwards;
+  background-color: var(--neutral-30);
+  z-index: 9999;
+}
+
+.psc-containerTooltip:hover .psc-hiddenToolTip.start-animation {
+  animation: showComponent 0.5s forwards;
+  /*background-color: var(--neutral-30);*/
+  z-index: 9999;
+}
+
+
+
+
+
+/*CSS Fly-in and Fly-out*/
+@keyframes flyIn {
+  from {
+    transform: translateX(-100%);
+  }
+  to {
+    transform: translateX(0);
+  }
+}
+
+@keyframes flyOut {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-100%);
+  }
+}
+
+
+.psc-fly-in {
+  animation: flyIn 0.5s ease-in-out forwards;
+}
+
+.psc-fly-out {
+  animation: flyOut 0.5s ease-in-out forwards;
+}
+
+/*CSS Fly-in and Fly-out Bottom*/
+@keyframes flyInBot {
+  from {
+    transform: translate(-50%, 120%);
+  }
+  to {
+    transform: translate(-50%, 0);
+  }
+}
+
+@keyframes flyOutBot {
+  from {
+    transform: translate(-50%, 0);
+  }
+  to {
+    transform: translate(-50%, 120%);
+  }
+}
+
+
+.psc-fly-in-bot {
+  animation: flyInBot 0.5s ease-in-out forwards;
+}
+
+.psc-fly-out-bot {
+  animation: flyOutBot 0.5s ease-in-out forwards;
+}

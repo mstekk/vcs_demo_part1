@@ -1,0 +1,231 @@
+{
+  "custom": {
+    "date": "Wednesday, Oct 29",
+    "icon": "//cdn.weatherapi.com/weather/64x64/day/113.png",
+    "tempMax": 101.3,
+    "tempMin": 67.5,
+    "text": "Sunny"
+  },
+  "params": {
+    "id": 0
+  },
+  "propConfig": {
+    "custom.date": {
+      "binding": {
+        "config": {
+          "expression": "property(\u0027session.custom.Weather2.Information.forecast.forecastday[\u0027+{view.params.id}+\u0027].date\u0027)"
+        },
+        "transforms": [
+          {
+            "formatType": "datetime",
+            "formatValue": "EEEE, MMM dd",
+            "type": "format"
+          }
+        ],
+        "type": "expr"
+      },
+      "persistent": true
+    },
+    "custom.icon": {
+      "binding": {
+        "config": {
+          "expression": "property(\"session.custom.Weather2.Information.forecast.forecastday[\"+{view.params.id}+\"].day.condition.icon\")"
+        },
+        "type": "expr"
+      },
+      "persistent": true
+    },
+    "custom.tempMax": {
+      "binding": {
+        "config": {
+          "expression": "property(\"session.custom.Weather2.Information.forecast.forecastday[\"+{view.params.id}+\"].day.maxtemp_f\")"
+        },
+        "type": "expr"
+      },
+      "persistent": true
+    },
+    "custom.tempMin": {
+      "binding": {
+        "config": {
+          "expression": "property(\"session.custom.Weather2.Information.forecast.forecastday[\"+{view.params.id}+\"].day.mintemp_f\")"
+        },
+        "type": "expr"
+      },
+      "persistent": true
+    },
+    "custom.text": {
+      "binding": {
+        "config": {
+          "expression": "property(\"session.custom.Weather2.Information.forecast.forecastday[\"+{view.params.id}+\"].day.condition.text\")"
+        },
+        "type": "expr"
+      },
+      "persistent": true
+    },
+    "params.id": {
+      "paramDirection": "input",
+      "persistent": true
+    }
+  },
+  "props": {
+    "defaultSize": {
+      "height": 60,
+      "width": 200
+    }
+  },
+  "root": {
+    "children": [
+      {
+        "children": [
+          {
+            "meta": {
+              "name": "Temp Max"
+            },
+            "position": {
+              "basis": "50%"
+            },
+            "propConfig": {
+              "props.text": {
+                "binding": {
+                  "config": {
+                    "path": "view.custom.date"
+                  },
+                  "type": "property"
+                }
+              }
+            },
+            "props": {
+              "textStyle": {
+                "fontSize": "10pt"
+              }
+            },
+            "type": "ia.display.label"
+          },
+          {
+            "meta": {
+              "name": "Temp Min"
+            },
+            "position": {
+              "basis": "50%"
+            },
+            "propConfig": {
+              "props.text": {
+                "binding": {
+                  "config": {
+                    "expression": "\"H: \"+{view.custom.tempMax}+\"°F  L: \"+{view.custom.tempMin}+\"°F\""
+                  },
+                  "type": "expr"
+                }
+              }
+            },
+            "props": {
+              "textStyle": {
+                "fontSize": "9pt"
+              }
+            },
+            "type": "ia.display.label"
+          }
+        ],
+        "meta": {
+          "name": "FlexContainer"
+        },
+        "position": {
+          "basis": "75%"
+        },
+        "props": {
+          "direction": "column"
+        },
+        "type": "ia.container.flex"
+      },
+      {
+        "children": [
+          {
+            "meta": {
+              "name": "Image"
+            },
+            "position": {
+              "basis": "75%"
+            },
+            "propConfig": {
+              "props.source": {
+                "binding": {
+                  "config": {
+                    "path": "view.custom.icon"
+                  },
+                  "type": "property"
+                }
+              }
+            },
+            "props": {
+              "fit": {
+                "mode": "contain"
+              }
+            },
+            "type": "ia.display.image"
+          },
+          {
+            "meta": {
+              "name": "Temp Min"
+            },
+            "position": {
+              "basis": "25%"
+            },
+            "propConfig": {
+              "props.text": {
+                "binding": {
+                  "config": {
+                    "path": "view.custom.text"
+                  },
+                  "type": "property"
+                }
+              }
+            },
+            "props": {
+              "textStyle": {
+                "fontSize": "8pt",
+                "textAlign": "center"
+              }
+            },
+            "type": "ia.display.label"
+          }
+        ],
+        "meta": {
+          "name": "FlexContainer_0"
+        },
+        "position": {
+          "basis": "25%"
+        },
+        "props": {
+          "direction": "column",
+          "style": {
+            "overflow": "hidden"
+          }
+        },
+        "type": "ia.container.flex"
+      }
+    ],
+    "meta": {
+      "name": "root"
+    },
+    "propConfig": {
+      "props.style.backgroundColor": {
+        "binding": {
+          "config": {
+            "expression": "if(indexOf({session.props.theme},\u0027ight\u0027)\u003e0, \u0027#FFFFFF\u0027,\u0027#555555\u0027)"
+          },
+          "type": "expr"
+        }
+      }
+    },
+    "props": {
+      "style": {
+        "borderBottomLeftRadius": 5,
+        "borderStyle": "solid",
+        "borderTopRightRadius": 5,
+        "borderWidth": 1,
+        "padding": 4
+      }
+    },
+    "type": "ia.container.flex"
+  }
+}

@@ -1,0 +1,14 @@
+{
+  "base": {
+    "style": {}
+  },
+  "variants": [
+    {
+      "pseudo": "hover",
+      "style": {
+        "outlineStyle": "solid",
+        "outlineWidth": "2px"
+      }
+    }
+  ]
+}

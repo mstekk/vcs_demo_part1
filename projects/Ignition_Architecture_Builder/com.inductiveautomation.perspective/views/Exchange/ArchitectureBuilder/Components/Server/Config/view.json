@@ -1,0 +1,988 @@
+{
+  "custom": {
+    "connectionErrors": "value",
+    "originType": null,
+    "params": null
+  },
+  "params": {
+    "uuid": ""
+  },
+  "propConfig": {
+    "custom.connectionErrors": {
+      "persistent": true
+    },
+    "custom.originType": {
+      "binding": {
+        "config": {
+          "expression": "property(\u0027session.custom.structure.configs.\u0027+{view.params.uuid}+\u0027.type\u0027)"
+        },
+        "type": "expr"
+      },
+      "persistent": true
+    },
+    "custom.params": {
+      "binding": {
+        "config": {
+          "expression": "property(\u0027session.custom.structure.configs.\u0027+{view.params.uuid})"
+        },
+        "type": "expr"
+      },
+      "persistent": true
+    },
+    "params.uuid": {
+      "onChange": {
+        "enabled": false,
+        "script": "\tself.custom.params\u003dself.session.custom.structure.configs[currentValue.value]"
+      },
+      "paramDirection": "input",
+      "persistent": true
+    }
+  },
+  "props": {
+    "defaultSize": {
+      "height": 868,
+      "width": 470
+    }
+  },
+  "root": {
+    "children": [
+      {
+        "children": [
+          {
+            "meta": {
+              "name": "Label"
+            },
+            "position": {
+              "basis": "160px"
+            },
+            "props": {
+              "style": {
+                "marginRight": "4px"
+              },
+              "text": "Gateway Diagnostic Upload:",
+              "textStyle": {
+                "fontSize": 12,
+                "fontStyle": "italic",
+                "textAlign": "right"
+              }
+            },
+            "type": "ia.display.label"
+          },
+          {
+            "custom": {
+              "moduleList": []
+            },
+            "events": {
+              "dom": {
+                "onClick": {
+                  "config": {
+                    "script": "\tself.parent.parent.getChild(\"RadioGroup\").props.radios[0].selected\u003dTrue"
+                  },
+                  "enabled": false,
+                  "scope": "G",
+                  "type": "script"
+                }
+              }
+            },
+            "meta": {
+              "name": "EmbeddedView"
+            },
+            "position": {
+              "basis": "30px",
+              "grow": 1
+            },
+            "propConfig": {
+              "props.params.output": {
+                "onChange": {
+                  "enabled": null,
+                  "script": "\tvalues\u003dself.props.params.output\n\trole\u003d\u0027\u0027\n\t#\tBackup\n\t#\tMaster\n\t#\tIndependent\n\tsystem.perspective.print(values.keys())\n\tif \u0027ignition\u0027 in values.keys():\n\t\tself.view.custom.params.type\u003d\u0027standard\u0027\n\t\tname\u003dvalues[\u0027ignition\u0027][\u0027config\u0027][\u0027systemName\u0027]\n\t\trole\u003dvalues[\u0027ignition\u0027][\u0027config\u0027][\u0027redundancyRole\u0027]\n\t\tmodules\u003d[]\n\t\tversion\u003dvalues[\u0027ignition\u0027][\u0027version\u0027].split(\u0027 \u0027)[0]\n\t\tfor module in values[\u0027ignition\u0027][\u0027modules\u0027]:\n\t\t\tmodules.append(module[\u0027id\u0027])\n\t\t\t\n\t\tself.view.custom.params.config.modules\u003dexchange.architecturebuilder.modules.getModulesById(modules)\n\t\tif role in [\u0027Master\u0027,\u0027Backup\u0027]:\n\t\t\tself.view.custom.params.config.redundant \u003d True\n\t\telse: \n\t\t\tself.view.custom.params.config.redundant \u003d False\n\t\tself.view.custom.params.config.version\u003dversion\n\t\tself.view.custom.params.name\u003dname\n\t\t\n\t\tself.parent.parent.getChild(\"FlexContainer_2\").getChild(\"RadioGroup\").props.radios[0].selected\u003dFalse\n#\t\tself.parent.parent.getChild(\"RadioGroup\").props.radios[0].selected\u003dFalse\n\tif \u0027licenses\u0027 in values.keys():\n\t\tlicense_keys \u003d [d[\u0027licenseKey\u0027] for d in values[\u0027licenses\u0027]]\n\t\tcomma_separated_license_keys \u003d \u0027, \u0027.join(license_keys)\n\t\tif role in [\u0027Master\u0027,\u0027Independent\u0027]:\n\t\t\tself.view.custom.params.config.licenseKey\u003dcomma_separated_license_keys\n\t\telif role \u003d\u003d \u0027Backup\u0027:\n\t\t\tself.view.custom.params.config.licenseKeyRedun\u003dcomma_separated_license_keys\n#\tself.view.custom.params.type\u003d\u0027\u0027\n\t\n\tif \u0027system\u0027 in values.keys():\n\t\tsystemInput\u003dvalues[\u0027system\u0027]\n\t\tarm\u003dFalse\n\t\tif systemInput[\u0027os\u0027][\u0027arch\u0027]\u003d\u003d\u0027arm\u0027:\n\t\t\tarm\u003dTrue\n\t\tcore\u003dsystemInput[\u0027os\u0027][\u0027processors\u0027]\n\t\tfrequency\u003d\u0027\u0027\n\t\tdiskCapacity\u003dsystemInput[\u0027os\u0027][\u0027disk\u0027][\u0027total\u0027]/(1024*1024*1024)\n\t\tramCapacity\u003dsystemInput[\u0027memory\u0027][\u0027total\u0027]/(1024*1024*1024)\n\t\tos\u003dsystemInput[\u0027os\u0027][\u0027name\u0027]\n\t\tif \u0027windows\u0027 in os.lower():\n\t\t\tosType\u003d\u0027Windows\u0027\n\t\telif \u0027linux\u0027 in os.lower():\n\t\t\tosType\u003d\u0027Linux\u0027\n\t\telif \u0027mac\u0027 in os.lower():\n\t\t\tosType\u003d\u0027macOS\u0027\n\t\telse:\n\t\t\tosType\u003d\u0027\u0027\n\t\tosVersion\u003dsystemInput[\u0027os\u0027][\u0027version\u0027]\n\t\tif \u0027wsl\u0027 in osVersion.lower():\n\t\t\tosVersion\u003d\u0027WSL (Container Env.)\u0027\n\t\tself.view.custom.params.config[\u0027resources\u0027]\u003d{\n\t\t\t\u0027cpu\u0027: {\n\t\t\t\t\u0027arm\u0027: arm,\n\t\t\t\t\u0027cores\u0027: core,\n\t\t\t\t\u0027frequency\u0027:2\n\t\t\t\t},\n\t\t\t\u0027disk\u0027: {\n\t\t\t\t\u0027capacity\u0027: diskCapacity\n\t\t\t\t},\n\t\t\t\u0027os\u0027: {\n\t\t\t\t\u0027type\u0027: osType,\n\t\t\t\t\u0027version\u0027: osVersion\n\t\t\t\t},\n\t\t\t\u0027ram\u0027: {\n\t\t\t\t\u0027capacity\u0027: ramCapacity\n\t\t\t\t}\n\t\t\t}\n\t\t\t\t\n"
+                }
+              }
+            },
+            "props": {
+              "params": {
+                "output": {}
+              },
+              "path": "Exchange/ArchitectureBuilder/General/GatewayInfoImport"
+            },
+            "type": "ia.display.view"
+          }
+        ],
+        "meta": {
+          "name": "FlexContainer_1"
+        },
+        "position": {
+          "basis": "30px"
+        },
+        "props": {
+          "style": {
+            "margin": "8px"
+          }
+        },
+        "type": "ia.container.flex"
+      },
+      {
+        "meta": {
+          "name": "Name"
+        },
+        "position": {
+          "shrink": 0
+        },
+        "propConfig": {
+          "props.params.text": {
+            "binding": {
+              "config": {
+                "bidirectional": true,
+                "path": "view.custom.params.name"
+              },
+              "type": "property"
+            }
+          }
+        },
+        "props": {
+          "params": {
+            "label": "Gateway Name:",
+            "labelSize": 160
+          },
+          "path": "Exchange/ArchitectureBuilder/General/TextInput",
+          "style": {
+            "margin": "8px",
+            "marginTop": "0px"
+          }
+        },
+        "type": "ia.display.view"
+      },
+      {
+        "meta": {
+          "name": "Version"
+        },
+        "position": {
+          "shrink": 0
+        },
+        "propConfig": {
+          "props.params.text": {
+            "binding": {
+              "config": {
+                "bidirectional": true,
+                "path": "view.custom.params.config.version"
+              },
+              "type": "property"
+            }
+          }
+        },
+        "props": {
+          "params": {
+            "label": "Gateway Version:",
+            "labelSize": 160
+          },
+          "path": "Exchange/ArchitectureBuilder/General/TextInput",
+          "style": {
+            "margin": "8px",
+            "marginTop": "0px"
+          }
+        },
+        "type": "ia.display.view"
+      },
+      {
+        "meta": {
+          "name": "LicenseKey"
+        },
+        "position": {
+          "shrink": 0
+        },
+        "propConfig": {
+          "props.params.text": {
+            "binding": {
+              "config": {
+                "bidirectional": true,
+                "path": "view.custom.params.config.licenseKey"
+              },
+              "type": "property"
+            }
+          }
+        },
+        "props": {
+          "params": {
+            "label": "License Key:",
+            "labelSize": 160
+          },
+          "path": "Exchange/ArchitectureBuilder/General/TextInput",
+          "style": {
+            "margin": "8px",
+            "marginTop": "0px"
+          }
+        },
+        "type": "ia.display.view"
+      },
+      {
+        "children": [
+          {
+            "meta": {
+              "name": "Label"
+            },
+            "position": {
+              "basis": "160px",
+              "shrink": 0
+            },
+            "props": {
+              "style": {
+                "marginLeft": "8px",
+                "marginTop": 7
+              },
+              "text": "Gateway Edition:",
+              "textStyle": {
+                "textAlign": "right"
+              }
+            },
+            "type": "ia.display.label"
+          },
+          {
+            "meta": {
+              "name": "RadioGroup"
+            },
+            "position": {
+              "grow": 1,
+              "shrink": 0
+            },
+            "propConfig": {
+              "props.style.classes": {
+                "binding": {
+                  "config": {
+                    "expression": "if({view.custom.params.type}!\u003d\u0027\u0027,\u0027\u0027,\u0027Exchange/ArchitectureBuilder/Gateway/NoSelection\u0027)"
+                  },
+                  "type": "expr"
+                }
+              },
+              "props.value": {
+                "binding": {
+                  "config": {
+                    "bidirectional": true,
+                    "path": "view.custom.params.type"
+                  },
+                  "type": "property"
+                },
+                "onChange": {
+                  "enabled": null,
+                  "script": "\tif currentValue.value\u003d\u003d\u0027cloud\u0027:\n\t\tself.view.custom.params.config.development\u003dFalse\n\t\tself.view.custom.params.config.redundant\u003dFalse"
+                },
+                "persistent": false
+              }
+            },
+            "props": {
+              "radios": [
+                {
+                  "selected": true,
+                  "text": "Standard",
+                  "value": "standard"
+                },
+                {
+                  "selected": false,
+                  "text": "Cloud",
+                  "value": "cloud"
+                },
+                {
+                  "selected": false,
+                  "text": "Edge IIOT",
+                  "value": "edge"
+                },
+                {
+                  "selected": false,
+                  "text": "Edge Panel",
+                  "value": "panel"
+                }
+              ],
+              "style": {
+                "backgroundColor": "black",
+                "borderColor": "--neutral-50",
+                "borderStyle": "solid",
+                "borderWidth": 1,
+                "fontSize": 12,
+                "marginLeft": "4px",
+                "marginRight": "8px"
+              },
+              "textPosition": "top"
+            },
+            "type": "ia.input.radio-group"
+          }
+        ],
+        "meta": {
+          "name": "FlexContainer_2"
+        },
+        "position": {
+          "shrink": 0
+        },
+        "props": {
+          "alignItems": "flex-start"
+        },
+        "type": "ia.container.flex"
+      },
+      {
+        "children": [
+          {
+            "meta": {
+              "name": "ToggleSwitch"
+            },
+            "position": {
+              "shrink": 0
+            },
+            "propConfig": {
+              "props.enabled": {
+                "binding": {
+                  "config": {
+                    "expression": "{view.custom.params.type}!\u003d\"cloud\""
+                  },
+                  "enabled": false,
+                  "type": "expr"
+                }
+              },
+              "props.selected": {
+                "binding": {
+                  "config": {
+                    "bidirectional": true,
+                    "path": "view.custom.params.config.redundant"
+                  },
+                  "type": "property"
+                },
+                "persistent": true
+              }
+            },
+            "props": {
+              "label": {
+                "text": "Redundant"
+              },
+              "selected": null
+            },
+            "type": "ia.input.toggle-switch"
+          },
+          {
+            "meta": {
+              "name": "Name_1"
+            },
+            "position": {
+              "grow": 1
+            },
+            "propConfig": {
+              "position.display": {
+                "binding": {
+                  "config": {
+                    "path": "../ToggleSwitch.props.selected"
+                  },
+                  "type": "property"
+                }
+              },
+              "props.params.text": {
+                "binding": {
+                  "config": {
+                    "bidirectional": true,
+                    "path": "view.custom.params.config.licenseKeyRedun"
+                  },
+                  "type": "property"
+                }
+              }
+            },
+            "props": {
+              "params": {
+                "label": "License Key:",
+                "labelSize": "auto"
+              },
+              "path": "Exchange/ArchitectureBuilder/General/TextInput",
+              "style": {
+                "marginRight": "8px",
+                "paddingBottom": "4px",
+                "paddingTop": "4px"
+              }
+            },
+            "type": "ia.display.view"
+          }
+        ],
+        "meta": {
+          "name": "Redundant"
+        },
+        "position": {
+          "basis": "42px",
+          "shrink": 0
+        },
+        "type": "ia.container.flex"
+      },
+      {
+        "children": [
+          {
+            "meta": {
+              "name": "Development"
+            },
+            "position": {
+              "shrink": 0
+            },
+            "propConfig": {
+              "props.enabled": {
+                "binding": {
+                  "config": {
+                    "expression": "{view.custom.params.type}!\u003d\"cloud\""
+                  },
+                  "type": "expr"
+                }
+              },
+              "props.selected": {
+                "binding": {
+                  "config": {
+                    "bidirectional": true,
+                    "path": "view.custom.params.config.development"
+                  },
+                  "type": "property"
+                },
+                "onChange": {
+                  "enabled": null,
+                  "script": "\tif currentValue.value:\n\t\tself.getSibling(\"TrialMode\").props.selected\u003dFalse"
+                },
+                "persistent": true
+              }
+            },
+            "props": {
+              "label": {
+                "text": "Development"
+              },
+              "selected": null
+            },
+            "type": "ia.input.toggle-switch"
+          },
+          {
+            "meta": {
+              "name": "TrialMode"
+            },
+            "position": {
+              "shrink": 0
+            },
+            "propConfig": {
+              "props.enabled": {
+                "binding": {
+                  "config": {
+                    "expression": "{view.custom.params.type}!\u003d\"cloud\""
+                  },
+                  "type": "expr"
+                }
+              },
+              "props.selected": {
+                "binding": {
+                  "config": {
+                    "bidirectional": true,
+                    "path": "view.custom.params.config.trial"
+                  },
+                  "overlayOptOut": true,
+                  "type": "property"
+                },
+                "onChange": {
+                  "enabled": null,
+                  "script": "\tif currentValue.value:\n\t\tself.getSibling(\"Development\").props.selected\u003dFalse\n\t\tself.parent.parent.getChild(\"LicenseKey\").props.params.text\u003d\u0027\u0027\n\t\tself.parent.parent.getChild(\"FlexContainer\").getChild(\"Name_1\").props.params.text\u003d\u0027\u0027"
+                },
+                "persistent": true
+              }
+            },
+            "props": {
+              "label": {
+                "text": "Trial Mode"
+              },
+              "selected": null
+            },
+            "type": "ia.input.toggle-switch"
+          }
+        ],
+        "meta": {
+          "name": "Modes"
+        },
+        "position": {
+          "shrink": 0
+        },
+        "type": "ia.container.flex"
+      },
+      {
+        "children": [
+          {
+            "meta": {
+              "name": "Development"
+            },
+            "position": {
+              "shrink": 0
+            },
+            "propConfig": {
+              "props.selected": {
+                "binding": {
+                  "config": {
+                    "bidirectional": true,
+                    "path": "view.custom.params.config.sepasoft"
+                  },
+                  "overlayOptOut": true,
+                  "type": "property"
+                },
+                "persistent": true
+              }
+            },
+            "props": {
+              "label": {
+                "text": "Sepasoft MES Capabilities"
+              },
+              "selected": null
+            },
+            "type": "ia.input.toggle-switch"
+          },
+          {
+            "meta": {
+              "name": "sepasoft",
+              "tooltip": {
+                "width": "100px"
+              }
+            },
+            "position": {
+              "basis": "18px"
+            },
+            "props": {
+              "fit": {
+                "mode": "contain"
+              },
+              "source": "data:image/jpeg;base64,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\u003d",
+              "style": {
+                "margin": "2px"
+              }
+            },
+            "type": "ia.display.image"
+          }
+        ],
+        "meta": {
+          "name": "SSCapabilites"
+        },
+        "position": {
+          "shrink": 0
+        },
+        "propConfig": {
+          "position.display": {
+            "binding": {
+              "config": {
+                "path": "view.custom.params.type"
+              },
+              "transforms": [
+                {
+                  "code": "\treturn value in [\u0027standard\u0027, \u0027cloud\u0027]",
+                  "type": "script"
+                }
+              ],
+              "type": "property"
+            }
+          }
+        },
+        "type": "ia.container.flex"
+      },
+      {
+        "meta": {
+          "name": "Accordion"
+        },
+        "position": {
+          "grow": 1
+        },
+        "propConfig": {
+          "props.items[0].body.viewParams.desc": {
+            "binding": {
+              "config": {
+                "bidirectional": true,
+                "path": "view.custom.params.desc"
+              },
+              "type": "property"
+            }
+          },
+          "props.items[1].body.viewParams.type": {
+            "binding": {
+              "config": {
+                "path": "view.custom.params.type"
+              },
+              "type": "property"
+            }
+          },
+          "props.items[1].body.viewParams.uuid": {
+            "binding": {
+              "config": {
+                "path": "view.custom.params.uuid"
+              },
+              "type": "property"
+            }
+          }
+        },
+        "props": {
+          "expansionMode": "single",
+          "items": [
+            {
+              "body": {
+                "height": "auto",
+                "style": {
+                  "classes": "",
+                  "margin": "16px"
+                },
+                "useDefaultViewHeight": false,
+                "useDefaultViewWidth": false,
+                "viewParams": {
+                  "label": ""
+                },
+                "viewPath": "Exchange/ArchitectureBuilder/General/TextArea"
+              },
+              "expanded": false,
+              "header": {
+                "content": {
+                  "style": {
+                    "classes": ""
+                  },
+                  "text": "Description",
+                  "type": "text",
+                  "useDefaultViewHeight": false,
+                  "useDefaultViewWidth": false,
+                  "viewParams": {},
+                  "viewPath": ""
+                },
+                "height": "40px",
+                "reverse": false,
+                "style": {
+                  "classes": ""
+                },
+                "toggle": {
+                  "collapsedIcon": {
+                    "color": "",
+                    "path": "material/expand_more",
+                    "style": {
+                      "classes": ""
+                    }
+                  },
+                  "enabled": true,
+                  "expandedIcon": {
+                    "color": "",
+                    "path": "material/expand_less",
+                    "style": {
+                      "classes": ""
+                    }
+                  }
+                }
+              }
+            },
+            {
+              "body": {
+                "height": "300px",
+                "style": {
+                  "classes": "",
+                  "margin": "16px"
+                },
+                "useDefaultViewHeight": false,
+                "useDefaultViewWidth": false,
+                "viewParams": {
+                  "allow": null
+                },
+                "viewPath": "Exchange/ArchitectureBuilder/Components/Server/embeddedViews/GatewayConnections"
+              },
+              "expanded": true,
+              "header": {
+                "content": {
+                  "style": {
+                    "classes": ""
+                  },
+                  "text": "Connections",
+                  "type": "text",
+                  "useDefaultViewHeight": false,
+                  "useDefaultViewWidth": false,
+                  "viewParams": {},
+                  "viewPath": ""
+                },
+                "height": "40px",
+                "reverse": false,
+                "style": {
+                  "classes": ""
+                },
+                "toggle": {
+                  "collapsedIcon": {
+                    "color": "",
+                    "path": "material/expand_more",
+                    "style": {
+                      "classes": ""
+                    }
+                  },
+                  "enabled": true,
+                  "expandedIcon": {
+                    "color": "",
+                    "path": "material/expand_less",
+                    "style": {
+                      "classes": ""
+                    }
+                  }
+                }
+              }
+            }
+          ],
+          "style": {
+            "margin": "8px"
+          }
+        },
+        "type": "ia.display.accordion"
+      },
+      {
+        "children": [
+          {
+            "events": {
+              "component": {
+                "onActionPerformed": {
+                  "config": {
+                    "script": "\tself.view.getChild(\"root\").applySettings()\n\tname\u003dself.view.custom.params[\u0027name\u0027]\n\t\n\tgwType\u003dself.view.custom.params.type\n\tsystem.perspective.sendMessage(\u0027openPopup\u0027, {\n\t\t\t\t\u0027uuid\u0027:\u0027modules\u0027, \n\t\t\t\t\u0027path\u0027:\u0027Exchange/ArchitectureBuilder/Modules/ModuleSelection\u0027,\n\t\t\t\t\u0027params\u0027:{\n\t\t\t\t\t\u0027gatewayUUID\u0027:self.view.params.uuid},\n\t\t\t\t\u0027title\u0027:\u0027Module Selection\u0027},scope\u003d\u0027page\u0027)"
+                  },
+                  "scope": "G",
+                  "type": "script"
+                }
+              }
+            },
+            "meta": {
+              "name": "Button_0"
+            },
+            "position": {
+              "basis": "34px",
+              "grow": 1,
+              "shrink": 0
+            },
+            "propConfig": {
+              "props.enabled": {
+                "binding": {
+                  "config": {
+                    "path": ".../Accordion.props.items[1].body.viewParams.allow"
+                  },
+                  "type": "property"
+                }
+              }
+            },
+            "props": {
+              "style": {
+                "classes": "Exchange/ArchitectureBuilder/buttonHover"
+              },
+              "text": "Module Selection"
+            },
+            "type": "ia.input.button"
+          }
+        ],
+        "meta": {
+          "name": "FlexContainer_0"
+        },
+        "props": {
+          "style": {
+            "margin": "8px"
+          }
+        },
+        "type": "ia.container.flex"
+      },
+      {
+        "children": [
+          {
+            "events": {
+              "component": {
+                "onActionPerformed": {
+                  "config": {
+                    "script": "\tself.view.getChild(\"root\").applySettings()\n\tsystem.perspective.closePopup(self.view.params.uuid)"
+                  },
+                  "scope": "G",
+                  "type": "script"
+                }
+              }
+            },
+            "meta": {
+              "name": "Ok"
+            },
+            "position": {
+              "basis": "33%",
+              "grow": 1
+            },
+            "propConfig": {
+              "props.enabled": {
+                "binding": {
+                  "config": {
+                    "expression": "{.../Accordion.props.items[1].body.viewParams.allow}\u0026\u0026{view.custom.params.type}!\u003d\u0027\u0027"
+                  },
+                  "type": "expr"
+                }
+              }
+            },
+            "props": {
+              "style": {
+                "classes": "Exchange/ArchitectureBuilder/buttonHover",
+                "marginLeft": "8px",
+                "marginRight": "8px"
+              },
+              "text": "OK"
+            },
+            "type": "ia.input.button"
+          },
+          {
+            "events": {
+              "component": {
+                "onActionPerformed": {
+                  "config": {
+                    "script": "\tsystem.perspective.closePopup(self.view.params.uuid)"
+                  },
+                  "scope": "G",
+                  "type": "script"
+                }
+              }
+            },
+            "meta": {
+              "name": "Cancel"
+            },
+            "position": {
+              "basis": "33%",
+              "grow": 1
+            },
+            "props": {
+              "style": {
+                "classes": "Exchange/ArchitectureBuilder/buttonHover",
+                "marginLeft": "8px",
+                "marginRight": "8px"
+              },
+              "text": "Cancel"
+            },
+            "type": "ia.input.button"
+          },
+          {
+            "events": {
+              "component": {
+                "onActionPerformed": {
+                  "config": {
+                    "script": "\tself.view.getChild(\"root\").applySettings()\n\t#system.perspective.closePopup(self.view.params.uuid)"
+                  },
+                  "scope": "G",
+                  "type": "script"
+                }
+              }
+            },
+            "meta": {
+              "name": "Apply"
+            },
+            "position": {
+              "basis": "33%",
+              "grow": 1
+            },
+            "propConfig": {
+              "props.enabled": {
+                "binding": {
+                  "config": {
+                    "expression": "{.../Accordion.props.items[1].body.viewParams.allow}\u0026\u0026{view.custom.params.type}!\u003d\u0027\u0027"
+                  },
+                  "type": "expr"
+                },
+                "onChange": {
+                  "enabled": null,
+                  "script": "\tif currentValue.value\u003d\u003dFalse and currentValue.value is not None:\n\t\tself.parent.parent.getChild(\"Accordion\").props.items[1].expanded\u003dTrue\n\telse:\n\t\tself.parent.parent.getChild(\"Accordion\").props.items[0].expanded\u003dTrue"
+                },
+                "persistent": true
+              }
+            },
+            "props": {
+              "enabled": false,
+              "style": {
+                "classes": "Exchange/ArchitectureBuilder/buttonHover",
+                "marginLeft": "8px",
+                "marginRight": "8px"
+              },
+              "text": "Apply"
+            },
+            "type": "ia.input.button"
+          }
+        ],
+        "meta": {
+          "name": "Apply"
+        },
+        "position": {
+          "basis": "34px",
+          "shrink": 0
+        },
+        "props": {
+          "justify": "space-around",
+          "style": {
+            "marginBottom": "8px",
+            "marginTop": "8px",
+            "overflow": "hidden"
+          }
+        },
+        "type": "ia.container.flex"
+      },
+      {
+        "events": {
+          "component": {
+            "onActionPerformed": {
+              "config": {
+                "script": "\tself.deleteComponent()\n\tsystem.perspective.closePopup(self.view.params.uuid)"
+              },
+              "scope": "G",
+              "type": "script"
+            }
+          }
+        },
+        "meta": {
+          "name": "DeleteComponent"
+        },
+        "position": {
+          "basis": "42px",
+          "shrink": 0
+        },
+        "props": {
+          "confirm": {
+            "enabled": true
+          },
+          "readyState": {
+            "icon": {
+              "style": {
+                "height": "24px",
+                "width": "2rem"
+              }
+            },
+            "text": "Delete Component"
+          },
+          "style": {
+            "classes": "Exchange/ArchitectureBuilder/buttonHover",
+            "marginBottom": "8px",
+            "marginLeft": "8px",
+            "marginRight": "8px"
+          },
+          "writingState": {
+            "icon": {
+              "path": "material/hourglass_empty",
+              "style": {
+                "height": "24px",
+                "width": "2rem"
+              }
+            },
+            "text": "Writing..."
+          }
+        },
+        "scripts": {
+          "customMethods": [
+            {
+              "name": "deleteComponent",
+              "params": [],
+              "script": "\tuuid\u003dself.view.params.uuid\n\ttypeID\u003dself.view.custom.params.type\n\tsystem.perspective.sendMessage(\u0027selectFrame\u0027,{\u0027selected\u0027: True})\n\tsystem.perspective.sendMessage(\u0027deleteComponent\u0027, {\u0027uuid\u0027:uuid,\u0027type\u0027: typeID }, scope\u003d\"session\")"
+            }
+          ],
+          "extensionFunctions": null,
+          "messageHandlers": []
+        },
+        "type": "ia.input.oneshotbutton"
+      }
+    ],
+    "meta": {
+      "name": "root"
+    },
+    "props": {
+      "direction": "column",
+      "style": {
+        "min-width": "475px"
+      }
+    },
+    "scripts": {
+      "customMethods": [
+        {
+          "name": "applySettings",
+          "params": [],
+          "script": "\tpayload\u003dsystem.util.jsonDecode(system.util.jsonEncode(self.view.custom.params))\n\tif payload[\u0027type\u0027] in [\u0027edge\u0027, \u0027panel\u0027]:\n\t\tpayload[\u0027config\u0027][\u0027sepasoft\u0027]\u003dFalse\n\t\t\n\tcurrentConf\u003dself.session.custom.structure.configs[self.view.params.uuid]\n\tif self.view.custom.originType!\u003dpayload[\u0027type\u0027]:\n\t\tmodules\u003dexchange.architecturebuilder.modules.getUpdatedModules(payload[\u0027config\u0027][\u0027modules\u0027], payload[\u0027type\u0027])\n\t\tpayload[\u0027config\u0027][\u0027modules\u0027]\u003dmodules\n\t\n\tself.session.custom.structure.configs[self.view.params.uuid]\u003dpayload\n\t\n\t\n\tfrom exchange.architecturebuilder.viewCanvas.auditEvents import insertAuditEvent\n\toriginatingSystem\u003d[\"source\",\"Layout\" ,\u0027uuid\u0027,self.view.params.uuid]\n\tinsertAuditEvent(self.session.custom.audit.layout, \"Component Configured\", self.view.custom.params.type, actionValue\u003dsystem.util.jsonEncode(self.view.custom.params.config), originatingSystem\u003doriginatingSystem)"
+        }
+      ],
+      "extensionFunctions": null,
+      "messageHandlers": []
+    },
+    "type": "ia.container.flex"
+  }
+}

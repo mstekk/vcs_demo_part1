@@ -1,0 +1,160 @@
+{
+  "custom": {
+    "AsanaSettings": {
+      "token": ""
+    },
+    "adjustConnections": {},
+    "admin": {
+      "deletingDisabled": false,
+      "disabledMongoConnections": [],
+      "mongoAccess": [],
+      "role": "",
+      "savingDisabled": false
+    },
+    "audit": {
+      "bom": false,
+      "eam": false,
+      "global": false,
+      "layout": false,
+      "se-notes": false
+    },
+    "canvasSize": {
+      "height": 960,
+      "width": 720
+    },
+    "components": {},
+    "connections": {},
+    "containers": [],
+    "defaultSize": 100,
+    "discount": 0,
+    "eamUnlimited": {
+      "UUID": "",
+      "selected": false
+    },
+    "moduleFlyOut": false,
+    "mongo": {
+      "mongoArchs": {
+        "collection": null,
+        "connector": null
+      },
+      "mongoNotes": {
+        "collection": null,
+        "connector": null
+      }
+    },
+    "moveModules": false,
+    "notesLink": "",
+    "public": true,
+    "rendering": {
+      "Client": true,
+      "Comms": true,
+      "Connections": {
+        "Client": true,
+        "DB": true,
+        "Device Driver": true,
+        "Gateway Network": true,
+        "MQTT": true,
+        "MongoDB": true,
+        "OPC-COM": true,
+        "OPC-UA": true,
+        "Standard": true
+      },
+      "Connector": true,
+      "Custom": true,
+      "Database": true,
+      "Device": true,
+      "Firewall": true,
+      "IIOT": true,
+      "LoadBalancer": true,
+      "MongoDB": true,
+      "Note": true,
+      "OPCUA": true,
+      "ReverseProxy": true,
+      "Usersource": true,
+      "area": true,
+      "cloud": true,
+      "connections": true,
+      "edge": true,
+      "fourIR": true,
+      "panel": true,
+      "server": true,
+      "standard": true
+    },
+    "requestConnection": false,
+    "saveToMongo": false,
+    "showConnections": false,
+    "showDescriptions": false,
+    "showUUID": false,
+    "snapPixels": 20,
+    "structure": {
+      "configs": {},
+      "source": "layout",
+      "structure": []
+    },
+    "touch": true,
+    "viewCanvas": {
+      "componentHover": ""
+    }
+  },
+  "propConfig": {
+    "props.auth": {
+      "access": "PRIVATE",
+      "persistent": false
+    },
+    "props.device.accelerometer": {
+      "access": "SYSTEM",
+      "persistent": false
+    },
+    "props.device.identifier": {
+      "access": "SYSTEM",
+      "persistent": false
+    },
+    "props.device.timezone": {
+      "access": "SYSTEM",
+      "persistent": false
+    },
+    "props.device.type": {
+      "access": "SYSTEM",
+      "persistent": false
+    },
+    "props.device.userAgent": {
+      "access": "SYSTEM",
+      "persistent": false
+    },
+    "props.gateway": {
+      "access": "SYSTEM",
+      "persistent": false
+    },
+    "props.geolocation.data": {
+      "access": "SYSTEM",
+      "persistent": false
+    },
+    "props.geolocation.permissionGranted": {
+      "access": "SYSTEM",
+      "persistent": false
+    },
+    "props.host": {
+      "access": "SYSTEM",
+      "persistent": false
+    },
+    "props.id": {
+      "access": "SYSTEM",
+      "persistent": false
+    },
+    "props.lastActivity": {
+      "access": "SYSTEM",
+      "persistent": false
+    }
+  },
+  "props": {
+    "address": "192.168.0.236",
+    "appBar": {
+      "togglePosition": "hidden"
+    },
+    "device": {},
+    "geolocation": {},
+    "locale": "en-US",
+    "theme": "dark",
+    "timeZoneId": "America/New_York"
+  }
+}

@@ -1,0 +1,20 @@
+{
+  "scope": "A",
+  "version": 1,
+  "restricted": false,
+  "overridable": true,
+  "files": [
+    "Desalter.png"
+  ],
+  "attributes": {
+    "width": 712,
+    "format": "PNG",
+    "lastModification": {
+      "actor": "8.3-migration",
+      "timestamp": "2026-01-07T14:49:07Z"
+    },
+    "size": 155097,
+    "lastModificationSignature": "8efb8e52d450438dec9ead3f7fc4ce8dd31fb7691b8c993bf1a6ba3a0a7cf7ce",
+    "height": 555
+  }
+}

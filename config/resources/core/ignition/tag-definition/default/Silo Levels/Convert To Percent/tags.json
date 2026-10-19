@@ -1,0 +1,227 @@
+[
+  {
+    "valueSource": "expr",
+    "historyMaxAge": 1,
+    "expression": "abs({[~]Quantum1/LU-BIN-LIM-N01-GLASS-SAND-LEVEL})",
+    "writePermissions": {
+      "type": "AllOf",
+      "securityLevels": []
+    },
+    "historyTagGroup": "One Minute",
+    "tagGroup": "Default",
+    "tagType": "AtomicTag",
+    "enabled": true,
+    "readOnly": false,
+    "historyProvider": "MySQL",
+    "dataType": "Float4",
+    "historyMaxAgeUnits": "MIN",
+    "name": "Silo 1 Level Percent",
+    "historyEnabled": true,
+    "executionMode": "TagGroupRate",
+    "readPermissions": {
+      "type": "AllOf",
+      "securityLevels": []
+    },
+    "sampleMode": "TagGroup"
+  },
+  {
+    "valueSource": "expr",
+    "historyMaxAge": 1,
+    "expression": "abs({[~]Quantum1/LU-BIN-LIM-N02-GLASS-SAND-LEVEL})",
+    "writePermissions": {
+      "type": "AllOf",
+      "securityLevels": []
+    },
+    "historyTagGroup": "One Minute",
+    "tagGroup": "Default",
+    "tagType": "AtomicTag",
+    "enabled": true,
+    "readOnly": false,
+    "historyProvider": "MySQL",
+    "dataType": "Float4",
+    "historyMaxAgeUnits": "MIN",
+    "name": "Silo 2 Level Percent",
+    "historyEnabled": true,
+    "executionMode": "TagGroupRate",
+    "readPermissions": {
+      "type": "AllOf",
+      "securityLevels": []
+    },
+    "sampleMode": "TagGroup"
+  },
+  {
+    "valueSource": "expr",
+    "historyMaxAge": 1,
+    "expression": "abs({[~]Quantum1/LU-BIN-LIM-N03-GLASS-SAND-LEVEL})",
+    "writePermissions": {
+      "type": "AllOf",
+      "securityLevels": []
+    },
+    "historyTagGroup": "One Minute",
+    "tagGroup": "Default",
+    "tagType": "AtomicTag",
+    "enabled": true,
+    "readOnly": false,
+    "historyProvider": "MySQL",
+    "dataType": "Float4",
+    "historyMaxAgeUnits": "MIN",
+    "name": "Silo 3 Level Percent",
+    "historyEnabled": true,
+    "executionMode": "TagGroupRate",
+    "readPermissions": {
+      "type": "AllOf",
+      "securityLevels": []
+    },
+    "sampleMode": "TagGroup"
+  },
+  {
+    "valueSource": "expr",
+    "historyMaxAge": 1,
+    "expression": "abs({[~]Quantum4/LU-BIN-BLE-E1-KHRONE-LEVEL})",
+    "writePermissions": {
+      "type": "AllOf",
+      "securityLevels": []
+    },
+    "historyTagGroup": "One Minute",
+    "tagGroup": "Default",
+    "tagType": "AtomicTag",
+    "enabled": true,
+    "readOnly": false,
+    "historyProvider": "MySQL",
+    "dataType": "Float4",
+    "historyMaxAgeUnits": "MIN",
+    "name": "Silo 4 Level Percent",
+    "historyEnabled": true,
+    "executionMode": "TagGroupRate",
+    "readPermissions": {
+      "type": "AllOf",
+      "securityLevels": []
+    },
+    "sampleMode": "TagGroup"
+  },
+  {
+    "valueSource": "expr",
+    "historyMaxAge": 1,
+    "expression": "abs({[~]Quantum4/LU-BIN-BLE-E2-KHRONE-LEVEL})",
+    "writePermissions": {
+      "type": "AllOf",
+      "securityLevels": []
+    },
+    "historyTagGroup": "One Minute",
+    "tagGroup": "Default",
+    "tagType": "AtomicTag",
+    "enabled": true,
+    "readOnly": false,
+    "historyProvider": "MySQL",
+    "dataType": "Float4",
+    "historyMaxAgeUnits": "MIN",
+    "name": "Silo 5 Level Percent",
+    "historyEnabled": true,
+    "executionMode": "TagGroupRate",
+    "readPermissions": {
+      "type": "AllOf",
+      "securityLevels": []
+    },
+    "sampleMode": "TagGroup"
+  },
+  {
+    "valueSource": "expr",
+    "historyMaxAge": 1,
+    "expression": "abs({[~]Quantum1/LU-BIN-LIM-BIG-BERTHA-LEVEL})",
+    "writePermissions": {
+      "type": "AllOf",
+      "securityLevels": []
+    },
+    "historyTagGroup": "One Minute",
+    "tagGroup": "Default",
+    "tagType": "AtomicTag",
+    "enabled": true,
+    "readOnly": false,
+    "historyProvider": "MySQL",
+    "dataType": "Float4",
+    "historyMaxAgeUnits": "MIN",
+    "name": "Silo 6 Level Percent",
+    "historyEnabled": true,
+    "executionMode": "TagGroupRate",
+    "readPermissions": {
+      "type": "AllOf",
+      "securityLevels": []
+    },
+    "sampleMode": "TagGroup"
+  },
+  {
+    "valueSource": "expr",
+    "historyMaxAge": 1,
+    "expression": "abs({[~]Quantum4/LU-BIN-BLE-W1-BIN-LEVEL-KROHNE})",
+    "writePermissions": {
+      "type": "AllOf",
+      "securityLevels": []
+    },
+    "historyTagGroup": "One Minute",
+    "tagGroup": "Default",
+    "tagType": "AtomicTag",
+    "enabled": true,
+    "readOnly": false,
+    "historyProvider": "MySQL",
+    "dataType": "Float4",
+    "historyMaxAgeUnits": "MIN",
+    "name": "Silo 7 Level Percent",
+    "historyEnabled": true,
+    "executionMode": "TagGroupRate",
+    "readPermissions": {
+      "type": "AllOf",
+      "securityLevels": []
+    },
+    "sampleMode": "TagGroup"
+  },
+  {
+    "valueSource": "expr",
+    "historyMaxAge": 1,
+    "expression": "abs({[~]Quantum4/LU-BIN-BLE-W2-KHRONE-LEVEL})",
+    "writePermissions": {
+      "type": "AllOf",
+      "securityLevels": []
+    },
+    "historyTagGroup": "One Minute",
+    "tagGroup": "Default",
+    "tagType": "AtomicTag",
+    "enabled": true,
+    "readOnly": false,
+    "historyProvider": "MySQL",
+    "dataType": "Float4",
+    "historyMaxAgeUnits": "MIN",
+    "name": "Silo 8 Level Percent",
+    "historyEnabled": true,
+    "executionMode": "TagGroupRate",
+    "readPermissions": {
+      "type": "AllOf",
+      "securityLevels": []
+    },
+    "sampleMode": "TagGroup"
+  },
+  {
+    "valueSource": "expr",
+    "historyMaxAge": 1,
+    "expression": "abs({[~]Quantum4/LU-BIN-BLE-W3-KHRONE-LEVEL})",
+    "writePermissions": {
+      "type": "AllOf",
+      "securityLevels": []
+    },
+    "historyTagGroup": "One Minute",
+    "tagGroup": "Default",
+    "tagType": "AtomicTag",
+    "enabled": true,
+    "readOnly": false,
+    "historyProvider": "MySQL",
+    "dataType": "Float4",
+    "historyMaxAgeUnits": "MIN",
+    "name": "Silo 9 Level Percent",
+    "historyEnabled": true,
+    "executionMode": "TagGroupRate",
+    "readPermissions": {
+      "type": "AllOf",
+      "securityLevels": []
+    },
+    "sampleMode": "TagGroup"
+  }
+]

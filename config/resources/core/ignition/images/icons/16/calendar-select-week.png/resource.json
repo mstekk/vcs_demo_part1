@@ -1,0 +1,20 @@
+{
+  "scope": "A",
+  "version": 1,
+  "restricted": false,
+  "overridable": true,
+  "files": [
+    "calendar-select-week.png"
+  ],
+  "attributes": {
+    "width": 16,
+    "format": "PNG",
+    "lastModification": {
+      "actor": "8.3-migration",
+      "timestamp": "2026-01-07T14:49:07Z"
+    },
+    "size": 753,
+    "lastModificationSignature": "d6945732731fc2c701461aec432dcdd4e63c69d6cc47a75b1dcd609e707b5a2a",
+    "height": 16
+  }
+}

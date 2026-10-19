@@ -1,0 +1,20 @@
+{
+  "scope": "A",
+  "version": 1,
+  "restricted": false,
+  "overridable": true,
+  "files": [
+    "Tank 11.png"
+  ],
+  "attributes": {
+    "width": 180,
+    "format": "PNG",
+    "lastModification": {
+      "actor": "8.3-migration",
+      "timestamp": "2026-01-07T14:49:07Z"
+    },
+    "size": 10943,
+    "lastModificationSignature": "6e9428579147fde4d0c31e808d8b4079a6bf0b0d967365e644ff99c47a78f463",
+    "height": 332
+  }
+}

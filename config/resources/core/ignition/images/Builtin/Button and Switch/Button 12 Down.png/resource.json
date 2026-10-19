@@ -1,0 +1,20 @@
+{
+  "scope": "A",
+  "version": 1,
+  "restricted": false,
+  "overridable": true,
+  "files": [
+    "Button 12 Down.png"
+  ],
+  "attributes": {
+    "width": 80,
+    "format": "PNG",
+    "lastModification": {
+      "actor": "8.3-migration",
+      "timestamp": "2026-01-07T14:49:07Z"
+    },
+    "size": 6911,
+    "lastModificationSignature": "4e80060e06c4eb99792ee4d9fa9a2cdace262424e1bd4b1fa060e7a89f314808",
+    "height": 80
+  }
+}

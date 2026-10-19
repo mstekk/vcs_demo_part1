@@ -1,0 +1,20 @@
+{
+  "scope": "A",
+  "version": 1,
+  "restricted": false,
+  "overridable": true,
+  "files": [
+    "edit-outdent.png"
+  ],
+  "attributes": {
+    "width": 16,
+    "format": "PNG",
+    "lastModification": {
+      "actor": "8.3-migration",
+      "timestamp": "2026-01-07T14:49:07Z"
+    },
+    "size": 454,
+    "lastModificationSignature": "bf9823cdb61f4f69e84bd8f6b064c4e529d2986d27c07e72bd153ab6d92353c4",
+    "height": 16
+  }
+}

@@ -1,0 +1,20 @@
+{
+  "scope": "A",
+  "version": 1,
+  "restricted": false,
+  "overridable": true,
+  "files": [
+    "tag-label-black.png"
+  ],
+  "attributes": {
+    "width": 16,
+    "format": "PNG",
+    "lastModification": {
+      "actor": "8.3-migration",
+      "timestamp": "2026-01-07T14:49:07Z"
+    },
+    "size": 748,
+    "lastModificationSignature": "4063fab8d613f69a45e26872a8fb77b275c2a8b1eb178f5ee06c53b560da55e7",
+    "height": 16
+  }
+}

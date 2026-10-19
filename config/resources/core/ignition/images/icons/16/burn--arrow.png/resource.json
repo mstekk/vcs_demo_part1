@@ -1,0 +1,20 @@
+{
+  "scope": "A",
+  "version": 1,
+  "restricted": false,
+  "overridable": true,
+  "files": [
+    "burn--arrow.png"
+  ],
+  "attributes": {
+    "width": 16,
+    "format": "PNG",
+    "lastModification": {
+      "actor": "8.3-migration",
+      "timestamp": "2026-01-07T14:49:07Z"
+    },
+    "size": 893,
+    "lastModificationSignature": "70914139bffdccb4ba938b8a2e542e78033fc87b9d369f6a10ccb72a31e8ac68",
+    "height": 16
+  }
+}

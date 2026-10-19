@@ -1,0 +1,20 @@
+{
+  "scope": "A",
+  "version": 1,
+  "restricted": false,
+  "overridable": true,
+  "files": [
+    "drive-network.png"
+  ],
+  "attributes": {
+    "width": 16,
+    "format": "PNG",
+    "lastModification": {
+      "actor": "8.3-migration",
+      "timestamp": "2026-01-07T14:49:07Z"
+    },
+    "size": 588,
+    "lastModificationSignature": "36807196e88eaa6c2bc6cfaf951c3ef17f69c7a5b3ecf10b1373c3e9e2abd08c",
+    "height": 16
+  }
+}

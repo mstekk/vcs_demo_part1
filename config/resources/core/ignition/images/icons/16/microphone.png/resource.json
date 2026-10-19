@@ -1,0 +1,20 @@
+{
+  "scope": "A",
+  "version": 1,
+  "restricted": false,
+  "overridable": true,
+  "files": [
+    "microphone.png"
+  ],
+  "attributes": {
+    "width": 16,
+    "format": "PNG",
+    "lastModification": {
+      "actor": "8.3-migration",
+      "timestamp": "2026-01-07T14:49:07Z"
+    },
+    "size": 685,
+    "lastModificationSignature": "6fb44a1c188ab56869213ce929b7fc5b3b94223263dee34f0289c72b2b83ccaa",
+    "height": 16
+  }
+}

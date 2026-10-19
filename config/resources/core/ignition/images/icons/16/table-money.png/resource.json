@@ -1,0 +1,20 @@
+{
+  "scope": "A",
+  "version": 1,
+  "restricted": false,
+  "overridable": true,
+  "files": [
+    "table-money.png"
+  ],
+  "attributes": {
+    "width": 16,
+    "format": "PNG",
+    "lastModification": {
+      "actor": "8.3-migration",
+      "timestamp": "2026-01-07T14:49:07Z"
+    },
+    "size": 740,
+    "lastModificationSignature": "1dde5cc4d449d657876ba31fa5c8eac91d37a7415d41249fad70cba0230c8c3a",
+    "height": 16
+  }
+}

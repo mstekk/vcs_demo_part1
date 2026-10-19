@@ -1,0 +1,20 @@
+{
+  "scope": "A",
+  "version": 1,
+  "restricted": false,
+  "overridable": true,
+  "files": [
+    "cancel50.png"
+  ],
+  "attributes": {
+    "width": 16,
+    "format": "PNG",
+    "lastModification": {
+      "actor": "8.3-migration",
+      "timestamp": "2026-01-07T14:49:07Z"
+    },
+    "size": 289,
+    "lastModificationSignature": "4ec9fbd9c6456a2b990a9325485f624ea7f510d2cad045d6a51effbc3edfe45d",
+    "height": 16
+  }
+}

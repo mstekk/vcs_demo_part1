@@ -1,0 +1,20 @@
+{
+  "scope": "A",
+  "version": 1,
+  "restricted": false,
+  "overridable": true,
+  "files": [
+    "asterisk-small-a0c25451f0876e372a1bd1340fd75e33.png"
+  ],
+  "attributes": {
+    "width": 16,
+    "format": "PNG",
+    "lastModification": {
+      "actor": "8.3-migration",
+      "timestamp": "2026-01-07T14:49:07Z"
+    },
+    "size": 427,
+    "lastModificationSignature": "e1ce420a4dcdbe1c0606e079198f639f114169ac56d80fec51e6c04e91d34b13",
+    "height": 16
+  }
+}

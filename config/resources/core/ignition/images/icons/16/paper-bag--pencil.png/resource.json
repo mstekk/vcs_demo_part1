@@ -1,0 +1,20 @@
+{
+  "scope": "A",
+  "version": 1,
+  "restricted": false,
+  "overridable": true,
+  "files": [
+    "paper-bag--pencil.png"
+  ],
+  "attributes": {
+    "width": 16,
+    "format": "PNG",
+    "lastModification": {
+      "actor": "8.3-migration",
+      "timestamp": "2026-01-07T14:49:07Z"
+    },
+    "size": 716,
+    "lastModificationSignature": "b46a047c1ac2c28cf8c0aa5ff827e7dbc33a504f481928c60504314e5420b15c",
+    "height": 16
+  }
+}

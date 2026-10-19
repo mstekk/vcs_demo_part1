@@ -1,0 +1,20 @@
+{
+  "scope": "A",
+  "version": 1,
+  "restricted": false,
+  "overridable": true,
+  "files": [
+    "ui-scroll-pane-text-image.png"
+  ],
+  "attributes": {
+    "width": 16,
+    "format": "PNG",
+    "lastModification": {
+      "actor": "8.3-migration",
+      "timestamp": "2026-01-07T14:49:07Z"
+    },
+    "size": 532,
+    "lastModificationSignature": "94cf1dc4b3d7ca7765550593b3c70a4e80f3aad5812d5cbcda281c58b64be5ef",
+    "height": 16
+  }
+}

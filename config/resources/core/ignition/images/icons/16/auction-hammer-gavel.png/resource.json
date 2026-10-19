@@ -1,0 +1,20 @@
+{
+  "scope": "A",
+  "version": 1,
+  "restricted": false,
+  "overridable": true,
+  "files": [
+    "auction-hammer-gavel.png"
+  ],
+  "attributes": {
+    "width": 16,
+    "format": "PNG",
+    "lastModification": {
+      "actor": "8.3-migration",
+      "timestamp": "2026-01-07T14:49:07Z"
+    },
+    "size": 830,
+    "lastModificationSignature": "913932468e80eb0c55f9d7b57e88f0a839226a0a15dc938a03bce6be3deba78a",
+    "height": 16
+  }
+}

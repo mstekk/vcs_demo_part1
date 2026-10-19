@@ -1,0 +1,20 @@
+{
+  "scope": "A",
+  "version": 1,
+  "restricted": false,
+  "overridable": true,
+  "files": [
+    "clipboard-invoice.png"
+  ],
+  "attributes": {
+    "width": 16,
+    "format": "PNG",
+    "lastModification": {
+      "actor": "8.3-migration",
+      "timestamp": "2026-01-07T14:49:07Z"
+    },
+    "size": 595,
+    "lastModificationSignature": "10f82898f7a9a78a9f219e7988a0f597654bc3216ddf73c976256917cd27f44c",
+    "height": 16
+  }
+}

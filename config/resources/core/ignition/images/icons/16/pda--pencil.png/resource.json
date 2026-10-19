@@ -1,0 +1,20 @@
+{
+  "scope": "A",
+  "version": 1,
+  "restricted": false,
+  "overridable": true,
+  "files": [
+    "pda--pencil.png"
+  ],
+  "attributes": {
+    "width": 16,
+    "format": "PNG",
+    "lastModification": {
+      "actor": "8.3-migration",
+      "timestamp": "2026-01-07T14:49:07Z"
+    },
+    "size": 698,
+    "lastModificationSignature": "c4fdbc228db348dc962b30ac84b3b5ce54a2446c7bb281130c355c22dbcdde1a",
+    "height": 16
+  }
+}

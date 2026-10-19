@@ -1,0 +1,176 @@
+{
+  "custom": {},
+  "params": {
+    "displayName": true,
+    "displayStatus": true,
+    "isControllable": true,
+    "tagPath": "[RCSD]WTF/Anita-B-Smith/NR-V1-1",
+    "x-orientation": true
+  },
+  "propConfig": {
+    "params.displayName": {
+      "paramDirection": "input",
+      "persistent": true
+    },
+    "params.displayStatus": {
+      "paramDirection": "input",
+      "persistent": true
+    },
+    "params.isControllable": {
+      "paramDirection": "input",
+      "persistent": true
+    },
+    "params.tagPath": {
+      "paramDirection": "input",
+      "persistent": true
+    },
+    "params.x-orientation": {
+      "paramDirection": "input",
+      "persistent": true
+    }
+  },
+  "props": {
+    "defaultSize": {
+      "height": 120,
+      "width": 200
+    }
+  },
+  "root": {
+    "children": [
+      {
+        "meta": {
+          "name": "EmbeddedView"
+        },
+        "position": {
+          "basis": "320px"
+        },
+        "propConfig": {
+          "props.params.displayName": {
+            "binding": {
+              "config": {
+                "path": "view.params.displayName"
+              },
+              "type": "property"
+            }
+          },
+          "props.params.displayStatus": {
+            "binding": {
+              "config": {
+                "path": "view.params.displayStatus"
+              },
+              "type": "property"
+            }
+          },
+          "props.params.isControllable": {
+            "binding": {
+              "config": {
+                "path": "view.params.isControllable"
+              },
+              "type": "property"
+            }
+          },
+          "props.params.tagPath": {
+            "binding": {
+              "config": {
+                "path": "view.params.tagPath"
+              },
+              "type": "property"
+            }
+          },
+          "props.path": {
+            "binding": {
+              "config": {
+                "path": "view.params.x-orientation"
+              },
+              "transforms": [
+                {
+                  "fallback": "Devices/Valve_Control (horizontal)",
+                  "inputType": "scalar",
+                  "mappings": [
+                    {
+                      "input": false,
+                      "output": "Devices/Valve_Control (vertical)"
+                    },
+                    {
+                      "input": true,
+                      "output": "Devices/Valve_Control (horizontal)"
+                    }
+                  ],
+                  "outputType": "scalar",
+                  "type": "map"
+                }
+              ],
+              "type": "property"
+            }
+          }
+        },
+        "type": "ia.display.view"
+      }
+    ],
+    "meta": {
+      "name": "root"
+    },
+    "propConfig": {
+      "custom.classStyle": {
+        "binding": {
+          "config": {
+            "path": "this.custom.status"
+          },
+          "transforms": [
+            {
+              "expression": "if(\r\n  {value} \u003d 0,\r\n  \"Status/Stopped\",\r\n  if(\r\n    {value} \u003e 0 \u0026\u0026 {value} \u003c 99,\r\n    \"Status/Travel\",\r\n    if(\r\n      {value} \u003d 100,\r\n      \"Status/Running\",\r\n      \"Status/NonTelemetered\"\r\n    )\r\n  )\r\n)",
+              "type": "expression"
+            }
+          ],
+          "type": "property"
+        }
+      },
+      "custom.isAuto": {
+        "binding": {
+          "config": {
+            "fallbackDelay": 2.5,
+            "mode": "indirect",
+            "references": {
+              "1": "{view.params.tagPath}"
+            },
+            "tagPath": "{1}/Auto"
+          },
+          "type": "tag"
+        }
+      },
+      "custom.isLocal": {
+        "binding": {
+          "config": {
+            "fallbackDelay": 2.5,
+            "mode": "indirect",
+            "references": {
+              "1": "{view.params.tagPath}"
+            },
+            "tagPath": "{1}/LOR"
+          },
+          "type": "tag"
+        }
+      },
+      "custom.status": {
+        "binding": {
+          "config": {
+            "fallbackDelay": 2.5,
+            "mode": "indirect",
+            "references": {
+              "1": "{view.params.tagPath}"
+            },
+            "tagPath": "{1}/Value"
+          },
+          "type": "tag"
+        }
+      }
+    },
+    "props": {
+      "direction": "column",
+      "style": {
+        "overflow": "visible"
+      }
+    },
+    "type": "ia.container.flex"
+  }
+}

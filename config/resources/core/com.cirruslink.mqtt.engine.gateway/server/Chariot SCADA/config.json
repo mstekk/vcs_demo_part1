@@ -1,0 +1,22 @@
+{
+  "cleanSession": true,
+  "enableLegacyStateMessages": false,
+  "enablePrimaryHostSubscriptions": false,
+  "hostnameVerification": true,
+  "includeSparkplugDataTypes": true,
+  "keepAlive": 30,
+  "legacyStateHostnameVerification": true,
+  "password": {
+    "data": {
+      "ciphertext": "QBO5xSEW-ekL7A",
+      "encrypted_key": "KnD1zBgZcYVru1hjjFKX0MKJTZcyvcY92zrty6-Ww1JlpLrjWyYU7Q",
+      "iv": "30Lp94UJ5L0EyVNa",
+      "protected": "eyJhbGciOiJBMjU2S1ciLCJlbmMiOiJBMjU2R0NNIiwiaWF0IjoxNzY4NjY0MjM5LCJ6aXAiOiJERUYifQ",
+      "tag": "luTQZmQ0C5lKWeP5oMGv2A"
+    },
+    "type": "Embedded"
+  },
+  "serverSet": "Default",
+  "url": "tcp://10.192.1.101:1883",
+  "username": "S-TEKK"
+}

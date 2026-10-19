@@ -1,0 +1,20 @@
+{
+  "scope": "A",
+  "version": 1,
+  "restricted": false,
+  "overridable": true,
+  "files": [
+    "status-offline.png"
+  ],
+  "attributes": {
+    "width": 16,
+    "format": "PNG",
+    "lastModification": {
+      "actor": "8.3-migration",
+      "timestamp": "2026-01-07T14:49:07Z"
+    },
+    "size": 434,
+    "lastModificationSignature": "4e1bb3a16b1b9d89a6dc440ba002cd9348f7ff76c25a7aed8ff608f2d84c860c",
+    "height": 16
+  }
+}

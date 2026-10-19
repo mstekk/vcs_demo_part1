@@ -1,0 +1,1835 @@
+{
+  "custom": {
+    "lastMongoLoadID": {}
+  },
+  "params": {},
+  "propConfig": {
+    "custom.lastMongoLoadID": {
+      "persistent": true
+    }
+  },
+  "props": {
+    "defaultSize": {
+      "height": 874,
+      "width": 344
+    }
+  },
+  "root": {
+    "children": [
+      {
+        "children": [
+          {
+            "children": [
+              {
+                "children": [
+                  {
+                    "meta": {
+                      "name": "Icon"
+                    },
+                    "position": {
+                      "basis": "30px",
+                      "shrink": 0
+                    },
+                    "props": {
+                      "path": "material/login"
+                    },
+                    "type": "ia.display.icon"
+                  },
+                  {
+                    "meta": {
+                      "name": "Label"
+                    },
+                    "position": {
+                      "basis": "50px"
+                    },
+                    "propConfig": {
+                      "props.text": {
+                        "binding": {
+                          "config": {
+                            "path": "session.props.auth.user.userName"
+                          },
+                          "transforms": [
+                            {
+                              "code": "\tif value is None:\n\t\treturn \u0027Login\u0027\n\telse:\n\t\treturn value",
+                              "type": "script"
+                            }
+                          ],
+                          "type": "property"
+                        }
+                      }
+                    },
+                    "props": {
+                      "style": {
+                        "marginLeft": "8px"
+                      },
+                      "textStyle": {
+                        "fontWeight": "bolder"
+                      }
+                    },
+                    "type": "ia.display.label"
+                  }
+                ],
+                "events": {
+                  "dom": {
+                    "onClick": {
+                      "config": {},
+                      "scope": "C",
+                      "type": "login"
+                    }
+                  }
+                },
+                "meta": {
+                  "name": "login"
+                },
+                "position": {
+                  "grow": 1,
+                  "shrink": 0
+                },
+                "propConfig": {
+                  "position.display": {
+                    "binding": {
+                      "config": {
+                        "expression": "{session.props.auth.user.userName}\u003dnull"
+                      },
+                      "type": "expr"
+                    }
+                  }
+                },
+                "props": {
+                  "justify": "center",
+                  "style": {
+                    "cursor": "pointer"
+                  }
+                },
+                "type": "ia.container.flex"
+              },
+              {
+                "children": [
+                  {
+                    "meta": {
+                      "name": "Icon"
+                    },
+                    "position": {
+                      "basis": "30px",
+                      "shrink": 0
+                    },
+                    "props": {
+                      "path": "material/login"
+                    },
+                    "type": "ia.display.icon"
+                  },
+                  {
+                    "meta": {
+                      "name": "Label"
+                    },
+                    "position": {
+                      "basis": "50px"
+                    },
+                    "propConfig": {
+                      "props.text": {
+                        "binding": {
+                          "config": {
+                            "path": "session.props.auth.user.userName"
+                          },
+                          "transforms": [
+                            {
+                              "code": "\tif value is None:\n\t\treturn \u0027Login\u0027\n\telse:\n\t\treturn value",
+                              "type": "script"
+                            }
+                          ],
+                          "type": "property"
+                        }
+                      }
+                    },
+                    "props": {
+                      "style": {
+                        "marginLeft": "8px"
+                      },
+                      "textStyle": {
+                        "fontWeight": "bolder"
+                      }
+                    },
+                    "type": "ia.display.label"
+                  }
+                ],
+                "events": {
+                  "dom": {
+                    "onClick": {
+                      "config": {},
+                      "scope": "C",
+                      "type": "logout"
+                    }
+                  }
+                },
+                "meta": {
+                  "name": "logout"
+                },
+                "position": {
+                  "grow": 1,
+                  "shrink": 0
+                },
+                "propConfig": {
+                  "position.display": {
+                    "binding": {
+                      "config": {
+                        "expression": "{session.props.auth.user.userName}!\u003dnull"
+                      },
+                      "type": "expr"
+                    }
+                  }
+                },
+                "props": {
+                  "justify": "center",
+                  "style": {
+                    "cursor": "pointer"
+                  }
+                },
+                "type": "ia.container.flex"
+              },
+              {
+                "events": {
+                  "dom": {
+                    "onClick": {
+                      "config": {
+                        "draggable": true,
+                        "id": "adminTools",
+                        "modal": false,
+                        "overlayDismiss": false,
+                        "resizable": true,
+                        "showCloseIcon": true,
+                        "title": "Admin Tools",
+                        "type": "open",
+                        "viewPath": "Exchange/ArchitectureBuilder/Admin/Main",
+                        "viewportBound": true
+                      },
+                      "scope": "C",
+                      "type": "popup"
+                    }
+                  }
+                },
+                "meta": {
+                  "name": "Icon"
+                },
+                "position": {
+                  "basis": "30px"
+                },
+                "propConfig": {
+                  "position.display": {
+                    "binding": {
+                      "config": {
+                        "expression": "isAuthorized(true, \u0027Authenticated/Roles\u0027)"
+                      },
+                      "type": "expr"
+                    }
+                  }
+                },
+                "props": {
+                  "path": "material/admin_panel_settings",
+                  "style": {
+                    "cursor": "pointer"
+                  }
+                },
+                "type": "ia.display.icon"
+              }
+            ],
+            "meta": {
+              "name": "Login"
+            },
+            "position": {
+              "shrink": 0
+            },
+            "propConfig": {
+              "position.display": {
+                "binding": {
+                  "config": {
+                    "path": "view.custom.lastMongoLoadID"
+                  },
+                  "enabled": false,
+                  "transforms": [
+                    {
+                      "code": "\treturn \u0027filename\u0027 in value.keys()",
+                      "type": "script"
+                    }
+                  ],
+                  "type": "property"
+                }
+              }
+            },
+            "props": {
+              "style": {
+                "background": "--neutral-20",
+                "borderBottomLeftRadius": "16px",
+                "borderBottomRightRadius": "16px",
+                "borderTopLeftRadius": "16px",
+                "borderTopRightRadius": "16px",
+                "margin": "8px",
+                "marginBottom": "0px",
+                "marginTop": "8px",
+                "padding": "4px"
+              }
+            },
+            "type": "ia.container.flex"
+          },
+          {
+            "children": [
+              {
+                "children": [
+                  {
+                    "children": [
+                      {
+                        "meta": {
+                          "name": "Partners",
+                          "tooltip": {
+                            "location": "bottom",
+                            "text": "Add Area (ctrl+a)"
+                          }
+                        },
+                        "position": {
+                          "basis": "100%",
+                          "shrink": 0
+                        },
+                        "props": {
+                          "path": "material/insert_comment",
+                          "style": {
+                            "classes": "controlIconHover",
+                            "cursor": "pointer",
+                            "paddingRight": "2px",
+                            "width": "36px"
+                          }
+                        },
+                        "type": "ia.display.icon"
+                      },
+                      {
+                        "meta": {
+                          "name": "CustomToolTip"
+                        },
+                        "position": {
+                          "shrink": 0
+                        },
+                        "props": {
+                          "params": {
+                            "showIcon": false,
+                            "toolTip": "IA Forum Post"
+                          },
+                          "path": "Exchange/ArchitectureBuilder/EmbeddedViewsMain/CustomToolTip",
+                          "style": {
+                            "backgroundColor": "transparent",
+                            "classes": "hiddenToolTip",
+                            "marginTop": "8px",
+                            "overflow": "visible",
+                            "transform": "translateX(75px)",
+                            "width": "110px",
+                            "z-index": 9999
+                          }
+                        },
+                        "type": "ia.display.view"
+                      }
+                    ],
+                    "events": {
+                      "dom": {
+                        "onClick": {
+                          "config": {
+                            "newTab": true,
+                            "url": "https://forum.inductiveautomation.com/t/ignition-architecture-builder-ideas-bug-reports-and-support"
+                          },
+                          "scope": "C",
+                          "type": "nav"
+                        }
+                      }
+                    },
+                    "meta": {
+                      "name": "Forum"
+                    },
+                    "position": {
+                      "basis": "36px",
+                      "shrink": 0
+                    },
+                    "props": {
+                      "alignItems": "flex-end",
+                      "direction": "column",
+                      "style": {
+                        "classes": "containerTooltip",
+                        "marginRight": "4px",
+                        "overflow": "visible",
+                        "z-index": 9999
+                      }
+                    },
+                    "type": "ia.container.flex"
+                  },
+                  {
+                    "meta": {
+                      "name": "Label"
+                    },
+                    "position": {
+                      "grow": 1
+                    },
+                    "props": {
+                      "text": "Components",
+                      "textStyle": {
+                        "fontWeight": "bolder",
+                        "textAlign": "center"
+                      }
+                    },
+                    "type": "ia.display.label"
+                  },
+                  {
+                    "children": [
+                      {
+                        "events": {
+                          "dom": {
+                            "onClick": {
+                              "config": {
+                                "newTab": true,
+                                "page": "/Partners"
+                              },
+                              "scope": "C",
+                              "type": "nav"
+                            }
+                          }
+                        },
+                        "meta": {
+                          "name": "Partners",
+                          "tooltip": {
+                            "location": "bottom",
+                            "text": "Add Area (ctrl+a)"
+                          }
+                        },
+                        "position": {
+                          "basis": "100%",
+                          "shrink": 0
+                        },
+                        "props": {
+                          "path": "material/groups",
+                          "style": {
+                            "classes": "controlIconHover",
+                            "cursor": "pointer",
+                            "paddingRight": "2px",
+                            "width": "36px"
+                          }
+                        },
+                        "type": "ia.display.icon"
+                      },
+                      {
+                        "meta": {
+                          "name": "CustomToolTip"
+                        },
+                        "position": {
+                          "shrink": 0
+                        },
+                        "props": {
+                          "params": {
+                            "showIcon": false,
+                            "toolTip": "Partners"
+                          },
+                          "path": "Exchange/ArchitectureBuilder/EmbeddedViewsMain/CustomToolTip",
+                          "style": {
+                            "backgroundColor": "transparent",
+                            "classes": "hiddenToolTip",
+                            "marginTop": "8px",
+                            "overflow": "visible",
+                            "width": "140px",
+                            "z-index": 9999
+                          }
+                        },
+                        "type": "ia.display.view"
+                      }
+                    ],
+                    "meta": {
+                      "name": "Partners"
+                    },
+                    "position": {
+                      "basis": "36px",
+                      "shrink": 0
+                    },
+                    "props": {
+                      "alignItems": "flex-end",
+                      "direction": "column",
+                      "style": {
+                        "classes": "containerTooltip",
+                        "marginRight": "4px",
+                        "overflow": "visible",
+                        "z-index": 9999
+                      }
+                    },
+                    "type": "ia.container.flex"
+                  }
+                ],
+                "meta": {
+                  "name": "FlexContainer"
+                },
+                "position": {
+                  "basis": "32px"
+                },
+                "props": {
+                  "style": {
+                    "margin": "8px",
+                    "marginBottom": "0px",
+                    "marginTop": "0px",
+                    "overflow": "visible"
+                  }
+                },
+                "type": "ia.container.flex"
+              },
+              {
+                "children": [
+                  {
+                    "meta": {
+                      "name": "Label"
+                    },
+                    "position": {
+                      "basis": "50px",
+                      "grow": 1
+                    },
+                    "props": {
+                      "text": "Standard Components"
+                    },
+                    "type": "ia.display.label"
+                  },
+                  {
+                    "events": {
+                      "dom": {
+                        "onClick": {
+                          "config": {
+                            "script": "\tself.parent.parent.parent.getChild(\"FlexContainer\").custom.standardDisplay\u003dnot self.parent.parent.parent.getChild(\"FlexContainer\").custom.standardDisplay"
+                          },
+                          "scope": "G",
+                          "type": "script"
+                        }
+                      }
+                    },
+                    "meta": {
+                      "name": "Icon"
+                    },
+                    "position": {
+                      "basis": "30px"
+                    },
+                    "propConfig": {
+                      "props.path": {
+                        "binding": {
+                          "config": {
+                            "expression": "if({..../FlexContainer.custom.standardDisplay},\"material/keyboard_arrow_up\",\"material/keyboard_arrow_down\")"
+                          },
+                          "type": "expr"
+                        }
+                      }
+                    },
+                    "type": "ia.display.icon"
+                  }
+                ],
+                "meta": {
+                  "name": "StandardHeader"
+                },
+                "position": {
+                  "shrink": 0
+                },
+                "propConfig": {
+                  "position.display": {
+                    "binding": {
+                      "config": {
+                        "expression": "{../CustomComponents.props.params.customs}\u003e0"
+                      },
+                      "type": "expr"
+                    }
+                  }
+                },
+                "props": {
+                  "justify": "space-between",
+                  "style": {
+                    "backgroundColor": "--neutral-30",
+                    "borderBottomLeftRadius": "8px",
+                    "borderBottomRightRadius": "8px",
+                    "borderTopLeftRadius": "8px",
+                    "borderTopRightRadius": "8px",
+                    "marginBottom": "4px",
+                    "marginLeft": "8px",
+                    "marginRight": "8px",
+                    "marginTop": "4px",
+                    "paddingLeft": "8px",
+                    "paddingRight": "8px"
+                  }
+                },
+                "type": "ia.container.flex"
+              },
+              {
+                "custom": {
+                  "componentPalletSize": "90px"
+                },
+                "meta": {
+                  "name": "FlexRepeater"
+                },
+                "propConfig": {
+                  "position.display": {
+                    "binding": {
+                      "config": {
+                        "expression": "if({../CustomComponents.props.params.customs}\u003d0,true,{parent.custom.standardDisplay})"
+                      },
+                      "type": "expr"
+                    }
+                  },
+                  "props.elementPosition.basis": {
+                    "binding": {
+                      "config": {
+                        "path": "this.custom.componentPalletSize"
+                      },
+                      "type": "property"
+                    }
+                  },
+                  "props.elementStyle.height": {
+                    "binding": {
+                      "config": {
+                        "path": "this.custom.componentPalletSize"
+                      },
+                      "type": "property"
+                    }
+                  },
+                  "props.elementStyle.width": {
+                    "binding": {
+                      "config": {
+                        "path": "this.custom.componentPalletSize"
+                      },
+                      "type": "property"
+                    }
+                  }
+                },
+                "props": {
+                  "alignContent": "flex-start",
+                  "alignItems": "flex-start",
+                  "elementPosition": {
+                    "grow": 0,
+                    "shrink": 0
+                  },
+                  "elementStyle": {
+                    "margin": "4px"
+                  },
+                  "instances": [
+                    {
+                      "params": {
+                        "config": {
+                          "connections": [],
+                          "development": false,
+                          "displayModules": false,
+                          "licenseKey": "",
+                          "licenseKeyRedun": "",
+                          "modules": {
+                            "CL": [],
+                            "IA": [
+                              {
+                                "name": "Platform"
+                              },
+                              {
+                                "name": "OPC UA"
+                              },
+                              {
+                                "name": "Perspective",
+                                "selection": "Unlimited"
+                              },
+                              {
+                                "name": "Tag Historian",
+                                "selection": "Full"
+                              },
+                              {
+                                "name": "Alarm Notification"
+                              },
+                              {
+                                "name": "SQL Bridge"
+                              }
+                            ],
+                            "SS": [],
+                            "TPM": []
+                          },
+                          "redundant": false,
+                          "sepasoft": false,
+                          "supportPlan": "Total",
+                          "trial": false,
+                          "version": "8.1.x"
+                        },
+                        "desc": "",
+                        "name": "Standard",
+                        "type": "standard",
+                        "uuid": ""
+                      },
+                      "selected": false,
+                      "viewPath": "Exchange/ArchitectureBuilder/Components/Server/Main"
+                    },
+                    {
+                      "params": {
+                        "config": {
+                          "connections": [],
+                          "development": false,
+                          "displayModules": false,
+                          "licenseKey": "",
+                          "licenseKeyRedun": "",
+                          "modules": {
+                            "CL": [
+                              {
+                                "name": "MQTT Transmission"
+                              }
+                            ],
+                            "IA": [
+                              {
+                                "name": "Platform"
+                              },
+                              {
+                                "name": "EAM"
+                              },
+                              {
+                                "name": "Web Development"
+                              },
+                              {
+                                "name": "Alarm Notification",
+                                "selection": "1-Way Email"
+                              },
+                              {
+                                "name": "Tag Historian",
+                                "selection": "Edge"
+                              },
+                              {
+                                "name": "OPC UA"
+                              }
+                            ],
+                            "SS": [],
+                            "TPM": []
+                          },
+                          "redundant": false,
+                          "sepasoft": false,
+                          "supportPlan": "Total",
+                          "trial": false,
+                          "version": "8.1.x"
+                        },
+                        "desc": "",
+                        "name": "Edge IIoT",
+                        "type": "edge",
+                        "uuid": ""
+                      },
+                      "selected": false,
+                      "viewPath": "Exchange/ArchitectureBuilder/Components/Server/Main"
+                    },
+                    {
+                      "params": {
+                        "config": {
+                          "connections": [],
+                          "development": false,
+                          "displayModules": false,
+                          "licenseKey": "",
+                          "licenseKeyRedun": "",
+                          "modules": {
+                            "CL": [
+                              {
+                                "name": "MQTT Transmission"
+                              }
+                            ],
+                            "IA": [
+                              {
+                                "name": "Platform"
+                              },
+                              {
+                                "name": "EAM"
+                              },
+                              {
+                                "name": "Web Development"
+                              },
+                              {
+                                "name": "Alarm Notification",
+                                "selection": "1-Way Email"
+                              },
+                              {
+                                "name": "Tag Historian",
+                                "selection": "Edge"
+                              },
+                              {
+                                "name": "OPC UA"
+                              },
+                              {
+                                "name": "Perspective",
+                                "selection": "2 Sessions"
+                              }
+                            ],
+                            "SS": [],
+                            "TPM": []
+                          },
+                          "redundant": false,
+                          "sepasoft": false,
+                          "supportPlan": "Total",
+                          "trial": false,
+                          "version": "8.1.x"
+                        },
+                        "desc": "",
+                        "name": "Edge Panel",
+                        "type": "panel",
+                        "uuid": ""
+                      },
+                      "selected": false,
+                      "viewPath": "Exchange/ArchitectureBuilder/Components/Server/Main"
+                    },
+                    {
+                      "params": {
+                        "config": {
+                          "connections": [],
+                          "development": false,
+                          "displayModules": false,
+                          "licenseKey": "",
+                          "licenseKeyRedun": "",
+                          "modules": {
+                            "CL": [
+                              {
+                                "name": "MQTT Engine"
+                              },
+                              {
+                                "name": "MQTT Distributor",
+                                "selection": "Distributor (50 clients)"
+                              },
+                              {
+                                "name": "MQTT Transmission"
+                              }
+                            ],
+                            "IA": [
+                              {
+                                "name": "Platform"
+                              },
+                              {
+                                "name": "Alarm Notification"
+                              },
+                              {
+                                "name": "Twilio Notification"
+                              },
+                              {
+                                "name": "EAM"
+                              },
+                              {
+                                "name": "MongoDB"
+                              },
+                              {
+                                "name": "Perspective",
+                                "selection": "Unlimited"
+                              },
+                              {
+                                "name": "Reporting"
+                              },
+                              {
+                                "name": "SQL Bridge"
+                              },
+                              {
+                                "name": "Tag Historian",
+                                "selection": "Full"
+                              },
+                              {
+                                "name": "Web Development"
+                              },
+                              {
+                                "name": "OPC UA"
+                              }
+                            ],
+                            "SS": [],
+                            "TPM": []
+                          },
+                          "redundant": false,
+                          "sepasoft": false,
+                          "supportPlan": "Total",
+                          "trial": false,
+                          "version": "8.1.x"
+                        },
+                        "desc": "",
+                        "name": "Cloud",
+                        "type": "cloud",
+                        "uuid": ""
+                      },
+                      "selected": false,
+                      "viewPath": "Exchange/ArchitectureBuilder/Components/Server/Main"
+                    },
+                    {
+                      "params": {
+                        "config": {
+                          "DBType": "AzureSQL"
+                        },
+                        "desc": "",
+                        "name": "Database",
+                        "type": "Database",
+                        "uuid": ""
+                      },
+                      "selected": false,
+                      "viewPath": "Exchange/ArchitectureBuilder/Components/Database/Main"
+                    },
+                    {
+                      "params": {
+                        "config": {
+                          "PLCType": "",
+                          "image": "PLCBlue-Left",
+                          "ips": [],
+                          "model": "",
+                          "quantity": 1,
+                          "tagCount": 0
+                        },
+                        "desc": "",
+                        "name": "Device",
+                        "type": "Device",
+                        "uuid": ""
+                      },
+                      "selected": false,
+                      "viewPath": "Exchange/ArchitectureBuilder/Components/Device/Main"
+                    },
+                    {
+                      "params": {
+                        "config": {
+                          "image": "ClientKeyboardBlue-Left",
+                          "quantity": 1
+                        },
+                        "desc": "",
+                        "name": "Client",
+                        "type": "Client",
+                        "uuid": ""
+                      },
+                      "selected": false,
+                      "viewPath": "Exchange/ArchitectureBuilder/Components/Client/Main"
+                    },
+                    {
+                      "params": {
+                        "config": {
+                          "image": "MQTT-Server"
+                        },
+                        "desc": "",
+                        "name": "IIoT",
+                        "type": "IIOT",
+                        "uuid": ""
+                      },
+                      "selected": false,
+                      "viewPath": "Exchange/ArchitectureBuilder/Components/IIOT/Main"
+                    },
+                    {
+                      "params": {
+                        "config": {
+                          "image": "AWS"
+                        },
+                        "desc": "",
+                        "name": "Cloud",
+                        "type": "Connector",
+                        "uuid": ""
+                      },
+                      "selected": false,
+                      "viewPath": "Exchange/ArchitectureBuilder/Components/Cloud/Main"
+                    },
+                    {
+                      "params": {
+                        "config": {
+                          "image": "Cell-Tower"
+                        },
+                        "desc": "",
+                        "name": "Comms",
+                        "type": "Comms",
+                        "uuid": ""
+                      },
+                      "selected": false,
+                      "viewPath": "Exchange/ArchitectureBuilder/Components/Communication/Main"
+                    },
+                    {
+                      "params": {
+                        "config": {},
+                        "desc": "",
+                        "name": "Load Balancer",
+                        "type": "LoadBalancer",
+                        "uuid": ""
+                      },
+                      "selected": false,
+                      "viewPath": "Exchange/ArchitectureBuilder/Components/Loadbalancer/Main"
+                    },
+                    {
+                      "params": {
+                        "config": {},
+                        "desc": "",
+                        "name": "MongoDB",
+                        "type": "MongoDB",
+                        "uuid": ""
+                      },
+                      "selected": false,
+                      "viewPath": "Exchange/ArchitectureBuilder/Components/MongoDB/Main"
+                    },
+                    {
+                      "params": {
+                        "config": {},
+                        "desc": "",
+                        "name": "OPCUA Server",
+                        "type": "OPCUA",
+                        "uuid": ""
+                      },
+                      "selected": false,
+                      "viewPath": "Exchange/ArchitectureBuilder/Components/OPCUA/Main"
+                    },
+                    {
+                      "params": {
+                        "config": {},
+                        "desc": "",
+                        "name": "User Source",
+                        "type": "Usersource",
+                        "uuid": ""
+                      },
+                      "selected": false,
+                      "viewPath": "Exchange/ArchitectureBuilder/Components/Usersource/Main"
+                    },
+                    {
+                      "params": {
+                        "config": {},
+                        "desc": "",
+                        "name": "Reverse Proxy",
+                        "type": "ReverseProxy",
+                        "uuid": ""
+                      },
+                      "selected": false,
+                      "viewPath": "Exchange/ArchitectureBuilder/Components/ReverseProxy/Main"
+                    },
+                    {
+                      "params": {
+                        "config": {},
+                        "desc": "",
+                        "name": "Firewall",
+                        "type": "Firewall",
+                        "uuid": ""
+                      },
+                      "selected": false,
+                      "viewPath": "Exchange/ArchitectureBuilder/Components/Firewall/Main"
+                    },
+                    {
+                      "params": {
+                        "config": {},
+                        "desc": "",
+                        "name": "Server",
+                        "type": "server",
+                        "uuid": ""
+                      },
+                      "selected": false,
+                      "viewPath": "Exchange/ArchitectureBuilder/Components/ServerGen/Main"
+                    },
+                    {
+                      "params": {
+                        "config": {
+                          "base64": null
+                        },
+                        "desc": "",
+                        "name": "Custom",
+                        "type": "Custom",
+                        "uuid": ""
+                      },
+                      "selected": false,
+                      "viewPath": "Exchange/ArchitectureBuilder/Components/Custom/Main"
+                    },
+                    {
+                      "params": {
+                        "config": {
+                          "image": "FactoryStack"
+                        },
+                        "name": "4IR",
+                        "type": "fourIR",
+                        "uuid": ""
+                      },
+                      "selected": false,
+                      "viewPath": "Exchange/ArchitectureBuilder/Components/4IR/Main"
+                    },
+                    {
+                      "params": {
+                        "config": {
+                          "image": "Opto22-Epic",
+                          "quantity": 1
+                        },
+                        "name": "Opto22",
+                        "type": "Opto22",
+                        "uuid": ""
+                      },
+                      "selected": false,
+                      "viewPath": "Exchange/ArchitectureBuilder/Components/Opto22/Main"
+                    },
+                    {
+                      "params": {
+                        "config": {
+                          "fontSize": 12
+                        },
+                        "desc": "",
+                        "name": "Note",
+                        "type": "Note",
+                        "uuid": ""
+                      },
+                      "selected": false,
+                      "viewPath": "Exchange/ArchitectureBuilder/Components/Notes/Main"
+                    }
+                  ],
+                  "justify": "center",
+                  "path": "Exchange/ArchitectureBuilder/Frames/SelectFrame",
+                  "useDefaultViewHeight": false,
+                  "useDefaultViewWidth": false,
+                  "wrap": "wrap"
+                },
+                "type": "ia.display.flex-repeater"
+              },
+              {
+                "children": [
+                  {
+                    "meta": {
+                      "name": "Label"
+                    },
+                    "position": {
+                      "basis": "50px",
+                      "grow": 1
+                    },
+                    "props": {
+                      "text": "Custom Components"
+                    },
+                    "type": "ia.display.label"
+                  },
+                  {
+                    "events": {
+                      "dom": {
+                        "onClick": {
+                          "config": {
+                            "script": "\tself.parent.parent.parent.getChild(\"FlexContainer\").custom.standardDisplay\u003dnot self.parent.parent.parent.getChild(\"FlexContainer\").custom.standardDisplay"
+                          },
+                          "scope": "G",
+                          "type": "script"
+                        }
+                      }
+                    },
+                    "meta": {
+                      "name": "Icon"
+                    },
+                    "position": {
+                      "basis": "30px"
+                    },
+                    "propConfig": {
+                      "props.path": {
+                        "binding": {
+                          "config": {
+                            "expression": "if(!{..../FlexContainer.custom.standardDisplay},\"material/keyboard_arrow_up\",\"material/keyboard_arrow_down\")"
+                          },
+                          "type": "expr"
+                        }
+                      }
+                    },
+                    "type": "ia.display.icon"
+                  }
+                ],
+                "meta": {
+                  "name": "CustomHeader"
+                },
+                "position": {
+                  "shrink": 0
+                },
+                "propConfig": {
+                  "position.display": {
+                    "binding": {
+                      "config": {
+                        "expression": "{../CustomComponents.props.params.customs}\u003e0"
+                      },
+                      "type": "expr"
+                    }
+                  }
+                },
+                "props": {
+                  "justify": "space-between",
+                  "style": {
+                    "backgroundColor": "--neutral-30",
+                    "borderBottomLeftRadius": "8px",
+                    "borderBottomRightRadius": "8px",
+                    "borderTopLeftRadius": "8px",
+                    "borderTopRightRadius": "8px",
+                    "marginBottom": "4px",
+                    "marginLeft": "8px",
+                    "marginRight": "8px",
+                    "marginTop": "4px",
+                    "paddingLeft": "8px",
+                    "paddingRight": "8px"
+                  }
+                },
+                "type": "ia.container.flex"
+              },
+              {
+                "meta": {
+                  "name": "CustomComponents"
+                },
+                "position": {
+                  "shrink": 0
+                },
+                "propConfig": {
+                  "position.display": {
+                    "binding": {
+                      "config": {
+                        "expression": "if({../CustomComponents.props.params.customs}\u003d0,false,!{parent.custom.standardDisplay})"
+                      },
+                      "type": "expr"
+                    }
+                  }
+                },
+                "props": {
+                  "params": {
+                    "customs": 0
+                  },
+                  "path": "Exchange/ArchitectureBuilder/EmbeddedViewsMain/CustomComponents"
+                },
+                "type": "ia.display.view"
+              }
+            ],
+            "custom": {
+              "standardDisplay": true
+            },
+            "meta": {
+              "name": "FlexContainer"
+            },
+            "position": {
+              "grow": 1
+            },
+            "props": {
+              "direction": "column",
+              "style": {
+                "background": "--neutral-20",
+                "borderBottomLeftRadius": "16px",
+                "borderBottomRightRadius": "16px",
+                "borderTopLeftRadius": "16px",
+                "borderTopRightRadius": "16px",
+                "margin": "8px",
+                "padding": "4px"
+              }
+            },
+            "type": "ia.container.flex"
+          },
+          {
+            "children": [
+              {
+                "meta": {
+                  "name": "Header"
+                },
+                "position": {
+                  "basis": "32px",
+                  "grow": 1,
+                  "shrink": 0
+                },
+                "props": {
+                  "text": "Current Document",
+                  "textStyle": {
+                    "fontWeight": "bolder",
+                    "textAlign": "center"
+                  }
+                },
+                "type": "ia.display.label"
+              },
+              {
+                "children": [
+                  {
+                    "meta": {
+                      "name": "Label"
+                    },
+                    "position": {
+                      "basis": "100px",
+                      "shrink": 0
+                    },
+                    "props": {
+                      "style": {
+                        "marginRight": "4px"
+                      },
+                      "text": "Filename:",
+                      "textStyle": {
+                        "textAlign": "right"
+                      }
+                    },
+                    "type": "ia.display.label"
+                  },
+                  {
+                    "meta": {
+                      "name": "Filename"
+                    },
+                    "position": {
+                      "grow": 1
+                    },
+                    "propConfig": {
+                      "props.text": {
+                        "binding": {
+                          "config": {
+                            "path": "view.custom.lastMongoLoadID.filename"
+                          },
+                          "overlayOptOut": true,
+                          "transforms": [
+                            {
+                              "code": "\treturn value.replace(\u0027.json\u0027,\u0027\u0027)",
+                              "type": "script"
+                            }
+                          ],
+                          "type": "property"
+                        }
+                      }
+                    },
+                    "props": {
+                      "textStyle": {
+                        "fontWeight": "bolder",
+                        "textAlign": "left",
+                        "textDecoration": "underline",
+                        "wordWrap": "break-word"
+                      }
+                    },
+                    "type": "ia.display.label"
+                  }
+                ],
+                "meta": {
+                  "name": "Filename"
+                },
+                "position": {
+                  "grow": 1,
+                  "shrink": 0
+                },
+                "props": {
+                  "style": {
+                    "marginBottom": "4px"
+                  }
+                },
+                "type": "ia.container.flex"
+              },
+              {
+                "children": [
+                  {
+                    "meta": {
+                      "name": "Label"
+                    },
+                    "position": {
+                      "basis": "100px",
+                      "shrink": 0
+                    },
+                    "props": {
+                      "style": {
+                        "marginRight": "4px"
+                      },
+                      "text": "Modified By:",
+                      "textStyle": {
+                        "textAlign": "right"
+                      }
+                    },
+                    "type": "ia.display.label"
+                  },
+                  {
+                    "meta": {
+                      "name": "Filename"
+                    },
+                    "position": {
+                      "grow": 1
+                    },
+                    "propConfig": {
+                      "props.text": {
+                        "binding": {
+                          "config": {
+                            "path": "view.custom.lastMongoLoadID.userName"
+                          },
+                          "overlayOptOut": true,
+                          "type": "property"
+                        }
+                      }
+                    },
+                    "props": {
+                      "textStyle": {
+                        "fontWeight": "bolder",
+                        "textAlign": "left",
+                        "wordWrap": "break-word"
+                      }
+                    },
+                    "type": "ia.display.label"
+                  }
+                ],
+                "meta": {
+                  "name": "Username"
+                },
+                "position": {
+                  "grow": 1,
+                  "shrink": 0
+                },
+                "propConfig": {
+                  "position.display": {
+                    "binding": {
+                      "config": {
+                        "path": "view.custom.lastMongoLoadID"
+                      },
+                      "transforms": [
+                        {
+                          "code": "\treturn \u0027userName\u0027 in value.keys()",
+                          "type": "script"
+                        }
+                      ],
+                      "type": "property"
+                    }
+                  }
+                },
+                "props": {
+                  "style": {
+                    "marginBottom": "4px"
+                  }
+                },
+                "type": "ia.container.flex"
+              },
+              {
+                "children": [
+                  {
+                    "meta": {
+                      "name": "Label"
+                    },
+                    "position": {
+                      "basis": "100px",
+                      "shrink": 0
+                    },
+                    "props": {
+                      "style": {
+                        "marginRight": "4px"
+                      },
+                      "text": "Connection:",
+                      "textStyle": {
+                        "textAlign": "right"
+                      }
+                    },
+                    "type": "ia.display.label"
+                  },
+                  {
+                    "meta": {
+                      "name": "Connector"
+                    },
+                    "position": {
+                      "grow": 1
+                    },
+                    "propConfig": {
+                      "props.text": {
+                        "binding": {
+                          "config": {
+                            "path": "view.custom.lastMongoLoadID.connector"
+                          },
+                          "overlayOptOut": true,
+                          "type": "property"
+                        }
+                      }
+                    },
+                    "props": {
+                      "textStyle": {
+                        "fontWeight": "bolder",
+                        "textAlign": "left",
+                        "wordWrap": "break-word"
+                      }
+                    },
+                    "type": "ia.display.label"
+                  }
+                ],
+                "meta": {
+                  "name": "Connection"
+                },
+                "position": {
+                  "grow": 1,
+                  "shrink": 0
+                },
+                "propConfig": {
+                  "position.display": {
+                    "binding": {
+                      "config": {
+                        "path": "view.custom.lastMongoLoadID.connector"
+                      },
+                      "transforms": [
+                        {
+                          "fallback": true,
+                          "inputType": "scalar",
+                          "mappings": [
+                            {
+                              "input": "",
+                              "output": false
+                            }
+                          ],
+                          "outputType": "scalar",
+                          "type": "map"
+                        }
+                      ],
+                      "type": "property"
+                    }
+                  }
+                },
+                "props": {
+                  "style": {
+                    "marginBottom": "4px"
+                  }
+                },
+                "type": "ia.container.flex"
+              },
+              {
+                "children": [
+                  {
+                    "meta": {
+                      "name": "Label"
+                    },
+                    "position": {
+                      "basis": "100px",
+                      "shrink": 0
+                    },
+                    "propConfig": {
+                      "props.text": {
+                        "binding": {
+                          "config": {
+                            "expression": "if({view.custom.lastMongoLoadID.id}\u003d\u0027\u0027,\u0027Folder:\u0027,\u0027Collection:\u0027)"
+                          },
+                          "type": "expr"
+                        }
+                      }
+                    },
+                    "props": {
+                      "style": {
+                        "marginRight": "4px"
+                      },
+                      "textStyle": {
+                        "textAlign": "right"
+                      }
+                    },
+                    "type": "ia.display.label"
+                  },
+                  {
+                    "meta": {
+                      "name": "Collection"
+                    },
+                    "position": {
+                      "grow": 1
+                    },
+                    "propConfig": {
+                      "props.text": {
+                        "binding": {
+                          "config": {
+                            "path": "view.custom.lastMongoLoadID.collection"
+                          },
+                          "overlayOptOut": true,
+                          "transforms": [
+                            {
+                              "code": "\tfileLocation\u003dvalue.replace(self.parent.parent.parent.getChild(\"OpenDoc\").custom.path,\u0027\u0027)\n\tif fileLocation\u003d\u003d\u0027/\u0027:\n\t\treturn fileLocation\n\treturn fileLocation.strip(\u0027/\u0027)",
+                              "type": "script"
+                            }
+                          ],
+                          "type": "property"
+                        }
+                      }
+                    },
+                    "props": {
+                      "textStyle": {
+                        "fontWeight": "bolder",
+                        "textAlign": "left",
+                        "wordWrap": "break-word"
+                      }
+                    },
+                    "type": "ia.display.label"
+                  }
+                ],
+                "meta": {
+                  "name": "Collection"
+                },
+                "position": {
+                  "grow": 1,
+                  "shrink": 0
+                },
+                "propConfig": {
+                  "position.display": {
+                    "binding": {
+                      "config": {
+                        "path": "view.custom.lastMongoLoadID.collection"
+                      },
+                      "transforms": [
+                        {
+                          "fallback": true,
+                          "inputType": "scalar",
+                          "mappings": [
+                            {
+                              "input": "",
+                              "output": false
+                            }
+                          ],
+                          "outputType": "scalar",
+                          "type": "map"
+                        }
+                      ],
+                      "type": "property"
+                    }
+                  }
+                },
+                "props": {
+                  "style": {
+                    "marginBottom": "4px"
+                  }
+                },
+                "type": "ia.container.flex"
+              },
+              {
+                "children": [
+                  {
+                    "meta": {
+                      "name": "Label"
+                    },
+                    "position": {
+                      "basis": "100px",
+                      "shrink": 0
+                    },
+                    "props": {
+                      "style": {
+                        "marginRight": "4px"
+                      },
+                      "text": "Modified:",
+                      "textStyle": {
+                        "textAlign": "right"
+                      }
+                    },
+                    "type": "ia.display.label"
+                  },
+                  {
+                    "meta": {
+                      "name": "Date"
+                    },
+                    "position": {
+                      "grow": 1
+                    },
+                    "propConfig": {
+                      "props.text": {
+                        "binding": {
+                          "config": {
+                            "path": "view.custom.lastMongoLoadID.saveDate"
+                          },
+                          "overlayOptOut": true,
+                          "transforms": [
+                            {
+                              "formatType": "datetime",
+                              "formatValue": {
+                                "date": "short",
+                                "time": "short"
+                              },
+                              "type": "format"
+                            }
+                          ],
+                          "type": "property"
+                        }
+                      }
+                    },
+                    "props": {
+                      "textStyle": {
+                        "fontWeight": "bolder",
+                        "textAlign": "left",
+                        "wordWrap": "break-word"
+                      }
+                    },
+                    "type": "ia.display.label"
+                  }
+                ],
+                "meta": {
+                  "name": "Modified"
+                },
+                "position": {
+                  "grow": 1,
+                  "shrink": 0
+                },
+                "propConfig": {
+                  "position.display": {
+                    "binding": {
+                      "config": {
+                        "path": "view.custom.lastMongoLoadID.saveDate"
+                      },
+                      "transforms": [
+                        {
+                          "fallback": true,
+                          "inputType": "scalar",
+                          "mappings": [
+                            {
+                              "input": "",
+                              "output": false
+                            }
+                          ],
+                          "outputType": "scalar",
+                          "type": "map"
+                        }
+                      ],
+                      "type": "property"
+                    }
+                  }
+                },
+                "props": {
+                  "style": {
+                    "marginBottom": "4px"
+                  }
+                },
+                "type": "ia.container.flex"
+              },
+              {
+                "children": [
+                  {
+                    "meta": {
+                      "name": "Label"
+                    },
+                    "position": {
+                      "basis": "100px",
+                      "shrink": 0
+                    },
+                    "props": {
+                      "style": {
+                        "marginRight": "4px"
+                      },
+                      "text": "Meeting ID:",
+                      "textStyle": {
+                        "textAlign": "right"
+                      }
+                    },
+                    "type": "ia.display.label"
+                  },
+                  {
+                    "meta": {
+                      "name": "Link"
+                    },
+                    "position": {
+                      "grow": 1
+                    },
+                    "propConfig": {
+                      "props.text": {
+                        "binding": {
+                          "config": {
+                            "path": "view.custom.lastMongoLoadID.meetingId"
+                          },
+                          "overlayOptOut": true,
+                          "type": "property"
+                        }
+                      },
+                      "props.url": {
+                        "binding": {
+                          "config": {
+                            "expression": "{session.custom.notesLink}+{this.props.text}"
+                          },
+                          "type": "expr"
+                        }
+                      }
+                    },
+                    "props": {
+                      "style": {
+                        "color": "#00FFFF"
+                      },
+                      "target": "tab"
+                    },
+                    "type": "ia.navigation.link"
+                  }
+                ],
+                "meta": {
+                  "name": "Meeting"
+                },
+                "position": {
+                  "grow": 1,
+                  "shrink": 0
+                },
+                "propConfig": {
+                  "position.display": {
+                    "binding": {
+                      "config": {
+                        "path": "view.custom.lastMongoLoadID.meetingId"
+                      },
+                      "transforms": [
+                        {
+                          "fallback": true,
+                          "inputType": "scalar",
+                          "mappings": [
+                            {
+                              "input": "",
+                              "output": false
+                            }
+                          ],
+                          "outputType": "scalar",
+                          "type": "map"
+                        }
+                      ],
+                      "type": "property"
+                    }
+                  }
+                },
+                "props": {
+                  "style": {
+                    "marginBottom": "4px"
+                  }
+                },
+                "type": "ia.container.flex"
+              }
+            ],
+            "meta": {
+              "name": "OpenDoc"
+            },
+            "position": {
+              "shrink": 0
+            },
+            "propConfig": {
+              "custom.path": {
+                "binding": {
+                  "config": {
+                    "path": ""
+                  },
+                  "transforms": [
+                    {
+                      "code": "\tfrom com.inductiveautomation.ignition.gateway import IgnitionGateway\n\tcontext \u003d IgnitionGateway.get()\n\tprojectParentFolder \u003d str(context.systemManager.dataDir.absoluteFile).replace(\u0027\\\\\u0027,\u0027/\u0027)\n\treturn projectParentFolder+\u0027/savedFiles/Architecture\u0027\n",
+                      "type": "script"
+                    }
+                  ],
+                  "type": "property"
+                }
+              },
+              "position.display": {
+                "binding": {
+                  "config": {
+                    "path": "view.custom.lastMongoLoadID"
+                  },
+                  "transforms": [
+                    {
+                      "code": "\treturn \u0027filename\u0027 in value.keys()",
+                      "type": "script"
+                    }
+                  ],
+                  "type": "property"
+                }
+              }
+            },
+            "props": {
+              "direction": "column",
+              "style": {
+                "background": "--neutral-20",
+                "borderBottomLeftRadius": "16px",
+                "borderBottomRightRadius": "16px",
+                "borderTopLeftRadius": "16px",
+                "borderTopRightRadius": "16px",
+                "margin": "8px",
+                "marginTop": "0px",
+                "padding": "4px"
+              }
+            },
+            "type": "ia.container.flex"
+          }
+        ],
+        "meta": {
+          "name": "FlexContainer_0"
+        },
+        "position": {
+          "grow": 1
+        },
+        "props": {
+          "direction": "column",
+          "style": {
+            "backgroundColor": "--neutral-10",
+            "overflow": "visible"
+          }
+        },
+        "type": "ia.container.flex"
+      }
+    ],
+    "meta": {
+      "name": "root"
+    },
+    "props": {
+      "direction": "column"
+    },
+    "scripts": {
+      "customMethods": [],
+      "extensionFunctions": null,
+      "messageHandlers": [
+        {
+          "messageType": "updateLastMongo",
+          "pageScope": true,
+          "script": "#system.perspective.sendMessage(\u0027updateLastMongo\u0027, lastMongoLoadID, scope\u003d\u0027page\u0027)\n\tself.view.custom.lastMongoLoadID\u003dpayload",
+          "sessionScope": true,
+          "viewScope": false
+        },
+        {
+          "messageType": "clearCenterComponents",
+          "pageScope": false,
+          "script": "\tself.view.custom.lastMongoLoadID\u003d{}",
+          "sessionScope": true,
+          "viewScope": false
+        }
+      ]
+    },
+    "type": "ia.container.flex"
+  }
+}

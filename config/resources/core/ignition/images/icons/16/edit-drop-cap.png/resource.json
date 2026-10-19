@@ -1,0 +1,20 @@
+{
+  "scope": "A",
+  "version": 1,
+  "restricted": false,
+  "overridable": true,
+  "files": [
+    "edit-drop-cap.png"
+  ],
+  "attributes": {
+    "width": 16,
+    "format": "PNG",
+    "lastModification": {
+      "actor": "8.3-migration",
+      "timestamp": "2026-01-07T14:49:07Z"
+    },
+    "size": 290,
+    "lastModificationSignature": "b40b073c1fda13b2385162750de457d5ee45e1455b3778fbef02ee3dc8273358",
+    "height": 16
+  }
+}

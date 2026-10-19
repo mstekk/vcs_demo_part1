@@ -1,0 +1,20 @@
+{
+  "scope": "A",
+  "version": 1,
+  "restricted": false,
+  "overridable": true,
+  "files": [
+    "microphone--exclamation.png"
+  ],
+  "attributes": {
+    "width": 16,
+    "format": "PNG",
+    "lastModification": {
+      "actor": "8.3-migration",
+      "timestamp": "2026-01-07T14:49:07Z"
+    },
+    "size": 818,
+    "lastModificationSignature": "8b1ce2bdd0dd42a7d6bea1261f62121ffa971e02bd96a510b5a00f95325400e8",
+    "height": 16
+  }
+}

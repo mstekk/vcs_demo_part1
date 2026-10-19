@@ -1,0 +1,20 @@
+{
+  "scope": "A",
+  "version": 1,
+  "restricted": false,
+  "overridable": true,
+  "files": [
+    "lightningbolt1.png"
+  ],
+  "attributes": {
+    "width": 24,
+    "format": "PNG",
+    "lastModification": {
+      "actor": "8.3-migration",
+      "timestamp": "2026-01-07T14:49:07Z"
+    },
+    "size": 461,
+    "lastModificationSignature": "4e5a1339ba5cb91d726e1bdcd658ca75bdc346862a5c9cc49f75fa229c40414d",
+    "height": 24
+  }
+}

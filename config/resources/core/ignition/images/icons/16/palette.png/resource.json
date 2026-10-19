@@ -1,0 +1,20 @@
+{
+  "scope": "A",
+  "version": 1,
+  "restricted": false,
+  "overridable": true,
+  "files": [
+    "palette.png"
+  ],
+  "attributes": {
+    "width": 16,
+    "format": "PNG",
+    "lastModification": {
+      "actor": "8.3-migration",
+      "timestamp": "2026-01-07T14:49:07Z"
+    },
+    "size": 825,
+    "lastModificationSignature": "60f3e1ec8065d9af8e42b6f5e7eb99af72200ebc997874b818a315a268ae6c07",
+    "height": 16
+  }
+}

@@ -1,0 +1,20 @@
+{
+  "scope": "A",
+  "version": 1,
+  "restricted": false,
+  "overridable": true,
+  "files": [
+    "magnifier-zoom-actual-equal.png"
+  ],
+  "attributes": {
+    "width": 24,
+    "format": "PNG",
+    "lastModification": {
+      "actor": "8.3-migration",
+      "timestamp": "2026-01-07T14:49:07Z"
+    },
+    "size": 1147,
+    "lastModificationSignature": "ad3f98b6bced32fa4e72b79f5955e402bd835277a193bc24e6366dc43a551b2b",
+    "height": 24
+  }
+}

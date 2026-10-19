@@ -1,0 +1,20 @@
+{
+  "scope": "A",
+  "version": 1,
+  "restricted": false,
+  "overridable": true,
+  "files": [
+    "layers-stack-arrange.png"
+  ],
+  "attributes": {
+    "width": 16,
+    "format": "PNG",
+    "lastModification": {
+      "actor": "8.3-migration",
+      "timestamp": "2026-01-07T14:49:07Z"
+    },
+    "size": 730,
+    "lastModificationSignature": "fe17ea352bcf35fdf36b95236457bb72740cef499f4042a8442620f1260604ef",
+    "height": 16
+  }
+}

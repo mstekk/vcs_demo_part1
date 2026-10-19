@@ -1,0 +1,925 @@
+{
+  "custom": {},
+  "params": {
+    "config": {
+      "image": "MQTT-Server"
+    },
+    "desc": "",
+    "name": "IIoT",
+    "type": "IIOT",
+    "uuid": ""
+  },
+  "propConfig": {
+    "params.config": {
+      "paramDirection": "input",
+      "persistent": true
+    },
+    "params.desc": {
+      "paramDirection": "input",
+      "persistent": true
+    },
+    "params.name": {
+      "paramDirection": "input",
+      "persistent": true
+    },
+    "params.type": {
+      "paramDirection": "input",
+      "persistent": true
+    },
+    "params.uuid": {
+      "paramDirection": "input",
+      "persistent": true
+    }
+  },
+  "props": {
+    "defaultSize": {
+      "height": 331,
+      "width": 301
+    }
+  },
+  "root": {
+    "children": [
+      {
+        "children": [
+          {
+            "children": [
+              {
+                "meta": {
+                  "name": "IoT-Bridge"
+                },
+                "position": {
+                  "basis": "300px",
+                  "grow": 1
+                },
+                "propConfig": {
+                  "position.display": {
+                    "binding": {
+                      "config": {
+                        "expression": "{this.meta.name}\u003d{view.params.config.image}"
+                      },
+                      "type": "expr"
+                    }
+                  }
+                },
+                "props": {
+                  "elements": [
+                    {
+                      "id": "defs1",
+                      "name": "defs1",
+                      "type": "defs"
+                    },
+                    {
+                      "elements": [
+                        {
+                          "elements": [
+                            {
+                              "elements": [
+                                {
+                                  "fill": {
+                                    "opacity": "1",
+                                    "paint": "#156d97"
+                                  },
+                                  "height": "52.455723",
+                                  "id": "rect1465-1",
+                                  "name": "rect1465-1",
+                                  "ry": "2.5326986",
+                                  "stroke": {
+                                    "dasharray": "none",
+                                    "linecap": "round",
+                                    "linejoin": "round",
+                                    "miterlimit": "4",
+                                    "opacity": "1",
+                                    "paint": "#0f6d97",
+                                    "width": "0.460949"
+                                  },
+                                  "type": "rect",
+                                  "width": "52.455723",
+                                  "x": "70.093277",
+                                  "y": "163.45782"
+                                },
+                                {
+                                  "d": "m 84.767105,175.89625 c 8.064837,17.23818 19.428285,13.13466 23.651985,0.13495",
+                                  "fill": {
+                                    "paint": "transparent"
+                                  },
+                                  "id": "path4573",
+                                  "name": "path4573",
+                                  "stroke": {
+                                    "dasharray": "none",
+                                    "linecap": "butt",
+                                    "linejoin": "miter",
+                                    "miterlimit": "4",
+                                    "opacity": "1",
+                                    "paint": "#ffffff",
+                                    "width": "0.896887"
+                                  },
+                                  "type": "path"
+                                },
+                                {
+                                  "d": "m 73.090969,189.56801 -0.01427,2.90476 46.488881,0.0747 v -3.07444 z",
+                                  "fill": {
+                                    "opacity": "1",
+                                    "paint": "#ffffff"
+                                  },
+                                  "id": "path4577",
+                                  "name": "path4577",
+                                  "stroke": {
+                                    "linecap": "butt",
+                                    "linejoin": "miter",
+                                    "opacity": "1",
+                                    "paint": "transparent",
+                                    "width": "0.356844px"
+                                  },
+                                  "type": "path"
+                                },
+                                {
+                                  "d": "m 74.441909,190.64425 -0.0084,0.91353 43.771531,0.0316 v -1.01424 z",
+                                  "fill": {
+                                    "opacity": "1",
+                                    "paint": "#ececf6"
+                                  },
+                                  "id": "path4616",
+                                  "name": "path4616",
+                                  "stroke": {
+                                    "linecap": "butt",
+                                    "linejoin": "miter",
+                                    "opacity": "1",
+                                    "paint": "transparent",
+                                    "width": "0.356844px"
+                                  },
+                                  "type": "path"
+                                },
+                                {
+                                  "elements": [
+                                    {
+                                      "d": "m 25.092093,195.69292 -2.365139,20.79741 h 5.77532 l -2.220956,-20.72893 -1.295227,0.005",
+                                      "fill": {
+                                        "opacity": "1",
+                                        "paint": "#ffffff"
+                                      },
+                                      "id": "path868",
+                                      "name": "path868",
+                                      "stroke": {
+                                        "linecap": "butt",
+                                        "linejoin": "miter",
+                                        "opacity": "1",
+                                        "paint": "transparent",
+                                        "width": "0.264583px"
+                                      },
+                                      "type": "path"
+                                    },
+                                    {
+                                      "d": "m 25.614105,197.03372 -1.439582,18.38739 h 3.010035 z",
+                                      "fill": {
+                                        "opacity": "1",
+                                        "paint": "#ececf6"
+                                      },
+                                      "id": "path4604",
+                                      "name": "path4604",
+                                      "stroke": {
+                                        "linecap": "butt",
+                                        "linejoin": "miter",
+                                        "opacity": "1",
+                                        "paint": "#ececf6",
+                                        "width": "0.264583px"
+                                      },
+                                      "type": "path"
+                                    }
+                                  ],
+                                  "id": "g4608",
+                                  "name": "g4608",
+                                  "transform": "matrix(1.3277249,0,0,1.370012,50.259341,-92.662313)",
+                                  "type": "group"
+                                },
+                                {
+                                  "elements": [
+                                    {
+                                      "d": "m 25.092093,195.69292 -2.365139,20.79741 h 5.77532 L 26.281318,195.7614",
+                                      "fill": {
+                                        "opacity": "1",
+                                        "paint": "#ffffff"
+                                      },
+                                      "id": "path4610",
+                                      "name": "path4610",
+                                      "stroke": {
+                                        "linecap": "butt",
+                                        "linejoin": "miter",
+                                        "opacity": "1",
+                                        "paint": "transparent",
+                                        "width": "0.264583px"
+                                      },
+                                      "type": "path"
+                                    },
+                                    {
+                                      "d": "m 25.614105,197.03372 -1.439582,18.38739 h 3.010035 z",
+                                      "fill": {
+                                        "opacity": "1",
+                                        "paint": "#ececf6"
+                                      },
+                                      "id": "path4612",
+                                      "name": "path4612",
+                                      "stroke": {
+                                        "linecap": "butt",
+                                        "linejoin": "miter",
+                                        "opacity": "1",
+                                        "paint": "#ececf6",
+                                        "width": "0.264583px"
+                                      },
+                                      "type": "path"
+                                    }
+                                  ],
+                                  "id": "g4614",
+                                  "name": "g4614",
+                                  "transform": "matrix(1.3277249,0,0,1.370012,74.672738,-92.662313)",
+                                  "type": "group"
+                                },
+                                {
+                                  "d": "m 109.15684,176.22292 c 1.95119,5.46952 4.32926,11.83272 9.96027,13.70867",
+                                  "fill": {
+                                    "paint": "transparent"
+                                  },
+                                  "id": "path4620",
+                                  "name": "path4620",
+                                  "stroke": {
+                                    "dasharray": "none",
+                                    "linecap": "butt",
+                                    "linejoin": "miter",
+                                    "miterlimit": "4",
+                                    "opacity": "1",
+                                    "paint": "#ffffff",
+                                    "width": "0.896887"
+                                  },
+                                  "type": "path"
+                                },
+                                {
+                                  "d": "m 83.988465,175.86302 c -1.951186,5.46952 -3.936641,12.12718 -10.614627,14.26488",
+                                  "fill": {
+                                    "paint": "transparent"
+                                  },
+                                  "id": "path4622",
+                                  "name": "path4622",
+                                  "stroke": {
+                                    "dasharray": "none",
+                                    "linecap": "butt",
+                                    "linejoin": "miter",
+                                    "miterlimit": "4",
+                                    "opacity": "1",
+                                    "paint": "#ffffff",
+                                    "width": "0.896887"
+                                  },
+                                  "type": "path"
+                                }
+                              ],
+                              "id": "layer1-3",
+                              "name": "layer1-3",
+                              "transform": "matrix(0.41574799,0,0,0.41574799,135.80822,131.32833)",
+                              "type": "group"
+                            }
+                          ],
+                          "id": "g3471",
+                          "name": "g3471",
+                          "transform": "translate(-67.32736,-92.920094)",
+                          "type": "group"
+                        }
+                      ],
+                      "id": "layer1",
+                      "name": "layer1",
+                      "transform": "translate(-97.52618,-106.26968)",
+                      "type": "group"
+                    }
+                  ],
+                  "viewBox": "0 0 22 22"
+                },
+                "type": "ia.shapes.svg"
+              },
+              {
+                "meta": {
+                  "name": "MQTT-Server"
+                },
+                "position": {
+                  "basis": "300px",
+                  "grow": 1
+                },
+                "propConfig": {
+                  "position.display": {
+                    "binding": {
+                      "config": {
+                        "expression": "{this.meta.name}\u003d{view.params.config.image}"
+                      },
+                      "type": "expr"
+                    }
+                  }
+                },
+                "props": {
+                  "elements": [
+                    {
+                      "elements": [
+                        {
+                          "elements": [
+                            {
+                              "height": "61.2",
+                              "name": "rect",
+                              "style": {
+                                "classes": ""
+                              },
+                              "type": "rect",
+                              "width": "68.01"
+                            }
+                          ],
+                          "id": "clippath",
+                          "name": "clippath",
+                          "type": "clipPath"
+                        },
+                        {
+                          "elements": [
+                            {
+                              "height": "61.2",
+                              "name": "rect",
+                              "style": {
+                                "classes": ""
+                              },
+                              "type": "rect",
+                              "width": "68.01",
+                              "y": "0"
+                            }
+                          ],
+                          "id": "clippath-1",
+                          "name": "clippath-1",
+                          "type": "clipPath"
+                        },
+                        {
+                          "elements": [
+                            {
+                              "height": "26.03",
+                              "name": "rect",
+                              "style": {
+                                "classes": ""
+                              },
+                              "type": "rect",
+                              "width": "19.64",
+                              "x": "16.71",
+                              "y": "2.05"
+                            }
+                          ],
+                          "id": "clippath-2",
+                          "name": "clippath-2",
+                          "type": "clipPath"
+                        },
+                        {
+                          "elements": [
+                            {
+                              "height": "26.03",
+                              "name": "rect",
+                              "style": {
+                                "classes": ""
+                              },
+                              "type": "rect",
+                              "width": "19.64",
+                              "x": "16.71",
+                              "y": "2.05"
+                            }
+                          ],
+                          "id": "clippath-3",
+                          "name": "clippath-3",
+                          "type": "clipPath"
+                        },
+                        {
+                          "elements": [
+                            {
+                              "height": "26.03",
+                              "name": "rect",
+                              "style": {
+                                "classes": ""
+                              },
+                              "type": "rect",
+                              "width": "19.64",
+                              "x": "16.71",
+                              "y": "2.05"
+                            }
+                          ],
+                          "id": "clippath-4",
+                          "name": "clippath-4",
+                          "type": "clipPath"
+                        }
+                      ],
+                      "name": "defs",
+                      "type": "defs"
+                    },
+                    {
+                      "elements": [
+                        {
+                          "elements": [
+                            {
+                              "elements": [
+                                {
+                                  "elements": [
+                                    {
+                                      "d": "m64.22,7.23l-4.86-2.82c-2.09-1.22-4.9-1.2-8.02.27l4.85,2.82c3.12-1.47,5.93-1.49,8.02-.27",
+                                      "fill": {
+                                        "paint": "#afc6d7"
+                                      },
+                                      "name": "path",
+                                      "style": {
+                                        "classes": ""
+                                      },
+                                      "type": "path"
+                                    },
+                                    {
+                                      "d": "m56.2,7.5l-4.86-2.82c-.4.19-.8.4-1.21.63-1.32.76-2.58,1.72-3.78,2.83l4.86,2.82c1.2-1.11,2.46-2.07,3.78-2.83.41-.24.81-.45,1.21-.63",
+                                      "fill": {
+                                        "paint": "#eff8fc"
+                                      },
+                                      "name": "path",
+                                      "style": {
+                                        "classes": ""
+                                      },
+                                      "type": "path"
+                                    },
+                                    {
+                                      "d": "m47.01,3.83l-4.86-2.82c-2.42-1.41-5.66-1.39-9.27.31l4.86,2.82c3.61-1.7,6.85-1.72,9.27-.31",
+                                      "fill": {
+                                        "paint": "#afc6d7"
+                                      },
+                                      "name": "path",
+                                      "style": {
+                                        "classes": ""
+                                      },
+                                      "type": "path"
+                                    },
+                                    {
+                                      "d": "m37.74,4.15l-4.86-2.82c-.46.22-.92.46-1.39.73l4.86,2.82c.47-.27.93-.51,1.39-.73",
+                                      "fill": {
+                                        "paint": "#eff8fc"
+                                      },
+                                      "name": "path",
+                                      "style": {
+                                        "classes": ""
+                                      },
+                                      "type": "path"
+                                    },
+                                    {
+                                      "elements": [
+                                        {
+                                          "elements": [
+                                            {
+                                              "elements": [
+                                                {
+                                                  "elements": [
+                                                    {
+                                                      "d": "m36.35,4.88l-4.86-2.82c-7.51,4.34-13.72,14.29-14.78,23.21l4.86,2.82c1.06-8.92,7.27-18.87,14.78-23.21",
+                                                      "fill": {
+                                                        "paint": "#eff8fc"
+                                                      },
+                                                      "name": "path",
+                                                      "style": {
+                                                        "classes": ""
+                                                      },
+                                                      "type": "path"
+                                                    }
+                                                  ],
+                                                  "name": "group",
+                                                  "style": {
+                                                    "classes": ""
+                                                  },
+                                                  "type": "group"
+                                                }
+                                              ],
+                                              "name": "group",
+                                              "style": {
+                                                "classes": ""
+                                              },
+                                              "type": "group"
+                                            }
+                                          ],
+                                          "name": "group",
+                                          "style": {
+                                            "classes": ""
+                                          },
+                                          "type": "group"
+                                        }
+                                      ],
+                                      "name": "group",
+                                      "style": {
+                                        "classes": ""
+                                      },
+                                      "type": "group"
+                                    },
+                                    {
+                                      "d": "m21.57,28.08l-4.86-2.82c-.83.19-1.69.49-2.58.91l4.86,2.82c.89-.42,1.75-.72,2.59-.91",
+                                      "fill": {
+                                        "paint": "#afc6d7"
+                                      },
+                                      "name": "path",
+                                      "style": {
+                                        "classes": ""
+                                      },
+                                      "type": "path"
+                                    },
+                                    {
+                                      "d": "m18.98,28.99l-4.86-2.82c-.4.19-.8.4-1.2.63C6.2,30.68.69,39.76.06,47.66l4.86,2.82c.63-7.9,6.14-16.98,12.86-20.86.41-.23.81-.44,1.2-.63",
+                                      "fill": {
+                                        "paint": "#eff8fc"
+                                      },
+                                      "name": "path",
+                                      "style": {
+                                        "classes": ""
+                                      },
+                                      "type": "path"
+                                    },
+                                    {
+                                      "d": "m4.92,50.48L.06,47.66c-.04.51-.06,1.02-.06,1.53.01,4.09,1.45,6.96,3.78,8.32l4.86,2.82c-2.33-1.35-3.77-4.23-3.78-8.32,0-.5.02-1.01.06-1.53",
+                                      "fill": {
+                                        "paint": "#afc6d7"
+                                      },
+                                      "name": "path",
+                                      "style": {
+                                        "classes": ""
+                                      },
+                                      "type": "path"
+                                    },
+                                    {
+                                      "d": "m36.35,4.88c-7.51,4.34-13.72,14.29-14.78,23.21-1.2.28-2.47.78-3.78,1.54-7.16,4.13-12.95,14.16-12.92,22.39.02,8.23,5.85,11.55,13.01,7.41l37.22-21.49c7.16-4.13,12.95-14.16,12.92-22.39-.02-8.23-5.85-11.55-13.01-7.41-1.32.76-2.58,1.72-3.78,2.83-1.11-7.66-7.35-10.42-14.87-6.09",
+                                      "fill": {
+                                        "paint": "#d0dfea"
+                                      },
+                                      "name": "path",
+                                      "style": {
+                                        "classes": ""
+                                      },
+                                      "type": "path"
+                                    },
+                                    {
+                                      "fill": {
+                                        "paint": "#146d95"
+                                      },
+                                      "name": "polygon",
+                                      "points": "53.52 35.59 23.56 52.89 23.56 31.79 53.52 14.49 53.52 35.59",
+                                      "style": {
+                                        "classes": ""
+                                      },
+                                      "type": "polygon"
+                                    },
+                                    {
+                                      "fill": {
+                                        "paint": "#328fb5"
+                                      },
+                                      "name": "polygon",
+                                      "points": "57.71 38.34 27.75 55.63 27.75 34.54 57.71 17.23 57.71 38.34",
+                                      "style": {
+                                        "classes": ""
+                                      },
+                                      "type": "polygon"
+                                    },
+                                    {
+                                      "elements": [
+                                        {
+                                          "name": "tspan",
+                                          "text": "MQTT",
+                                          "type": "tspan",
+                                          "x": -9,
+                                          "y": 1
+                                        }
+                                      ],
+                                      "fill": {
+                                        "paint": "#fff"
+                                      },
+                                      "name": "text",
+                                      "style": {
+                                        "classes": ""
+                                      },
+                                      "transform": "translate(35.98 38.19) rotate(-30) scale(.55) skewX(-30)",
+                                      "type": "text"
+                                    },
+                                    {
+                                      "elements": [
+                                        {
+                                          "name": "tspan",
+                                          "style": {
+                                            "classes": ""
+                                          },
+                                          "text": "Servers",
+                                          "type": "tspan",
+                                          "x": -9,
+                                          "y": 3
+                                        }
+                                      ],
+                                      "fill": {
+                                        "paint": "#fff"
+                                      },
+                                      "name": "text",
+                                      "style": {
+                                        "classes": ""
+                                      },
+                                      "transform": "translate(34.33 46.85) rotate(-30) scale(.55) skewX(-30)",
+                                      "type": "text"
+                                    }
+                                  ],
+                                  "name": "group",
+                                  "style": {
+                                    "classes": ""
+                                  },
+                                  "type": "group"
+                                }
+                              ],
+                              "name": "group",
+                              "style": {
+                                "classes": ""
+                              },
+                              "type": "group"
+                            }
+                          ],
+                          "id": "MQTT_Servers",
+                          "name": "MQTT_Servers",
+                          "type": "group"
+                        }
+                      ],
+                      "id": "Layer_1-2",
+                      "name": "Layer_1-2",
+                      "type": "group"
+                    }
+                  ],
+                  "viewBox": "0 0 68.01 61.2"
+                },
+                "type": "ia.shapes.svg"
+              }
+            ],
+            "meta": {
+              "name": "Images"
+            },
+            "position": {
+              "height": 0.84,
+              "width": 1,
+              "y": 0.16
+            },
+            "props": {
+              "direction": "column",
+              "style": {
+                "classes": "componentShadow"
+              }
+            },
+            "type": "ia.container.flex"
+          },
+          {
+            "children": [
+              {
+                "meta": {
+                  "contextMenu": {
+                    "enabled": true,
+                    "items": [
+                      {
+                        "children": [],
+                        "icon": {
+                          "color": "",
+                          "path": "",
+                          "style": {}
+                        },
+                        "link": {
+                          "target": "self",
+                          "url": ""
+                        },
+                        "message": {
+                          "payload": {},
+                          "scope": "page",
+                          "type": ""
+                        },
+                        "method": {
+                          "name": "gatewayConfig",
+                          "params": {}
+                        },
+                        "style": {
+                          "classes": ""
+                        },
+                        "text": "Gateway Config",
+                        "type": "method"
+                      },
+                      {
+                        "children": [],
+                        "icon": {
+                          "color": "",
+                          "path": "",
+                          "style": {}
+                        },
+                        "link": {
+                          "target": "self",
+                          "url": ""
+                        },
+                        "message": {
+                          "payload": {},
+                          "scope": "page",
+                          "type": ""
+                        },
+                        "method": {
+                          "name": "moduleConfig",
+                          "params": {}
+                        },
+                        "style": {
+                          "classes": ""
+                        },
+                        "text": "Module Config",
+                        "type": "method"
+                      }
+                    ]
+                  },
+                  "name": "Icon"
+                },
+                "position": {
+                  "shrink": 0
+                },
+                "propConfig": {
+                  "meta.contextMenu.items[0].method.params.presets": {
+                    "binding": {
+                      "config": {
+                        "path": "view.params.config"
+                      },
+                      "type": "property"
+                    }
+                  },
+                  "meta.contextMenu.items[0].method.params.uuid": {
+                    "binding": {
+                      "config": {
+                        "path": "view.params.uuid"
+                      },
+                      "type": "property"
+                    }
+                  },
+                  "meta.contextMenu.items[1].method.params.gatewayUUID": {
+                    "binding": {
+                      "config": {
+                        "path": "view.params.uuid"
+                      },
+                      "type": "property"
+                    }
+                  },
+                  "meta.contextMenu.items[1].method.params.preselected": {
+                    "binding": {
+                      "config": {
+                        "path": "view.params.config.modules"
+                      },
+                      "type": "property"
+                    }
+                  }
+                },
+                "props": {
+                  "color": "white",
+                  "path": "material/settings",
+                  "style": {
+                    "classes": "iconRotate",
+                    "cursor": "pointer"
+                  }
+                },
+                "type": "ia.display.icon"
+              },
+              {
+                "meta": {
+                  "name": "HeaderText"
+                },
+                "propConfig": {
+                  "props.text": {
+                    "binding": {
+                      "config": {
+                        "path": "view.params.name"
+                      },
+                      "type": "property"
+                    }
+                  }
+                },
+                "props": {
+                  "alignVertical": "top",
+                  "style": {
+                    "filter": "drop-shadow(2px 2px 2px #000000)"
+                  },
+                  "textStyle": {
+                    "fontSize": "0.6em",
+                    "whiteSpace": "pre-wrap"
+                  }
+                },
+                "type": "ia.display.label"
+              }
+            ],
+            "events": {
+              "dom": {
+                "onClick": {
+                  "config": {
+                    "script": "\tself.openConfig()"
+                  },
+                  "scope": "G",
+                  "type": "script"
+                }
+              }
+            },
+            "meta": {
+              "name": "Header"
+            },
+            "position": {
+              "height": 0.15,
+              "width": 0.9,
+              "x": 0.0025,
+              "y": 0.0025
+            },
+            "props": {
+              "style": {
+                "cursor": "pointer",
+                "overflow": "visible"
+              }
+            },
+            "scripts": {
+              "customMethods": [
+                {
+                  "name": "openConfig",
+                  "params": [],
+                  "script": "\tuuid\u003dself.view.params.uuid\n\tpath\u003d\u0027Exchange/ArchitectureBuilder/Components/IIOT/Config\u0027\n\tparams\u003d{\u0027uuid\u0027:uuid}\n\ttitle\u003d\u0027IIOT Configuration\u0027\n\tsystem.perspective.sendMessage(\u0027openPopup\u0027, {\u0027uuid\u0027:uuid, \u0027path\u0027:path,\u0027params\u0027:params,\u0027title\u0027:title},scope\u003d\u0027session\u0027)"
+                }
+              ],
+              "extensionFunctions": null,
+              "messageHandlers": []
+            },
+            "type": "ia.container.flex"
+          },
+          {
+            "meta": {
+              "name": "Label"
+            },
+            "position": {
+              "height": 0.1,
+              "width": 0.5,
+              "x": 0.25,
+              "y": 0.9
+            },
+            "propConfig": {
+              "meta.visible": {
+                "binding": {
+                  "config": {
+                    "path": "session.custom.showUUID"
+                  },
+                  "type": "property"
+                }
+              },
+              "props.text": {
+                "binding": {
+                  "config": {
+                    "path": "view.params.uuid"
+                  },
+                  "type": "property"
+                }
+              }
+            },
+            "props": {
+              "style": {
+                "filter": "drop-shadow(2px 2px 2px #000000)"
+              },
+              "textStyle": {
+                "fontSize": "0.5em",
+                "textAlign": "center"
+              }
+            },
+            "type": "ia.display.label"
+          }
+        ],
+        "meta": {
+          "name": "CoordinateContainer"
+        },
+        "position": {
+          "basis": "100px",
+          "grow": 1
+        },
+        "props": {
+          "mode": "percent",
+          "style": {
+            "height": "100%",
+            "padding": "4px"
+          }
+        },
+        "type": "ia.container.coord"
+      }
+    ],
+    "meta": {
+      "contextMenu": {},
+      "name": "root"
+    },
+    "propConfig": {
+      "meta.contextMenu.items": {
+        "binding": {
+          "config": {
+            "path": "view.custom.DeviceImages"
+          },
+          "transforms": [
+            {
+              "code": "\titems\u003d[]\n\tfor x in value:\n\t\titems.append({\n\t\t  \"text\": x[\u0027filename\u0027],\n\t\t  \"icon\": {\n\t\t    \"path\": \"\",\n\t\t    \"color\": \"\",\n\t\t    \"style\": {}\n\t\t  },\n\t\t  \"style\": {\n\t\t    \"classes\": \"\"\n\t\t  },\n\t\t  \"type\": \"method\",\n\t\t  \"children\": [],\n\t\t  \"link\": {\n\t\t    \"url\": \"\",\n\t\t    \"target\": \"self\"\n\t\t  },\n\t\t  \"method\": {\n\t\t    \"name\": \"setImage\",\n\t\t    \"params\": {\n\t\t      \"image\": x[\u0027image\u0027]\n\t\t    }\n\t\t  },\n\t\t  \"message\": {\n\t\t    \"type\": \"\",\n\t\t    \"payload\": {},\n\t\t    \"scope\": \"page\"\n\t\t  }\n\t\t})\n\treturn items",
+              "type": "script"
+            }
+          ],
+          "type": "property"
+        }
+      }
+    },
+    "props": {
+      "direction": "column",
+      "style": {
+        "borderStyle": "none",
+        "classes": "Exchange/ArchitectureBuilder/componentBackground",
+        "overflow": "hidden"
+      }
+    },
+    "type": "ia.container.flex"
+  }
+}

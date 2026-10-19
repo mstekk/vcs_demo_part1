@@ -1,0 +1,20 @@
+{
+  "scope": "A",
+  "version": 1,
+  "restricted": false,
+  "overridable": true,
+  "files": [
+    "Blower 90 DEG FLIP.png"
+  ],
+  "attributes": {
+    "width": 274,
+    "format": "PNG",
+    "lastModification": {
+      "actor": "8.3-migration",
+      "timestamp": "2026-01-07T14:49:07Z"
+    },
+    "size": 61593,
+    "lastModificationSignature": "804e46256ecf1915b1259cd8ca90bd93384afdaebeb252ecd8ed0abe8e660738",
+    "height": 279
+  }
+}

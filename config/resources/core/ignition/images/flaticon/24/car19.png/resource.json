@@ -1,0 +1,20 @@
+{
+  "scope": "A",
+  "version": 1,
+  "restricted": false,
+  "overridable": true,
+  "files": [
+    "car19.png"
+  ],
+  "attributes": {
+    "width": 24,
+    "format": "PNG",
+    "lastModification": {
+      "actor": "8.3-migration",
+      "timestamp": "2026-01-07T14:49:07Z"
+    },
+    "size": 621,
+    "lastModificationSignature": "8c73b2d14109e417aaae07c0bc29d269b32ac7f7dd62b01641d8c37e86fbe9a0",
+    "height": 24
+  }
+}

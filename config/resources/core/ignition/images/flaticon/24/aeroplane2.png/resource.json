@@ -1,0 +1,20 @@
+{
+  "scope": "A",
+  "version": 1,
+  "restricted": false,
+  "overridable": true,
+  "files": [
+    "aeroplane2.png"
+  ],
+  "attributes": {
+    "width": 24,
+    "format": "PNG",
+    "lastModification": {
+      "actor": "8.3-migration",
+      "timestamp": "2026-01-07T14:49:07Z"
+    },
+    "size": 450,
+    "lastModificationSignature": "25929474522aab12fefb3ca694a61407b02e3db135217907a8c0e4fe0d747556",
+    "height": 24
+  }
+}

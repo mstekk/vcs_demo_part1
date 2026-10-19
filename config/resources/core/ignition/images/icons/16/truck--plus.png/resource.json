@@ -1,0 +1,20 @@
+{
+  "scope": "A",
+  "version": 1,
+  "restricted": false,
+  "overridable": true,
+  "files": [
+    "truck--plus.png"
+  ],
+  "attributes": {
+    "width": 16,
+    "format": "PNG",
+    "lastModification": {
+      "actor": "8.3-migration",
+      "timestamp": "2026-01-07T14:49:07Z"
+    },
+    "size": 789,
+    "lastModificationSignature": "97d1ce98a49ea5a444030e2b7340f0e3cc44c03ab6f677c97b2f8f3be7e9d3cd",
+    "height": 16
+  }
+}

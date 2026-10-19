@@ -1,0 +1,20 @@
+{
+  "scope": "A",
+  "version": 1,
+  "restricted": false,
+  "overridable": true,
+  "files": [
+    "roadsing.png"
+  ],
+  "attributes": {
+    "width": 16,
+    "format": "PNG",
+    "lastModification": {
+      "actor": "8.3-migration",
+      "timestamp": "2026-01-07T14:49:07Z"
+    },
+    "size": 289,
+    "lastModificationSignature": "e87b2cafbafc8e873dc222c70f2ca887a31d2e841a0e5f623ae6c0be56a7267e",
+    "height": 16
+  }
+}

@@ -1,0 +1,176 @@
+{
+  "custom": {},
+  "params": {
+    "lastLoad": false
+  },
+  "propConfig": {
+    "params.lastLoad": {
+      "paramDirection": "input",
+      "persistent": true
+    }
+  },
+  "props": {
+    "defaultSize": {
+      "height": 89,
+      "width": 394
+    }
+  },
+  "root": {
+    "children": [
+      {
+        "meta": {
+          "name": "Label"
+        },
+        "props": {
+          "style": {
+            "marginLeft": "8px",
+            "marginTop": "8px"
+          },
+          "text": "Save your changes to this Architecture?"
+        },
+        "type": "ia.display.label"
+      },
+      {
+        "children": [
+          {
+            "events": {
+              "component": {
+                "onActionPerformed": {
+                  "config": {
+                    "script": "\tsystem.perspective.sendMessage(\u0027cancelConfigs\u0027, True, scope\u003d\u0027session\u0027)\n\tif self.session.custom.saveToMongo:\n\t\tview\u003d\u0027Exchange/ArchitectureBuilder/EmbeddedViewsMain/SaveArchitectureToMongo\u0027\n\telse:\n\t\tview\u003d\u0027Exchange/ArchitectureBuilder/EmbeddedViewsMain/SaveArchitectureToFileSystem\u0027\n\t\n\tsystem.perspective.openPopup(\u0027saveArchitecture\u0027, view, params\u003d{\u0027lastLoad\u0027: self.view.params.lastLoad, \"newTrigger\": True}, title\u003d\"Save Architecture\")\n\t\n\tsystem.perspective.closePopup(\u0027saveNew\u0027)"
+                  },
+                  "scope": "G",
+                  "type": "script"
+                }
+              }
+            },
+            "meta": {
+              "name": "save"
+            },
+            "position": {
+              "basis": "33%",
+              "grow": 1
+            },
+            "props": {
+              "style": {
+                "classes": "Exchange/ArchitectureBuilder/buttonHover",
+                "marginLeft": "8px",
+                "marginRight": "8px"
+              },
+              "text": "Save"
+            },
+            "type": "ia.input.button"
+          },
+          {
+            "events": {
+              "component": {
+                "onActionPerformed": {
+                  "config": {
+                    "script": "\tsystem.perspective.sendMessage(\u0027clearCenterComponents\u0027, False, scope\u003d\u0027session\u0027)\n\tsystem.perspective.sendMessage(\u0027panInteract\u0027, {\u0027action\u0027:\u0027Pan\u0027},scope\u003d\u0027session\u0027)\t\t\n\tsystem.perspective.closePopup(\u0027saveNew\u0027)"
+                  },
+                  "scope": "G",
+                  "type": "script"
+                }
+              }
+            },
+            "meta": {
+              "name": "dontSave"
+            },
+            "position": {
+              "basis": "33%",
+              "grow": 1
+            },
+            "props": {
+              "style": {
+                "classes": "Exchange/ArchitectureBuilder/buttonHover",
+                "marginLeft": "8px",
+                "marginRight": "8px"
+              },
+              "text": "Don\u0027t Save"
+            },
+            "type": "ia.input.button"
+          },
+          {
+            "events": {
+              "component": {
+                "onActionPerformed": {
+                  "config": {
+                    "script": "\tsystem.perspective.closePopup(\u0027saveNew\u0027)"
+                  },
+                  "scope": "G",
+                  "type": "script"
+                }
+              }
+            },
+            "meta": {
+              "name": "Cancel"
+            },
+            "position": {
+              "basis": "33%",
+              "grow": 1
+            },
+            "props": {
+              "style": {
+                "classes": "Exchange/ArchitectureBuilder/buttonHover",
+                "marginLeft": "8px",
+                "marginRight": "8px"
+              },
+              "text": "Cancel"
+            },
+            "type": "ia.input.button"
+          },
+          {
+            "events": {
+              "dom": {
+                "onClick": {
+                  "config": {
+                    "script": "\tsystem.perspective.openPopup(\"Export\", \"Exchange/ArchitectureBuilder/BOM/Popups/Export\", title\u003d\"Download\", )"
+                  },
+                  "scope": "G",
+                  "type": "script"
+                }
+              }
+            },
+            "meta": {
+              "name": "Download"
+            },
+            "position": {
+              "basis": "30px",
+              "shrink": 0
+            },
+            "props": {
+              "path": "material/cloud_download",
+              "style": {
+                "cursor": "pointer",
+                "marginRight": "8px"
+              }
+            },
+            "type": "ia.display.icon"
+          }
+        ],
+        "meta": {
+          "name": "Apply"
+        },
+        "position": {
+          "basis": "34px",
+          "shrink": 0
+        },
+        "props": {
+          "justify": "space-around",
+          "style": {
+            "marginBottom": "8px",
+            "marginTop": "8px"
+          }
+        },
+        "type": "ia.container.flex"
+      }
+    ],
+    "meta": {
+      "name": "root"
+    },
+    "props": {
+      "direction": "column"
+    },
+    "type": "ia.container.flex"
+  }
+}

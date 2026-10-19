@@ -1,0 +1,20 @@
+{
+  "scope": "A",
+  "version": 1,
+  "restricted": false,
+  "overridable": true,
+  "files": [
+    "information-button.png"
+  ],
+  "attributes": {
+    "width": 16,
+    "format": "PNG",
+    "lastModification": {
+      "actor": "8.3-migration",
+      "timestamp": "2026-01-07T14:49:07Z"
+    },
+    "size": 582,
+    "lastModificationSignature": "4a9d50664ef5ff32045573dc25e7b318adbdf19f9145eeb139d01be79e5b7218",
+    "height": 16
+  }
+}

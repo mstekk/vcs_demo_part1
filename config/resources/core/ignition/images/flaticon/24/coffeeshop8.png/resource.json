@@ -1,0 +1,20 @@
+{
+  "scope": "A",
+  "version": 1,
+  "restricted": false,
+  "overridable": true,
+  "files": [
+    "coffeeshop8.png"
+  ],
+  "attributes": {
+    "width": 24,
+    "format": "PNG",
+    "lastModification": {
+      "actor": "8.3-migration",
+      "timestamp": "2026-01-07T14:49:07Z"
+    },
+    "size": 371,
+    "lastModificationSignature": "efc2113c1cb203b5ea10b49bc2ebec08befaa98ee51d4bc434c2d8cb4d5d6cfb",
+    "height": 24
+  }
+}

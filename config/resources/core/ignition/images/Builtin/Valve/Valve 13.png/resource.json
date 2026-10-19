@@ -1,0 +1,20 @@
+{
+  "scope": "A",
+  "version": 1,
+  "restricted": false,
+  "overridable": true,
+  "files": [
+    "Valve 13.png"
+  ],
+  "attributes": {
+    "width": 45,
+    "format": "PNG",
+    "lastModification": {
+      "actor": "8.3-migration",
+      "timestamp": "2026-01-07T14:49:07Z"
+    },
+    "size": 2605,
+    "lastModificationSignature": "9fc9ba8ae036323061b2092a690c28d99cf48d8e7bce874b6e3bce79ca4e2a04",
+    "height": 57
+  }
+}

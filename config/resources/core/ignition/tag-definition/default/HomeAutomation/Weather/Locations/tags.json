@@ -1,0 +1,16 @@
+[
+  {
+    "valueSource": "memory",
+    "dataType": "DataSet",
+    "name": "SavedLocation",
+    "defaultValue": "{\"columns\":[{\"name\":\"Name\",\"type\":\"java.lang.String\"},{\"name\":\"Lat\",\"type\":\"java.lang.Float\"},{\"name\":\"Lon\",\"type\":\"java.lang.Float\"},{\"name\":\"Country\",\"type\":\"java.lang.String\"},{\"name\":\"Continent\",\"type\":\"java.lang.String\"}],\"rows\":[[\"Folsom\",38.676773,-121.15264,\"United States\",\"North America\"]]}",
+    "tagType": "AtomicTag"
+  },
+  {
+    "valueSource": "memory",
+    "dataType": "String",
+    "name": "ApiKey",
+    "defaultValue": "",
+    "tagType": "AtomicTag"
+  }
+]

@@ -1,0 +1,20 @@
+{
+  "scope": "A",
+  "version": 1,
+  "restricted": false,
+  "overridable": true,
+  "files": [
+    "avatar19.png"
+  ],
+  "attributes": {
+    "width": 16,
+    "format": "PNG",
+    "lastModification": {
+      "actor": "8.3-migration",
+      "timestamp": "2026-01-07T14:49:07Z"
+    },
+    "size": 360,
+    "lastModificationSignature": "3297bf73aa2ebe794fdb3a26a5c79425261b283b7fe27a37aac147052c16fb67",
+    "height": 16
+  }
+}

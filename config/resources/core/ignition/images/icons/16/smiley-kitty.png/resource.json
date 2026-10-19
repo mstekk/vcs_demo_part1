@@ -1,0 +1,20 @@
+{
+  "scope": "A",
+  "version": 1,
+  "restricted": false,
+  "overridable": true,
+  "files": [
+    "smiley-kitty.png"
+  ],
+  "attributes": {
+    "width": 16,
+    "format": "PNG",
+    "lastModification": {
+      "actor": "8.3-migration",
+      "timestamp": "2026-01-07T14:49:07Z"
+    },
+    "size": 786,
+    "lastModificationSignature": "07e074217fa05b7eace16ffcf76b99bb670b37283cd2efbdfee2b0ef0a8dba41",
+    "height": 16
+  }
+}

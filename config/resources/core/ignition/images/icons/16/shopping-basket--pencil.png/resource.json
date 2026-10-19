@@ -1,0 +1,20 @@
+{
+  "scope": "A",
+  "version": 1,
+  "restricted": false,
+  "overridable": true,
+  "files": [
+    "shopping-basket--pencil.png"
+  ],
+  "attributes": {
+    "width": 16,
+    "format": "PNG",
+    "lastModification": {
+      "actor": "8.3-migration",
+      "timestamp": "2026-01-07T14:49:07Z"
+    },
+    "size": 852,
+    "lastModificationSignature": "3b49ab5ef939e7ab6568d5de5c8227cc023ae0875d3645f685327e5ba92d2ccc",
+    "height": 16
+  }
+}

@@ -1,0 +1,20 @@
+{
+  "scope": "A",
+  "version": 1,
+  "restricted": false,
+  "overridable": true,
+  "files": [
+    "control-cursor.png"
+  ],
+  "attributes": {
+    "width": 16,
+    "format": "PNG",
+    "lastModification": {
+      "actor": "8.3-migration",
+      "timestamp": "2026-01-07T14:49:07Z"
+    },
+    "size": 604,
+    "lastModificationSignature": "f0abce6551d52f90fa26e56c4c487f6216e9682e9ceda2a0bd133f8f170145ee",
+    "height": 16
+  }
+}

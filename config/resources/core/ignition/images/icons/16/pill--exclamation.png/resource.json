@@ -1,0 +1,20 @@
+{
+  "scope": "A",
+  "version": 1,
+  "restricted": false,
+  "overridable": true,
+  "files": [
+    "pill--exclamation.png"
+  ],
+  "attributes": {
+    "width": 16,
+    "format": "PNG",
+    "lastModification": {
+      "actor": "8.3-migration",
+      "timestamp": "2026-01-07T14:49:07Z"
+    },
+    "size": 730,
+    "lastModificationSignature": "5d61ea376ae9c5f4c449e85446b7ca03fc0fc5617b29457369341762a25e1f83",
+    "height": 16
+  }
+}

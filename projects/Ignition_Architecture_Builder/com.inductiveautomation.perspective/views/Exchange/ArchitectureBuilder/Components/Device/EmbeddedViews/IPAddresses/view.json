@@ -1,0 +1,85 @@
+{
+  "custom": {
+    "ips": []
+  },
+  "params": {
+    "devices": {
+      "ips": [],
+      "quantity": 1
+    }
+  },
+  "propConfig": {
+    "custom.ips": {
+      "binding": {
+        "config": {
+          "path": "/root/FlexRepeater.props.instances"
+        },
+        "transforms": [
+          {
+            "code": "\tfilledInstances\u003d[]\n\tfor x in value:\n\t\tif x[\u0027name\u0027]!\u003d\u0027\u0027 or x[\u0027ip\u0027]!\u003d\u0027\u0027:\n\t\t\tfilledInstances.append(x)\n\t\n\treturn filledInstances",
+            "type": "script"
+          }
+        ],
+        "type": "property"
+      },
+      "onChange": {
+        "enabled": null,
+        "script": "\ttry:\n\t\tif system.util.jsonDecode(system.util.jsonEncode(self.custom.ips))!\u003dsystem.util.jsonDecode(system.util.jsonEncode(self.view.params.devices.ips)):\n\t\t\tself.view.params.devices.ips\u003dself.custom.ips\n\texcept:\n\t\tpass"
+      },
+      "persistent": true
+    },
+    "params.devices": {
+      "onChange": {
+        "enabled": null,
+        "script": "\ttry:\n\t\tdevices\u003d system.util.jsonDecode(system.util.jsonEncode(self.params.devices))\n\t\tquantity\u003ddevices[\u0027quantity\u0027]\n\t\tips\u003ddevices[\u0027ips\u0027]\n\t\tinstances\u003d[]\n\t\tfor x in range(quantity):\n\t\t\tif x+1\u003elen(ips):\n\t\t\t\tinstance\u003d{\u0027ip\u0027:\u0027\u0027,\u0027name\u0027:\u0027\u0027}\n\t\t\telse:\n\t\t\t\tinstance\u003dips[x]\n\t\t\t\t\n\t\t\t\n\t\t\tinstances.append(instance)\n\t\tif devices!\u003dinstances:\n\t\t\tself.getChild(\"root\").getChild(\"FlexRepeater\").props.instances\u003dinstances\n\texcept:\n\t\tpass"
+      },
+      "paramDirection": "inout",
+      "persistent": true
+    }
+  },
+  "props": {
+    "defaultSize": {
+      "height": 176,
+      "width": 502
+    }
+  },
+  "root": {
+    "children": [
+      {
+        "meta": {
+          "name": "FlexRepeater"
+        },
+        "position": {
+          "shrink": 0
+        },
+        "props": {
+          "direction": "column",
+          "elementPosition": {
+            "basis": "auto",
+            "grow": 0,
+            "shrink": 0
+          },
+          "elementStyle": {
+            "margin": "4px"
+          },
+          "instances": [
+            {
+              "ip": "",
+              "name": ""
+            }
+          ],
+          "path": "Exchange/ArchitectureBuilder/Components/Device/EmbeddedViews/IndividualIP",
+          "useDefaultViewWidth": false
+        },
+        "type": "ia.display.flex-repeater"
+      }
+    ],
+    "meta": {
+      "name": "root"
+    },
+    "props": {
+      "direction": "column"
+    },
+    "type": "ia.container.flex"
+  }
+}

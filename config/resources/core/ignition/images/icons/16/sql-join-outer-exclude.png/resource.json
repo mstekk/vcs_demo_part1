@@ -1,0 +1,20 @@
+{
+  "scope": "A",
+  "version": 1,
+  "restricted": false,
+  "overridable": true,
+  "files": [
+    "sql-join-outer-exclude.png"
+  ],
+  "attributes": {
+    "width": 16,
+    "format": "PNG",
+    "lastModification": {
+      "actor": "8.3-migration",
+      "timestamp": "2026-01-07T14:49:07Z"
+    },
+    "size": 687,
+    "lastModificationSignature": "68f65ef11d2d98397b324682e1fd6b0d0f47257bd5fdf2aff49a86a422f80174",
+    "height": 16
+  }
+}

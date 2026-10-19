@@ -1,0 +1,20 @@
+{
+  "scope": "A",
+  "version": 1,
+  "restricted": false,
+  "overridable": true,
+  "files": [
+    "pda--minus.png"
+  ],
+  "attributes": {
+    "width": 16,
+    "format": "PNG",
+    "lastModification": {
+      "actor": "8.3-migration",
+      "timestamp": "2026-01-07T14:49:07Z"
+    },
+    "size": 616,
+    "lastModificationSignature": "e1b278693765ad98af8f08354dedee29abd5d7efeb10d25bfc29a8f52bad60f8",
+    "height": 16
+  }
+}

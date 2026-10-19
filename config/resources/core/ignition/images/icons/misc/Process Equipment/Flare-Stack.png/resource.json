@@ -1,0 +1,20 @@
+{
+  "scope": "A",
+  "version": 1,
+  "restricted": false,
+  "overridable": true,
+  "files": [
+    "Flare-Stack.png"
+  ],
+  "attributes": {
+    "width": 100,
+    "format": "PNG",
+    "lastModification": {
+      "actor": "8.3-migration",
+      "timestamp": "2026-01-07T14:49:07Z"
+    },
+    "size": 6454,
+    "lastModificationSignature": "29c639a3210a6c6273cfebd2a2b697ae3c806aa28d14b9dd7483bc1a5db8ea81",
+    "height": 465
+  }
+}

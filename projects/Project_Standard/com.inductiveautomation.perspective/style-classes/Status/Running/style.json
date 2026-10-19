@@ -1,0 +1,13 @@
+{
+  "base": {
+    "style": {
+      "backgroundColor": "#00AC00",
+      "color": "#000000",
+      "fontFamily": "calibri",
+      "fontSize": "14pt",
+      "stroke": "#000000",
+      "strokeWidth": "5",
+      "fill": "#00AC00"
+    }
+  }
+}

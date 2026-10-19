@@ -1,0 +1,20 @@
+{
+  "scope": "A",
+  "version": 1,
+  "restricted": false,
+  "overridable": true,
+  "files": [
+    "folder-stand.png"
+  ],
+  "attributes": {
+    "width": 16,
+    "format": "PNG",
+    "lastModification": {
+      "actor": "8.3-migration",
+      "timestamp": "2026-01-07T14:49:07Z"
+    },
+    "size": 619,
+    "lastModificationSignature": "32489421aa9bcbe844e908e3cab22d3bdaddce8050b5a89e525351c33428f80b",
+    "height": 16
+  }
+}

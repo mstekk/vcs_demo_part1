@@ -1,0 +1,20 @@
+{
+  "scope": "A",
+  "version": 1,
+  "restricted": false,
+  "overridable": true,
+  "files": [
+    "node-magnifier.png"
+  ],
+  "attributes": {
+    "width": 16,
+    "format": "PNG",
+    "lastModification": {
+      "actor": "8.3-migration",
+      "timestamp": "2026-01-07T14:49:07Z"
+    },
+    "size": 797,
+    "lastModificationSignature": "c7e20c3bee758fbf656bfcfc4866764ec52dbf15d8c0225d438af3fb45540bf2",
+    "height": 16
+  }
+}

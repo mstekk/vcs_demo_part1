@@ -1,0 +1,20 @@
+{
+  "scope": "A",
+  "version": 1,
+  "restricted": false,
+  "overridable": true,
+  "files": [
+    "ui-text-field-suggestion.png"
+  ],
+  "attributes": {
+    "width": 16,
+    "format": "PNG",
+    "lastModification": {
+      "actor": "8.3-migration",
+      "timestamp": "2026-01-07T14:49:07Z"
+    },
+    "size": 369,
+    "lastModificationSignature": "9984d0e6ce2e2807e52663b83a54b30100170147635ff8fa4a96b428800463d1",
+    "height": 16
+  }
+}

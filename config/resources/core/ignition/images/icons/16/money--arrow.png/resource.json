@@ -1,0 +1,20 @@
+{
+  "scope": "A",
+  "version": 1,
+  "restricted": false,
+  "overridable": true,
+  "files": [
+    "money--arrow.png"
+  ],
+  "attributes": {
+    "width": 16,
+    "format": "PNG",
+    "lastModification": {
+      "actor": "8.3-migration",
+      "timestamp": "2026-01-07T14:49:07Z"
+    },
+    "size": 568,
+    "lastModificationSignature": "a2a541e02e14afe33e1e32bf0c4591d57e60e15bc97f59d13cffe3b4ab06949e",
+    "height": 16
+  }
+}

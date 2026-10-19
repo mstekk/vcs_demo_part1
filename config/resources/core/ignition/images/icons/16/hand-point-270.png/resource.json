@@ -1,0 +1,20 @@
+{
+  "scope": "A",
+  "version": 1,
+  "restricted": false,
+  "overridable": true,
+  "files": [
+    "hand-point-270.png"
+  ],
+  "attributes": {
+    "width": 16,
+    "format": "PNG",
+    "lastModification": {
+      "actor": "8.3-migration",
+      "timestamp": "2026-01-07T14:49:07Z"
+    },
+    "size": 640,
+    "lastModificationSignature": "d1c62e99c4a13def5ae5c9c6b89893fbcada075b63c65ff7ab5bdc756e204267",
+    "height": 16
+  }
+}

@@ -1,0 +1,20 @@
+{
+  "scope": "A",
+  "version": 1,
+  "restricted": false,
+  "overridable": true,
+  "files": [
+    "pipette--arrow.png"
+  ],
+  "attributes": {
+    "width": 16,
+    "format": "PNG",
+    "lastModification": {
+      "actor": "8.3-migration",
+      "timestamp": "2026-01-07T14:49:07Z"
+    },
+    "size": 695,
+    "lastModificationSignature": "515e2a095c09dbddaff8122dbfb5dfdbac1fd7ca065cd187150177583a48de18",
+    "height": 16
+  }
+}

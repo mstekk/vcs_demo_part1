@@ -1,0 +1,20 @@
+{
+  "scope": "A",
+  "version": 1,
+  "restricted": false,
+  "overridable": true,
+  "files": [
+    "vise.png"
+  ],
+  "attributes": {
+    "width": 16,
+    "format": "PNG",
+    "lastModification": {
+      "actor": "8.3-migration",
+      "timestamp": "2026-01-07T14:49:07Z"
+    },
+    "size": 513,
+    "lastModificationSignature": "8f730ba35a8cc71656e5d89d66d0193227550e7738fa026a926c56a5bab648b5",
+    "height": 16
+  }
+}

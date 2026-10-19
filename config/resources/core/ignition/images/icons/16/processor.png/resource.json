@@ -1,0 +1,20 @@
+{
+  "scope": "A",
+  "version": 1,
+  "restricted": false,
+  "overridable": true,
+  "files": [
+    "processor.png"
+  ],
+  "attributes": {
+    "width": 16,
+    "format": "PNG",
+    "lastModification": {
+      "actor": "8.3-migration",
+      "timestamp": "2026-01-07T14:49:07Z"
+    },
+    "size": 622,
+    "lastModificationSignature": "6e9cebe0b0a1a6472df498d86fe37a3d9ec79f5a20438db2211542bbdf970557",
+    "height": 16
+  }
+}

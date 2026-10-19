@@ -1,0 +1,20 @@
+{
+  "scope": "A",
+  "version": 1,
+  "restricted": false,
+  "overridable": true,
+  "files": [
+    "brightness.png"
+  ],
+  "attributes": {
+    "width": 16,
+    "format": "PNG",
+    "lastModification": {
+      "actor": "8.3-migration",
+      "timestamp": "2026-01-07T14:49:07Z"
+    },
+    "size": 860,
+    "lastModificationSignature": "2a91c5424eea7dd15b0fd72df7b2ddd9f09cf7c64459a06b90fefccae7c4e870",
+    "height": 16
+  }
+}

@@ -1,0 +1,1330 @@
+{
+  "custom": {},
+  "params": {
+    "category": "value"
+  },
+  "propConfig": {
+    "params.category": {
+      "paramDirection": "input",
+      "persistent": true
+    }
+  },
+  "props": {
+    "defaultSize": {
+      "height": 1030,
+      "width": 200
+    }
+  },
+  "root": {
+    "children": [
+      {
+        "children": [
+          {
+            "meta": {
+              "name": "System Overview"
+            },
+            "position": {
+              "grow": 1
+            },
+            "propConfig": {
+              "position.display": {
+                "binding": {
+                  "config": {
+                    "path": "session.custom.navTop"
+                  },
+                  "transforms": [
+                    {
+                      "code": "\tif value \u003d\u003d self.meta.name:\n\t\treturn True\n\telse:\n\t\treturn False",
+                      "type": "script"
+                    }
+                  ],
+                  "type": "property"
+                }
+              }
+            },
+            "props": {
+              "backActionStyle": {
+                "backgroundColor": "#D5D5D5",
+                "classes": "Navigation",
+                "color": "#000000"
+              },
+              "backActionText": "back",
+              "itemStyle": {
+                "height": "45px"
+              },
+              "items": [
+                {
+                  "backActionText": "",
+                  "enabled": true,
+                  "items": [
+                    {
+                      "backActionText": "Overview",
+                      "enabled": true,
+                      "items": [],
+                      "label": {
+                        "icon": {
+                          "path": "material/self_improvement"
+                        },
+                        "text": "Placeholder"
+                      },
+                      "navIcon": {
+                        "path": ""
+                      },
+                      "resetOnClick": false,
+                      "showHeader": true,
+                      "style": {
+                        "classes": ""
+                      },
+                      "target": "",
+                      "visible": true
+                    },
+                    {
+                      "backActionText": "",
+                      "enabled": true,
+                      "items": [],
+                      "label": {
+                        "icon": {
+                          "path": "material/blur_on"
+                        },
+                        "text": "Placeholder"
+                      },
+                      "navIcon": {
+                        "path": ""
+                      },
+                      "resetOnClick": false,
+                      "showHeader": true,
+                      "style": {
+                        "classes": ""
+                      },
+                      "target": "",
+                      "visible": true
+                    },
+                    {
+                      "backActionText": "",
+                      "enabled": true,
+                      "items": [],
+                      "label": {
+                        "icon": {
+                          "path": "material/campaign"
+                        },
+                        "text": "Placeholder"
+                      },
+                      "navIcon": {
+                        "path": ""
+                      },
+                      "resetOnClick": false,
+                      "showHeader": true,
+                      "style": {
+                        "classes": ""
+                      },
+                      "target": "",
+                      "visible": true
+                    },
+                    {
+                      "backActionText": "",
+                      "enabled": true,
+                      "items": [],
+                      "label": {
+                        "icon": {
+                          "path": "material/timeline"
+                        },
+                        "text": "Placeholder"
+                      },
+                      "navIcon": {
+                        "path": ""
+                      },
+                      "resetOnClick": false,
+                      "showHeader": true,
+                      "style": {
+                        "classes": ""
+                      },
+                      "target": "",
+                      "visible": true
+                    }
+                  ],
+                  "label": {
+                    "icon": {
+                      "path": "material/list"
+                    },
+                    "text": "Menu 1"
+                  },
+                  "navIcon": {
+                    "color": "",
+                    "path": "material/chevron_right"
+                  },
+                  "resetOnClick": false,
+                  "showHeader": false,
+                  "style": {
+                    "classes": ""
+                  },
+                  "target": "",
+                  "visible": true
+                },
+                {
+                  "backActionText": "",
+                  "enabled": true,
+                  "items": [
+                    {
+                      "backActionText": "",
+                      "enabled": true,
+                      "items": [],
+                      "label": {
+                        "icon": {
+                          "path": "material/self_improvement"
+                        },
+                        "text": "Submenu 1"
+                      },
+                      "navIcon": {
+                        "path": ""
+                      },
+                      "resetOnClick": false,
+                      "showHeader": true,
+                      "style": {
+                        "classes": ""
+                      },
+                      "target": "",
+                      "visible": true
+                    },
+                    {
+                      "backActionText": "",
+                      "enabled": true,
+                      "items": [],
+                      "label": {
+                        "icon": {
+                          "path": "material/blur_on"
+                        },
+                        "text": "Submenu 2"
+                      },
+                      "navIcon": {
+                        "path": ""
+                      },
+                      "resetOnClick": false,
+                      "showHeader": true,
+                      "style": {
+                        "classes": ""
+                      },
+                      "target": "",
+                      "visible": true
+                    }
+                  ],
+                  "label": {
+                    "icon": {
+                      "path": "material/list"
+                    },
+                    "text": "Menu 2"
+                  },
+                  "navIcon": {
+                    "color": "",
+                    "path": "material/chevron_right"
+                  },
+                  "resetOnClick": false,
+                  "showHeader": false,
+                  "style": {
+                    "classes": ""
+                  },
+                  "target": "",
+                  "visible": true
+                }
+              ],
+              "style": {
+                "classes": "Background Navigation",
+                "overflow": "hidden"
+              }
+            },
+            "type": "ia.navigation.menutree"
+          },
+          {
+            "events": {
+              "component": {
+                "onItemClicked": {
+                  "config": {
+                    "script": "\tlogger \u003d system.util.getLogger(\"myLogger\")\n\t\n\tselectedLabel \u003d event.label.title()\n\tself.parent.custom.selectedItem \u003d selectedLabel\n\n\t# Loop through all items in the props.items array\n\tfor i in range(len(self.props.items)):\n\t\tself.refreshBinding(\"props.items[%d].items[%d].style.classes\" % i)"
+                  },
+                  "scope": "G",
+                  "type": "script"
+                }
+              }
+            },
+            "meta": {
+              "name": "Treatment Facilities"
+            },
+            "position": {
+              "basis": "300px",
+              "grow": 1
+            },
+            "propConfig": {
+              "position.display": {
+                "binding": {
+                  "config": {
+                    "path": "session.custom.navTop"
+                  },
+                  "transforms": [
+                    {
+                      "code": "\tif value \u003d\u003d self.meta.name:\n\t\treturn True\n\telse:\n\t\treturn False",
+                      "type": "script"
+                    }
+                  ],
+                  "type": "property"
+                }
+              },
+              "props.items[0].items[0].style.classes": {
+                "binding": {
+                  "config": {
+                    "path": "parent.custom.selectedItem"
+                  },
+                  "transforms": [
+                    {
+                      "code": "\tif value \u003d\u003d self.props.items[0].items[0].label.text:\n\t\treturn \"Selected\"\n\telse:\n\t\treturn \"\"",
+                      "type": "script"
+                    }
+                  ],
+                  "type": "property"
+                }
+              },
+              "props.items[0].items[1].style.classes": {
+                "binding": {
+                  "config": {
+                    "path": "parent.custom.selectedItem"
+                  },
+                  "transforms": [
+                    {
+                      "code": "\tif value \u003d\u003d self.props.items[0].items[1].label.text:\n\t\treturn \"Selected\"\n\telse:\n\t\treturn \"\"",
+                      "type": "script"
+                    }
+                  ],
+                  "type": "property"
+                }
+              },
+              "props.items[0].items[2].style.classes": {
+                "binding": {
+                  "config": {
+                    "path": "parent.custom.selectedItem"
+                  },
+                  "transforms": [
+                    {
+                      "code": "\tif value \u003d\u003d self.props.items[0].items[2].label.text:\n\t\treturn \"Selected\"\n\telse:\n\t\treturn \"\"",
+                      "type": "script"
+                    }
+                  ],
+                  "type": "property"
+                }
+              },
+              "props.items[0].items[3].style.classes": {
+                "binding": {
+                  "config": {
+                    "path": "parent.custom.selectedItem"
+                  },
+                  "transforms": [
+                    {
+                      "code": "\tif value \u003d\u003d self.props.items[0].items[3].label.text:\n\t\treturn \"Selected\"\n\telse:\n\t\treturn \"\"",
+                      "type": "script"
+                    }
+                  ],
+                  "type": "property"
+                }
+              }
+            },
+            "props": {
+              "backActionStyle": {
+                "backgroundColor": "#AAAAAA",
+                "color": "#000000"
+              },
+              "backActionText": "back",
+              "items": [
+                {
+                  "backActionText": "Overview",
+                  "enabled": true,
+                  "items": [
+                    {
+                      "backActionText": "Overview",
+                      "enabled": true,
+                      "items": [],
+                      "label": {
+                        "icon": {
+                          "path": "material/self_improvement"
+                        },
+                        "text": "Process"
+                      },
+                      "navIcon": {
+                        "path": ""
+                      },
+                      "resetOnClick": false,
+                      "showHeader": true,
+                      "style": {},
+                      "target": "/wtf/overview/process-flow",
+                      "visible": true
+                    },
+                    {
+                      "backActionText": "",
+                      "enabled": true,
+                      "items": [],
+                      "label": {
+                        "icon": {
+                          "path": "material/blur_on"
+                        },
+                        "text": "Parameters"
+                      },
+                      "navIcon": {
+                        "path": ""
+                      },
+                      "resetOnClick": false,
+                      "showHeader": true,
+                      "style": {},
+                      "target": "/wtf/overview/parameters",
+                      "visible": true
+                    },
+                    {
+                      "backActionText": "",
+                      "enabled": true,
+                      "items": [],
+                      "label": {
+                        "icon": {
+                          "path": "material/campaign"
+                        },
+                        "text": "Alarms"
+                      },
+                      "navIcon": {
+                        "path": ""
+                      },
+                      "resetOnClick": false,
+                      "showHeader": true,
+                      "style": {},
+                      "target": "/wtf/overview/alarms",
+                      "visible": true
+                    },
+                    {
+                      "backActionText": "",
+                      "enabled": true,
+                      "items": [],
+                      "label": {
+                        "icon": {
+                          "path": "material/timeline"
+                        },
+                        "text": "Trend"
+                      },
+                      "navIcon": {
+                        "path": ""
+                      },
+                      "resetOnClick": false,
+                      "showHeader": true,
+                      "style": {},
+                      "target": "/wtf/overview/trend",
+                      "visible": true
+                    }
+                  ],
+                  "label": {
+                    "icon": {
+                      "path": "material/list"
+                    },
+                    "text": "Overview"
+                  },
+                  "navIcon": {
+                    "color": "",
+                    "path": "material/chevron_right"
+                  },
+                  "resetOnClick": false,
+                  "showHeader": false,
+                  "style": {
+                    "classes": ""
+                  },
+                  "target": "/wtf/overview/process-flow",
+                  "visible": true
+                },
+                {
+                  "backActionText": "test",
+                  "enabled": true,
+                  "items": [
+                    {
+                      "backActionText": "Overview",
+                      "enabled": true,
+                      "items": [],
+                      "label": {
+                        "icon": {
+                          "path": "material/self_improvement"
+                        },
+                        "text": "Process"
+                      },
+                      "navIcon": {
+                        "path": ""
+                      },
+                      "resetOnClick": false,
+                      "showHeader": true,
+                      "style": {
+                        "classes": ""
+                      },
+                      "target": "/wtf/anita-smith/process-flow",
+                      "visible": true
+                    },
+                    {
+                      "backActionText": "",
+                      "enabled": true,
+                      "items": [],
+                      "label": {
+                        "icon": {
+                          "path": "material/blur_on"
+                        },
+                        "text": "Parameters"
+                      },
+                      "navIcon": {
+                        "path": ""
+                      },
+                      "resetOnClick": false,
+                      "showHeader": true,
+                      "style": {
+                        "classes": ""
+                      },
+                      "target": "/wtf/anita-smith/parameters",
+                      "visible": true
+                    },
+                    {
+                      "backActionText": "",
+                      "enabled": true,
+                      "items": [],
+                      "label": {
+                        "icon": {
+                          "path": "material/campaign"
+                        },
+                        "text": "Alarms"
+                      },
+                      "navIcon": {
+                        "path": ""
+                      },
+                      "resetOnClick": false,
+                      "showHeader": true,
+                      "style": {
+                        "classes": ""
+                      },
+                      "target": "/wtf/anita-smith/alarms",
+                      "visible": true
+                    },
+                    {
+                      "backActionText": "",
+                      "enabled": true,
+                      "items": [],
+                      "label": {
+                        "icon": {
+                          "path": "material/timeline"
+                        },
+                        "text": "Trend"
+                      },
+                      "navIcon": {
+                        "path": ""
+                      },
+                      "resetOnClick": false,
+                      "showHeader": true,
+                      "style": {
+                        "classes": ""
+                      },
+                      "target": "/wtf/anita-smith/trend",
+                      "visible": true
+                    }
+                  ],
+                  "label": {
+                    "icon": {
+                      "path": "material/list"
+                    },
+                    "text": "Anita Smith"
+                  },
+                  "navIcon": {
+                    "color": "",
+                    "path": "material/chevron_right"
+                  },
+                  "resetOnClick": false,
+                  "showHeader": false,
+                  "style": {
+                    "classes": ""
+                  },
+                  "target": "",
+                  "visible": true
+                },
+                {
+                  "backActionText": "",
+                  "enabled": true,
+                  "items": [
+                    {
+                      "backActionText": "Overview",
+                      "enabled": true,
+                      "items": [],
+                      "label": {
+                        "icon": {
+                          "path": "material/self_improvement"
+                        },
+                        "text": "Process"
+                      },
+                      "navIcon": {
+                        "path": ""
+                      },
+                      "resetOnClick": false,
+                      "showHeader": true,
+                      "style": {
+                        "classes": ""
+                      },
+                      "target": "/wtf/leland-thompson/process-flow",
+                      "visible": true
+                    },
+                    {
+                      "backActionText": "",
+                      "enabled": true,
+                      "items": [],
+                      "label": {
+                        "icon": {
+                          "path": "material/blur_on"
+                        },
+                        "text": "Parameters"
+                      },
+                      "navIcon": {
+                        "path": ""
+                      },
+                      "resetOnClick": false,
+                      "showHeader": true,
+                      "style": {
+                        "classes": ""
+                      },
+                      "target": "/wtf/leland-thompson/parameters",
+                      "visible": true
+                    },
+                    {
+                      "backActionText": "",
+                      "enabled": true,
+                      "items": [],
+                      "label": {
+                        "icon": {
+                          "path": "material/campaign"
+                        },
+                        "text": "Alarms"
+                      },
+                      "navIcon": {
+                        "path": ""
+                      },
+                      "resetOnClick": false,
+                      "showHeader": true,
+                      "style": {
+                        "classes": ""
+                      },
+                      "target": "/wtf/leland-thompson/alarms",
+                      "visible": true
+                    },
+                    {
+                      "backActionText": "",
+                      "enabled": true,
+                      "items": [],
+                      "label": {
+                        "icon": {
+                          "path": "material/timeline"
+                        },
+                        "text": "Trend"
+                      },
+                      "navIcon": {
+                        "path": ""
+                      },
+                      "resetOnClick": false,
+                      "showHeader": true,
+                      "style": {
+                        "classes": ""
+                      },
+                      "target": "/wtf/leland-thompson/trend",
+                      "visible": true
+                    }
+                  ],
+                  "label": {
+                    "icon": {
+                      "path": "material/menu"
+                    },
+                    "text": "Leland Thompson"
+                  },
+                  "navIcon": {
+                    "color": "",
+                    "path": "material/chevron_right"
+                  },
+                  "resetOnClick": false,
+                  "showHeader": false,
+                  "style": {
+                    "classes": ""
+                  },
+                  "target": "",
+                  "visible": true
+                }
+              ],
+              "style": {
+                "classes": "Background Navigation",
+                "overflow": "hidden"
+              }
+            },
+            "type": "ia.navigation.menutree"
+          },
+          {
+            "meta": {
+              "name": "Reservoirs"
+            },
+            "position": {
+              "basis": "300px",
+              "grow": 1
+            },
+            "propConfig": {
+              "position.display": {
+                "binding": {
+                  "config": {
+                    "path": "session.custom.navTop"
+                  },
+                  "transforms": [
+                    {
+                      "code": "\tif value \u003d\u003d self.meta.name:\n\t\treturn True\n\telse:\n\t\treturn False",
+                      "type": "script"
+                    }
+                  ],
+                  "type": "property"
+                }
+              }
+            },
+            "props": {
+              "backActionStyle": {
+                "backgroundColor": "#FFFFFF",
+                "color": "#000000"
+              },
+              "backActionText": "back",
+              "items": [
+                {
+                  "backActionText": "",
+                  "enabled": true,
+                  "items": [],
+                  "label": {
+                    "icon": {
+                      "path": "material/list"
+                    },
+                    "text": "Atkinson"
+                  },
+                  "navIcon": {
+                    "color": "",
+                    "path": "material/chevron_right"
+                  },
+                  "resetOnClick": false,
+                  "showHeader": false,
+                  "style": {
+                    "classes": ""
+                  },
+                  "target": "",
+                  "visible": true
+                },
+                {
+                  "backActionText": "",
+                  "enabled": true,
+                  "items": [],
+                  "label": {
+                    "icon": {
+                      "path": "material/list"
+                    },
+                    "text": "Hunter 1"
+                  },
+                  "navIcon": {
+                    "color": "",
+                    "path": "material/chevron_right"
+                  },
+                  "resetOnClick": false,
+                  "showHeader": false,
+                  "style": {
+                    "classes": ""
+                  },
+                  "target": "",
+                  "visible": true
+                },
+                {
+                  "backActionText": "",
+                  "enabled": true,
+                  "items": [],
+                  "label": {
+                    "icon": {
+                      "path": "material/list"
+                    },
+                    "text": "Perone"
+                  },
+                  "navIcon": {
+                    "color": "",
+                    "path": "material/chevron_right"
+                  },
+                  "resetOnClick": false,
+                  "showHeader": true,
+                  "style": {
+                    "classes": ""
+                  },
+                  "target": "",
+                  "visible": true
+                },
+                {
+                  "backActionText": "",
+                  "enabled": true,
+                  "items": [],
+                  "label": {
+                    "icon": {
+                      "path": "material/list"
+                    },
+                    "text": "Watson"
+                  },
+                  "navIcon": {
+                    "color": "",
+                    "path": "material/chevron_right"
+                  },
+                  "resetOnClick": false,
+                  "showHeader": true,
+                  "style": {
+                    "classes": ""
+                  },
+                  "target": "",
+                  "visible": true
+                }
+              ],
+              "style": {
+                "classes": "Background Navigation",
+                "overflow": "hidden"
+              }
+            },
+            "type": "ia.navigation.menutree"
+          },
+          {
+            "meta": {
+              "name": "Lift Stations"
+            },
+            "position": {
+              "basis": "300px",
+              "grow": 1
+            },
+            "propConfig": {
+              "position.display": {
+                "binding": {
+                  "config": {
+                    "path": "session.custom.navTop"
+                  },
+                  "transforms": [
+                    {
+                      "code": "\tif value \u003d\u003d self.meta.name:\n\t\treturn True\n\telse:\n\t\treturn False",
+                      "type": "script"
+                    }
+                  ],
+                  "type": "property"
+                }
+              }
+            },
+            "props": {
+              "backActionStyle": {
+                "backgroundColor": "#FFFFFF",
+                "color": "#000000"
+              },
+              "backActionText": "back",
+              "items": [
+                {
+                  "backActionText": "",
+                  "enabled": true,
+                  "items": [],
+                  "label": {
+                    "icon": {
+                      "path": "material/list"
+                    },
+                    "text": "Belltown"
+                  },
+                  "navIcon": {
+                    "color": "",
+                    "path": "material/chevron_right"
+                  },
+                  "resetOnClick": false,
+                  "showHeader": false,
+                  "style": {
+                    "classes": ""
+                  },
+                  "target": "",
+                  "visible": true
+                },
+                {
+                  "backActionText": "",
+                  "enabled": true,
+                  "items": [],
+                  "label": {
+                    "icon": {
+                      "path": "material/list"
+                    },
+                    "text": "Exmoor"
+                  },
+                  "navIcon": {
+                    "color": "",
+                    "path": "material/chevron_right"
+                  },
+                  "resetOnClick": false,
+                  "showHeader": false,
+                  "style": {
+                    "classes": ""
+                  },
+                  "target": "",
+                  "visible": true
+                },
+                {
+                  "backActionText": "",
+                  "enabled": true,
+                  "items": [],
+                  "label": {
+                    "icon": {
+                      "path": "material/list"
+                    },
+                    "text": "Fleetwood"
+                  },
+                  "navIcon": {
+                    "color": "",
+                    "path": "material/chevron_right"
+                  },
+                  "resetOnClick": false,
+                  "showHeader": true,
+                  "style": {
+                    "classes": ""
+                  },
+                  "target": "",
+                  "visible": true
+                },
+                {
+                  "backActionText": "",
+                  "enabled": true,
+                  "items": [],
+                  "label": {
+                    "icon": {
+                      "path": "material/list"
+                    },
+                    "text": "Juan Diaz"
+                  },
+                  "navIcon": {
+                    "color": "",
+                    "path": "material/chevron_right"
+                  },
+                  "resetOnClick": false,
+                  "showHeader": true,
+                  "style": {
+                    "classes": ""
+                  },
+                  "target": "",
+                  "visible": true
+                },
+                {
+                  "backActionText": "",
+                  "enabled": true,
+                  "items": [],
+                  "label": {
+                    "icon": {
+                      "path": "material/list"
+                    },
+                    "text": "Jurupa"
+                  },
+                  "navIcon": {
+                    "color": "",
+                    "path": "material/chevron_right"
+                  },
+                  "resetOnClick": false,
+                  "showHeader": true,
+                  "style": {
+                    "classes": ""
+                  },
+                  "target": "",
+                  "visible": true
+                },
+                {
+                  "backActionText": "",
+                  "enabled": true,
+                  "items": [],
+                  "label": {
+                    "icon": {
+                      "path": "material/list"
+                    },
+                    "text": "Regional"
+                  },
+                  "navIcon": {
+                    "color": "",
+                    "path": "material/chevron_right"
+                  },
+                  "resetOnClick": false,
+                  "showHeader": true,
+                  "style": {
+                    "classes": ""
+                  },
+                  "target": "",
+                  "visible": true
+                }
+              ],
+              "style": {
+                "classes": "Background Navigation",
+                "overflow": "hidden"
+              }
+            },
+            "type": "ia.navigation.menutree"
+          },
+          {
+            "meta": {
+              "name": "Booster Stations"
+            },
+            "position": {
+              "basis": "300px",
+              "grow": 1
+            },
+            "propConfig": {
+              "position.display": {
+                "binding": {
+                  "config": {
+                    "path": "session.custom.navTop"
+                  },
+                  "transforms": [
+                    {
+                      "code": "\tif value \u003d\u003d self.meta.name:\n\t\treturn True\n\telse:\n\t\treturn False",
+                      "type": "script"
+                    }
+                  ],
+                  "type": "property"
+                }
+              }
+            },
+            "props": {
+              "backActionStyle": {
+                "backgroundColor": "#FFFFFF",
+                "color": "#000000"
+              },
+              "backActionText": "back",
+              "items": [
+                {
+                  "backActionText": "",
+                  "enabled": true,
+                  "items": [],
+                  "label": {
+                    "icon": {
+                      "path": "material/list"
+                    },
+                    "text": "Golden West"
+                  },
+                  "navIcon": {
+                    "color": "",
+                    "path": "material/chevron_right"
+                  },
+                  "resetOnClick": false,
+                  "showHeader": false,
+                  "style": {
+                    "classes": ""
+                  },
+                  "target": "",
+                  "visible": true
+                },
+                {
+                  "backActionText": "",
+                  "enabled": true,
+                  "items": [],
+                  "label": {
+                    "icon": {
+                      "path": "material/list"
+                    },
+                    "text": "Mission"
+                  },
+                  "navIcon": {
+                    "color": "",
+                    "path": "material/chevron_right"
+                  },
+                  "resetOnClick": false,
+                  "showHeader": false,
+                  "style": {
+                    "classes": ""
+                  },
+                  "target": "",
+                  "visible": true
+                },
+                {
+                  "backActionText": "",
+                  "enabled": true,
+                  "items": [],
+                  "label": {
+                    "icon": {
+                      "path": "material/list"
+                    },
+                    "text": "Ridgeline"
+                  },
+                  "navIcon": {
+                    "color": "",
+                    "path": "material/chevron_right"
+                  },
+                  "resetOnClick": false,
+                  "showHeader": true,
+                  "style": {
+                    "classes": ""
+                  },
+                  "target": "",
+                  "visible": true
+                }
+              ],
+              "style": {
+                "classes": "Background Navigation",
+                "overflow": "hidden"
+              }
+            },
+            "type": "ia.navigation.menutree"
+          },
+          {
+            "meta": {
+              "name": "Wells"
+            },
+            "position": {
+              "basis": "300px",
+              "grow": 1
+            },
+            "propConfig": {
+              "position.display": {
+                "binding": {
+                  "config": {
+                    "path": "session.custom.navTop"
+                  },
+                  "transforms": [
+                    {
+                      "code": "\tif value \u003d\u003d self.meta.name:\n\t\treturn True\n\telse:\n\t\treturn False",
+                      "type": "script"
+                    }
+                  ],
+                  "type": "property"
+                }
+              }
+            },
+            "props": {
+              "backActionStyle": {
+                "backgroundColor": "#FFFFFF",
+                "color": "#000000"
+              },
+              "backActionText": "back",
+              "items": [
+                {
+                  "backActionText": "",
+                  "enabled": true,
+                  "items": [],
+                  "label": {
+                    "icon": {
+                      "path": "material/list"
+                    },
+                    "text": "Well 1A"
+                  },
+                  "navIcon": {
+                    "color": "",
+                    "path": "material/chevron_right"
+                  },
+                  "resetOnClick": false,
+                  "showHeader": false,
+                  "style": {
+                    "classes": ""
+                  },
+                  "target": "",
+                  "visible": true
+                },
+                {
+                  "backActionText": "",
+                  "enabled": true,
+                  "items": [],
+                  "label": {
+                    "icon": {
+                      "path": "material/list"
+                    },
+                    "text": "Well 02"
+                  },
+                  "navIcon": {
+                    "color": "",
+                    "path": "material/chevron_right"
+                  },
+                  "resetOnClick": false,
+                  "showHeader": false,
+                  "style": {
+                    "classes": ""
+                  },
+                  "target": "",
+                  "visible": true
+                },
+                {
+                  "backActionText": "",
+                  "enabled": true,
+                  "items": [],
+                  "label": {
+                    "icon": {
+                      "path": "material/list"
+                    },
+                    "text": "Well 04 \u0026 06"
+                  },
+                  "navIcon": {
+                    "color": "",
+                    "path": "material/chevron_right"
+                  },
+                  "resetOnClick": false,
+                  "showHeader": true,
+                  "style": {
+                    "classes": ""
+                  },
+                  "target": "",
+                  "visible": true
+                },
+                {
+                  "backActionText": "",
+                  "enabled": true,
+                  "items": [],
+                  "label": {
+                    "icon": {
+                      "path": "material/list"
+                    },
+                    "text": "Well 08"
+                  },
+                  "navIcon": {
+                    "color": "",
+                    "path": "material/chevron_right"
+                  },
+                  "resetOnClick": false,
+                  "showHeader": true,
+                  "style": {
+                    "classes": ""
+                  },
+                  "target": "",
+                  "visible": true
+                },
+                {
+                  "backActionText": "",
+                  "enabled": true,
+                  "items": [],
+                  "label": {
+                    "icon": {
+                      "path": "material/list"
+                    },
+                    "text": "Well 11"
+                  },
+                  "navIcon": {
+                    "color": "",
+                    "path": "material/chevron_right"
+                  },
+                  "resetOnClick": false,
+                  "showHeader": true,
+                  "style": {
+                    "classes": ""
+                  },
+                  "target": "",
+                  "visible": true
+                },
+                {
+                  "backActionText": "",
+                  "enabled": true,
+                  "items": [],
+                  "label": {
+                    "icon": {
+                      "path": "material/list"
+                    },
+                    "text": "Well 17 \u0026 18"
+                  },
+                  "navIcon": {
+                    "color": "",
+                    "path": "material/chevron_right"
+                  },
+                  "resetOnClick": false,
+                  "showHeader": true,
+                  "style": {
+                    "classes": ""
+                  },
+                  "target": "",
+                  "visible": true
+                },
+                {
+                  "backActionText": "",
+                  "enabled": true,
+                  "items": [],
+                  "label": {
+                    "icon": {
+                      "path": "material/list"
+                    },
+                    "text": "Well 19 \u0026 20"
+                  },
+                  "navIcon": {
+                    "color": "",
+                    "path": "material/chevron_right"
+                  },
+                  "resetOnClick": false,
+                  "showHeader": true,
+                  "style": {
+                    "classes": ""
+                  },
+                  "target": "",
+                  "visible": true
+                }
+              ],
+              "style": {
+                "classes": "Background Navigation",
+                "overflow": "hidden"
+              }
+            },
+            "type": "ia.navigation.menutree"
+          }
+        ],
+        "meta": {
+          "name": "Large Docked View"
+        },
+        "position": {
+          "basis": "300px",
+          "grow": 1
+        },
+        "propConfig": {
+          "position.display": {
+            "binding": {
+              "config": {
+                "path": "page.props.dimensions.screen.width"
+              },
+              "transforms": [
+                {
+                  "expression": "if({value}\u003e\u003d1770, true, false)",
+                  "type": "expression"
+                }
+              ],
+              "type": "property"
+            }
+          }
+        },
+        "props": {
+          "direction": "column"
+        },
+        "type": "ia.container.flex"
+      },
+      {
+        "meta": {
+          "name": "EmbeddedView"
+        },
+        "position": {
+          "basis": "320px",
+          "grow": 1
+        },
+        "propConfig": {
+          "position.display": {
+            "binding": {
+              "config": {
+                "path": "page.props.dimensions.screen.width"
+              },
+              "transforms": [
+                {
+                  "expression": "if({value}\u003c1770, true, false)",
+                  "type": "expression"
+                }
+              ],
+              "type": "property"
+            }
+          }
+        },
+        "props": {
+          "path": "Pages/Side Bar/Main Bar Nav/Nav"
+        },
+        "type": "ia.display.view"
+      }
+    ],
+    "custom": {
+      "selectedItem": "Overview"
+    },
+    "meta": {
+      "name": "root"
+    },
+    "props": {
+      "direction": "column",
+      "style": {
+        "borderBottomStyle": "none",
+        "borderLeftStyle": "none",
+        "borderRightColor": "#2B2B2B",
+        "borderRightStyle": "double",
+        "borderRightWidth": 3,
+        "borderTopStyle": "none",
+        "classes": "Background"
+      }
+    },
+    "type": "ia.container.flex"
+  }
+}

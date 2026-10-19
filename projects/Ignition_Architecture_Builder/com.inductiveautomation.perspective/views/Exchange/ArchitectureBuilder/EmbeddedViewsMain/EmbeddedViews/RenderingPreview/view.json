@@ -1,0 +1,251 @@
+{
+  "custom": {
+    "render": {
+      "Client": true,
+      "Comms": true,
+      "Connections": {
+        "Client": true,
+        "DB": true,
+        "Device Driver": true,
+        "Gateway Network": true,
+        "MQTT": true,
+        "MongoDB": true,
+        "OPC-COM": true,
+        "OPC-UA": true,
+        "Standard": true
+      },
+      "Connector": true,
+      "Custom": true,
+      "Database": true,
+      "Device": true,
+      "Firewall": true,
+      "IIOT": true,
+      "LoadBalancer": true,
+      "MongoDB": true,
+      "Note": true,
+      "OPCUA": true,
+      "ReverseProxy": true,
+      "Usersource": true,
+      "area": true,
+      "cloud": true,
+      "connections": true,
+      "edge": true,
+      "fourIR": true,
+      "panel": true,
+      "server": true,
+      "standard": true
+    },
+    "rendering": true,
+    "renderingC": true
+  },
+  "params": {},
+  "propConfig": {
+    "custom.render": {
+      "binding": {
+        "config": {
+          "path": "session.custom.rendering"
+        },
+        "type": "property"
+      },
+      "persistent": true
+    },
+    "custom.rendering": {
+      "binding": {
+        "config": {
+          "path": "view.custom.render"
+        },
+        "transforms": [
+          {
+            "code": "\tdef check_enabled_status(items):\n\t    for item in items.values():\n\t        if not item:\n\t            return False\n\t    return True\n\n\tresult \u003d check_enabled_status(value)\n\treturn result",
+            "type": "script"
+          }
+        ],
+        "type": "property"
+      },
+      "persistent": true
+    },
+    "custom.renderingC": {
+      "binding": {
+        "config": {
+          "path": "view.custom.render"
+        },
+        "transforms": [
+          {
+            "code": "\tdef check_enabled_status(items):\n\t    for item in items.values():\n\t        if not item:\n\t            return False\n\t    return True\n\n\tresult \u003d check_enabled_status(value[\u0027Connections\u0027])\n\treturn result",
+            "type": "script"
+          }
+        ],
+        "type": "property"
+      },
+      "persistent": true
+    }
+  },
+  "props": {
+    "defaultSize": {
+      "height": 514,
+      "width": 151
+    }
+  },
+  "root": {
+    "children": [
+      {
+        "meta": {
+          "name": "Label"
+        },
+        "position": {
+          "shrink": 0
+        },
+        "propConfig": {
+          "position.display": {
+            "binding": {
+              "config": {
+                "expression": "!{view.custom.rendering}"
+              },
+              "type": "expr"
+            }
+          },
+          "props.text": {
+            "binding": {
+              "config": {
+                "path": "view.custom.render"
+              },
+              "transforms": [
+                {
+                  "code": "\tstring\u003d\u0027Components NOT Displaying:\u0027\n\t\n\tdef check_enabled_status(items):\n\t\tnotRendering\u003d[]\n\t\tfor item in items.keys():\n\t\t\tif not items[item]:\n\t\t\t\tval\u003dexchange.architecturebuilder.viewCanvas.connectionRules.getConnectionName(item)\n\t\t\t\tif val\u003d\u003d\u0027Does Not Exist\u0027:\n\t\t\t\t\tval\u003ditem.capitalize()\n\t\t\t\tnotRendering.append(\u0027\\n  * {}\u0027.format(val+\u0027s\u0027))\n\t\treturn notRendering\n\n\tnotRendering \u003d check_enabled_status(value)\n\tall_not_rendering \u003d \u0027 \u0027.join(notRendering)\n\treturn string+all_not_rendering",
+                  "type": "script"
+                }
+              ],
+              "type": "property"
+            }
+          }
+        },
+        "props": {
+          "style": {
+            "alignItems": "flex-start",
+            "marginBottom": "6px",
+            "whiteSpace": "pre-wrap"
+          },
+          "textStyle": {
+            "fontSize": 10
+          }
+        },
+        "type": "ia.display.label"
+      },
+      {
+        "meta": {
+          "name": "Label_0"
+        },
+        "position": {
+          "shrink": 0
+        },
+        "propConfig": {
+          "position.display": {
+            "binding": {
+              "config": {
+                "expression": "!{view.custom.renderingC}"
+              },
+              "type": "expr"
+            }
+          },
+          "props.text": {
+            "binding": {
+              "config": {
+                "path": "view.custom.render"
+              },
+              "transforms": [
+                {
+                  "code": "\tstring\u003d\u0027Connection Types NOT Displaying:\u0027\n\t\n\tdef check_enabled_status(items):\n\t\tnotRendering\u003d[]\n\t\tfor item in items.keys():\n\t\t\tif not items[item]:\n\t\t\t\tval\u003dexchange.architecturebuilder.viewCanvas.connectionRules.getConnectionName(item)\n\t\t\t\tif val\u003d\u003d\u0027Does Not Exist\u0027:\n\t\t\t\t\tval\u003ditem.upper()\n\t\t\t\tnotRendering.append(\u0027\\n  * {}\u0027.format(val+\u0027s\u0027))\n\t\treturn notRendering\n\n\tnotRendering \u003d check_enabled_status(value[\u0027Connections\u0027])\n\tall_not_rendering \u003d \u0027 \u0027.join(notRendering)\n\treturn string+all_not_rendering",
+                  "type": "script"
+                }
+              ],
+              "type": "property"
+            }
+          }
+        },
+        "props": {
+          "style": {
+            "marginBottom": "6px",
+            "whiteSpace": "pre-wrap"
+          },
+          "textStyle": {
+            "fontSize": 10
+          }
+        },
+        "type": "ia.display.label"
+      },
+      {
+        "events": {
+          "dom": {
+            "onClick": {
+              "config": {
+                "draggable": true,
+                "id": "render",
+                "modal": false,
+                "overlayDismiss": false,
+                "resizable": true,
+                "showCloseIcon": true,
+                "title": "Select Components to Show",
+                "type": "open",
+                "viewPath": "Exchange/ArchitectureBuilder/EmbeddedViewsMain/EmbeddedViews/RenderingOptions",
+                "viewportBound": false
+              },
+              "scope": "C",
+              "type": "popup"
+            }
+          }
+        },
+        "meta": {
+          "name": "Icon_0",
+          "tooltip": {
+            "location": "top",
+            "style": {
+              "whiteSpace": "pre-wrap"
+            },
+            "text": "Components NOT Rendering \n\n Standard Gateways,\n Edge Panel Gateways,\n Clients"
+          }
+        },
+        "position": {
+          "basis": "47px",
+          "shrink": 0
+        },
+        "propConfig": {
+          "props.color": {
+            "binding": {
+              "config": {
+                "expression": "if(!{view.custom.rendering}||!{view.custom.renderingC},\u0027red\u0027,\u0027white\u0027)"
+              },
+              "type": "expr"
+            }
+          },
+          "props.path": {
+            "binding": {
+              "config": {
+                "expression": "if(!{view.custom.rendering}||!{view.custom.renderingC},\"material/not_interested\",\"material/preview\")"
+              },
+              "type": "expr"
+            }
+          }
+        },
+        "props": {
+          "style": {
+            "alignSelf": "flex-end",
+            "cursor": "pointer",
+            "margin": "4px",
+            "marginLeft": "4px",
+            "marginRight": "4px",
+            "padding": "4px"
+          }
+        },
+        "type": "ia.display.icon"
+      }
+    ],
+    "meta": {
+      "name": "root"
+    },
+    "props": {
+      "alignItems": "flex-start",
+      "direction": "column"
+    },
+    "type": "ia.container.flex"
+  }
+}

@@ -1,0 +1,20 @@
+{
+  "scope": "A",
+  "version": 1,
+  "restricted": false,
+  "overridable": true,
+  "files": [
+    "box-share.png"
+  ],
+  "attributes": {
+    "width": 16,
+    "format": "PNG",
+    "lastModification": {
+      "actor": "8.3-migration",
+      "timestamp": "2026-01-07T14:49:07Z"
+    },
+    "size": 852,
+    "lastModificationSignature": "9854e73a053eb1880e1d8bd9cac10adf7631d8070d0dc8bb79d4cc60e54486d9",
+    "height": 16
+  }
+}

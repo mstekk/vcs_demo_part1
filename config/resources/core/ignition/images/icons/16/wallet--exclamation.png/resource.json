@@ -1,0 +1,20 @@
+{
+  "scope": "A",
+  "version": 1,
+  "restricted": false,
+  "overridable": true,
+  "files": [
+    "wallet--exclamation.png"
+  ],
+  "attributes": {
+    "width": 16,
+    "format": "PNG",
+    "lastModification": {
+      "actor": "8.3-migration",
+      "timestamp": "2026-01-07T14:49:07Z"
+    },
+    "size": 691,
+    "lastModificationSignature": "05840bf3470bf9c845e3b896e58e369aadc62f9000e95799dd368a1bc1b005c8",
+    "height": 16
+  }
+}

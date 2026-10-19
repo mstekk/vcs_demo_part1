@@ -1,0 +1,714 @@
+{
+  "custom": {
+    "date": {
+      "$": [
+        "ts",
+        192,
+        1729101051526
+      ],
+      "$ts": 1729101051526
+    },
+    "lastSave": "658c503d91d54e5232a3afed",
+    "newFilename": "Architecture_241016105051",
+    "selections": {
+      "architecture": {},
+      "gateways": {
+        "selections": {
+          "config": {},
+          "load": {},
+          "resources": {}
+        }
+      },
+      "modules": {},
+      "thirdPartyModules": {}
+    }
+  },
+  "params": {
+    "entries": [
+      {
+        "name": "SCADA",
+        "parents": "I4a459946",
+        "type": "Standard",
+        "uuid": "I2f448e5e"
+      },
+      {
+        "name": "Development",
+        "parents": "Ifc81a1ed@I01dc3ec6",
+        "type": "Standard",
+        "uuid": "Ifb049614"
+      }
+    ]
+  },
+  "propConfig": {
+    "custom.date": {
+      "binding": {
+        "config": {
+          "expression": "now(60000)"
+        },
+        "type": "expr"
+      },
+      "persistent": true
+    },
+    "custom.filename": {
+      "binding": {
+        "config": {
+          "bidirectional": true,
+          "path": "view.custom.newFilename"
+        },
+        "type": "property"
+      }
+    },
+    "custom.newFilename": {
+      "binding": {
+        "config": {
+          "path": "view.custom.date"
+        },
+        "transforms": [
+          {
+            "formatType": "datetime",
+            "formatValue": "YYMMddHHmmss",
+            "type": "format"
+          },
+          {
+            "code": "\treturn \u0027Architecture_{}\u0027.format(value)",
+            "type": "script"
+          }
+        ],
+        "type": "property"
+      },
+      "persistent": true
+    },
+    "custom.selections": {
+      "persistent": true
+    },
+    "custom.selections.architecture.export": {
+      "binding": {
+        "config": {
+          "path": "/root/Settings/ArchJSON.props.selected"
+        },
+        "type": "property"
+      }
+    },
+    "custom.selections.gateways.export": {
+      "binding": {
+        "config": {
+          "path": "/root/Settings/BOM/Selections/Sections/Gateways/Gateways.props.selected"
+        },
+        "type": "property"
+      }
+    },
+    "custom.selections.gateways.selections.config.export": {
+      "binding": {
+        "config": {
+          "path": "/root/Settings/BOM/Selections/Sections/Gateways/Config.props.selected"
+        },
+        "type": "property"
+      }
+    },
+    "custom.selections.gateways.selections.load.export": {
+      "binding": {
+        "config": {
+          "path": "/root/Settings/BOM/Selections/Sections/Gateways/Load.props.selected"
+        },
+        "type": "property"
+      }
+    },
+    "custom.selections.gateways.selections.resources.export": {
+      "binding": {
+        "config": {
+          "path": "/root/Settings/BOM/Selections/Sections/Gateways/Resources.props.selected"
+        },
+        "type": "property"
+      }
+    },
+    "custom.selections.modules.export": {
+      "binding": {
+        "config": {
+          "path": "/root/Settings/BOM/Selections/Sections/Modules.props.selected"
+        },
+        "type": "property"
+      }
+    },
+    "custom.selections.thirdPartyModules.export": {
+      "binding": {
+        "config": {
+          "path": "/root/Settings/TPM_JSON.props.selected"
+        },
+        "type": "property"
+      }
+    },
+    "params.entries": {
+      "paramDirection": "input",
+      "persistent": true
+    }
+  },
+  "props": {
+    "defaultSize": {
+      "height": 405,
+      "width": 500
+    }
+  },
+  "root": {
+    "children": [
+      {
+        "children": [
+          {
+            "meta": {
+              "name": "Label"
+            },
+            "position": {
+              "basis": "125px"
+            },
+            "props": {
+              "enabled": false,
+              "style": {
+                "marginRight": "4px"
+              },
+              "text": "Filename Prefix:",
+              "textStyle": {
+                "textAlign": "right"
+              }
+            },
+            "type": "ia.display.label"
+          },
+          {
+            "meta": {
+              "name": "TextField"
+            },
+            "position": {
+              "grow": 1
+            },
+            "propConfig": {
+              "custom.Files": {
+                "binding": {
+                  "config": {
+                    "struct": {
+                      "collection": "{.../Collections/Collectios.props.value}",
+                      "connector": "{.../Connectors/Connectors.props.value}"
+                    },
+                    "waitOnAll": true
+                  },
+                  "transforms": [
+                    {
+                      "code": "\toptions\u003d[]\n\tif value[\u0027connector\u0027] is not None and value[\u0027connector\u0027]!\u003d\u0027\u0027 and value[\u0027collection\u0027] is not None and value[\u0027collection\u0027]!\u003d\u0027\u0027:\n\t\tarchs\u003dsystem.mongodb.find(value[\u0027connector\u0027], value[\u0027collection\u0027], {},{\u0027filename\u0027:1})\n\t\t\n\t\tfor arch in archs:\n\t\t\toptions.append({\u0027id\u0027:arch[\u0027_id\u0027],\u0027filename\u0027:arch[\u0027filename\u0027]})\n\t\t\n\treturn options",
+                      "type": "script"
+                    }
+                  ],
+                  "type": "expr-struct"
+                }
+              },
+              "custom.nameExists": {
+                "binding": {
+                  "config": {
+                    "struct": {
+                      "filename": "{this.props.text}",
+                      "files": "{this.custom.Files}"
+                    },
+                    "waitOnAll": true
+                  },
+                  "transforms": [
+                    {
+                      "code": "\texists\u003d{\u0027exists\u0027:False, \u0027id\u0027:\u0027\u0027}\n\tfiles\u003dvalue[\u0027files\u0027]\n\tfilename\u003dvalue[\u0027filename\u0027]\n\tfor filen in files:\n\t\tif filen[\u0027filename\u0027]\u003d\u003dfilename:\n\t\t\texists\u003d{\u0027exists\u0027:True, \u0027id\u0027:filen[\u0027id\u0027]}\n\t\t\tbreak\n\treturn exists",
+                      "type": "script"
+                    }
+                  ],
+                  "type": "expr-struct"
+                }
+              },
+              "props.text": {
+                "binding": {
+                  "config": {
+                    "bidirectional": true,
+                    "path": "view.custom.filename"
+                  },
+                  "type": "property"
+                }
+              }
+            },
+            "props": {
+              "placeholder": "Filename...",
+              "style": {
+                "overflow": "auto"
+              }
+            },
+            "type": "ia.input.text-field"
+          }
+        ],
+        "meta": {
+          "name": "Filename"
+        },
+        "position": {
+          "basis": "34px",
+          "shrink": 0
+        },
+        "props": {
+          "style": {
+            "margin": "8px"
+          }
+        },
+        "type": "ia.container.flex"
+      },
+      {
+        "children": [
+          {
+            "meta": {
+              "name": "Label"
+            },
+            "position": {
+              "basis": "32px",
+              "shrink": 0
+            },
+            "props": {
+              "text": "Architecture",
+              "textStyle": {
+                "fontWeight": "bold",
+                "textAlign": "center"
+              }
+            },
+            "type": "ia.display.label"
+          },
+          {
+            "meta": {
+              "name": "ArchJSON"
+            },
+            "position": {
+              "basis": "32px",
+              "shrink": 0
+            },
+            "props": {
+              "selected": true,
+              "text": "Current Architecture (JSON)"
+            },
+            "type": "ia.input.checkbox"
+          },
+          {
+            "meta": {
+              "name": "TPM_JSON"
+            },
+            "position": {
+              "basis": "32px",
+              "shrink": 0
+            },
+            "props": {
+              "style": {
+                "borderBottomColor": "--neutral-60",
+                "borderBottomStyle": "solid",
+                "borderBottomWidth": 1,
+                "paddingBottom": "3px"
+              },
+              "text": "Third Party Module Library (JSON)"
+            },
+            "type": "ia.input.checkbox"
+          },
+          {
+            "children": [
+              {
+                "meta": {
+                  "name": "Label"
+                },
+                "position": {
+                  "basis": "32px",
+                  "shrink": 0
+                },
+                "props": {
+                  "text": "Bill of Materials",
+                  "textStyle": {
+                    "fontWeight": "bold",
+                    "textAlign": "center"
+                  }
+                },
+                "type": "ia.display.label"
+              },
+              {
+                "children": [
+                  {
+                    "children": [
+                      {
+                        "meta": {
+                          "name": "Modules"
+                        },
+                        "position": {
+                          "basis": "32px",
+                          "shrink": 0
+                        },
+                        "props": {
+                          "text": "Ignition Modules \u0026 Pricing"
+                        },
+                        "type": "ia.input.checkbox"
+                      },
+                      {
+                        "children": [
+                          {
+                            "meta": {
+                              "name": "Gateways",
+                              "tooltip": {
+                                "enabled": true,
+                                "text": "One row per Ignition Gateway detailing Area, Name, Type, Description, Version, License Keys, and Redundancy / Development"
+                              }
+                            },
+                            "position": {
+                              "basis": "32px",
+                              "shrink": 0
+                            },
+                            "propConfig": {
+                              "props.selected": {
+                                "onChange": {
+                                  "enabled": null,
+                                  "script": "\tif currentValue.value and not previousValue.value and not (self.getSibling(\"Config\").props.selected or self.getSibling(\"Load\").props.selected or self.getSibling(\"Resources\").props.selected):\n\t\tself.getSibling(\"Config\").props.selected \u003d True\n\t\tself.getSibling(\"Load\").props.selected \u003d True\n\t\tself.getSibling(\"Resources\").props.selected \u003d True"
+                                }
+                              }
+                            },
+                            "props": {
+                              "text": "Ignition Gateways"
+                            },
+                            "type": "ia.input.checkbox"
+                          },
+                          {
+                            "meta": {
+                              "name": "Config"
+                            },
+                            "position": {
+                              "basis": "32px",
+                              "shrink": 0
+                            },
+                            "propConfig": {
+                              "props.enabled": {
+                                "binding": {
+                                  "config": {
+                                    "path": "../Gateways.props.selected"
+                                  },
+                                  "type": "property"
+                                }
+                              },
+                              "props.selected": {
+                                "onChange": {
+                                  "enabled": null,
+                                  "script": "\tif not currentValue.value and not self.getSibling(\"Load\").props.selected and not self.getSibling(\"Resources\").props.selected:\n\t\tself.getSibling(\"Gateways\").props.selected \u003d False"
+                                }
+                              }
+                            },
+                            "props": {
+                              "selected": true,
+                              "style": {
+                                "marginLeft": "20px"
+                              },
+                              "text": "Configuration"
+                            },
+                            "type": "ia.input.checkbox"
+                          },
+                          {
+                            "meta": {
+                              "name": "Load"
+                            },
+                            "position": {
+                              "basis": "32px",
+                              "shrink": 0
+                            },
+                            "propConfig": {
+                              "props.enabled": {
+                                "binding": {
+                                  "config": {
+                                    "path": "../Gateways.props.selected"
+                                  },
+                                  "type": "property"
+                                }
+                              },
+                              "props.selected": {
+                                "onChange": {
+                                  "enabled": null,
+                                  "script": "\tif not currentValue.value and not self.getSibling(\"Config\").props.selected and not self.getSibling(\"Resources\").props.selected:\n\t\tself.getSibling(\"Gateways\").props.selected \u003d False"
+                                }
+                              }
+                            },
+                            "props": {
+                              "selected": true,
+                              "style": {
+                                "marginLeft": "20px"
+                              },
+                              "text": "System Load"
+                            },
+                            "type": "ia.input.checkbox"
+                          },
+                          {
+                            "meta": {
+                              "name": "Resources"
+                            },
+                            "position": {
+                              "basis": "32px",
+                              "shrink": 0
+                            },
+                            "propConfig": {
+                              "props.enabled": {
+                                "binding": {
+                                  "config": {
+                                    "path": "../Gateways.props.selected"
+                                  },
+                                  "type": "property"
+                                }
+                              },
+                              "props.selected": {
+                                "onChange": {
+                                  "enabled": null,
+                                  "script": "\tif not currentValue.value and not self.getSibling(\"Config\").props.selected and not self.getSibling(\"Load\").props.selected:\n\t\tself.getSibling(\"Gateways\").props.selected \u003d False"
+                                }
+                              }
+                            },
+                            "props": {
+                              "selected": true,
+                              "style": {
+                                "marginLeft": "20px"
+                              },
+                              "text": "Computing Resources"
+                            },
+                            "type": "ia.input.checkbox"
+                          }
+                        ],
+                        "meta": {
+                          "name": "Gateways"
+                        },
+                        "position": {
+                          "grow": 1
+                        },
+                        "props": {
+                          "direction": "column"
+                        },
+                        "type": "ia.container.flex"
+                      }
+                    ],
+                    "meta": {
+                      "name": "Sections"
+                    },
+                    "position": {
+                      "grow": 1
+                    },
+                    "props": {
+                      "direction": "column"
+                    },
+                    "type": "ia.container.flex"
+                  },
+                  {
+                    "children": [
+                      {
+                        "meta": {
+                          "name": "Header"
+                        },
+                        "props": {
+                          "style": {
+                            "marginLeft": "10px",
+                            "marginRight": "10px",
+                            "textAlign": "center"
+                          },
+                          "text": "File Format:"
+                        },
+                        "type": "ia.display.label"
+                      },
+                      {
+                        "meta": {
+                          "name": "RadioGroup"
+                        },
+                        "position": {
+                          "grow": 1
+                        },
+                        "propConfig": {
+                          "props.enabled": {
+                            "binding": {
+                              "config": {
+                                "path": "view.custom.selections"
+                              },
+                              "transforms": [
+                                {
+                                  "expression": "{value}[\"modules\"][\"export\"] || {value}[\"gateways\"][\"export\"]",
+                                  "type": "expression"
+                                }
+                              ],
+                              "type": "property"
+                            }
+                          }
+                        },
+                        "props": {
+                          "orientation": "column",
+                          "radios": [
+                            {
+                              "selected": true,
+                              "text": "CSV",
+                              "value": "CSV"
+                            },
+                            {
+                              "selected": false,
+                              "text": "XLS",
+                              "value": "XLS"
+                            }
+                          ],
+                          "value": "CSV"
+                        },
+                        "type": "ia.input.radio-group"
+                      }
+                    ],
+                    "meta": {
+                      "name": "FileFormat"
+                    },
+                    "props": {
+                      "direction": "column",
+                      "style": {
+                        "borderLeftColor": "--neutral-60",
+                        "borderLeftStyle": "solid",
+                        "borderLeftWidth": 1,
+                        "marginTop": "5px"
+                      }
+                    },
+                    "type": "ia.container.flex"
+                  }
+                ],
+                "meta": {
+                  "name": "Selections"
+                },
+                "position": {
+                  "grow": 1
+                },
+                "type": "ia.container.flex"
+              }
+            ],
+            "meta": {
+              "name": "BOM"
+            },
+            "props": {
+              "direction": "column",
+              "style": {
+                "marginBottom": "5px",
+                "marginTop": "5px"
+              }
+            },
+            "type": "ia.container.flex"
+          }
+        ],
+        "meta": {
+          "name": "Settings"
+        },
+        "position": {
+          "shrink": 0
+        },
+        "props": {
+          "direction": "column",
+          "style": {
+            "backgroundColor": "--neutral-20",
+            "borderBottomLeftRadius": "16px",
+            "borderBottomRightRadius": "16px",
+            "borderColor": "--neutral-60",
+            "borderStyle": "solid",
+            "borderTopLeftRadius": "16px",
+            "borderTopRightRadius": "16px",
+            "borderWidth": "2px",
+            "margin": "8px",
+            "marginBottom": "0px",
+            "marginTop": "0px",
+            "padding": "4px"
+          }
+        },
+        "type": "ia.container.flex"
+      },
+      {
+        "children": [
+          {
+            "events": {
+              "component": {
+                "onActionPerformed": {
+                  "config": {
+                    "script": "\timport os\n\timport zipfile\n\timport json\n\t\"\"\"Creates architecture JSON structure for export.\n\t\n\tStructure includes components, connections, containers, structure, \n\tcanvas size, and third party modules.\n\t\"\"\"\n\tdef archJSON():\n\t\tarchJSON \u003d {}\n\t\tfor prop in (\"components\", \"connections\", \"containers\", \"structure\", \"canvasSize\"):\n\t\t\tarchJSON[prop] \u003d system.util.jsonDecode(system.util.jsonEncode(self.session.custom[prop]))\n\n\t\t# Determine which Third Party Modules are used by this architecture\n\t\tallTPMs \u003d {}\n\t\tmodulesRaw\u003dsystem.util.jsonDecode(system.util.jsonEncode(self.custom.TPMJson))\n\t\tfor x in self.session.custom.structure.configs:\n\t\t\tif self.session.custom.structure.configs[x][\"type\"] in [\"standard\", \"edge\", \"panel\", \"cloud\"]:\n\t\t\t\tgatewayTPMs \u003d self.session.custom.structure.configs[x][\"config\"][\"modules\"][\"TPM\"]\n\t\t\t\tif len(gatewayTPMs) \u003e 0:\n\t\t\t\t\tfor tpm in gatewayTPMs:\n\t\t\t\t\t\tallTPMs[tpm[\"name\"]] \u003dmodulesRaw[tpm[\"name\"]]\n\n\t\t# Append the Third Party Modules\n\t\tarchJSON[\"tpms\"] \u003d system.util.jsonDecode(system.util.jsonEncode(allTPMs))\n\t\t\n\t\treturn archJSON\n\n\t\"\"\"Creates an Excel (XLS) workbook with one or more pages.\n\t\n\tIf Gateways are selected for export, a \u0027Gateways\u0027 page is created in the \n\tworkbook. The same applies for Modules. The workbook is returned. Expects\n\tcorresponding datasets to already be built.\n\t\"\"\"\n\tdef createWorkbook():\n\t\tdatasets \u003d []\n\t\tsheets \u003d []\n\t\tif selections[\"gateways\"][\"export\"]:\n\t\t\tdatasets.append(IgnitionGatewayDataset)\n\t\t\tsheets.append(\"Gateways\")\n\t\tif selections[\"modules\"][\"export\"]:\n\t\t\tdatasets.append(IgnitionModuleDataset)\n\t\t\tsheets.append(\"Modules\")\n\t\treturn system.dataset.toExcel(True, datasets, True, sheets)\n\n\t\"\"\"Searches the specified entry for Ignition Gateways.\n\t\n\tRecursive function used to find Ignition Gateways in JSON structure. A\n\tdictionary containing each Gateway\u0027s UUID, area path, name, and type is\n\treturned.\n\t\n\tTypical usage example:\n\t\tentries \u003d search([], self.session.custom.structure.structure, \u0027\u0027)\n\t\"\"\"\n\tdef search(items, entry, path):\n\t\tfor e in entry:\n\t\t\tif e[\"type\"] \u003d\u003d \u0027Container\u0027:\n\t\t\t\t# Recursively search for gateways\n\t\t\t\tif path \u003d\u003d \u0027\u0027:\n\t\t\t\t\tsearch(items, e[\"contents\"], e[\"uuid\"])\n\t\t\t\telse:\n\t\t\t\t\tsearch(items, e[\"contents\"], path + \u0027@\u0027 + e[\"uuid\"])\n\n\t\t\tif e[\"type\"] in (\u0027standard\u0027, \u0027edge\u0027, \u0027panel\u0027, \u0027cloud\u0027):\n\t\t\t\titems.append({\u0027uuid\u0027: e[\"uuid\"], \u0027path\u0027: path, \u0027name\u0027: e[\"name\"], \u0027type\u0027: e[\"type\"]})\n\t\treturn items\n\n\t\"\"\"Returns list of Third Party Modules defined within the builder.\n\t\n\tRemoves \u0027display\u0027, \u0027enabled\u0027, and \u0027selected\u0027 properties (if present), then\n\tencodes remaining properties as JSON\n\t\"\"\"\n\tdef tpms():\n\t\tmodulesRaw\u003dsystem.util.jsonDecode(system.util.jsonEncode(self.custom.TPMJson))\n\t\tmodules\u003d[]\n\t\tfor mR in modulesRaw.keys():\n\t\t\tmodParams\u003dmodulesRaw[mR]\n\t\t\tfor prop in [\"display\", \"enabled\", \"selected\"]:\n\t\t\t\tsystem.perspective.print(prop)\n\t\t\t\tif str(prop) in modParams.keys():\n\t\t\t\t\tdel modParams[str(prop)]\n\t\t\tmodules.append(modParams)\n\t\treturn system.util.jsonEncode(modules)\n\n\t# Store audit log information\n\tactionValue \u003d \"\"\n\n\t# Get user\u0027s export selections\n\tselections \u003d self.view.custom.selections\n\n\t# If Gateways or Modules are to be exported, \n\tif selections[\"gateways\"][\"export\"] or selections[\"modules\"][\"export\"]:\n\t\t# Build Header array for Gateways\n\t\tif selections[\"gateways\"][\"export\"]:\n\t\t\tIgnitionGatewayHeaders \u003d [\"Area\", \"Name\", \"Type\"]\n\t\t\tif selections[\"gateways\"][\"selections\"][\"config\"][\"export\"]:\n\t\t\t\tIgnitionGatewayHeaders.extend([\"Description\", \"Version\", \"License Key\", \"Redundant\", \"Redundant License Key\", \"Development\", \"Trial\"])\n\t\t\tif selections[\"gateways\"][\"selections\"][\"load\"][\"export\"]:\n\t\t\t\tIgnitionGatewayHeaders.extend([\"Devices\", \"Clients\", \"Tags\", \"History (Tag/Sec)\", \"SQL (Insert/Sec)\", \"Retention (Hrs)\"])\n\t\t\tif selections[\"gateways\"][\"selections\"][\"resources\"][\"export\"]:\n\t\t\t\tIgnitionGatewayHeaders.extend([\"ARM\", \"Cores\", \"Frequency (GHz)\", \"RAM (GB)\", \"Storage (GB)\", \"OS Family\", \"OS Version\"])\n\t\t\tIgnitionGatewayData \u003d []\n\n\t\t# Build Header array for Modules\n\t\tif selections[\"modules\"][\"export\"]:\n\t\t\tIgnitionModuleHeaders \u003d [\"Area\", \"Name\", \"Type\", \"Module\", \"Selection\", \"Price\", \"Link\"]\n\t\t\tIgnitionModuleData \u003d []\n\n\t\t# Iterate over list of Ignition Gateways\n\t\tentries \u003d search([], self.session.custom.structure.structure, \u0027\u0027)\n\t\tfor entry in entries:\n\t\t\tif len(entry[\"path\"]) \u003e 0:\n\t\t\t\t# Build Area string\n\t\t\t\tarea \u003d []\n\t\t\t\tfor node in entry[\"path\"].split(\u0027@\u0027):\n\t\t\t\t\tarea.append(self.session.custom.structure.configs[node][\"name\"])\n\t\t\t\tareaString \u003d \"/\".join(area)\n\t\t\telse:\n\t\t\t\tareaString \u003d \"\"\n\n\t\t\tif selections[\"gateways\"][\"export\"]:\n\t\t\t\t# Add record per Ignition Gateway\n\t\t\t\tif any([selections[\"gateways\"][\"selections\"][i][\"export\"] for i in selections[\"gateways\"][\"selections\"]]):\n\t\t\t\t\t# Get Gateway Details\n\t\t\t\t\tconfig \u003d self.session.custom.structure.configs[entry[\"uuid\"]][\"config\"]\n\t\t\t\t\ttemp \u003d [areaString, entry[\"name\"], entry[\"type\"]]\n\t\t\t\t\tif selections[\"gateways\"][\"selections\"][\"config\"][\"export\"]:\n\t\t\t\t\t\ttemp.append(self.session.custom.structure.configs[entry[\"uuid\"]][\"desc\"])\n\t\t\t\t\t\tfor key in [\"version\", \"licenseKey\", \"redundant\", \"licenseKeyRedun\", \"development\", \"trial\"]:\n\t\t\t\t\t\t\ttemp.append(config[key])\n\t\t\t\t\tif selections[\"gateways\"][\"selections\"][\"load\"][\"export\"]:\n\t\t\t\t\t\tif \u0027load\u0027 in config.keys():\n\t\t\t\t\t\t\tfor key in [\"devices\", \"clients\", \"tags\", \"histTags\", \"histSQL\", \"histHrs\"]:\n\t\t\t\t\t\t\t\ttemp.append(config[\"load\"][key])\n\t\t\t\t\t\telse:\n\t\t\t\t\t\t\ttemp.extend([0, 0, 0, 0, 0, 0])\n\t\t\t\t\tif selections[\"gateways\"][\"selections\"][\"resources\"][\"export\"]:\n\t\t\t\t\t\tif \u0027resources\u0027 in config.keys():\n\t\t\t\t\t\t\tfor key in [\"arm\", \"cores\", \"frequency\"]:\n\t\t\t\t\t\t\t\ttemp.append(config[\"resources\"][\"cpu\"][key])\n\t\t\t\t\t\t\tfor key in [\"disk\", \"ram\"]:\n\t\t\t\t\t\t\t\ttemp.append(config[\"resources\"][key][\"capacity\"])\n\t\t\t\t\t\t\tfor key in [\"type\", \"version\"]:\n\t\t\t\t\t\t\t\ttemp.append(config[\"resources\"][\"os\"][key])\n\t\t\t\t\t\telse:\n\t\t\t\t\t\t\ttemp.extend([False, 2, 2, 10, 4, \"N/A\", \"N/A\"])\n\t\t\t\tIgnitionGatewayData.append(temp)\n\n\t\t\tif selections[\"modules\"][\"export\"]:\n\t\t\t\t# Add record per Module per Ignition Gateway\n\t\t\t\tmodules \u003d self.session.custom.structure.configs[entry[\"uuid\"]][\"config\"][\"modules\"]\n\t\t\t\tfor author in modules:\n\t\t\t\t\tif len(modules[author]) \u003e 0:\n\t\t\t\t\t\tfor module in modules[author]:\n\t\t\t\t\t\t\ttemp \u003d [areaString, entry[\"name\"], entry[\"type\"], module[\"name\"]]\n\t\t\n\t\t\t\t\t\t\t# Append module selection (default empty string)\n\t\t\t\t\t\t\tselection \u003d None\n\t\t\t\t\t\t\tif \u0027selection\u0027 in module.keys():\n\t\t\t\t\t\t\t\tselection \u003d module[\"selection\"]\n\t\t\t\t\t\t\ttemp.append(selection or \u0027\u0027)\n\n\t\t\t\t\t\t\t# Append module price\n\t\t\t\t\t\t\tif self.session.custom.structure.configs[entry[\"uuid\"]][\"config\"][\"trial\"]:\n\t\t\t\t\t\t\t\tretailPrice \u003d 0\n\t\t\t\t\t\t\telse:\n\t\t\t\t\t\t\t\tretailPrice \u003d exchange.architecturebuilder.modules.getRetail(author, module[\"name\"], selection\u003dselection, gwType\u003dentry[\"type\"])\n\t\t\t\t\t\t\ttemp.append(str(retailPrice))\n\n\t\t\t\t\t\t\t# Append module link (default empty string)\n\t\t\t\t\t\t\tlink \u003d \u0027\u0027\n\t\t\t\t\t\t\tif \u0027link\u0027 in module.keys():\n\t\t\t\t\t\t\t\tlink \u003d module[\"link\"]\n\t\t\t\t\t\t\ttemp.append(link)\n\n\t\t\t\t\t\t\t# Append module details\n\t\t\t\t\t\t\tIgnitionModuleData.append(temp)\n\n\t\t# Create datasets\n\t\tif selections[\"gateways\"][\"export\"]:\n\t\t\tIgnitionGatewayDataset \u003d system.dataset.toDataSet(IgnitionGatewayHeaders, IgnitionGatewayData)\n\t\tif selections[\"modules\"][\"export\"]:\n\t\t\tsystem.perspective.print(IgnitionModuleHeaders)\t\t\t\t\t\t########## CLEANUP\n\t\t\tsystem.perspective.print(IgnitionModuleData)\t\t\t\t\t\t########## CLEANUP\n\t\t\tIgnitionModuleDataset \u003d system.dataset.toDataSet(IgnitionModuleHeaders, IgnitionModuleData)\n\n\t# File properties\n\tfilePrefix \u003d self.parent.parent.getChild(\"Filename\").getChild(\"TextField\").props.text\n\tfileExtension \u003d self.parent.parent.getChild(\"Settings\").getChild(\"BOM\").getChild(\"Selections\").getChild(\"FileFormat\").getChild(\"RadioGroup\").props.value\n\n\t# Export single file\n\tif fileExtension.lower() \u003d\u003d \u0027xls\u0027 and not (selections[\"architecture\"][\"export\"] or selections[\"thirdPartyModules\"][\"export\"]):\n\t\tfilename \u003d filePrefix + \u0027 BOM.xls\u0027\n\t\tactionValue \u003d filename\n\t\t# Export single Excel Workbook\n\t\tsystem.perspective.download(filename, createWorkbook())\n\telif sum([selections[i][\"export\"] for i in selections]) \u003d\u003d 1:\n\t\t# Export single file containing Gateway information\n\t\tif selections[\"gateways\"][\"export\"]:\n\t\t\tif fileExtension.lower() \u003d\u003d \u0027csv\u0027:\n\t\t\t\tIgnitionGatewayCSV \u003d system.dataset.toCSV(IgnitionGatewayDataset, True, False, True)\n\t\t\t\tfilename \u003d filePrefix + \u0027 Ignition Gateway BOM.csv\u0027\n\t\t\t\tactionValue \u003d filename\n\t\t\t\tsystem.perspective.download(filename, IgnitionGatewayCSV)\n\t\t\telif fileExtension.lower() \u003d\u003d \u0027xls\u0027:\n\t\t\t\tIgnitionGatewayXLS \u003d system.dataset.toExcel(True, [IgnitionGatewayDataset], True, [\"Gateways\"])\n\t\t\t\tfilename \u003d filePrefix + \u0027 Ignition Gateway BOM.xls\u0027\n\t\t\t\tactionValue \u003d filename\n\t\t\t\tsystem.perspective.download(filename, IgnitionGatewayXLS)\n\t\t\telse:\n\t\t\t\tsystem.perspective.print(\"Invalid File Format \u0027%\u0027\" % fileExtension)\n\n\t\t# Export single file containing Module information\n\t\telif selections[\"modules\"][\"export\"]:\n\t\t\tif fileExtension.lower() \u003d\u003d \u0027csv\u0027:\n\t\t\t\tIgnitionModuleCSV \u003d system.dataset.toCSV(IgnitionModuleDataset, True, False, True)\n\t\t\t\tfilename \u003d filePrefix + \u0027 Ignition Modules BOM.csv\u0027\n\t\t\t\tactionValue \u003d filename\n\t\t\t\tsystem.perspective.download(filename, IgnitionModuleCSV)\n\t\t\telif fileExtension.lower() \u003d\u003d \u0027xls\u0027:\n\t\t\t\tIgnitionModuleXLS \u003d system.dataset.toExcel(True, [IgnitionModuleDataset], True, [\"Gateways\"])\n\t\t\t\tfilename \u003d filePrefix + \u0027 Ignition Module BOM.xls\u0027\n\t\t\t\tactionValue \u003d filename\n\t\t\t\tsystem.perspective.download(filename, IgnitionModuleXLS)\n\t\t\telse:\n\t\t\t\tsystem.perspective.print(\"Invalid File Format \u0027%\u0027\" % fileExtension)\n\n\t\t# Export single file containing Architecture (JSON)\n\t\telif selections[\"architecture\"][\"export\"]:\n\t\t\tfilename \u003d filePrefix + \" Architecture.json\"\n\t\t\tactionValue \u003d filename\n\t\t\tsystem.perspective.download(filename, system.util.jsonEncode(archJSON()))\n\n\t\t# Export single file containing all Third Party Modules\n\t\telif selections[\"thirdPartyModules\"][\"export\"]:\n\t\t\tfilename \u003d filePrefix + \" Third Party Modules.json\"\n\t\t\tactionValue \u003d filename\n\t\t\tsystem.perspective.download(filename, tpms())\n\n\t\telse:\n\t\t\tsystem.perspective.print(\"Invalid Export Selection\")\n\n\t# ZIP multiple files selected for export\n\telse:\n\t\tfilenames \u003d []\n\t\ttempZip \u003d system.file.getTempFile(\"zip\")\n\t\twith zipfile.ZipFile(tempZip, \u0027w\u0027, zipfile.ZIP_DEFLATED) as zipf:\n\t\t\tif selections[\"gateways\"][\"export\"] or selections[\"modules\"][\"export\"]:\n\t\t\t\tif fileExtension.lower() \u003d\u003d \u0027xls\u0027:\n\t\t\t\t\t# Zip single Excel Workbook and Architecture.JSON\n\t\t\t\t\ttempWorkbook \u003d system.file.getTempFile(\"xls\")\n\t\t\t\t\tsystem.file.writeFile(tempWorkbook, createWorkbook())\n\t\t\t\t\tfilename \u003d filePrefix + \u0027 BOM.xls\u0027\n\t\t\t\t\tfilenames.append(filename)\n\t\t\t\t\tzipf.write(tempWorkbook, arcname \u003d filename)\n\t\t\t\telif fileExtension.lower() \u003d\u003d \u0027csv\u0027:\n\t\t\t\t\tif selections[\"gateways\"][\"export\"]:\n\t\t\t\t\t\ttempIgnitionGateway \u003d system.file.getTempFile(\"csv\")\n\t\t\t\t\t\tsystem.file.writeFile(tempIgnitionGateway, system.dataset.toCSV(IgnitionGatewayDataset, True, False, True))\n\t\t\t\t\t\tfilename \u003d filePrefix + \u0027 Ignition Gateway BOM.csv\u0027\n\t\t\t\t\t\tfilenames.append(filename)\n\t\t\t\t\t\tzipf.write(tempIgnitionGateway, arcname \u003d filename) \n\t\t\t\t\tif selections[\"modules\"][\"export\"]:\n\t\t\t\t\t\ttempModule \u003d system.file.getTempFile(\"csv\")\n\t\t\t\t\t\tsystem.file.writeFile(tempModule, system.dataset.toCSV(IgnitionModuleDataset, True, False, True))\n\t\t\t\t\t\tfilename \u003d filePrefix + \u0027 Ignition Modules BOM.csv\u0027\n\t\t\t\t\t\tfilenames.append(filename)\n\t\t\t\t\t\tzipf.write(tempModule, arcname \u003d filename)\n\t\t\tif selections[\"architecture\"][\"export\"]:\n\t\t\t\ttempArch \u003d system.file.getTempFile(\"json\")\n\t\t\t\tsystem.file.writeFile(tempArch, system.util.jsonEncode(archJSON()))\n\t\t\t\tfilename \u003d filePrefix + \u0027 Architecture.json\u0027\n\t\t\t\tfilenames.append(filename)\n\t\t\t\tzipf.write(tempArch, arcname \u003d filename)\n\t\t\tif selections[\"thirdPartyModules\"][\"export\"]:\n\t\t\t\ttempTPMs \u003d system.file.getTempFile(\"json\")\n\t\t\t\tsystem.file.writeFile(tempTPMs, tpms())\n\t\t\t\tfilename \u003d filePrefix + \u0027 Third Party Modules.json\u0027\n\t\t\t\tfilenames.append(filename)\n\t\t\t\tzipf.write(tempTPMs, arcname \u003d filename)\n\t\tzipf.close()\n\t\tsystem.perspective.download(filePrefix + \u0027 BOM.zip\u0027, system.file.readFileAsBytes(tempZip))\n\t\tactionValue \u003d \"Zip: \" + \u0027,\u0027.join(filenames)\n\n\t# Log Download event\n\tif self.session.custom.audit.global:\n\t\tsystem.util.audit(action\u003d\"Downloaded\", actionTarget\u003d\"Exports\", actionValue\u003dactionValue)"
+                  },
+                  "scope": "G",
+                  "type": "script"
+                }
+              }
+            },
+            "meta": {
+              "name": "Download"
+            },
+            "position": {
+              "basis": "60px",
+              "grow": 1
+            },
+            "propConfig": {
+              "custom.TPMJson": {
+                "binding": {
+                  "config": {
+                    "fallbackDelay": 2.5,
+                    "mode": "direct",
+                    "tagPath": "[default]Exchange/ArchitectureBuilder/TPM"
+                  },
+                  "type": "tag"
+                }
+              },
+              "props.enabled": {
+                "binding": {
+                  "config": {
+                    "expression": "{.../Settings/ArchJSON.props.selected} ||\r\n{.../Settings/TPM_JSON.props.selected} ||\r\n{.../Settings/BOM/Selections/Sections/Gateways/Gateways.props.selected} ||\r\n{.../Settings/BOM/Selections/Sections/Modules.props.selected}"
+                  },
+                  "type": "expr"
+                }
+              }
+            },
+            "props": {
+              "image": {
+                "icon": {
+                  "path": "material/cloud_download"
+                }
+              },
+              "style": {
+                "margin": "8px",
+                "marginTop": "8px",
+                "overflow": "auto"
+              },
+              "text": "Download"
+            },
+            "type": "ia.input.button"
+          },
+          {
+            "events": {
+              "component": {
+                "onActionPerformed": {
+                  "config": {
+                    "script": "\tif self.session.custom.audit.global:\n\t\t# Log Exports closed\n\t\tsystem.util.audit(action\u003d\"Closed\", actionTarget\u003d\"Exports\")\n\tsystem.perspective.closePopup(\"Export\")"
+                  },
+                  "scope": "G",
+                  "type": "script"
+                }
+              }
+            },
+            "meta": {
+              "name": "Cancel"
+            },
+            "position": {
+              "basis": "60px",
+              "grow": 1
+            },
+            "props": {
+              "primary": false,
+              "style": {
+                "backgroundColor": "--neutral-50",
+                "margin": "8px",
+                "marginTop": "8px",
+                "overflow": "auto"
+              },
+              "text": "Cancel"
+            },
+            "type": "ia.input.button"
+          }
+        ],
+        "meta": {
+          "name": "Buttons"
+        },
+        "position": {
+          "shrink": 0
+        },
+        "type": "ia.container.flex"
+      }
+    ],
+    "meta": {
+      "name": "root"
+    },
+    "props": {
+      "direction": "column"
+    },
+    "type": "ia.container.flex"
+  }
+}

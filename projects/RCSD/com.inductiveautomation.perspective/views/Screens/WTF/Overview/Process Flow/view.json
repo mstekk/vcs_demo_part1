@@ -1,0 +1,196 @@
+{
+  "custom": {},
+  "params": {},
+  "props": {},
+  "root": {
+    "children": [
+      {
+        "meta": {
+          "name": "Label"
+        },
+        "position": {
+          "basis": "535px",
+          "grow": 1
+        },
+        "props": {
+          "text": "Water Treatment Facilities Process Flow Screen",
+          "textStyle": {
+            "classes": "Header",
+            "fontSize": "50px"
+          }
+        },
+        "type": "ia.display.label"
+      },
+      {
+        "meta": {
+          "name": "well template"
+        },
+        "position": {
+          "basis": "300px"
+        },
+        "propConfig": {
+          "props.elements[0].style.classes": {
+            "binding": {
+              "config": {
+                "path": "session.props.theme"
+              },
+              "transforms": [
+                {
+                  "code": "\tif \"light\" in value:\n\t\treturn \"Theme/Component-Light\"\n\telse:\n\t\treturn \"Theme/Component-Dark\"",
+                  "type": "script"
+                }
+              ],
+              "type": "property"
+            }
+          },
+          "props.elements[1].style.classes": {
+            "binding": {
+              "config": {
+                "path": "session.props.theme"
+              },
+              "transforms": [
+                {
+                  "code": "\tif \"light\" in value:\n\t\treturn \"Theme/Component-Light\"\n\telse:\n\t\treturn \"Theme/Component-Dark\"",
+                  "type": "script"
+                }
+              ],
+              "type": "property"
+            }
+          },
+          "props.elements[2].style.classes": {
+            "binding": {
+              "config": {
+                "path": "session.props.theme"
+              },
+              "transforms": [
+                {
+                  "code": "\tif \"light\" in value:\n\t\treturn \"Theme/Component-Light\"\n\telse:\n\t\treturn \"Theme/Component-Dark\"",
+                  "type": "script"
+                }
+              ],
+              "type": "property"
+            }
+          },
+          "props.elements[3].style.classes": {
+            "binding": {
+              "config": {
+                "path": "session.props.theme"
+              },
+              "transforms": [
+                {
+                  "code": "\tif \"light\" in value:\n\t\treturn \"Theme/Component-Light\"\n\telse:\n\t\treturn \"Theme/Component-Dark\"",
+                  "type": "script"
+                }
+              ],
+              "type": "property"
+            }
+          },
+          "props.elements[4].style.classes": {
+            "binding": {
+              "config": {
+                "path": "session.props.theme"
+              },
+              "transforms": [
+                {
+                  "code": "\tif \"light\" in value:\n\t\treturn \"Theme/Component-Light\"\n\telse:\n\t\treturn \"Theme/Component-Dark\"",
+                  "type": "script"
+                }
+              ],
+              "type": "property"
+            }
+          },
+          "props.elements[5].style.classes": {
+            "binding": {
+              "config": {
+                "path": "session.props.theme"
+              },
+              "transforms": [
+                {
+                  "code": "\tif \"light\" in value:\n\t\treturn \"Theme/Component-Light\"\n\telse:\n\t\treturn \"Theme/Component-Dark\"",
+                  "type": "script"
+                }
+              ],
+              "type": "property"
+            }
+          },
+          "props.elements[6].style.classes": {
+            "binding": {
+              "config": {
+                "path": "session.props.theme"
+              },
+              "transforms": [
+                {
+                  "code": "\tif \"light\" in value:\n\t\treturn \"Theme/Component-Light\"\n\telse:\n\t\treturn \"Theme/Component-Dark\"",
+                  "type": "script"
+                }
+              ],
+              "type": "property"
+            }
+          }
+        },
+        "props": {
+          "elements": [
+            {
+              "d": "M203 3H103L98 33H53V63H253V33H208L203 3Z",
+              "fill": {},
+              "name": "path",
+              "style": {},
+              "type": "path"
+            },
+            {
+              "d": "M3 63H303V93H3V63Z",
+              "name": "path",
+              "style": {},
+              "type": "path"
+            },
+            {
+              "d": "M28 92H278V337H28V92Z",
+              "name": "path",
+              "style": {},
+              "type": "path"
+            },
+            {
+              "d": "M103 140H203V290H103V140Z",
+              "name": "path",
+              "style": {},
+              "type": "path"
+            },
+            {
+              "d": "M78 606H228V621H78V606Z",
+              "name": "path",
+              "style": {},
+              "type": "path"
+            },
+            {
+              "d": "M3 337H303V367H3V337Z",
+              "name": "path",
+              "style": {},
+              "type": "path"
+            },
+            {
+              "d": "M253 367H53V397H68L93 606H213L238 397H253V367Z",
+              "name": "path",
+              "style": {},
+              "type": "path"
+            }
+          ],
+          "fill": {
+            "paint": "transparent"
+          },
+          "viewBox": "0 0 306 624"
+        },
+        "type": "ia.shapes.svg"
+      }
+    ],
+    "meta": {
+      "name": "root"
+    },
+    "props": {
+      "direction": "column",
+      "style": {
+        "classes": "Background"
+      }
+    },
+    "type": "ia.container.flex"
+  }
+}

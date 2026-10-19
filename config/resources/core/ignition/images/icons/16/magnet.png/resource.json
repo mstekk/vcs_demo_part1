@@ -1,0 +1,20 @@
+{
+  "scope": "A",
+  "version": 1,
+  "restricted": false,
+  "overridable": true,
+  "files": [
+    "magnet.png"
+  ],
+  "attributes": {
+    "width": 16,
+    "format": "PNG",
+    "lastModification": {
+      "actor": "8.3-migration",
+      "timestamp": "2026-01-07T14:49:07Z"
+    },
+    "size": 618,
+    "lastModificationSignature": "f1ff87afebf5680ad0b4907153aec7bffa25bbe766f2acdd60612bb7401344d2",
+    "height": 16
+  }
+}

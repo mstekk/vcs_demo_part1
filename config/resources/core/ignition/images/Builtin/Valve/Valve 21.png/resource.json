@@ -1,0 +1,20 @@
+{
+  "scope": "A",
+  "version": 1,
+  "restricted": false,
+  "overridable": true,
+  "files": [
+    "Valve 21.png"
+  ],
+  "attributes": {
+    "width": 90,
+    "format": "PNG",
+    "lastModification": {
+      "actor": "8.3-migration",
+      "timestamp": "2026-01-07T14:49:07Z"
+    },
+    "size": 5649,
+    "lastModificationSignature": "6ab6f4be02b75ce1a6f3737b6759452af1aa7090f270de7da66c6aa59395b2d8",
+    "height": 132
+  }
+}

@@ -1,0 +1,20 @@
+{
+  "scope": "A",
+  "version": 1,
+  "restricted": false,
+  "overridable": true,
+  "files": [
+    "application-split-tile.png"
+  ],
+  "attributes": {
+    "width": 16,
+    "format": "PNG",
+    "lastModification": {
+      "actor": "8.3-migration",
+      "timestamp": "2026-01-07T14:49:07Z"
+    },
+    "size": 502,
+    "lastModificationSignature": "7293493d6555a69f7e2a9d127e1689cf1a90beea8223250886e1550063f57fe8",
+    "height": 16
+  }
+}

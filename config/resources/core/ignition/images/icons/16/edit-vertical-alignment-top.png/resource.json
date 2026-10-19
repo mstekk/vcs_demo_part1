@@ -1,0 +1,20 @@
+{
+  "scope": "A",
+  "version": 1,
+  "restricted": false,
+  "overridable": true,
+  "files": [
+    "edit-vertical-alignment-top.png"
+  ],
+  "attributes": {
+    "width": 16,
+    "format": "PNG",
+    "lastModification": {
+      "actor": "8.3-migration",
+      "timestamp": "2026-01-07T14:49:07Z"
+    },
+    "size": 342,
+    "lastModificationSignature": "8373a678fe180c865fac2cf1f0d1e0b7b0763ab69bf78683d25e1491011aad45",
+    "height": 16
+  }
+}

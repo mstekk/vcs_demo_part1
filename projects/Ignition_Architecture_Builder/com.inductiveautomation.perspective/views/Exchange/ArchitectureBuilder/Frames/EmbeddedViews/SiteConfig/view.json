@@ -1,0 +1,661 @@
+{
+  "custom": {
+    "DeviceImages": [
+      {
+        "label": "Client Keyboard Blue - Left",
+        "value": "ClientKeyboardBlue-Left"
+      },
+      {
+        "label": "Client Keyboard Blue - Right",
+        "value": "ClientKeyboardBlue-Right"
+      },
+      {
+        "label": "Client Keyboard White - Left",
+        "value": "ClientKeyboardWhite-Left"
+      },
+      {
+        "label": "Client Keyboard White - Right",
+        "value": "ClientKeyboardWhite-Right"
+      },
+      {
+        "label": "Client Laptop Blue - Left",
+        "value": "ClientLaptopBlue-Left"
+      },
+      {
+        "label": "Client Laptop Blue - Right",
+        "value": "ClientLaptopBlue-Right"
+      },
+      {
+        "label": "Client Laptop White - Left",
+        "value": "ClientLaptopWhite-Left"
+      },
+      {
+        "label": "Client Laptop White - Right",
+        "value": "ClientLaptopWhite-Right"
+      },
+      {
+        "label": "Client Machine",
+        "value": "ClientMachine"
+      },
+      {
+        "label": "Client Panel Blank",
+        "value": "ClientPanelBlank"
+      },
+      {
+        "label": "Client Panel Blue - Left",
+        "value": "ClientPanelBlue-Left"
+      },
+      {
+        "label": "Client Panel White - Left",
+        "value": "ClientPanelWhite-Left"
+      },
+      {
+        "label": "Cell Phone Blue",
+        "value": "CellPhoneBlue"
+      },
+      {
+        "label": "Cell Phone White",
+        "value": "CellPhoneWhite"
+      },
+      {
+        "label": "HMI - Ignition",
+        "value": "HMI-Ignition"
+      }
+    ],
+    "params": null
+  },
+  "params": {
+    "uuid": "I63ee1665"
+  },
+  "propConfig": {
+    "custom.DeviceImages": {
+      "persistent": true
+    },
+    "custom.params": {
+      "binding": {
+        "config": {
+          "expression": "property(\u0027session.custom.structure.configs.\u0027+{view.params.uuid})"
+        },
+        "type": "expr"
+      },
+      "onChange": {
+        "enabled": null,
+        "script": "\tif \u0027transparency\u0027 not in self.custom.params.config:\n\t\tself.custom.params.config[\u0027transparency\u0027]\u003d255"
+      },
+      "persistent": true
+    },
+    "params.uuid": {
+      "paramDirection": "input",
+      "persistent": true
+    }
+  },
+  "props": {
+    "defaultSize": {
+      "height": 788,
+      "width": 347
+    }
+  },
+  "root": {
+    "children": [
+      {
+        "meta": {
+          "name": "Name"
+        },
+        "position": {
+          "shrink": 0
+        },
+        "propConfig": {
+          "props.params.text": {
+            "binding": {
+              "config": {
+                "bidirectional": true,
+                "path": "view.custom.params.name"
+              },
+              "type": "property"
+            }
+          }
+        },
+        "props": {
+          "params": {
+            "label": "Area Name:",
+            "labelSize": 120
+          },
+          "path": "Exchange/ArchitectureBuilder/General/TextInput",
+          "style": {
+            "margin": "8px"
+          }
+        },
+        "type": "ia.display.view"
+      },
+      {
+        "meta": {
+          "name": "NumericInput"
+        },
+        "position": {
+          "display": false,
+          "shrink": 0
+        },
+        "propConfig": {
+          "props.params.value": {
+            "binding": {
+              "config": {
+                "bidirectional": true,
+                "path": "view.custom.params.config.quantity"
+              },
+              "type": "property"
+            }
+          }
+        },
+        "props": {
+          "params": {
+            "label": "Quantity:",
+            "labelSize": 120
+          },
+          "path": "Exchange/ArchitectureBuilder/General/NumericInput",
+          "style": {
+            "margin": "8px"
+          }
+        },
+        "type": "ia.display.view"
+      },
+      {
+        "meta": {
+          "name": "Accordion"
+        },
+        "position": {
+          "basis": "519px",
+          "shrink": 0
+        },
+        "propConfig": {
+          "props.items[0].body.viewParams.desc": {
+            "binding": {
+              "config": {
+                "bidirectional": true,
+                "path": "view.custom.params.desc"
+              },
+              "type": "property"
+            }
+          },
+          "props.items[1].body.viewParams.color": {
+            "binding": {
+              "config": {
+                "bidirectional": true,
+                "path": "view.custom.params.config.backColor"
+              },
+              "type": "property"
+            }
+          },
+          "props.items[1].body.viewParams.transparency": {
+            "binding": {
+              "config": {
+                "bidirectional": true,
+                "path": "view.custom.params.config.transparency"
+              },
+              "type": "property"
+            }
+          },
+          "props.items[2].body.viewParams.color": {
+            "binding": {
+              "config": {
+                "bidirectional": true,
+                "path": "view.custom.params.config.labelColor"
+              },
+              "type": "property"
+            }
+          },
+          "props.items[3].body.viewParams.lat": {
+            "binding": {
+              "config": {
+                "bidirectional": true,
+                "path": "view.custom.params.config.location.lat"
+              },
+              "type": "property"
+            }
+          },
+          "props.items[3].body.viewParams.lng": {
+            "binding": {
+              "config": {
+                "bidirectional": true,
+                "path": "view.custom.params.config.location.lng"
+              },
+              "type": "property"
+            }
+          },
+          "props.items[3].body.viewParams.uuid": {
+            "binding": {
+              "config": {
+                "path": "view.params.uuid"
+              },
+              "type": "property"
+            }
+          }
+        },
+        "props": {
+          "expansionMode": "single",
+          "items": [
+            {
+              "body": {
+                "height": "300px",
+                "style": {
+                  "classes": "",
+                  "margin": "16px"
+                },
+                "useDefaultViewHeight": false,
+                "useDefaultViewWidth": false,
+                "viewParams": {
+                  "label": ""
+                },
+                "viewPath": "Exchange/ArchitectureBuilder/General/TextArea"
+              },
+              "expanded": true,
+              "header": {
+                "content": {
+                  "style": {
+                    "classes": ""
+                  },
+                  "text": "Description",
+                  "type": "text",
+                  "useDefaultViewHeight": false,
+                  "useDefaultViewWidth": false,
+                  "viewParams": {},
+                  "viewPath": ""
+                },
+                "height": "40px",
+                "reverse": false,
+                "style": {
+                  "classes": ""
+                },
+                "toggle": {
+                  "collapsedIcon": {
+                    "color": "",
+                    "path": "material/expand_more",
+                    "style": {
+                      "classes": ""
+                    }
+                  },
+                  "enabled": true,
+                  "expandedIcon": {
+                    "color": "",
+                    "path": "material/expand_less",
+                    "style": {
+                      "classes": ""
+                    }
+                  }
+                }
+              }
+            },
+            {
+              "body": {
+                "height": "330px",
+                "style": {
+                  "classes": "",
+                  "margin": "16px"
+                },
+                "useDefaultViewHeight": false,
+                "useDefaultViewWidth": false,
+                "viewParams": {
+                  "adjustAlpha": true,
+                  "type": "back"
+                },
+                "viewPath": "Exchange/ArchitectureBuilder/Frames/EmbeddedViews/ColorSelector"
+              },
+              "expanded": false,
+              "header": {
+                "content": {
+                  "style": {
+                    "classes": ""
+                  },
+                  "text": "Background Color",
+                  "type": "text",
+                  "useDefaultViewHeight": false,
+                  "useDefaultViewWidth": false,
+                  "viewParams": {},
+                  "viewPath": ""
+                },
+                "height": "40px",
+                "reverse": false,
+                "style": {
+                  "classes": ""
+                },
+                "toggle": {
+                  "collapsedIcon": {
+                    "color": "",
+                    "path": "material/expand_more",
+                    "style": {
+                      "classes": ""
+                    }
+                  },
+                  "enabled": true,
+                  "expandedIcon": {
+                    "color": "",
+                    "path": "material/expand_less",
+                    "style": {
+                      "classes": ""
+                    }
+                  }
+                }
+              }
+            },
+            {
+              "body": {
+                "height": "auto",
+                "style": {
+                  "classes": "",
+                  "margin": "16px"
+                },
+                "useDefaultViewHeight": false,
+                "useDefaultViewWidth": false,
+                "viewParams": {
+                  "adjustAlpha": false,
+                  "type": "text"
+                },
+                "viewPath": "Exchange/ArchitectureBuilder/Frames/EmbeddedViews/ColorSelector"
+              },
+              "expanded": false,
+              "header": {
+                "content": {
+                  "style": {
+                    "classes": ""
+                  },
+                  "text": "Text Color",
+                  "type": "text",
+                  "useDefaultViewHeight": false,
+                  "useDefaultViewWidth": false,
+                  "viewParams": {},
+                  "viewPath": ""
+                },
+                "height": "40px",
+                "reverse": false,
+                "style": {
+                  "classes": ""
+                },
+                "toggle": {
+                  "collapsedIcon": {
+                    "color": "",
+                    "path": "material/expand_more",
+                    "style": {
+                      "classes": ""
+                    }
+                  },
+                  "enabled": true,
+                  "expandedIcon": {
+                    "color": "",
+                    "path": "material/expand_less",
+                    "style": {
+                      "classes": ""
+                    }
+                  }
+                }
+              }
+            },
+            {
+              "body": {
+                "height": "auto",
+                "style": {
+                  "classes": "",
+                  "margin": "16px"
+                },
+                "useDefaultViewHeight": false,
+                "useDefaultViewWidth": false,
+                "viewParams": {},
+                "viewPath": "Exchange/ArchitectureBuilder/Frames/EmbeddedViews/LatLng"
+              },
+              "expanded": false,
+              "header": {
+                "content": {
+                  "style": {
+                    "classes": ""
+                  },
+                  "text": "Location",
+                  "type": "text",
+                  "useDefaultViewHeight": false,
+                  "useDefaultViewWidth": false,
+                  "viewParams": {},
+                  "viewPath": ""
+                },
+                "height": "40px",
+                "reverse": false,
+                "style": {
+                  "classes": ""
+                },
+                "toggle": {
+                  "collapsedIcon": {
+                    "color": "",
+                    "path": "material/expand_more",
+                    "style": {
+                      "classes": ""
+                    }
+                  },
+                  "enabled": true,
+                  "expandedIcon": {
+                    "color": "",
+                    "path": "material/expand_less",
+                    "style": {
+                      "classes": ""
+                    }
+                  }
+                }
+              }
+            }
+          ],
+          "style": {
+            "margin": "8px"
+          }
+        },
+        "type": "ia.display.accordion"
+      },
+      {
+        "meta": {
+          "name": "ToggleSwitch",
+          "tooltip": {
+            "text": "All Items Within this Area will be ignored in the BOM"
+          }
+        },
+        "position": {
+          "basis": "36px"
+        },
+        "propConfig": {
+          "meta.tooltip.enabled": {
+            "binding": {
+              "config": {
+                "path": "this.props.selected"
+              },
+              "type": "property"
+            }
+          },
+          "props.selected": {
+            "binding": {
+              "config": {
+                "bidirectional": true,
+                "path": "view.custom.params.config.vendor"
+              },
+              "overlayOptOut": true,
+              "type": "property"
+            }
+          }
+        },
+        "props": {
+          "label": {
+            "text": "Vendor Area"
+          }
+        },
+        "type": "ia.input.toggle-switch"
+      },
+      {
+        "children": [
+          {
+            "events": {
+              "component": {
+                "onActionPerformed": {
+                  "config": {
+                    "script": "\tfrom exchange.architecturebuilder.viewCanvas.auditEvents import insertAuditEvent\n\tpayload\u003dsystem.util.jsonDecode(system.util.jsonEncode(self.view.custom.params))\n\tsystem.perspective.sendMessage(\u0027updateViewParams\u0027, payload, scope\u003d\u0027session\u0027)\n\t\n\tuuid\u003dself.view.params.uuid\n\toriginatingSystem\u003d[\"source\",\"Layout\", \u0027uuid\u0027,uuid]\n\tinsertAuditEvent(self.session.custom.audit.layout, \"Updated\", \"Container\", actionValue\u003d\u0027Name: {}\u0027.format(self.view.custom.params.name), originatingSystem\u003doriginatingSystem)\n\t\n\t\n\tsystem.perspective.closePopup(uuid)"
+                  },
+                  "scope": "G",
+                  "type": "script"
+                }
+              }
+            },
+            "meta": {
+              "name": "Ok"
+            },
+            "position": {
+              "basis": "33%",
+              "grow": 1
+            },
+            "props": {
+              "style": {
+                "classes": "Exchange/ArchitectureBuilder/buttonHover",
+                "marginLeft": "8px",
+                "marginRight": "8px"
+              },
+              "text": "OK"
+            },
+            "type": "ia.input.button"
+          },
+          {
+            "events": {
+              "component": {
+                "onActionPerformed": {
+                  "config": {
+                    "script": "\tfrom exchange.architecturebuilder.viewCanvas.auditEvents import insertAuditEvent\n\tuuid\u003dself.view.params.uuid\n\toriginatingSystem\u003d[\"source\",\"Layout\", \u0027uuid\u0027,uuid]\n\tinsertAuditEvent(self.session.custom.audit.layout, \"Closed\", \"Container\", originatingSystem\u003doriginatingSystem)\n\tsystem.perspective.closePopup(uuid)"
+                  },
+                  "scope": "G",
+                  "type": "script"
+                }
+              }
+            },
+            "meta": {
+              "name": "Cancel"
+            },
+            "position": {
+              "basis": "33%",
+              "grow": 1
+            },
+            "props": {
+              "style": {
+                "classes": "Exchange/ArchitectureBuilder/buttonHover",
+                "marginLeft": "8px",
+                "marginRight": "8px"
+              },
+              "text": "Cancel"
+            },
+            "type": "ia.input.button"
+          },
+          {
+            "events": {
+              "component": {
+                "onActionPerformed": {
+                  "config": {
+                    "script": "\tfrom exchange.architecturebuilder.viewCanvas.auditEvents import insertAuditEvent\n\tpayload\u003dsystem.util.jsonDecode(system.util.jsonEncode(self.view.custom.params))\n\tsystem.perspective.sendMessage(\u0027updateViewParams\u0027, payload, scope\u003d\u0027session\u0027)\n\t\n\tuuid\u003dself.view.params.uuid\n\toriginatingSystem\u003d[\"source\",\"Layout\", \u0027uuid\u0027,uuid]\n\tinsertAuditEvent(self.session.custom.audit.layout, \"Updated\", \"Container\", actionValue\u003d\u0027Name: {}\u0027.format(self.view.custom.params.name), originatingSystem\u003doriginatingSystem)\t\n\t\n\t"
+                  },
+                  "scope": "G",
+                  "type": "script"
+                }
+              }
+            },
+            "meta": {
+              "name": "Apply"
+            },
+            "position": {
+              "basis": "33%",
+              "grow": 1
+            },
+            "props": {
+              "style": {
+                "classes": "Exchange/ArchitectureBuilder/buttonHover",
+                "marginLeft": "8px",
+                "marginRight": "8px"
+              },
+              "text": "Apply"
+            },
+            "type": "ia.input.button"
+          }
+        ],
+        "meta": {
+          "name": "Apply"
+        },
+        "position": {
+          "basis": "34px",
+          "shrink": 0
+        },
+        "props": {
+          "justify": "space-around",
+          "style": {
+            "marginBottom": "8px",
+            "marginTop": "8px"
+          }
+        },
+        "type": "ia.container.flex"
+      },
+      {
+        "events": {
+          "component": {
+            "onActionPerformed": {
+              "config": {
+                "script": "\t\n\tareaUUID\u003dself.view.params.uuid\n\t\n\tfor c in range(len(self.session.custom.containers)):\n\t\tif areaUUID in self.session.custom.containers[c].keys():\n\t\t\tself.session.custom.containers.pop(c)\n\t\t\tself.session.custom.structure.configs.pop(areaUUID)\n\t\t\tbreak\n\tsystem.perspective.closePopup(self.view.params.uuid)\n\tsystem.perspective.sendMessage(\u0027refreshViewCanvas\u0027, True, scope\u003d \u0027session\u0027)"
+              },
+              "scope": "G",
+              "type": "script"
+            }
+          }
+        },
+        "meta": {
+          "name": "DeleteComponent"
+        },
+        "position": {
+          "basis": "42px",
+          "shrink": 0
+        },
+        "props": {
+          "confirm": {
+            "enabled": true
+          },
+          "readyState": {
+            "icon": {
+              "style": {
+                "height": "24px",
+                "width": "2rem"
+              }
+            },
+            "text": "Delete Area"
+          },
+          "style": {
+            "classes": "Exchange/ArchitectureBuilder/buttonHover",
+            "marginBottom": "8px",
+            "marginLeft": "8px",
+            "marginRight": "8px"
+          },
+          "writingState": {
+            "icon": {
+              "path": "material/hourglass_empty",
+              "style": {
+                "height": "24px",
+                "width": "2rem"
+              }
+            },
+            "text": "Writing..."
+          }
+        },
+        "scripts": {
+          "customMethods": [
+            {
+              "name": "deleteComponent",
+              "params": [],
+              "script": "\tuuid\u003dself.view.params.uuid\n\ttypeID\u003dself.view.custom.params.type\n\tsystem.perspective.sendMessage(\u0027selectFrame\u0027,{\u0027selected\u0027: True})\n\tsystem.perspective.sendMessage(\u0027deleteComponent\u0027, {\u0027uuid\u0027:uuid,\u0027type\u0027: typeID }, scope\u003d\"session\")"
+            }
+          ],
+          "extensionFunctions": null,
+          "messageHandlers": []
+        },
+        "type": "ia.input.oneshotbutton"
+      }
+    ],
+    "meta": {
+      "name": "root"
+    },
+    "props": {
+      "direction": "column"
+    },
+    "type": "ia.container.flex"
+  }
+}

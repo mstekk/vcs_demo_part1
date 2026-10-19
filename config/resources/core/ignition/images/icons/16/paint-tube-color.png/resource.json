@@ -1,0 +1,20 @@
+{
+  "scope": "A",
+  "version": 1,
+  "restricted": false,
+  "overridable": true,
+  "files": [
+    "paint-tube-color.png"
+  ],
+  "attributes": {
+    "width": 16,
+    "format": "PNG",
+    "lastModification": {
+      "actor": "8.3-migration",
+      "timestamp": "2026-01-07T14:49:07Z"
+    },
+    "size": 591,
+    "lastModificationSignature": "9da48bff5a360ad5f3d4d5ccb27bed4fb74eefe77fae608cb0b60e498a1a6a2c",
+    "height": 16
+  }
+}

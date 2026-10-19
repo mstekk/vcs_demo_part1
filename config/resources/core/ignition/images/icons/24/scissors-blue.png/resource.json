@@ -1,0 +1,20 @@
+{
+  "scope": "A",
+  "version": 1,
+  "restricted": false,
+  "overridable": true,
+  "files": [
+    "scissors-blue.png"
+  ],
+  "attributes": {
+    "width": 24,
+    "format": "PNG",
+    "lastModification": {
+      "actor": "8.3-migration",
+      "timestamp": "2026-01-07T14:49:07Z"
+    },
+    "size": 1112,
+    "lastModificationSignature": "79b613a97526cd8fae730a9dc22d47a2d541ec1eec1a0cdaf1cd18c8d712b8ba",
+    "height": 24
+  }
+}

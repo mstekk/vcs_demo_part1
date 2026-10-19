@@ -1,0 +1,20 @@
+{
+  "scope": "A",
+  "version": 1,
+  "restricted": false,
+  "overridable": true,
+  "files": [
+    "information-frame.png"
+  ],
+  "attributes": {
+    "width": 16,
+    "format": "PNG",
+    "lastModification": {
+      "actor": "8.3-migration",
+      "timestamp": "2026-01-07T14:49:07Z"
+    },
+    "size": 897,
+    "lastModificationSignature": "3ff62827f6f2350fdb06ceae11823900e0bd1a8232493c2e4832df4057aa6c74",
+    "height": 16
+  }
+}

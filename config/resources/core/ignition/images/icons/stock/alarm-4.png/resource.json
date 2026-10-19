@@ -1,0 +1,20 @@
+{
+  "scope": "A",
+  "version": 1,
+  "restricted": false,
+  "overridable": true,
+  "files": [
+    "alarm-4.png"
+  ],
+  "attributes": {
+    "width": 113,
+    "format": "PNG",
+    "lastModification": {
+      "actor": "8.3-migration",
+      "timestamp": "2026-01-07T14:49:07Z"
+    },
+    "size": 959,
+    "lastModificationSignature": "56923b0a3eb6023d46bef30203d9174ad39f981125c08cbcfbfbffbbf4ccc492",
+    "height": 113
+  }
+}

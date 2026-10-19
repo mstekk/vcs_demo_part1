@@ -1,0 +1,20 @@
+{
+  "scope": "A",
+  "version": 1,
+  "restricted": false,
+  "overridable": true,
+  "files": [
+    "application-monitor.png"
+  ],
+  "attributes": {
+    "width": 16,
+    "format": "PNG",
+    "lastModification": {
+      "actor": "8.3-migration",
+      "timestamp": "2026-01-07T14:49:07Z"
+    },
+    "size": 702,
+    "lastModificationSignature": "8ba4f309d8aa440cfada9e57a581059ad2c36f8a668584c18a78f3d0fa321539",
+    "height": 16
+  }
+}

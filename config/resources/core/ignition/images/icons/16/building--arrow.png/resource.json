@@ -1,0 +1,20 @@
+{
+  "scope": "A",
+  "version": 1,
+  "restricted": false,
+  "overridable": true,
+  "files": [
+    "building--arrow.png"
+  ],
+  "attributes": {
+    "width": 16,
+    "format": "PNG",
+    "lastModification": {
+      "actor": "8.3-migration",
+      "timestamp": "2026-01-07T14:49:07Z"
+    },
+    "size": 844,
+    "lastModificationSignature": "257d0c6a9f7aeb0fc15a0f6206fa4d70b65fefa5023f33cb16c43ee78fb08833",
+    "height": 16
+  }
+}

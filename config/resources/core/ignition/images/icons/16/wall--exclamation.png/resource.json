@@ -1,0 +1,20 @@
+{
+  "scope": "A",
+  "version": 1,
+  "restricted": false,
+  "overridable": true,
+  "files": [
+    "wall--exclamation.png"
+  ],
+  "attributes": {
+    "width": 16,
+    "format": "PNG",
+    "lastModification": {
+      "actor": "8.3-migration",
+      "timestamp": "2026-01-07T14:49:07Z"
+    },
+    "size": 713,
+    "lastModificationSignature": "f7d265d0d75035ba786299c42f66ec1e9a5b981052d45aae2cbe1b2c05843a4c",
+    "height": 16
+  }
+}

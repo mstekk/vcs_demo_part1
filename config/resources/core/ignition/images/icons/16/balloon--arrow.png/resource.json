@@ -1,0 +1,20 @@
+{
+  "scope": "A",
+  "version": 1,
+  "restricted": false,
+  "overridable": true,
+  "files": [
+    "balloon--arrow.png"
+  ],
+  "attributes": {
+    "width": 16,
+    "format": "PNG",
+    "lastModification": {
+      "actor": "8.3-migration",
+      "timestamp": "2026-01-07T14:49:07Z"
+    },
+    "size": 850,
+    "lastModificationSignature": "a60f94fb4b1ebfb0f7966e0da67c256c39c9c4c4e72eff0e84d23cdf72fea4e4",
+    "height": 16
+  }
+}

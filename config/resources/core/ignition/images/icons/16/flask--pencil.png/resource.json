@@ -1,0 +1,20 @@
+{
+  "scope": "A",
+  "version": 1,
+  "restricted": false,
+  "overridable": true,
+  "files": [
+    "flask--pencil.png"
+  ],
+  "attributes": {
+    "width": 16,
+    "format": "PNG",
+    "lastModification": {
+      "actor": "8.3-migration",
+      "timestamp": "2026-01-07T14:49:07Z"
+    },
+    "size": 838,
+    "lastModificationSignature": "f7501808a1a81a1295d4d4887611e740ec4988b8c6f46ccce0aedf3cd0a258f0",
+    "height": 16
+  }
+}

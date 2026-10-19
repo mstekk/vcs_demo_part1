@@ -1,0 +1,20 @@
+{
+  "scope": "A",
+  "version": 1,
+  "restricted": false,
+  "overridable": true,
+  "files": [
+    "photocamera6.png"
+  ],
+  "attributes": {
+    "width": 24,
+    "format": "PNG",
+    "lastModification": {
+      "actor": "8.3-migration",
+      "timestamp": "2026-01-07T14:49:07Z"
+    },
+    "size": 437,
+    "lastModificationSignature": "f99912b2a538d002c4a3548e5c56b717b79cbae76f8e08dfc9e1f514d21839c4",
+    "height": 24
+  }
+}

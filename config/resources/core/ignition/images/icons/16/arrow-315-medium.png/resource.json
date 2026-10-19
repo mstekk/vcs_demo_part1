@@ -1,0 +1,20 @@
+{
+  "scope": "A",
+  "version": 1,
+  "restricted": false,
+  "overridable": true,
+  "files": [
+    "arrow-315-medium.png"
+  ],
+  "attributes": {
+    "width": 16,
+    "format": "PNG",
+    "lastModification": {
+      "actor": "8.3-migration",
+      "timestamp": "2026-01-07T14:49:07Z"
+    },
+    "size": 534,
+    "lastModificationSignature": "21b6086f60f6e4ceb1bdfa77ff1b15b34cf7831c2dffd93d05f898eee68392f6",
+    "height": 16
+  }
+}

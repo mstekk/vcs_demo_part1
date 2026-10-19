@@ -1,0 +1,20 @@
+{
+  "scope": "A",
+  "version": 1,
+  "restricted": false,
+  "overridable": true,
+  "files": [
+    "zone--arrow.png"
+  ],
+  "attributes": {
+    "width": 16,
+    "format": "PNG",
+    "lastModification": {
+      "actor": "8.3-migration",
+      "timestamp": "2026-01-07T14:49:07Z"
+    },
+    "size": 557,
+    "lastModificationSignature": "40240dbabbd8dcd4f0ccede0cbc2fbf874bb7ae7b88563889ff691e593981a57",
+    "height": 16
+  }
+}

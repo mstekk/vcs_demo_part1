@@ -1,0 +1,16 @@
+{
+  "base": {
+    "style": {}
+  },
+  "variants": [
+    {
+      "pseudo": "hover",
+      "style": {
+        "backgroundColor": "#FF8A8A",
+        "cursor": "pointer",
+        "stroke": "#D90000",
+        "fill": "#D90000"
+      }
+    }
+  ]
+}

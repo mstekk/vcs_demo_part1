@@ -1,0 +1,20 @@
+{
+  "scope": "A",
+  "version": 1,
+  "restricted": false,
+  "overridable": true,
+  "files": [
+    "ghost-small.png"
+  ],
+  "attributes": {
+    "width": 16,
+    "format": "PNG",
+    "lastModification": {
+      "actor": "8.3-migration",
+      "timestamp": "2026-01-07T14:49:07Z"
+    },
+    "size": 288,
+    "lastModificationSignature": "18d1b5d95b5b36d54a3d39ffe3c699bb76e34473489673ad25de4779c68ccd96",
+    "height": 16
+  }
+}

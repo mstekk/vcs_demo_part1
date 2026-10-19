@@ -1,0 +1,20 @@
+{
+  "scope": "A",
+  "version": 1,
+  "restricted": false,
+  "overridable": true,
+  "files": [
+    "medal-bronze-red.png"
+  ],
+  "attributes": {
+    "width": 16,
+    "format": "PNG",
+    "lastModification": {
+      "actor": "8.3-migration",
+      "timestamp": "2026-01-07T14:49:07Z"
+    },
+    "size": 784,
+    "lastModificationSignature": "567eff350b5b52de4993417357a3ffa3dc588dbbdb5fe75b927e329d1c872b5f",
+    "height": 16
+  }
+}

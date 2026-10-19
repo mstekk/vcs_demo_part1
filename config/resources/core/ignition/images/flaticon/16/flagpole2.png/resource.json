@@ -1,0 +1,20 @@
+{
+  "scope": "A",
+  "version": 1,
+  "restricted": false,
+  "overridable": true,
+  "files": [
+    "flagpole2.png"
+  ],
+  "attributes": {
+    "width": 16,
+    "format": "PNG",
+    "lastModification": {
+      "actor": "8.3-migration",
+      "timestamp": "2026-01-07T14:49:07Z"
+    },
+    "size": 328,
+    "lastModificationSignature": "6962137cbd009f3b66163c5bce6e9035091b6ffe55593f62ec71321889f602ae",
+    "height": 16
+  }
+}

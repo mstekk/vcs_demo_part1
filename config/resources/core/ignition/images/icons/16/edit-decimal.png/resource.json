@@ -1,0 +1,20 @@
+{
+  "scope": "A",
+  "version": 1,
+  "restricted": false,
+  "overridable": true,
+  "files": [
+    "edit-decimal.png"
+  ],
+  "attributes": {
+    "width": 16,
+    "format": "PNG",
+    "lastModification": {
+      "actor": "8.3-migration",
+      "timestamp": "2026-01-07T14:49:07Z"
+    },
+    "size": 446,
+    "lastModificationSignature": "8c243d05b93362a3b73be45dccde2d8bb15deed7c9e1bd09c2666a2e7f85c6f2",
+    "height": 16
+  }
+}

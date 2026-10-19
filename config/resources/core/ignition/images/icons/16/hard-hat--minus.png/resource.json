@@ -1,0 +1,20 @@
+{
+  "scope": "A",
+  "version": 1,
+  "restricted": false,
+  "overridable": true,
+  "files": [
+    "hard-hat--minus.png"
+  ],
+  "attributes": {
+    "width": 16,
+    "format": "PNG",
+    "lastModification": {
+      "actor": "8.3-migration",
+      "timestamp": "2026-01-07T14:49:07Z"
+    },
+    "size": 780,
+    "lastModificationSignature": "a1b482e72c9d852c03d3b4e7e8ce38b83566695041a8ae8de79cc11dc76c671a",
+    "height": 16
+  }
+}

@@ -1,0 +1,22 @@
+[
+  {
+    "valueSource": "memory",
+    "dataType": "String",
+    "name": "Units",
+    "defaultValue": "metric",
+    "tagType": "AtomicTag"
+  },
+  {
+    "valueSource": "memory",
+    "name": "RefreshRate",
+    "defaultValue": 0,
+    "tagType": "AtomicTag"
+  },
+  {
+    "valueSource": "memory",
+    "dataType": "String",
+    "name": "ApiKey",
+    "defaultValue": "",
+    "tagType": "AtomicTag"
+  }
+]

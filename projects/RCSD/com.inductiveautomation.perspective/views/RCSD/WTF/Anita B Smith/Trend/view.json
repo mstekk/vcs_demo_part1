@@ -1,0 +1,384 @@
+{
+  "custom": {},
+  "params": {},
+  "props": {
+    "defaultSize": {
+      "height": 1030,
+      "width": 1770
+    }
+  },
+  "root": {
+    "children": [
+      {
+        "children": [
+          {
+            "custom": {
+              "pens": [
+                {
+                  "axis": "",
+                  "data": {
+                    "aggregateMode": "default",
+                    "source": "histprov:sqlite:/drv:ignition:rcsd:/tag:wtf/anita-b-smith/rw-phit/value"
+                  },
+                  "display": {
+                    "breakLine": true,
+                    "interpolation": "curveLinear",
+                    "radius": 3,
+                    "styles": {
+                      "highlighted": {
+                        "fill": {
+                          "color": "#63BEA2",
+                          "opacity": 1
+                        },
+                        "stroke": {
+                          "color": "#63BEA2",
+                          "dashArray": 0,
+                          "opacity": 1,
+                          "width": 1
+                        }
+                      },
+                      "muted": {
+                        "fill": {
+                          "color": "#63BEA2",
+                          "opacity": 0.4
+                        },
+                        "stroke": {
+                          "color": "#63BEA2",
+                          "dashArray": 0,
+                          "opacity": 0.4,
+                          "width": 1
+                        }
+                      },
+                      "normal": {
+                        "fill": {
+                          "color": "#63BEA2",
+                          "opacity": 0.8
+                        },
+                        "stroke": {
+                          "color": "#63BEA2",
+                          "dashArray": 0,
+                          "opacity": 0.8,
+                          "width": 1
+                        }
+                      },
+                      "selected": {
+                        "fill": {
+                          "color": "#63BEA2",
+                          "opacity": 1
+                        },
+                        "stroke": {
+                          "color": "#63BEA2",
+                          "dashArray": 0,
+                          "opacity": 1,
+                          "width": 1
+                        }
+                      }
+                    },
+                    "type": "line"
+                  },
+                  "enabled": true,
+                  "name": "rw-phit",
+                  "plot": 0,
+                  "selectable": true,
+                  "visible": true
+                }
+              ]
+            },
+            "meta": {
+              "name": "PowerChart"
+            },
+            "propConfig": {
+              "custom.penCount": {
+                "binding": {
+                  "config": {
+                    "path": "this.props.pens"
+                  },
+                  "transforms": [
+                    {
+                      "expression": "len({value})",
+                      "type": "expression"
+                    }
+                  ],
+                  "type": "property"
+                },
+                "onChange": {
+                  "enabled": null,
+                  "script": "\t# Reference to your pens array (adjust path if needed)\n\tpens \u003d self.props.pens\n\t\n\t# Defensive check\n\tif not pens:\n\t    return\n\t\n\tnewPens \u003d []\n\t\n\tfor pen in pens:\n\t    # Copy the pen so we don’t mutate original references\n\t    newPen \u003d dict(pen)\n\t\n\t    name \u003d newPen.get(\"name\", \"\")\n\t\n\t    # Remove everything from \"/\" onward\n\t    if \"/\" in name:\n\t        newPen[\"name\"] \u003d name.split(\"/\", 1)[0]\n\t\n\t    newPens.append(newPen)\n\t\n\t# Write back the modified array\n\tself.props.pens \u003d newPens"
+                }
+              }
+            },
+            "props": {
+              "config": {
+                "penNamePathDepth": 2,
+                "rangeEndDate": {
+                  "$": [
+                    "ts",
+                    0,
+                    1769813114175
+                  ],
+                  "$ts": 1769813102124
+                },
+                "rangeStartDate": {
+                  "$": [
+                    "ts",
+                    0,
+                    1769813114175
+                  ],
+                  "$ts": 1769809514124
+                },
+                "unitOfTime": 1,
+                "visibility": {
+                  "showTagBrowser": true
+                }
+              },
+              "dataColumns": {
+                "penControl": {
+                  "axis": false,
+                  "plot": false,
+                  "xTrace": false
+                }
+              },
+              "interaction": {
+                "chartZoomLevel": 1,
+                "rangeZoomLevel": 1
+              },
+              "pens": [
+                {
+                  "axis": "",
+                  "data": {
+                    "aggregateMode": "default",
+                    "source": "histprov:sqlite:/drv:ignition:rcsd:/tag:wtf/anita-b-smith/nr-phit-1/value"
+                  },
+                  "display": {
+                    "breakLine": true,
+                    "interpolation": "curveLinear",
+                    "radius": 3,
+                    "styles": {
+                      "highlighted": {
+                        "fill": {
+                          "color": "#FC8D62",
+                          "opacity": 1
+                        },
+                        "stroke": {
+                          "color": "#FC8D62",
+                          "dashArray": 0,
+                          "opacity": 1,
+                          "width": 1
+                        }
+                      },
+                      "muted": {
+                        "fill": {
+                          "color": "#FC8D62",
+                          "opacity": 0.4
+                        },
+                        "stroke": {
+                          "color": "#FC8D62",
+                          "dashArray": 0,
+                          "opacity": 0.4,
+                          "width": 1
+                        }
+                      },
+                      "normal": {
+                        "fill": {
+                          "color": "#FC8D62",
+                          "opacity": 0.8
+                        },
+                        "stroke": {
+                          "color": "#FC8D62",
+                          "dashArray": 0,
+                          "opacity": 0.8,
+                          "width": 1
+                        }
+                      },
+                      "selected": {
+                        "fill": {
+                          "color": "#FC8D62",
+                          "opacity": 1
+                        },
+                        "stroke": {
+                          "color": "#FC8D62",
+                          "dashArray": 0,
+                          "opacity": 1,
+                          "width": 1
+                        }
+                      }
+                    },
+                    "type": "line"
+                  },
+                  "enabled": true,
+                  "name": "nr-phit-1",
+                  "plot": 0,
+                  "selectable": true,
+                  "visible": true
+                },
+                {
+                  "axis": "",
+                  "data": {
+                    "aggregateMode": "default",
+                    "source": "histprov:sqlite:/drv:ignition:rcsd:/tag:wtf/anita-b-smith/nr-phit-2/value"
+                  },
+                  "display": {
+                    "breakLine": true,
+                    "interpolation": "curveLinear",
+                    "radius": 3,
+                    "styles": {
+                      "highlighted": {
+                        "fill": {
+                          "color": "#8DA0CB",
+                          "opacity": 1
+                        },
+                        "stroke": {
+                          "color": "#8DA0CB",
+                          "dashArray": 0,
+                          "opacity": 1,
+                          "width": 1
+                        }
+                      },
+                      "muted": {
+                        "fill": {
+                          "color": "#8DA0CB",
+                          "opacity": 0.4
+                        },
+                        "stroke": {
+                          "color": "#8DA0CB",
+                          "dashArray": 0,
+                          "opacity": 0.4,
+                          "width": 1
+                        }
+                      },
+                      "normal": {
+                        "fill": {
+                          "color": "#8DA0CB",
+                          "opacity": 0.8
+                        },
+                        "stroke": {
+                          "color": "#8DA0CB",
+                          "dashArray": 0,
+                          "opacity": 0.8,
+                          "width": 1
+                        }
+                      },
+                      "selected": {
+                        "fill": {
+                          "color": "#8DA0CB",
+                          "opacity": 1
+                        },
+                        "stroke": {
+                          "color": "#8DA0CB",
+                          "dashArray": 0,
+                          "opacity": 1,
+                          "width": 1
+                        }
+                      }
+                    },
+                    "type": "line"
+                  },
+                  "enabled": true,
+                  "name": "nr-phit-2",
+                  "plot": 0,
+                  "selectable": true,
+                  "visible": true
+                },
+                {
+                  "axis": "",
+                  "data": {
+                    "aggregateMode": "default",
+                    "source": "histprov:sqlite:/drv:ignition:rcsd:/tag:wtf/anita-b-smith/nr-phit-3/value"
+                  },
+                  "display": {
+                    "breakLine": true,
+                    "interpolation": "curveLinear",
+                    "radius": 3,
+                    "styles": {
+                      "highlighted": {
+                        "fill": {
+                          "color": "#E78AC3",
+                          "opacity": 1
+                        },
+                        "stroke": {
+                          "color": "#E78AC3",
+                          "dashArray": 0,
+                          "opacity": 1,
+                          "width": 1
+                        }
+                      },
+                      "muted": {
+                        "fill": {
+                          "color": "#E78AC3",
+                          "opacity": 0.4
+                        },
+                        "stroke": {
+                          "color": "#E78AC3",
+                          "dashArray": 0,
+                          "opacity": 0.4,
+                          "width": 1
+                        }
+                      },
+                      "normal": {
+                        "fill": {
+                          "color": "#E78AC3",
+                          "opacity": 0.8
+                        },
+                        "stroke": {
+                          "color": "#E78AC3",
+                          "dashArray": 0,
+                          "opacity": 0.8,
+                          "width": 1
+                        }
+                      },
+                      "selected": {
+                        "fill": {
+                          "color": "#E78AC3",
+                          "opacity": 1
+                        },
+                        "stroke": {
+                          "color": "#E78AC3",
+                          "dashArray": 0,
+                          "opacity": 1,
+                          "width": 1
+                        }
+                      }
+                    },
+                    "type": "line"
+                  },
+                  "enabled": true,
+                  "name": "nr-phit-3",
+                  "plot": 0,
+                  "selectable": true,
+                  "visible": true
+                }
+              ],
+              "timeAxis": {
+                "grid": {
+                  "visible": true
+                }
+              }
+            },
+            "type": "ia.chart.powerchart"
+          }
+        ],
+        "meta": {
+          "name": "TabContainer"
+        },
+        "position": {
+          "basis": "300px",
+          "grow": 1
+        },
+        "props": {
+          "menuType": "modern",
+          "tabs": [
+            "ad hoc"
+          ]
+        },
+        "type": "ia.container.tab"
+      }
+    ],
+    "meta": {
+      "name": "root"
+    },
+    "props": {
+      "direction": "column"
+    },
+    "type": "ia.container.flex"
+  }
+}

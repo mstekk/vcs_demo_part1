@@ -1,0 +1,15 @@
+{
+  "base": {
+    "style": {
+      "color": "var(--neutral-30)"
+    }
+  },
+  "variants": [
+    {
+      "pseudo": "hover",
+      "style": {
+        "color": "var(--neutral-10)"
+      }
+    }
+  ]
+}

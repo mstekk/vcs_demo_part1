@@ -1,0 +1,20 @@
+{
+  "scope": "A",
+  "version": 1,
+  "restricted": false,
+  "overridable": true,
+  "files": [
+    "layers-alignment-bottom.png"
+  ],
+  "attributes": {
+    "width": 16,
+    "format": "PNG",
+    "lastModification": {
+      "actor": "8.3-migration",
+      "timestamp": "2026-01-07T14:49:07Z"
+    },
+    "size": 564,
+    "lastModificationSignature": "47b1ed0911cd603e1dc00ce5ffbeada5a27d476ebc7340e599231dcddf8ee853",
+    "height": 16
+  }
+}

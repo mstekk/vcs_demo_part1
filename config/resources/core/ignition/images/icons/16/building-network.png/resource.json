@@ -1,0 +1,20 @@
+{
+  "scope": "A",
+  "version": 1,
+  "restricted": false,
+  "overridable": true,
+  "files": [
+    "building-network.png"
+  ],
+  "attributes": {
+    "width": 16,
+    "format": "PNG",
+    "lastModification": {
+      "actor": "8.3-migration",
+      "timestamp": "2026-01-07T14:49:07Z"
+    },
+    "size": 777,
+    "lastModificationSignature": "0e0bfeb73a49085332eb25bc9abc42344dd0af44e6f08cd546b052d31de5ba5d",
+    "height": 16
+  }
+}

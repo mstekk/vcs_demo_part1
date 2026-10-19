@@ -1,0 +1,20 @@
+{
+  "scope": "A",
+  "version": 1,
+  "restricted": false,
+  "overridable": true,
+  "files": [
+    "fingerprint.png"
+  ],
+  "attributes": {
+    "width": 16,
+    "format": "PNG",
+    "lastModification": {
+      "actor": "8.3-migration",
+      "timestamp": "2026-01-07T14:49:07Z"
+    },
+    "size": 482,
+    "lastModificationSignature": "6855782a99d0c8205c30cac7a303ab2b4632dd003ba2b2afc0344df751e1497c",
+    "height": 16
+  }
+}

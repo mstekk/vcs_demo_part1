@@ -1,0 +1,239 @@
+{
+  "custom": {
+    "Locations": {
+      "$": [
+        "ds",
+        192,
+        1659382548845
+      ],
+      "$columns": [
+        {
+          "data": [
+            "Comines",
+            "Doha",
+            "Brussel"
+          ],
+          "name": "Name",
+          "type": "String"
+        },
+        {
+          "data": [
+            50.77584,
+            25.251556,
+            50.84318
+          ],
+          "name": "Lat",
+          "type": "Float"
+        },
+        {
+          "data": [
+            3.001648,
+            51.564827,
+            4.371755
+          ],
+          "name": "Lon",
+          "type": "Float"
+        },
+        {
+          "data": [
+            "Belgium",
+            "Qatar",
+            "Belgium"
+          ],
+          "name": "Country",
+          "type": "String"
+        },
+        {
+          "data": [
+            "Europe",
+            "Asia",
+            "Europe"
+          ],
+          "name": "Continent",
+          "type": "String"
+        }
+      ]
+    }
+  },
+  "params": {},
+  "propConfig": {
+    "custom.Locations": {
+      "binding": {
+        "config": {
+          "fallbackDelay": 2.5,
+          "mode": "direct",
+          "tagPath": "[default]HomeAutomation/Weather/Locations/SavedLocation"
+        },
+        "type": "tag"
+      },
+      "persistent": true
+    },
+    "custom.key_1": {
+      "persistent": true
+    },
+    "params.feature": {
+      "paramDirection": "input"
+    },
+    "params.key": {
+      "paramDirection": "input"
+    },
+    "params.tier1": {
+      "paramDirection": "input"
+    },
+    "params.tier2": {
+      "paramDirection": "input"
+    }
+  },
+  "props": {
+    "defaultSize": {
+      "height": 467,
+      "width": 367
+    }
+  },
+  "root": {
+    "children": [
+      {
+        "meta": {
+          "name": "Title"
+        },
+        "position": {
+          "basis": "56px",
+          "shrink": 0
+        },
+        "props": {
+          "params": {
+            "icon": "map",
+            "text": "Map"
+          },
+          "path": "Embedded/Title",
+          "style": {
+            "backgroundColor": ""
+          }
+        },
+        "type": "ia.display.view"
+      },
+      {
+        "events": {
+          "component": {
+            "onMapClick": {
+              "config": {
+                "script": "\tself.props.layers.ui.marker[0].lat \u003d event.lat\n\tself.props.layers.ui.marker[0].lng \u003d event.lng"
+              },
+              "enabled": false,
+              "scope": "G",
+              "type": "script"
+            }
+          }
+        },
+        "meta": {
+          "name": "Map"
+        },
+        "position": {
+          "basis": "400px",
+          "grow": 1
+        },
+        "propConfig": {
+          "props.init.center.lat": {
+            "binding": {
+              "config": {
+                "path": "this.props.layers.ui.marker[0].lat"
+              },
+              "type": "property"
+            }
+          },
+          "props.init.center.lng": {
+            "binding": {
+              "config": {
+                "path": "this.props.layers.ui.marker[0].lng"
+              },
+              "type": "property"
+            }
+          },
+          "props.layers.ui.marker": {
+            "binding": {
+              "config": {
+                "path": "view.custom.Locations"
+              },
+              "transforms": [
+                {
+                  "code": "\tmarkers \u003d [ {\n\t\t  \"name\": Name +\", \"+Country,\n\t\t  \"lat\": Lat,\n\t\t  \"lng\": Lon,\n\t\t  \"opacity\": 1,\n\t\t  \"icon\": {\n\t\t    \"path\": \"material/location_on\",\n\t\t    \"color\": \"#4190F7\",\n\t\t    \"size\": {\n\t\t      \"width\": 36,\n\t\t      \"height\": 36\n\t\t    },\n\t\t    \"style\": {\n\t\t      \"classes\": \"\"\n\t\t    }\n\t\t  },\n\t\t  \"tooltip\": {\n\t\t    \"content\": {\n\t\t      \"text\": Name +\", \"+Country,\n\t\t      \"view\": {\n\t\t        \"path\": \"\",\n\t\t        \"params\": {}\n\t\t      }\n\t\t    },\n\t\t    \"direction\": \"auto\",\n\t\t    \"permanent\": False,\n\t\t    \"sticky\": False,\n\t\t    \"opacity\": 1\n\t\t  },\n\t\t  \"popup\": {\n\t\t    \"enabled\": False,\n\t\t    \"content\": {\n\t\t      \"text\": \"\",\n\t\t      \"view\": {\n\t\t        \"path\": \"\",\n\t\t        \"params\": {}\n\t\t      }\n\t\t    },\n\t\t    \"width\": {\n\t\t      \"max\": 300,\n\t\t      \"min\": 50\n\t\t    },\n\t\t    \"height\": {\n\t\t      \"max\": 0\n\t\t    },\n\t\t    \"pan\": {\n\t\t      \"auto\": True\n\t\t    },\n\t\t    \"closeButton\": True,\n\t\t    \"autoClose\": True,\n\t\t    \"closeOnEscapeKey\": True,\n\t\t    \"closeOnClick\": True\n\t\t  }\n\t\t} for Name,Lat,Lon,Country,Continent in system.dataset.toPyDataSet(value)\n\t\t]\n\t\t\n\treturn markers",
+                  "type": "script"
+                }
+              ],
+              "type": "property"
+            }
+          }
+        },
+        "props": {
+          "init": {
+            "center": {},
+            "zoom": 10
+          },
+          "layers": {
+            "raster": {
+              "tile": [
+                {
+                  "WMS": {
+                    "format": "image/jpeg",
+                    "layers": "",
+                    "styles": "",
+                    "transparent": false,
+                    "uppercase": false,
+                    "version": "1.1.1"
+                  },
+                  "options": {
+                    "attribution": "Map data \u0026copy; \u003ca href\u003d\u0027https://www.openstreetmap.org/\u0027\u003eOpenStreetMap\u003c/a\u003e contributors, \u003ca href\u003d\u0027https://creativecommons.org/licenses/by-sa/2.0/\u0027\u003eCC-BY-SA\u003c/a\u003e",
+                    "crossOrigin": false,
+                    "detectRetina": false,
+                    "errorTileUrl": "",
+                    "opacity": 1,
+                    "subdomains": [
+                      "a",
+                      "b",
+                      "c"
+                    ],
+                    "tileSize": {
+                      "height": 256,
+                      "width": 256
+                    },
+                    "tms": false,
+                    "update": {
+                      "interval": 200,
+                      "whenIdle": false,
+                      "whenZooming": true
+                    },
+                    "zIndex": 1,
+                    "zoom": {
+                      "max": 18,
+                      "min": 0,
+                      "native": {
+                        "max": null,
+                        "min": null
+                      },
+                      "offset": 0,
+                      "reverse": false
+                    }
+                  },
+                  "url": "https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png",
+                  "urlTemplateParams": {}
+                }
+              ]
+            },
+            "ui": {}
+          }
+        },
+        "type": "ia.display.map"
+      }
+    ],
+    "meta": {
+      "name": "root"
+    },
+    "props": {
+      "direction": "column",
+      "style": {
+        "classes": "Page/Page"
+      }
+    },
+    "type": "ia.container.flex"
+  }
+}

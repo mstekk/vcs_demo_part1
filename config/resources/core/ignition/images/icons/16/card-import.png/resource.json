@@ -1,0 +1,20 @@
+{
+  "scope": "A",
+  "version": 1,
+  "restricted": false,
+  "overridable": true,
+  "files": [
+    "card-import.png"
+  ],
+  "attributes": {
+    "width": 16,
+    "format": "PNG",
+    "lastModification": {
+      "actor": "8.3-migration",
+      "timestamp": "2026-01-07T14:49:07Z"
+    },
+    "size": 651,
+    "lastModificationSignature": "d0ab63d9657fcd9834be0dbde0413b95d590b5fb8cc9342ce4deee0e5f80dcd0",
+    "height": 16
+  }
+}

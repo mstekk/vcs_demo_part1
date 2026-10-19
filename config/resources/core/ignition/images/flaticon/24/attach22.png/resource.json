@@ -1,0 +1,20 @@
+{
+  "scope": "A",
+  "version": 1,
+  "restricted": false,
+  "overridable": true,
+  "files": [
+    "attach22.png"
+  ],
+  "attributes": {
+    "width": 24,
+    "format": "PNG",
+    "lastModification": {
+      "actor": "8.3-migration",
+      "timestamp": "2026-01-07T14:49:07Z"
+    },
+    "size": 545,
+    "lastModificationSignature": "0a27637ea9adb5ed3e4e8cf7efb8c6dbb2ec81c9941438507839fc0048f4648d",
+    "height": 24
+  }
+}

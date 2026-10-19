@@ -1,0 +1,20 @@
+{
+  "scope": "A",
+  "version": 1,
+  "restricted": false,
+  "overridable": true,
+  "files": [
+    "globe--pencil.png"
+  ],
+  "attributes": {
+    "width": 16,
+    "format": "PNG",
+    "lastModification": {
+      "actor": "8.3-migration",
+      "timestamp": "2026-01-07T14:49:07Z"
+    },
+    "size": 938,
+    "lastModificationSignature": "0e607ccfaffe0b9fee560483b967af4e090c21ffee1ddd65a39e7c8d02954e70",
+    "height": 16
+  }
+}

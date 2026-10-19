@@ -1,0 +1,20 @@
+{
+  "scope": "A",
+  "version": 1,
+  "restricted": false,
+  "overridable": true,
+  "files": [
+    "edit-writing-mode-tbrl.png"
+  ],
+  "attributes": {
+    "width": 16,
+    "format": "PNG",
+    "lastModification": {
+      "actor": "8.3-migration",
+      "timestamp": "2026-01-07T14:49:07Z"
+    },
+    "size": 344,
+    "lastModificationSignature": "f5f05a84a870402b5f5f938e585ad5d48e2c725732cb5a79abec313a0a52bb1e",
+    "height": 16
+  }
+}

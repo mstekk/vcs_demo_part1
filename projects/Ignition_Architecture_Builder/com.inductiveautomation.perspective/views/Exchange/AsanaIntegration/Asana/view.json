@@ -1,0 +1,472 @@
+{
+  "custom": {
+    "customFields": null,
+    "projects": null,
+    "savedCustomFields": null,
+    "sections": null,
+    "teams": null,
+    "workspace": {}
+  },
+  "events": {
+    "system": {
+      "onStartup": {
+        "config": {
+          "script": "\tif \u0027Asana\u0027 in system.util.getGlobals().keys():\n\t\tself.getChild(\"root\").getChild(\"Workspaces\").props.value\u003dsystem.util.getGlobals()[\u0027Asana\u0027][\"workspace\"]\n\t\tself.getChild(\"root\").getChild(\"Teams\").props.value\u003dsystem.util.getGlobals()[\u0027Asana\u0027][\"team\"]\n\t\tself.getChild(\"root\").getChild(\"Projects\").props.value\u003dsystem.util.getGlobals()[\u0027Asana\u0027][\"project\"]\n\t\tself.getChild(\"root\").getChild(\"Sections\").props.value\u003dsystem.util.getGlobals()[\u0027Asana\u0027][\"section\"]\n\t\tself.getChild(\"root\").getChild(\"TextArea\").props.text\u003dsystem.util.getGlobals()[\u0027Asana\u0027][\"defaultNote\"]\n\t\tself.custom.savedCustomFields\u003dsystem.util.getGlobals()[\u0027Asana\u0027][\"custom_filters\"]\n\t\tself.getChild(\"root\").getChild(\"FlexRepeater\").props.instances\u003dsystem.util.getGlobals()[\u0027Asana\u0027][\"custom_filters\"]\n\telse:\n\t\tself.custom.savedCustomFields\u003dNone"
+        },
+        "scope": "G",
+        "type": "script"
+      }
+    }
+  },
+  "params": {
+    "token": ""
+  },
+  "propConfig": {
+    "custom.customFields": {
+      "binding": {
+        "config": {
+          "struct": {
+            "project": "{/root/Projects.props.value}",
+            "savedFields": "{view.custom.savedCustomFields}",
+            "token": "{view.params.token}"
+          },
+          "waitOnAll": true
+        },
+        "transforms": [
+          {
+            "code": "\tif value[\u0027savedFields\u0027]!\u003dNone:\n\t\treturn {\u0027data\u0027 : value[\u0027savedFields\u0027]}\n\telse:\n\t\t# Parameters\n\t\tapi_token \u003d value[\u0027token\u0027]\n\t\turl \u003d \"https://app.asana.com/api/1.0/projects/{}/custom_field_settings\".format(value[\u0027project\u0027])\n\t\t\n\t\t# Headers\n\t\theaders\u003dself.getChild(\"root\").getAsanaHeader(api_token)\n\t\t\n\t\t# Convert data to JSON\n\t\timport json\n\t\t\n\t\t# Make the HTTP POST request\n\t\tresponse \u003d system.net.httpGet(url\u003d url, headerValues\u003dheaders)\n\t\t\n\t\t# Print the response\n\t\treturn json.loads(response)",
+            "type": "script"
+          }
+        ],
+        "type": "expr-struct"
+      },
+      "persistent": true
+    },
+    "custom.projects": {
+      "binding": {
+        "config": {
+          "struct": {
+            "team": "{/root/Teams.props.value}",
+            "token": "{view.params.token}",
+            "workspace": "{/root/Workspaces.props.value}"
+          },
+          "waitOnAll": true
+        },
+        "transforms": [
+          {
+            "code": "\t# Parameters\n\tapi_token \u003d value[\u0027token\u0027]\n\turl \u003d \"https://app.asana.com/api/1.0/projects?workspace\u003d{}\u0026team\u003d{}\".format(value[\u0027workspace\u0027],value[\u0027team\u0027])\n\t\n\t# Headers\n\theaders\u003dself.getChild(\"root\").getAsanaHeader(api_token)\n\t\n\t# Convert data to JSON\n\timport json\n\t\n\t# Make the HTTP POST request\n\tresponse \u003d system.net.httpGet(url\u003d url, headerValues\u003dheaders)\n\t\n\t# Print the response\n\treturn json.loads(response)",
+            "type": "script"
+          }
+        ],
+        "type": "expr-struct"
+      },
+      "persistent": true
+    },
+    "custom.savedCustomFields": {
+      "persistent": true
+    },
+    "custom.sections": {
+      "binding": {
+        "config": {
+          "struct": {
+            "project": "{/root/Projects.props.value}",
+            "token": "{view.params.token}"
+          },
+          "waitOnAll": true
+        },
+        "transforms": [
+          {
+            "code": "\t# Parameters\n\tapi_token \u003d value[\u0027token\u0027]\n\turl \u003d \"https://app.asana.com/api/1.0/projects/{}/sections\".format(value[\u0027project\u0027])\n\t\n\t# Headers\n\theaders\u003dself.getChild(\"root\").getAsanaHeader(api_token)\n\t\n\t# Convert data to JSON\n\timport json\n\t\n\t# Make the HTTP POST request\n\tresponse \u003d system.net.httpGet(url\u003d url, headerValues\u003dheaders)\n\t\n\t# Print the response\n\treturn json.loads(response)",
+            "type": "script"
+          }
+        ],
+        "type": "expr-struct"
+      },
+      "persistent": true
+    },
+    "custom.teams": {
+      "binding": {
+        "config": {
+          "struct": {
+            "token": "{view.params.token}",
+            "workspace": "{/root/Workspaces.props.value}"
+          },
+          "waitOnAll": true
+        },
+        "transforms": [
+          {
+            "code": "\t# Parameters\n\tapi_token \u003d value[\u0027token\u0027]\n\turl \u003d \"https://app.asana.com/api/1.0/workspaces/{}/teams\".format(value[\u0027workspace\u0027])\n\t\n\t# Headers\n\theaders\u003dself.getChild(\"root\").getAsanaHeader(api_token)\n\t\n\t# Convert data to JSON\n\timport json\n\t\n\t# Make the HTTP POST request\n\tresponse \u003d system.net.httpGet(url\u003d url, headerValues\u003dheaders)\n\t\n\t# Print the response\n\treturn json.loads(response)",
+            "type": "script"
+          }
+        ],
+        "type": "expr-struct"
+      },
+      "persistent": true
+    },
+    "custom.workspace": {
+      "binding": {
+        "config": {
+          "path": "view.params.token"
+        },
+        "transforms": [
+          {
+            "code": "\tif value\u003d\u003d\u0027\u0027 or value is None:\n\t\treturn {}\n\t# Parameters\n\tapi_token \u003d value\n\turl \u003d \"https://app.asana.com/api/1.0/workspaces\"\n\t\n\t# Headers\n\theaders\u003dself.getChild(\"root\").getAsanaHeader(api_token)\n\t\n\t# Convert data to JSON\n\timport json\n\t\n\t# Make the HTTP POST request\n\tresponse \u003d system.net.httpGet(url\u003d url, headerValues\u003dheaders)\n\t\n\t# Print the response\n\treturn json.loads(response)\n",
+            "type": "script"
+          }
+        ],
+        "type": "property"
+      },
+      "persistent": true
+    },
+    "params.token": {
+      "paramDirection": "input",
+      "persistent": true
+    }
+  },
+  "props": {
+    "defaultSize": {
+      "height": 804,
+      "width": 672
+    },
+    "dropConfig": {
+      "udts": [
+        {
+          "action": "bind",
+          "param": "",
+          "type": ""
+        }
+      ]
+    }
+  },
+  "root": {
+    "children": [
+      {
+        "meta": {
+          "name": "WorkspaceHeader"
+        },
+        "position": {
+          "shrink": 0
+        },
+        "props": {
+          "text": "Workspace:",
+          "textStyle": {
+            "fontSize": 12
+          }
+        },
+        "type": "ia.display.label"
+      },
+      {
+        "meta": {
+          "name": "Workspaces"
+        },
+        "position": {
+          "shrink": 0
+        },
+        "propConfig": {
+          "props.options": {
+            "binding": {
+              "config": {
+                "path": "view.custom.workspace"
+              },
+              "transforms": [
+                {
+                  "code": "\tif len(value.keys())\u003d\u003d0:\n\t\treturn []\n\toptions\u003d[]\n\tfor x in value[\u0027data\u0027]:\n\t\toptions.append({\n\t\t  \"value\": x[\u0027gid\u0027],\n\t\t  \"label\": x[\u0027name\u0027]\n\t\t})\n\treturn options",
+                  "type": "script"
+                }
+              ],
+              "type": "property"
+            }
+          }
+        },
+        "props": {
+          "placeholder": {
+            "text": "Select Workspace..."
+          },
+          "showClearIcon": true,
+          "style": {
+            "marginBottom": "8px"
+          }
+        },
+        "type": "ia.input.dropdown"
+      },
+      {
+        "meta": {
+          "name": "TeamHeader"
+        },
+        "position": {
+          "shrink": 0
+        },
+        "props": {
+          "text": "Team:"
+        },
+        "type": "ia.display.label"
+      },
+      {
+        "meta": {
+          "name": "Teams"
+        },
+        "position": {
+          "shrink": 0
+        },
+        "propConfig": {
+          "props.options": {
+            "binding": {
+              "config": {
+                "path": "view.custom.teams"
+              },
+              "transforms": [
+                {
+                  "code": "\tif value\u003d\u003dNone:\n\t\treturn []\n\toptions\u003d[]\n\tfor x in value[\u0027data\u0027]:\n\t\toptions.append({\n\t\t  \"value\": x[\u0027gid\u0027],\n\t\t  \"label\": x[\u0027name\u0027]\n\t\t})\n\treturn options",
+                  "type": "script"
+                }
+              ],
+              "type": "property"
+            }
+          }
+        },
+        "props": {
+          "placeholder": {
+            "text": "Select Workspace Team..."
+          },
+          "showClearIcon": true,
+          "style": {
+            "marginBottom": "8px"
+          }
+        },
+        "type": "ia.input.dropdown"
+      },
+      {
+        "meta": {
+          "name": "ProjectHeader"
+        },
+        "position": {
+          "shrink": 0
+        },
+        "props": {
+          "text": "Project:"
+        },
+        "type": "ia.display.label"
+      },
+      {
+        "meta": {
+          "name": "Projects"
+        },
+        "position": {
+          "shrink": 0
+        },
+        "propConfig": {
+          "props.options": {
+            "binding": {
+              "config": {
+                "path": "view.custom.projects"
+              },
+              "transforms": [
+                {
+                  "code": "\tif value\u003d\u003dNone:\n\t\treturn []\n\toptions\u003d[]\n\tfor x in value[\u0027data\u0027]:\n\t\toptions.append({\n\t\t  \"value\": x[\u0027gid\u0027],\n\t\t  \"label\": x[\u0027name\u0027]\n\t\t})\n\treturn options",
+                  "type": "script"
+                }
+              ],
+              "type": "property"
+            }
+          }
+        },
+        "props": {
+          "placeholder": {
+            "text": "Select Project..."
+          },
+          "showClearIcon": true,
+          "style": {
+            "marginBottom": "8px"
+          }
+        },
+        "type": "ia.input.dropdown"
+      },
+      {
+        "meta": {
+          "name": "SectionHeader"
+        },
+        "position": {
+          "shrink": 0
+        },
+        "props": {
+          "text": "Section:"
+        },
+        "type": "ia.display.label"
+      },
+      {
+        "meta": {
+          "name": "Sections"
+        },
+        "position": {
+          "shrink": 0
+        },
+        "propConfig": {
+          "props.options": {
+            "binding": {
+              "config": {
+                "path": "view.custom.sections"
+              },
+              "transforms": [
+                {
+                  "code": "\tif value\u003d\u003dNone:\n\t\treturn []\n\toptions\u003d[]\n\tfor x in value[\u0027data\u0027]:\n\t\toptions.append({\n\t\t  \"value\": x[\u0027gid\u0027],\n\t\t  \"label\": x[\u0027name\u0027]\n\t\t})\n\treturn options",
+                  "type": "script"
+                }
+              ],
+              "type": "property"
+            }
+          }
+        },
+        "props": {
+          "placeholder": {
+            "text": "Select Project Section..."
+          },
+          "showClearIcon": true,
+          "style": {
+            "marginBottom": "8px"
+          }
+        },
+        "type": "ia.input.dropdown"
+      },
+      {
+        "meta": {
+          "name": "FilterHeader"
+        },
+        "position": {
+          "shrink": 0
+        },
+        "props": {
+          "text": "Filters:"
+        },
+        "type": "ia.display.label"
+      },
+      {
+        "meta": {
+          "name": "FlexRepeater"
+        },
+        "position": {
+          "shrink": 0
+        },
+        "propConfig": {
+          "props.instances": {
+            "binding": {
+              "config": {
+                "path": "view.custom.customFields"
+              },
+              "transforms": [
+                {
+                  "code": "\tinstances\u003d[]\n\tselected\u003d\u0027\u0027\n\tedit\u003dFalse\n\tfor x in value[\u0027data\u0027]:\n\t\tif \u0027selected\u0027 in x.keys():\n\t\t\tselected\u003dx[\u0027selected\u0027]\n\t\tif \u0027edit\u0027 in x.keys():\n\t\t\tedit \u003dx[\u0027edit\u0027]\n\t\tinstances.append({\"custom_field\":x[\u0027custom_field\u0027], \"selected\": selected, \u0027labelwidth\u0027: 150, \"edit\": edit, \"userEdit\": True})\n\treturn instances",
+                  "type": "script"
+                }
+              ],
+              "type": "property"
+            }
+          }
+        },
+        "props": {
+          "direction": "column",
+          "elementPosition": {
+            "basis": "auto",
+            "grow": 0,
+            "shrink": 0
+          },
+          "path": "Exchange/AsanaIntegration/EmbeddedViews/customFields",
+          "useDefaultViewHeight": false,
+          "useDefaultViewWidth": false
+        },
+        "type": "ia.display.flex-repeater"
+      },
+      {
+        "meta": {
+          "name": "WorkspaceHeader_0"
+        },
+        "position": {
+          "basis": "32px",
+          "shrink": 0
+        },
+        "props": {
+          "style": {
+            "marginTop": "8px"
+          },
+          "text": "Default Task Note:"
+        },
+        "type": "ia.display.label"
+      },
+      {
+        "meta": {
+          "name": "TextArea"
+        },
+        "position": {
+          "basis": "100px",
+          "grow": 1,
+          "shrink": 0
+        },
+        "props": {
+          "placeholder": "Task Notes...",
+          "text": "Bug Report"
+        },
+        "type": "ia.input.text-area"
+      },
+      {
+        "events": {
+          "component": {
+            "onActionPerformed": {
+              "config": {
+                "script": "\tsystem.util.getGlobals()[\u0027Asana\u0027]\u003d{\n\t\t\"token\": self.view.params.token, \n\t\t\"workspace\": self.getSibling(\"Workspaces\").props.value,\n\t\t\"team\": self.getSibling(\"Teams\").props.value,\n\t\t\"project\": self.getSibling(\"Projects\").props.value, \n\t\t\"section\": self.getSibling(\"Sections\").props.value, \n\t\t\"custom_filters\": self.getSibling(\"FlexRepeater\").props.instances,\n\t\t\"defaultNote\": self.getSibling(\"TextArea\").props.text}\n\tsystem.perspective.closePopup(\u0027\u0027)"
+              },
+              "scope": "G",
+              "type": "script"
+            }
+          }
+        },
+        "meta": {
+          "name": "Button"
+        },
+        "position": {
+          "basis": "34px",
+          "shrink": 0
+        },
+        "propConfig": {
+          "props.enabled": {
+            "binding": {
+              "config": {
+                "expression": "{../Workspaces.props.value}!\u003dnull\u0026\u0026\r\n{../Teams.props.value}!\u003dnull\u0026\u0026\r\n{../Projects.props.value}!\u003dnull\u0026\u0026\r\n{../Sections.props.value}!\u003dnull"
+              },
+              "type": "expr"
+            }
+          }
+        },
+        "props": {
+          "style": {
+            "margin": "8px"
+          },
+          "text": "Set Asana API"
+        },
+        "type": "ia.input.button"
+      }
+    ],
+    "meta": {
+      "name": "root"
+    },
+    "props": {
+      "direction": "column",
+      "style": {
+        "margin": "8px",
+        "padding": "8px"
+      }
+    },
+    "scripts": {
+      "customMethods": [
+        {
+          "name": "getAsanaHeader",
+          "params": [
+            "api_token"
+          ],
+          "script": "\t# implement your method here\n\treturn {\n\t\t\"accept\": \u0027application/json\u0027,\n\t\t\u0027content-type\u0027: \u0027application/json\u0027,\n\t\t\"authorization\": \u0027Bearer {}\u0027.format(api_token)\n\t}"
+        }
+      ],
+      "extensionFunctions": null,
+      "messageHandlers": []
+    },
+    "type": "ia.container.flex"
+  }
+}

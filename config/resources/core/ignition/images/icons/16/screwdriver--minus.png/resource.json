@@ -1,0 +1,20 @@
+{
+  "scope": "A",
+  "version": 1,
+  "restricted": false,
+  "overridable": true,
+  "files": [
+    "screwdriver--minus.png"
+  ],
+  "attributes": {
+    "width": 16,
+    "format": "PNG",
+    "lastModification": {
+      "actor": "8.3-migration",
+      "timestamp": "2026-01-07T14:49:07Z"
+    },
+    "size": 611,
+    "lastModificationSignature": "0a83918b441aaa3ebf54f2dff33b9885975c0c2979766670a0f2b29f8e400f5c",
+    "height": 16
+  }
+}

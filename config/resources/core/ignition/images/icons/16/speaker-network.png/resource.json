@@ -1,0 +1,20 @@
+{
+  "scope": "A",
+  "version": 1,
+  "restricted": false,
+  "overridable": true,
+  "files": [
+    "speaker-network.png"
+  ],
+  "attributes": {
+    "width": 16,
+    "format": "PNG",
+    "lastModification": {
+      "actor": "8.3-migration",
+      "timestamp": "2026-01-07T14:49:07Z"
+    },
+    "size": 762,
+    "lastModificationSignature": "7a31ac8d0b813c4f52dc399d6bd09d2664094a0c9fd9fadb61bab452e2979b9c",
+    "height": 16
+  }
+}

@@ -1,0 +1,20 @@
+{
+  "scope": "A",
+  "version": 1,
+  "restricted": false,
+  "overridable": true,
+  "files": [
+    "Desalter Cutout.png"
+  ],
+  "attributes": {
+    "width": 712,
+    "format": "PNG",
+    "lastModification": {
+      "actor": "8.3-migration",
+      "timestamp": "2026-01-07T14:49:07Z"
+    },
+    "size": 134990,
+    "lastModificationSignature": "17dd3c445f7c8aabd7e4979f708406705862dc01bfae819890f8f8cd97da22e7",
+    "height": 555
+  }
+}

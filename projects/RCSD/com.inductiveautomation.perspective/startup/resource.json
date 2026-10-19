@@ -1,0 +1,17 @@
+{
+  "scope": "G",
+  "version": 1,
+  "restricted": false,
+  "overridable": true,
+  "files": [
+    "onStartup.py"
+  ],
+  "attributes": {
+    "lastModificationSignature": "da0820aba435d7d716c9d21a03cfbd26676d0cb522796dc4c9f410aee7ab6407",
+    "lastModification": {
+      "actor": "admin",
+      "timestamp": "2026-01-27T19:28:22Z"
+    },
+    "enabled": false
+  }
+}

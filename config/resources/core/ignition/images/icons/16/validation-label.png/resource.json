@@ -1,0 +1,20 @@
+{
+  "scope": "A",
+  "version": 1,
+  "restricted": false,
+  "overridable": true,
+  "files": [
+    "validation-label.png"
+  ],
+  "attributes": {
+    "width": 16,
+    "format": "PNG",
+    "lastModification": {
+      "actor": "8.3-migration",
+      "timestamp": "2026-01-07T14:49:07Z"
+    },
+    "size": 524,
+    "lastModificationSignature": "d3c7375160f86c681a0c74828c7fcd78efeb5f7afc9b109a54cd428cdf172fc9",
+    "height": 16
+  }
+}

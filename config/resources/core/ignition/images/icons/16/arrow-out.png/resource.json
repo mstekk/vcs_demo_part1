@@ -1,0 +1,20 @@
+{
+  "scope": "A",
+  "version": 1,
+  "restricted": false,
+  "overridable": true,
+  "files": [
+    "arrow-out.png"
+  ],
+  "attributes": {
+    "width": 16,
+    "format": "PNG",
+    "lastModification": {
+      "actor": "8.3-migration",
+      "timestamp": "2026-01-07T14:49:07Z"
+    },
+    "size": 844,
+    "lastModificationSignature": "9a578345759f6bcbd7f1748d9f19fd4b7bbdeefc6f3e9c51f65bf5db7915c9bb",
+    "height": 16
+  }
+}

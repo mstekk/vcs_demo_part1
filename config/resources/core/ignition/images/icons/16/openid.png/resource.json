@@ -1,0 +1,20 @@
+{
+  "scope": "A",
+  "version": 1,
+  "restricted": false,
+  "overridable": true,
+  "files": [
+    "openid.png"
+  ],
+  "attributes": {
+    "width": 16,
+    "format": "PNG",
+    "lastModification": {
+      "actor": "8.3-migration",
+      "timestamp": "2026-01-07T14:49:07Z"
+    },
+    "size": 526,
+    "lastModificationSignature": "60e5a5204d86cd86082d50cd8704bc20670a8f3e4adc512b465eab6f4cf7485d",
+    "height": 16
+  }
+}

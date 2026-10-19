@@ -1,0 +1,20 @@
+{
+  "scope": "A",
+  "version": 1,
+  "restricted": false,
+  "overridable": true,
+  "files": [
+    "cigarette.png"
+  ],
+  "attributes": {
+    "width": 16,
+    "format": "PNG",
+    "lastModification": {
+      "actor": "8.3-migration",
+      "timestamp": "2026-01-07T14:49:07Z"
+    },
+    "size": 484,
+    "lastModificationSignature": "eedf0f22452ddfee4fd238184e0c67f7f18905aebaae4e4e59eac309d8cfc354",
+    "height": 16
+  }
+}

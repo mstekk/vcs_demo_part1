@@ -1,0 +1,20 @@
+{
+  "scope": "A",
+  "version": 1,
+  "restricted": false,
+  "overridable": true,
+  "files": [
+    "blue-document-music-playlist.png"
+  ],
+  "attributes": {
+    "width": 16,
+    "format": "PNG",
+    "lastModification": {
+      "actor": "8.3-migration",
+      "timestamp": "2026-01-07T14:49:07Z"
+    },
+    "size": 731,
+    "lastModificationSignature": "490a36d242ac28b567f6b00268e0c1e310a37e63c9ecc6924033c2b7b0427bb6",
+    "height": 16
+  }
+}

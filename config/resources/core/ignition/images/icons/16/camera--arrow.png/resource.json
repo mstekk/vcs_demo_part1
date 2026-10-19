@@ -1,0 +1,20 @@
+{
+  "scope": "A",
+  "version": 1,
+  "restricted": false,
+  "overridable": true,
+  "files": [
+    "camera--arrow.png"
+  ],
+  "attributes": {
+    "width": 16,
+    "format": "PNG",
+    "lastModification": {
+      "actor": "8.3-migration",
+      "timestamp": "2026-01-07T14:49:07Z"
+    },
+    "size": 808,
+    "lastModificationSignature": "e4311f6c3be20e9ffd944ddcc00716308aae29508c6aec192f0ebd8de6fda463",
+    "height": 16
+  }
+}

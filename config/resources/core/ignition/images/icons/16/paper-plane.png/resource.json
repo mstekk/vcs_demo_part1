@@ -1,0 +1,20 @@
+{
+  "scope": "A",
+  "version": 1,
+  "restricted": false,
+  "overridable": true,
+  "files": [
+    "paper-plane.png"
+  ],
+  "attributes": {
+    "width": 16,
+    "format": "PNG",
+    "lastModification": {
+      "actor": "8.3-migration",
+      "timestamp": "2026-01-07T14:49:07Z"
+    },
+    "size": 627,
+    "lastModificationSignature": "715f175c6ab217fdc824d040b5ba1cf186e9e1a452ac7718d0552b0aca725b96",
+    "height": 16
+  }
+}

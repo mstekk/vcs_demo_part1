@@ -1,0 +1,20 @@
+{
+  "scope": "A",
+  "version": 1,
+  "restricted": false,
+  "overridable": true,
+  "files": [
+    "databases-relation.png"
+  ],
+  "attributes": {
+    "width": 16,
+    "format": "PNG",
+    "lastModification": {
+      "actor": "8.3-migration",
+      "timestamp": "2026-01-07T14:49:07Z"
+    },
+    "size": 664,
+    "lastModificationSignature": "a909b8704595c4b798357aae031a9e44e1649d81eb4208925ffb3dfac1822008",
+    "height": 16
+  }
+}

@@ -1,0 +1,20 @@
+{
+  "scope": "A",
+  "version": 1,
+  "restricted": false,
+  "overridable": true,
+  "files": [
+    "arrow-return-000-left.png"
+  ],
+  "attributes": {
+    "width": 16,
+    "format": "PNG",
+    "lastModification": {
+      "actor": "8.3-migration",
+      "timestamp": "2026-01-07T14:49:07Z"
+    },
+    "size": 810,
+    "lastModificationSignature": "c0476b865aa5a3a501cb48371e6a2c6f3c911c3befd50dc97e2648e2a0edf311",
+    "height": 16
+  }
+}

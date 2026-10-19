@@ -1,0 +1,20 @@
+{
+  "scope": "A",
+  "version": 1,
+  "restricted": false,
+  "overridable": true,
+  "files": [
+    "magician.png"
+  ],
+  "attributes": {
+    "width": 16,
+    "format": "PNG",
+    "lastModification": {
+      "actor": "8.3-migration",
+      "timestamp": "2026-01-07T14:49:07Z"
+    },
+    "size": 326,
+    "lastModificationSignature": "0184c085371b601f4398d1a9f40fd6473a7971bcde1a62f9513919e8c3b0423d",
+    "height": 16
+  }
+}

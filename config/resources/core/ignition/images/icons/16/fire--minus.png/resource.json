@@ -1,0 +1,20 @@
+{
+  "scope": "A",
+  "version": 1,
+  "restricted": false,
+  "overridable": true,
+  "files": [
+    "fire--minus.png"
+  ],
+  "attributes": {
+    "width": 16,
+    "format": "PNG",
+    "lastModification": {
+      "actor": "8.3-migration",
+      "timestamp": "2026-01-07T14:49:07Z"
+    },
+    "size": 615,
+    "lastModificationSignature": "62a4fa59bc14ec4c7b99cae6243550733bd5a0503e5651d6c759d055067c7ec7",
+    "height": 16
+  }
+}

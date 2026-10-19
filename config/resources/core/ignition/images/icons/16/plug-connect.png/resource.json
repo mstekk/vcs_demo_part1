@@ -1,0 +1,20 @@
+{
+  "scope": "A",
+  "version": 1,
+  "restricted": false,
+  "overridable": true,
+  "files": [
+    "plug-connect.png"
+  ],
+  "attributes": {
+    "width": 16,
+    "format": "PNG",
+    "lastModification": {
+      "actor": "8.3-migration",
+      "timestamp": "2026-01-07T14:49:07Z"
+    },
+    "size": 1331,
+    "lastModificationSignature": "b8029c82620a7b96a7240d2fa940047427c0f2e68b54d5c88a4682c6de74ca13",
+    "height": 16
+  }
+}

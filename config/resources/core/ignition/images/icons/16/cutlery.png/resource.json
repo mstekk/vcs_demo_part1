@@ -1,0 +1,20 @@
+{
+  "scope": "A",
+  "version": 1,
+  "restricted": false,
+  "overridable": true,
+  "files": [
+    "cutlery.png"
+  ],
+  "attributes": {
+    "width": 16,
+    "format": "PNG",
+    "lastModification": {
+      "actor": "8.3-migration",
+      "timestamp": "2026-01-07T14:49:07Z"
+    },
+    "size": 580,
+    "lastModificationSignature": "971f9e4f74fcdd4d6ed1b8634ab46cde108288c7de8f55f9c5782782c569192f",
+    "height": 16
+  }
+}

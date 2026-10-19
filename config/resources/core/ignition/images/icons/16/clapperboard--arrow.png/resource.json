@@ -1,0 +1,20 @@
+{
+  "scope": "A",
+  "version": 1,
+  "restricted": false,
+  "overridable": true,
+  "files": [
+    "clapperboard--arrow.png"
+  ],
+  "attributes": {
+    "width": 16,
+    "format": "PNG",
+    "lastModification": {
+      "actor": "8.3-migration",
+      "timestamp": "2026-01-07T14:49:07Z"
+    },
+    "size": 498,
+    "lastModificationSignature": "5e5a7105a1e2ea97681bfc08c3d0348529c3ee0f869c04e2f3192d729d736282",
+    "height": 16
+  }
+}

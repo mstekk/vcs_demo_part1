@@ -1,0 +1,102 @@
+{
+  "custom": {},
+  "params": {
+    "desc": "desc",
+    "name": "Cellular",
+    "uuid": "value"
+  },
+  "propConfig": {
+    "params.desc": {
+      "onChange": {
+        "enabled": null,
+        "script": "\tdesc\u003dcurrentValue.value\n\tuuid\u003dself.view.params.uuid\n\tsystem.perspective.sendMessage(\u0027changeDesc\u0027, {\u0027desc\u0027:desc,\u0027uuid\u0027:uuid},scope\u003d\u0027session\u0027)"
+      },
+      "paramDirection": "input",
+      "persistent": true
+    },
+    "params.name": {
+      "onChange": {
+        "enabled": null,
+        "script": "\tname\u003dcurrentValue.value\n\tuuid\u003dself.view.params.uuid\n\tsystem.perspective.sendMessage(\u0027changeName\u0027, {\u0027name\u0027:name,\u0027uuid\u0027:uuid},scope\u003d\u0027session\u0027)"
+      },
+      "paramDirection": "input",
+      "persistent": true
+    },
+    "params.uuid": {
+      "paramDirection": "input",
+      "persistent": true
+    }
+  },
+  "props": {
+    "defaultSize": {
+      "height": 415,
+      "width": 404
+    }
+  },
+  "root": {
+    "children": [
+      {
+        "meta": {
+          "name": "Name"
+        },
+        "position": {
+          "shrink": 0
+        },
+        "propConfig": {
+          "props.params.text": {
+            "binding": {
+              "config": {
+                "bidirectional": true,
+                "path": "view.params.name"
+              },
+              "type": "property"
+            }
+          }
+        },
+        "props": {
+          "params": {
+            "label": "Client Name:"
+          },
+          "path": "Exchange/ArchitectureBuilder/General/TextInput",
+          "style": {
+            "margin": "8px"
+          }
+        },
+        "type": "ia.display.view"
+      },
+      {
+        "meta": {
+          "name": "Description"
+        },
+        "position": {
+          "basis": "161px"
+        },
+        "propConfig": {
+          "props.params.desc": {
+            "binding": {
+              "config": {
+                "bidirectional": true,
+                "path": "view.params.desc"
+              },
+              "type": "property"
+            }
+          }
+        },
+        "props": {
+          "path": "Exchange/ArchitectureBuilder/General/TextArea",
+          "style": {
+            "margin": 8
+          }
+        },
+        "type": "ia.display.view"
+      }
+    ],
+    "meta": {
+      "name": "root"
+    },
+    "props": {
+      "direction": "column"
+    },
+    "type": "ia.container.flex"
+  }
+}

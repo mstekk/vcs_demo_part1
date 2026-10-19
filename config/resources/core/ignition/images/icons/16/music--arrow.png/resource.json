@@ -1,0 +1,20 @@
+{
+  "scope": "A",
+  "version": 1,
+  "restricted": false,
+  "overridable": true,
+  "files": [
+    "music--arrow.png"
+  ],
+  "attributes": {
+    "width": 16,
+    "format": "PNG",
+    "lastModification": {
+      "actor": "8.3-migration",
+      "timestamp": "2026-01-07T14:49:07Z"
+    },
+    "size": 617,
+    "lastModificationSignature": "6e1b175cdd9100dfbb9a9178dbb201078266c35beeb28eca8308cfd3bab5313b",
+    "height": 16
+  }
+}

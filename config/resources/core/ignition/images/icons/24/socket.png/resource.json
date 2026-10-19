@@ -1,0 +1,20 @@
+{
+  "scope": "A",
+  "version": 1,
+  "restricted": false,
+  "overridable": true,
+  "files": [
+    "socket.png"
+  ],
+  "attributes": {
+    "width": 24,
+    "format": "PNG",
+    "lastModification": {
+      "actor": "8.3-migration",
+      "timestamp": "2026-01-07T14:49:07Z"
+    },
+    "size": 811,
+    "lastModificationSignature": "265a8ab09fb9f3144c79250fb7a762b04a919a6269b5cc61240ce24a3f98b30d",
+    "height": 24
+  }
+}

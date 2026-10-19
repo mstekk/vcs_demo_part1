@@ -1,0 +1,20 @@
+{
+  "scope": "A",
+  "version": 1,
+  "restricted": false,
+  "overridable": true,
+  "files": [
+    "smiley-surprise.png"
+  ],
+  "attributes": {
+    "width": 16,
+    "format": "PNG",
+    "lastModification": {
+      "actor": "8.3-migration",
+      "timestamp": "2026-01-07T14:49:07Z"
+    },
+    "size": 795,
+    "lastModificationSignature": "c71c0310f388b4a201adf2820db7376c1387b8770f802c3f66056bed142c45c7",
+    "height": 16
+  }
+}

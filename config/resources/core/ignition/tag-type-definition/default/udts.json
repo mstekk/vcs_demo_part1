@@ -1,0 +1,232 @@
+[
+  {
+    "name": "SARI",
+    "parameters": {
+      "NameFull": {
+        "dataType": "String",
+        "value": null
+      },
+      "Station": {
+        "dataType": "String",
+        "value": null
+      },
+      "GroupName": {
+        "dataType": "String",
+        "value": null
+      }
+    },
+    "tagType": "UdtType",
+    "tags": [
+      {
+        "valueSource": "opc",
+        "opcItemPath": {
+          "bindType": "parameter",
+          "binding": "ns\u003d1;s\u003d[Tunnelled_BristolBabcock][BristolBabcock,type\u003dFloat]{GroupName}:@GV.SARI_{Station}_FLOW_Value"
+        },
+        "dataType": "Float4",
+        "historyProvider": "JCSD_DB",
+        "name": "Flow",
+        "historyEnabled": true,
+        "formatString": "#,##0.00",
+        "historySampleRateUnits": "MIN",
+        "sampleMode": "OnChange",
+        "historySampleRate": 1,
+        "tagType": "AtomicTag",
+        "opcServer": "SCADA1-Ignition-OPC-SVR001"
+      },
+      {
+        "valueSource": "opc",
+        "opcItemPath": {
+          "bindType": "parameter",
+          "binding": "ns\u003d1;s\u003d[Tunnelled_BristolBabcock][BristolBabcock,type\u003dFloat]{GroupName}:SARI.RFA_{Station}.PdMaxTotal_Value"
+        },
+        "dataType": "Float4",
+        "historyProvider": "JCSD_DB",
+        "name": "PdMaxTotal",
+        "tooltip": "Previous Day Max Total",
+        "historyEnabled": true,
+        "formatString": "#,##0",
+        "tagGroup": "daily",
+        "tagType": "AtomicTag",
+        "opcServer": "SCADA1-Ignition-OPC-SVR001"
+      },
+      {
+        "valueSource": "opc",
+        "opcItemPath": {
+          "bindType": "parameter",
+          "binding": "ns\u003d1;s\u003d[Tunnelled_BristolBabcock][BristolBabcock,type\u003dFloat]{GroupName}:SARI.RFA_{Station}.PdMinTotal_Value"
+        },
+        "dataType": "Float4",
+        "historyProvider": "JCSD_DB",
+        "name": "PdMinTotal",
+        "tooltip": "Previous Day Max Total",
+        "historyEnabled": true,
+        "formatString": "#,##0",
+        "tagGroup": "daily",
+        "tagType": "AtomicTag",
+        "opcServer": "SCADA1-Ignition-OPC-SVR001"
+      },
+      {
+        "valueSource": "opc",
+        "historyTimeDeadband": 1,
+        "opcItemPath": {
+          "bindType": "parameter",
+          "binding": "ns\u003d1;s\u003d[Tunnelled_BristolBabcock][BristolBabcock,type\u003dFloat]{GroupName}:SARI.RFA_{Station}.PstHrRate_Value"
+        },
+        "dataType": "Float4",
+        "historyProvider": "JCSD_DB",
+        "name": "PstHrRate",
+        "tooltip": "Previous Day Max Total",
+        "historyEnabled": true,
+        "historyTimeDeadbandUnits": "SEC",
+        "formatString": "#,##0",
+        "tagType": "AtomicTag",
+        "opcServer": "SCADA1-Ignition-OPC-SVR001"
+      },
+      {
+        "valueSource": "opc",
+        "historyMaxAge": 0,
+        "opcItemPath": {
+          "bindType": "parameter",
+          "binding": "ns\u003d1;s\u003d[Tunnelled_BristolBabcock][BristolBabcock,type\u003dFloat]{GroupName}:SARI.RFT_{Station}.TotalFlow_Value"
+        },
+        "tooltip": "Previous Day Max Total",
+        "formatString": "#,##0",
+        "historySampleRateUnits": "MIN",
+        "tagType": "AtomicTag",
+        "dataType": "Float4",
+        "historyProvider": "JCSD_DB",
+        "name": "TotalFlow",
+        "historyEnabled": true,
+        "sampleMode": "OnChange",
+        "historySampleRate": 1,
+        "opcServer": "SCADA1-Ignition-OPC-SVR001"
+      },
+      {
+        "valueSource": "opc",
+        "opcItemPath": {
+          "bindType": "parameter",
+          "binding": "ns\u003d1;s\u003d[Tunnelled_BristolBabcock][BristolBabcock,type\u003dFloat]{GroupName}:SARI.RFT_{Station}.YesterdaysFlow_Value"
+        },
+        "dataType": "Float4",
+        "historyProvider": "JCSD_DB",
+        "name": "YesterdaysFlow",
+        "tooltip": "Previous Day Max Total",
+        "historyEnabled": true,
+        "formatString": "#,##0",
+        "tagGroup": "daily",
+        "tagType": "AtomicTag",
+        "opcServer": "SCADA1-Ignition-OPC-SVR001"
+      },
+      {
+        "valueSource": "memory",
+        "eventScripts": [
+          {
+            "eventid": "valueChanged",
+            "script": "\tfrom java.util import ArrayList\n\tfrom java.util import Date\n\tfrom java.util import Calendar\n\tmonths \u003d []\n\tdate \u003d system.tag.readBlocking([\"[~]autoReportGeneration/endDate\"])\n\tfor date1 in date:\n\t\tcalendar \u003d Calendar.getInstance()\n\t\tmonthNumber \u003d calendar.get(Calendar.MONTH)\n\t\tmonths.append(monthNumber)\n\t\t\n\tmonth_names \u003d [\"January\", \"February\", \"March\", \"April\", \"May\", \"June\", \"July\", \"August\", \"September\", \"October\", \"November\", \"December\"]\n\tmonth \u003d month_names[monthNumber]\n\t\n\ttitle \u003d str(system.tag.readBlocking([\"[.]reportTitle\"])[0].value)\n\treportPath \u003d str(system.tag.readBlocking([\"[.]reportPath\"])[0].value)\n\treportSource \u003d str(system.tag.readBlocking([\"[~]autoReportGeneration/reportSource\"])[0].value)\n\tinterval \u003d int(system.tag.readBlocking([\"[~]autoReportGeneration/intervalValue\"])[0].value)\n\tstartDate \u003d system.tag.readBlocking([\"[~]autoReportGeneration/startDate\"])\n\tendDate \u003d system.tag.readBlocking([\"[~]autoReportGeneration/endDate\"])\n\tcolMinShow \u003d bool(system.tag.readBlocking([\"[~]autoReportGeneration/columns/colMinShow\"])[0].value)\n\tcolMinWidth \u003d int(system.tag.readBlocking([\"[~]autoReportGeneration/columns/colMinWidth\"])[0].value)\n\tcolMaxShow \u003d bool(system.tag.readBlocking([\"[~]autoReportGeneration/columns/colMaxShow\"])[0].value)\n\tcolMaxWidth \u003d int(system.tag.readBlocking([\"[~]autoReportGeneration/columns/colMaxWidth\"])[0].value)\n\tcolAvgShow \u003d bool(system.tag.readBlocking([\"[~]autoReportGeneration/columns/colAvgShow\"])[0].value)\n\tcolAvgWidth \u003d int(system.tag.readBlocking([\"[~]autoReportGeneration/columns/colAvgWidth\"])[0].value)\n\tcolTotalShow \u003d bool(system.tag.readBlocking([\"[~]autoReportGeneration/columns/colTotalShow\"])[0].value)\n\tcolTotalWidth \u003d int(system.tag.readBlocking([\"[~]autoReportGeneration/columns/colTotalWidth\"])[0].value)\n\treportParams \u003d {\"StartDate\":startDate, \"EndDate\":endDate, \"Title\":title, \"Interval\":interval, \"ReportPath\":reportPath, \"colMinShow\":colMinShow, \"colMinWidth\":colMinWidth, \"colMaxShow\":colMaxShow, \"colMaxWidth\":colMaxWidth, \"colAvgShow\":colAvgShow, \"colAvgWidth\":colAvgWidth, \"colTotalShow\":colTotalShow, \"colTotalWidth\":colTotalWidth}\n\tfileName \u003d str(system.tag.readBlocking([\"[~]autoReportGeneration/dateNow\"]))+\" \"+title+\" Report.pdf\"\n\tbody \u003d \"See attached report file for \"+ title + \" for the month of \" + month + \".\"\n\tsettings \u003d {\"useRoles\":True, \"roles\":[\"SARI Report\"], \"smtpServerName\":\"JCSD Outlook\", \"from\":\"SCADA5@jcsd.us\", \"subject\":\"Monthly Report (\"+ month +\") - \" +title, \"body\":body, \"attachmentName\": fileName}\n\n\tif previousValue and (previousValue.getValue() !\u003d currentValue.getValue()):\n\t\tif currentValue.getValue() \u003d\u003d True:\n\t\t\tsystem.report.executeAndDistribute(path\u003d reportSource, project\u003d\"JCSD\",parameters\u003dreportParams, action\u003d\"email\", actionSettings\u003dsettings)\n\tprint reportSource\n\tprint reportParams\n\tprint settings"
+          }
+        ],
+        "dataType": "Boolean",
+        "name": "emailReport",
+        "value": false,
+        "tagType": "AtomicTag"
+      },
+      {
+        "valueSource": "expr",
+        "expression": "toStr({PathToParentFolder})",
+        "dataType": "String",
+        "name": "reportPath",
+        "tagType": "AtomicTag"
+      },
+      {
+        "valueSource": "memory",
+        "dataType": "String",
+        "name": "reportTitle",
+        "value": {
+          "bindType": "parameter",
+          "binding": "{NameFull}"
+        },
+        "tagType": "AtomicTag"
+      },
+      {
+        "valueSource": "memory",
+        "dataType": "Boolean",
+        "name": "siteSelected",
+        "value": false,
+        "tagType": "AtomicTag"
+      }
+    ]
+  },
+  {
+    "name": "Sample UDT",
+    "parameters": {
+      "OPC_Server": {
+        "dataType": "String",
+        "value": null
+      }
+    },
+    "tagType": "UdtType",
+    "tags": [
+      {
+        "valueSource": "opc",
+        "name": "New Tag",
+        "tagType": "AtomicTag"
+      },
+      {
+        "valueSource": "reference",
+        "eventScripts": [
+          {
+            "eventid": "valueChanged",
+            "script": "\topcServer \u003d system.tag.readBlocking(\"[.]OPC Server\")\n\tsystem.tag.writeBlocking(\"[.].Parameters.OPC_Server\", opcServer)"
+          }
+        ],
+        "dataType": "String",
+        "sourceTagPath": "[~]OPC Server.value",
+        "name": "OPC Server",
+        "tagType": "AtomicTag"
+      }
+    ]
+  },
+  {
+    "name": "Sample_BI",
+    "parameters": {
+      "DeviceName": {
+        "dataType": "String",
+        "value": null
+      },
+      "AlarmPriority": {
+        "dataType": "Integer",
+        "value": null
+      },
+      "DeviceDescription": {
+        "dataType": "String",
+        "value": null
+      }
+    },
+    "tagType": "UdtType",
+    "tags": [
+      {
+        "valueSource": "memory",
+        "name": "Alarm_ActiveAcked",
+        "tagType": "AtomicTag"
+      },
+      {
+        "valueSource": "memory",
+        "alarms": [
+          {
+            "name": "Alarm"
+          }
+        ],
+        "name": "Alarm_ActiveUnacked",
+        "tagType": "AtomicTag"
+      },
+      {
+        "valueSource": "memory",
+        "dataType": "Int4",
+        "name": "Value",
+        "value": 0,
+        "tagType": "AtomicTag"
+      }
+    ]
+  }
+]

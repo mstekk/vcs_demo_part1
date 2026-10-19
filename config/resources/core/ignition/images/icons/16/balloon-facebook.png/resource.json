@@ -1,0 +1,20 @@
+{
+  "scope": "A",
+  "version": 1,
+  "restricted": false,
+  "overridable": true,
+  "files": [
+    "balloon-facebook.png"
+  ],
+  "attributes": {
+    "width": 16,
+    "format": "PNG",
+    "lastModification": {
+      "actor": "8.3-migration",
+      "timestamp": "2026-01-07T14:49:07Z"
+    },
+    "size": 725,
+    "lastModificationSignature": "efcb890339d98cf9e8c685f254dd788d0375b5b44408e560f425ad82cfb0b26b",
+    "height": 16
+  }
+}

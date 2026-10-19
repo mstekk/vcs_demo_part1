@@ -1,0 +1,512 @@
+{
+  "custom": {
+    "connections": {
+      "I1dcb797b": {
+        "Ia05285de": {
+          "config": {
+            "connections": [
+              "I1dcb797b"
+            ],
+            "image": "ClientKeyboardBlue-Left",
+            "quantity": 1
+          },
+          "desc": "",
+          "name": "Client",
+          "type": "Client",
+          "uuid": "Ia05285de"
+        },
+        "Iaf9f7c5b": {
+          "config": {
+            "connections": [
+              "Ic5265860",
+              "I7a3ded68",
+              "I438bc958",
+              "I1dcb797b",
+              "Id1ee815e",
+              "Icebccd45"
+            ],
+            "development": false,
+            "displayModules": true,
+            "licenseKey": "",
+            "licenseKeyRedun": "",
+            "modules": {
+              "CL": [],
+              "IA": [
+                {
+                  "name": "Platform"
+                },
+                {
+                  "name": "OPC UA"
+                },
+                {
+                  "name": "Perspective",
+                  "selection": "Unlimited"
+                }
+              ],
+              "SS": [],
+              "TPM": []
+            },
+            "redundant": false,
+            "version": "8.1.x"
+          },
+          "desc": "",
+          "name": "Frontend",
+          "type": "edge",
+          "uuid": "Iaf9f7c5b"
+        }
+      },
+      "I438bc958": {
+        "I646a8143": {
+          "config": {
+            "DBType": "PostgreSQL",
+            "connections": [
+              "I55848014",
+              "Icb3e07ac",
+              "I438bc958"
+            ]
+          },
+          "desc": "",
+          "name": "Database",
+          "type": "Database",
+          "uuid": "I646a8143"
+        },
+        "Iaf9f7c5b": {
+          "config": {
+            "connections": [
+              "Ic5265860",
+              "I7a3ded68",
+              "I438bc958",
+              "I1dcb797b",
+              "Id1ee815e",
+              "Icebccd45"
+            ],
+            "development": false,
+            "displayModules": true,
+            "licenseKey": "",
+            "licenseKeyRedun": "",
+            "modules": {
+              "CL": [],
+              "IA": [
+                {
+                  "name": "Platform"
+                },
+                {
+                  "name": "OPC UA"
+                },
+                {
+                  "name": "Perspective",
+                  "selection": "Unlimited"
+                }
+              ],
+              "SS": [],
+              "TPM": []
+            },
+            "redundant": false,
+            "version": "8.1.x"
+          },
+          "desc": "",
+          "name": "Frontend",
+          "type": "edge",
+          "uuid": "Iaf9f7c5b"
+        }
+      },
+      "I7a3ded68": {
+        "Iaf9f7c5b": {
+          "config": {
+            "connections": [
+              "Ic5265860",
+              "I7a3ded68",
+              "I438bc958",
+              "I1dcb797b",
+              "Id1ee815e",
+              "Icebccd45"
+            ],
+            "development": false,
+            "displayModules": true,
+            "licenseKey": "",
+            "licenseKeyRedun": "",
+            "modules": {
+              "CL": [],
+              "IA": [
+                {
+                  "name": "Platform"
+                },
+                {
+                  "name": "OPC UA"
+                },
+                {
+                  "name": "Perspective",
+                  "selection": "Unlimited"
+                }
+              ],
+              "SS": [],
+              "TPM": []
+            },
+            "redundant": false,
+            "version": "8.1.x"
+          },
+          "desc": "",
+          "name": "Frontend",
+          "type": "edge",
+          "uuid": "Iaf9f7c5b"
+        },
+        "Id4e237c2": {
+          "config": {
+            "connections": [
+              "If2b2a58a",
+              "I3f401204",
+              "I55848014",
+              "I7a3ded68"
+            ],
+            "development": false,
+            "displayModules": true,
+            "licenseKey": "",
+            "licenseKeyRedun": "",
+            "modules": {
+              "CL": [],
+              "IA": [
+                {
+                  "name": "Platform"
+                },
+                {
+                  "name": "Alarm Notification"
+                },
+                {
+                  "name": "OPC UA"
+                },
+                {
+                  "name": "Reporting"
+                },
+                {
+                  "name": "SQL Bridge"
+                },
+                {
+                  "name": "Tag Historian",
+                  "selection": "Full"
+                }
+              ],
+              "SS": [],
+              "TPM": []
+            },
+            "redundant": false,
+            "version": "8.1.x"
+          },
+          "desc": "",
+          "name": "Backend 1",
+          "type": "standard",
+          "uuid": "Id4e237c2"
+        }
+      },
+      "Ic5265860": {
+        "I53213e34": {
+          "config": {
+            "connections": [
+              "I791389d2",
+              "I543bec7f",
+              "Icb3e07ac",
+              "Ic5265860"
+            ],
+            "development": false,
+            "displayModules": true,
+            "licenseKey": "",
+            "licenseKeyRedun": "",
+            "modules": {
+              "CL": [],
+              "IA": [
+                {
+                  "name": "Platform"
+                },
+                {
+                  "name": "Alarm Notification"
+                },
+                {
+                  "name": "OPC UA"
+                },
+                {
+                  "name": "Reporting"
+                },
+                {
+                  "name": "SQL Bridge"
+                },
+                {
+                  "name": "Tag Historian",
+                  "selection": "Full"
+                }
+              ],
+              "SS": [],
+              "TPM": []
+            },
+            "redundant": false,
+            "version": "8.1.x"
+          },
+          "desc": "",
+          "name": "Backend2",
+          "type": "standard",
+          "uuid": "I53213e34"
+        },
+        "Iaf9f7c5b": {
+          "config": {
+            "connections": [
+              "Ic5265860",
+              "I7a3ded68",
+              "I438bc958",
+              "I1dcb797b",
+              "Id1ee815e",
+              "Icebccd45"
+            ],
+            "development": false,
+            "displayModules": true,
+            "licenseKey": "",
+            "licenseKeyRedun": "",
+            "modules": {
+              "CL": [],
+              "IA": [
+                {
+                  "name": "Platform"
+                },
+                {
+                  "name": "OPC UA"
+                },
+                {
+                  "name": "Perspective",
+                  "selection": "Unlimited"
+                }
+              ],
+              "SS": [],
+              "TPM": []
+            },
+            "redundant": false,
+            "version": "8.1.x"
+          },
+          "desc": "",
+          "name": "Frontend",
+          "type": "edge",
+          "uuid": "Iaf9f7c5b"
+        }
+      },
+      "Icebccd45": {
+        "I4a41b5e0": {
+          "config": {
+            "connections": [
+              "Icebccd45"
+            ],
+            "image": "ClientKeyboardBlue-Left",
+            "quantity": 1
+          },
+          "desc": "",
+          "name": "Client",
+          "type": "Client",
+          "uuid": "I4a41b5e0"
+        },
+        "Iaf9f7c5b": {
+          "config": {
+            "connections": [
+              "Ic5265860",
+              "I7a3ded68",
+              "I438bc958",
+              "I1dcb797b",
+              "Id1ee815e",
+              "Icebccd45"
+            ],
+            "development": false,
+            "displayModules": true,
+            "licenseKey": "",
+            "licenseKeyRedun": "",
+            "modules": {
+              "CL": [],
+              "IA": [
+                {
+                  "name": "Platform"
+                },
+                {
+                  "name": "OPC UA"
+                },
+                {
+                  "name": "Perspective",
+                  "selection": "Unlimited"
+                }
+              ],
+              "SS": [],
+              "TPM": []
+            },
+            "redundant": false,
+            "version": "8.1.x"
+          },
+          "desc": "",
+          "name": "Frontend",
+          "type": "edge",
+          "uuid": "Iaf9f7c5b"
+        }
+      },
+      "Id1ee815e": {
+        "I6ca07755": {
+          "config": {
+            "connections": [
+              "Id1ee815e"
+            ],
+            "image": "ClientKeyboardBlue-Left",
+            "quantity": 1
+          },
+          "desc": "",
+          "name": "Client",
+          "type": "Client",
+          "uuid": "I6ca07755"
+        },
+        "Iaf9f7c5b": {
+          "config": {
+            "connections": [
+              "Ic5265860",
+              "I7a3ded68",
+              "I438bc958",
+              "I1dcb797b",
+              "Id1ee815e",
+              "Icebccd45"
+            ],
+            "development": false,
+            "displayModules": true,
+            "licenseKey": "",
+            "licenseKeyRedun": "",
+            "modules": {
+              "CL": [],
+              "IA": [
+                {
+                  "name": "Platform"
+                },
+                {
+                  "name": "OPC UA"
+                },
+                {
+                  "name": "Perspective",
+                  "selection": "Unlimited"
+                }
+              ],
+              "SS": [],
+              "TPM": []
+            },
+            "redundant": false,
+            "version": "8.1.x"
+          },
+          "desc": "",
+          "name": "Frontend",
+          "type": "edge",
+          "uuid": "Iaf9f7c5b"
+        }
+      }
+    }
+  },
+  "params": {
+    "allow": false,
+    "type": "edge",
+    "uuid": "Iaf9f7c5b"
+  },
+  "propConfig": {
+    "custom.connections": {
+      "binding": {
+        "config": {
+          "struct": {
+            "configs": "{session.custom.structure.configs}",
+            "type": "{view.params.type}",
+            "uuid": "{view.params.uuid}"
+          },
+          "waitOnAll": true
+        },
+        "transforms": [
+          {
+            "code": "\tuuid\u003dvalue[\u0027uuid\u0027]\n\ttypes\u003dvalue[\u0027type\u0027]\n\tconfigs\u003dvalue[\u0027configs\u0027]\n\tcomponent\u003d{}\n\tif \u0027connections\u0027 in configs[uuid][\u0027config\u0027]:\n\t\tconnection\u003dconfigs[uuid][\u0027config\u0027][\u0027connections\u0027]\n\t\tfor c in connection:\n\t\t\tcomponents\u003dself.session.custom.connections[c].keys()\n\t\t\tc1\u003dsystem.util.jsonDecode(system.util.jsonEncode(configs[components[0]]))\n\t\t\tif c1[\u0027uuid\u0027]\u003d\u003duuid:\n\t\t\t\tc1[\u0027type\u0027]\u003dtypes\n\t\t\tc2\u003dsystem.util.jsonDecode(system.util.jsonEncode(configs[components[1]]))\n\t\t\tif c2[\u0027uuid\u0027]\u003d\u003duuid:\n\t\t\t\tc2[\u0027type\u0027]\u003dtypes\n\t\t\tcomponent[c]\u003d{components[0]: c1 , components[1]:c2}\n\n\treturn component",
+            "type": "script"
+          }
+        ],
+        "type": "expr-struct"
+      },
+      "persistent": true
+    },
+    "params.allow": {
+      "binding": {
+        "config": {
+          "struct": {
+            "configs": "{session.custom.structure.configs}",
+            "connections": "{view.custom.connections}",
+            "uuid": "{view.params.uuid}"
+          },
+          "waitOnAll": true
+        },
+        "transforms": [
+          {
+            "code": "\tconnections\u003dvalue[\u0027connections\u0027]\n\talls\u003d[]\n\tfor connectionid in connections:\n\t\tconnection\u003dconnections[connectionid]\n\t\tconfigs\u003dvalue[\u0027configs\u0027]\n\t\tuuid\u003dvalue[\u0027uuid\u0027]\n\t\tnames\u003d[]\n\t\tgateways\u003d[\u0027standard\u0027, \u0027cloud\u0027, \u0027edge\u0027, \u0027panel\u0027]\n\t\tconnectionType\u003dconfigs[connectionid][\u0027config\u0027][\u0027connectionType\u0027]\n\t\tkeys\u003dconnection.keys()\n\t\tif connection[keys[0]][\u0027type\u0027] in gateways and connection[keys[1]][\u0027type\u0027] in gateways and connectionType\u003d\u003d\u0027Gateway Network\u0027:\n\t\t\toutgoing\u003dconfigs[connectionid][\u0027config\u0027][\u0027Outgoing\u0027]\n\t\t\tkey1\u003d{\u0027typeID\u0027: connection[keys[1]][\u0027type\u0027], \u0027type\u0027:exchange.architecturebuilder.viewCanvas.connectionRules.getConnectionName(connection[keys[1]][\u0027type\u0027]), \u0027name\u0027: connection[keys[1]][\u0027name\u0027]}\n\t\t\tkey0\u003d{\u0027typeID\u0027: connection[keys[0]][\u0027type\u0027], \u0027type\u0027:exchange.architecturebuilder.viewCanvas.connectionRules.getConnectionName(connection[keys[0]][\u0027type\u0027]), \u0027name\u0027: connection[keys[0]][\u0027name\u0027]}\n\t\t\tif keys[1]\u003d\u003doutgoing:\n\t\t\t\tnames.insert(0,key1)\n\t\t\telse:\n\t\t\t\tnames.append(key1)\n\t\t\tif keys[0]\u003d\u003doutgoing:\n\t\t\t\tnames.insert(0,key0)\n\t\t\telse:\n\t\t\t\tnames.append(key0)\n\t\telse:\n\t\t\tfor x in connection:\n\t\t\t\tcomptype\u003dconnection[x][\u0027type\u0027]\n\t\t\t\tif comptype in gateways:\n\t\t\t\t\tnames.insert(0,{\u0027typeID\u0027: connection[x][\u0027type\u0027], \u0027type\u0027:exchange.architecturebuilder.viewCanvas.connectionRules.getConnectionName(connection[x][\u0027type\u0027]), \u0027name\u0027: connection[x][\u0027name\u0027]})\n\t\t\t\telse:\n\t\t\t\t\tnames.append({\u0027typeID\u0027: connection[x][\u0027type\u0027], \u0027type\u0027:exchange.architecturebuilder.viewCanvas.connectionRules.getConnectionName(connection[x][\u0027type\u0027]), \u0027name\u0027: connection[x][\u0027name\u0027]})\n\t\talls.append(exchange.architecturebuilder.viewCanvas.connectionRules.connectionCheck([names[0][\u0027typeID\u0027],names[1][\u0027typeID\u0027]]))\n\tfor x in alls:\n\t\tif not x[\u0027allow\u0027]:\n\t\t\treturn False\n\treturn True",
+            "type": "script"
+          }
+        ],
+        "type": "expr-struct"
+      },
+      "paramDirection": "output",
+      "persistent": true
+    },
+    "params.type": {
+      "paramDirection": "input",
+      "persistent": true
+    },
+    "params.uuid": {
+      "paramDirection": "input",
+      "persistent": true
+    }
+  },
+  "props": {
+    "defaultSize": {
+      "height": 350,
+      "width": 451
+    }
+  },
+  "root": {
+    "children": [
+      {
+        "meta": {
+          "name": "FlexRepeater"
+        },
+        "position": {
+          "grow": 1
+        },
+        "propConfig": {
+          "props.instances": {
+            "binding": {
+              "config": {
+                "path": "view.custom.connections"
+              },
+              "transforms": [
+                {
+                  "code": "\tinstances\u003d[]\n\tfor x in value:\n\t\tinstances.append({\"connection\": value[x], \u0027uuid\u0027: x})\n\treturn instances",
+                  "type": "script"
+                }
+              ],
+              "type": "property"
+            }
+          }
+        },
+        "props": {
+          "alignContent": "flex-start",
+          "direction": "column",
+          "elementPosition": {
+            "basis": "auto",
+            "grow": 0,
+            "shrink": 0
+          },
+          "elementStyle": {
+            "marginBottom": "4px",
+            "marginLeft": "4px",
+            "marginRight": "4px"
+          },
+          "path": "Exchange/ArchitectureBuilder/Components/Server/embeddedViews/Connection",
+          "useDefaultViewHeight": false,
+          "useDefaultViewWidth": false
+        },
+        "type": "ia.display.flex-repeater"
+      }
+    ],
+    "meta": {
+      "name": "root"
+    },
+    "props": {
+      "direction": "column"
+    },
+    "type": "ia.container.flex"
+  }
+}

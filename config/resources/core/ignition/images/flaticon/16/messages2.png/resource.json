@@ -1,0 +1,20 @@
+{
+  "scope": "A",
+  "version": 1,
+  "restricted": false,
+  "overridable": true,
+  "files": [
+    "messages2.png"
+  ],
+  "attributes": {
+    "width": 16,
+    "format": "PNG",
+    "lastModification": {
+      "actor": "8.3-migration",
+      "timestamp": "2026-01-07T14:49:07Z"
+    },
+    "size": 378,
+    "lastModificationSignature": "4f452b8009019c49edc306d1d62d4f51231b12b03181eafe11b211d0be756c44",
+    "height": 16
+  }
+}

@@ -1,0 +1,172 @@
+[
+  {
+    "valueSource": "memory",
+    "dataType": "Boolean",
+    "alarms": [
+      {
+        "setpointA": 1.0,
+        "mode": "Equality",
+        "name": "Alarm",
+        "priority": "Medium",
+        "ackMode": "Auto",
+        "EU": {
+          "bindType": "Expression",
+          "value": "{this.EngUnit}"
+        },
+        "Current Value": {
+          "bindType": "Expression",
+          "value": "if(typeOf({Value}) \u003d \u0027Boolean\u0027,\r\ntoInt({Value}) + \u0027 \u0027 + {EU}, \r\n{Value} + \u0027 \u0027 + {EU})"
+        },
+        "Alarm Setpoint": {
+          "bindType": "Expression",
+          "value": "{mode} + \u0027 of \u0027 +\r\n{setpointA} + \u0027 \u0027 + {EU}"
+        },
+        "label": {
+          "bindType": "Expression",
+          "value": "{this.Alarm Message}"
+        }
+      }
+    ],
+    "name": "Alarm 3 Medium",
+    "defaultValue": false,
+    "engUnit": "EU Units",
+    "tagType": "AtomicTag",
+    "Alarm Message": "Custom Alarm Message"
+  },
+  {
+    "valueSource": "memory",
+    "dataType": "Boolean",
+    "alarms": [
+      {
+        "setpointA": 1.0,
+        "mode": "Equality",
+        "name": "Alarm",
+        "priority": "High",
+        "ackMode": "Auto",
+        "EU": {
+          "bindType": "Expression",
+          "value": "{this.EngUnit}"
+        },
+        "Current Value": {
+          "bindType": "Expression",
+          "value": "if(typeOf({Value}) \u003d \u0027Boolean\u0027,\r\ntoInt({Value}) + \u0027 \u0027 + {EU}, \r\n{Value} + \u0027 \u0027 + {EU})"
+        },
+        "Alarm Setpoint": {
+          "bindType": "Expression",
+          "value": "{mode} + \u0027 of \u0027 +\r\n{setpointA} + \u0027 \u0027 + {EU}"
+        },
+        "label": {
+          "bindType": "Expression",
+          "value": "{this.Alarm Message}"
+        }
+      }
+    ],
+    "name": "Alarm 4 High",
+    "defaultValue": false,
+    "engUnit": "EU Units",
+    "tagType": "AtomicTag",
+    "Alarm Message": "Custom Alarm Message"
+  },
+  {
+    "valueSource": "memory",
+    "dataType": "Boolean",
+    "alarms": [
+      {
+        "setpointA": 1.0,
+        "mode": "Equality",
+        "name": "Alarm",
+        "priority": "Critical",
+        "ackMode": "Auto",
+        "EU": {
+          "bindType": "Expression",
+          "value": "{this.EngUnit}"
+        },
+        "Current Value": {
+          "bindType": "Expression",
+          "value": "if(typeOf({Value}) \u003d \u0027Boolean\u0027,\r\ntoInt({Value}) + \u0027 \u0027 + {EU}, \r\n{Value} + \u0027 \u0027 + {EU})"
+        },
+        "Alarm Setpoint": {
+          "bindType": "Expression",
+          "value": "{mode} + \u0027 of \u0027 +\r\n{setpointA} + \u0027 \u0027 + {EU}"
+        },
+        "label": {
+          "bindType": "Expression",
+          "value": "{this.Alarm Message}"
+        }
+      }
+    ],
+    "name": "Alarm 5 Critical",
+    "defaultValue": false,
+    "engUnit": "EU Units",
+    "tagType": "AtomicTag",
+    "Alarm Message": "Custom Alarm Message"
+  },
+  {
+    "valueSource": "memory",
+    "dataType": "Boolean",
+    "alarms": [
+      {
+        "setpointA": 1.0,
+        "mode": "Equality",
+        "name": "Alarm",
+        "priority": "Low",
+        "ackMode": "Auto",
+        "EU": {
+          "bindType": "Expression",
+          "value": "{this.EngUnit}"
+        },
+        "Current Value": {
+          "bindType": "Expression",
+          "value": "if(typeOf({Value}) \u003d \u0027Boolean\u0027,\r\ntoInt({Value}) + \u0027 \u0027 + {EU}, \r\n{Value} + \u0027 \u0027 + {EU})"
+        },
+        "Alarm Setpoint": {
+          "bindType": "Expression",
+          "value": "{mode} + \u0027 of \u0027 +\r\n{setpointA} + \u0027 \u0027 + {EU}"
+        },
+        "label": {
+          "bindType": "Expression",
+          "value": "{this.Alarm Message}"
+        }
+      }
+    ],
+    "name": "Alarm 2 Low",
+    "defaultValue": false,
+    "engUnit": "EU Units",
+    "tagType": "AtomicTag",
+    "Alarm Message": "Custom Alarm Message"
+  },
+  {
+    "valueSource": "memory",
+    "dataType": "Boolean",
+    "alarms": [
+      {
+        "setpointA": 1.0,
+        "mode": "Equality",
+        "name": "Alarm",
+        "priority": "Diagnostic",
+        "ackMode": "Auto",
+        "EU": {
+          "bindType": "Expression",
+          "value": "{this.EngUnit}"
+        },
+        "Current Value": {
+          "bindType": "Expression",
+          "value": "if(typeOf({Value}) \u003d \u0027Boolean\u0027,\r\ntoInt({Value}) + \u0027 \u0027 + {EU}, \r\n{Value} + \u0027 \u0027 + {EU})"
+        },
+        "Alarm Setpoint": {
+          "bindType": "Expression",
+          "value": "{mode} + \u0027 of \u0027 +\r\n{setpointA} + \u0027 \u0027 + {EU}"
+        },
+        "label": {
+          "bindType": "Expression",
+          "value": "{this.Alarm Message}"
+        }
+      }
+    ],
+    "name": "Alarm 1 Diagnostic",
+    "defaultValue": false,
+    "engUnit": "EU Units",
+    "tagType": "AtomicTag",
+    "Alarm Message": "Custom Alarm Message"
+  }
+]

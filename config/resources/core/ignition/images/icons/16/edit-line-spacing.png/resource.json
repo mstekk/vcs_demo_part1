@@ -1,0 +1,20 @@
+{
+  "scope": "A",
+  "version": 1,
+  "restricted": false,
+  "overridable": true,
+  "files": [
+    "edit-line-spacing.png"
+  ],
+  "attributes": {
+    "width": 16,
+    "format": "PNG",
+    "lastModification": {
+      "actor": "8.3-migration",
+      "timestamp": "2026-01-07T14:49:07Z"
+    },
+    "size": 366,
+    "lastModificationSignature": "93f68b29b77b3e52824efe0697ff8b392a77b614222e4faff445ba502168eee1",
+    "height": 16
+  }
+}

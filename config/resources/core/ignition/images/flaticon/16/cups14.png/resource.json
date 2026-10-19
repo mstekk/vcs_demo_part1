@@ -1,0 +1,20 @@
+{
+  "scope": "A",
+  "version": 1,
+  "restricted": false,
+  "overridable": true,
+  "files": [
+    "cups14.png"
+  ],
+  "attributes": {
+    "width": 16,
+    "format": "PNG",
+    "lastModification": {
+      "actor": "8.3-migration",
+      "timestamp": "2026-01-07T14:49:07Z"
+    },
+    "size": 417,
+    "lastModificationSignature": "28a1c2ae722963e8dc1564cc71aa758231d649931730c2c6a56a93054fa848c6",
+    "height": 16
+  }
+}

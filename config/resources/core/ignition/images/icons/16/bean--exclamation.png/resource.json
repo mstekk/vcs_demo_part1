@@ -1,0 +1,20 @@
+{
+  "scope": "A",
+  "version": 1,
+  "restricted": false,
+  "overridable": true,
+  "files": [
+    "bean--exclamation.png"
+  ],
+  "attributes": {
+    "width": 16,
+    "format": "PNG",
+    "lastModification": {
+      "actor": "8.3-migration",
+      "timestamp": "2026-01-07T14:49:07Z"
+    },
+    "size": 865,
+    "lastModificationSignature": "b9ee5e14e86f72c658aaff442defc668823e5519e2a9c7973727d0e5dc1279c1",
+    "height": 16
+  }
+}

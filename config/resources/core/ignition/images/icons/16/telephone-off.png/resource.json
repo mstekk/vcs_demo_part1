@@ -1,0 +1,20 @@
+{
+  "scope": "A",
+  "version": 1,
+  "restricted": false,
+  "overridable": true,
+  "files": [
+    "telephone-off.png"
+  ],
+  "attributes": {
+    "width": 16,
+    "format": "PNG",
+    "lastModification": {
+      "actor": "8.3-migration",
+      "timestamp": "2026-01-07T14:49:07Z"
+    },
+    "size": 407,
+    "lastModificationSignature": "6112c313cd2ac036bfa9662922bce2b3c57b83662b02f71a17ccca73743d5b34",
+    "height": 16
+  }
+}

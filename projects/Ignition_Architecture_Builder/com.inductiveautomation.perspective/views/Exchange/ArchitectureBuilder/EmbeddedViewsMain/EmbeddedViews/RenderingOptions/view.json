@@ -1,0 +1,408 @@
+{
+  "custom": {},
+  "events": {
+    "system": {
+      "onStartup": {
+        "config": {
+          "script": "\trendering\u003dself.session.custom.rendering\n\tinstances\u003d[]\n\tfor x in self.getChild(\"root\").getChild(\"FlexRepeater\").props.instances:\n\t\tif x[\u0027type\u0027] in [\u0027Areas\u0027, \u0027Connections\u0027]:\n\t\t\tx[\u0027enabled\u0027]\u003drendering[x[\u0027type\u0027].lower().strip(\u0027s\u0027)]\n\t\telse:\n\t\t\tx[\u0027enabled\u0027]\u003drendering[x[\u0027type\u0027]]\n\tconnections\u003dexchange.architecturebuilder.viewCanvas.connectionRules.getConnectionTypes()\n\tconnectionInstances\u003d[]\n\n\trendering[\u0027Connections\u0027]\n\n\tfor y in self.getChild(\"root\").getChild(\"FlexRepeater_0\").props.instances:\n\t\ty[\u0027enabled\u0027]\u003drendering[\u0027Connections\u0027][y[\u0027type\u0027]]\n"
+        },
+        "scope": "G",
+        "type": "script"
+      }
+    }
+  },
+  "params": {},
+  "props": {
+    "defaultSize": {
+      "height": 792,
+      "width": 505
+    }
+  },
+  "root": {
+    "children": [
+      {
+        "meta": {
+          "name": "FlexRepeater"
+        },
+        "position": {
+          "shrink": 0
+        },
+        "props": {
+          "alignContent": "flex-start",
+          "elementPosition": {
+            "basis": "auto",
+            "grow": 0
+          },
+          "elementStyle": {
+            "margin": "4px",
+            "width": "48%"
+          },
+          "instances": [
+            {
+              "enabled": true,
+              "type": "standard"
+            },
+            {
+              "enabled": true,
+              "type": "edge"
+            },
+            {
+              "enabled": true,
+              "type": "panel"
+            },
+            {
+              "enabled": true,
+              "type": "cloud"
+            },
+            {
+              "enabled": true,
+              "type": "Client"
+            },
+            {
+              "enabled": true,
+              "type": "Comms"
+            },
+            {
+              "enabled": true,
+              "type": "Connector"
+            },
+            {
+              "enabled": true,
+              "type": "Custom"
+            },
+            {
+              "enabled": true,
+              "type": "Database"
+            },
+            {
+              "enabled": true,
+              "type": "Device"
+            },
+            {
+              "enabled": true,
+              "type": "Firewall"
+            },
+            {
+              "enabled": true,
+              "type": "IIOT"
+            },
+            {
+              "enabled": true,
+              "type": "LoadBalancer"
+            },
+            {
+              "enabled": true,
+              "type": "MongoDB"
+            },
+            {
+              "enabled": true,
+              "type": "Note"
+            },
+            {
+              "enabled": true,
+              "type": "OPCUA"
+            },
+            {
+              "enabled": true,
+              "type": "ReverseProxy"
+            },
+            {
+              "enabled": true,
+              "nameOverride": false,
+              "type": "Usersource"
+            },
+            {
+              "enabled": true,
+              "nameOverride": false,
+              "type": "fourIR"
+            },
+            {
+              "enabled": true,
+              "nameOverride": true,
+              "type": "Areas"
+            },
+            {
+              "enabled": true,
+              "nameOverride": false,
+              "type": "server"
+            }
+          ],
+          "path": "Exchange/ArchitectureBuilder/EmbeddedViewsMain/EmbeddedViews/RenderSingle",
+          "useDefaultViewWidth": false,
+          "wrap": "wrap"
+        },
+        "type": "ia.display.flex-repeater"
+      },
+      {
+        "meta": {
+          "name": "Label"
+        },
+        "position": {
+          "basis": "32px",
+          "shrink": 0
+        },
+        "props": {
+          "style": {
+            "marginLeft": "4px"
+          },
+          "text": "Connections:"
+        },
+        "type": "ia.display.label"
+      },
+      {
+        "meta": {
+          "name": "FlexRepeater_0"
+        },
+        "position": {
+          "shrink": 0
+        },
+        "props": {
+          "alignContent": "flex-start",
+          "elementPosition": {
+            "basis": "auto",
+            "grow": 0
+          },
+          "elementStyle": {
+            "margin": "4px",
+            "width": "48%"
+          },
+          "instances": [
+            {
+              "enabled": true,
+              "nameOverride": true,
+              "type": "MQTT"
+            },
+            {
+              "enabled": true,
+              "nameOverride": true,
+              "type": "OPC-UA"
+            },
+            {
+              "enabled": true,
+              "nameOverride": true,
+              "type": "OPC-COM"
+            },
+            {
+              "enabled": true,
+              "nameOverride": true,
+              "type": "Gateway Network"
+            },
+            {
+              "enabled": true,
+              "nameOverride": true,
+              "type": "Standard"
+            },
+            {
+              "enabled": true,
+              "nameOverride": true,
+              "type": "Device Driver"
+            },
+            {
+              "enabled": true,
+              "nameOverride": true,
+              "type": "Client"
+            },
+            {
+              "enabled": true,
+              "nameOverride": true,
+              "type": "DB"
+            },
+            {
+              "enabled": true,
+              "nameOverride": true,
+              "type": "MongoDB"
+            }
+          ],
+          "path": "Exchange/ArchitectureBuilder/EmbeddedViewsMain/EmbeddedViews/RenderSingle",
+          "useDefaultViewWidth": false,
+          "wrap": "wrap"
+        },
+        "type": "ia.display.flex-repeater"
+      },
+      {
+        "events": {
+          "component": {
+            "onActionPerformed": {
+              "config": {
+                "script": "\tfor instance in self.getSibling(\"FlexRepeater\").props.instances:\n\t\tinstance[\u0027enabled\u0027]\u003dTrue\n\tfor instance in self.getSibling(\"FlexRepeater_0\").props.instances:\n\t\tinstance[\u0027enabled\u0027]\u003dTrue"
+              },
+              "scope": "G",
+              "type": "script"
+            }
+          }
+        },
+        "meta": {
+          "name": "Button"
+        },
+        "position": {
+          "basis": "34px",
+          "shrink": 0
+        },
+        "props": {
+          "image": {
+            "icon": {
+              "color": "green",
+              "path": "material/check"
+            }
+          },
+          "style": {
+            "margin": "4px"
+          },
+          "text": "Show All"
+        },
+        "type": "ia.input.button"
+      },
+      {
+        "events": {
+          "component": {
+            "onActionPerformed": {
+              "config": {
+                "script": "\tfor instance in self.getSibling(\"FlexRepeater\").props.instances:\n\t\tinstance[\u0027enabled\u0027]\u003dFalse\n\tfor instance in self.getSibling(\"FlexRepeater_0\").props.instances:\n\t\tinstance[\u0027enabled\u0027]\u003dFalse"
+              },
+              "scope": "G",
+              "type": "script"
+            }
+          }
+        },
+        "meta": {
+          "name": "Button_0"
+        },
+        "position": {
+          "basis": "34px",
+          "shrink": 0
+        },
+        "props": {
+          "image": {
+            "icon": {
+              "color": "red",
+              "path": "material/not_interested"
+            }
+          },
+          "style": {
+            "margin": "4px"
+          },
+          "text": "Show None"
+        },
+        "type": "ia.input.button"
+      },
+      {
+        "children": [
+          {
+            "events": {
+              "component": {
+                "onActionPerformed": {
+                  "config": {
+                    "script": "\tinstances\u003dself.parent.parent.getChild(\"FlexRepeater\").props.instances\n\tinstances_con\u003dself.parent.parent.getChild(\"FlexRepeater_0\").props.instances\n\trender\u003d{}\n\tfor x in instances:\n\t\tif x[\u0027type\u0027] in [\u0027Areas\u0027, \u0027Connections\u0027]:\n\t\t\trender[x[\u0027type\u0027].lower().strip(\u0027s\u0027)]\u003dx[\u0027enabled\u0027]\n\t\telse:\n\t\t\trender[x[\u0027type\u0027]]\u003dx[\u0027enabled\u0027]\n\trenderC\u003d{}\n\trender[\u0027Connections\u0027]\u003d{}\n\tfor c in instances_con:\n\t\trenderC[c[\u0027type\u0027]]\u003dc[\u0027enabled\u0027]\n\trender[\u0027Connections\u0027]\u003drenderC\n\t\n\t\n\tself.session.custom.rendering\u003drender\n\tsystem.perspective.closePopup(\u0027render\u0027)"
+                  },
+                  "scope": "G",
+                  "type": "script"
+                }
+              }
+            },
+            "meta": {
+              "name": "Ok"
+            },
+            "position": {
+              "basis": "33%",
+              "grow": 1
+            },
+            "props": {
+              "style": {
+                "classes": "Exchange/ArchitectureBuilder/buttonHover",
+                "marginLeft": "8px",
+                "marginRight": "8px"
+              },
+              "text": "OK"
+            },
+            "type": "ia.input.button"
+          },
+          {
+            "events": {
+              "component": {
+                "onActionPerformed": {
+                  "config": {
+                    "script": "\tsystem.perspective.closePopup(\u0027render\u0027)"
+                  },
+                  "scope": "G",
+                  "type": "script"
+                }
+              }
+            },
+            "meta": {
+              "name": "Cancel"
+            },
+            "position": {
+              "basis": "33%",
+              "grow": 1
+            },
+            "props": {
+              "style": {
+                "classes": "Exchange/ArchitectureBuilder/buttonHover",
+                "marginLeft": "8px",
+                "marginRight": "8px"
+              },
+              "text": "Cancel"
+            },
+            "type": "ia.input.button"
+          },
+          {
+            "events": {
+              "component": {
+                "onActionPerformed": {
+                  "config": {
+                    "script": "\tinstances\u003dself.parent.parent.getChild(\"FlexRepeater\").props.instances\n\tinstances_con\u003dself.parent.parent.getChild(\"FlexRepeater_0\").props.instances\n\trender\u003d{}\n\tfor x in instances:\n\t\tif x[\u0027type\u0027] in [\u0027Areas\u0027, \u0027Connections\u0027]:\n\t\t\trender[x[\u0027type\u0027].lower().strip(\u0027s\u0027)]\u003dx[\u0027enabled\u0027]\n\t\telse:\n\t\t\trender[x[\u0027type\u0027]]\u003dx[\u0027enabled\u0027]\n\trenderC\u003d{}\n\trender[\u0027Connections\u0027]\u003d{}\n\tfor c in instances_con:\n\t\trenderC[c[\u0027type\u0027]]\u003dc[\u0027enabled\u0027]\n\trender[\u0027Connections\u0027]\u003drenderC\n\tself.session.custom.rendering\u003drender"
+                  },
+                  "scope": "G",
+                  "type": "script"
+                }
+              }
+            },
+            "meta": {
+              "name": "Apply"
+            },
+            "position": {
+              "basis": "33%",
+              "grow": 1
+            },
+            "props": {
+              "style": {
+                "classes": "Exchange/ArchitectureBuilder/buttonHover",
+                "marginLeft": "8px",
+                "marginRight": "8px"
+              },
+              "text": "Apply"
+            },
+            "type": "ia.input.button"
+          }
+        ],
+        "meta": {
+          "name": "Apply"
+        },
+        "position": {
+          "basis": "34px",
+          "shrink": 0
+        },
+        "props": {
+          "justify": "space-around",
+          "style": {
+            "marginBottom": "8px",
+            "marginTop": "8px"
+          }
+        },
+        "type": "ia.container.flex"
+      }
+    ],
+    "meta": {
+      "name": "root"
+    },
+    "props": {
+      "direction": "column",
+      "style": {
+        "borderStyle": "solid",
+        "margin": "4px",
+        "paddingBottom": "4px"
+      }
+    },
+    "type": "ia.container.flex"
+  }
+}

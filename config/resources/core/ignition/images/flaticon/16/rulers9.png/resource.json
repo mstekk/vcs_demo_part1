@@ -1,0 +1,20 @@
+{
+  "scope": "A",
+  "version": 1,
+  "restricted": false,
+  "overridable": true,
+  "files": [
+    "rulers9.png"
+  ],
+  "attributes": {
+    "width": 16,
+    "format": "PNG",
+    "lastModification": {
+      "actor": "8.3-migration",
+      "timestamp": "2026-01-07T14:49:07Z"
+    },
+    "size": 378,
+    "lastModificationSignature": "7b3bf38a95703a52f6c4f334b7ef0ba1b701faa4fa01fdee08b31e26ff283412",
+    "height": 16
+  }
+}

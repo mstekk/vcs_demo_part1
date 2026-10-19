@@ -1,0 +1,20 @@
+{
+  "scope": "A",
+  "version": 1,
+  "restricted": false,
+  "overridable": true,
+  "files": [
+    "drill--plus.png"
+  ],
+  "attributes": {
+    "width": 16,
+    "format": "PNG",
+    "lastModification": {
+      "actor": "8.3-migration",
+      "timestamp": "2026-01-07T14:49:07Z"
+    },
+    "size": 807,
+    "lastModificationSignature": "690caef5692d12bc8e04b3a011f10f2f5c9e1f1bf1766ddffce916e61b420d1c",
+    "height": 16
+  }
+}

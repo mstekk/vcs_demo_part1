@@ -1,0 +1,55 @@
+/* Direct stylesheet authoring is an advanced feature. Knowledge of CSS required.*/
+
+.ia_button--secondary {
+	outline: none;
+}
+
+.ia_popup {
+	background-color: transparent;
+	outline:none;
+	border:none;
+}
+
+
+/**/
+/*.psc-navigating {*/
+/*	width: 50px;*/
+/*	transition: width 0.2s ease-in-out;*/
+/*}*/
+/**/
+/**/
+/*.psc-navigating:hover {*/
+/*	width: 150px;*/
+/*}*/
+
+/*#NS_001 {*/
+/*  stroke: rgb(83, 186, 237);*/
+/*  transition: stroke 3s ease;*/
+/*}*/
+/**/
+/*#NS_001.active {*/
+/*  stroke: rgb(43,43,43);*/
+/*}*/
+
+/*.psc-progressnode-unselected {*/
+/*	transition: all 0.2s ease-in-out;*/
+/*}*/
+/*.psc-progressline-unselected {*/
+/*	transition: all 0.2s ease-in-out;*/
+/*}*/
+/*.psc-progresspage-unselected {*/
+/*	transition: all 0.2s ease-in-out;*/
+/*	position: relative;*/
+/*	right: 100%;*/
+/*}*/
+/*.psc-progressnode-selected {*/
+/*	transition: all 0.2s ease-in-out;*/
+/*}*/
+/*.psc-progressline-selected {*/
+/*	transition: all 0.2s ease-in-out;*/
+/*}*/
+/*.psc-progresspage-selected {*/
+/*	transition: all 0.2s ease-in-out;*/
+/*	position: relative;*/
+/*	right: 0;*/
+/*}*/

@@ -1,0 +1,20 @@
+{
+  "scope": "A",
+  "version": 1,
+  "restricted": false,
+  "overridable": true,
+  "files": [
+    "bank--pencil.png"
+  ],
+  "attributes": {
+    "width": 16,
+    "format": "PNG",
+    "lastModification": {
+      "actor": "8.3-migration",
+      "timestamp": "2026-01-07T14:49:07Z"
+    },
+    "size": 925,
+    "lastModificationSignature": "fbfeeb749602fa4cd4fd67874a7515d3ea4ff20fc12083ce1aecb3c95b00ebba",
+    "height": 16
+  }
+}

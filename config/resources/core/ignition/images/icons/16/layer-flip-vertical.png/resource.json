@@ -1,0 +1,20 @@
+{
+  "scope": "A",
+  "version": 1,
+  "restricted": false,
+  "overridable": true,
+  "files": [
+    "layer-flip-vertical.png"
+  ],
+  "attributes": {
+    "width": 16,
+    "format": "PNG",
+    "lastModification": {
+      "actor": "8.3-migration",
+      "timestamp": "2026-01-07T14:49:07Z"
+    },
+    "size": 500,
+    "lastModificationSignature": "49128d8c8f9cd30796bf11ebd2cd2e6b9082d6a21d2a57f85e0d551327916297",
+    "height": 16
+  }
+}

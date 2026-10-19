@@ -1,0 +1,236 @@
+{
+  "custom": {
+    "key": {
+      "Client": {
+        "color": "var(--neutral-60)",
+        "docs": "https://docs.inductiveautomation.com/docs/8.1/ignition-modules/perspective/perspective-sessions",
+        "multiple": false
+      },
+      "DB": {
+        "color": "#34A853",
+        "docs": "https://docs.inductiveautomation.com/docs/8.1/platform/database-connections",
+        "multiple": true
+      },
+      "Device Driver": {
+        "color": "var(--seq-3)",
+        "docs": "https://docs.inductiveautomation.com/docs/8.1/ignition-modules/opc-ua/opc-ua-drivers",
+        "multiple": true
+      },
+      "Gateway Network": {
+        "color": "var(--ignition-orange)",
+        "docs": "https://docs.inductiveautomation.com/docs/8.1/platform/gateway-network",
+        "multiple": false
+      },
+      "MQTT": {
+        "color": "var(--cirrusLink)",
+        "docs": "https://docs.chariot.io/display/CLD80/Cirrus+Link+Ignition+Modules",
+        "multiple": true
+      },
+      "MongoDB": {
+        "color": "green",
+        "docs": "https://docs.inductiveautomation.com/docs/8.1/ignition-modules/cloud-connector-modules/mongodb",
+        "multiple": true
+      },
+      "OPC-COM": {
+        "color": "#FFE7BA",
+        "docs": "https://docs.inductiveautomation.com/docs/8.1/ignition-modules/opc-ua/third-party-opc-servers/opc-com",
+        "multiple": true
+      },
+      "OPC-UA": {
+        "color": "#FFE7BA",
+        "docs": "https://docs.inductiveautomation.com/docs/8.1/ignition-modules/opc-ua",
+        "multiple": true
+      },
+      "Standard": {
+        "color": "var(--neutral-100)",
+        "docs": "https://docs.inductiveautomation.com/docs/8.1/platform/gateway/status/connections",
+        "multiple": true
+      }
+    },
+    "show": false
+  },
+  "params": {},
+  "propConfig": {
+    "custom.key": {
+      "binding": {
+        "config": {
+          "path": ""
+        },
+        "transforms": [
+          {
+            "code": "\treturn exchange.architecturebuilder.viewCanvas.connectionRules.getConnectionAllTypes()",
+            "type": "script"
+          }
+        ],
+        "type": "property"
+      },
+      "persistent": true
+    },
+    "custom.show": {
+      "persistent": true
+    }
+  },
+  "props": {
+    "defaultSize": {
+      "height": 211,
+      "width": 342
+    }
+  },
+  "root": {
+    "children": [
+      {
+        "children": [
+          {
+            "meta": {
+              "name": "Label"
+            },
+            "position": {
+              "basis": "50px",
+              "grow": 1
+            },
+            "props": {
+              "text": "Connection Legend:"
+            },
+            "type": "ia.display.label"
+          },
+          {
+            "events": {
+              "dom": {
+                "onClick": {
+                  "config": {
+                    "script": "\tself.view.custom.show\u003d not self.view.custom.show"
+                  },
+                  "scope": "G",
+                  "type": "script"
+                }
+              }
+            },
+            "meta": {
+              "name": "Icon"
+            },
+            "position": {
+              "basis": "30px"
+            },
+            "propConfig": {
+              "props.path": {
+                "binding": {
+                  "config": {
+                    "path": "view.custom.show"
+                  },
+                  "transforms": [
+                    {
+                      "fallback": "material/keyboard_arrow_down",
+                      "inputType": "scalar",
+                      "mappings": [
+                        {
+                          "input": false,
+                          "output": "material/keyboard_arrow_up"
+                        }
+                      ],
+                      "outputType": "scalar",
+                      "type": "map"
+                    }
+                  ],
+                  "type": "property"
+                }
+              }
+            },
+            "props": {
+              "style": {
+                "cursor": "pointer"
+              }
+            },
+            "type": "ia.display.icon"
+          }
+        ],
+        "meta": {
+          "name": "FlexContainer"
+        },
+        "position": {
+          "shrink": 0
+        },
+        "props": {
+          "style": {
+            "marginLeft": "6px"
+          }
+        },
+        "type": "ia.container.flex"
+      },
+      {
+        "meta": {
+          "name": "FlexRepeater"
+        },
+        "position": {
+          "shrink": 0
+        },
+        "propConfig": {
+          "position.display": {
+            "binding": {
+              "config": {
+                "path": "view.custom.show"
+              },
+              "type": "property"
+            }
+          },
+          "props.instances": {
+            "binding": {
+              "config": {
+                "path": "view.custom.key"
+              },
+              "transforms": [
+                {
+                  "code": "\tinstances\u003d[]\n\tcolors\u003d{}\n\tfor x in value:\n\t\tif (value[x][\u0027color\u0027]) not in colors.keys():\n\t\t\tcolors[value[x][\u0027color\u0027]]\u003d{}\n\t\t\tcolors[value[x][\u0027color\u0027]][\u0027names\u0027]\u003d[x]\n\t\t\tcolors[value[x][\u0027color\u0027]][\u0027docs\u0027]\u003d[value[x][\u0027docs\u0027]]\n\t\telse:\n\t\t\tcolors[value[x][\u0027color\u0027]][\u0027names\u0027].append(x)\n\t\t\tcolors[value[x][\u0027color\u0027]][\u0027docs\u0027].append(value[x][\u0027docs\u0027])\n\tfor c in colors:\n\t\tinstances.append({\n\t\t  \"color\": c,\n\t\t  \"typeid\": colors[c][\u0027names\u0027],\n\t\t  \"docs\": colors[c][\u0027docs\u0027]\n\t\t  \n\t\t})\n\tinstances.append({\n\t\t  \"color\": exchange.architecturebuilder.viewCanvas.connectionRules.getConnectionColor(\u0027N/A\u0027),\n\t\t  \"typeid\": [\u0027N/A\u0027],\n\t\t  \"docs\": [\u0027https://inductiveautomation.com\u0027]\n\t\t  })\n\treturn instances\n",
+                  "type": "script"
+                }
+              ],
+              "type": "property"
+            }
+          }
+        },
+        "props": {
+          "direction": "column",
+          "elementPosition": {
+            "basis": "18px",
+            "grow": 0,
+            "shrink": 0
+          },
+          "elementStyle": {
+            "borderBottomLeftRadius": "16px",
+            "borderBottomRightRadius": "16px",
+            "borderTopLeftRadius": "16px",
+            "borderTopRightRadius": "16px",
+            "marginBottom": "2px",
+            "marginLeft": "4px"
+          },
+          "path": "Exchange/ArchitectureBuilder/EmbeddedViewsMain/EmbeddedViews/legendItem",
+          "style": {
+            "overflow": "visible"
+          },
+          "useDefaultViewHeight": false,
+          "useDefaultViewWidth": false
+        },
+        "type": "ia.display.flex-repeater"
+      }
+    ],
+    "meta": {
+      "name": "root"
+    },
+    "props": {
+      "direction": "column",
+      "style": {
+        "backgroundColor": "--neutral-10",
+        "borderBottomLeftRadius": "8px",
+        "borderBottomRightRadius": "8px",
+        "borderColor": "--neutral-40",
+        "borderStyle": "solid",
+        "borderTopLeftRadius": "8px",
+        "borderTopRightRadius": "8px",
+        "borderWidth": 1,
+        "opacity": 0.85,
+        "overflow": "hidden",
+        "padding": "4px"
+      }
+    },
+    "type": "ia.container.flex"
+  }
+}

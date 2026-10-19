@@ -1,0 +1,20 @@
+{
+  "scope": "A",
+  "version": 1,
+  "restricted": false,
+  "overridable": true,
+  "files": [
+    "Valve 8.png"
+  ],
+  "attributes": {
+    "width": 90,
+    "format": "PNG",
+    "lastModification": {
+      "actor": "8.3-migration",
+      "timestamp": "2026-01-07T14:49:07Z"
+    },
+    "size": 2649,
+    "lastModificationSignature": "8d8a272348657a5bbcbaa7f550cc6bd3b896e44303b0cdc49bd4c8e73ffd919b",
+    "height": 76
+  }
+}

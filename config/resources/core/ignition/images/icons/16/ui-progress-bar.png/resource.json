@@ -1,0 +1,20 @@
+{
+  "scope": "A",
+  "version": 1,
+  "restricted": false,
+  "overridable": true,
+  "files": [
+    "ui-progress-bar.png"
+  ],
+  "attributes": {
+    "width": 16,
+    "format": "PNG",
+    "lastModification": {
+      "actor": "8.3-migration",
+      "timestamp": "2026-01-07T14:49:07Z"
+    },
+    "size": 261,
+    "lastModificationSignature": "f08a07e5f50d6ebf8f8aec4c7e2df52ec9549786ade4a3d00f2ebade52d4acdb",
+    "height": 16
+  }
+}

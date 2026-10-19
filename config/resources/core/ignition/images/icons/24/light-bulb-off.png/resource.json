@@ -1,0 +1,20 @@
+{
+  "scope": "A",
+  "version": 1,
+  "restricted": false,
+  "overridable": true,
+  "files": [
+    "light-bulb-off.png"
+  ],
+  "attributes": {
+    "width": 24,
+    "format": "PNG",
+    "lastModification": {
+      "actor": "8.3-migration",
+      "timestamp": "2026-01-07T14:49:07Z"
+    },
+    "size": 943,
+    "lastModificationSignature": "1dd1aa712d16a6499fdde8a9d7a2d38cc6929d369233040feb360dce48ec5064",
+    "height": 24
+  }
+}

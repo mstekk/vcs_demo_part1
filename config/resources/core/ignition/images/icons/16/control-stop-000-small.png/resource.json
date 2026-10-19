@@ -1,0 +1,20 @@
+{
+  "scope": "A",
+  "version": 1,
+  "restricted": false,
+  "overridable": true,
+  "files": [
+    "control-stop-000-small.png"
+  ],
+  "attributes": {
+    "width": 16,
+    "format": "PNG",
+    "lastModification": {
+      "actor": "8.3-migration",
+      "timestamp": "2026-01-07T14:49:07Z"
+    },
+    "size": 305,
+    "lastModificationSignature": "9d7430fa7b6f6c20bd1dffe72f90352097b0bb686c424ede160e4fd6cf7a60d6",
+    "height": 16
+  }
+}

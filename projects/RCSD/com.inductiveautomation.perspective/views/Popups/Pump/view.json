@@ -1,0 +1,419 @@
+{
+  "custom": {
+    "deviceDescription": "Recycle Pump 1 - Suction",
+    "deviceName": "RP-PIT-1-1"
+  },
+  "params": {
+    "isVFD": true,
+    "tagPath": "[RCSD]WTF/Anita-B-Smith/RP-PIT-1-1"
+  },
+  "propConfig": {
+    "custom.deviceDescription": {
+      "binding": {
+        "config": {
+          "fallbackDelay": 2.5,
+          "mode": "indirect",
+          "references": {
+            "1": "{view.params.tagPath}"
+          },
+          "tagPath": "{1}/Parameters.DeviceDescription"
+        },
+        "type": "tag"
+      },
+      "persistent": true
+    },
+    "custom.deviceName": {
+      "binding": {
+        "config": {
+          "fallbackDelay": 2.5,
+          "mode": "indirect",
+          "references": {
+            "1": "{view.params.tagPath}"
+          },
+          "tagPath": "{1}/Parameters.DeviceID"
+        },
+        "type": "tag"
+      },
+      "persistent": true
+    },
+    "params.isVFD": {
+      "paramDirection": "input",
+      "persistent": true
+    },
+    "params.tagPath": {
+      "paramDirection": "input",
+      "persistent": true
+    }
+  },
+  "props": {
+    "defaultSize": {
+      "height": 720,
+      "width": 1200
+    }
+  },
+  "root": {
+    "children": [
+      {
+        "children": [
+          {
+            "meta": {
+              "contextMenu": {
+                "enabled": true,
+                "items": [
+                  {
+                    "children": [],
+                    "icon": {
+                      "color": "",
+                      "path": "",
+                      "style": {}
+                    },
+                    "link": {
+                      "target": "self",
+                      "url": ""
+                    },
+                    "message": {
+                      "payload": {},
+                      "scope": "page",
+                      "type": ""
+                    },
+                    "method": {
+                      "name": "",
+                      "params": {}
+                    },
+                    "style": {
+                      "classes": ""
+                    },
+                    "text": "menu-item",
+                    "type": "submenu"
+                  }
+                ]
+              },
+              "name": "Icon",
+              "visible": false
+            },
+            "position": {
+              "basis": "30px"
+            },
+            "props": {
+              "path": "material/info"
+            },
+            "type": "ia.display.icon"
+          },
+          {
+            "meta": {
+              "name": "Label"
+            },
+            "position": {
+              "basis": "1245.7px",
+              "grow": 1
+            },
+            "propConfig": {
+              "props.text": {
+                "binding": {
+                  "config": {
+                    "path": "view.custom.deviceName"
+                  },
+                  "type": "property"
+                }
+              }
+            },
+            "props": {
+              "style": {
+                "classes": "Text/Labels",
+                "fontWeight": "bold",
+                "textAlign": "center"
+              }
+            },
+            "type": "ia.display.label"
+          },
+          {
+            "events": {
+              "dom": {
+                "onClick": {
+                  "config": {
+                    "script": "\tsystem.perspective.closePopup(\u0027pump\u0027)"
+                  },
+                  "scope": "G",
+                  "type": "script"
+                }
+              }
+            },
+            "meta": {
+              "name": "Close"
+            },
+            "position": {
+              "basis": "30px"
+            },
+            "props": {
+              "path": "material/close",
+              "style": {
+                "classes": "HoverClose"
+              }
+            },
+            "type": "ia.display.icon"
+          }
+        ],
+        "meta": {
+          "name": "Title"
+        },
+        "position": {
+          "basis": "30px",
+          "shrink": 0
+        },
+        "props": {
+          "style": {
+            "borderBottomStyle": "solid",
+            "borderBottomWidth": 2,
+            "borderLeftStyle": "none",
+            "borderRightStyle": "none",
+            "borderTopStyle": "none"
+          }
+        },
+        "type": "ia.container.flex"
+      },
+      {
+        "children": [
+          {
+            "children": [
+              {
+                "children": [
+                  {
+                    "meta": {
+                      "name": "EmbeddedView_0"
+                    },
+                    "position": {
+                      "basis": "320px"
+                    },
+                    "propConfig": {
+                      "props.params.isVFD": {
+                        "binding": {
+                          "config": {
+                            "path": "view.params.isVFD"
+                          },
+                          "type": "property"
+                        }
+                      }
+                    },
+                    "props": {
+                      "path": "Templates/Controls/Pump",
+                      "style": {
+                        "paddingBottom": 10
+                      }
+                    },
+                    "type": "ia.display.view"
+                  },
+                  {
+                    "meta": {
+                      "name": "EmbeddedView"
+                    },
+                    "props": {
+                      "path": "Templates/Controls/Alarm Digital",
+                      "style": {
+                        "paddingBottom": 10
+                      }
+                    },
+                    "type": "ia.display.view"
+                  }
+                ],
+                "meta": {
+                  "name": "Controls"
+                },
+                "position": {
+                  "basis": "70%"
+                },
+                "props": {
+                  "direction": "column",
+                  "style": {
+                    "borderBottomLeftRadius": 5,
+                    "borderBottomRightRadius": 5,
+                    "borderStyle": "solid",
+                    "borderTopLeftRadius": 5,
+                    "borderTopRightRadius": 5,
+                    "borderWidth": 1,
+                    "marginBottom": 5,
+                    "marginLeft": 10,
+                    "marginRight": 5,
+                    "marginTop": 10
+                  }
+                },
+                "type": "ia.container.flex"
+              },
+              {
+                "children": [
+                  {
+                    "meta": {
+                      "name": "EmbeddedView"
+                    },
+                    "propConfig": {
+                      "props.params.tagPath": {
+                        "binding": {
+                          "config": {
+                            "path": "view.params.tagPath"
+                          },
+                          "type": "property"
+                        }
+                      }
+                    },
+                    "props": {
+                      "path": "Templates/Controls/Information"
+                    },
+                    "type": "ia.display.view"
+                  }
+                ],
+                "meta": {
+                  "name": "Information"
+                },
+                "position": {
+                  "basis": "30%"
+                },
+                "props": {
+                  "direction": "column",
+                  "style": {
+                    "borderBottomLeftRadius": 5,
+                    "borderBottomRightRadius": 5,
+                    "borderStyle": "solid",
+                    "borderTopLeftRadius": 5,
+                    "borderTopRightRadius": 5,
+                    "borderWidth": 1,
+                    "marginBottom": 10,
+                    "marginLeft": 10,
+                    "marginRight": 5,
+                    "marginTop": 5
+                  }
+                },
+                "type": "ia.container.flex"
+              }
+            ],
+            "meta": {
+              "name": "Left"
+            },
+            "position": {
+              "basis": "30%"
+            },
+            "props": {
+              "direction": "column"
+            },
+            "type": "ia.container.flex"
+          },
+          {
+            "children": [
+              {
+                "meta": {
+                  "name": "AlarmStatusTable"
+                },
+                "position": {
+                  "basis": "40%"
+                },
+                "props": {
+                  "columns": {
+                    "active": {
+                      "source": {
+                        "enabled": false
+                      }
+                    }
+                  },
+                  "style": {
+                    "borderBottomLeftRadius": 5,
+                    "borderBottomRightRadius": 5,
+                    "borderTopLeftRadius": 5,
+                    "borderTopRightRadius": 5,
+                    "marginBottom": 5
+                  }
+                },
+                "type": "ia.display.alarmstatustable"
+              },
+              {
+                "meta": {
+                  "name": "PowerChart"
+                },
+                "position": {
+                  "basis": "60%"
+                },
+                "props": {
+                  "interaction": {
+                    "chartZoomLevel": 1,
+                    "rangeZoomLevel": 1
+                  },
+                  "style": {
+                    "borderBottomLeftRadius": 5,
+                    "borderBottomRightRadius": 5,
+                    "borderTopLeftRadius": 5,
+                    "borderTopRightRadius": 5,
+                    "marginTop": 5
+                  }
+                },
+                "type": "ia.chart.powerchart"
+              }
+            ],
+            "meta": {
+              "name": "Right"
+            },
+            "position": {
+              "basis": "70%"
+            },
+            "props": {
+              "direction": "column",
+              "style": {
+                "marginTop": 10,
+                "paddingBottom": 10,
+                "paddingLeft": 5,
+                "paddingRight": 10
+              }
+            },
+            "type": "ia.container.flex"
+          }
+        ],
+        "meta": {
+          "name": "Body"
+        },
+        "position": {
+          "basis": "100px",
+          "grow": 1
+        },
+        "props": {
+          "justify": "space-around"
+        },
+        "type": "ia.container.flex"
+      }
+    ],
+    "meta": {
+      "name": "root"
+    },
+    "propConfig": {
+      "custom.bgThemeResponsive": {
+        "binding": {
+          "config": {
+            "path": "session.props.theme"
+          },
+          "transforms": [
+            {
+              "expression": "if({value}\u003d\u0027dark\u0027, \u0027#161616\u0027,\r\nif({value}\u003d\u0027dark-cool\u0027, \u0027#121619\u0027,\r\nif({value}\u003d\u0027dark-warm\u0027, \u0027#171414\u0027,\r\nif({value}\u003d\u0027light\u0027, \u0027#FAFAFA\u0027,\r\nif({value}\u003d\u0027light-cool\u0027, \u0027#F2F4F8\u0027,\r\nif({value}\u003d\u0027light-warm\u0027, \u0027#F7F3F2\u0027,\r\n\u0027#FFFFFF\u0027))))))",
+              "type": "expression"
+            }
+          ],
+          "type": "property"
+        }
+      },
+      "props.style.classes": {
+        "binding": {
+          "config": {
+            "expression": "\u0027Theme/bg-\u0027+{session.props.theme}"
+          },
+          "type": "expr"
+        }
+      }
+    },
+    "props": {
+      "direction": "column",
+      "style": {
+        "borderBottomLeftRadius": 10,
+        "borderBottomRightRadius": 10,
+        "borderStyle": "solid",
+        "borderTopLeftRadius": 10,
+        "borderTopRightRadius": 10,
+        "borderWidth": 3
+      }
+    },
+    "type": "ia.container.flex"
+  }
+}

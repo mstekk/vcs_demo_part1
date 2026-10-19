@@ -1,0 +1,19 @@
+{
+  "scope": "A",
+  "description": "Connection to Kepserver EX",
+  "version": 1,
+  "restricted": false,
+  "overridable": true,
+  "files": [
+    "config.json"
+  ],
+  "attributes": {
+    "lastModification": {
+      "actor": "admin",
+      "timestamp": "2026-01-17T11:05:05Z"
+    },
+    "uuid": "6bff7b14-bcf9-46c3-86c0-67c4847b3cce",
+    "lastModificationSignature": "c7237e0d7f371f0d7f0ef85eb059ef997c61830cbd6a3f67edd6c1d33988aab5",
+    "enabled": false
+  }
+}

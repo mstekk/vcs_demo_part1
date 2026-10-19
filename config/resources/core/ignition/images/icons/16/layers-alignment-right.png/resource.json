@@ -1,0 +1,20 @@
+{
+  "scope": "A",
+  "version": 1,
+  "restricted": false,
+  "overridable": true,
+  "files": [
+    "layers-alignment-right.png"
+  ],
+  "attributes": {
+    "width": 16,
+    "format": "PNG",
+    "lastModification": {
+      "actor": "8.3-migration",
+      "timestamp": "2026-01-07T14:49:07Z"
+    },
+    "size": 529,
+    "lastModificationSignature": "4ea3e6ee8956c8405d6509ad8d4e9b29977fb4af4640fae3c544721e7ee6586d",
+    "height": 16
+  }
+}

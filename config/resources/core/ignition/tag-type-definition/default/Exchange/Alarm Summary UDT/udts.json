@@ -1,0 +1,113 @@
+[
+  {
+    "typeColor": -65536,
+    "readOnly": false,
+    "dataType": "Int4",
+    "writePermissions": {
+      "type": "AllOf",
+      "securityLevels": []
+    },
+    "name": "Alarms",
+    "readPermissions": {
+      "type": "AllOf",
+      "securityLevels": []
+    },
+    "tagGroup": "Default",
+    "enabled": true,
+    "tagType": "UdtType",
+    "tags": [
+      {
+        "valueSource": "expr",
+        "expression": "jsonGet({[.]Summary}, \u0027counts.Critical\u0027)",
+        "dataType": "Int4",
+        "name": "CountCritical",
+        "tagType": "AtomicTag"
+      },
+      {
+        "valueSource": "expr",
+        "expression": "jsonGet({[.]Summary}, \u0027counts.Diagnostic\u0027)",
+        "dataType": "Int4",
+        "name": "CountDiagnostic",
+        "tagType": "AtomicTag"
+      },
+      {
+        "valueSource": "expr",
+        "expression": "jsonGet({[.]Summary}, \u0027counts.High\u0027)",
+        "dataType": "Int4",
+        "name": "CountHigh",
+        "tagType": "AtomicTag"
+      },
+      {
+        "valueSource": "expr",
+        "expression": "jsonGet({[.]Summary}, \u0027counts.Low\u0027)",
+        "dataType": "Int4",
+        "name": "CountLow",
+        "tagType": "AtomicTag"
+      },
+      {
+        "valueSource": "expr",
+        "expression": "jsonGet({[.]Summary}, \u0027counts.Medium\u0027)",
+        "dataType": "Int4",
+        "name": "CountMedium",
+        "tagType": "AtomicTag"
+      },
+      {
+        "valueSource": "expr",
+        "expression": "jsonGet({[.]Summary}, \u0027counts.Shelved\u0027)",
+        "dataType": "Int4",
+        "name": "CountShelved",
+        "tagType": "AtomicTag"
+      },
+      {
+        "valueSource": "expr",
+        "expression": "jsonGet({[.]Summary}, \u0027hasUnackAlarm\u0027)",
+        "dataType": "Boolean",
+        "name": "HasUnack",
+        "tagType": "AtomicTag"
+      },
+      {
+        "valueSource": "expr",
+        "expression": "jsonGet({[.]Summary}, \u0027priority\u0027)",
+        "dataType": "String",
+        "name": "Priority",
+        "tagType": "AtomicTag"
+      },
+      {
+        "valueSource": "expr",
+        "expression": "jsonGet({[.]Summary}, \u0027state\u0027)",
+        "dataType": "String",
+        "name": "State",
+        "tagType": "AtomicTag"
+      },
+      {
+        "valueSource": "expr",
+        "expression": "jsonGet({[.]Summary}, \u0027class\u0027)",
+        "dataType": "String",
+        "name": "Style",
+        "tagType": "AtomicTag"
+      },
+      {
+        "valueSource": "expr",
+        "expression": "runScript(\u0027exchange.alarm_summary_udt.getUDTInstances\u0027,1000,{[.]TagProvider}, left({PathToParentFolder},lastIndexOf({PathToTag},{InstanceName})))",
+        "dataType": "Document",
+        "name": "Summary",
+        "executionMode": "FixedRate",
+        "executionRate": 1000,
+        "tagGroup": "Default",
+        "tagType": "AtomicTag"
+      },
+      {
+        "valueSource": "memory",
+        "eventScripts": [
+          {
+            "eventid": "valueChanged",
+            "script": "\tproviderName \u003d tagPath[tagPath.find(\"[\")+1:tagPath.find(\"]\")]\n\tsystem.tag.writeBlocking(\"[.]TagProvider\", providerName)"
+          }
+        ],
+        "dataType": "String",
+        "name": "TagProvider",
+        "tagType": "AtomicTag"
+      }
+    ]
+  }
+]

@@ -1,0 +1,20 @@
+{
+  "scope": "A",
+  "version": 1,
+  "restricted": false,
+  "overridable": true,
+  "files": [
+    "drops9.png"
+  ],
+  "attributes": {
+    "width": 24,
+    "format": "PNG",
+    "lastModification": {
+      "actor": "8.3-migration",
+      "timestamp": "2026-01-07T14:49:07Z"
+    },
+    "size": 427,
+    "lastModificationSignature": "e4a839452a4342510f0225cca9c95864629d9184c1da4c2c8c0d47a385363e38",
+    "height": 24
+  }
+}

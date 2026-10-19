@@ -1,0 +1,20 @@
+{
+  "scope": "A",
+  "version": 1,
+  "restricted": false,
+  "overridable": true,
+  "files": [
+    "magnifier-medium-left.png"
+  ],
+  "attributes": {
+    "width": 16,
+    "format": "PNG",
+    "lastModification": {
+      "actor": "8.3-migration",
+      "timestamp": "2026-01-07T14:49:07Z"
+    },
+    "size": 559,
+    "lastModificationSignature": "1707f7772e861e4b7259f42cefaac091c5fa1bdef16d3382c387ea20d2de09c4",
+    "height": 16
+  }
+}

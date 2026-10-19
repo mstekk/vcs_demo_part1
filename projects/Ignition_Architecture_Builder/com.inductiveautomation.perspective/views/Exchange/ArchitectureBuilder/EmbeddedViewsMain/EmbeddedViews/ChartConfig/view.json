@@ -1,0 +1,135 @@
+{
+  "custom": {
+    "dropView": true
+  },
+  "params": {
+    "configuring": false
+  },
+  "propConfig": {
+    "custom.dropView": {
+      "persistent": true
+    },
+    "params.configuring": {
+      "binding": {
+        "config": {
+          "path": "/root/EmbeddedView.props.params.configuring"
+        },
+        "type": "property"
+      },
+      "paramDirection": "output",
+      "persistent": true
+    }
+  },
+  "props": {
+    "defaultSize": {
+      "height": 472,
+      "width": 330
+    }
+  },
+  "root": {
+    "children": [
+      {
+        "meta": {
+          "name": "EmbeddedView"
+        },
+        "position": {
+          "shrink": 0
+        },
+        "propConfig": {
+          "position.display": {
+            "binding": {
+              "config": {
+                "path": "view.custom.dropView"
+              },
+              "type": "property"
+            }
+          }
+        },
+        "props": {
+          "params": {
+            "configuring": false
+          },
+          "path": "Exchange/ArchitectureBuilder/EmbeddedViewsMain/EmbeddedViews/Connections",
+          "style": {
+            "marginBottom": "8px",
+            "paddingTop": "3px"
+          }
+        },
+        "type": "ia.display.view"
+      },
+      {
+        "events": {
+          "component": {
+            "onActionPerformed": {
+              "config": {
+                "draggable": true,
+                "id": "render",
+                "modal": false,
+                "overlayDismiss": false,
+                "resizable": true,
+                "showCloseIcon": true,
+                "title": "Select Components to Show",
+                "type": "open",
+                "viewPath": "Exchange/ArchitectureBuilder/EmbeddedViewsMain/EmbeddedViews/RenderingOptions",
+                "viewportBound": false
+              },
+              "scope": "C",
+              "type": "popup"
+            }
+          }
+        },
+        "meta": {
+          "name": "Button"
+        },
+        "position": {
+          "basis": "34px",
+          "display": false
+        },
+        "props": {
+          "style": {
+            "margin": "4px"
+          },
+          "text": "View/Render Components"
+        },
+        "type": "ia.input.button"
+      }
+    ],
+    "custom": {
+      "connection": []
+    },
+    "meta": {
+      "name": "root"
+    },
+    "props": {
+      "direction": "column"
+    },
+    "scripts": {
+      "customMethods": [],
+      "extensionFunctions": null,
+      "messageHandlers": [
+        {
+          "messageType": "connectionPath",
+          "pageScope": true,
+          "script": "\t#system.perspective.sendMessage(\u0027connectionPath\u0027, {\u0027connectType\u0027:self.view.custom.connectType, \u0027uuid\u0027:self.view.params.params.uuid, \u0027x\u0027:0.5,\u0027y\u0027:1})\n\tif len(self.custom.connection)\u003e\u003d2:\n\t\tself.custom.connection\u003d[payload]\n\telse:\n\t\tself.custom.connection.append(payload)",
+          "sessionScope": false,
+          "viewScope": false
+        },
+        {
+          "messageType": "connectionEnabled",
+          "pageScope": true,
+          "script": "\tself.custom.connection\u003d[]",
+          "sessionScope": false,
+          "viewScope": false
+        },
+        {
+          "messageType": "requestSnap",
+          "pageScope": true,
+          "script": "\t#system.perspective.sendMessage(\u0027requestSnap\u0027, True)\n\tsystem.perspective.sendMessage(\u0027autoSnap\u0027, {\u0027snap\u0027:self.getChild(\"Snap\").getChild(\"NumericEntryField\").props.value})\t",
+          "sessionScope": false,
+          "viewScope": false
+        }
+      ]
+    },
+    "type": "ia.container.flex"
+  }
+}

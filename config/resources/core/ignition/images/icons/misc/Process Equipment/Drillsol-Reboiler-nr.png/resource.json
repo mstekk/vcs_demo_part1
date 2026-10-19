@@ -1,0 +1,20 @@
+{
+  "scope": "A",
+  "version": 1,
+  "restricted": false,
+  "overridable": true,
+  "files": [
+    "Drillsol-Reboiler-nr.png"
+  ],
+  "attributes": {
+    "width": 400,
+    "format": "PNG",
+    "lastModification": {
+      "actor": "8.3-migration",
+      "timestamp": "2026-01-07T14:49:07Z"
+    },
+    "size": 64191,
+    "lastModificationSignature": "210b6c5382c92a234ab77fa4f2aeaa3cd978a2064cb25097e3e571adf880873a",
+    "height": 254
+  }
+}

@@ -1,0 +1,20 @@
+{
+  "scope": "A",
+  "version": 1,
+  "restricted": false,
+  "overridable": true,
+  "files": [
+    "tick-circle-frame.png"
+  ],
+  "attributes": {
+    "width": 16,
+    "format": "PNG",
+    "lastModification": {
+      "actor": "8.3-migration",
+      "timestamp": "2026-01-07T14:49:07Z"
+    },
+    "size": 904,
+    "lastModificationSignature": "35f5c0353ed4a6c76a16b01ec82ad0d33abb3003ed7f78b6f061710665d82492",
+    "height": 16
+  }
+}

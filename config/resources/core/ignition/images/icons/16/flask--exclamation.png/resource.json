@@ -1,0 +1,20 @@
+{
+  "scope": "A",
+  "version": 1,
+  "restricted": false,
+  "overridable": true,
+  "files": [
+    "flask--exclamation.png"
+  ],
+  "attributes": {
+    "width": 16,
+    "format": "PNG",
+    "lastModification": {
+      "actor": "8.3-migration",
+      "timestamp": "2026-01-07T14:49:07Z"
+    },
+    "size": 857,
+    "lastModificationSignature": "40f97e6ec34c182ed21584fb0949f59010b8b4bc24b00fb1d502ae893b6c3767",
+    "height": 16
+  }
+}

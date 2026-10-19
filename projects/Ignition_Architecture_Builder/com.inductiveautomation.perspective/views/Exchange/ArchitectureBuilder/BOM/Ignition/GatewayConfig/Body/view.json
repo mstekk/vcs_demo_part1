@@ -1,0 +1,563 @@
+{
+  "custom": {
+    "config": {
+      "development": false,
+      "licenseKey": "ABC-123",
+      "licenseKeyRedun": "DEF-456",
+      "redundant": true,
+      "trial": true,
+      "version": "8.1.43"
+    },
+    "desc": ""
+  },
+  "params": {
+    "uuid": "I197bc229"
+  },
+  "propConfig": {
+    "custom.config": {
+      "binding": {
+        "config": {
+          "expression": "property(\u0027session.custom.structure.configs.\u0027 + {view.params.uuid} + \u0027.config\u0027)"
+        },
+        "transforms": [
+          {
+            "code": "\treturn {\u0027development\u0027: value[\u0027development\u0027] if \u0027development\u0027 in value.keys() else False,\n\t\t\t\u0027redundant\u0027: value[\u0027redundant\u0027] if \u0027redundant\u0027 in value.keys() else False,\n\t\t\t\u0027trial\u0027: value[\u0027trial\u0027] if \u0027trial\u0027 in value.keys() else False,\n\t\t\t\u0027version\u0027: value[\u0027version\u0027] if \u0027version\u0027 in value.keys() else \u0027\u0027,\n\t\t\t\u0027licenseKey\u0027: value[\u0027licenseKey\u0027] if \u0027licenseKey\u0027 in value.keys() else \u0027\u0027,\n\t\t\t\u0027licenseKeyRedun\u0027: value[\u0027licenseKeyRedun\u0027] if \u0027licenseKeyRedun\u0027 in value.keys() else \u0027\u0027}",
+            "type": "script"
+          }
+        ],
+        "type": "expr"
+      },
+      "onChange": {
+        "enabled": null,
+        "script": "\tif origin \u003d\u003d \u0027BindingWriteback\u0027:\n\t\tfor prop in currentValue.value.keys():\n\t\t\tself.session.custom.structure.configs[self.params.uuid][\u0027config\u0027][prop] \u003d currentValue.value[prop]"
+      },
+      "persistent": true
+    },
+    "custom.desc": {
+      "binding": {
+        "config": {
+          "expression": "property(\u0027session.custom.structure.configs.\u0027 + {view.params.uuid} + \u0027.desc\u0027)"
+        },
+        "type": "expr"
+      },
+      "onChange": {
+        "enabled": null,
+        "script": "\tself.session.custom.structure.configs[self.params.uuid][\u0027desc\u0027] \u003d currentValue.value"
+      },
+      "persistent": true
+    },
+    "params.uuid": {
+      "paramDirection": "input",
+      "persistent": true
+    }
+  },
+  "props": {
+    "defaultSize": {
+      "height": 220,
+      "width": 752
+    }
+  },
+  "root": {
+    "children": [
+      {
+        "children": [
+          {
+            "children": [
+              {
+                "meta": {
+                  "name": "Label"
+                },
+                "position": {
+                  "shrink": 0
+                },
+                "props": {
+                  "style": {
+                    "paddingRight": "4px"
+                  },
+                  "text": "Version:"
+                },
+                "type": "ia.display.label"
+              },
+              {
+                "meta": {
+                  "name": "Value"
+                },
+                "position": {
+                  "basis": "60px",
+                  "shrink": 0
+                },
+                "propConfig": {
+                  "props.text": {
+                    "binding": {
+                      "config": {
+                        "path": "view.custom.config.version"
+                      },
+                      "type": "property"
+                    }
+                  }
+                },
+                "props": {
+                  "style": {
+                    "borderBottomLeftRadius": "4px",
+                    "borderBottomRightRadius": "4px",
+                    "borderColor": "--neutral-40",
+                    "borderStyle": "solid",
+                    "borderTopLeftRadius": "4px",
+                    "borderTopRightRadius": "4px",
+                    "borderWidth": "1px",
+                    "paddingRight": "4px"
+                  },
+                  "textStyle": {
+                    "fontFamily": "monospace",
+                    "fontSize": "16px",
+                    "textAlign": "center"
+                  }
+                },
+                "type": "ia.display.label"
+              }
+            ],
+            "meta": {
+              "name": "Version"
+            },
+            "position": {
+              "basis": "126px",
+              "shrink": 0
+            },
+            "props": {
+              "style": {
+                "marginLeft": "4px",
+                "paddingBottom": "4px",
+                "paddingTop": "4px"
+              }
+            },
+            "type": "ia.container.flex"
+          },
+          {
+            "children": [
+              {
+                "meta": {
+                  "name": "Label"
+                },
+                "position": {
+                  "shrink": 0
+                },
+                "props": {
+                  "style": {
+                    "paddingRight": "4px"
+                  },
+                  "text": "Key:"
+                },
+                "type": "ia.display.label"
+              },
+              {
+                "meta": {
+                  "name": "Value"
+                },
+                "position": {
+                  "basis": "88px",
+                  "shrink": 0
+                },
+                "propConfig": {
+                  "props.text": {
+                    "binding": {
+                      "config": {
+                        "bidirectional": true,
+                        "path": "view.custom.config.licenseKey"
+                      },
+                      "type": "property"
+                    }
+                  }
+                },
+                "props": {
+                  "style": {
+                    "borderBottomLeftRadius": "4px",
+                    "borderBottomRightRadius": "4px",
+                    "borderColor": "--neutral-40",
+                    "borderStyle": "solid",
+                    "borderTopLeftRadius": "4px",
+                    "borderTopRightRadius": "4px",
+                    "borderWidth": "1px",
+                    "paddingRight": "4px"
+                  },
+                  "textStyle": {
+                    "fontFamily": "monospace",
+                    "fontSize": "16px",
+                    "textAlign": "center"
+                  }
+                },
+                "type": "ia.display.label"
+              }
+            ],
+            "meta": {
+              "name": "License"
+            },
+            "position": {
+              "basis": "124px",
+              "shrink": 0
+            },
+            "props": {
+              "style": {
+                "marginLeft": "6px",
+                "paddingBottom": "4px",
+                "paddingTop": "4px"
+              }
+            },
+            "type": "ia.container.flex"
+          },
+          {
+            "children": [
+              {
+                "meta": {
+                  "name": "isRedundant",
+                  "tooltip": {
+                    "enabled": true,
+                    "text": "Checked for Redundant Licenses"
+                  }
+                },
+                "position": {
+                  "basis": "110px",
+                  "shrink": 0
+                },
+                "propConfig": {
+                  "props.selected": {
+                    "binding": {
+                      "config": {
+                        "bidirectional": true,
+                        "path": "view.custom.config.redundant"
+                      },
+                      "type": "property"
+                    },
+                    "onChange": {
+                      "enabled": null,
+                      "script": "\tif self.session.custom.audit.bom and origin \u003d\u003d \"Browser\":\n\t\t# Log Redundancy flag modified\n\t\tsystem.util.audit(action\u003d\"Gateway Redundancy\", actionTarget\u003d\"BOM\", actionValue\u003dstr(currentValue.value), originatingSystem\u003d[\"uuid\",self.view.params.uuid])"
+                    }
+                  }
+                },
+                "props": {
+                  "checkedIcon": {
+                    "style": {
+                      "marginRight": "-8px"
+                    }
+                  },
+                  "style": {
+                    "marginRight": "4px"
+                  },
+                  "text": "Redundant",
+                  "uncheckedIcon": {
+                    "style": {
+                      "marginRight": "-8px"
+                    }
+                  }
+                },
+                "type": "ia.input.checkbox"
+              },
+              {
+                "meta": {
+                  "name": "Value"
+                },
+                "position": {
+                  "basis": "92px",
+                  "shrink": 0
+                },
+                "propConfig": {
+                  "props.style.color": {
+                    "binding": {
+                      "config": {
+                        "path": "view.custom.config.redundant"
+                      },
+                      "transforms": [
+                        {
+                          "fallback": "",
+                          "inputType": "scalar",
+                          "mappings": [
+                            {
+                              "input": false,
+                              "output": "--neutral-50"
+                            }
+                          ],
+                          "outputType": "scalar",
+                          "type": "map"
+                        }
+                      ],
+                      "type": "property"
+                    }
+                  },
+                  "props.text": {
+                    "binding": {
+                      "config": {
+                        "path": "view.custom.config"
+                      },
+                      "transforms": [
+                        {
+                          "expression": "if({value}[\"redundant\"],\r\n\tif(len({value}[\"licenseKeyRedun\"]) \u003e 5,\r\n\t\t{value}[\"licenseKeyRedun\"],\r\n\t\t\"No key\"),\r\n\t\"N/A\")",
+                          "type": "expression"
+                        }
+                      ],
+                      "type": "property"
+                    }
+                  }
+                },
+                "props": {
+                  "style": {
+                    "borderBottomLeftRadius": "4px",
+                    "borderBottomRightRadius": "4px",
+                    "borderColor": "--neutral-40",
+                    "borderStyle": "solid",
+                    "borderTopLeftRadius": "4px",
+                    "borderTopRightRadius": "4px",
+                    "borderWidth": "1px",
+                    "paddingRight": "4px"
+                  },
+                  "textStyle": {
+                    "fontFamily": "monospace",
+                    "fontSize": "16px",
+                    "textAlign": "center"
+                  }
+                },
+                "type": "ia.display.label"
+              }
+            ],
+            "meta": {
+              "name": "Redundancy"
+            },
+            "position": {
+              "basis": "206px",
+              "shrink": 0
+            },
+            "props": {
+              "style": {
+                "marginLeft": "6px",
+                "paddingBottom": "4px",
+                "paddingTop": "4px"
+              }
+            },
+            "type": "ia.container.flex"
+          },
+          {
+            "events": {
+              "dom": {
+                "onClick": {
+                  "config": {
+                    "script": "\tif self.props.selected and self.getSibling(\"isTrial\").props.selected:\n\t\tself.getSibling(\"isTrial\").props.selected \u003d 0"
+                  },
+                  "scope": "G",
+                  "type": "script"
+                }
+              }
+            },
+            "meta": {
+              "name": "isDevelopment",
+              "tooltip": {
+                "enabled": true,
+                "text": "Checked for Non-Production License"
+              }
+            },
+            "position": {
+              "shrink": 0
+            },
+            "propConfig": {
+              "props.selected": {
+                "binding": {
+                  "config": {
+                    "bidirectional": true,
+                    "path": "view.custom.config.development"
+                  },
+                  "type": "property"
+                },
+                "onChange": {
+                  "enabled": null,
+                  "script": "\tif self.session.custom.audit.bom and origin \u003d\u003d \"Browser\":\n\t\t# Log Development flag modified\n\t\tsystem.util.audit(action\u003d\"Gateway Redundancy\", actionTarget\u003d\"BOM\", actionValue\u003dstr(currentValue.value), originatingSystem\u003d[\"uuid\",self.view.params.uuid])"
+                }
+              }
+            },
+            "props": {
+              "checkedIcon": {
+                "style": {
+                  "marginRight": "-8px"
+                }
+              },
+              "style": {
+                "marginLeft": "6px",
+                "paddingBottom": "4px",
+                "paddingTop": "4px"
+              },
+              "text": "Development",
+              "uncheckedIcon": {
+                "style": {
+                  "marginRight": "-8px"
+                }
+              }
+            },
+            "type": "ia.input.checkbox"
+          },
+          {
+            "events": {
+              "component": {
+                "onActionPerformed": {
+                  "config": {
+                    "script": "\tif self.props.selected:\n\t\tif self.getSibling(\"isDevelopment\").props.selected:\n\t\t\tself.getSibling(\"isDevelopment\").props.selected \u003d 0\n\t\tself.view.custom.config.licenseKey \u003d \"\"\n\t\tself.view.custom.config.licenseKeyRedun \u003d \"\""
+                  },
+                  "scope": "G",
+                  "type": "script"
+                }
+              }
+            },
+            "meta": {
+              "name": "isTrial",
+              "tooltip": {
+                "enabled": true,
+                "text": "Checked for Unlicensed Gateways using the 2-Hour Trial"
+              }
+            },
+            "position": {
+              "shrink": 0
+            },
+            "propConfig": {
+              "props.selected": {
+                "binding": {
+                  "config": {
+                    "bidirectional": true,
+                    "path": "view.custom.config.trial"
+                  },
+                  "type": "property"
+                },
+                "onChange": {
+                  "enabled": null,
+                  "script": "\tif self.session.custom.audit.bom and origin \u003d\u003d \"Browser\":\n\t\t# Log Development flag modified\n\t\tsystem.util.audit(action\u003d\"Gateway Redundancy\", actionTarget\u003d\"BOM\", actionValue\u003dstr(currentValue.value), originatingSystem\u003d[\"uuid\",self.view.params.uuid])"
+                }
+              }
+            },
+            "props": {
+              "checkedIcon": {
+                "style": {
+                  "marginRight": "-8px"
+                }
+              },
+              "style": {
+                "marginLeft": "6px",
+                "marginRight": "6px",
+                "paddingBottom": "4px",
+                "paddingTop": "4px"
+              },
+              "text": "Trial",
+              "uncheckedIcon": {
+                "style": {
+                  "marginRight": "-8px"
+                }
+              }
+            },
+            "type": "ia.input.checkbox"
+          }
+        ],
+        "meta": {
+          "name": "Config"
+        },
+        "position": {
+          "shrink": 0
+        },
+        "props": {
+          "alignContent": "space-between",
+          "justify": "space-between",
+          "style": {
+            "backgroundColor": "--neutral-20",
+            "borderBottomLeftRadius": "8px",
+            "borderBottomRightRadius": "8px",
+            "borderTopLeftRadius": "8px",
+            "borderTopRightRadius": "8px",
+            "marginBottom": "4px",
+            "padding": "4px",
+            "paddingBottom": "4px"
+          },
+          "wrap": "wrap"
+        },
+        "type": "ia.container.flex"
+      },
+      {
+        "children": [
+          {
+            "meta": {
+              "name": "Label"
+            },
+            "position": {
+              "basis": "30px",
+              "shrink": 0
+            },
+            "props": {
+              "text": "Description:"
+            },
+            "type": "ia.display.label"
+          },
+          {
+            "meta": {
+              "name": "Markdown"
+            },
+            "position": {
+              "basis": "200px"
+            },
+            "propConfig": {
+              "props.source": {
+                "binding": {
+                  "config": {
+                    "path": "view.custom.desc"
+                  },
+                  "type": "property"
+                }
+              }
+            },
+            "props": {
+              "style": {
+                "borderBottomLeftRadius": "4px",
+                "borderBottomRightRadius": "4px",
+                "borderColor": "--neutral-40",
+                "borderStyle": "solid",
+                "borderTopLeftRadius": "4px",
+                "borderTopRightRadius": "4px",
+                "borderWidth": "1px",
+                "padding": "2px"
+              }
+            },
+            "type": "ia.display.markdown"
+          }
+        ],
+        "meta": {
+          "name": "Description"
+        },
+        "position": {
+          "basis": "100px",
+          "grow": 1,
+          "shrink": 0
+        },
+        "props": {
+          "direction": "column",
+          "style": {
+            "backgroundColor": "--neutral-20",
+            "borderBottomLeftRadius": "8px",
+            "borderBottomRightRadius": "8px",
+            "borderTopLeftRadius": "8px",
+            "borderTopRightRadius": "8px",
+            "marginBottom": "4px",
+            "marginTop": "0px",
+            "padding": "4px"
+          }
+        },
+        "type": "ia.container.flex"
+      }
+    ],
+    "meta": {
+      "name": "root"
+    },
+    "props": {
+      "direction": "column",
+      "style": {
+        "backgroundColor": "--neutral-40",
+        "borderBottomLeftRadius": "8px",
+        "borderBottomRightRadius": "8px",
+        "paddingBottom": "4px",
+        "paddingLeft": "8px",
+        "paddingRight": "8px",
+        "paddingTop": "0px"
+      }
+    },
+    "type": "ia.container.flex"
+  }
+}

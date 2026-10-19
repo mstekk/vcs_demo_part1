@@ -1,0 +1,20 @@
+{
+  "scope": "A",
+  "version": 1,
+  "restricted": false,
+  "overridable": true,
+  "files": [
+    "ui-splitter-horizontal.png"
+  ],
+  "attributes": {
+    "width": 16,
+    "format": "PNG",
+    "lastModification": {
+      "actor": "8.3-migration",
+      "timestamp": "2026-01-07T14:49:07Z"
+    },
+    "size": 326,
+    "lastModificationSignature": "f3a38aa5faffd197c847eb29bb0a6022ee78388e8b17537e93e0d5c4a8d55120",
+    "height": 16
+  }
+}

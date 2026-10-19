@@ -1,0 +1,20 @@
+{
+  "scope": "A",
+  "version": 1,
+  "restricted": false,
+  "overridable": true,
+  "files": [
+    "cutlery-spoon.png"
+  ],
+  "attributes": {
+    "width": 16,
+    "format": "PNG",
+    "lastModification": {
+      "actor": "8.3-migration",
+      "timestamp": "2026-01-07T14:49:07Z"
+    },
+    "size": 435,
+    "lastModificationSignature": "08c6a30beb995dc4301f22708b646ec40660983b6f7b8eca5ba95f92ab8e9574",
+    "height": 16
+  }
+}

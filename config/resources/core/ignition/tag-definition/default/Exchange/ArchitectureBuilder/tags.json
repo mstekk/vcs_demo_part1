@@ -1,0 +1,9 @@
+[
+  {
+    "valueSource": "memory",
+    "dataType": "Document",
+    "name": "TPM",
+    "defaultValue": {},
+    "tagType": "AtomicTag"
+  }
+]

@@ -1,0 +1,20 @@
+{
+  "scope": "A",
+  "version": 1,
+  "restricted": false,
+  "overridable": true,
+  "files": [
+    "edit-strike.png"
+  ],
+  "attributes": {
+    "width": 16,
+    "format": "PNG",
+    "lastModification": {
+      "actor": "8.3-migration",
+      "timestamp": "2026-01-07T14:49:07Z"
+    },
+    "size": 284,
+    "lastModificationSignature": "e50d65f716a6eeb9b18a2fd4f3e9606c653949c7f227591b0eb939fd8d8cf4b8",
+    "height": 16
+  }
+}

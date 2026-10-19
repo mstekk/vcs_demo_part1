@@ -1,0 +1,20 @@
+{
+  "scope": "A",
+  "version": 1,
+  "restricted": false,
+  "overridable": true,
+  "files": [
+    "rightarrow26.png"
+  ],
+  "attributes": {
+    "width": 16,
+    "format": "PNG",
+    "lastModification": {
+      "actor": "8.3-migration",
+      "timestamp": "2026-01-07T14:49:07Z"
+    },
+    "size": 356,
+    "lastModificationSignature": "79ec4b0c49c23f68b419e392239220ffcb36cc244c7bc31d41a617cb2a7a170a",
+    "height": 16
+  }
+}

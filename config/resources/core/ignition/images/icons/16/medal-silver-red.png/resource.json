@@ -1,0 +1,20 @@
+{
+  "scope": "A",
+  "version": 1,
+  "restricted": false,
+  "overridable": true,
+  "files": [
+    "medal-silver-red.png"
+  ],
+  "attributes": {
+    "width": 16,
+    "format": "PNG",
+    "lastModification": {
+      "actor": "8.3-migration",
+      "timestamp": "2026-01-07T14:49:07Z"
+    },
+    "size": 768,
+    "lastModificationSignature": "d02ec2ed10fd2f5d443f161b6c158f459ed1ec50a7739ff085a66d3d49cc7917",
+    "height": 16
+  }
+}

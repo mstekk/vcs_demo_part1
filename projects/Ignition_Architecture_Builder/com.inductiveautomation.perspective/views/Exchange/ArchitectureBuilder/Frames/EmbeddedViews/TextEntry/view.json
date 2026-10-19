@@ -1,0 +1,86 @@
+{
+  "custom": {},
+  "params": {
+    "component": "site",
+    "text": "",
+    "uuid": "value"
+  },
+  "propConfig": {
+    "params.component": {
+      "paramDirection": "input",
+      "persistent": true
+    },
+    "params.text": {
+      "paramDirection": "input",
+      "persistent": true
+    },
+    "params.uuid": {
+      "paramDirection": "input",
+      "persistent": true
+    }
+  },
+  "props": {
+    "defaultSize": {
+      "height": 29,
+      "width": 340
+    }
+  },
+  "root": {
+    "children": [
+      {
+        "meta": {
+          "name": "TextField"
+        },
+        "position": {
+          "grow": 1
+        },
+        "propConfig": {
+          "props.text": {
+            "binding": {
+              "config": {
+                "path": "view.params.text"
+              },
+              "type": "property"
+            }
+          }
+        },
+        "props": {
+          "placeholder": "Enter Text..."
+        },
+        "type": "ia.input.text-field"
+      },
+      {
+        "events": {
+          "component": {
+            "onActionPerformed": {
+              "config": {
+                "script": "\tsystem.perspective.sendMessage(\u0027textRequest\u0027, {\u0027text\u0027:self.getSibling(\"TextField\").props.text, \u0027component\u0027:self.view.params.component, \u0027uuid\u0027:self.view.params.uuid}, scope\u003d\u0027session\u0027)\n\tsystem.perspective.closePopup(\u0027textPop\u0027)"
+              },
+              "scope": "G",
+              "type": "script"
+            }
+          }
+        },
+        "meta": {
+          "name": "Button"
+        },
+        "props": {
+          "style": {
+            "marginLeft": "4px",
+            "paddingLeft": "4px",
+            "paddingRight": "4px"
+          },
+          "text": "Apply"
+        },
+        "type": "ia.input.button"
+      }
+    ],
+    "meta": {
+      "name": "root"
+    },
+    "props": {
+      "justify": "space-between"
+    },
+    "type": "ia.container.flex"
+  }
+}

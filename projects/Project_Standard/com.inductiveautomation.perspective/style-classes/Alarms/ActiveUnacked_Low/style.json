@@ -1,0 +1,25 @@
+{
+  "base": {
+    "animation": {
+      "duration": "1s",
+      "keyframes": {
+        "0%": {
+          "backgroundColor": "#FF00FF",
+          "color": "#800080",
+          "fontWeight": "bold",
+          "stroke": "#800080",
+          "strokeWidth": "5",
+          "fill": "#FF00FF"
+        },
+        "100%": {
+          "backgroundColor": "#FFCCFF",
+          "color": "#800080",
+          "fontWeight": "bold",
+          "stroke": "#800080",
+          "strokeWidth": "5",
+          "fill": "#FFCCFF"
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,20 @@
+{
+  "scope": "A",
+  "version": 1,
+  "restricted": false,
+  "overridable": true,
+  "files": [
+    "ui-split-panel.png"
+  ],
+  "attributes": {
+    "width": 16,
+    "format": "PNG",
+    "lastModification": {
+      "actor": "8.3-migration",
+      "timestamp": "2026-01-07T14:49:07Z"
+    },
+    "size": 329,
+    "lastModificationSignature": "ae9c816c7c77d9de1c489ea2ac7b31a526f05b0d0b1b6f52523ef9c383fabfdf",
+    "height": 16
+  }
+}

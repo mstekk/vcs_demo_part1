@@ -1,0 +1,20 @@
+{
+  "scope": "A",
+  "version": 1,
+  "restricted": false,
+  "overridable": true,
+  "files": [
+    "currency-pound.png"
+  ],
+  "attributes": {
+    "width": 16,
+    "format": "PNG",
+    "lastModification": {
+      "actor": "8.3-migration",
+      "timestamp": "2026-01-07T14:49:07Z"
+    },
+    "size": 523,
+    "lastModificationSignature": "49b0a5ef632540fcbdfc2bc9ae299cee2f4d79b5c371d5c5cea2f6c524003de9",
+    "height": 16
+  }
+}

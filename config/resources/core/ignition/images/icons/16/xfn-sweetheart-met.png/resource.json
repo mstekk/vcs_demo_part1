@@ -1,0 +1,20 @@
+{
+  "scope": "A",
+  "version": 1,
+  "restricted": false,
+  "overridable": true,
+  "files": [
+    "xfn-sweetheart-met.png"
+  ],
+  "attributes": {
+    "width": 16,
+    "format": "PNG",
+    "lastModification": {
+      "actor": "8.3-migration",
+      "timestamp": "2026-01-07T14:49:07Z"
+    },
+    "size": 588,
+    "lastModificationSignature": "3510a0c1039c837ad7586adf410109cb0dd2444f51a2676a8ba22a8dd9de0791",
+    "height": 16
+  }
+}

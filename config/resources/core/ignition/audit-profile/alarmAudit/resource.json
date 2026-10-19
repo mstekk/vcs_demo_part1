@@ -1,0 +1,19 @@
+{
+  "scope": "A",
+  "description": "Alarming Auditing Log",
+  "version": 1,
+  "restricted": false,
+  "overridable": true,
+  "files": [
+    "config.json"
+  ],
+  "attributes": {
+    "lastModification": {
+      "actor": "8.3-migration",
+      "timestamp": "2026-01-07T14:49:54Z"
+    },
+    "uuid": "6b8ccbc6-17ac-48fe-bb2b-15a65aa77f16",
+    "lastModificationSignature": "918b000e53e4253b806f59eff00ea0aa82f1e5d0381f12a7a5710c98acc36fc5",
+    "enabled": true
+  }
+}

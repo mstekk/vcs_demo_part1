@@ -1,0 +1,20 @@
+{
+  "scope": "A",
+  "version": 1,
+  "restricted": false,
+  "overridable": true,
+  "files": [
+    "script-attribute-t.png"
+  ],
+  "attributes": {
+    "width": 16,
+    "format": "PNG",
+    "lastModification": {
+      "actor": "8.3-migration",
+      "timestamp": "2026-01-07T14:49:07Z"
+    },
+    "size": 505,
+    "lastModificationSignature": "ff7735282940db96dfd2ac657f7bd5d06fcd2b140e666bd28fddfa5daab709be",
+    "height": 16
+  }
+}

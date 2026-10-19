@@ -1,0 +1,158 @@
+{
+  "custom": {
+    "key": null
+  },
+  "params": {
+    "entry": {
+      "name": "IIoT Cloud",
+      "type": "Cloud",
+      "uuid": "I73d907c5"
+    }
+  },
+  "propConfig": {
+    "custom.key": {
+      "binding": {
+        "config": {
+          "expression": "property(\"session.custom.structure.configs.\" + {view.params.entry.uuid})"
+        },
+        "transforms": [
+          {
+            "code": "\ttotal \u003d 0\n\n\t# Build list of selected modules\n\tselectedModules \u003d []\n\tfor m in value[\"modules\"][\"IA\"]:\n\t\tif \"selection\" in m.keys() and m[\"selection\"] is not None:\n\t\t\tselectedModules.append({\"name\": m[\"name\"], \"version\": m[\"selection\"]})\n\t\telse:\n\t\t\tselectedModules.append(m[\"name\"])\n\t\n\t#return selectedModules\n\n\treturn exchange.architecturebuilder.modules.IA.getTotal(selectedModules)",
+            "type": "script"
+          }
+        ],
+        "type": "expr"
+      },
+      "persistent": true
+    },
+    "params.entry": {
+      "paramDirection": "input",
+      "persistent": true
+    }
+  },
+  "props": {
+    "defaultSize": {
+      "height": 40
+    }
+  },
+  "root": {
+    "children": [
+      {
+        "meta": {
+          "name": "Name"
+        },
+        "propConfig": {
+          "props.text": {
+            "binding": {
+              "config": {
+                "path": "view.params.entry.name"
+              },
+              "type": "property"
+            }
+          }
+        },
+        "type": "ia.display.label"
+      },
+      {
+        "meta": {
+          "name": "Type"
+        },
+        "propConfig": {
+          "props.style.borderColor": {
+            "binding": {
+              "config": {
+                "expression": "case({this.props.text},\r\n\"Edge\", \"#47FF47\",\r\n\"Cloud\", \"#00D7D9\",\r\n\"#FF8C00\")"
+              },
+              "type": "expr"
+            }
+          },
+          "props.style.color": {
+            "binding": {
+              "config": {
+                "expression": "case({this.props.text},\r\n\"Edge\", \"#47FF47\",\r\n\"Cloud\", \"#00D7D9\",\r\n\"#FF8C00\")"
+              },
+              "type": "expr"
+            }
+          },
+          "props.text": {
+            "binding": {
+              "config": {
+                "path": "view.params.entry.type"
+              },
+              "type": "property"
+            }
+          }
+        },
+        "props": {
+          "style": {
+            "backgroundColor": "#FFFFFF",
+            "borderBottomLeftRadius": 15,
+            "borderBottomRightRadius": 15,
+            "borderStyle": "solid",
+            "borderTopLeftRadius": 15,
+            "borderTopRightRadius": 15,
+            "fontWeight": "bolder",
+            "margin": 4,
+            "marginLeft": 8,
+            "padding": 4
+          }
+        },
+        "type": "ia.display.label"
+      },
+      {
+        "meta": {
+          "name": "ToggleSwitch"
+        },
+        "position": {
+          "shrink": 0
+        },
+        "props": {
+          "label": {
+            "text": "Redundant Pair"
+          }
+        },
+        "type": "ia.input.toggle-switch"
+      },
+      {
+        "meta": {
+          "name": "Cost"
+        },
+        "position": {
+          "grow": 1
+        },
+        "propConfig": {
+          "props.text": {
+            "binding": {
+              "config": {
+                "expression": "property(\"session.custom.structure.configs.\" + {view.params.entry.uuid})"
+              },
+              "transforms": [
+                {
+                  "code": "\ttotal \u003d 0\n\n\t# Build list of selected modules\n\tselectedModules \u003d []\n\tfor m in value[\"modules\"][\"IA\"]:\n\t\tif \"selection\" in m.keys() and m[\"selection\"] is not None:\n\t\t\tselectedModules.append({\"name\": m[\"name\"], \"version\": m[\"selection\"]})\n\t\telse:\n\t\t\tselectedModules.append(m[\"name\"])\n\n\treturn (exchange.architecturebuilder.modules.IA.getTotal(selectedModules) * 1 - (self.session.custom.discount / 100.0))",
+                  "type": "script"
+                },
+                {
+                  "formatType": "numeric",
+                  "formatValue": "currency",
+                  "type": "format"
+                }
+              ],
+              "type": "expr"
+            }
+          }
+        },
+        "props": {
+          "style": {
+            "marginRight": 8,
+            "textAlign": "right"
+          }
+        },
+        "type": "ia.display.label"
+      }
+    ],
+    "meta": {
+      "name": "root"
+    },
+    "type": "ia.container.flex"
+  }
+}

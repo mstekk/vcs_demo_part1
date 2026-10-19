@@ -1,0 +1,20 @@
+{
+  "scope": "A",
+  "version": 1,
+  "restricted": false,
+  "overridable": true,
+  "files": [
+    "phone45.png"
+  ],
+  "attributes": {
+    "width": 24,
+    "format": "PNG",
+    "lastModification": {
+      "actor": "8.3-migration",
+      "timestamp": "2026-01-07T14:49:07Z"
+    },
+    "size": 474,
+    "lastModificationSignature": "997c8b5854b094473950439d61418cd96c8889d2fe5a127150915a1cb291fd58",
+    "height": 24
+  }
+}

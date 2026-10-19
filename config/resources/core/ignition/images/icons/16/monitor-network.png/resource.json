@@ -1,0 +1,20 @@
+{
+  "scope": "A",
+  "version": 1,
+  "restricted": false,
+  "overridable": true,
+  "files": [
+    "monitor-network.png"
+  ],
+  "attributes": {
+    "width": 16,
+    "format": "PNG",
+    "lastModification": {
+      "actor": "8.3-migration",
+      "timestamp": "2026-01-07T14:49:07Z"
+    },
+    "size": 596,
+    "lastModificationSignature": "ae36fe0cb68bf38ba21c08639bd34c6eb5454998b9276edb67eb735817d69ae2",
+    "height": 16
+  }
+}

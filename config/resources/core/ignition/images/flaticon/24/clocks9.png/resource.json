@@ -1,0 +1,20 @@
+{
+  "scope": "A",
+  "version": 1,
+  "restricted": false,
+  "overridable": true,
+  "files": [
+    "clocks9.png"
+  ],
+  "attributes": {
+    "width": 24,
+    "format": "PNG",
+    "lastModification": {
+      "actor": "8.3-migration",
+      "timestamp": "2026-01-07T14:49:07Z"
+    },
+    "size": 735,
+    "lastModificationSignature": "f4af643c127dc884031fe88a9736b385b2ab21d984f9882fe0ef1e2b544466f6",
+    "height": 24
+  }
+}

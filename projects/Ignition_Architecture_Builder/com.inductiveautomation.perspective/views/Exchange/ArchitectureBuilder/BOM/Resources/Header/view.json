@@ -1,0 +1,138 @@
+{
+  "custom": {},
+  "params": {
+    "UUID": "I2feea8ee",
+    "expanded": true
+  },
+  "propConfig": {
+    "params.UUID": {
+      "paramDirection": "input",
+      "persistent": true
+    },
+    "params.expanded": {
+      "paramDirection": "inout",
+      "persistent": true
+    }
+  },
+  "props": {
+    "defaultSize": {
+      "height": 40
+    }
+  },
+  "root": {
+    "children": [
+      {
+        "events": {
+          "dom": {
+            "onClick": {
+              "config": {
+                "script": "\t# Determine new value\n\tisExpanded \u003d not self.view.params.expanded\n\n\tif self.session.custom.audit.bom:\n\t\t# Log Resources section expanded or collapsed\n\t\tif isExpanded:\n\t\t\taction \u003d \"Expanded\"\n\t\telse:\n\t\t\taction \u003d \"Collapsed\"\n\t\tsystem.util.audit(action\u003daction, actionTarget\u003d\"BOM\", actionValue\u003d\"Ignition Resources\", originatingSystem\u003d[\"uuid\",self.view.params.UUID])\n\n\t# Call message handler\n\tpayload \u003d {\"source\": \"computing\", \"uuid\": self.view.params.UUID, \"value\": isExpanded}\n\tsystem.perspective.sendMessage(\"toggleExpansion\", payload)"
+              },
+              "scope": "G",
+              "type": "script"
+            }
+          }
+        },
+        "meta": {
+          "name": "Toggle",
+          "tooltip": {
+            "enabled": true,
+            "text": "Expand/Collapse"
+          }
+        },
+        "position": {
+          "basis": "30px"
+        },
+        "propConfig": {
+          "props.path": {
+            "binding": {
+              "config": {
+                "path": "view.params.expanded"
+              },
+              "transforms": [
+                {
+                  "fallback": "material/expand_more",
+                  "inputType": "scalar",
+                  "mappings": [
+                    {
+                      "input": true,
+                      "output": "material/expand_less"
+                    }
+                  ],
+                  "outputType": "scalar",
+                  "type": "map"
+                }
+              ],
+              "type": "property"
+            }
+          }
+        },
+        "props": {
+          "style": {
+            "cursor": "pointer"
+          }
+        },
+        "type": "ia.display.icon"
+      },
+      {
+        "meta": {
+          "name": "Title"
+        },
+        "position": {
+          "grow": 1
+        },
+        "props": {
+          "style": {
+            "cursor": "auto",
+            "marginLeft": "6px"
+          },
+          "text": "Computing Load \u0026 Resources"
+        },
+        "type": "ia.display.label"
+      },
+      {
+        "events": {
+          "dom": {
+            "onClick": {
+              "config": {
+                "newTab": true,
+                "url": "https://links.inductiveautomation.com/server-sizing-architecture"
+              },
+              "scope": "C",
+              "type": "nav"
+            }
+          }
+        },
+        "meta": {
+          "name": "Link",
+          "tooltip": {
+            "enabled": true,
+            "text": "Open Server Sizing \u0026 Architecture Guide"
+          }
+        },
+        "position": {
+          "basis": "30px"
+        },
+        "props": {
+          "path": "material/open_in_new",
+          "style": {
+            "marginRight": "4px"
+          }
+        },
+        "type": "ia.display.icon"
+      }
+    ],
+    "meta": {
+      "name": "root"
+    },
+    "props": {
+      "style": {
+        "borderTopLeftRadius": "16px",
+        "borderTopRightRadius": "16px",
+        "marginBottom": "0px",
+        "marginTop": "0px"
+      }
+    },
+    "type": "ia.container.flex"
+  }
+}

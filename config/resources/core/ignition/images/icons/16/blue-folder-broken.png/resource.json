@@ -1,0 +1,20 @@
+{
+  "scope": "A",
+  "version": 1,
+  "restricted": false,
+  "overridable": true,
+  "files": [
+    "blue-folder-broken.png"
+  ],
+  "attributes": {
+    "width": 16,
+    "format": "PNG",
+    "lastModification": {
+      "actor": "8.3-migration",
+      "timestamp": "2026-01-07T14:49:07Z"
+    },
+    "size": 1504,
+    "lastModificationSignature": "18fa9719b7ccfb2c32339179c7ea6774139f91be98c34de47ce8b087ca1431cd",
+    "height": 16
+  }
+}

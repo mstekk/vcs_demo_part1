@@ -1,0 +1,20 @@
+{
+  "scope": "A",
+  "version": 1,
+  "restricted": false,
+  "overridable": true,
+  "files": [
+    "weather-clouds.png"
+  ],
+  "attributes": {
+    "width": 16,
+    "format": "PNG",
+    "lastModification": {
+      "actor": "8.3-migration",
+      "timestamp": "2026-01-07T14:49:07Z"
+    },
+    "size": 713,
+    "lastModificationSignature": "f2ed689278f016a5454dc99bd845d8dd3b57992ca33c8e1ff6a3c8d597222c31",
+    "height": 16
+  }
+}

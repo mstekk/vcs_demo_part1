@@ -1,0 +1,20 @@
+{
+  "scope": "A",
+  "version": 1,
+  "restricted": false,
+  "overridable": true,
+  "files": [
+    "medal--arrow.png"
+  ],
+  "attributes": {
+    "width": 16,
+    "format": "PNG",
+    "lastModification": {
+      "actor": "8.3-migration",
+      "timestamp": "2026-01-07T14:49:07Z"
+    },
+    "size": 886,
+    "lastModificationSignature": "5f95c17c1af587d2ca160bd4e5acd1a6f8ff55d4853038a6db2e7d2566065ced",
+    "height": 16
+  }
+}

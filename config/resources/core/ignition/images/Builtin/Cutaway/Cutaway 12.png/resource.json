@@ -1,0 +1,20 @@
+{
+  "scope": "A",
+  "version": 1,
+  "restricted": false,
+  "overridable": true,
+  "files": [
+    "Cutaway 12.png"
+  ],
+  "attributes": {
+    "width": 180,
+    "format": "PNG",
+    "lastModification": {
+      "actor": "8.3-migration",
+      "timestamp": "2026-01-07T14:49:07Z"
+    },
+    "size": 16797,
+    "lastModificationSignature": "d837e3afbeb68d00c1aebc142b2e7bf1a3c9670fc8e511697f2aeedc6cb0c1a0",
+    "height": 292
+  }
+}

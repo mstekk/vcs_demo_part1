@@ -1,0 +1,20 @@
+{
+  "scope": "A",
+  "version": 1,
+  "restricted": false,
+  "overridable": true,
+  "files": [
+    "wrench--exclamation.png"
+  ],
+  "attributes": {
+    "width": 16,
+    "format": "PNG",
+    "lastModification": {
+      "actor": "8.3-migration",
+      "timestamp": "2026-01-07T14:49:07Z"
+    },
+    "size": 884,
+    "lastModificationSignature": "d7d576478d0aae67a087dfae7884ec2da8f7443ed51e4a29d064a922b7d2cf5a",
+    "height": 16
+  }
+}

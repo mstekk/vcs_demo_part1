@@ -1,0 +1,20 @@
+{
+  "scope": "A",
+  "version": 1,
+  "restricted": false,
+  "overridable": true,
+  "files": [
+    "lock-unlock.png"
+  ],
+  "attributes": {
+    "width": 16,
+    "format": "PNG",
+    "lastModification": {
+      "actor": "8.3-migration",
+      "timestamp": "2026-01-07T14:49:07Z"
+    },
+    "size": 609,
+    "lastModificationSignature": "561c8c915edfc62ec3488b8a675633688deab2783d64a9f73a2b2ac6edff218b",
+    "height": 16
+  }
+}

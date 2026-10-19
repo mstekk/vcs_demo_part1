@@ -1,0 +1,20 @@
+{
+  "scope": "A",
+  "version": 1,
+  "restricted": false,
+  "overridable": true,
+  "files": [
+    "application-rename.png"
+  ],
+  "attributes": {
+    "width": 16,
+    "format": "PNG",
+    "lastModification": {
+      "actor": "8.3-migration",
+      "timestamp": "2026-01-07T14:49:07Z"
+    },
+    "size": 683,
+    "lastModificationSignature": "cfb2af1b4305f52bf5be3747d3a4ac3a136cc12a01c759f983f8eb1c983b21e0",
+    "height": 16
+  }
+}

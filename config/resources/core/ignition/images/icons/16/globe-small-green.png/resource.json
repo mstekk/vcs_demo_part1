@@ -1,0 +1,20 @@
+{
+  "scope": "A",
+  "version": 1,
+  "restricted": false,
+  "overridable": true,
+  "files": [
+    "globe-small-green.png"
+  ],
+  "attributes": {
+    "width": 16,
+    "format": "PNG",
+    "lastModification": {
+      "actor": "8.3-migration",
+      "timestamp": "2026-01-07T14:49:07Z"
+    },
+    "size": 466,
+    "lastModificationSignature": "e35c365c71e4972eed748ac0f0613e61ca35cc7054bc5a1cdfcd9c82c1c7b28e",
+    "height": 16
+  }
+}

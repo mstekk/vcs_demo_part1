@@ -1,0 +1,591 @@
+{
+  "custom": {},
+  "params": {},
+  "props": {
+    "defaultSize": {
+      "height": 1080,
+      "width": 1920
+    }
+  },
+  "root": {
+    "children": [
+      {
+        "children": [
+          {
+            "meta": {
+              "name": "EmbeddedView"
+            },
+            "position": {
+              "height": 900,
+              "width": 550,
+              "x": 56,
+              "y": 74.01
+            },
+            "props": {
+              "path": "Templates/ION Exchange Vessel",
+              "useDefaultViewHeight": true,
+              "useDefaultViewWidth": true
+            },
+            "type": "ia.display.view"
+          },
+          {
+            "meta": {
+              "name": "EmbeddedView_0"
+            },
+            "position": {
+              "height": 900,
+              "width": 550,
+              "x": 622,
+              "y": 74.01103051757812
+            },
+            "props": {
+              "path": "Templates/ION Exchange Vessel",
+              "useDefaultViewHeight": true,
+              "useDefaultViewWidth": true
+            },
+            "type": "ia.display.view"
+          },
+          {
+            "meta": {
+              "name": "EmbeddedView_1"
+            },
+            "position": {
+              "height": 900,
+              "width": 550,
+              "x": 1188,
+              "y": 74.01103051757812
+            },
+            "props": {
+              "path": "Templates/ION Exchange Vessel",
+              "useDefaultViewHeight": true,
+              "useDefaultViewWidth": true
+            },
+            "type": "ia.display.view"
+          }
+        ],
+        "meta": {
+          "name": "CoordinateContainer"
+        },
+        "position": {
+          "basis": "200px",
+          "grow": 1
+        },
+        "props": {
+          "pipes": [
+            {
+              "appearance": "p\u0026id",
+              "end": "arrowOutward",
+              "fill": "",
+              "flanges": true,
+              "lineVariant": "solid",
+              "name": "pipe_13",
+              "origin": {
+                "connections": [
+                  {
+                    "connections": [
+                      {
+                        "x": 1822,
+                        "y": 899
+                      }
+                    ],
+                    "x": 1649,
+                    "y": 899
+                  },
+                  {
+                    "x": 1822,
+                    "y": 984
+                  },
+                  {
+                    "connections": [
+                      {
+                        "connections": [],
+                        "x": 135,
+                        "y": 979
+                      },
+                      {
+                        "connections": [
+                          {
+                            "x": 1822,
+                            "y": 813.27
+                          }
+                        ],
+                        "x": 1575,
+                        "y": 813.27
+                      }
+                    ],
+                    "x": 1575,
+                    "y": 983.27
+                  }
+                ],
+                "x": 1649,
+                "y": 983.4872554831061
+              },
+              "start": "none",
+              "stroke": "#2B2B2B",
+              "visible": true,
+              "width": 2
+            },
+            {
+              "appearance": "p\u0026id",
+              "end": "arrowOutward",
+              "fill": "",
+              "flanges": true,
+              "lineVariant": "solid",
+              "name": "pipe_12",
+              "origin": {
+                "connections": [
+                  {
+                    "connections": [
+                      {
+                        "connections": [
+                          {
+                            "connections": [
+                              {
+                                "x": 781,
+                                "y": 974.01
+                              }
+                            ],
+                            "x": 781,
+                            "y": 662
+                          },
+                          {
+                            "connections": [
+                              {
+                                "x": 889,
+                                "y": 720
+                              }
+                            ],
+                            "x": 1114,
+                            "y": 720
+                          }
+                        ],
+                        "x": 1114,
+                        "y": 662
+                      }
+                    ],
+                    "x": 1114,
+                    "y": 157
+                  }
+                ],
+                "x": 884,
+                "y": 157
+              },
+              "start": "arrowInward",
+              "stroke": "#2B2B2B",
+              "visible": true,
+              "width": 2
+            },
+            {
+              "appearance": "p\u0026id",
+              "end": "arrowOutward",
+              "fill": "",
+              "flanges": true,
+              "lineVariant": "solid",
+              "name": "pipe_11",
+              "origin": {
+                "connections": [
+                  {
+                    "connections": [
+                      {
+                        "connections": [
+                          {
+                            "connections": [
+                              {
+                                "x": 1348,
+                                "y": 974.01
+                              }
+                            ],
+                            "x": 1348,
+                            "y": 662
+                          },
+                          {
+                            "connections": [
+                              {
+                                "x": 1455,
+                                "y": 720
+                              }
+                            ],
+                            "x": 1680,
+                            "y": 720
+                          }
+                        ],
+                        "x": 1680,
+                        "y": 662
+                      }
+                    ],
+                    "x": 1680,
+                    "y": 157
+                  }
+                ],
+                "x": 1450,
+                "y": 157
+              },
+              "start": "arrowInward",
+              "stroke": "#2B2B2B",
+              "visible": true,
+              "width": 2
+            },
+            {
+              "appearance": "p\u0026id",
+              "end": "arrowOutward",
+              "fill": "",
+              "flanges": true,
+              "lineVariant": "solid",
+              "name": "pipe_8",
+              "origin": {
+                "connections": [
+                  {
+                    "connections": [
+                      {
+                        "connections": [
+                          {
+                            "connections": [
+                              {
+                                "x": 322,
+                                "y": 720
+                              }
+                            ],
+                            "x": 548,
+                            "y": 720
+                          },
+                          {
+                            "connections": [
+                              {
+                                "connections": [
+                                  {
+                                    "x": 215,
+                                    "y": 974.01
+                                  }
+                                ],
+                                "x": 215,
+                                "y": 712
+                              }
+                            ],
+                            "x": 215,
+                            "y": 662
+                          }
+                        ],
+                        "x": 548,
+                        "y": 662
+                      }
+                    ],
+                    "x": 548,
+                    "y": 157
+                  }
+                ],
+                "x": 318,
+                "y": 157
+              },
+              "start": "arrowInward",
+              "stroke": "#2B2B2B",
+              "visible": true,
+              "width": 2
+            },
+            {
+              "appearance": "p\u0026id",
+              "end": "arrowOutward",
+              "fill": "",
+              "flanges": true,
+              "lineVariant": "solid",
+              "name": "pipe_3",
+              "origin": {
+                "connections": [
+                  {
+                    "connections": [
+                      {
+                        "connections": [
+                          {
+                            "connections": [
+                              {
+                                "connections": [
+                                  {
+                                    "x": 387,
+                                    "y": 414
+                                  }
+                                ],
+                                "x": 469,
+                                "y": 414
+                              }
+                            ],
+                            "x": 469,
+                            "y": 601
+                          },
+                          {
+                            "x": 1036,
+                            "y": 543
+                          }
+                        ],
+                        "x": 1036,
+                        "y": 601
+                      },
+                      {
+                        "x": 1601,
+                        "y": 543
+                      }
+                    ],
+                    "x": 1601,
+                    "y": 601
+                  }
+                ],
+                "x": 1822,
+                "y": 601
+              },
+              "start": "arrowInward",
+              "stroke": "#2B2B2B",
+              "visible": true,
+              "width": 2
+            },
+            {
+              "appearance": "simple",
+              "end": "arrowOutward",
+              "fill": "",
+              "flanges": true,
+              "lineVariant": "solid",
+              "name": "pipe_6",
+              "origin": {
+                "connections": [
+                  {
+                    "connections": [],
+                    "x": 135,
+                    "y": 294
+                  }
+                ],
+                "x": 318,
+                "y": 294
+              },
+              "start": "none",
+              "stroke": "#2B2B2B",
+              "visible": true,
+              "width": 2
+            },
+            {
+              "appearance": "p\u0026id",
+              "end": "arrowOutward",
+              "fill": "",
+              "flanges": true,
+              "lineVariant": "solid",
+              "name": "pipe_0",
+              "origin": {
+                "connections": [
+                  {
+                    "x": 318,
+                    "y": 1026
+                  }
+                ],
+                "x": 318,
+                "y": 555
+              },
+              "start": "none",
+              "stroke": "#2B2B2B",
+              "visible": true,
+              "width": 5
+            },
+            {
+              "appearance": "p\u0026id",
+              "end": "arrowOutward",
+              "fill": "",
+              "flanges": true,
+              "lineVariant": "solid",
+              "name": "pipe_1",
+              "origin": {
+                "connections": [
+                  {
+                    "connections": [
+                      {
+                        "connections": [
+                          {
+                            "connections": [
+                              {
+                                "x": 318,
+                                "y": 367
+                              }
+                            ],
+                            "x": 318,
+                            "y": 66.01
+                          },
+                          {
+                            "x": 884,
+                            "y": 367
+                          }
+                        ],
+                        "x": 884,
+                        "y": 66.01
+                      },
+                      {
+                        "x": 1450,
+                        "y": 367
+                      }
+                    ],
+                    "x": 1450,
+                    "y": 66.01
+                  }
+                ],
+                "x": 1822,
+                "y": 66.01
+              },
+              "start": "arrowInward",
+              "stroke": "#2B2B2B",
+              "visible": true,
+              "width": 5
+            },
+            {
+              "appearance": "p\u0026id",
+              "end": "arrowOutward",
+              "fill": "",
+              "flanges": true,
+              "lineVariant": "solid",
+              "name": "pipe",
+              "origin": {
+                "connections": [
+                  {
+                    "x": 884,
+                    "y": 1026
+                  }
+                ],
+                "x": 884,
+                "y": 555
+              },
+              "start": "none",
+              "stroke": "#2B2B2B",
+              "visible": true,
+              "width": 5
+            },
+            {
+              "appearance": "p\u0026id",
+              "end": "arrowOutward",
+              "fill": "",
+              "flanges": true,
+              "lineVariant": "solid",
+              "name": "pipe_2",
+              "origin": {
+                "connections": [
+                  {
+                    "x": 1450,
+                    "y": 1026
+                  }
+                ],
+                "x": 1450,
+                "y": 555
+              },
+              "start": "none",
+              "stroke": "#2B2B2B",
+              "visible": true,
+              "width": 5
+            },
+            {
+              "appearance": "p\u0026id",
+              "end": "arrowOutward",
+              "fill": "",
+              "flanges": true,
+              "lineVariant": "solid",
+              "name": "pipe_7",
+              "origin": {
+                "connections": [
+                  {
+                    "x": 135,
+                    "y": 974.01
+                  }
+                ],
+                "x": 135,
+                "y": 294
+              },
+              "start": "none",
+              "stroke": "#2B2B2B",
+              "visible": true,
+              "width": 2
+            },
+            {
+              "appearance": "p\u0026id",
+              "end": "arrowOutward",
+              "fill": "",
+              "flanges": true,
+              "lineVariant": "solid",
+              "name": "pipe_9",
+              "origin": {
+                "connections": [
+                  {
+                    "connections": [
+                      {
+                        "x": 952,
+                        "y": 414
+                      }
+                    ],
+                    "x": 1036,
+                    "y": 414
+                  }
+                ],
+                "x": 1036,
+                "y": 529
+              },
+              "start": "none",
+              "stroke": "#2B2B2B",
+              "visible": true,
+              "width": 2
+            },
+            {
+              "appearance": "p\u0026id",
+              "end": "arrowOutward",
+              "fill": "",
+              "flanges": true,
+              "lineVariant": "solid",
+              "name": "pipe_10",
+              "origin": {
+                "connections": [
+                  {
+                    "connections": [
+                      {
+                        "x": 1519,
+                        "y": 414
+                      }
+                    ],
+                    "x": 1601,
+                    "y": 414
+                  }
+                ],
+                "x": 1601,
+                "y": 529
+              },
+              "start": "none",
+              "stroke": "#2B2B2B",
+              "visible": true,
+              "width": 2
+            },
+            {
+              "appearance": "p\u0026id",
+              "end": "arrowOutward",
+              "fill": "",
+              "flanges": true,
+              "lineVariant": "solid",
+              "name": "pipe_5",
+              "origin": {
+                "connections": [
+                  {
+                    "x": 1822,
+                    "y": 1035
+                  }
+                ],
+                "x": 317,
+                "y": 1033
+              },
+              "start": "none",
+              "stroke": "#2B2B2B",
+              "visible": true,
+              "width": 5
+            }
+          ]
+        },
+        "type": "ia.container.coord"
+      }
+    ],
+    "meta": {
+      "name": "root"
+    },
+    "props": {
+      "direction": "column",
+      "style": {
+        "classes": "Background"
+      }
+    },
+    "type": "ia.container.flex"
+  }
+}

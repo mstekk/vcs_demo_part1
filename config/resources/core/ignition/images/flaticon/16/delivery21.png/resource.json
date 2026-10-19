@@ -1,0 +1,20 @@
+{
+  "scope": "A",
+  "version": 1,
+  "restricted": false,
+  "overridable": true,
+  "files": [
+    "delivery21.png"
+  ],
+  "attributes": {
+    "width": 16,
+    "format": "PNG",
+    "lastModification": {
+      "actor": "8.3-migration",
+      "timestamp": "2026-01-07T14:49:07Z"
+    },
+    "size": 345,
+    "lastModificationSignature": "65ff91fd1155f092c4a69797cf6d742c7d890daad2088da8517259358124d63f",
+    "height": 16
+  }
+}

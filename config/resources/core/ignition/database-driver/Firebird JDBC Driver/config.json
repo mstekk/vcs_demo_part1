@@ -1,0 +1,10 @@
+{
+  "classname": "org.firebirdsql.jdbc.FBDriver",
+  "defaultPropInstructions": "The list of properties available for the driver can be found in the \u003ci\u003eJaybird JDBC Driver Manual\u003c/i\u003e which can be found at \u003ca href\u003d\u0027http://www.firebirdsql.org\u0027\u003efirebirdsql.org\u003c/a\u003e.",
+  "defaultProps": "",
+  "defaultTranslator": "FIREBIRD",
+  "defaultValidationQuery": "SELECT 1 FROM rdb$database",
+  "type": "FIREBIRD",
+  "urlFormat": "jdbc:firebirdsql:host[/port]:/path/to/db.fdb",
+  "urlInstructions": "\u003cbr/\u003eThe default port is 3050.\u003cbr\u003eExample:\u003cbr\u003e\u003ccode\u003ejdbc:firebirdsql:localhost/3050:c:/db/data.fdb\u003c/code\u003e"
+}

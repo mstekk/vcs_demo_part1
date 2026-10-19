@@ -1,0 +1,20 @@
+{
+  "scope": "A",
+  "version": 1,
+  "restricted": false,
+  "overridable": true,
+  "files": [
+    "device22.png"
+  ],
+  "attributes": {
+    "width": 24,
+    "format": "PNG",
+    "lastModification": {
+      "actor": "8.3-migration",
+      "timestamp": "2026-01-07T14:49:07Z"
+    },
+    "size": 381,
+    "lastModificationSignature": "b2265db750d09838f7989a1cf15b7f07324ff87fda8c19e0df488ae8a7d9938d",
+    "height": 24
+  }
+}

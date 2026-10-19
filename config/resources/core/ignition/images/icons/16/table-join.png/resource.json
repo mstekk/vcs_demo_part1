@@ -1,0 +1,20 @@
+{
+  "scope": "A",
+  "version": 1,
+  "restricted": false,
+  "overridable": true,
+  "files": [
+    "table-join.png"
+  ],
+  "attributes": {
+    "width": 16,
+    "format": "PNG",
+    "lastModification": {
+      "actor": "8.3-migration",
+      "timestamp": "2026-01-07T14:49:07Z"
+    },
+    "size": 560,
+    "lastModificationSignature": "53b869cfaaeb08bb50c92956bc10200c562ecd7d17e9ba97191b2da74dec5974",
+    "height": 16
+  }
+}

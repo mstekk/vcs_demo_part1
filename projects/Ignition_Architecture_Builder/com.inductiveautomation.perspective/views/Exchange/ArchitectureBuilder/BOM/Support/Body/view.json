@@ -1,0 +1,1236 @@
+{
+  "custom": {
+    "retail": 0,
+    "supportPlan": "Total",
+    "textFormat": {}
+  },
+  "params": {
+    "type": "Standard",
+    "uuid": "I06ac5707"
+  },
+  "propConfig": {
+    "custom.plans": {
+      "binding": {
+        "config": {
+          "expression": "runScript(\"exchange.architecturebuilder.modules.getSupportPlans()\")"
+        },
+        "transforms": [
+          {
+            "code": "\treturn sorted(value.items(), key \u003d lambda x: x[1][\"multiplier\"], reverse\u003dTrue)",
+            "type": "script"
+          }
+        ],
+        "type": "expr"
+      }
+    },
+    "custom.retail": {
+      "binding": {
+        "config": {
+          "struct": {
+            "eamUnlimited": "{session.custom.eamUnlimited}",
+            "instance": "property(\"session.custom.structure.configs.\" + {view.params.uuid})",
+            "type": "{view.params.type}"
+          },
+          "waitOnAll": true
+        },
+        "transforms": [
+          {
+            "code": "\ttotal \u003d 0\n\tif value[\u0027type\u0027] \u003d\u003d \u0027Cloud\u0027:\n\t\treturn total\n\telse:\n\t\tfor vendor in (\"IA\", \"CL\"):\n\t\t\tif value[\u0027instance\u0027] is not None:\n\t\t\t\tif vendor in value[\u0027instance\u0027][\u0027config\u0027][\u0027modules\u0027]:\n\t\t\t\t\t# Build list of selected modules\n\t\t\t\t\tselectedModules \u003d []\n\t\t\t\t\tmoduleVendors \u003d value[\u0027instance\u0027][\u0027config\u0027][\u0027modules\u0027][vendor]\n\t\t\t\t\t# Include EAM Unlimited if UUID matches\n\t\t\t\t\tif vendor \u003d\u003d \"IA\" and value[\"eamUnlimited\"][\"selected\"] and value[\"eamUnlimited\"][\"UUID\"] \u003d\u003d self.view.params.uuid:\n\t\t\t\t\t\tselectedModules.append({\"name\": \"EAM\", \"selection\": \"unlimited\"})\n\t\t\t\t\tfor m in moduleVendors:\n\t\t\t\t\t\tif \"selection\" in m.keys() and m[\"selection\"] is not None:\n\t\t\t\t\t\t\tselectedModules.append({\"name\": m[\"name\"], \"selection\": m[\"selection\"]})\n\t\t\t\t\t\telse:\n\t\t\t\t\t\t\tselectedModules.append(m[\"name\"])\n\t\t\t\t\ttotal +\u003d exchange.architecturebuilder.modules.getRetailTotal({vendor: selectedModules}, gwType\u003dvalue[\u0027type\u0027])[\u0027total\u0027]\n\t\treturn total",
+            "type": "script"
+          }
+        ],
+        "type": "expr-struct"
+      },
+      "persistent": true
+    },
+    "custom.supportPlan": {
+      "binding": {
+        "config": {
+          "expression": "coalesce(property(\"session.custom.structure.configs.\" + {view.params.uuid} + \".config.supportPlan\"), \u0027Total\u0027)"
+        },
+        "type": "expr"
+      },
+      "onChange": {
+        "enabled": null,
+        "script": "\tif currentValue.quality.isGood() and origin \u003d\u003d \"Script\":\n\t\tself.session.custom.structure.configs[self.params.uuid][\"config\"][\"supportPlan\"] \u003d currentValue.value"
+      },
+      "persistent": true
+    },
+    "custom.textFormat": {
+      "persistent": true
+    },
+    "custom.textFormat.color": {
+      "binding": {
+        "config": {
+          "expression": "if({view.params.type} \u003d \u0027Cloud\u0027,\r\n\t\"--neutral-50\",\r\n\t\"\")"
+        },
+        "type": "expr"
+      }
+    },
+    "custom.textFormat.textDecoration": {
+      "binding": {
+        "config": {
+          "expression": "if({view.params.type} \u003d \u0027Cloud\u0027,\r\n\t\"line-through\",\r\n\t\"\")"
+        },
+        "type": "expr"
+      }
+    },
+    "params.type": {
+      "paramDirection": "input",
+      "persistent": true
+    },
+    "params.uuid": {
+      "paramDirection": "input",
+      "persistent": true
+    }
+  },
+  "props": {
+    "defaultSize": {
+      "height": 170,
+      "width": 450
+    }
+  },
+  "root": {
+    "children": [
+      {
+        "events": {
+          "component": {
+            "onRowClick": {
+              "config": {
+                "script": "\tif self.view.params.type \u003d\u003d \"Cloud\":\n\t\tselection \u003d \"Total\"\n\telse:\n\t\tselection \u003d event.value[\"plan\"].split(\"Care\")[0]\n\n\t# Update selected support plan\n\tself.view.custom.supportPlan \u003d selection"
+              },
+              "scope": "G",
+              "type": "script"
+            }
+          }
+        },
+        "meta": {
+          "name": "Table",
+          "tooltip": {
+            "enabled": true
+          }
+        },
+        "propConfig": {
+          "props.data[0].cost.style": {
+            "binding": {
+              "config": {
+                "path": "view.custom.textFormat"
+              },
+              "type": "property"
+            }
+          },
+          "props.data[0].cost.value": {
+            "binding": {
+              "config": {
+                "expression": "numberFormat({view.custom.plans[0][1].multiplier} * {view.custom.retail}, \"$#,##0.00\")"
+              },
+              "type": "expr"
+            }
+          },
+          "props.data[0].desc": {
+            "binding": {
+              "config": {
+                "path": "view.custom.plans[0][1].desc"
+              },
+              "type": "property"
+            }
+          },
+          "props.data[0].email.enabled": {
+            "binding": {
+              "config": {
+                "expression": "{view.params.type} !\u003d \u0027Cloud\u0027"
+              },
+              "type": "expr"
+            }
+          },
+          "props.data[0].phone.enabled": {
+            "binding": {
+              "config": {
+                "expression": "{view.params.type} !\u003d \u0027Cloud\u0027"
+              },
+              "type": "expr"
+            }
+          },
+          "props.data[0].plan.style": {
+            "binding": {
+              "config": {
+                "path": "view.custom.textFormat"
+              },
+              "type": "property"
+            }
+          },
+          "props.data[0].plan.value": {
+            "binding": {
+              "config": {
+                "expression": "{view.custom.plans[0][1].displayName} + \u0027 (\u0027 + numberFormat({view.custom.plans[0][1].multiplier}, \"0%\") + \")\""
+              },
+              "type": "expr"
+            }
+          },
+          "props.data[0].priority.enabled": {
+            "binding": {
+              "config": {
+                "expression": "{view.params.type} !\u003d \u0027Cloud\u0027"
+              },
+              "type": "expr"
+            }
+          },
+          "props.data[0].selection.enabled": {
+            "binding": {
+              "config": {
+                "expression": "// Enabled if type\u003dCloud and plan name is \u0027Total\u0027 or for any other gateway type\r\n{view.params.type} !\u003d \"Cloud\""
+              },
+              "type": "expr"
+            }
+          },
+          "props.data[0].selection.selected": {
+            "binding": {
+              "config": {
+                "expression": "{view.custom.supportPlan} \u003d \"Priority\""
+              },
+              "type": "expr"
+            }
+          },
+          "props.data[0].upgrade.style": {
+            "binding": {
+              "config": {
+                "path": "view.custom.textFormat"
+              },
+              "type": "property"
+            }
+          },
+          "props.data[1].cost.value": {
+            "binding": {
+              "config": {
+                "expression": "numberFormat({view.custom.plans[1][1].multiplier} * {view.custom.retail}, \"$#,##0.00\")"
+              },
+              "type": "expr"
+            }
+          },
+          "props.data[1].desc": {
+            "binding": {
+              "config": {
+                "path": "view.custom.plans[1][1].desc"
+              },
+              "type": "property"
+            }
+          },
+          "props.data[1].plan.value": {
+            "binding": {
+              "config": {
+                "expression": "{view.custom.plans[1][1].displayName} + \u0027 (\u0027 + numberFormat({view.custom.plans[1][1].multiplier}, \"0%\") + \")\""
+              },
+              "type": "expr"
+            }
+          },
+          "props.data[1].selection.selected": {
+            "binding": {
+              "config": {
+                "expression": "{view.custom.supportPlan} \u003d \"Total\""
+              },
+              "type": "expr"
+            }
+          },
+          "props.data[2].cost.style": {
+            "binding": {
+              "config": {
+                "path": "view.custom.textFormat"
+              },
+              "type": "property"
+            }
+          },
+          "props.data[2].cost.value": {
+            "binding": {
+              "config": {
+                "expression": "numberFormat({view.custom.plans[2][1].multiplier} * {view.custom.retail}, \"$#,##0.00\")"
+              },
+              "type": "expr"
+            }
+          },
+          "props.data[2].desc": {
+            "binding": {
+              "config": {
+                "path": "view.custom.plans[2][1].desc"
+              },
+              "type": "property"
+            }
+          },
+          "props.data[2].email.enabled": {
+            "binding": {
+              "config": {
+                "expression": "{view.params.type} !\u003d \u0027Cloud\u0027"
+              },
+              "type": "expr"
+            }
+          },
+          "props.data[2].phone.enabled": {
+            "binding": {
+              "config": {
+                "expression": "{view.params.type} !\u003d \u0027Cloud\u0027"
+              },
+              "type": "expr"
+            }
+          },
+          "props.data[2].plan.style": {
+            "binding": {
+              "config": {
+                "path": "view.custom.textFormat"
+              },
+              "type": "property"
+            }
+          },
+          "props.data[2].plan.value": {
+            "binding": {
+              "config": {
+                "expression": "{view.custom.plans[2][1].displayName} + \u0027 (\u0027 + numberFormat({view.custom.plans[2][1].multiplier}, \"0%\") + \")\""
+              },
+              "type": "expr"
+            }
+          },
+          "props.data[2].priority.enabled": {
+            "binding": {
+              "config": {
+                "expression": "{view.params.type} !\u003d \u0027Cloud\u0027"
+              },
+              "type": "expr"
+            }
+          },
+          "props.data[2].selection.enabled": {
+            "binding": {
+              "config": {
+                "expression": "// Enabled if type\u003dCloud and plan name is \u0027Total\u0027 or for any other gateway type\r\n{view.params.type} !\u003d \"Cloud\""
+              },
+              "type": "expr"
+            }
+          },
+          "props.data[2].selection.selected": {
+            "binding": {
+              "config": {
+                "expression": "{view.custom.supportPlan} \u003d \"Basic\""
+              },
+              "type": "expr"
+            }
+          },
+          "props.data[2].upgrade.style": {
+            "binding": {
+              "config": {
+                "path": "view.custom.textFormat"
+              },
+              "type": "property"
+            }
+          },
+          "props.data[3].cost.style": {
+            "binding": {
+              "config": {
+                "path": "view.custom.textFormat"
+              },
+              "type": "property"
+            }
+          },
+          "props.data[3].desc": {
+            "binding": {
+              "config": {
+                "path": "view.custom.plans[3][1].desc"
+              },
+              "type": "property"
+            }
+          },
+          "props.data[3].plan.style": {
+            "binding": {
+              "config": {
+                "path": "view.custom.textFormat"
+              },
+              "type": "property"
+            }
+          },
+          "props.data[3].selection.enabled": {
+            "binding": {
+              "config": {
+                "expression": "// Enabled if type\u003dCloud and plan name is \u0027Total\u0027 or for any other gateway type\r\n{view.params.type} !\u003d \"Cloud\""
+              },
+              "type": "expr"
+            }
+          },
+          "props.data[3].selection.selected": {
+            "binding": {
+              "config": {
+                "expression": "{view.custom.supportPlan} \u003d \"None\""
+              },
+              "type": "expr"
+            }
+          },
+          "props.data[3].upgrade.style": {
+            "binding": {
+              "config": {
+                "path": "view.custom.textFormat"
+              },
+              "type": "property"
+            }
+          },
+          "props.data[3].upgrade.value": {
+            "binding": {
+              "config": {
+                "expression": "numberFormat(0.65 * {view.custom.retail}, \"$#,##0.00\")"
+              },
+              "type": "expr"
+            }
+          }
+        },
+        "props": {
+          "columns": [
+            {
+              "align": "center",
+              "boolean": "toggle",
+              "dateFormat": "MM/DD/YYYY",
+              "editable": false,
+              "field": "selection",
+              "filter": {
+                "boolean": {
+                  "condition": ""
+                },
+                "date": {
+                  "condition": "",
+                  "value": ""
+                },
+                "enabled": false,
+                "number": {
+                  "condition": "",
+                  "value": ""
+                },
+                "string": {
+                  "condition": "",
+                  "value": ""
+                },
+                "visible": "on-hover"
+              },
+              "footer": {
+                "align": "center",
+                "justify": "left",
+                "style": {
+                  "classes": ""
+                },
+                "title": ""
+              },
+              "header": {
+                "align": "center",
+                "justify": "center",
+                "style": {
+                  "classes": "",
+                  "overflowWrap": "normal"
+                },
+                "title": " "
+              },
+              "justify": "center",
+              "nullFormat": {
+                "includeNullStrings": false,
+                "nullFormatValue": "",
+                "strict": false
+              },
+              "number": "value",
+              "numberFormat": "0,0.##",
+              "progressBar": {
+                "bar": {
+                  "color": "",
+                  "style": {
+                    "classes": ""
+                  }
+                },
+                "max": 100,
+                "min": 0,
+                "track": {
+                  "color": "",
+                  "style": {
+                    "classes": ""
+                  }
+                },
+                "value": {
+                  "enabled": true,
+                  "format": "0,0.##",
+                  "justify": "center",
+                  "style": {
+                    "classes": ""
+                  }
+                }
+              },
+              "render": "view",
+              "resizable": false,
+              "sort": "none",
+              "sortable": false,
+              "strictWidth": true,
+              "style": {
+                "classes": ""
+              },
+              "toggleSwitch": {
+                "color": {
+                  "selected": "",
+                  "unselected": ""
+                }
+              },
+              "viewParams": {
+                "selected": true
+              },
+              "viewPath": "Exchange/ArchitectureBuilder/BOM/Support/subviews/radio",
+              "visible": true,
+              "width": 30
+            },
+            {
+              "align": "center",
+              "boolean": "checkbox",
+              "dateFormat": "MM/DD/YYYY",
+              "editable": false,
+              "field": "plan",
+              "filter": {
+                "boolean": {
+                  "condition": ""
+                },
+                "date": {
+                  "condition": "",
+                  "value": ""
+                },
+                "enabled": false,
+                "number": {
+                  "condition": "",
+                  "value": ""
+                },
+                "string": {
+                  "condition": "",
+                  "value": ""
+                },
+                "visible": "on-hover"
+              },
+              "footer": {
+                "align": "center",
+                "justify": "left",
+                "style": {
+                  "classes": ""
+                },
+                "title": ""
+              },
+              "header": {
+                "align": "center",
+                "justify": "center",
+                "style": {
+                  "classes": ""
+                },
+                "title": "Plan"
+              },
+              "justify": "auto",
+              "nullFormat": {
+                "includeNullStrings": false,
+                "nullFormatValue": "",
+                "strict": false
+              },
+              "number": "value",
+              "numberFormat": "0,0.##",
+              "progressBar": {
+                "bar": {
+                  "color": "",
+                  "style": {
+                    "classes": ""
+                  }
+                },
+                "max": 100,
+                "min": 0,
+                "track": {
+                  "color": "",
+                  "style": {
+                    "classes": ""
+                  }
+                },
+                "value": {
+                  "enabled": true,
+                  "format": "0,0.##",
+                  "justify": "center",
+                  "style": {
+                    "classes": ""
+                  }
+                }
+              },
+              "render": "auto",
+              "resizable": false,
+              "sort": "none",
+              "sortable": false,
+              "strictWidth": false,
+              "style": {
+                "classes": ""
+              },
+              "toggleSwitch": {
+                "color": {
+                  "selected": "",
+                  "unselected": ""
+                }
+              },
+              "viewParams": {
+                "value": "Priority"
+              },
+              "viewPath": "Exchange/ArchitectureBuilder/BOM/Support/subviews/plan",
+              "visible": true,
+              "width": 60
+            },
+            {
+              "align": "center",
+              "boolean": "checkbox",
+              "dateFormat": "MM/DD/YYYY",
+              "editable": false,
+              "field": "email",
+              "filter": {
+                "boolean": {
+                  "condition": ""
+                },
+                "date": {
+                  "condition": "",
+                  "value": ""
+                },
+                "enabled": false,
+                "number": {
+                  "condition": "",
+                  "value": ""
+                },
+                "string": {
+                  "condition": "",
+                  "value": ""
+                },
+                "visible": "on-hover"
+              },
+              "footer": {
+                "align": "center",
+                "justify": "left",
+                "style": {
+                  "classes": ""
+                },
+                "title": ""
+              },
+              "header": {
+                "align": "center",
+                "justify": "center",
+                "style": {
+                  "classes": ""
+                },
+                "title": "Email"
+              },
+              "justify": "center",
+              "nullFormat": {
+                "includeNullStrings": false,
+                "nullFormatValue": "",
+                "strict": false
+              },
+              "number": "value",
+              "numberFormat": "0,0.##",
+              "progressBar": {
+                "bar": {
+                  "color": "",
+                  "style": {
+                    "classes": ""
+                  }
+                },
+                "max": 100,
+                "min": 0,
+                "track": {
+                  "color": "",
+                  "style": {
+                    "classes": ""
+                  }
+                },
+                "value": {
+                  "enabled": true,
+                  "format": "0,0.##",
+                  "justify": "center",
+                  "style": {
+                    "classes": ""
+                  }
+                }
+              },
+              "render": "auto",
+              "resizable": false,
+              "sort": "none",
+              "sortable": false,
+              "strictWidth": true,
+              "style": {
+                "classes": ""
+              },
+              "toggleSwitch": {
+                "color": {
+                  "selected": "",
+                  "unselected": ""
+                }
+              },
+              "viewParams": {
+                "type": "email",
+                "value": true
+              },
+              "viewPath": "Exchange/ArchitectureBuilder/BOM/Support/subviews/inclusion",
+              "visible": true,
+              "width": 30
+            },
+            {
+              "align": "center",
+              "boolean": "checkbox",
+              "dateFormat": "MM/DD/YYYY",
+              "editable": false,
+              "field": "phone",
+              "filter": {
+                "boolean": {
+                  "condition": ""
+                },
+                "date": {
+                  "condition": "",
+                  "value": ""
+                },
+                "enabled": false,
+                "number": {
+                  "condition": "",
+                  "value": ""
+                },
+                "string": {
+                  "condition": "",
+                  "value": ""
+                },
+                "visible": "on-hover"
+              },
+              "footer": {
+                "align": "center",
+                "justify": "left",
+                "style": {
+                  "classes": ""
+                },
+                "title": ""
+              },
+              "header": {
+                "align": "center",
+                "justify": "center",
+                "style": {
+                  "classes": ""
+                },
+                "title": "Phone"
+              },
+              "justify": "center",
+              "nullFormat": {
+                "includeNullStrings": false,
+                "nullFormatValue": "",
+                "strict": false
+              },
+              "number": "value",
+              "numberFormat": "0,0.##",
+              "progressBar": {
+                "bar": {
+                  "color": "",
+                  "style": {
+                    "classes": ""
+                  }
+                },
+                "max": 100,
+                "min": 0,
+                "track": {
+                  "color": "",
+                  "style": {
+                    "classes": ""
+                  }
+                },
+                "value": {
+                  "enabled": true,
+                  "format": "0,0.##",
+                  "justify": "center",
+                  "style": {
+                    "classes": ""
+                  }
+                }
+              },
+              "render": "auto",
+              "resizable": false,
+              "sort": "none",
+              "sortable": false,
+              "strictWidth": true,
+              "style": {
+                "classes": ""
+              },
+              "toggleSwitch": {
+                "color": {
+                  "selected": "",
+                  "unselected": ""
+                }
+              },
+              "viewParams": {
+                "type": "phone",
+                "value": true
+              },
+              "viewPath": "Exchange/ArchitectureBuilder/BOM/Support/subviews/inclusion",
+              "visible": true,
+              "width": 30
+            },
+            {
+              "align": "center",
+              "boolean": "checkbox",
+              "dateFormat": "MM/DD/YYYY",
+              "editable": false,
+              "field": "priority",
+              "filter": {
+                "boolean": {
+                  "condition": ""
+                },
+                "date": {
+                  "condition": "",
+                  "value": ""
+                },
+                "enabled": false,
+                "number": {
+                  "condition": "",
+                  "value": ""
+                },
+                "string": {
+                  "condition": "",
+                  "value": ""
+                },
+                "visible": "on-hover"
+              },
+              "footer": {
+                "align": "center",
+                "justify": "left",
+                "style": {
+                  "classes": ""
+                },
+                "title": ""
+              },
+              "header": {
+                "align": "center",
+                "justify": "center",
+                "style": {
+                  "classes": ""
+                },
+                "title": "Priority"
+              },
+              "justify": "center",
+              "nullFormat": {
+                "includeNullStrings": false,
+                "nullFormatValue": "",
+                "strict": false
+              },
+              "number": "value",
+              "numberFormat": "0,0.##",
+              "progressBar": {
+                "bar": {
+                  "color": "",
+                  "style": {
+                    "classes": ""
+                  }
+                },
+                "max": 100,
+                "min": 0,
+                "track": {
+                  "color": "",
+                  "style": {
+                    "classes": ""
+                  }
+                },
+                "value": {
+                  "enabled": true,
+                  "format": "0,0.##",
+                  "justify": "center",
+                  "style": {
+                    "classes": ""
+                  }
+                }
+              },
+              "render": "auto",
+              "resizable": false,
+              "sort": "none",
+              "sortable": false,
+              "strictWidth": true,
+              "style": {
+                "classes": ""
+              },
+              "toggleSwitch": {
+                "color": {
+                  "selected": "",
+                  "unselected": ""
+                }
+              },
+              "viewParams": {
+                "value": true
+              },
+              "viewPath": "Exchange/ArchitectureBuilder/BOM/Support/subviews/inclusion",
+              "visible": true,
+              "width": 30
+            },
+            {
+              "align": "center",
+              "boolean": "checkbox",
+              "dateFormat": "MM/DD/YYYY",
+              "editable": false,
+              "field": "upgrade",
+              "filter": {
+                "boolean": {
+                  "condition": ""
+                },
+                "date": {
+                  "condition": "",
+                  "value": ""
+                },
+                "enabled": false,
+                "number": {
+                  "condition": "",
+                  "value": ""
+                },
+                "string": {
+                  "condition": "",
+                  "value": ""
+                },
+                "visible": "on-hover"
+              },
+              "footer": {
+                "align": "center",
+                "justify": "left",
+                "style": {
+                  "classes": ""
+                },
+                "title": ""
+              },
+              "header": {
+                "align": "center",
+                "justify": "center",
+                "style": {
+                  "classes": ""
+                },
+                "title": "Upgrade"
+              },
+              "justify": "center",
+              "nullFormat": {
+                "includeNullStrings": false,
+                "nullFormatValue": "",
+                "strict": false
+              },
+              "number": "value",
+              "numberFormat": "0,0.##",
+              "progressBar": {
+                "bar": {
+                  "color": "",
+                  "style": {
+                    "classes": ""
+                  }
+                },
+                "max": 100,
+                "min": 0,
+                "track": {
+                  "color": "",
+                  "style": {
+                    "classes": ""
+                  }
+                },
+                "value": {
+                  "enabled": true,
+                  "format": "0,0.##",
+                  "justify": "center",
+                  "style": {
+                    "classes": ""
+                  }
+                }
+              },
+              "render": "auto",
+              "resizable": false,
+              "sort": "none",
+              "sortable": false,
+              "strictWidth": true,
+              "style": {
+                "classes": ""
+              },
+              "toggleSwitch": {
+                "color": {
+                  "selected": "",
+                  "unselected": ""
+                }
+              },
+              "viewParams": {},
+              "viewPath": "",
+              "visible": true,
+              "width": 70
+            },
+            {
+              "align": "center",
+              "boolean": "checkbox",
+              "dateFormat": "MM/DD/YYYY",
+              "editable": false,
+              "field": "cost",
+              "filter": {
+                "boolean": {
+                  "condition": ""
+                },
+                "date": {
+                  "condition": "",
+                  "value": ""
+                },
+                "enabled": false,
+                "number": {
+                  "condition": "",
+                  "value": ""
+                },
+                "string": {
+                  "condition": "",
+                  "value": ""
+                },
+                "visible": "on-hover"
+              },
+              "footer": {
+                "align": "center",
+                "justify": "left",
+                "style": {
+                  "classes": ""
+                },
+                "title": ""
+              },
+              "header": {
+                "align": "center",
+                "justify": "right",
+                "style": {
+                  "classes": ""
+                },
+                "title": "Cost"
+              },
+              "justify": "right",
+              "nullFormat": {
+                "includeNullStrings": false,
+                "nullFormatValue": "",
+                "strict": false
+              },
+              "number": "value",
+              "numberFormat": "0,0.##",
+              "progressBar": {
+                "bar": {
+                  "color": "",
+                  "style": {
+                    "classes": ""
+                  }
+                },
+                "max": 100,
+                "min": 0,
+                "track": {
+                  "color": "",
+                  "style": {
+                    "classes": ""
+                  }
+                },
+                "value": {
+                  "enabled": true,
+                  "format": "0,0.##",
+                  "justify": "center",
+                  "style": {
+                    "classes": ""
+                  }
+                }
+              },
+              "render": "auto",
+              "resizable": false,
+              "sort": "none",
+              "sortable": false,
+              "strictWidth": false,
+              "style": {
+                "classes": "",
+                "marginRight": "4px"
+              },
+              "toggleSwitch": {
+                "color": {
+                  "selected": "",
+                  "unselected": ""
+                }
+              },
+              "viewParams": {},
+              "viewPath": "",
+              "visible": true,
+              "width": 30
+            }
+          ],
+          "data": [
+            {
+              "cost": {},
+              "email": {
+                "type": "email",
+                "value": true
+              },
+              "phone": {
+                "type": "phone",
+                "value": true
+              },
+              "plan": {},
+              "priority": {
+                "type": "priority",
+                "value": true
+              },
+              "rate": "24% Annually",
+              "selection": {},
+              "upgrade": {
+                "value": "Free"
+              }
+            },
+            {
+              "cost": {},
+              "email": {
+                "enabled": true,
+                "type": "email",
+                "value": true
+              },
+              "phone": {
+                "enabled": true,
+                "type": "phone",
+                "value": true
+              },
+              "plan": {},
+              "priority": {
+                "enabled": true,
+                "type": "priority",
+                "value": false
+              },
+              "rate": "20%",
+              "selection": {
+                "enabled": true
+              },
+              "upgrade": "Free"
+            },
+            {
+              "cost": {},
+              "email": {
+                "type": "email",
+                "value": true
+              },
+              "phone": {
+                "type": "phone",
+                "value": false
+              },
+              "plan": {},
+              "priority": {
+                "type": "priority",
+                "value": false
+              },
+              "rate": "16%",
+              "selection": {},
+              "upgrade": {
+                "value": "Free"
+              }
+            },
+            {
+              "cost": {
+                "value": "$0.00"
+              },
+              "email": {
+                "enabled": false,
+                "type": "email",
+                "value": false
+              },
+              "phone": {
+                "enabled": false,
+                "type": "phone",
+                "value": false
+              },
+              "plan": {
+                "value": "None"
+              },
+              "priority": {
+                "enabled": false,
+                "type": "priority",
+                "value": false
+              },
+              "rate": "",
+              "selection": {},
+              "upgrade": {}
+            }
+          ],
+          "dragOrderable": false,
+          "enableHeader": false,
+          "enableHeaderGroups": true,
+          "headerGroups": [
+            [
+              {
+                "align": "center",
+                "justify": "left",
+                "span": 1,
+                "style": {
+                  "classes": ""
+                },
+                "title": ""
+              },
+              {
+                "align": "center",
+                "justify": "left",
+                "span": 1,
+                "style": {
+                  "classes": ""
+                },
+                "title": "Plan"
+              },
+              {
+                "align": "center",
+                "justify": "center",
+                "span": 3,
+                "style": {
+                  "classes": ""
+                },
+                "title": "Features"
+              },
+              {
+                "align": "center",
+                "justify": "center",
+                "span": 1,
+                "style": {
+                  "classes": ""
+                },
+                "title": "Upgrade"
+              },
+              {
+                "align": "center",
+                "justify": "right",
+                "span": 1,
+                "style": {
+                  "classes": "",
+                  "marginRight": "15px"
+                },
+                "title": "Cost"
+              }
+            ]
+          ],
+          "headerStyle": {
+            "borderBottomStyle": "solid",
+            "borderBottomWidth": "1px"
+          },
+          "pager": {
+            "bottom": false
+          },
+          "rows": {
+            "subview": {
+              "enabled": true,
+              "viewParams": {
+                "value": "value"
+              },
+              "viewPath": "Exchange/ArchitectureBuilder/BOM/Support/subviews/desc"
+            },
+            "subviewExpansionMode": "single"
+          },
+          "selection": {
+            "enableRowSelection": false
+          },
+          "style": {
+            "borderBottomLeftRadius": "8px",
+            "borderBottomRightRadius": "8px",
+            "borderTopLeftRadius": "8px",
+            "borderTopRightRadius": "8px",
+            "overflow": "hidden"
+          },
+          "virtualized": false
+        },
+        "type": "ia.display.table"
+      }
+    ],
+    "meta": {
+      "name": "root"
+    },
+    "props": {
+      "direction": "column",
+      "style": {
+        "backgroundColor": "--ia-green",
+        "borderBottomLeftRadius": "8px",
+        "borderBottomRightRadius": "8px",
+        "paddingBottom": "4px",
+        "paddingLeft": "8px",
+        "paddingRight": "8px",
+        "paddingTop": "0px"
+      }
+    },
+    "type": "ia.container.flex"
+  }
+}

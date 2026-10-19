@@ -1,0 +1,2771 @@
+{
+  "custom": {
+    "edge": "standard",
+    "maxClients": null,
+    "recommended": {
+      "cpu": {
+        "arm": true,
+        "cores": 2
+      },
+      "disk": 10,
+      "ram": 1
+    },
+    "resources": {
+      "cpu": {
+        "arm": false,
+        "cores": 2,
+        "frequency": 2
+      },
+      "disk": {
+        "capacity": 10
+      },
+      "os": {
+        "type": "",
+        "version": ""
+      },
+      "ram": {
+        "capacity": 4
+      }
+    },
+    "type": null
+  },
+  "params": {
+    "uuid": "Ic8fb8c6d"
+  },
+  "propConfig": {
+    "custom.load": {
+      "binding": {
+        "config": {
+          "expression": "property(\u0027session.custom.structure.configs.\u0027 + {view.params.uuid} + \u0027.config.load\u0027)"
+        },
+        "transforms": [
+          {
+            "code": "\tloadDict \u003d {}\n\tfields \u003d [\u0027clients\u0027, \u0027devices\u0027, \u0027histHrs\u0027, \u0027histSQL\u0027, \u0027histTags\u0027, \u0027tags\u0027]\n\tif value is None:\n\t\tfor field in fields:\n\t\t\tloadDict[field] \u003d 0\n\telse:\n\t\tfor field in fields: \n\t\t\tloadDict[field] \u003d value[field] if field in value.keys() else 0\n\treturn loadDict",
+            "type": "script"
+          }
+        ],
+        "type": "expr"
+      },
+      "onChange": {
+        "enabled": null,
+        "script": "\tif origin in (\u0027Binding\u0027, \u0027BindingWriteback\u0027):\n\t\tload \u003d system.util.jsonDecode(system.util.jsonEncode(self.custom.load))\n\n\t\t# Get resource recommendations (based on Server Sizing \u0026 Architecture Guide)\n\t\tself.custom.recommended \u003d exchange.architecturebuilder.resources.serverSizing.getRecommendedResources(load)\n\n\t\t# Write \u0027load\u0027 values to session props\n\t\tself.session.custom.structure.configs[self.params.uuid][\u0027config\u0027][\u0027load\u0027] \u003d load\n\n"
+      },
+      "persistent": false
+    },
+    "custom.maxClients": {
+      "binding": {
+        "config": {
+          "expression": "property(\u0027session.custom.structure.configs.\u0027 + {view.params.uuid})"
+        },
+        "transforms": [
+          {
+            "code": "\tmaxSessions \u003d 0\n\tif value[\"type\"] \u003d\u003d \"standard\":\n\t\tIAmodules \u003d value[\"config\"][\"modules\"][\"IA\"]\n\t\tfor m in IAmodules:\n\t\t\tif m[\"name\"] in (\"Perspective\", \"Vision\"):\n\t\t\t\tselection \u003d m[\"selection\"]\n\t\t\t\tif selection \u003d\u003d \"Unlimited\":\n\t\t\t\t\tmaxSessions +\u003d 99999\n\t\t\t\telse:\n\t\t\t\t\tmaxSessions +\u003d int(selection[:1])\n\telif value[\"type\"] \u003d\u003d \"panel\":\n\t\tmaxSessions \u003d 2\n\telif value[\"type\"] \u003d\u003d \"edge\":\n\t\tmaxSessions \u003d 0\n\n\treturn min(maxSessions, 99999)",
+            "type": "script"
+          }
+        ],
+        "type": "expr"
+      },
+      "persistent": true
+    },
+    "custom.recommended": {
+      "persistent": true
+    },
+    "custom.resources": {
+      "binding": {
+        "config": {
+          "expression": "property(\u0027session.custom.structure.configs.\u0027 + {view.params.uuid} + \u0027.config.resources\u0027)"
+        },
+        "transforms": [
+          {
+            "code": "\tdefaultResources \u003d {\"cpu\": {\n\t\t\t\t\t\t\t\t\"arm\": False,\n\t\t\t\t\t\t\t\t\"cores\": 2,\n\t\t\t\t\t\t\t\t\"frequency\": 2},\n\t\t\t\t\t\t\"disk\": {\n\t\t\t\t\t\t\t\t\"capacity\": 10},\n\t\t\t\t\t\t\"os\": {\n\t\t\t\t\t\t\t\t\"type\": \"\",\n\t\t\t\t\t\t\t\t\"version\": \"\"},\n\t\t\t\t\t\t\"ram\": {\n\t\t\t\t\t\t\t\"capacity\": 4}\n\t\t\t\t\t\t}\n\tif value is not None:\n\t\tdefaultResources.update(value)\n\treturn defaultResources",
+            "type": "script"
+          }
+        ],
+        "type": "expr"
+      },
+      "onChange": {
+        "enabled": null,
+        "script": "\tif origin \u003d\u003d \u0027BindingWriteback\u0027:\n\t\t# Write \u0027resources\u0027 values to session props\n\t\tself.session.custom.structure.configs[self.params.uuid][\u0027config\u0027][\u0027resources\u0027] \u003d self.custom.resources"
+      },
+      "persistent": true
+    },
+    "custom.type": {
+      "binding": {
+        "config": {
+          "expression": "property(\u0027session.custom.structure.configs.\u0027 + {view.params.uuid} + \u0027.type\u0027)"
+        },
+        "type": "expr"
+      },
+      "persistent": true
+    },
+    "params.uuid": {
+      "paramDirection": "input",
+      "persistent": true
+    }
+  },
+  "props": {
+    "defaultSize": {
+      "height": 268,
+      "width": 752
+    }
+  },
+  "root": {
+    "children": [
+      {
+        "children": [
+          {
+            "children": [
+              {
+                "meta": {
+                  "name": "Label"
+                },
+                "position": {
+                  "shrink": 0
+                },
+                "props": {
+                  "style": {
+                    "marginBottom": "4px",
+                    "marginRight": "4px",
+                    "marginTop": "4px"
+                  },
+                  "text": "Devices:",
+                  "textStyle": {
+                    "textAlign": "end"
+                  }
+                },
+                "type": "ia.display.label"
+              },
+              {
+                "meta": {
+                  "name": "DevicesEntry",
+                  "tooltip": {
+                    "enabled": true,
+                    "text": "Count of devices connected to this gateway\u0027s OPC-UA server"
+                  }
+                },
+                "position": {
+                  "basis": "100px",
+                  "shrink": 0
+                },
+                "propConfig": {
+                  "props.value": {
+                    "binding": {
+                      "config": {
+                        "bidirectional": true,
+                        "path": "view.custom.load.devices"
+                      },
+                      "type": "property"
+                    },
+                    "onChange": {
+                      "enabled": null,
+                      "script": "\tif self.session.custom.audit.bom and origin \u003d\u003d \"Browser\":\n\t\t# Log Computing Load (Devices) modified\n\t\tsystem.util.audit(action\u003d\"Modified\", actionTarget\u003d\"BOM\", actionValue\u003dstr(currentValue.value), originatingSystem\u003d[\"uuid\",self.view.params.uuid,\"entry\",\"Devices\"])"
+                    }
+                  }
+                },
+                "props": {
+                  "align": "left",
+                  "format": "#,##0",
+                  "inputBounds": {
+                    "maximum": 99999,
+                    "minimum": 0
+                  },
+                  "style": {
+                    "fontSize": "18px"
+                  }
+                },
+                "type": "ia.input.numeric-entry-field"
+              }
+            ],
+            "meta": {
+              "name": "Devices"
+            },
+            "position": {
+              "basis": "180px",
+              "shrink": 0
+            },
+            "props": {
+              "style": {
+                "padding": "4px"
+              }
+            },
+            "type": "ia.container.flex"
+          },
+          {
+            "children": [
+              {
+                "meta": {
+                  "name": "Label",
+                  "tooltip": {
+                    "enabled": true
+                  }
+                },
+                "position": {
+                  "shrink": 0
+                },
+                "propConfig": {
+                  "meta.tooltip.text": {
+                    "binding": {
+                      "config": {
+                        "path": "view.custom.maxClients"
+                      },
+                      "transforms": [
+                        {
+                          "expression": "\"Max Session Count \u003d \" + toStr({value})",
+                          "type": "expression"
+                        }
+                      ],
+                      "type": "property"
+                    }
+                  }
+                },
+                "props": {
+                  "style": {
+                    "marginBottom": "4px",
+                    "marginRight": "4px",
+                    "marginTop": "4px"
+                  },
+                  "text": "Clients:",
+                  "textStyle": {
+                    "textAlign": "end"
+                  }
+                },
+                "type": "ia.display.label"
+              },
+              {
+                "meta": {
+                  "name": "ClientsEntry",
+                  "tooltip": {
+                    "enabled": true,
+                    "style": {
+                      "whiteSpace": "pre"
+                    }
+                  }
+                },
+                "position": {
+                  "basis": "100px",
+                  "shrink": 0
+                },
+                "propConfig": {
+                  "meta.tooltip.text": {
+                    "binding": {
+                      "config": {
+                        "expression": "case({view.custom.type},\r\n\t\"edge\", \"No visualization clients provided with Edge IIoT\",\r\n\t\"panel\", \"Count of sessions connecting to this gateway\\nNOTE: Limit 2 for Edge\",\r\n\t\"Count of sessions connecting to this gateway\\nNOTE: Max \" + {view.custom.maxClients})"
+                      },
+                      "type": "expr"
+                    }
+                  },
+                  "props.inputBounds.maximum": {
+                    "binding": {
+                      "config": {
+                        "expression": "{view.custom.maxClients}"
+                      },
+                      "type": "expr"
+                    }
+                  },
+                  "props.value": {
+                    "binding": {
+                      "config": {
+                        "bidirectional": true,
+                        "path": "view.custom.load.clients"
+                      },
+                      "type": "property"
+                    },
+                    "onChange": {
+                      "enabled": null,
+                      "script": "\tif self.session.custom.audit.bom and origin \u003d\u003d \"Browser\":\n\t\t# Log Computing Load (Clients) modified\n\t\tsystem.util.audit(action\u003d\"Modified\", actionTarget\u003d\"BOM\", actionValue\u003dstr(currentValue.value), originatingSystem\u003d[\"uuid\",self.view.params.uuid,\"entry\",\"Clients\"])"
+                    }
+                  }
+                },
+                "props": {
+                  "align": "left",
+                  "format": "#,##0",
+                  "inputBounds": {
+                    "minimum": 0
+                  },
+                  "style": {
+                    "fontSize": "18px"
+                  }
+                },
+                "type": "ia.input.numeric-entry-field"
+              }
+            ],
+            "meta": {
+              "name": "Clients"
+            },
+            "position": {
+              "basis": "174px",
+              "shrink": 0
+            },
+            "props": {
+              "style": {
+                "padding": "4px"
+              }
+            },
+            "type": "ia.container.flex"
+          },
+          {
+            "children": [
+              {
+                "meta": {
+                  "name": "Label"
+                },
+                "position": {
+                  "shrink": 0
+                },
+                "props": {
+                  "style": {
+                    "marginBottom": "4px",
+                    "marginRight": "4px",
+                    "marginTop": "4px"
+                  },
+                  "text": "Tags:",
+                  "textStyle": {
+                    "textAlign": "end"
+                  }
+                },
+                "type": "ia.display.label"
+              },
+              {
+                "meta": {
+                  "name": "TagsEntry",
+                  "tooltip": {
+                    "enabled": true,
+                    "text": "Count of tags originating on this gateway"
+                  }
+                },
+                "position": {
+                  "basis": "100px",
+                  "shrink": 0
+                },
+                "propConfig": {
+                  "props.value": {
+                    "binding": {
+                      "config": {
+                        "bidirectional": true,
+                        "path": "view.custom.load.tags"
+                      },
+                      "type": "property"
+                    },
+                    "onChange": {
+                      "enabled": null,
+                      "script": "\tif self.session.custom.audit.bom and origin \u003d\u003d \"Browser\":\n\t\t# Log Computing Load (Tags) modified\n\t\tsystem.util.audit(action\u003d\"Modified\", actionTarget\u003d\"BOM\", actionValue\u003dstr(currentValue.value), originatingSystem\u003d[\"uuid\",self.view.params.uuid,\"entry\",\"Tags\"])"
+                    }
+                  }
+                },
+                "props": {
+                  "align": "left",
+                  "format": "#,##0",
+                  "inputBounds": {
+                    "maximum": 999999,
+                    "minimum": 0
+                  },
+                  "style": {
+                    "fontSize": "18px"
+                  }
+                },
+                "type": "ia.input.numeric-entry-field"
+              }
+            ],
+            "meta": {
+              "name": "Tags"
+            },
+            "position": {
+              "basis": "154px",
+              "shrink": 0
+            },
+            "props": {
+              "style": {
+                "padding": "4px"
+              }
+            },
+            "type": "ia.container.flex"
+          }
+        ],
+        "meta": {
+          "name": "Load"
+        },
+        "position": {
+          "grow": 1,
+          "shrink": 0
+        },
+        "props": {
+          "alignContent": "space-around",
+          "justify": "space-between",
+          "style": {
+            "backgroundColor": "--neutral-20",
+            "borderBottomLeftRadius": "8px",
+            "borderBottomRightRadius": "8px",
+            "borderTopLeftRadius": "8px",
+            "borderTopRightRadius": "8px",
+            "marginBottom": "4px",
+            "marginTop": "0px",
+            "padding": "2px",
+            "paddingRight": "4px"
+          },
+          "wrap": "wrap"
+        },
+        "type": "ia.container.flex"
+      },
+      {
+        "children": [
+          {
+            "children": [
+              {
+                "meta": {
+                  "name": "Label"
+                },
+                "position": {
+                  "shrink": 0
+                },
+                "props": {
+                  "style": {
+                    "marginBottom": "4px",
+                    "marginRight": "4px",
+                    "paddingTop": "4px"
+                  },
+                  "text": "History (tag/sec):",
+                  "textStyle": {
+                    "textAlign": "end"
+                  }
+                },
+                "type": "ia.display.label"
+              },
+              {
+                "meta": {
+                  "name": "HistoricalTagsEntry",
+                  "tooltip": {
+                    "enabled": true,
+                    "text": "Average number of tags historized each second"
+                  }
+                },
+                "position": {
+                  "basis": "72px",
+                  "shrink": 0
+                },
+                "propConfig": {
+                  "props.inputBounds.maximum": {
+                    "binding": {
+                      "config": {
+                        "expression": "// Assume maximum polling rate of 250ms\r\n{view.custom.load.tags} * 4"
+                      },
+                      "type": "expr"
+                    }
+                  },
+                  "props.value": {
+                    "binding": {
+                      "config": {
+                        "bidirectional": true,
+                        "path": "view.custom.load.histTags"
+                      },
+                      "type": "property"
+                    },
+                    "onChange": {
+                      "enabled": null,
+                      "script": "\tif self.session.custom.audit.bom and origin \u003d\u003d \"Browser\":\n\t\t# Log Computing Load (History) modified\n\t\tsystem.util.audit(action\u003d\"Modified\", actionTarget\u003d\"BOM\", actionValue\u003dstr(currentValue.value), originatingSystem\u003d[\"uuid\",self.view.params.uuid,\"entry\",\"History\"])"
+                    }
+                  }
+                },
+                "props": {
+                  "align": "left",
+                  "format": "#,##0",
+                  "inputBounds": {
+                    "minimum": 0
+                  },
+                  "style": {
+                    "fontSize": "18px"
+                  }
+                },
+                "type": "ia.input.numeric-entry-field"
+              }
+            ],
+            "meta": {
+              "name": "Tag History"
+            },
+            "position": {
+              "basis": "224px",
+              "shrink": 0
+            },
+            "props": {
+              "style": {
+                "padding": "4px"
+              }
+            },
+            "type": "ia.container.flex"
+          },
+          {
+            "children": [
+              {
+                "meta": {
+                  "name": "Label"
+                },
+                "position": {
+                  "shrink": 0
+                },
+                "props": {
+                  "style": {
+                    "marginBottom": "4px",
+                    "marginRight": "4px",
+                    "paddingTop": "4px"
+                  },
+                  "text": "SQL (insert/sec):",
+                  "textStyle": {
+                    "textAlign": "end"
+                  }
+                },
+                "type": "ia.display.label"
+              },
+              {
+                "meta": {
+                  "name": "HistoricalTagsEntry",
+                  "tooltip": {
+                    "enabled": true,
+                    "style": {
+                      "whiteSpace": "pre"
+                    }
+                  }
+                },
+                "position": {
+                  "basis": "72px",
+                  "shrink": 0
+                },
+                "propConfig": {
+                  "meta.tooltip.text": {
+                    "binding": {
+                      "config": {
+                        "expression": "\"Average SQL inserts stored against Store \u0026 Forward each second\" +\r\nif({view.custom.type} \u003d \"edge\" || {view.custom.type} \u003d \"panel\",\r\n\t\"\\n\" + \"NOTE: Not available in Edge\",\r\n\t\"\")"
+                      },
+                      "type": "expr"
+                    }
+                  },
+                  "props.enabled": {
+                    "binding": {
+                      "config": {
+                        "expression": "!({view.custom.type} \u003d \"edge\" || {view.custom.type} \u003d \"panel\")"
+                      },
+                      "type": "expr"
+                    }
+                  },
+                  "props.value": {
+                    "binding": {
+                      "config": {
+                        "bidirectional": true,
+                        "path": "view.custom.load.histSQL"
+                      },
+                      "type": "property"
+                    },
+                    "onChange": {
+                      "enabled": null,
+                      "script": "\tif self.session.custom.audit.bom and origin \u003d\u003d \"Browser\":\n\t\t# Log Computing Load (SQL Inserts) modified\n\t\tsystem.util.audit(action\u003d\"Modified\", actionTarget\u003d\"BOM\", actionValue\u003dstr(currentValue.value), originatingSystem\u003d[\"uuid\",self.view.params.uuid,\"entry\",\"SQL\"])"
+                    }
+                  }
+                },
+                "props": {
+                  "align": "left",
+                  "format": "#,##0",
+                  "inputBounds": {
+                    "maximum": 9999,
+                    "minimum": 0
+                  },
+                  "style": {
+                    "fontSize": "18px"
+                  },
+                  "tooltipText": "Average SQL inserts stored against Store \u0026 Forward each second"
+                },
+                "type": "ia.input.numeric-entry-field"
+              }
+            ],
+            "meta": {
+              "name": "SQL"
+            },
+            "position": {
+              "basis": "216px",
+              "shrink": 0
+            },
+            "props": {
+              "style": {
+                "overflow": "hidden",
+                "padding": "4px"
+              }
+            },
+            "type": "ia.container.flex"
+          },
+          {
+            "children": [
+              {
+                "meta": {
+                  "name": "Label"
+                },
+                "position": {
+                  "shrink": 0
+                },
+                "props": {
+                  "style": {
+                    "marginBottom": "4px",
+                    "marginRight": "4px",
+                    "paddingTop": "4px"
+                  },
+                  "text": "Retention (hrs):",
+                  "textStyle": {
+                    "textAlign": "end"
+                  }
+                },
+                "type": "ia.display.label"
+              },
+              {
+                "meta": {
+                  "name": "HistoricalTagsEntry",
+                  "tooltip": {
+                    "enabled": true,
+                    "style": {
+                      "whiteSpace": "pre"
+                    }
+                  }
+                },
+                "position": {
+                  "basis": "62px",
+                  "shrink": 0
+                },
+                "propConfig": {
+                  "meta.tooltip.text": {
+                    "binding": {
+                      "config": {
+                        "expression": "\"Number of hours to retain records in Store \u0026 Forward cache\" +\r\nif({view.custom.type} \u003d \"edge\" || {view.custom.type} \u003d \"panel\",\r\n\t\"\\n\" + \"NOTE: Edge is limited to 35 days (or 10 Million records)\",\r\n\t\"\")"
+                      },
+                      "type": "expr"
+                    }
+                  },
+                  "props.inputBounds.maximum": {
+                    "binding": {
+                      "config": {
+                        "expression": "if({view.custom.type} \u003d \"edge\" || {view.custom.type} \u003d \"panel\",\r\n\t840,\t// Equivalent to 35 days\r\n\t9999)"
+                      },
+                      "type": "expr"
+                    }
+                  },
+                  "props.value": {
+                    "binding": {
+                      "config": {
+                        "bidirectional": true,
+                        "path": "view.custom.load.histHrs"
+                      },
+                      "type": "property"
+                    },
+                    "onChange": {
+                      "enabled": null,
+                      "script": "\tif self.session.custom.audit.bom and origin \u003d\u003d \"Browser\":\n\t\t# Log Computing Load (Retention hours) modified\n\t\tsystem.util.audit(action\u003d\"Modified\", actionTarget\u003d\"BOM\", actionValue\u003dstr(currentValue.value), originatingSystem\u003d[\"uuid\",self.view.params.uuid,\"entry\",\"Retention\"])"
+                    }
+                  }
+                },
+                "props": {
+                  "align": "left",
+                  "format": "#,##0",
+                  "inputBounds": {
+                    "minimum": 0
+                  },
+                  "style": {
+                    "fontSize": "18px"
+                  }
+                },
+                "type": "ia.input.numeric-entry-field"
+              }
+            ],
+            "meta": {
+              "name": "Retention"
+            },
+            "position": {
+              "basis": "201px",
+              "shrink": 0
+            },
+            "props": {
+              "style": {
+                "padding": "4px"
+              }
+            },
+            "type": "ia.container.flex"
+          }
+        ],
+        "meta": {
+          "name": "History"
+        },
+        "position": {
+          "grow": 1,
+          "shrink": 0
+        },
+        "props": {
+          "alignContent": "space-around",
+          "justify": "space-between",
+          "style": {
+            "backgroundColor": "--neutral-20",
+            "borderBottomLeftRadius": "8px",
+            "borderBottomRightRadius": "8px",
+            "borderTopLeftRadius": "8px",
+            "borderTopRightRadius": "8px",
+            "marginBottom": "4px",
+            "marginTop": "0px",
+            "padding": "2px",
+            "paddingRight": "4px"
+          },
+          "wrap": "wrap"
+        },
+        "type": "ia.container.flex"
+      },
+      {
+        "children": [
+          {
+            "children": [
+              {
+                "meta": {
+                  "name": "Icon",
+                  "tooltip": {
+                    "enabled": true
+                  }
+                },
+                "position": {
+                  "basis": "30px",
+                  "shrink": 0
+                },
+                "propConfig": {
+                  "custom.warning": {
+                    "binding": {
+                      "config": {
+                        "expression": "if({view.custom.recommended.cpu} \u003d \"Server Load Exceeds Server Sizing Guide\",\r\n\tTrue,\r\n\tif({view.custom.recommended.cpu.arm},\r\n\t\t{view.custom.recommended.cpu.arm} \u003c {view.custom.resources.cpu.arm},\r\n\t\t{view.custom.recommended.cpu.arm} \u003c {view.custom.resources.cpu.arm} ||\r\n\t\t{view.custom.recommended.cpu.cores} \u003e {view.custom.resources.cpu.cores}))"
+                      },
+                      "type": "expr"
+                    }
+                  },
+                  "meta.tooltip.text": {
+                    "binding": {
+                      "config": {
+                        "expression": "if(typeOf({view.custom.recommended.cpu}) \u003d \"String\",\r\n\t{view.custom.recommended.cpu},\r\n\t\"Recommend \" +\r\n\tif({view.custom.recommended.cpu.arm},\r\n\t\t\"ARM (or better)\",\r\n\t\t\"non-ARM\") +\r\n\t\" processor with \" + {view.custom.recommended.cpu.cores} + \"+ cores\")"
+                      },
+                      "type": "expr"
+                    }
+                  },
+                  "props.color": {
+                    "binding": {
+                      "config": {
+                        "path": "this.custom.warning"
+                      },
+                      "transforms": [
+                        {
+                          "fallback": "--neutral-80",
+                          "inputType": "scalar",
+                          "mappings": [
+                            {
+                              "input": true,
+                              "output": "#FFAC47"
+                            }
+                          ],
+                          "outputType": "scalar",
+                          "type": "map"
+                        }
+                      ],
+                      "type": "property"
+                    }
+                  },
+                  "props.path": {
+                    "binding": {
+                      "config": {
+                        "path": "this.custom.warning"
+                      },
+                      "transforms": [
+                        {
+                          "fallback": "material/check_circle",
+                          "inputType": "scalar",
+                          "mappings": [
+                            {
+                              "input": true,
+                              "output": "material/error"
+                            }
+                          ],
+                          "outputType": "scalar",
+                          "type": "map"
+                        }
+                      ],
+                      "type": "property"
+                    }
+                  }
+                },
+                "type": "ia.display.icon"
+              },
+              {
+                "meta": {
+                  "name": "cpuinfo-svgrepo-com"
+                },
+                "position": {
+                  "basis": "36px",
+                  "shrink": 0
+                },
+                "props": {
+                  "elements": [
+                    {
+                      "name": "defs",
+                      "type": "defs"
+                    },
+                    {
+                      "d": "M38.72,40.5H9.28A1.78,1.78,0,0,1,7.5,38.72V9.28A1.78,1.78,0,0,1,9.28,7.5H38.72A1.78,1.78,0,0,1,40.5,9.28V38.72A1.78,1.78,0,0,1,38.72,40.5Z",
+                      "fill": {
+                        "paint": "transparent"
+                      },
+                      "name": "path",
+                      "stroke": {
+                        "linecap": "round",
+                        "linejoin": "round",
+                        "paint": "var(--neutral-100)"
+                      },
+                      "style": {
+                        "classes": ""
+                      },
+                      "type": "path"
+                    },
+                    {
+                      "fill": {
+                        "paint": "transparent"
+                      },
+                      "name": "line",
+                      "stroke": {
+                        "linecap": "round",
+                        "linejoin": "round",
+                        "paint": "var(--neutral-100)"
+                      },
+                      "style": {
+                        "classes": ""
+                      },
+                      "type": "line",
+                      "x1": "9.28",
+                      "x2": "9.28",
+                      "y1": "7.5",
+                      "y2": "4.5"
+                    },
+                    {
+                      "fill": {
+                        "paint": "transparent"
+                      },
+                      "name": "line",
+                      "stroke": {
+                        "linecap": "round",
+                        "linejoin": "round",
+                        "paint": "var(--neutral-100)"
+                      },
+                      "style": {
+                        "classes": ""
+                      },
+                      "type": "line",
+                      "x1": "13.49",
+                      "x2": "13.49",
+                      "y1": "7.5",
+                      "y2": "4.5"
+                    },
+                    {
+                      "fill": {
+                        "paint": "transparent"
+                      },
+                      "name": "line",
+                      "stroke": {
+                        "linecap": "round",
+                        "linejoin": "round",
+                        "paint": "var(--neutral-100)"
+                      },
+                      "style": {
+                        "classes": ""
+                      },
+                      "type": "line",
+                      "x1": "17.69",
+                      "x2": "17.69",
+                      "y1": "7.5",
+                      "y2": "4.5"
+                    },
+                    {
+                      "fill": {
+                        "paint": "transparent"
+                      },
+                      "name": "line",
+                      "stroke": {
+                        "linecap": "round",
+                        "linejoin": "round",
+                        "paint": "var(--neutral-100)"
+                      },
+                      "style": {
+                        "classes": ""
+                      },
+                      "type": "line",
+                      "x1": "21.9",
+                      "x2": "21.9",
+                      "y1": "7.5",
+                      "y2": "4.5"
+                    },
+                    {
+                      "fill": {
+                        "paint": "transparent"
+                      },
+                      "name": "line",
+                      "stroke": {
+                        "linecap": "round",
+                        "linejoin": "round",
+                        "paint": "var(--neutral-100)"
+                      },
+                      "style": {
+                        "classes": ""
+                      },
+                      "type": "line",
+                      "x1": "26.1",
+                      "x2": "26.1",
+                      "y1": "7.5",
+                      "y2": "4.5"
+                    },
+                    {
+                      "fill": {
+                        "paint": "transparent"
+                      },
+                      "name": "line",
+                      "stroke": {
+                        "linecap": "round",
+                        "linejoin": "round",
+                        "paint": "var(--neutral-100)"
+                      },
+                      "style": {
+                        "classes": ""
+                      },
+                      "type": "line",
+                      "x1": "30.31",
+                      "x2": "30.31",
+                      "y1": "7.5",
+                      "y2": "4.5"
+                    },
+                    {
+                      "fill": {
+                        "paint": "transparent"
+                      },
+                      "name": "line",
+                      "stroke": {
+                        "linecap": "round",
+                        "linejoin": "round",
+                        "paint": "var(--neutral-100)"
+                      },
+                      "style": {
+                        "classes": ""
+                      },
+                      "type": "line",
+                      "x1": "34.51",
+                      "x2": "34.51",
+                      "y1": "7.5",
+                      "y2": "4.5"
+                    },
+                    {
+                      "fill": {
+                        "paint": "transparent"
+                      },
+                      "name": "line",
+                      "stroke": {
+                        "linecap": "round",
+                        "linejoin": "round",
+                        "paint": "var(--neutral-100)"
+                      },
+                      "style": {
+                        "classes": ""
+                      },
+                      "type": "line",
+                      "x1": "38.72",
+                      "x2": "38.72",
+                      "y1": "7.5",
+                      "y2": "4.5"
+                    },
+                    {
+                      "fill": {
+                        "paint": "transparent"
+                      },
+                      "name": "line",
+                      "stroke": {
+                        "linecap": "round",
+                        "linejoin": "round",
+                        "paint": "var(--neutral-100)"
+                      },
+                      "style": {
+                        "classes": ""
+                      },
+                      "type": "line",
+                      "x1": "9.28",
+                      "x2": "9.28",
+                      "y1": "43.5",
+                      "y2": "40.5"
+                    },
+                    {
+                      "fill": {
+                        "paint": "transparent"
+                      },
+                      "name": "line",
+                      "stroke": {
+                        "linecap": "round",
+                        "linejoin": "round",
+                        "paint": "var(--neutral-100)"
+                      },
+                      "style": {
+                        "classes": ""
+                      },
+                      "type": "line",
+                      "x1": "13.49",
+                      "x2": "13.49",
+                      "y1": "43.5",
+                      "y2": "40.5"
+                    },
+                    {
+                      "fill": {
+                        "paint": "transparent"
+                      },
+                      "name": "line",
+                      "stroke": {
+                        "linecap": "round",
+                        "linejoin": "round",
+                        "paint": "var(--neutral-100)"
+                      },
+                      "style": {
+                        "classes": ""
+                      },
+                      "type": "line",
+                      "x1": "17.69",
+                      "x2": "17.69",
+                      "y1": "43.5",
+                      "y2": "40.5"
+                    },
+                    {
+                      "fill": {
+                        "paint": "transparent"
+                      },
+                      "name": "line",
+                      "stroke": {
+                        "linecap": "round",
+                        "linejoin": "round",
+                        "paint": "var(--neutral-100)"
+                      },
+                      "style": {
+                        "classes": ""
+                      },
+                      "type": "line",
+                      "x1": "21.9",
+                      "x2": "21.9",
+                      "y1": "43.5",
+                      "y2": "40.5"
+                    },
+                    {
+                      "fill": {
+                        "paint": "transparent"
+                      },
+                      "name": "line",
+                      "stroke": {
+                        "linecap": "round",
+                        "linejoin": "round",
+                        "paint": "var(--neutral-100)"
+                      },
+                      "style": {
+                        "classes": ""
+                      },
+                      "type": "line",
+                      "x1": "26.1",
+                      "x2": "26.1",
+                      "y1": "43.5",
+                      "y2": "40.5"
+                    },
+                    {
+                      "fill": {
+                        "paint": "transparent"
+                      },
+                      "name": "line",
+                      "stroke": {
+                        "linecap": "round",
+                        "linejoin": "round",
+                        "paint": "var(--neutral-100)"
+                      },
+                      "style": {
+                        "classes": ""
+                      },
+                      "type": "line",
+                      "x1": "30.31",
+                      "x2": "30.31",
+                      "y1": "43.5",
+                      "y2": "40.5"
+                    },
+                    {
+                      "fill": {
+                        "paint": "transparent"
+                      },
+                      "name": "line",
+                      "stroke": {
+                        "linecap": "round",
+                        "linejoin": "round",
+                        "paint": "var(--neutral-100)"
+                      },
+                      "style": {
+                        "classes": ""
+                      },
+                      "type": "line",
+                      "x1": "34.51",
+                      "x2": "34.51",
+                      "y1": "43.5",
+                      "y2": "40.5"
+                    },
+                    {
+                      "fill": {
+                        "paint": "transparent"
+                      },
+                      "name": "line",
+                      "stroke": {
+                        "linecap": "round",
+                        "linejoin": "round",
+                        "paint": "var(--neutral-100)"
+                      },
+                      "style": {
+                        "classes": ""
+                      },
+                      "type": "line",
+                      "x1": "38.72",
+                      "x2": "38.72",
+                      "y1": "43.5",
+                      "y2": "40.5"
+                    },
+                    {
+                      "d": "M38.72,40.5H9.28A1.78,1.78,0,0,1,7.5,38.72V9.28A1.78,1.78,0,0,1,9.28,7.5H38.72A1.78,1.78,0,0,1,40.5,9.28V38.72A1.78,1.78,0,0,1,38.72,40.5Z",
+                      "fill": {
+                        "paint": "transparent"
+                      },
+                      "name": "path",
+                      "stroke": {
+                        "linecap": "round",
+                        "linejoin": "round",
+                        "paint": "var(--neutral-100)"
+                      },
+                      "style": {
+                        "classes": ""
+                      },
+                      "type": "path"
+                    },
+                    {
+                      "fill": {
+                        "paint": "transparent"
+                      },
+                      "name": "line",
+                      "stroke": {
+                        "linecap": "round",
+                        "linejoin": "round",
+                        "paint": "var(--neutral-100)"
+                      },
+                      "style": {
+                        "classes": ""
+                      },
+                      "type": "line",
+                      "x1": "9.28",
+                      "x2": "9.28",
+                      "y1": "7.5",
+                      "y2": "4.5"
+                    },
+                    {
+                      "fill": {
+                        "paint": "transparent"
+                      },
+                      "name": "line",
+                      "stroke": {
+                        "linecap": "round",
+                        "linejoin": "round",
+                        "paint": "var(--neutral-100)"
+                      },
+                      "style": {
+                        "classes": ""
+                      },
+                      "type": "line",
+                      "x1": "13.49",
+                      "x2": "13.49",
+                      "y1": "7.5",
+                      "y2": "4.5"
+                    },
+                    {
+                      "fill": {
+                        "paint": "transparent"
+                      },
+                      "name": "line",
+                      "stroke": {
+                        "linecap": "round",
+                        "linejoin": "round",
+                        "paint": "var(--neutral-100)"
+                      },
+                      "style": {
+                        "classes": ""
+                      },
+                      "type": "line",
+                      "x1": "17.69",
+                      "x2": "17.69",
+                      "y1": "7.5",
+                      "y2": "4.5"
+                    },
+                    {
+                      "fill": {
+                        "paint": "transparent"
+                      },
+                      "name": "line",
+                      "stroke": {
+                        "linecap": "round",
+                        "linejoin": "round",
+                        "paint": "var(--neutral-100)"
+                      },
+                      "style": {
+                        "classes": ""
+                      },
+                      "type": "line",
+                      "x1": "21.9",
+                      "x2": "21.9",
+                      "y1": "7.5",
+                      "y2": "4.5"
+                    },
+                    {
+                      "fill": {
+                        "paint": "transparent"
+                      },
+                      "name": "line",
+                      "stroke": {
+                        "linecap": "round",
+                        "linejoin": "round",
+                        "paint": "var(--neutral-100)"
+                      },
+                      "style": {
+                        "classes": ""
+                      },
+                      "type": "line",
+                      "x1": "26.1",
+                      "x2": "26.1",
+                      "y1": "7.5",
+                      "y2": "4.5"
+                    },
+                    {
+                      "fill": {
+                        "paint": "transparent"
+                      },
+                      "name": "line",
+                      "stroke": {
+                        "linecap": "round",
+                        "linejoin": "round",
+                        "paint": "var(--neutral-100)"
+                      },
+                      "style": {
+                        "classes": ""
+                      },
+                      "type": "line",
+                      "x1": "30.31",
+                      "x2": "30.31",
+                      "y1": "7.5",
+                      "y2": "4.5"
+                    },
+                    {
+                      "fill": {
+                        "paint": "transparent"
+                      },
+                      "name": "line",
+                      "stroke": {
+                        "linecap": "round",
+                        "linejoin": "round",
+                        "paint": "var(--neutral-100)"
+                      },
+                      "style": {
+                        "classes": ""
+                      },
+                      "type": "line",
+                      "x1": "34.51",
+                      "x2": "34.51",
+                      "y1": "7.5",
+                      "y2": "4.5"
+                    },
+                    {
+                      "fill": {
+                        "paint": "transparent"
+                      },
+                      "name": "line",
+                      "stroke": {
+                        "linecap": "round",
+                        "linejoin": "round",
+                        "paint": "var(--neutral-100)"
+                      },
+                      "style": {
+                        "classes": ""
+                      },
+                      "type": "line",
+                      "x1": "38.72",
+                      "x2": "38.72",
+                      "y1": "7.5",
+                      "y2": "4.5"
+                    },
+                    {
+                      "fill": {
+                        "paint": "transparent"
+                      },
+                      "name": "line",
+                      "stroke": {
+                        "linecap": "round",
+                        "linejoin": "round",
+                        "paint": "var(--neutral-100)"
+                      },
+                      "style": {
+                        "classes": ""
+                      },
+                      "type": "line",
+                      "x1": "9.28",
+                      "x2": "9.28",
+                      "y1": "43.5",
+                      "y2": "40.5"
+                    },
+                    {
+                      "fill": {
+                        "paint": "transparent"
+                      },
+                      "name": "line",
+                      "stroke": {
+                        "linecap": "round",
+                        "linejoin": "round",
+                        "paint": "var(--neutral-100)"
+                      },
+                      "style": {
+                        "classes": ""
+                      },
+                      "type": "line",
+                      "x1": "13.49",
+                      "x2": "13.49",
+                      "y1": "43.5",
+                      "y2": "40.5"
+                    },
+                    {
+                      "fill": {
+                        "paint": "transparent"
+                      },
+                      "name": "line",
+                      "stroke": {
+                        "linecap": "round",
+                        "linejoin": "round",
+                        "paint": "var(--neutral-100)"
+                      },
+                      "style": {
+                        "classes": ""
+                      },
+                      "type": "line",
+                      "x1": "17.69",
+                      "x2": "17.69",
+                      "y1": "43.5",
+                      "y2": "40.5"
+                    },
+                    {
+                      "fill": {
+                        "paint": "transparent"
+                      },
+                      "name": "line",
+                      "stroke": {
+                        "linecap": "round",
+                        "linejoin": "round",
+                        "paint": "var(--neutral-100)"
+                      },
+                      "style": {
+                        "classes": ""
+                      },
+                      "type": "line",
+                      "x1": "21.9",
+                      "x2": "21.9",
+                      "y1": "43.5",
+                      "y2": "40.5"
+                    },
+                    {
+                      "fill": {
+                        "paint": "transparent"
+                      },
+                      "name": "line",
+                      "stroke": {
+                        "linecap": "round",
+                        "linejoin": "round",
+                        "paint": "var(--neutral-100)"
+                      },
+                      "style": {
+                        "classes": ""
+                      },
+                      "type": "line",
+                      "x1": "26.1",
+                      "x2": "26.1",
+                      "y1": "43.5",
+                      "y2": "40.5"
+                    },
+                    {
+                      "fill": {
+                        "paint": "transparent"
+                      },
+                      "name": "line",
+                      "stroke": {
+                        "linecap": "round",
+                        "linejoin": "round",
+                        "paint": "var(--neutral-100)"
+                      },
+                      "style": {
+                        "classes": ""
+                      },
+                      "type": "line",
+                      "x1": "30.31",
+                      "x2": "30.31",
+                      "y1": "43.5",
+                      "y2": "40.5"
+                    },
+                    {
+                      "fill": {
+                        "paint": "transparent"
+                      },
+                      "name": "line",
+                      "stroke": {
+                        "linecap": "round",
+                        "linejoin": "round",
+                        "paint": "var(--neutral-100)"
+                      },
+                      "style": {
+                        "classes": ""
+                      },
+                      "type": "line",
+                      "x1": "34.51",
+                      "x2": "34.51",
+                      "y1": "43.5",
+                      "y2": "40.5"
+                    },
+                    {
+                      "fill": {
+                        "paint": "transparent"
+                      },
+                      "name": "line",
+                      "stroke": {
+                        "linecap": "round",
+                        "linejoin": "round",
+                        "paint": "var(--neutral-100)"
+                      },
+                      "style": {
+                        "classes": ""
+                      },
+                      "type": "line",
+                      "x1": "38.72",
+                      "x2": "38.72",
+                      "y1": "43.5",
+                      "y2": "40.5"
+                    },
+                    {
+                      "fill": {
+                        "paint": "transparent"
+                      },
+                      "name": "line",
+                      "stroke": {
+                        "linecap": "round",
+                        "linejoin": "round",
+                        "paint": "var(--neutral-100)"
+                      },
+                      "style": {
+                        "classes": ""
+                      },
+                      "type": "line",
+                      "x1": "40.5",
+                      "x2": "43.5",
+                      "y1": "9.28",
+                      "y2": "9.28"
+                    },
+                    {
+                      "fill": {
+                        "paint": "transparent"
+                      },
+                      "name": "line",
+                      "stroke": {
+                        "linecap": "round",
+                        "linejoin": "round",
+                        "paint": "var(--neutral-100)"
+                      },
+                      "style": {
+                        "classes": ""
+                      },
+                      "type": "line",
+                      "x1": "40.5",
+                      "x2": "43.5",
+                      "y1": "13.49",
+                      "y2": "13.49"
+                    },
+                    {
+                      "fill": {
+                        "paint": "transparent"
+                      },
+                      "name": "line",
+                      "stroke": {
+                        "linecap": "round",
+                        "linejoin": "round",
+                        "paint": "var(--neutral-100)"
+                      },
+                      "style": {
+                        "classes": ""
+                      },
+                      "type": "line",
+                      "x1": "40.5",
+                      "x2": "43.5",
+                      "y1": "17.69",
+                      "y2": "17.69"
+                    },
+                    {
+                      "fill": {
+                        "paint": "transparent"
+                      },
+                      "name": "line",
+                      "stroke": {
+                        "linecap": "round",
+                        "linejoin": "round",
+                        "paint": "var(--neutral-100)"
+                      },
+                      "style": {
+                        "classes": ""
+                      },
+                      "type": "line",
+                      "x1": "40.5",
+                      "x2": "43.5",
+                      "y1": "21.9",
+                      "y2": "21.9"
+                    },
+                    {
+                      "fill": {
+                        "paint": "transparent"
+                      },
+                      "name": "line",
+                      "stroke": {
+                        "linecap": "round",
+                        "linejoin": "round",
+                        "paint": "var(--neutral-100)"
+                      },
+                      "style": {
+                        "classes": ""
+                      },
+                      "type": "line",
+                      "x1": "40.5",
+                      "x2": "43.5",
+                      "y1": "26.1",
+                      "y2": "26.1"
+                    },
+                    {
+                      "fill": {
+                        "paint": "transparent"
+                      },
+                      "name": "line",
+                      "stroke": {
+                        "linecap": "round",
+                        "linejoin": "round",
+                        "paint": "var(--neutral-100)"
+                      },
+                      "style": {
+                        "classes": ""
+                      },
+                      "type": "line",
+                      "x1": "40.5",
+                      "x2": "43.5",
+                      "y1": "30.31",
+                      "y2": "30.31"
+                    },
+                    {
+                      "fill": {
+                        "paint": "transparent"
+                      },
+                      "name": "line",
+                      "stroke": {
+                        "linecap": "round",
+                        "linejoin": "round",
+                        "paint": "var(--neutral-100)"
+                      },
+                      "style": {
+                        "classes": ""
+                      },
+                      "type": "line",
+                      "x1": "40.5",
+                      "x2": "43.5",
+                      "y1": "34.51",
+                      "y2": "34.51"
+                    },
+                    {
+                      "fill": {
+                        "paint": "transparent"
+                      },
+                      "name": "line",
+                      "stroke": {
+                        "linecap": "round",
+                        "linejoin": "round",
+                        "paint": "var(--neutral-100)"
+                      },
+                      "style": {
+                        "classes": ""
+                      },
+                      "type": "line",
+                      "x1": "40.5",
+                      "x2": "43.5",
+                      "y1": "38.72",
+                      "y2": "38.72"
+                    },
+                    {
+                      "fill": {
+                        "paint": "transparent"
+                      },
+                      "name": "line",
+                      "stroke": {
+                        "linecap": "round",
+                        "linejoin": "round",
+                        "paint": "var(--neutral-100)"
+                      },
+                      "style": {
+                        "classes": ""
+                      },
+                      "type": "line",
+                      "x1": "4.5",
+                      "x2": "7.5",
+                      "y1": "9.28",
+                      "y2": "9.28"
+                    },
+                    {
+                      "fill": {
+                        "paint": "transparent"
+                      },
+                      "name": "line",
+                      "stroke": {
+                        "linecap": "round",
+                        "linejoin": "round",
+                        "paint": "var(--neutral-100)"
+                      },
+                      "style": {
+                        "classes": ""
+                      },
+                      "type": "line",
+                      "x1": "4.5",
+                      "x2": "7.5",
+                      "y1": "13.49",
+                      "y2": "13.49"
+                    },
+                    {
+                      "fill": {
+                        "paint": "transparent"
+                      },
+                      "name": "line",
+                      "stroke": {
+                        "linecap": "round",
+                        "linejoin": "round",
+                        "paint": "var(--neutral-100)"
+                      },
+                      "style": {
+                        "classes": ""
+                      },
+                      "type": "line",
+                      "x1": "4.5",
+                      "x2": "7.5",
+                      "y1": "17.69",
+                      "y2": "17.69"
+                    },
+                    {
+                      "fill": {
+                        "paint": "transparent"
+                      },
+                      "name": "line",
+                      "stroke": {
+                        "linecap": "round",
+                        "linejoin": "round",
+                        "paint": "var(--neutral-100)"
+                      },
+                      "style": {
+                        "classes": ""
+                      },
+                      "type": "line",
+                      "x1": "4.5",
+                      "x2": "7.5",
+                      "y1": "21.9",
+                      "y2": "21.9"
+                    },
+                    {
+                      "fill": {
+                        "paint": "transparent"
+                      },
+                      "name": "line",
+                      "stroke": {
+                        "linecap": "round",
+                        "linejoin": "round",
+                        "paint": "var(--neutral-100)"
+                      },
+                      "style": {
+                        "classes": ""
+                      },
+                      "type": "line",
+                      "x1": "4.5",
+                      "x2": "7.5",
+                      "y1": "26.1",
+                      "y2": "26.1"
+                    },
+                    {
+                      "fill": {
+                        "paint": "transparent"
+                      },
+                      "name": "line",
+                      "stroke": {
+                        "linecap": "round",
+                        "linejoin": "round",
+                        "paint": "var(--neutral-100)"
+                      },
+                      "style": {
+                        "classes": ""
+                      },
+                      "type": "line",
+                      "x1": "4.5",
+                      "x2": "7.5",
+                      "y1": "30.31",
+                      "y2": "30.31"
+                    },
+                    {
+                      "fill": {
+                        "paint": "transparent"
+                      },
+                      "name": "line",
+                      "stroke": {
+                        "linecap": "round",
+                        "linejoin": "round",
+                        "paint": "var(--neutral-100)"
+                      },
+                      "style": {
+                        "classes": ""
+                      },
+                      "type": "line",
+                      "x1": "4.5",
+                      "x2": "7.5",
+                      "y1": "34.51",
+                      "y2": "34.51"
+                    },
+                    {
+                      "fill": {
+                        "paint": "transparent"
+                      },
+                      "name": "line",
+                      "stroke": {
+                        "linecap": "round",
+                        "linejoin": "round",
+                        "paint": "var(--neutral-100)"
+                      },
+                      "style": {
+                        "classes": ""
+                      },
+                      "type": "line",
+                      "x1": "4.5",
+                      "x2": "7.5",
+                      "y1": "38.72",
+                      "y2": "38.72"
+                    },
+                    {
+                      "fill": {
+                        "paint": "transparent"
+                      },
+                      "height": "25",
+                      "name": "rect",
+                      "rx": "1",
+                      "stroke": {
+                        "linecap": "round",
+                        "linejoin": "round",
+                        "paint": "var(--neutral-100)"
+                      },
+                      "style": {
+                        "classes": ""
+                      },
+                      "type": "rect",
+                      "width": "25",
+                      "x": "11.5",
+                      "y": "11.5"
+                    }
+                  ],
+                  "style": {
+                    "marginLeft": "1px"
+                  },
+                  "viewBox": "0 0 48 48"
+                },
+                "type": "ia.shapes.svg"
+              },
+              {
+                "meta": {
+                  "name": "Label",
+                  "tooltip": {
+                    "enabled": true,
+                    "text": "Central Processing Unit"
+                  }
+                },
+                "position": {
+                  "basis": "40px",
+                  "shrink": 0
+                },
+                "props": {
+                  "style": {
+                    "borderBottomLeftRadius": "8px",
+                    "borderBottomRightRadius": "8px",
+                    "borderTopLeftRadius": "8px",
+                    "borderTopRightRadius": "8px",
+                    "paddingLeft": "6px",
+                    "paddingRight": "6px"
+                  },
+                  "text": "CPU",
+                  "textStyle": {
+                    "fontWeight": "bolder"
+                  }
+                },
+                "type": "ia.display.label"
+              }
+            ],
+            "meta": {
+              "name": "Label"
+            },
+            "position": {
+              "basis": "116px"
+            },
+            "props": {
+              "alignContent": "flex-start"
+            },
+            "type": "ia.container.flex"
+          },
+          {
+            "children": [
+              {
+                "meta": {
+                  "name": "ARM"
+                },
+                "propConfig": {
+                  "props.selected": {
+                    "binding": {
+                      "config": {
+                        "bidirectional": true,
+                        "path": "view.custom.resources.cpu.arm"
+                      },
+                      "type": "property"
+                    },
+                    "onChange": {
+                      "enabled": null,
+                      "script": "\tif self.session.custom.audit.bom and origin \u003d\u003d \"Browser\":\n\t\t# Log Computing Load (use ARM processor) modified\n\t\tsystem.util.audit(action\u003d\"Modified\", actionTarget\u003d\"BOM\", actionValue\u003dstr(currentValue.value), originatingSystem\u003d[\"uuid\",self.view.params.uuid,\"entry\",\"ARM\"])"
+                    }
+                  }
+                },
+                "props": {
+                  "style": {
+                    "marginRight": "10px"
+                  },
+                  "text": "ARM"
+                },
+                "type": "ia.input.checkbox"
+              },
+              {
+                "children": [
+                  {
+                    "meta": {
+                      "name": "NumericEntryField"
+                    },
+                    "position": {
+                      "basis": "65px",
+                      "shrink": 0
+                    },
+                    "propConfig": {
+                      "props.value": {
+                        "binding": {
+                          "config": {
+                            "bidirectional": true,
+                            "path": "view.custom.resources.cpu.cores"
+                          },
+                          "type": "property"
+                        },
+                        "onChange": {
+                          "enabled": null,
+                          "script": "\tif self.session.custom.audit.bom and origin \u003d\u003d \"Browser\":\n\t\t# Log Computing Load (Cores) modified\n\t\tsystem.util.audit(action\u003d\"Modified\", actionTarget\u003d\"BOM\", actionValue\u003dstr(currentValue.value), originatingSystem\u003d[\"uuid\",self.view.params.uuid,\"entry\",\"Cores\"])"
+                        }
+                      }
+                    },
+                    "props": {
+                      "format": "0,0",
+                      "inputBounds": {
+                        "maximum": 512,
+                        "minimum": 1
+                      },
+                      "style": {
+                        "fontSize": "18px"
+                      }
+                    },
+                    "type": "ia.input.numeric-entry-field"
+                  },
+                  {
+                    "meta": {
+                      "name": "Label"
+                    },
+                    "position": {
+                      "basis": "50px",
+                      "shrink": 0
+                    },
+                    "propConfig": {
+                      "props.text": {
+                        "binding": {
+                          "config": {
+                            "path": "../NumericEntryField.props.value"
+                          },
+                          "transforms": [
+                            {
+                              "expression": "\"Core\" +\r\nif({value}\u003e1,\r\n\t\"s\",\r\n\t\"\")",
+                              "type": "expression"
+                            }
+                          ],
+                          "type": "property"
+                        }
+                      }
+                    },
+                    "props": {
+                      "style": {
+                        "paddingLeft": "3px"
+                      }
+                    },
+                    "type": "ia.display.label"
+                  }
+                ],
+                "meta": {
+                  "name": "Cores"
+                },
+                "position": {
+                  "basis": "115px",
+                  "shrink": 0
+                },
+                "type": "ia.container.flex"
+              }
+            ],
+            "meta": {
+              "name": "FlexContainer"
+            },
+            "position": {
+              "basis": "298px"
+            },
+            "props": {
+              "alignContent": "flex-start",
+              "justify": "flex-end",
+              "style": {
+                "paddingBottom": "2px"
+              }
+            },
+            "type": "ia.container.flex"
+          }
+        ],
+        "meta": {
+          "name": "CPU"
+        },
+        "position": {
+          "grow": 1,
+          "shrink": 0
+        },
+        "props": {
+          "justify": "space-between",
+          "style": {
+            "backgroundColor": "--neutral-20",
+            "borderBottomLeftRadius": "8px",
+            "borderBottomRightRadius": "8px",
+            "borderTopLeftRadius": "8px",
+            "borderTopRightRadius": "8px",
+            "marginBottom": "4px",
+            "padding": "2px",
+            "paddingBottom": "0px"
+          },
+          "wrap": "wrap"
+        },
+        "type": "ia.container.flex"
+      },
+      {
+        "children": [
+          {
+            "children": [
+              {
+                "meta": {
+                  "name": "Icon",
+                  "tooltip": {
+                    "enabled": true
+                  }
+                },
+                "position": {
+                  "basis": "30px",
+                  "shrink": 0
+                },
+                "propConfig": {
+                  "custom.warning": {
+                    "binding": {
+                      "config": {
+                        "expression": "{view.custom.recommended.ram} \u003d \"Server Load Exceeds Server Sizing Guide\" ||\r\n{view.custom.recommended.ram} \u003e {view.custom.resources.ram.capacity}"
+                      },
+                      "type": "expr"
+                    }
+                  },
+                  "meta.tooltip.text": {
+                    "binding": {
+                      "config": {
+                        "expression": "if(typeOf({view.custom.recommended.ram}) \u003d \"String\",\r\n\t{view.custom.recommended.ram},\r\n\t\"Recommend \" + {view.custom.recommended.ram} + \"+ GB\")"
+                      },
+                      "type": "expr"
+                    }
+                  },
+                  "props.color": {
+                    "binding": {
+                      "config": {
+                        "path": "this.custom.warning"
+                      },
+                      "transforms": [
+                        {
+                          "fallback": "--neutral-80",
+                          "inputType": "scalar",
+                          "mappings": [
+                            {
+                              "input": true,
+                              "output": "#FFAC47"
+                            }
+                          ],
+                          "outputType": "scalar",
+                          "type": "map"
+                        }
+                      ],
+                      "type": "property"
+                    }
+                  },
+                  "props.path": {
+                    "binding": {
+                      "config": {
+                        "path": "this.custom.warning"
+                      },
+                      "transforms": [
+                        {
+                          "fallback": "material/check_circle",
+                          "inputType": "scalar",
+                          "mappings": [
+                            {
+                              "input": true,
+                              "output": "material/error"
+                            }
+                          ],
+                          "outputType": "scalar",
+                          "type": "map"
+                        }
+                      ],
+                      "type": "property"
+                    }
+                  }
+                },
+                "type": "ia.display.icon"
+              },
+              {
+                "meta": {
+                  "name": "ram-svgrepo-com"
+                },
+                "position": {
+                  "shrink": 0
+                },
+                "props": {
+                  "elements": [
+                    {
+                      "d": "M0,107.154h10.761c4.419,0,8,3.582,8,8s-3.581,8-8,8H0v16.502h10.761c4.419,0,8,3.582,8,8c0,4.418-3.581,8-8,8H0v11.998  h37.463v-3.725c0-2.225,1.805-4.025,4.024-4.025c2.221,0,4.025,1.801,4.025,4.025v3.725h37.283v-3.725  c0-2.225,1.805-4.025,4.025-4.025c2.22,0,4.024,1.801,4.024,4.025v3.725h34.393v-8h6.832v8h34.393v-3.725  c0-2.225,1.805-4.025,4.024-4.025c2.221,0,4.025,1.801,4.025,4.025v3.725h37.283v-3.725c0-2.225,1.805-4.025,4.025-4.025  c2.22,0,4.024,1.801,4.024,4.025v3.725h37.463v-11.998h-10.761c-4.419,0-8-3.582-8-8c0-4.418,3.581-8,8-8h10.761v-16.502h-10.761  c-4.419,0-8-3.582-8-8s3.581-8,8-8h10.761v-17.5H0V107.154z M203.987,104.654h17.334v40.667h-17.334V104.654z M173.987,104.654  h17.334v40.667h-17.334V104.654z M143.987,104.654h17.334v40.667h-17.334V104.654z M95.987,104.654h17.334v40.667H95.987V104.654z   M65.987,104.654h17.334v40.667H65.987V104.654z M35.987,104.654h17.334v40.667H35.987V104.654z",
+                      "name": "path",
+                      "type": "path"
+                    }
+                  ],
+                  "fill": {
+                    "paint": "var(--neutral-100)"
+                  },
+                  "style": {
+                    "marginLeft": "4px"
+                  },
+                  "viewBox": "0 0 257.309 257.309"
+                },
+                "type": "ia.shapes.svg"
+              },
+              {
+                "meta": {
+                  "name": "Label",
+                  "tooltip": {
+                    "enabled": true,
+                    "text": "Random Access Memory"
+                  }
+                },
+                "position": {
+                  "shrink": 0
+                },
+                "props": {
+                  "style": {
+                    "borderBottomLeftRadius": "8px",
+                    "borderBottomRightRadius": "8px",
+                    "borderTopLeftRadius": "8px",
+                    "borderTopRightRadius": "8px",
+                    "paddingLeft": "6px",
+                    "paddingRight": "6px"
+                  },
+                  "text": "RAM",
+                  "textStyle": {
+                    "fontWeight": "bolder"
+                  }
+                },
+                "type": "ia.display.label"
+              }
+            ],
+            "meta": {
+              "name": "Label"
+            },
+            "position": {
+              "grow": 1,
+              "shrink": 0
+            },
+            "type": "ia.container.flex"
+          },
+          {
+            "children": [
+              {
+                "meta": {
+                  "name": "NumericEntryField"
+                },
+                "position": {
+                  "basis": "65px",
+                  "shrink": 0
+                },
+                "propConfig": {
+                  "props.value": {
+                    "binding": {
+                      "config": {
+                        "bidirectional": true,
+                        "path": "view.custom.resources.ram.capacity"
+                      },
+                      "type": "property"
+                    },
+                    "onChange": {
+                      "enabled": null,
+                      "script": "\tif self.session.custom.audit.bom and origin \u003d\u003d \"Browser\":\n\t\t# Log Computing Load (RAM) modified\n\t\tsystem.util.audit(action\u003d\"Modified\", actionTarget\u003d\"BOM\", actionValue\u003dstr(currentValue.value), originatingSystem\u003d[\"uuid\",self.view.params.uuid,\"entry\",\"RAM\"])"
+                    }
+                  }
+                },
+                "props": {
+                  "format": "0,0",
+                  "inputBounds": {
+                    "maximum": 256,
+                    "minimum": 1
+                  },
+                  "style": {
+                    "fontSize": "18px"
+                  }
+                },
+                "type": "ia.input.numeric-entry-field"
+              },
+              {
+                "meta": {
+                  "name": "Label"
+                },
+                "position": {
+                  "basis": "50px",
+                  "shrink": 0
+                },
+                "props": {
+                  "style": {
+                    "paddingLeft": "3px"
+                  },
+                  "text": "GB"
+                },
+                "type": "ia.display.label"
+              }
+            ],
+            "meta": {
+              "name": "Capacity"
+            },
+            "position": {
+              "basis": "115px",
+              "shrink": 0
+            },
+            "props": {
+              "justify": "flex-end"
+            },
+            "type": "ia.container.flex"
+          }
+        ],
+        "meta": {
+          "name": "RAM"
+        },
+        "position": {
+          "basis": "40px",
+          "shrink": 0
+        },
+        "props": {
+          "alignContent": "flex-start",
+          "style": {
+            "backgroundColor": "--neutral-20",
+            "borderBottomLeftRadius": "8px",
+            "borderBottomRightRadius": "8px",
+            "borderTopLeftRadius": "8px",
+            "borderTopRightRadius": "8px",
+            "marginBottom": "4px",
+            "padding": "2px"
+          }
+        },
+        "type": "ia.container.flex"
+      },
+      {
+        "children": [
+          {
+            "children": [
+              {
+                "meta": {
+                  "name": "Icon",
+                  "tooltip": {
+                    "enabled": true
+                  }
+                },
+                "position": {
+                  "basis": "30px",
+                  "shrink": 0
+                },
+                "propConfig": {
+                  "custom.warning": {
+                    "binding": {
+                      "config": {
+                        "expression": "{view.custom.recommended.disk} \u003e {view.custom.resources.disk.capacity}"
+                      },
+                      "type": "expr"
+                    }
+                  },
+                  "meta.tooltip.text": {
+                    "binding": {
+                      "config": {
+                        "expression": "\"Recommend \" + round({view.custom.recommended.disk}, 2) + \"+ GB Disk\""
+                      },
+                      "type": "expr"
+                    }
+                  },
+                  "props.color": {
+                    "binding": {
+                      "config": {
+                        "path": "this.custom.warning"
+                      },
+                      "transforms": [
+                        {
+                          "fallback": "--neutral-80",
+                          "inputType": "scalar",
+                          "mappings": [
+                            {
+                              "input": true,
+                              "output": "#FFAC47"
+                            }
+                          ],
+                          "outputType": "scalar",
+                          "type": "map"
+                        }
+                      ],
+                      "type": "property"
+                    }
+                  },
+                  "props.path": {
+                    "binding": {
+                      "config": {
+                        "path": "this.custom.warning"
+                      },
+                      "transforms": [
+                        {
+                          "fallback": "material/check_circle",
+                          "inputType": "scalar",
+                          "mappings": [
+                            {
+                              "input": true,
+                              "output": "material/error"
+                            }
+                          ],
+                          "outputType": "scalar",
+                          "type": "map"
+                        }
+                      ],
+                      "type": "property"
+                    }
+                  }
+                },
+                "type": "ia.display.icon"
+              },
+              {
+                "meta": {
+                  "name": "hard-drive-svgrepo-com"
+                },
+                "position": {
+                  "shrink": 0
+                },
+                "props": {
+                  "elements": [
+                    {
+                      "d": "M34,8a2,2,0,0,0-2-2H4A2,2,0,0,0,2,8V28a2,2,0,0,0,2,2H32a2,2,0,0,0,2-2ZM32,28H4V8H32V28Z",
+                      "name": "path",
+                      "style": {
+                        "classes": ""
+                      },
+                      "type": "path"
+                    },
+                    {
+                      "cx": "6.21",
+                      "cy": "10.25",
+                      "name": "circle",
+                      "r": "1.25",
+                      "style": {
+                        "classes": ""
+                      },
+                      "type": "circle"
+                    },
+                    {
+                      "cx": "29.81",
+                      "cy": "10.25",
+                      "name": "circle",
+                      "r": "1.25",
+                      "style": {
+                        "classes": ""
+                      },
+                      "type": "circle"
+                    },
+                    {
+                      "cx": "6.21",
+                      "cy": "25.42",
+                      "name": "circle",
+                      "r": "1.25",
+                      "style": {
+                        "classes": ""
+                      },
+                      "type": "circle"
+                    },
+                    {
+                      "cx": "29.81",
+                      "cy": "25.42",
+                      "name": "circle",
+                      "r": "1.25",
+                      "style": {
+                        "classes": ""
+                      },
+                      "type": "circle"
+                    },
+                    {
+                      "d": "M11.88,18.08a3.59,3.59,0,1,0,3.59-3.59,3.84,3.84,0,0,0-.91.13L15,16.16a2.08,2.08,0,0,1,.5-.07,2,2,0,1,1-2,2,1.64,1.64,0,0,1,.08-.5L12,17.16A3.53,3.53,0,0,0,11.88,18.08Z",
+                      "name": "path",
+                      "style": {
+                        "classes": ""
+                      },
+                      "type": "path"
+                    },
+                    {
+                      "d": "M15.47,25.73a7.66,7.66,0,0,1-7.65-7.65,7.55,7.55,0,0,1,.27-2L6.54,15.7a9.24,9.24,0,0,0,17.8,4.95H22.66A7.64,7.64,0,0,1,15.47,25.73Z",
+                      "name": "path",
+                      "style": {
+                        "classes": ""
+                      },
+                      "type": "path"
+                    },
+                    {
+                      "d": "M28.22,17.83a.8.8,0,0,0-.8-.8H24.66a9.26,9.26,0,0,0-9.19-8.2,9.36,9.36,0,0,0-2.38.32l.42,1.54a7.86,7.86,0,0,1,2-.26A7.66,7.66,0,0,1,23,17H20.92a.8.8,0,0,0,0,1.6h6.5A.8.8,0,0,0,28.22,17.83Z",
+                      "name": "path",
+                      "style": {
+                        "classes": ""
+                      },
+                      "type": "path"
+                    },
+                    {
+                      "fill": {
+                        "opacity": "0"
+                      },
+                      "height": "36",
+                      "name": "rect",
+                      "type": "rect",
+                      "width": "36",
+                      "x": "0",
+                      "y": "0"
+                    }
+                  ],
+                  "fill": {
+                    "paint": "var(--neutral-100)"
+                  },
+                  "preserveAspectRatio": "xMidYMid meet",
+                  "style": {
+                    "marginLeft": "2px"
+                  },
+                  "viewBox": "0 0 36 36"
+                },
+                "type": "ia.shapes.svg"
+              },
+              {
+                "meta": {
+                  "name": "Label",
+                  "tooltip": {
+                    "enabled": true,
+                    "text": "Recommend SSD (Solid State Disk)"
+                  }
+                },
+                "position": {
+                  "shrink": 0
+                },
+                "props": {
+                  "style": {
+                    "borderBottomLeftRadius": "8px",
+                    "borderBottomRightRadius": "8px",
+                    "borderTopLeftRadius": "8px",
+                    "borderTopRightRadius": "8px",
+                    "paddingLeft": "6px",
+                    "paddingRight": "6px"
+                  },
+                  "text": "Storage",
+                  "textStyle": {
+                    "fontWeight": "bolder"
+                  }
+                },
+                "type": "ia.display.label"
+              }
+            ],
+            "meta": {
+              "name": "Label"
+            },
+            "position": {
+              "grow": 1,
+              "shrink": 0
+            },
+            "type": "ia.container.flex"
+          },
+          {
+            "children": [
+              {
+                "meta": {
+                  "name": "NumericEntryField",
+                  "tooltip": {
+                    "enabled": true,
+                    "style": {
+                      "whiteSpace": "pre"
+                    }
+                  }
+                },
+                "position": {
+                  "basis": "65px",
+                  "shrink": 0
+                },
+                "propConfig": {
+                  "meta.tooltip.text": {
+                    "binding": {
+                      "config": {
+                        "expression": "\"10GB disk space required for installation\"\r\n+ \"\\n\"\r\n+ \"+ 0.3433MB per tag (or insert) per hour\""
+                      },
+                      "type": "expr"
+                    }
+                  },
+                  "props.value": {
+                    "binding": {
+                      "config": {
+                        "bidirectional": true,
+                        "path": "view.custom.resources.disk.capacity"
+                      },
+                      "type": "property"
+                    },
+                    "onChange": {
+                      "enabled": null,
+                      "script": "\tif self.session.custom.audit.bom and origin \u003d\u003d \"Browser\":\n\t\t# Log Computing Load (Storage) modified\n\t\tsystem.util.audit(action\u003d\"Modified\", actionTarget\u003d\"BOM\", actionValue\u003dstr(currentValue.value), originatingSystem\u003d[\"uuid\",self.view.params.uuid,\"entry\",\"Storage\"])"
+                    }
+                  }
+                },
+                "props": {
+                  "format": "0,0",
+                  "inputBounds": {
+                    "maximum": 20480,
+                    "minimum": 10
+                  },
+                  "style": {
+                    "fontSize": "18px"
+                  }
+                },
+                "type": "ia.input.numeric-entry-field"
+              },
+              {
+                "meta": {
+                  "name": "Label"
+                },
+                "position": {
+                  "basis": "50px",
+                  "shrink": 0
+                },
+                "props": {
+                  "style": {
+                    "paddingLeft": "3px"
+                  },
+                  "text": "GB"
+                },
+                "type": "ia.display.label"
+              }
+            ],
+            "meta": {
+              "name": "Capacity"
+            },
+            "position": {
+              "basis": "115px",
+              "shrink": 0
+            },
+            "props": {
+              "justify": "flex-end"
+            },
+            "type": "ia.container.flex"
+          }
+        ],
+        "meta": {
+          "name": "Disk"
+        },
+        "position": {
+          "basis": "40px",
+          "shrink": 0
+        },
+        "props": {
+          "alignContent": "flex-start",
+          "style": {
+            "backgroundColor": "--neutral-20",
+            "borderBottomLeftRadius": "8px",
+            "borderBottomRightRadius": "8px",
+            "borderTopLeftRadius": "8px",
+            "borderTopRightRadius": "8px",
+            "marginBottom": "4px",
+            "padding": "2px"
+          }
+        },
+        "type": "ia.container.flex"
+      },
+      {
+        "children": [
+          {
+            "children": [
+              {
+                "children": [
+                  {
+                    "meta": {
+                      "name": "os-svgrepo-com"
+                    },
+                    "position": {
+                      "basis": "34px",
+                      "shrink": 0
+                    },
+                    "props": {
+                      "elements": [
+                        {
+                          "d": "M20.86,11.09a2.85,2.85,0,0,1,3,1.25,1,1,0,0,0,1.59-1.21,4.83,4.83,0,0,0-5.13-2,3,3,0,0,0-2.11,2.14A3.23,3.23,0,0,0,19,14.38l4.27,4.26a1.17,1.17,0,0,1,.34.87,1.11,1.11,0,0,1-.41.81,2.74,2.74,0,0,1-4.1-.65,1,1,0,1,0-1.6,1.2,5,5,0,0,0,4,2.13,4.66,4.66,0,0,0,3-1.14,3.15,3.15,0,0,0,1.12-2.26,3.12,3.12,0,0,0-.92-2.37L20.46,13a1.19,1.19,0,0,1-.3-1.15A1,1,0,0,1,20.86,11.09Z",
+                          "name": "path",
+                          "type": "path"
+                        },
+                        {
+                          "d": "M16,0A16,16,0,1,0,32,16,16,16,0,0,0,16,0Zm0,30A14,14,0,1,1,30,16,14,14,0,0,1,16,30Z",
+                          "name": "path",
+                          "type": "path"
+                        },
+                        {
+                          "d": "M10.5,9C7.47,9,5,12.14,5,16s2.47,7,5.5,7S16,19.86,16,16,13.53,9,10.5,9Zm0,12C8.6,21,7,18.71,7,16s1.6-5,3.5-5S14,13.29,14,16,12.4,21,10.5,21Z",
+                          "name": "path",
+                          "type": "path"
+                        }
+                      ],
+                      "fill": {
+                        "paint": "var(--neutral-90)"
+                      },
+                      "style": {
+                        "padding": 2
+                      },
+                      "viewBox": "0 0 32 32"
+                    },
+                    "type": "ia.shapes.svg"
+                  }
+                ],
+                "meta": {
+                  "name": "Label"
+                },
+                "position": {
+                  "basis": "34px",
+                  "shrink": 0
+                },
+                "type": "ia.container.flex"
+              },
+              {
+                "children": [
+                  {
+                    "children": [
+                      {
+                        "meta": {
+                          "name": "Dropdown"
+                        },
+                        "position": {
+                          "basis": "256px"
+                        },
+                        "propConfig": {
+                          "props.options": {
+                            "binding": {
+                              "config": {
+                                "expression": "1"
+                              },
+                              "transforms": [
+                                {
+                                  "code": "\treturn exchange.architecturebuilder.resources.os.getFamilies()",
+                                  "type": "script"
+                                }
+                              ],
+                              "type": "expr"
+                            }
+                          },
+                          "props.value": {
+                            "binding": {
+                              "config": {
+                                "bidirectional": true,
+                                "path": "view.custom.resources.os.type"
+                              },
+                              "type": "property"
+                            },
+                            "onChange": {
+                              "enabled": null,
+                              "script": "\tif self.session.custom.audit.bom and origin \u003d\u003d \"Browser\":\n\t\t# Log Computing Load (OS Family) modified\n\t\tsystem.util.audit(action\u003d\"Modified\", actionTarget\u003d\"BOM\", actionValue\u003dstr(currentValue.value), originatingSystem\u003d[\"uuid\",self.view.params.uuid,\"entry\",\"OS Family\"])"
+                            },
+                            "persistent": false
+                          }
+                        },
+                        "type": "ia.input.dropdown"
+                      }
+                    ],
+                    "meta": {
+                      "name": "Type"
+                    },
+                    "position": {
+                      "basis": "104px",
+                      "shrink": 0
+                    },
+                    "type": "ia.container.flex"
+                  },
+                  {
+                    "children": [
+                      {
+                        "meta": {
+                          "name": "Dropdown"
+                        },
+                        "position": {
+                          "basis": "280px"
+                        },
+                        "propConfig": {
+                          "props.enabled": {
+                            "binding": {
+                              "config": {
+                                "expression": "!isNull({.../Type/Dropdown.props.value})"
+                              },
+                              "type": "expr"
+                            }
+                          },
+                          "props.options": {
+                            "binding": {
+                              "config": {
+                                "expression": "{view.custom.resources.os.type}"
+                              },
+                              "overlayOptOut": true,
+                              "transforms": [
+                                {
+                                  "code": "\tif value \u003d\u003d \u0027\u0027:\n\t\treturn []\n\telse:\n\t\treturn exchange.architecturebuilder.resources.os.getVersions(value)",
+                                  "type": "script"
+                                }
+                              ],
+                              "type": "expr"
+                            }
+                          },
+                          "props.placeholder.text": {
+                            "binding": {
+                              "config": {
+                                "expression": "isNull({.../Type/Dropdown.props.value})"
+                              },
+                              "transforms": [
+                                {
+                                  "fallback": "Select...",
+                                  "inputType": "scalar",
+                                  "mappings": [
+                                    {
+                                      "input": true,
+                                      "output": "Select OS family first"
+                                    }
+                                  ],
+                                  "outputType": "scalar",
+                                  "type": "map"
+                                }
+                              ],
+                              "type": "expr"
+                            }
+                          },
+                          "props.value": {
+                            "binding": {
+                              "config": {
+                                "bidirectional": true,
+                                "path": "view.custom.resources.os.version"
+                              },
+                              "overlayOptOut": true,
+                              "type": "property"
+                            },
+                            "onChange": {
+                              "enabled": null,
+                              "script": "\tif self.session.custom.audit.bom and origin \u003d\u003d \"Browser\":\n\t\t# Log Computing Load (OS Version) modified\n\t\tsystem.util.audit(action\u003d\"Modified\", actionTarget\u003d\"BOM\", actionValue\u003dstr(currentValue.value), originatingSystem\u003d[\"uuid\",self.view.params.uuid,\"entry\",\"OS Version\"])"
+                            }
+                          }
+                        },
+                        "props": {
+                          "allowCustomOptions": true,
+                          "placeholder": {}
+                        },
+                        "type": "ia.input.dropdown"
+                      }
+                    ],
+                    "meta": {
+                      "name": "Version"
+                    },
+                    "position": {
+                      "basis": "280px",
+                      "shrink": 0
+                    },
+                    "props": {
+                      "style": {
+                        "marginLeft": "4px",
+                        "marginRight": "4px"
+                      }
+                    },
+                    "type": "ia.container.flex"
+                  }
+                ],
+                "meta": {
+                  "name": "Dropdowns"
+                },
+                "position": {
+                  "basis": "392px",
+                  "shrink": 0
+                },
+                "type": "ia.container.flex"
+              }
+            ],
+            "meta": {
+              "name": "OS"
+            },
+            "position": {
+              "grow": 1
+            },
+            "props": {
+              "alignContent": "flex-start",
+              "justify": "space-between",
+              "style": {
+                "backgroundColor": "--neutral-20",
+                "borderBottomLeftRadius": "8px",
+                "borderBottomRightRadius": "8px",
+                "borderTopLeftRadius": "8px",
+                "borderTopRightRadius": "8px",
+                "padding": "2px"
+              },
+              "wrap": "wrap"
+            },
+            "type": "ia.container.flex"
+          }
+        ],
+        "meta": {
+          "name": "Bottom"
+        },
+        "position": {
+          "shrink": 0
+        },
+        "type": "ia.container.flex"
+      }
+    ],
+    "meta": {
+      "name": "root"
+    },
+    "props": {
+      "direction": "column",
+      "style": {
+        "backgroundColor": "--neutral-40",
+        "borderBottomLeftRadius": "8px",
+        "borderBottomRightRadius": "8px",
+        "paddingBottom": "4px",
+        "paddingLeft": "8px",
+        "paddingRight": "8px",
+        "paddingTop": "0px"
+      }
+    },
+    "type": "ia.container.flex"
+  }
+}

@@ -1,0 +1,20 @@
+{
+  "scope": "A",
+  "version": 1,
+  "restricted": false,
+  "overridable": true,
+  "files": [
+    "wooden-box.png"
+  ],
+  "attributes": {
+    "width": 16,
+    "format": "PNG",
+    "lastModification": {
+      "actor": "8.3-migration",
+      "timestamp": "2026-01-07T14:49:07Z"
+    },
+    "size": 426,
+    "lastModificationSignature": "53f4a0dcf7de5653277c152b1b7ecbfc2c0e6f5bacda5a505cc9fb71b556eb33",
+    "height": 16
+  }
+}

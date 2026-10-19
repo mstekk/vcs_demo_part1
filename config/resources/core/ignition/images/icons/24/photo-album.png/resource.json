@@ -1,0 +1,20 @@
+{
+  "scope": "A",
+  "version": 1,
+  "restricted": false,
+  "overridable": true,
+  "files": [
+    "photo-album.png"
+  ],
+  "attributes": {
+    "width": 24,
+    "format": "PNG",
+    "lastModification": {
+      "actor": "8.3-migration",
+      "timestamp": "2026-01-07T14:49:07Z"
+    },
+    "size": 1128,
+    "lastModificationSignature": "5956c62b0d8f7bdf3431b23cc4b67e9234903266ca4abd9015b38ce910d11b59",
+    "height": 24
+  }
+}

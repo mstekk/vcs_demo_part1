@@ -1,0 +1,20 @@
+{
+  "scope": "A",
+  "version": 1,
+  "restricted": false,
+  "overridable": true,
+  "files": [
+    "monitor-window-flow.png"
+  ],
+  "attributes": {
+    "width": 16,
+    "format": "PNG",
+    "lastModification": {
+      "actor": "8.3-migration",
+      "timestamp": "2026-01-07T14:49:07Z"
+    },
+    "size": 613,
+    "lastModificationSignature": "390c99cc62ec936fb97d7d8390e9133effa385213b9e60676a59e8586cea4690",
+    "height": 16
+  }
+}

@@ -1,0 +1,20 @@
+{
+  "scope": "A",
+  "version": 1,
+  "restricted": false,
+  "overridable": true,
+  "files": [
+    "alarm-clock-select-remain.png"
+  ],
+  "attributes": {
+    "width": 16,
+    "format": "PNG",
+    "lastModification": {
+      "actor": "8.3-migration",
+      "timestamp": "2026-01-07T14:49:07Z"
+    },
+    "size": 1001,
+    "lastModificationSignature": "8e69ab86d7adf4149055d0d65f6c244b009b7a56595d32c8387afc23d8df0fa1",
+    "height": 16
+  }
+}

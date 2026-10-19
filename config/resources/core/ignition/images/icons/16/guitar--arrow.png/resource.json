@@ -1,0 +1,20 @@
+{
+  "scope": "A",
+  "version": 1,
+  "restricted": false,
+  "overridable": true,
+  "files": [
+    "guitar--arrow.png"
+  ],
+  "attributes": {
+    "width": 16,
+    "format": "PNG",
+    "lastModification": {
+      "actor": "8.3-migration",
+      "timestamp": "2026-01-07T14:49:07Z"
+    },
+    "size": 911,
+    "lastModificationSignature": "d0ca23c3be724f863fe89432f7ad66cd12b4105f18b4aaf1c50fe8970f025a72",
+    "height": 16
+  }
+}

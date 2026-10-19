@@ -1,0 +1,411 @@
+{
+  "custom": {},
+  "params": {
+    "delete": false,
+    "desc": "",
+    "display": "value",
+    "enabled": false,
+    "image": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEYAAABVCAYAAAD0bJKxAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAABEZJREFUeNrsXNtx2kAUXTT+yVeoIEM6gAqACowqQKoAqACrApMKbFdgUgG4AkgF1qQC/vKbXXKZyELS7t59L94ZjfzQIjg+59zHrtUjNzT+bL7N6GlY+VFJj+2X5e9T/drejQAyoKfXGijVsaFHUQWodwOg9OnpQI8B51LGnpSCc2TfJDdAmCcBUAhcswMg4waGfsgJPc0kpjBQHqOXEgVmR08TxNTvScSgDJGgnGUVs5QWKpN7kbKFGem7wkuMYmXMWmFuyUJ2EiFbWGTJFF7iJdZwvVRhC2TBcXkMsOUd8hHMmFIZ7WNkzFIBlM0FlBiBmStIqKj+IIlIRplgTdQ08nrrISbGrHVIKCpgFNhyJaHYGDPXJaFogIHWwkSXhGJiDMZbjm0SiqKIhNbCAVMkXlqYsTIG01ooeKAEzRhka+FIQRmJXBgyYzDekotemATMlsyEhEJnTIaQ0IPMhCRAtvQRppvL3idExsi2FqQkFGRUQjSi9hSUKeZeoTFmJgHKCSOhUIFZS0qojB4YydYCk9BG5X4hMWZhQ0JBAQOthaENCYXGmLUtCQUDjMSuBS0SCokxot6y0iGh1gQP3P++ki+8kX9twJPHrQW28zLVee+7GmWfGkyO0XhBfz/FpNYW2KJVQh+kBKn2rsP5+wCa7fRfpIrOTbA5qbg+L9Uegsx8KhaZhLYmbp5U5CIy5h7JyIiE6sCIptoTMEQb6T+PLanJgHABRsZUZxbYwkvoOhfLdALzIjHn3jBbZhwGs1ylMP2XOQND0X+GG4rKqe/QW3IbOVU18125lpPAOrRxCV0BA2FP9KZjQ++nK+qxTv+KWBr1WimFMMiVk6H0vytPyonF8QEY0K7IGxhACWErEhW2y5Gr6hoktbXJGk76L71YZrLtkAtEKZ0+s+zIblPiYDQCA5JKbTCGs7JY6Oyx6GAMAU13JVJ9TT7TtlakrU2pFRgA54ETwnXkM2vbBaIyMAIhfKwoo6wl/c9dSUgYGI7fqPrMwmaPRTdjCKThRUcaj03/h75JSAoYjt9MNHpL7qLprgRMh9+MEWwZNAD67IOEUMC0+M1EA1tKyereO8Y0+o2Mz7QUi95ICA1Mi9/IsGbhqsdiHJgGv5HxmawmoYJ4ONDAVPzmKPnhLnPOX/smIecDm/98DsejZ4AJw4bicutgQ4AfwMB60CNpXxMqISzvbwYYCgoDRPTRATmsY3k9Eg2gLInc8xSeLO+asM8Yhee0sBA9ct1zMckY7D+BY/6DJChgZo7meg+MyuL+IEpgYs9cVWql/Scw3dEFO0qfgblTnL8l+AdlbTtkyryLlRZHV9W3KmMKBab96PAu9ohZtlfmYGMzpHZgIEHDgNO1758B8gaM2RO1R7e5KwmgzSmzxlxwaiUmo6/0+EmPX8HWSgAO6/CnHENlv5sK7HUpyP+FuLEk6P61HWoeUc9xguvH/BVgAMdngkavYj4SAAAAAElFTkSuQmCC",
+    "link": "",
+    "name": "",
+    "options": [],
+    "selected": false,
+    "selection": null
+  },
+  "propConfig": {
+    "params.delete": {
+      "paramDirection": "input",
+      "persistent": true
+    },
+    "params.desc": {
+      "paramDirection": "input",
+      "persistent": true
+    },
+    "params.display": {
+      "paramDirection": "input",
+      "persistent": true
+    },
+    "params.enabled": {
+      "paramDirection": "input",
+      "persistent": true
+    },
+    "params.image": {
+      "paramDirection": "input",
+      "persistent": true
+    },
+    "params.link": {
+      "paramDirection": "input",
+      "persistent": true
+    },
+    "params.name": {
+      "paramDirection": "input",
+      "persistent": true
+    },
+    "params.options": {
+      "paramDirection": "input",
+      "persistent": true
+    },
+    "params.selected": {
+      "paramDirection": "inout",
+      "persistent": true
+    },
+    "params.selection": {
+      "paramDirection": "inout",
+      "persistent": true
+    }
+  },
+  "props": {
+    "defaultSize": {
+      "height": 92,
+      "width": 335
+    }
+  },
+  "root": {
+    "children": [
+      {
+        "children": [
+          {
+            "meta": {
+              "name": "ModuleImage",
+              "tooltip": {
+                "text": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEYAAABVCAYAAAD0bJKxAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAABEZJREFUeNrsXNtx2kAUXTT+yVeoIEM6gAqACowqQKoAqACrApMKbFdgUgG4AkgF1qQC/vKbXXKZyELS7t59L94ZjfzQIjg+59zHrtUjNzT+bL7N6GlY+VFJj+2X5e9T/drejQAyoKfXGijVsaFHUQWodwOg9OnpQI8B51LGnpSCc2TfJDdAmCcBUAhcswMg4waGfsgJPc0kpjBQHqOXEgVmR08TxNTvScSgDJGgnGUVs5QWKpN7kbKFGem7wkuMYmXMWmFuyUJ2EiFbWGTJFF7iJdZwvVRhC2TBcXkMsOUd8hHMmFIZ7WNkzFIBlM0FlBiBmStIqKj+IIlIRplgTdQ08nrrISbGrHVIKCpgFNhyJaHYGDPXJaFogIHWwkSXhGJiDMZbjm0SiqKIhNbCAVMkXlqYsTIG01ooeKAEzRhka+FIQRmJXBgyYzDekotemATMlsyEhEJnTIaQ0IPMhCRAtvQRppvL3idExsi2FqQkFGRUQjSi9hSUKeZeoTFmJgHKCSOhUIFZS0qojB4YydYCk9BG5X4hMWZhQ0JBAQOthaENCYXGmLUtCQUDjMSuBS0SCokxot6y0iGh1gQP3P++ki+8kX9twJPHrQW28zLVee+7GmWfGkyO0XhBfz/FpNYW2KJVQh+kBKn2rsP5+wCa7fRfpIrOTbA5qbg+L9Uegsx8KhaZhLYmbp5U5CIy5h7JyIiE6sCIptoTMEQb6T+PLanJgHABRsZUZxbYwkvoOhfLdALzIjHn3jBbZhwGs1ylMP2XOQND0X+GG4rKqe/QW3IbOVU18125lpPAOrRxCV0BA2FP9KZjQ++nK+qxTv+KWBr1WimFMMiVk6H0vytPyonF8QEY0K7IGxhACWErEhW2y5Gr6hoktbXJGk76L71YZrLtkAtEKZ0+s+zIblPiYDQCA5JKbTCGs7JY6Oyx6GAMAU13JVJ9TT7TtlakrU2pFRgA54ETwnXkM2vbBaIyMAIhfKwoo6wl/c9dSUgYGI7fqPrMwmaPRTdjCKThRUcaj03/h75JSAoYjt9MNHpL7qLprgRMh9+MEWwZNAD67IOEUMC0+M1EA1tKyereO8Y0+o2Mz7QUi95ICA1Mi9/IsGbhqsdiHJgGv5HxmawmoYJ4ONDAVPzmKPnhLnPOX/smIecDm/98DsejZ4AJw4bicutgQ4AfwMB60CNpXxMqISzvbwYYCgoDRPTRATmsY3k9Eg2gLInc8xSeLO+asM8Yhee0sBA9ct1zMckY7D+BY/6DJChgZo7meg+MyuL+IEpgYs9cVWql/Scw3dEFO0qfgblTnL8l+AdlbTtkyryLlRZHV9W3KmMKBab96PAu9ohZtlfmYGMzpHZgIEHDgNO1758B8gaM2RO1R7e5KwmgzSmzxlxwaiUmo6/0+EmPX8HWSgAO6/CnHENlv5sK7HUpyP+FuLEk6P61HWoeUc9xguvH/BVgAMdngkavYj4SAAAAAElFTkSuQmCC"
+              }
+            },
+            "position": {
+              "shrink": 0
+            },
+            "propConfig": {
+              "props.source": {
+                "binding": {
+                  "config": {
+                    "path": "view.params.image"
+                  },
+                  "transforms": [
+                    {
+                      "code": "\tif value[:4] \u003d\u003d\"http\" or value[:4] \u003d\u003d\"data\":\n\t\treturn value\n\telse:\n\t\treturn \u0027data:image/svg+xml;base64,{}\u0027.format(value)",
+                      "type": "script"
+                    }
+                  ],
+                  "type": "property"
+                }
+              },
+              "props.style.backgroundColor": {
+                "binding": {
+                  "config": {
+                    "struct": {
+                      "enabled": "{view.params.enabled}",
+                      "selected": "{view.params.selected}"
+                    },
+                    "waitOnAll": true
+                  },
+                  "transforms": [
+                    {
+                      "code": "\tif value[\u0027enabled\u0027]:\n\t\tif value[\u0027selected\u0027]:\n\t\t\treturn \u0027#CCFFCC\u0027\n\t\telse:\n\t\t\treturn \u0027--neutral-10\u0027\n\telse:\n\t\treturn \u0027\u0027",
+                      "type": "script"
+                    }
+                  ],
+                  "type": "expr-struct"
+                }
+              },
+              "props.style.filter": {
+                "binding": {
+                  "config": {
+                    "path": "view.params.enabled"
+                  },
+                  "transforms": [
+                    {
+                      "fallback": "",
+                      "inputType": "scalar",
+                      "mappings": [
+                        {
+                          "input": false,
+                          "output": "grayscale(100%)"
+                        }
+                      ],
+                      "outputType": "scalar",
+                      "type": "map"
+                    }
+                  ],
+                  "type": "property"
+                }
+              }
+            },
+            "props": {
+              "fit": {
+                "mode": "contain"
+              },
+              "style": {
+                "borderBottomLeftRadius": "8px",
+                "borderBottomRightRadius": "8px",
+                "borderTopLeftRadius": "8px",
+                "borderTopRightRadius": "8px",
+                "cursor": "pointer",
+                "marginBottom": "2px",
+                "marginTop": "2px",
+                "max-width": "30px",
+                "overflow": "visible",
+                "padding": "4px"
+              }
+            },
+            "type": "ia.display.image"
+          },
+          {
+            "meta": {
+              "name": "ModuleName"
+            },
+            "position": {
+              "basis": "150px"
+            },
+            "propConfig": {
+              "props.text": {
+                "binding": {
+                  "config": {
+                    "path": "view.params.display"
+                  },
+                  "type": "property"
+                }
+              },
+              "props.textStyle.color": {
+                "binding": {
+                  "config": {
+                    "path": "view.params.enabled"
+                  },
+                  "transforms": [
+                    {
+                      "fallback": "",
+                      "inputType": "scalar",
+                      "mappings": [
+                        {
+                          "input": false,
+                          "output": "--neutral-60"
+                        }
+                      ],
+                      "outputType": "scalar",
+                      "type": "map"
+                    }
+                  ],
+                  "type": "property"
+                }
+              }
+            },
+            "props": {
+              "style": {
+                "marginLeft": "8px",
+                "paddingRight": "4px"
+              },
+              "textStyle": {
+                "fontSize": 14,
+                "fontWeight": "600",
+                "whiteSpace": "pre-wrap",
+                "wordWrap": "break-word"
+              }
+            },
+            "type": "ia.display.label"
+          },
+          {
+            "meta": {
+              "name": "Label"
+            },
+            "position": {
+              "basis": "50px",
+              "grow": 1
+            },
+            "propConfig": {
+              "position.display": {
+                "binding": {
+                  "config": {
+                    "path": "session.custom.showDescriptions"
+                  },
+                  "type": "property"
+                }
+              },
+              "props.text": {
+                "binding": {
+                  "config": {
+                    "path": "view.params.desc"
+                  },
+                  "type": "property"
+                }
+              }
+            },
+            "props": {
+              "style": {
+                "fontSize": 12,
+                "fontStyle": "italic",
+                "marginLeft": "8px"
+              }
+            },
+            "type": "ia.display.label"
+          }
+        ],
+        "events": {
+          "dom": {
+            "onClick": {
+              "config": {
+                "script": "\tif self.view.params.enabled and not self.view.params.delete:\n\t\tself.view.params.selected\u003dnot self.view.params.selected"
+              },
+              "scope": "G",
+              "type": "script"
+            }
+          }
+        },
+        "meta": {
+          "name": "FlexContainer_0"
+        },
+        "position": {
+          "shrink": 0
+        },
+        "type": "ia.container.flex"
+      },
+      {
+        "meta": {
+          "name": "Dropdown"
+        },
+        "position": {
+          "display": false,
+          "shrink": 0
+        },
+        "propConfig": {
+          "position.display": {
+            "binding": {
+              "config": {
+                "expression": "{view.params.selected}\u0026\u0026len({view.params.options})\u003e0"
+              },
+              "type": "expr"
+            },
+            "persistent": true
+          },
+          "props.options": {
+            "binding": {
+              "config": {
+                "path": "view.params.options"
+              },
+              "transforms": [
+                {
+                  "code": "\toptions\u003d[]\n\tfor x in value:\n\t\toptions.append({\n\t\t\t  \"value\": x,\n\t\t\t  \"label\": x\n\t\t\t})\n\treturn options",
+                  "type": "script"
+                }
+              ],
+              "type": "property"
+            }
+          },
+          "props.value": {
+            "binding": {
+              "config": {
+                "bidirectional": true,
+                "path": "view.params.selection"
+              },
+              "type": "property"
+            }
+          }
+        },
+        "props": {
+          "placeholder": {
+            "text": "Select Edition..."
+          }
+        },
+        "type": "ia.input.dropdown"
+      }
+    ],
+    "events": {
+      "dom": {
+        "onClick": {
+          "config": {
+            "script": "\tif self.view.params.enabled and not self.view.params.delete:\n\t\tself.view.params.selected\u003dnot self.view.params.selected"
+          },
+          "enabled": false,
+          "scope": "G",
+          "type": "script"
+        }
+      }
+    },
+    "meta": {
+      "contextMenu": {
+        "enabled": true,
+        "items": [
+          {
+            "children": [],
+            "icon": {
+              "color": "",
+              "path": "material/link",
+              "style": {}
+            },
+            "link": {
+              "target": "tab"
+            },
+            "message": {
+              "payload": {},
+              "scope": "page",
+              "type": ""
+            },
+            "method": {
+              "name": "",
+              "params": {}
+            },
+            "style": {
+              "classes": ""
+            },
+            "text": "Product Details",
+            "type": "link"
+          }
+        ]
+      },
+      "name": "root"
+    },
+    "propConfig": {
+      "meta.contextMenu.items[0].link.url": {
+        "binding": {
+          "config": {
+            "path": "view.params.link"
+          },
+          "type": "property"
+        }
+      },
+      "props.style.backgroundColor": {
+        "binding": {
+          "config": {
+            "struct": {
+              "enabled": "{view.params.enabled}",
+              "selected": "{view.params.selected}"
+            },
+            "waitOnAll": true
+          },
+          "transforms": [
+            {
+              "code": "\tif value[\u0027enabled\u0027]:\n\t\tif value[\u0027selected\u0027]:\n\t\t\treturn \u0027--neutral-30\u0027\n\t\telse:\n\t\t\treturn \u0027--neutral-10\u0027\n\telse:\n\t\treturn \u0027\u0027",
+              "type": "script"
+            }
+          ],
+          "type": "expr-struct"
+        }
+      }
+    },
+    "props": {
+      "direction": "column",
+      "justify": "center",
+      "style": {
+        "borderBottomLeftRadius": "8px",
+        "borderBottomRightRadius": "8px",
+        "borderTopLeftRadius": "8px",
+        "borderTopRightRadius": "8px",
+        "margin": "2px",
+        "overflow": "visible",
+        "padding": "4px"
+      }
+    },
+    "scripts": {
+      "customMethods": [],
+      "extensionFunctions": null,
+      "messageHandlers": [
+        {
+          "messageType": "removeModule",
+          "pageScope": true,
+          "script": "\t#system.perspective.sendMessage(\u0027removeModule\u0027, self.view.params.name)\n\tif payload\u003d\u003dself.view.params.name:\n\t\tself.view.params.selected\u003dFalse",
+          "sessionScope": false,
+          "viewScope": false
+        }
+      ]
+    },
+    "type": "ia.container.flex"
+  }
+}

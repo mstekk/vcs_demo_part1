@@ -1,0 +1,20 @@
+{
+  "scope": "A",
+  "version": 1,
+  "restricted": false,
+  "overridable": true,
+  "files": [
+    "lightning--arrow.png"
+  ],
+  "attributes": {
+    "width": 16,
+    "format": "PNG",
+    "lastModification": {
+      "actor": "8.3-migration",
+      "timestamp": "2026-01-07T14:49:07Z"
+    },
+    "size": 733,
+    "lastModificationSignature": "7eb7c017a4cc78f337d898d01c8acba6e2d0481eea6d8f529c78873f5dfe450f",
+    "height": 16
+  }
+}

@@ -1,0 +1,20 @@
+{
+  "scope": "A",
+  "version": 1,
+  "restricted": false,
+  "overridable": true,
+  "files": [
+    "quill--exclamation.png"
+  ],
+  "attributes": {
+    "width": 16,
+    "format": "PNG",
+    "lastModification": {
+      "actor": "8.3-migration",
+      "timestamp": "2026-01-07T14:49:07Z"
+    },
+    "size": 906,
+    "lastModificationSignature": "8eff1ba2e389667b93f55ee24caec0759f1b17c83ccbc8c9849a6cc1ea31d2af",
+    "height": 16
+  }
+}

@@ -1,0 +1,20 @@
+{
+  "scope": "A",
+  "version": 1,
+  "restricted": false,
+  "overridable": true,
+  "files": [
+    "game.png"
+  ],
+  "attributes": {
+    "width": 16,
+    "format": "PNG",
+    "lastModification": {
+      "actor": "8.3-migration",
+      "timestamp": "2026-01-07T14:49:07Z"
+    },
+    "size": 338,
+    "lastModificationSignature": "f9a736d67215e37554e846aebb544d4cdb1483929fb9eed919a49ee5327666e3",
+    "height": 16
+  }
+}

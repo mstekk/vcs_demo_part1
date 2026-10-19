@@ -1,0 +1,20 @@
+{
+  "base": {
+    "style": {}
+  },
+  "variants": [
+    {
+      "pseudo": "hover",
+      "style": {
+        "borderBottomStyle": "solid",
+        "borderBottomWidth": "2px",
+        "borderLeftStyle": "solid",
+        "borderLeftWidth": "2px",
+        "borderRightStyle": "solid",
+        "borderRightWidth": "2px",
+        "borderTopStyle": "hidden",
+        "borderTopWidth": "2px"
+      }
+    }
+  ]
+}

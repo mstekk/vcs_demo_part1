@@ -1,0 +1,40 @@
+{
+  "custom": {},
+  "params": {},
+  "props": {
+    "defaultSize": {
+      "width": 1081
+    }
+  },
+  "root": {
+    "children": [
+      {
+        "meta": {
+          "name": "Label"
+        },
+        "position": {
+          "height": 194,
+          "width": 467,
+          "x": 206,
+          "y": 279
+        },
+        "props": {
+          "text": "Process Flow Screen",
+          "textStyle": {
+            "fontSize": 50
+          }
+        },
+        "type": "ia.display.label"
+      }
+    ],
+    "meta": {
+      "name": "root"
+    },
+    "props": {
+      "style": {
+        "classes": "Background"
+      }
+    },
+    "type": "ia.container.coord"
+  }
+}

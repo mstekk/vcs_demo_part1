@@ -1,0 +1,115 @@
+{
+  "custom": {},
+  "params": {
+    "ip": "",
+    "name": ""
+  },
+  "propConfig": {
+    "params.ip": {
+      "paramDirection": "inout",
+      "persistent": true
+    },
+    "params.name": {
+      "paramDirection": "inout",
+      "persistent": true
+    }
+  },
+  "props": {
+    "defaultSize": {
+      "height": 32
+    }
+  },
+  "root": {
+    "children": [
+      {
+        "meta": {
+          "name": "ToggleSwitch"
+        },
+        "position": {
+          "basis": "50px",
+          "shrink": 0
+        },
+        "type": "ia.input.toggle-switch"
+      },
+      {
+        "meta": {
+          "name": "TextInput_0"
+        },
+        "position": {
+          "basis": "50%",
+          "grow": 1
+        },
+        "propConfig": {
+          "props.params.text": {
+            "binding": {
+              "config": {
+                "bidirectional": true,
+                "path": "view.params.ip"
+              },
+              "type": "property"
+            }
+          }
+        },
+        "props": {
+          "params": {
+            "label": "IP:",
+            "labelSize": "auto"
+          },
+          "path": "Exchange/ArchitectureBuilder/General/TextInput",
+          "style": {
+            "marginLeft": "4px"
+          }
+        },
+        "type": "ia.display.view"
+      },
+      {
+        "meta": {
+          "name": "TextInput"
+        },
+        "position": {
+          "basis": "50%",
+          "grow": 1
+        },
+        "propConfig": {
+          "position.display": {
+            "binding": {
+              "config": {
+                "expression": "{../ToggleSwitch.props.selected}"
+              },
+              "type": "expr"
+            }
+          },
+          "props.params.text": {
+            "binding": {
+              "config": {
+                "bidirectional": true,
+                "path": "view.params.name"
+              },
+              "type": "property"
+            }
+          }
+        },
+        "props": {
+          "params": {
+            "label": "Desc:",
+            "labelSize": "auto"
+          },
+          "path": "Exchange/ArchitectureBuilder/General/TextInput",
+          "style": {
+            "marginLeft": "4px"
+          }
+        },
+        "type": "ia.display.view"
+      }
+    ],
+    "meta": {
+      "name": "root"
+    },
+    "props": {
+      "style": {
+        "fontSize": "14px"
+      }
+    },
+    "type": "ia.container.flex"
+  }
+}

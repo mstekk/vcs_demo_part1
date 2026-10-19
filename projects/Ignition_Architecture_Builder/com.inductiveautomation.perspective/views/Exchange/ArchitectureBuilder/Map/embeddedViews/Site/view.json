@@ -1,0 +1,163 @@
+{
+  "custom": {
+    "structure": null
+  },
+  "params": {
+    "index": "",
+    "uuid": "I53798dc4"
+  },
+  "propConfig": {
+    "custom.structure": {
+      "binding": {
+        "config": {
+          "struct": {
+            "components": "{session.custom.components}",
+            "configs": "{session.custom.structure.configs}",
+            "containers": "{session.custom.containers}",
+            "headUUID": "{view.params.uuid}",
+            "showUUID": "{session.custom.showUUID}"
+          },
+          "waitOnAll": true
+        },
+        "transforms": [
+          {
+            "code": "\tfrom exchange.architecturebuilder.viewCanvas.connectionRules import getIconByType\n\t\n\tdef get_instance_coords(instance):\n\t    top \u003d instance[\u0027top\u0027]\n\t    bottom \u003d instance[\u0027height\u0027] + top\n\t    left \u003d instance[\u0027left\u0027]\n\t    right \u003d instance[\u0027width\u0027] + left\n\t    return [top, bottom, left, right]\n\t\n\t# Function to check if an instance is within a container\n\tdef instance_in_container(instance_coords, container_coords):\n\t    top1, bottom1, left1, right1 \u003d instance_coords\n\t    top2, bottom2, left2, right2 \u003d container_coords\n\t    return top1 \u003e\u003d top2 and bottom1 \u003c\u003d bottom2 and left1 \u003e\u003d left2 and right1 \u003c\u003d right2\n\t\n\t# Function to get information about a component\n\tdef get_component_info(component, type_id\u003d0):\n\t\tcomponent_name \u003d configs[component][\u0027name\u0027]\n\t\tcomponent_type \u003d configs[component][\u0027type\u0027]\n\t\tcomponent_uuid \u003d configs[component][\u0027uuid\u0027]\n\t\ticon\u003dgetIconByType(component_type)\n\t\tlabel\u003dcomponent_name\n\t\tif value[\u0027showUUID\u0027]:\n\t\t\tlabel+\u003d\u0027 ({})\u0027.format(component)\n\t\tdata \u003d {\n\t\t    \"uuid\": component_uuid,\n\t\t    \"label\": label,\n\t\t    \"expanded\": False,\n\t\t    \"data\": {\"uuid\": component_uuid, \u0027type\u0027: component_type, \u0027name\u0027: component_name},\n\t\t    \"icon\":icon\n\t    }\n\t\n\t\tif type_id \u003d\u003d 0:\n\t\t    component_connections \u003d configs[component][\u0027config\u0027].get(\u0027connections\u0027, [])\n\t\t    data[\u0027data\u0027][\u0027connections\u0027] \u003d component_connections\n\t\telse:\n\t\t    data[\u0027items\u0027] \u003d []\n\t\t\n\t\treturn data\n\t\n\t# Main code\n\tcontainers \u003d value[\u0027containers\u0027]\n\tcomponents \u003d value[\u0027components\u0027]\n\tconfigs \u003d value[\u0027configs\u0027]\n\tstructure \u003d []  # List to hold the hierarchical structure of containers and components\n\t\n\tcontainer_coords_all \u003d {}  # Dictionary to store coordinates of containers\n\tcontainers_collected \u003d []  # List to track collected containers\n\tcomponents_collected \u003d []  # List to track collected components\n\t\n\theadCoords\u003d[]\n\tfor headC in containers:\n\t\tif headC.keys()[0]\u003d\u003dvalue[\u0027headUUID\u0027]:\n\t\t\theadCoords\u003dget_instance_coords(headC[value[\u0027headUUID\u0027]])  # Get container coordinates\n\t\t\tbreak\n\t# Iterate through containers in reverse order\n\tfor container in reversed(containers):\n\t    container_uuid \u003d container.keys()[0]  # Extract container UUID\n\t    if container_uuid not in containers_collected:\n\t        container_coords \u003d get_instance_coords(container[container_uuid])  # Get container coordinates\n\t        if instance_in_container(container_coords,headCoords):\n\t\t        container_coords_all[container_uuid] \u003d container_coords  # Store container coordinates\n\t\t        site \u003d get_component_info(container_uuid, 1)  # Get component information for container\n\t\t        site[\u0027items\u0027] \u003d []  # Initialize contents list for container\n\t\t        # Iterate through components\n\t\t        for component, comp_instance in components.iteritems():\n\t\t            component_coords \u003d get_instance_coords(comp_instance)  # Get component coordinates\n\t\t            # Check if component is within container and not collected yet\n\t\t            if instance_in_container(component_coords, container_coords) and component not in components_collected:\n\t\t                components_collected.append(component)  # Mark component as collected\n\t\t                component_data \u003d get_component_info(component)  # Get component information\n\t\t                site[\u0027items\u0027].append(component_data)  # Add component to container\u0027s contents\n\t\t        structure.append(site)  # Add container to structure\n\t#List root uuids\n#\trootComponents\u003d[]\n#\tfor item in components.keys():\n#\t\tif item not in components_collected:\n#\t\t\trootComponents.append(get_component_info(item, type_id\u003d0))\n\t#return rootComponents\n\n\tuuid_popped \u003d []  # List to track popped UUIDs\n\t\n\t# Iterate through structure to handle nested containers\n\tfor container_index, container_data in enumerate(structure):\n\t    container_uuid \u003d container_data[\u0027uuid\u0027]\n\t    container_coords \u003d container_coords_all[container_uuid]\n\t    # Iterate through structure again to find nested containers\n\t    for subcontainer_index, subcontainer_data in enumerate(structure):\n\t        subcontainer_uuid \u003d subcontainer_data[\u0027uuid\u0027]\n\t        subcontainer_coords \u003d container_coords_all[subcontainer_uuid]\n\t        # Check if subcontainer is nested within container and not yet popped\n\t        if subcontainer_uuid !\u003d container_uuid and instance_in_container(subcontainer_coords, container_coords) and subcontainer_uuid not in uuid_popped:\n\t            # Add nested subcontainer to container\u0027s contents\n\t            structure[container_index][\u0027items\u0027].append(structure[subcontainer_index].copy())\n\t            uuid_popped.append(subcontainer_uuid)  # Mark subcontainer UUID as popped\n\t\n\t\n\t# Filter out popped containers from the final structure\n\tfinal_structure \u003d [pop_items for pop_items in structure if pop_items[\u0027uuid\u0027] not in uuid_popped]\n\tfinal_structure[0][\u0027expanded\u0027]\u003dTrue\n#\treturn rootComponents+final_structure  # Return the final hierarchical structure\n\treturn final_structure  # Return the final hierarchical structure",
+            "type": "script"
+          }
+        ],
+        "type": "expr-struct"
+      },
+      "persistent": true
+    },
+    "params.index": {
+      "paramDirection": "input",
+      "persistent": true
+    },
+    "params.uuid": {
+      "paramDirection": "input",
+      "persistent": true
+    }
+  },
+  "props": {
+    "defaultSize": {
+      "height": 495,
+      "width": 414
+    }
+  },
+  "root": {
+    "children": [
+      {
+        "meta": {
+          "name": "Header"
+        },
+        "position": {
+          "basis": "32px"
+        },
+        "propConfig": {
+          "props.text": {
+            "binding": {
+              "config": {
+                "path": "session.custom.structure.configs"
+              },
+              "transforms": [
+                {
+                  "code": "\treturn value[self.view.params.uuid][\u0027name\u0027]",
+                  "type": "script"
+                }
+              ],
+              "type": "property"
+            }
+          }
+        },
+        "props": {
+          "style": {
+            "marginLeft": "8px"
+          }
+        },
+        "type": "ia.display.label"
+      },
+      {
+        "events": {
+          "component": {
+            "onItemClicked": {
+              "config": {
+                "script": "\ttypeid\u003devent.data[\u0027type\u0027]\n\tuuid\u003devent.data[\u0027uuid\u0027]\n\tif typeid !\u003d \u0027Container\u0027:\n\t\tpath\u003dexchange.architecturebuilder.viewCanvas.connectionRules.getComponentPath(typeid, view\u003d\u0027Config\u0027)\n\telse:\n\t\tpath\u003d\u0027Exchange/ArchitectureBuilder/Frames/EmbeddedViews/SiteConfig\u0027\n\tsystem.perspective.openPopup(uuid, path, {\u0027uuid\u0027: uuid}, title\u003devent.data[\u0027name\u0027],position\u003d{\u0027height\u0027:\u0027auto\u0027})"
+              },
+              "scope": "G",
+              "type": "script"
+            }
+          }
+        },
+        "meta": {
+          "name": "Tree"
+        },
+        "propConfig": {
+          "props.items": {
+            "binding": {
+              "config": {
+                "path": "view.custom.structure"
+              },
+              "type": "property"
+            }
+          }
+        },
+        "props": {
+          "appearance": {
+            "defaultNodeIcons": {
+              "collapsed": {
+                "path": "material/folder"
+              },
+              "empty": {
+                "path": "material/stop"
+              },
+              "expanded": {
+                "path": "material/folder_open"
+              }
+            },
+            "expandIcons": {
+              "collapsed": {
+                "path": "material/arrow_right"
+              },
+              "expanded": {
+                "path": "material/arrow_drop_down"
+              }
+            },
+            "selectedStyle": {
+              "backgroundColor": "--neutral-50",
+              "color": "#00FF00",
+              "stroke": "--neutral-10"
+            }
+          },
+          "selection": [
+            "0/5"
+          ],
+          "selectionData": [
+            {
+              "itemPath": "0/5",
+              "value": {
+                "name": "Cabinets",
+                "type": "Container",
+                "uuid": "Iec1165b0"
+              }
+            }
+          ]
+        },
+        "type": "ia.display.tree"
+      }
+    ],
+    "meta": {
+      "name": "root"
+    },
+    "props": {
+      "direction": "column",
+      "style": {
+        "backgroundColor": "--neutral-10",
+        "color": "--neutral-100",
+        "min-height": "0px !important",
+        "min-width": "0px !Important",
+        "overflow": "hidden"
+      }
+    },
+    "type": "ia.container.flex"
+  }
+}

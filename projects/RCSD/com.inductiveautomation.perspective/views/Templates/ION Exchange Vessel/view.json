@@ -1,0 +1,448 @@
+{
+  "custom": {},
+  "params": {},
+  "props": {
+    "defaultSize": {
+      "height": 900,
+      "width": 550
+    }
+  },
+  "root": {
+    "children": [
+      {
+        "children": [
+          {
+            "meta": {
+              "name": "Pipe_NR-V7",
+              "visible": false
+            },
+            "position": {
+              "height": 721.04,
+              "width": 448.98,
+              "x": 42.86,
+              "y": 154.78
+            },
+            "props": {
+              "pipes": [
+                {
+                  "appearance": "p\u0026id",
+                  "end": "arrowOutward",
+                  "fill": "",
+                  "flanges": true,
+                  "lineVariant": "solid",
+                  "name": "pipe",
+                  "origin": {
+                    "connections": [
+                      {
+                        "connections": [
+                          {
+                            "connections": [],
+                            "x": 115.83,
+                            "y": 660.15
+                          }
+                        ],
+                        "x": 115.83,
+                        "y": 424.18
+                      }
+                    ],
+                    "x": 436.64,
+                    "y": 424.18
+                  },
+                  "start": "none",
+                  "stroke": "#2B2B2B",
+                  "visible": true,
+                  "width": 2
+                },
+                {
+                  "appearance": "p\u0026id",
+                  "end": "arrowOutward",
+                  "fill": "",
+                  "flanges": true,
+                  "lineVariant": "solid",
+                  "name": "pipe_0",
+                  "origin": {
+                    "connections": [
+                      {
+                        "connections": [
+                          {
+                            "connections": [],
+                            "x": 35.01,
+                            "y": 660.15
+                          }
+                        ],
+                        "x": 35.01,
+                        "y": 56.01
+                      }
+                    ],
+                    "x": 217.98,
+                    "y": 56.01
+                  },
+                  "start": "none",
+                  "stroke": "#2B2B2B",
+                  "visible": true,
+                  "width": 2
+                }
+              ]
+            },
+            "type": "ia.container.coord"
+          },
+          {
+            "meta": {
+              "name": "Pipe_NR-V6",
+              "visible": false
+            },
+            "position": {
+              "height": 722.96,
+              "width": 288,
+              "x": 257.84000000000003,
+              "y": 27.15
+            },
+            "props": {
+              "pipes": [
+                {
+                  "appearance": "p\u0026id",
+                  "end": "arrowOutward",
+                  "fill": "",
+                  "flanges": true,
+                  "lineVariant": "solid",
+                  "name": "pipe",
+                  "origin": {
+                    "connections": [
+                      {
+                        "connections": [
+                          {
+                            "connections": [
+                              {
+                                "connections": [],
+                                "x": 6.53,
+                                "y": 596.97
+                              }
+                            ],
+                            "x": 221.43,
+                            "y": 596.97
+                          }
+                        ],
+                        "x": 221.43,
+                        "y": 42.95
+                      }
+                    ],
+                    "x": 6.53,
+                    "y": 42.95
+                  },
+                  "start": "none",
+                  "stroke": "#2B2B2B",
+                  "visible": true,
+                  "width": 2
+                },
+                {
+                  "appearance": "p\u0026id",
+                  "end": "arrowOutward",
+                  "fill": "",
+                  "flanges": true,
+                  "lineVariant": "solid",
+                  "name": "pipe_0",
+                  "origin": {
+                    "connections": [
+                      {
+                        "connections": [
+                          {
+                            "connections": [
+                              {
+                                "connections": [],
+                                "x": 71.99,
+                                "y": 310.02
+                              }
+                            ],
+                            "x": 148.99,
+                            "y": 310.02
+                          }
+                        ],
+                        "x": 148.99,
+                        "y": 521.99
+                      }
+                    ],
+                    "x": 283,
+                    "y": 521.99
+                  },
+                  "start": "none",
+                  "stroke": "#2B2B2B",
+                  "visible": true,
+                  "width": 2
+                }
+              ]
+            },
+            "type": "ia.container.coord"
+          },
+          {
+            "meta": {
+              "name": "Vessel"
+            },
+            "position": {
+              "height": 233.03,
+              "width": 157.02,
+              "x": 183.44,
+              "y": 284.14
+            },
+            "props": {
+              "params": {
+                "displayLabel": false,
+                "tagPath": "[default]Demo/Tank"
+              },
+              "path": "Devices/Vessel"
+            },
+            "type": "ia.display.view"
+          },
+          {
+            "meta": {
+              "name": "EmbeddedView_1"
+            },
+            "position": {
+              "height": 47.01,
+              "rotate": {
+                "angle": "270deg"
+              },
+              "width": 30,
+              "x": 63.98,
+              "y": 350.55
+            },
+            "props": {
+              "params": {
+                "deviceName": "NR-V4-1",
+                "dimension": {
+                  "height": 30,
+                  "width": 30
+                },
+                "displayLabel": false,
+                "displayValue": false,
+                "isTelemetered": false,
+                "tagPath": "[default]Demo/Tank"
+              },
+              "path": "Devices/Valve_Control",
+              "useDefaultViewHeight": true,
+              "useDefaultViewWidth": true
+            },
+            "type": "ia.display.view"
+          },
+          {
+            "meta": {
+              "name": "EmbeddedView_6"
+            },
+            "position": {
+              "height": 47.01,
+              "rotate": {
+                "angle": "270deg"
+              },
+              "width": 30,
+              "x": 246.92,
+              "y": 132
+            },
+            "props": {
+              "params": {
+                "deviceName": "NR-V1-1",
+                "dimension": {
+                  "height": 30,
+                  "width": 30
+                },
+                "displayLabel": false,
+                "displayValue": false,
+                "isTelemetered": false,
+                "tagPath": "[default]Demo/Tank"
+              },
+              "path": "Devices/Valve_Control",
+              "useDefaultViewHeight": true,
+              "useDefaultViewWidth": true
+            },
+            "type": "ia.display.view"
+          },
+          {
+            "meta": {
+              "name": "EmbeddedView_2"
+            },
+            "position": {
+              "height": 47.01,
+              "rotate": {
+                "angle": "270deg"
+              },
+              "width": 30,
+              "x": 477.27812500000005,
+              "y": 349.6671875
+            },
+            "props": {
+              "params": {
+                "deviceName": "NR-V3-1",
+                "dimension": {
+                  "height": 30,
+                  "width": 30
+                },
+                "displayLabel": false,
+                "displayValue": false,
+                "isTelemetered": false,
+                "tagPath": "[default]Demo/Tank"
+              },
+              "path": "Devices/Valve_Control",
+              "useDefaultViewHeight": true,
+              "useDefaultViewWidth": true
+            },
+            "type": "ia.display.view"
+          },
+          {
+            "meta": {
+              "name": "EmbeddedView_3"
+            },
+            "position": {
+              "height": 47.01,
+              "rotate": {
+                "angle": "270deg"
+              },
+              "width": 30,
+              "x": 398.818,
+              "y": 445.01
+            },
+            "props": {
+              "params": {
+                "deviceName": "NR-V6-1",
+                "dimension": {
+                  "height": 30,
+                  "width": 30
+                },
+                "displayLabel": false,
+                "displayValue": false,
+                "isTelemetered": false,
+                "tagPath": "[default]Demo/Tank"
+              },
+              "path": "Devices/Valve_Control",
+              "useDefaultViewHeight": true,
+              "useDefaultViewWidth": true
+            },
+            "type": "ia.display.view"
+          },
+          {
+            "meta": {
+              "name": "EmbeddedView_4"
+            },
+            "position": {
+              "height": 47.01,
+              "rotate": {
+                "angle": "270deg"
+              },
+              "width": 30,
+              "x": 246.92,
+              "y": 667.02
+            },
+            "props": {
+              "params": {
+                "deviceName": "NR-V1-1",
+                "dimension": {
+                  "height": 30,
+                  "width": 30
+                },
+                "displayLabel": false,
+                "displayValue": false,
+                "isTelemetered": false,
+                "tagPath": "[default]Demo/Tank"
+              },
+              "path": "Devices/Valve_Control",
+              "useDefaultViewHeight": true,
+              "useDefaultViewWidth": true
+            },
+            "type": "ia.display.view"
+          },
+          {
+            "meta": {
+              "name": "EmbeddedView_5"
+            },
+            "position": {
+              "height": 47.01,
+              "rotate": {
+                "angle": "270deg"
+              },
+              "width": 30,
+              "x": 144.92,
+              "y": 603.98
+            },
+            "props": {
+              "params": {
+                "deviceName": "NR-V1-1",
+                "dimension": {
+                  "height": 30,
+                  "width": 30
+                },
+                "displayLabel": false,
+                "displayValue": false,
+                "isTelemetered": false,
+                "tagPath": "[default]Demo/Tank"
+              },
+              "path": "Devices/Valve_Control",
+              "useDefaultViewHeight": true,
+              "useDefaultViewWidth": true
+            },
+            "type": "ia.display.view"
+          }
+        ],
+        "meta": {
+          "name": "CoordinateContainer"
+        },
+        "position": {
+          "basis": "200px",
+          "grow": 1
+        },
+        "props": {
+          "pipes": [
+            {
+              "appearance": "p\u0026id",
+              "end": "arrowOutward",
+              "fill": "",
+              "flanges": true,
+              "lineVariant": "solid",
+              "name": "pipe",
+              "origin": {
+                "connections": [
+                  {
+                    "x": 261.94,
+                    "y": 292.15
+                  }
+                ],
+                "x": 261.94,
+                "y": 18.04
+              },
+              "start": "none",
+              "stroke": "#2B2B2B",
+              "visible": false,
+              "width": 5
+            },
+            {
+              "appearance": "p\u0026id",
+              "end": "arrowOutward",
+              "fill": "",
+              "flanges": true,
+              "lineVariant": "solid",
+              "name": "pipe_0",
+              "origin": {
+                "connections": [
+                  {
+                    "x": 261.94,
+                    "y": 870.17
+                  }
+                ],
+                "x": 261.94,
+                "y": 483.18
+              },
+              "start": "none",
+              "stroke": "#2B2B2B",
+              "visible": false,
+              "width": 5
+            }
+          ]
+        },
+        "type": "ia.container.coord"
+      }
+    ],
+    "meta": {
+      "name": "root"
+    },
+    "props": {
+      "direction": "column"
+    },
+    "type": "ia.container.flex"
+  }
+}

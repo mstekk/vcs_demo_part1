@@ -1,0 +1,20 @@
+{
+  "scope": "A",
+  "version": 1,
+  "restricted": false,
+  "overridable": true,
+  "files": [
+    "edit-scale-vertical.png"
+  ],
+  "attributes": {
+    "width": 16,
+    "format": "PNG",
+    "lastModification": {
+      "actor": "8.3-migration",
+      "timestamp": "2026-01-07T14:49:07Z"
+    },
+    "size": 378,
+    "lastModificationSignature": "da6040594b095a2a5eccb75b8aed8a5114d55f995a75fec512bab585c88fb2e9",
+    "height": 16
+  }
+}

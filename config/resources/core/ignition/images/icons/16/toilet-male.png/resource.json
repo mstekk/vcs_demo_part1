@@ -1,0 +1,20 @@
+{
+  "scope": "A",
+  "version": 1,
+  "restricted": false,
+  "overridable": true,
+  "files": [
+    "toilet-male.png"
+  ],
+  "attributes": {
+    "width": 16,
+    "format": "PNG",
+    "lastModification": {
+      "actor": "8.3-migration",
+      "timestamp": "2026-01-07T14:49:07Z"
+    },
+    "size": 1166,
+    "lastModificationSignature": "8c32f160a73f88e22c730d378a03f0cb2efa732b1d4ac21c45229beaf498ed21",
+    "height": 16
+  }
+}

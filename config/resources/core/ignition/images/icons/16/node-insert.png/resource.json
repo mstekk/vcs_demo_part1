@@ -1,0 +1,20 @@
+{
+  "scope": "A",
+  "version": 1,
+  "restricted": false,
+  "overridable": true,
+  "files": [
+    "node-insert.png"
+  ],
+  "attributes": {
+    "width": 16,
+    "format": "PNG",
+    "lastModification": {
+      "actor": "8.3-migration",
+      "timestamp": "2026-01-07T14:49:07Z"
+    },
+    "size": 410,
+    "lastModificationSignature": "8d96035ec0ab731db72bd9c3b9053f8bbc41aebdd2d4c22964e9527fbb975ad9",
+    "height": 16
+  }
+}

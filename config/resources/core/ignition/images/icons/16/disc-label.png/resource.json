@@ -1,0 +1,20 @@
+{
+  "scope": "A",
+  "version": 1,
+  "restricted": false,
+  "overridable": true,
+  "files": [
+    "disc-label.png"
+  ],
+  "attributes": {
+    "width": 16,
+    "format": "PNG",
+    "lastModification": {
+      "actor": "8.3-migration",
+      "timestamp": "2026-01-07T14:49:07Z"
+    },
+    "size": 849,
+    "lastModificationSignature": "a8e148ea849bd8c9ea1738a5752109c07f7bfff0c1a5f9076e3ad44a3ec4800c",
+    "height": 16
+  }
+}

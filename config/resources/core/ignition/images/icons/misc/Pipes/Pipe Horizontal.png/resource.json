@@ -1,0 +1,20 @@
+{
+  "scope": "A",
+  "version": 1,
+  "restricted": false,
+  "overridable": true,
+  "files": [
+    "Pipe Horizontal.png"
+  ],
+  "attributes": {
+    "width": 347,
+    "format": "PNG",
+    "lastModification": {
+      "actor": "8.3-migration",
+      "timestamp": "2026-01-07T14:49:07Z"
+    },
+    "size": 1520,
+    "lastModificationSignature": "7e1e007c1724afa3bc9f09a4ed598d229126d46ef7af0e6ef55e9e38ebdabd48",
+    "height": 100
+  }
+}

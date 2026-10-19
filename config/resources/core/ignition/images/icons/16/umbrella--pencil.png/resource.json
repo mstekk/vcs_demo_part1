@@ -1,0 +1,20 @@
+{
+  "scope": "A",
+  "version": 1,
+  "restricted": false,
+  "overridable": true,
+  "files": [
+    "umbrella--pencil.png"
+  ],
+  "attributes": {
+    "width": 16,
+    "format": "PNG",
+    "lastModification": {
+      "actor": "8.3-migration",
+      "timestamp": "2026-01-07T14:49:07Z"
+    },
+    "size": 586,
+    "lastModificationSignature": "b1f6355a49a6d0c74603ebecbf88df44ae69de7eee7d6cdf85bace7fbdc71e93",
+    "height": 16
+  }
+}

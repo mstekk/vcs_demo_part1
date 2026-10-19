@@ -1,0 +1,20 @@
+{
+  "scope": "A",
+  "version": 1,
+  "restricted": false,
+  "overridable": true,
+  "files": [
+    "bug--minus-0bc55451742cf2b2c1206487fa97b8cd.png"
+  ],
+  "attributes": {
+    "width": 16,
+    "format": "PNG",
+    "lastModification": {
+      "actor": "8.3-migration",
+      "timestamp": "2026-01-07T14:49:07Z"
+    },
+    "size": 743,
+    "lastModificationSignature": "0f871f7e26089a55ae939bd17cd1695cb86895407cfaf2becbebfd5ccc01b5d7",
+    "height": 16
+  }
+}

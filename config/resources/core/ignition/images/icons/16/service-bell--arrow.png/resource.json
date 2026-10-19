@@ -1,0 +1,20 @@
+{
+  "scope": "A",
+  "version": 1,
+  "restricted": false,
+  "overridable": true,
+  "files": [
+    "service-bell--arrow.png"
+  ],
+  "attributes": {
+    "width": 16,
+    "format": "PNG",
+    "lastModification": {
+      "actor": "8.3-migration",
+      "timestamp": "2026-01-07T14:49:07Z"
+    },
+    "size": 737,
+    "lastModificationSignature": "9a2fc0bffd46cc7be2ad3cf056dc2e91cb8215a3e9c88a2a439e3be5cc4b8d9e",
+    "height": 16
+  }
+}

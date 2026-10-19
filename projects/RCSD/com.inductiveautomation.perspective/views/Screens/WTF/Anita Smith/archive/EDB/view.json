@@ -1,0 +1,2044 @@
+{
+  "custom": {},
+  "params": {
+    "navArrow": "value"
+  },
+  "propConfig": {
+    "params.navArrow": {
+      "paramDirection": "input",
+      "persistent": true
+    }
+  },
+  "props": {
+    "defaultSize": {
+      "height": 1030,
+      "width": 1770
+    }
+  },
+  "root": {
+    "children": [
+      {
+        "meta": {
+          "name": "Title"
+        },
+        "position": {
+          "basis": "30pt"
+        },
+        "props": {
+          "text": "EDB REMOVAL SYSTEM",
+          "textStyle": {
+            "classes": "Header"
+          }
+        },
+        "type": "ia.display.label"
+      },
+      {
+        "children": [
+          {
+            "meta": {
+              "name": "custom arrow_9"
+            },
+            "position": {
+              "height": 30,
+              "width": 170,
+              "x": 1590,
+              "y": 11
+            },
+            "props": {
+              "elements": [
+                {
+                  "d": "M0.5 0.5V9.5H31.0869L35.3145 5L31.0869 0.5H0.5Z",
+                  "fill": "white",
+                  "name": "path",
+                  "stroke": {
+                    "paint": "#2B2B2B",
+                    "width": ".75"
+                  },
+                  "type": "path"
+                }
+              ],
+              "fill": {
+                "paint": "transparent"
+              },
+              "preserveAspectRatio": "none",
+              "viewBox": "0 0 36 10"
+            },
+            "type": "ia.shapes.svg"
+          },
+          {
+            "meta": {
+              "name": "IE Vessel 21"
+            },
+            "position": {
+              "height": 47.05,
+              "width": 48.17,
+              "x": 1016.28,
+              "y": 370.892
+            },
+            "props": {
+              "params": {
+                "displayName": false,
+                "displayStatus": false,
+                "tagPath": "[default]Demo/Tank"
+              },
+              "path": "Devices/Pump"
+            },
+            "type": "ia.display.view"
+          },
+          {
+            "meta": {
+              "name": "Label_2"
+            },
+            "position": {
+              "height": 85.03,
+              "width": 115.18,
+              "x": 1188.51,
+              "y": 614.523875
+            },
+            "props": {
+              "style": {
+                "borderColor": "#000000",
+                "borderStyle": "solid",
+                "borderWidth": 4
+              },
+              "text": "Air Gap Structure",
+              "textStyle": {
+                "fontFamily": "sans-serif",
+                "fontSize": "16px",
+                "textAlign": "center"
+              }
+            },
+            "type": "ia.display.label"
+          },
+          {
+            "meta": {
+              "name": "Label_3"
+            },
+            "position": {
+              "height": 70.05,
+              "width": 82.94,
+              "x": 1205.71,
+              "y": 411.357
+            },
+            "props": {
+              "style": {
+                "backgroundColor": "#FFFFFF",
+                "borderColor": "#000000",
+                "borderStyle": "solid",
+                "borderWidth": 4
+              },
+              "text": "NO₃ Analyzer",
+              "textStyle": {
+                "fontFamily": "sans-serif",
+                "fontSize": "16px",
+                "textAlign": "center"
+              }
+            },
+            "type": "ia.display.label"
+          },
+          {
+            "meta": {
+              "name": "custom arrow_3"
+            },
+            "position": {
+              "height": 30,
+              "rotate": {
+                "angle": "180deg"
+              },
+              "width": 170,
+              "x": 1590,
+              "y": 66
+            },
+            "props": {
+              "elements": [
+                {
+                  "d": "M0.5 0.5V9.5H31.0869L35.3145 5L31.0869 0.5H0.5Z",
+                  "fill": "white",
+                  "name": "path",
+                  "stroke": {
+                    "paint": "#2B2B2B",
+                    "width": ".75"
+                  },
+                  "type": "path"
+                }
+              ],
+              "fill": {
+                "paint": "transparent"
+              },
+              "preserveAspectRatio": "none",
+              "viewBox": "0 0 36 10"
+            },
+            "type": "ia.shapes.svg"
+          },
+          {
+            "meta": {
+              "name": "Label_47"
+            },
+            "position": {
+              "height": 32.07,
+              "width": 115.18,
+              "x": 982.95,
+              "y": 345.782
+            },
+            "props": {
+              "text": "Booster P-3",
+              "textStyle": {
+                "classes": "ComponentName"
+              }
+            },
+            "type": "ia.display.label"
+          },
+          {
+            "meta": {
+              "name": "RCSD - EDB Removal System"
+            },
+            "position": {
+              "height": 244,
+              "width": 95,
+              "x": 664.78,
+              "y": 183.94
+            },
+            "props": {
+              "elements": [
+                {
+                  "fill": "#F0F0F0",
+                  "height": "109",
+                  "name": "rect",
+                  "stroke": {
+                    "paint": "black"
+                  },
+                  "type": "rect",
+                  "width": "49",
+                  "x": "0.5",
+                  "y": "24.5"
+                },
+                {
+                  "fill": "#F0F0F0",
+                  "height": "24",
+                  "name": "rect",
+                  "stroke": {
+                    "paint": "black"
+                  },
+                  "type": "rect",
+                  "width": "29",
+                  "x": "10.5",
+                  "y": "0.5"
+                }
+              ],
+              "fill": {
+                "paint": "transparent"
+              },
+              "viewBox": "0 0 50 134"
+            },
+            "type": "ia.shapes.svg"
+          },
+          {
+            "meta": {
+              "name": "IE Vessel 22"
+            },
+            "position": {
+              "height": 47.05,
+              "width": 48.17,
+              "x": 1016.28,
+              "y": 258.842
+            },
+            "props": {
+              "params": {
+                "displayName": false,
+                "displayStatus": false,
+                "tagPath": "[default]Demo/Tank"
+              },
+              "path": "Devices/Pump"
+            },
+            "type": "ia.display.view"
+          },
+          {
+            "meta": {
+              "name": "Label_48"
+            },
+            "position": {
+              "height": 32.07,
+              "width": 115.18,
+              "x": 982.95,
+              "y": 233.952
+            },
+            "props": {
+              "text": "Booster P-2",
+              "textStyle": {
+                "classes": "ComponentName"
+              }
+            },
+            "type": "ia.display.label"
+          },
+          {
+            "meta": {
+              "name": "custom arrow_2"
+            },
+            "position": {
+              "height": 30,
+              "width": 170,
+              "x": 1590,
+              "y": 367.3
+            },
+            "props": {
+              "elements": [
+                {
+                  "d": "M0.5 0.5V9.5H31.0869L35.3145 5L31.0869 0.5H0.5Z",
+                  "fill": "white",
+                  "name": "path",
+                  "stroke": {
+                    "paint": "#2B2B2B",
+                    "width": ".75"
+                  },
+                  "type": "path"
+                }
+              ],
+              "fill": {
+                "paint": "transparent"
+              },
+              "preserveAspectRatio": "none",
+              "viewBox": "0 0 36 10"
+            },
+            "type": "ia.shapes.svg"
+          },
+          {
+            "meta": {
+              "name": "IE Vessel 23"
+            },
+            "position": {
+              "height": 47.05,
+              "width": 48.17,
+              "x": 1015.91,
+              "y": 146.802
+            },
+            "props": {
+              "params": {
+                "displayName": false,
+                "displayStatus": false,
+                "tagPath": "[default]Demo/Tank"
+              },
+              "path": "Devices/Pump"
+            },
+            "type": "ia.display.view"
+          },
+          {
+            "meta": {
+              "name": "Label_38"
+            },
+            "position": {
+              "height": 32.07,
+              "width": 115.18,
+              "x": 330.25,
+              "y": 302.931
+            },
+            "props": {
+              "text": "Blower 1",
+              "textStyle": {
+                "classes": "ComponentName"
+              }
+            },
+            "type": "ia.display.label"
+          },
+          {
+            "meta": {
+              "name": "Label_39"
+            },
+            "position": {
+              "height": 32.07,
+              "width": 115.18,
+              "x": 330.25,
+              "y": 408.641
+            },
+            "props": {
+              "text": "Blower 2",
+              "textStyle": {
+                "classes": "ComponentName"
+              }
+            },
+            "type": "ia.display.label"
+          },
+          {
+            "meta": {
+              "name": "CoordinateContainer_9"
+            },
+            "position": {
+              "height": 24.9,
+              "rotate": {
+                "angle": "45deg"
+              },
+              "width": 24.99,
+              "x": 794.63,
+              "y": 294.975
+            },
+            "props": {
+              "style": {
+                "borderBottomColor": "#2B2B2B",
+                "borderBottomStyle": "solid",
+                "borderBottomWidth": 3,
+                "borderRightColor": "#2B2B2B",
+                "borderRightStyle": "solid",
+                "borderRightWidth": 3
+              }
+            },
+            "type": "ia.container.coord"
+          },
+          {
+            "meta": {
+              "name": "Label_49"
+            },
+            "position": {
+              "height": 32.07,
+              "width": 115.18,
+              "x": 982.95,
+              "y": 121.912
+            },
+            "props": {
+              "text": "Booster P-1",
+              "textStyle": {
+                "classes": "ComponentName"
+              }
+            },
+            "type": "ia.display.label"
+          },
+          {
+            "meta": {
+              "name": "custom arrow_1"
+            },
+            "position": {
+              "height": 30,
+              "width": 170,
+              "x": 1590,
+              "y": 189
+            },
+            "props": {
+              "elements": [
+                {
+                  "d": "M0.5 0.5V9.5H31.0869L35.3145 5L31.0869 0.5H0.5Z",
+                  "fill": "white",
+                  "name": "path",
+                  "stroke": {
+                    "paint": "#2B2B2B",
+                    "width": ".75"
+                  },
+                  "type": "path"
+                }
+              ],
+              "fill": {
+                "paint": "transparent"
+              },
+              "preserveAspectRatio": "none",
+              "viewBox": "0 0 36 10"
+            },
+            "type": "ia.shapes.svg"
+          },
+          {
+            "meta": {
+              "name": "IE Vessel 13"
+            },
+            "position": {
+              "height": 47.05,
+              "width": 48.17,
+              "x": 363.57,
+              "y": 328.041
+            },
+            "props": {
+              "params": {
+                "displayName": false,
+                "displayStatus": false,
+                "tagPath": "[default]Demo/Tank"
+              },
+              "path": "Devices/Pump"
+            },
+            "type": "ia.display.view"
+          },
+          {
+            "meta": {
+              "name": "IE Vessel 14"
+            },
+            "position": {
+              "height": 47.05,
+              "width": 48.17,
+              "x": 363.57,
+              "y": 433.741
+            },
+            "props": {
+              "params": {
+                "displayName": false,
+                "displayStatus": false,
+                "tagPath": "[default]Demo/Tank"
+              },
+              "path": "Devices/Pump"
+            },
+            "type": "ia.display.view"
+          },
+          {
+            "meta": {
+              "name": "Label_6"
+            },
+            "position": {
+              "height": 85.03,
+              "width": 115.18,
+              "x": 1311.85,
+              "y": 173.517
+            },
+            "props": {
+              "style": {
+                "borderColor": "#000000",
+                "borderStyle": "solid",
+                "borderWidth": 4
+              },
+              "text": "Hypochlorite Chlorination System",
+              "textStyle": {
+                "fontFamily": "sans-serif",
+                "fontSize": "16px",
+                "textAlign": "center"
+              }
+            },
+            "type": "ia.display.label"
+          },
+          {
+            "meta": {
+              "name": "BT-V12"
+            },
+            "position": {
+              "height": 29.96,
+              "width": 39.84,
+              "x": 176.285,
+              "y": 180.702
+            },
+            "props": {
+              "params": {
+                "deviceName": "[RCSD]WTF/Anita-B-Smith/BT-V1",
+                "dimension": {
+                  "height": 100,
+                  "width": 100
+                },
+                "displayLabel": false,
+                "displayValue": false,
+                "isTelemetered": false,
+                "tagPath": "[RCSD]WTF/Anita-B-Smith/BT-V1"
+              },
+              "path": "Devices/Valve_Control"
+            },
+            "type": "ia.display.view"
+          },
+          {
+            "meta": {
+              "name": "custom arrow_4"
+            },
+            "position": {
+              "height": 30,
+              "width": 170,
+              "x": 1590,
+              "y": 133
+            },
+            "props": {
+              "elements": [
+                {
+                  "d": "M0.5 0.5V9.5H31.0869L35.3145 5L31.0869 0.5H0.5Z",
+                  "fill": "white",
+                  "name": "path",
+                  "stroke": {
+                    "paint": "#2B2B2B",
+                    "width": ".75"
+                  },
+                  "type": "path"
+                }
+              ],
+              "fill": {
+                "paint": "transparent"
+              },
+              "preserveAspectRatio": "none",
+              "viewBox": "0 0 36 10"
+            },
+            "type": "ia.shapes.svg"
+          },
+          {
+            "meta": {
+              "name": "IE Vessel 11"
+            },
+            "position": {
+              "height": 140.95,
+              "width": 74.98,
+              "x": 637.5,
+              "y": 589.117
+            },
+            "props": {
+              "params": {
+                "displayName": false,
+                "displayStastus": false,
+                "tagPath": "[default]Demo/Tank"
+              },
+              "path": "Devices/Well"
+            },
+            "type": "ia.display.view"
+          },
+          {
+            "meta": {
+              "name": "Label_36"
+            },
+            "position": {
+              "height": 32.07,
+              "width": 78.96,
+              "x": 635.5,
+              "y": 557.257
+            },
+            "props": {
+              "text": "WELL 6",
+              "textStyle": {
+                "classes": "ComponentName"
+              }
+            },
+            "type": "ia.display.label"
+          },
+          {
+            "meta": {
+              "name": "IE Vessel 12"
+            },
+            "position": {
+              "height": 140.95,
+              "width": 74.98,
+              "x": 637.5,
+              "y": 804.088
+            },
+            "props": {
+              "params": {
+                "displayName": false,
+                "displayStastus": false,
+                "tagPath": "[default]Demo/Tank"
+              },
+              "path": "Devices/Well"
+            },
+            "type": "ia.display.view"
+          },
+          {
+            "meta": {
+              "name": "Label_37"
+            },
+            "position": {
+              "height": 32.07,
+              "width": 78.96,
+              "x": 635.5,
+              "y": 778.128
+            },
+            "props": {
+              "text": "WELL 4",
+              "textStyle": {
+                "classes": "ComponentName"
+              }
+            },
+            "type": "ia.display.label"
+          },
+          {
+            "meta": {
+              "name": "Label_50"
+            },
+            "position": {
+              "height": 15,
+              "width": 80,
+              "x": 766.68,
+              "y": 290.862
+            },
+            "props": {
+              "text": "Overflow",
+              "textStyle": {
+                "fontSize": "7pt",
+                "textAlign": "center"
+              }
+            },
+            "type": "ia.display.label"
+          },
+          {
+            "meta": {
+              "name": "CoordinateContainer"
+            },
+            "position": {
+              "height": 12,
+              "width": 20,
+              "x": 1498.5,
+              "y": 233.313
+            },
+            "props": {
+              "style": {
+                "borderColor": "#2B2B2B",
+                "borderStyle": "solid",
+                "borderTopLeftRadius": 10,
+                "borderTopRightRadius": 10,
+                "borderWidth": 2
+              }
+            },
+            "type": "ia.container.coord"
+          },
+          {
+            "meta": {
+              "name": "CoordinateContainer_10"
+            },
+            "position": {
+              "height": 25,
+              "rotate": {
+                "angle": "45deg"
+              },
+              "width": 25,
+              "x": 1496,
+              "y": 239.376
+            },
+            "props": {
+              "style": {
+                "borderBottomColor": "#2B2B2B",
+                "borderBottomStyle": "solid",
+                "borderBottomWidth": 3,
+                "borderRightColor": "#2B2B2B",
+                "borderRightStyle": "solid",
+                "borderRightWidth": 3
+              }
+            },
+            "type": "ia.container.coord"
+          },
+          {
+            "meta": {
+              "name": "ns_001"
+            },
+            "position": {
+              "height": 31,
+              "rotate": {
+                "angle": "180deg"
+              },
+              "width": 170,
+              "x": 1590,
+              "y": 738.6
+            },
+            "props": {
+              "elements": [
+                {
+                  "d": "M0.5 0.5V9.5H31.0869L35.3145 5L31.0869 0.5H0.5Z",
+                  "fill": "white",
+                  "name": "path",
+                  "stroke": {
+                    "paint": "#2B2B2B",
+                    "width": ".75"
+                  },
+                  "type": "path"
+                }
+              ],
+              "fill": {
+                "paint": "transparent"
+              },
+              "preserveAspectRatio": "none",
+              "viewBox": "0 0 36 10"
+            },
+            "type": "ia.shapes.svg"
+          },
+          {
+            "meta": {
+              "name": "custom arrow_8"
+            },
+            "position": {
+              "height": 30,
+              "width": 170,
+              "x": 1590,
+              "y": 916
+            },
+            "props": {
+              "elements": [
+                {
+                  "d": "M0.5 0.5V9.5H31.0869L35.3145 5L31.0869 0.5H0.5Z",
+                  "fill": "white",
+                  "name": "path",
+                  "stroke": {
+                    "paint": "#2B2B2B",
+                    "width": ".75"
+                  },
+                  "type": "path"
+                }
+              ],
+              "fill": {
+                "paint": "transparent"
+              },
+              "preserveAspectRatio": "none",
+              "viewBox": "0 0 36 10"
+            },
+            "type": "ia.shapes.svg"
+          },
+          {
+            "meta": {
+              "name": "Label"
+            },
+            "position": {
+              "height": 22,
+              "width": 54,
+              "x": 1292,
+              "y": 594
+            },
+            "props": {
+              "style": {
+                "borderBottomColor": "#2B2B2B",
+                "borderBottomStyle": "solid",
+                "borderBottomWidth": 1,
+                "borderLeftStyle": "none",
+                "borderRightStyle": "none",
+                "borderTopColor": "#2B2B2B",
+                "borderTopStyle": "solid",
+                "borderTopWidth": 0.5
+              },
+              "text": "Air Gap",
+              "textStyle": {
+                "fontSize": "8pt",
+                "textAlign": "right"
+              }
+            },
+            "type": "ia.display.label"
+          },
+          {
+            "meta": {
+              "name": "Label_7",
+              "tooltip": {
+                "enabled": true,
+                "text": "To Nitrate Removal Vessels"
+              }
+            },
+            "position": {
+              "height": 30,
+              "width": 135,
+              "x": 1605.9,
+              "y": 11
+            },
+            "props": {
+              "text": "Feed Water"
+            },
+            "type": "ia.display.label"
+          },
+          {
+            "meta": {
+              "name": "Label_8",
+              "tooltip": {
+                "enabled": true,
+                "text": "From Nitrate Removal Vessels"
+              }
+            },
+            "position": {
+              "height": 30,
+              "width": 135,
+              "x": 1606,
+              "y": 66
+            },
+            "props": {
+              "text": "Treated Water"
+            },
+            "type": "ia.display.label"
+          },
+          {
+            "meta": {
+              "name": "Label_9",
+              "tooltip": {
+                "enabled": true,
+                "text": "To Softener"
+              }
+            },
+            "position": {
+              "height": 30,
+              "width": 135,
+              "x": 1606,
+              "y": 133
+            },
+            "props": {
+              "text": "Blended Water"
+            },
+            "type": "ia.display.label"
+          },
+          {
+            "meta": {
+              "name": "Label_10",
+              "tooltip": {
+                "enabled": true,
+                "text": "To Control Building"
+              }
+            },
+            "position": {
+              "height": 30,
+              "width": 135,
+              "x": 1606,
+              "y": 189
+            },
+            "props": {
+              "text": "Blended Water"
+            },
+            "type": "ia.display.label"
+          },
+          {
+            "meta": {
+              "name": "Label_11",
+              "tooltip": {
+                "enabled": true,
+                "text": "To Distribution"
+              }
+            },
+            "position": {
+              "height": 30,
+              "width": 135,
+              "x": 1606,
+              "y": 367.3
+            },
+            "props": {
+              "text": "Blended Water"
+            },
+            "type": "ia.display.label"
+          },
+          {
+            "meta": {
+              "name": "Label_12",
+              "tooltip": {
+                "enabled": true
+              }
+            },
+            "position": {
+              "height": 30,
+              "width": 135,
+              "x": 1575,
+              "y": 276.729
+            },
+            "props": {
+              "text": "To Drain",
+              "textStyle": {
+                "fontSize": "10pt"
+              }
+            },
+            "type": "ia.display.label"
+          },
+          {
+            "meta": {
+              "name": "custom arrow_5"
+            },
+            "position": {
+              "height": 30,
+              "rotate": {
+                "angle": "180deg"
+              },
+              "width": 170,
+              "x": 1590,
+              "y": 505.3
+            },
+            "props": {
+              "elements": [
+                {
+                  "d": "M0.5 0.5V9.5H31.0869L35.3145 5L31.0869 0.5H0.5Z",
+                  "fill": "white",
+                  "name": "path",
+                  "stroke": {
+                    "paint": "#2B2B2B",
+                    "width": ".6"
+                  },
+                  "type": "path"
+                }
+              ],
+              "fill": {
+                "paint": "transparent"
+              },
+              "preserveAspectRatio": "none",
+              "viewBox": "0 0 36 10"
+            },
+            "type": "ia.shapes.svg"
+          },
+          {
+            "meta": {
+              "name": "Label_4",
+              "tooltip": {
+                "enabled": true,
+                "text": "From Recycle Tank"
+              }
+            },
+            "position": {
+              "height": 30,
+              "width": 135,
+              "x": 1609.9,
+              "y": 504.7
+            },
+            "props": {
+              "text": "Backwash/Rinse"
+            },
+            "type": "ia.display.label"
+          },
+          {
+            "meta": {
+              "name": "Label_5"
+            },
+            "position": {
+              "height": 85,
+              "width": 115,
+              "x": 1045,
+              "y": 814
+            },
+            "props": {
+              "style": {
+                "borderColor": "#000000",
+                "borderStyle": "solid",
+                "borderWidth": 4
+              },
+              "text": "Air Gap Structure",
+              "textStyle": {
+                "fontFamily": "sans-serif",
+                "fontSize": "16px",
+                "textAlign": "center"
+              }
+            },
+            "type": "ia.display.label"
+          },
+          {
+            "meta": {
+              "name": "Label_13",
+              "tooltip": {
+                "enabled": true,
+                "text": "To Distribution"
+              }
+            },
+            "position": {
+              "height": 30,
+              "width": 135,
+              "x": 1606,
+              "y": 916
+            },
+            "props": {
+              "text": "Connector Sump"
+            },
+            "type": "ia.display.label"
+          },
+          {
+            "meta": {
+              "name": "NS_001",
+              "tooltip": {
+                "enabled": true,
+                "text": "From Nitrate Removal Vessels"
+              }
+            },
+            "position": {
+              "height": 30,
+              "width": 135,
+              "x": 1606,
+              "y": 739.9
+            },
+            "props": {
+              "style": {
+                "cursor": "pointer"
+              },
+              "text": "Nitrate Sample"
+            },
+            "type": "ia.display.label"
+          }
+        ],
+        "meta": {
+          "name": "CoordinateContainer"
+        },
+        "position": {
+          "basis": "200px",
+          "grow": 1
+        },
+        "props": {
+          "pipes": [
+            {
+              "appearance": "simple",
+              "end": "none",
+              "fill": "#2B2B2B",
+              "flanges": true,
+              "lineVariant": "solid",
+              "name": "pipe_26",
+              "origin": {
+                "connections": [
+                  {
+                    "x": 436,
+                    "y": 668.62
+                  }
+                ],
+                "x": 436,
+                "y": 627
+              },
+              "start": "none",
+              "stroke": "#2B2B2B",
+              "visible": true,
+              "width": 1.8
+            },
+            {
+              "appearance": "simple",
+              "end": "none",
+              "fill": "#2B2B2B",
+              "flanges": true,
+              "lineVariant": "solid",
+              "name": "pipe_25",
+              "origin": {
+                "connections": [
+                  {
+                    "x": 766.68,
+                    "y": 548
+                  }
+                ],
+                "x": 766.68,
+                "y": 631
+              },
+              "start": "none",
+              "stroke": "#2B2B2B",
+              "visible": true,
+              "width": 1.8
+            },
+            {
+              "appearance": "p\u0026id",
+              "end": "arrowOutward",
+              "fill": "",
+              "flanges": true,
+              "lineVariant": "solid",
+              "name": "pipe_22",
+              "origin": {
+                "connections": [
+                  {
+                    "connections": [
+                      {
+                        "connections": [
+                          {
+                            "x": 1278,
+                            "y": 594
+                          }
+                        ],
+                        "x": 1278,
+                        "y": 548
+                      }
+                    ],
+                    "x": 1498.5,
+                    "y": 548
+                  }
+                ],
+                "x": 1498.5,
+                "y": 383
+              },
+              "start": "none",
+              "stroke": "#2B2B2B",
+              "visible": true,
+              "width": 2
+            },
+            {
+              "appearance": "p\u0026id",
+              "end": "arrowOutward",
+              "fill": "",
+              "flanges": true,
+              "lineVariant": "solid",
+              "name": "pipe_21",
+              "origin": {
+                "connections": [
+                  {
+                    "x": 1246.01,
+                    "y": 594
+                  }
+                ],
+                "x": 1246.01,
+                "y": 481.36
+              },
+              "start": "none",
+              "stroke": "#2B2B2B",
+              "visible": true,
+              "width": 2
+            },
+            {
+              "appearance": "p\u0026id",
+              "end": "arrowOutward",
+              "fill": "",
+              "flanges": true,
+              "lineVariant": "solid",
+              "name": "pipe_20",
+              "origin": {
+                "connections": [
+                  {
+                    "connections": [
+                      {
+                        "x": 1188.51,
+                        "y": 657.02
+                      }
+                    ],
+                    "x": 806.68,
+                    "y": 657.02
+                  }
+                ],
+                "x": 806.68,
+                "y": 325
+              },
+              "start": "none",
+              "stroke": "#2B2B2B",
+              "visible": true,
+              "width": 2
+            },
+            {
+              "appearance": "p\u0026id",
+              "end": "none",
+              "fill": "",
+              "flanges": true,
+              "lineVariant": "midArrow",
+              "name": "Well 6 Line",
+              "origin": {
+                "connections": [
+                  {
+                    "connections": [
+                      {
+                        "x": 140.55,
+                        "y": 739.12
+                      }
+                    ],
+                    "x": 140.55,
+                    "y": 668.62
+                  }
+                ],
+                "x": 647.5,
+                "y": 668.62
+              },
+              "start": "none",
+              "stroke": "#2B2B2B",
+              "visible": true,
+              "width": 5
+            },
+            {
+              "appearance": "simple",
+              "end": "none",
+              "fill": "#2B2B2B",
+              "flanges": true,
+              "lineVariant": "solid",
+              "name": "Well 6 Line",
+              "origin": {
+                "connections": [
+                  {
+                    "connections": [
+                      {
+                        "connections": [
+                          {
+                            "connections": [],
+                            "x": 253.55,
+                            "y": 954.09
+                          }
+                        ],
+                        "x": 253.55,
+                        "y": 739.12
+                      }
+                    ],
+                    "x": 40.55,
+                    "y": 739.12
+                  },
+                  {
+                    "x": 253.55,
+                    "y": 954.09
+                  }
+                ],
+                "x": 40.55,
+                "y": 954.09
+              },
+              "start": "none",
+              "stroke": "#2B2B2B",
+              "visible": true,
+              "width": 4.5
+            },
+            {
+              "appearance": "p\u0026id",
+              "end": "none",
+              "fill": "",
+              "flanges": true,
+              "lineVariant": "midArrow",
+              "name": "pipe_0",
+              "origin": {
+                "connections": [
+                  {
+                    "connections": [
+                      {
+                        "connections": [],
+                        "x": 140.55,
+                        "y": 954.09
+                      }
+                    ],
+                    "x": 140.55,
+                    "y": 883.59
+                  }
+                ],
+                "x": 647.5,
+                "y": 883.59
+              },
+              "start": "none",
+              "stroke": "#2B2B2B",
+              "visible": true,
+              "width": 5
+            },
+            {
+              "appearance": "p\u0026id",
+              "end": "none",
+              "fill": "",
+              "flanges": true,
+              "lineVariant": "midArrow",
+              "name": "pipe",
+              "origin": {
+                "connections": [
+                  {
+                    "connections": [
+                      {
+                        "connections": [
+                          {
+                            "x": 1600,
+                            "y": 25.5
+                          }
+                        ],
+                        "x": 40.55,
+                        "y": 25.5
+                      },
+                      {
+                        "x": 635.5,
+                        "y": 249.95
+                      }
+                    ],
+                    "x": 40.55,
+                    "y": 249.95
+                  }
+                ],
+                "x": 40.55,
+                "y": 769.12
+              },
+              "start": "none",
+              "stroke": "#2B2B2B",
+              "visible": true,
+              "width": 5
+            },
+            {
+              "appearance": "p\u0026id",
+              "end": "none",
+              "fill": "",
+              "flanges": true,
+              "lineVariant": "midArrow",
+              "name": "pipe_2",
+              "origin": {
+                "connections": [
+                  {
+                    "connections": [],
+                    "x": 276.5,
+                    "y": 81.5
+                  }
+                ],
+                "x": 1600,
+                "y": 81.5
+              },
+              "start": "none",
+              "stroke": "#2B2B2B",
+              "visible": true,
+              "width": 5
+            },
+            {
+              "appearance": "simple",
+              "end": "none",
+              "fill": "#2B2B2B",
+              "flanges": true,
+              "lineVariant": "solid",
+              "name": "pipe_3",
+              "origin": {
+                "connections": [
+                  {
+                    "x": 276.5,
+                    "y": 252.34
+                  }
+                ],
+                "x": 276.5,
+                "y": 81.5
+              },
+              "start": "none",
+              "stroke": "#2B2B2B",
+              "visible": true,
+              "width": 4.5
+            },
+            {
+              "appearance": "p\u0026id",
+              "end": "arrowOutward",
+              "fill": "",
+              "flanges": true,
+              "lineVariant": "solid",
+              "name": "pipe_4",
+              "origin": {
+                "connections": [
+                  {
+                    "x": 664.78,
+                    "y": 339.93
+                  }
+                ],
+                "x": 411.57,
+                "y": 339.93
+              },
+              "start": "none",
+              "stroke": "#2B2B2B",
+              "visible": true,
+              "width": 2
+            },
+            {
+              "appearance": "p\u0026id",
+              "end": "arrowOutward",
+              "fill": "",
+              "flanges": true,
+              "lineVariant": "solid",
+              "name": "pipe_5",
+              "origin": {
+                "connections": [
+                  {
+                    "connections": [
+                      {
+                        "connections": [
+                          {
+                            "x": 664.78,
+                            "y": 392.39
+                          }
+                        ],
+                        "x": 549.57,
+                        "y": 392.39
+                      }
+                    ],
+                    "x": 549.57,
+                    "y": 445.64
+                  }
+                ],
+                "x": 411.57,
+                "y": 445.64
+              },
+              "start": "none",
+              "stroke": "#2B2B2B",
+              "visible": true,
+              "width": 2
+            },
+            {
+              "appearance": "p\u0026id",
+              "end": "arrowOutward",
+              "fill": "",
+              "flanges": true,
+              "lineVariant": "solid",
+              "name": "pipe_6",
+              "origin": {
+                "connections": [
+                  {
+                    "x": 664.78,
+                    "y": 249.95
+                  }
+                ],
+                "x": 578,
+                "y": 249.95
+              },
+              "start": "none",
+              "stroke": "#2B2B2B",
+              "visible": true,
+              "width": 5
+            },
+            {
+              "appearance": "p\u0026id",
+              "end": "arrowOutward",
+              "fill": "",
+              "flanges": true,
+              "lineVariant": "solid",
+              "name": "pipe_7",
+              "origin": {
+                "connections": [
+                  {
+                    "connections": [
+                      {
+                        "x": 806.68,
+                        "y": 290.86
+                      }
+                    ],
+                    "x": 806.68,
+                    "y": 249.95
+                  }
+                ],
+                "x": 759.78,
+                "y": 249.95
+              },
+              "start": "none",
+              "stroke": "#2B2B2B",
+              "visible": true,
+              "width": 2
+            },
+            {
+              "appearance": "p\u0026id",
+              "end": "arrowOutward",
+              "fill": "",
+              "flanges": true,
+              "lineVariant": "solid",
+              "name": "pipe_8",
+              "origin": {
+                "connections": [
+                  {
+                    "connections": [
+                      {
+                        "x": 1016.28,
+                        "y": 392.39
+                      },
+                      {
+                        "connections": [
+                          {
+                            "x": 1016.28,
+                            "y": 280.34
+                          },
+                          {
+                            "connections": [
+                              {
+                                "x": 1016.28,
+                                "y": 168.3
+                              }
+                            ],
+                            "x": 881,
+                            "y": 168.3
+                          }
+                        ],
+                        "x": 881,
+                        "y": 280.34
+                      }
+                    ],
+                    "x": 881,
+                    "y": 392.39
+                  }
+                ],
+                "x": 759.78,
+                "y": 392.39
+              },
+              "start": "none",
+              "stroke": "#2B2B2B",
+              "visible": true,
+              "width": 5
+            },
+            {
+              "appearance": "p\u0026id",
+              "end": "arrowOutward",
+              "fill": "",
+              "flanges": true,
+              "lineVariant": "solid",
+              "name": "pipe_9",
+              "origin": {
+                "connections": [
+                  {
+                    "x": 807.38,
+                    "y": 168.3
+                  }
+                ],
+                "x": 487,
+                "y": 168.3
+              },
+              "start": "none",
+              "stroke": "#2B2B2B",
+              "visible": true,
+              "width": 2
+            },
+            {
+              "appearance": "simple",
+              "end": "none",
+              "fill": "#2B2B2B",
+              "flanges": true,
+              "lineVariant": "solid",
+              "name": "pipe_10",
+              "origin": {
+                "connections": [
+                  {
+                    "x": 487,
+                    "y": 168.3
+                  }
+                ],
+                "x": 487,
+                "y": 252.34
+              },
+              "start": "none",
+              "stroke": "#2B2B2B",
+              "visible": true,
+              "width": 2
+            },
+            {
+              "appearance": "simple",
+              "end": "none",
+              "fill": "#2B2B2B",
+              "flanges": true,
+              "lineVariant": "solid",
+              "name": "pipe_11",
+              "origin": {
+                "connections": [
+                  {
+                    "x": 881,
+                    "y": 168.3
+                  }
+                ],
+                "x": 774.78,
+                "y": 168.3
+              },
+              "start": "none",
+              "stroke": "#2B2B2B",
+              "visible": true,
+              "width": 1.85
+            },
+            {
+              "appearance": "simple",
+              "end": "arrowOutward",
+              "fill": "#2B2B2B",
+              "flanges": true,
+              "lineVariant": "solid",
+              "name": "pipe_13",
+              "origin": {
+                "connections": [
+                  {
+                    "x": 1212,
+                    "y": 271
+                  }
+                ],
+                "x": 1064,
+                "y": 271
+              },
+              "start": "none",
+              "stroke": "#2B2B2B",
+              "visible": true,
+              "width": 4.5
+            },
+            {
+              "appearance": "simple",
+              "end": "none",
+              "fill": "#2B2B2B",
+              "flanges": true,
+              "lineVariant": "solid",
+              "name": "pipe_14",
+              "origin": {
+                "connections": [
+                  {
+                    "connections": [
+                      {
+                        "connections": [
+                          {
+                            "connections": [],
+                            "x": 1065,
+                            "y": 158
+                          }
+                        ],
+                        "x": 1213,
+                        "y": 158
+                      }
+                    ],
+                    "x": 1213,
+                    "y": 382
+                  }
+                ],
+                "x": 1064,
+                "y": 382
+              },
+              "start": "none",
+              "stroke": "#2B2B2B",
+              "visible": true,
+              "width": 4.5
+            },
+            {
+              "appearance": "p\u0026id",
+              "end": "none",
+              "fill": "",
+              "flanges": true,
+              "lineVariant": "midArrow",
+              "name": "pipe_12",
+              "origin": {
+                "connections": [
+                  {
+                    "x": 1605.9,
+                    "y": 381.81
+                  }
+                ],
+                "x": 1210,
+                "y": 381.81
+              },
+              "start": "none",
+              "stroke": "#2B2B2B",
+              "visible": true,
+              "width": 5
+            },
+            {
+              "appearance": "simple",
+              "end": "none",
+              "fill": "#2B2B2B",
+              "flanges": true,
+              "lineVariant": "solid",
+              "name": "pipe_15",
+              "origin": {
+                "connections": [
+                  {
+                    "x": 1247.21,
+                    "y": 427.94
+                  }
+                ],
+                "x": 1247.21,
+                "y": 383
+              },
+              "start": "none",
+              "stroke": "#2B2B2B",
+              "visible": true,
+              "width": 1.8
+            },
+            {
+              "appearance": "simple",
+              "end": "none",
+              "fill": "#2B2B2B",
+              "flanges": true,
+              "lineVariant": "solid",
+              "name": "pipe_16",
+              "origin": {
+                "connections": [
+                  {
+                    "connections": [
+                      {
+                        "x": 1600,
+                        "y": 147.5
+                      }
+                    ],
+                    "x": 1278,
+                    "y": 147.5
+                  }
+                ],
+                "x": 1278,
+                "y": 382
+              },
+              "start": "none",
+              "stroke": "#2B2B2B",
+              "visible": true,
+              "width": 1.8
+            },
+            {
+              "appearance": "simple",
+              "end": "none",
+              "fill": "#2B2B2B",
+              "flanges": true,
+              "lineVariant": "solid",
+              "name": "pipe_17",
+              "origin": {
+                "connections": [
+                  {
+                    "x": 1371.35,
+                    "y": 256.52
+                  }
+                ],
+                "x": 1371.35,
+                "y": 381
+              },
+              "start": "none",
+              "stroke": "#2B2B2B",
+              "visible": true,
+              "width": 2
+            },
+            {
+              "appearance": "simple",
+              "end": "none",
+              "fill": "#2B2B2B",
+              "flanges": true,
+              "lineVariant": "solid",
+              "name": "pipe_18",
+              "origin": {
+                "connections": [
+                  {
+                    "connections": [
+                      {
+                        "connections": [
+                          {
+                            "x": 1600,
+                            "y": 203.5
+                          },
+                          {
+                            "x": 1509,
+                            "y": 233.95
+                          }
+                        ],
+                        "x": 1509,
+                        "y": 203.5
+                      }
+                    ],
+                    "x": 1447,
+                    "y": 203.5
+                  }
+                ],
+                "x": 1447,
+                "y": 383
+              },
+              "start": "none",
+              "stroke": "#2B2B2B",
+              "visible": true,
+              "width": 1.8
+            },
+            {
+              "appearance": "p\u0026id",
+              "end": "none",
+              "fill": "#2B2B2B",
+              "flanges": true,
+              "lineVariant": "solid",
+              "name": "pipe_19",
+              "origin": {
+                "connections": [
+                  {
+                    "connections": [
+                      {
+                        "x": 1571.5,
+                        "y": 292.34
+                      }
+                    ],
+                    "x": 1509,
+                    "y": 292.34
+                  }
+                ],
+                "x": 1509,
+                "y": 269
+              },
+              "start": "none",
+              "stroke": "#2B2B2B",
+              "visible": true,
+              "width": 2
+            },
+            {
+              "appearance": "p\u0026id",
+              "end": "arrowOutward",
+              "fill": "",
+              "flanges": true,
+              "lineVariant": "solid",
+              "name": "pipe_1",
+              "origin": {
+                "connections": [
+                  {
+                    "connections": [
+                      {
+                        "x": 140.55,
+                        "y": 657.02
+                      }
+                    ],
+                    "x": 140.55,
+                    "y": 519.98
+                  }
+                ],
+                "x": 1605.9,
+                "y": 519.98
+              },
+              "start": "none",
+              "stroke": "#2B2B2B",
+              "visible": true,
+              "width": 2
+            },
+            {
+              "appearance": "p\u0026id",
+              "end": "arrowOutward",
+              "fill": "",
+              "flanges": true,
+              "lineVariant": "solid",
+              "name": "pipe_23",
+              "origin": {
+                "connections": [
+                  {
+                    "connections": [
+                      {
+                        "connections": [
+                          {
+                            "x": 1212,
+                            "y": 594
+                          }
+                        ],
+                        "x": 1212,
+                        "y": 548
+                      }
+                    ],
+                    "x": 436,
+                    "y": 548
+                  }
+                ],
+                "x": 436,
+                "y": 657.02
+              },
+              "start": "none",
+              "stroke": "#2B2B2B",
+              "visible": true,
+              "width": 2
+            },
+            {
+              "appearance": "p\u0026id",
+              "end": "arrowOutward",
+              "fill": "",
+              "flanges": true,
+              "lineVariant": "solid",
+              "name": "pipe_24",
+              "origin": {
+                "connections": [
+                  {
+                    "connections": [
+                      {
+                        "connections": [
+                          {
+                            "x": 766.68,
+                            "y": 614.52
+                          }
+                        ],
+                        "x": 766.68,
+                        "y": 769.12
+                      }
+                    ],
+                    "x": 436,
+                    "y": 769.12
+                  }
+                ],
+                "x": 436,
+                "y": 873.59
+              },
+              "start": "none",
+              "stroke": "#2B2B2B",
+              "visible": true,
+              "width": 2
+            },
+            {
+              "appearance": "simple",
+              "end": "none",
+              "fill": "#2B2B2B",
+              "flanges": true,
+              "lineVariant": "solid",
+              "name": "pipe_27",
+              "origin": {
+                "connections": [
+                  {
+                    "x": 436,
+                    "y": 883.59
+                  }
+                ],
+                "x": 436,
+                "y": 843
+              },
+              "start": "none",
+              "stroke": "#2B2B2B",
+              "visible": true,
+              "width": 1.8
+            },
+            {
+              "appearance": "p\u0026id",
+              "end": "none",
+              "fill": "",
+              "flanges": true,
+              "lineVariant": "solid",
+              "name": "pipe_29",
+              "origin": {
+                "connections": [
+                  {
+                    "connections": [
+                      {
+                        "connections": [
+                          {
+                            "connections": [
+                              {
+                                "connections": [
+                                  {
+                                    "x": 1609.9,
+                                    "y": 754.9
+                                  },
+                                  {
+                                    "connections": [
+                                      {
+                                        "connections": [],
+                                        "x": 480,
+                                        "y": 684
+                                      }
+                                    ],
+                                    "x": 480,
+                                    "y": 754.9
+                                  }
+                                ],
+                                "x": 932.9,
+                                "y": 754.9
+                              },
+                              {
+                                "x": 1045,
+                                "y": 856.5
+                              }
+                            ],
+                            "x": 932.9,
+                            "y": 856.5
+                          }
+                        ],
+                        "x": 932.9,
+                        "y": 960.52
+                      }
+                    ],
+                    "x": 480,
+                    "y": 960.52
+                  }
+                ],
+                "x": 480,
+                "y": 904
+              },
+              "start": "none",
+              "stroke": "#2B2B2B",
+              "visible": true,
+              "width": 2
+            },
+            {
+              "appearance": "auto",
+              "end": "none",
+              "fill": "#2B2B2B",
+              "flanges": true,
+              "lineVariant": "solid",
+              "name": "pipe_30",
+              "origin": {
+                "connections": [
+                  {
+                    "x": 480,
+                    "y": 929
+                  }
+                ],
+                "x": 480,
+                "y": 883.59
+              },
+              "start": "none",
+              "stroke": "#2B2B2B",
+              "visible": true,
+              "width": 1.8
+            },
+            {
+              "appearance": "auto",
+              "end": "none",
+              "fill": "#2B2B2B",
+              "flanges": true,
+              "lineVariant": "solid",
+              "name": "pipe_31",
+              "origin": {
+                "connections": [
+                  {
+                    "x": 480,
+                    "y": 716
+                  }
+                ],
+                "x": 480,
+                "y": 668.62
+              },
+              "start": "none",
+              "stroke": "#2B2B2B",
+              "visible": true,
+              "width": 1.8
+            },
+            {
+              "appearance": "p\u0026id",
+              "end": "none",
+              "fill": "",
+              "flanges": true,
+              "lineVariant": "solid",
+              "name": "pipe_28",
+              "origin": {
+                "connections": [
+                  {
+                    "connections": [
+                      {
+                        "x": 1605.9,
+                        "y": 930.52
+                      }
+                    ],
+                    "x": 1097.95,
+                    "y": 930.52
+                  }
+                ],
+                "x": 1097.95,
+                "y": 899
+              },
+              "start": "none",
+              "stroke": "#2B2B2B",
+              "visible": true,
+              "width": 2
+            }
+          ]
+        },
+        "type": "ia.container.coord"
+      }
+    ],
+    "meta": {
+      "name": "root"
+    },
+    "props": {
+      "direction": "column"
+    },
+    "type": "ia.container.flex"
+  }
+}

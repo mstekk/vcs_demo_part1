@@ -1,0 +1,20 @@
+{
+  "scope": "A",
+  "version": 1,
+  "restricted": false,
+  "overridable": true,
+  "files": [
+    "bell.png"
+  ],
+  "attributes": {
+    "width": 16,
+    "format": "PNG",
+    "lastModification": {
+      "actor": "8.3-migration",
+      "timestamp": "2026-01-07T14:49:07Z"
+    },
+    "size": 848,
+    "lastModificationSignature": "91703d9fac3ebe5018f131b2e4c9a252379fe03532f93e96e1b680365a4306c9",
+    "height": 16
+  }
+}

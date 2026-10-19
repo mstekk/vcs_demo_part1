@@ -1,0 +1,20 @@
+{
+  "scope": "A",
+  "version": 1,
+  "restricted": false,
+  "overridable": true,
+  "files": [
+    "wineglass3.png"
+  ],
+  "attributes": {
+    "width": 24,
+    "format": "PNG",
+    "lastModification": {
+      "actor": "8.3-migration",
+      "timestamp": "2026-01-07T14:49:07Z"
+    },
+    "size": 363,
+    "lastModificationSignature": "2956c26349928b831395a9824bffc6f02f5547182b4435255cd27681ed6d3c79",
+    "height": 24
+  }
+}

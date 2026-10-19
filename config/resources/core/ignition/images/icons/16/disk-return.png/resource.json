@@ -1,0 +1,20 @@
+{
+  "scope": "A",
+  "version": 1,
+  "restricted": false,
+  "overridable": true,
+  "files": [
+    "disk-return.png"
+  ],
+  "attributes": {
+    "width": 16,
+    "format": "PNG",
+    "lastModification": {
+      "actor": "8.3-migration",
+      "timestamp": "2026-01-07T14:49:07Z"
+    },
+    "size": 499,
+    "lastModificationSignature": "9a27553bd2491b365d37b48b805beedd31d9cbf08533308ed9a7728a2fe851f7",
+    "height": 16
+  }
+}

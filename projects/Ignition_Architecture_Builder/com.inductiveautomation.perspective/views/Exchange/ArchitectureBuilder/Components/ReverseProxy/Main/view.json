@@ -1,0 +1,385 @@
+{
+  "custom": {},
+  "params": {
+    "config": {},
+    "desc": "",
+    "name": "Reverse Proxy",
+    "type": "ReverseProxy",
+    "uuid": ""
+  },
+  "propConfig": {
+    "params.config": {
+      "paramDirection": "input",
+      "persistent": true
+    },
+    "params.desc": {
+      "paramDirection": "input",
+      "persistent": true
+    },
+    "params.name": {
+      "paramDirection": "input",
+      "persistent": true
+    },
+    "params.type": {
+      "paramDirection": "input",
+      "persistent": true
+    },
+    "params.uuid": {
+      "paramDirection": "input",
+      "persistent": true
+    }
+  },
+  "props": {
+    "defaultSize": {
+      "height": 331,
+      "width": 301
+    }
+  },
+  "root": {
+    "children": [
+      {
+        "children": [
+          {
+            "meta": {
+              "name": "Capture"
+            },
+            "position": {
+              "height": 0.85,
+              "width": 1,
+              "y": 0.15
+            },
+            "props": {
+              "elements": [
+                {
+                  "elements": [
+                    {
+                      "d": "M385 2149 c-32 -18 -165 -151 -181 -181 -21 -41 -1 -78 92 -170 93 -92 128 -105 168 -65 31 31 33 65 5 101 l-20 26 776 0 c752 0 777 -1 814 -20 65 -33 81 -80 81 -238 0 -89 -4 -143 -14 -165 -12 -30 -61 -80 -86 -89 -7 -2 -5 -26 6 -75 16 -71 16 -72 42 -62 75 29 140 90 174 164 21 46 23 64 23 225 0 167 -1 177 -26 230 -31 67 -75 112 -143 148 l-51 27 -798 3 -798 3 21 26 c11 14 20 36 20 48 0 49 -63 87 -105 64z",
+                      "name": "path",
+                      "type": "path"
+                    },
+                    {
+                      "d": "M1273 1775 c-36 -15 -64 -53 -103 -138 -24 -54 -27 -69 -20 -103 5 -21 10 -57 10 -79 l0 -40 170 -2 c128 -1 170 2 170 11 0 27 -42 169 -65 221 -50 113 -102 155 -162 130z",
+                      "name": "path",
+                      "type": "path"
+                    },
+                    {
+                      "d": "M1095 1751 c-60 -21 -116 -50 -95 -51 9 0 33 -12 53 -26 21 -14 39 -24 40 -22 1 1 15 27 30 57 16 29 27 54 25 56 -2 1 -25 -5 -53 -14z",
+                      "name": "path",
+                      "type": "path"
+                    },
+                    {
+                      "d": "M1460 1764 c0 -2 13 -30 29 -62 31 -62 63 -162 81 -253 l11 -57 51 -6 c68 -9 222 -60 276 -90 23 -14 42 -21 42 -16 0 5 -11 40 -25 77 -69 183 -220 327 -410 393 -30 10 -55 17 -55 14z",
+                      "name": "path",
+                      "type": "path"
+                    },
+                    {
+                      "d": "M285 1626 c-72 -31 -100 -98 -93 -221 l3 -60 443 -3 442 -2 0 96 c0 115 -18 155 -84 185 -37 17 -70 19 -361 18 -244 0 -327 -3 -350 -13z m343 -78 c7 -7 12 -33 12 -58 0 -49 -13 -70 -42 -70 -22 0 -38 29 -38 70 0 59 36 90 68 58z m150 0 c15 -15 16 -82 2 -109 -12 -21 -40 -25 -58 -7 -16 16 -16 100 0 116 7 7 19 12 28 12 9 0 21 -5 28 -12z m147 -58 c0 -61 -2 -65 -24 -68 -31 -5 -41 12 -41 69 0 50 14 71 45 67 18 -3 20 -10 20 -68z",
+                      "name": "path",
+                      "type": "path"
+                    },
+                    {
+                      "d": "M1160 1120 l0 -222 174 4 c96 1 178 6 182 10 9 10 9 406 0 416 -4 4 -86 9 -182 10 l-174 4 0 -222z",
+                      "name": "path",
+                      "type": "path"
+                    },
+                    {
+                      "d": "M1595 1120 c0 -110 2 -200 5 -200 27 0 202 56 247 79 220 111 134 230 -227 316 l-25 6 0 -201z",
+                      "name": "path",
+                      "type": "path"
+                    },
+                    {
+                      "d": "M194 1257 c-2 -7 -3 -74 -2 -148 l3 -134 443 -3 442 -2 0 150 0 150 -440 0 c-352 0 -442 -3 -446 -13z m434 -79 c7 -7 12 -33 12 -58 0 -49 -13 -70 -42 -70 -22 0 -38 29 -38 70 0 59 36 90 68 58z m152 -7 c23 -44 5 -121 -28 -121 -10 0 -23 5 -30 12 -16 16 -16 100 0 116 18 18 46 14 58 -7z m145 -51 l0 -65 -30 0 c-28 0 -30 2 -33 44 -5 71 4 93 36 89 26 -3 27 -5 27 -68z",
+                      "name": "path",
+                      "type": "path"
+                    },
+                    {
+                      "d": "M2026 967 c-11 -49 -13 -73 -6 -75 25 -9 74 -59 86 -89 10 -22 14 -76 14 -165 0 -156 -15 -200 -79 -236 l-39 -22 -777 0 -776 0 20 26 c28 35 26 69 -4 99 -43 44 -68 35 -171 -66 -96 -94 -113 -124 -93 -162 21 -39 153 -168 187 -183 28 -13 36 -12 62 1 36 18 48 56 29 93 -7 15 -15 30 -17 34 -2 4 353 9 790 10 l793 3 47 23 c64 32 116 85 147 151 25 54 26 63 26 231 0 161 -2 179 -23 225 -34 74 -99 135 -174 164 -26 10 -26 9 -42 -62z",
+                      "name": "path",
+                      "type": "path"
+                    },
+                    {
+                      "d": "M1905 943 c-51 -29 -206 -80 -273 -89 l-51 -6 -11 -57 c-18 -91 -50 -191 -81 -253 -16 -32 -29 -60 -29 -62 0 -9 111 33 170 65 125 66 243 204 295 344 14 37 24 71 23 74 -2 4 -21 -3 -43 -16z",
+                      "name": "path",
+                      "type": "path"
+                    },
+                    {
+                      "d": "M190 821 c0 -43 5 -93 11 -112 16 -46 56 -87 99 -100 22 -7 154 -9 360 -7 322 3 325 3 358 26 51 37 62 68 62 177 l0 95 -445 0 -445 0 0 -79z m438 -13 c7 -7 12 -33 12 -58 0 -49 -13 -70 -42 -70 -22 0 -38 29 -38 70 0 59 36 90 68 58z m152 -7 c23 -44 5 -121 -28 -121 -10 0 -23 5 -30 12 -16 16 -16 100 0 116 18 18 46 14 58 -7z m145 -51 c0 -61 -2 -65 -24 -68 -30 -5 -41 12 -41 65 0 60 8 75 39 71 25 -3 26 -5 26 -68z",
+                      "name": "path",
+                      "type": "path"
+                    },
+                    {
+                      "d": "M1160 790 c-1 -19 -5 -55 -10 -80 -7 -39 -4 -53 20 -107 40 -87 67 -123 107 -139 27 -12 38 -12 57 -2 57 31 110 127 146 265 11 42 20 82 20 89 0 10 -41 12 -170 11 l-170 -1 0 -36z",
+                      "name": "path",
+                      "type": "path"
+                    },
+                    {
+                      "d": "M1065 574 c-11 -9 -33 -22 -50 -29 l-29 -13 39 -17 c56 -24 127 -46 123 -37 -2 4 -15 31 -29 59 -13 29 -26 52 -29 52 -3 0 -14 -7 -25 -15z",
+                      "name": "path",
+                      "type": "path"
+                    }
+                  ],
+                  "fill": {
+                    "paint": "#019639"
+                  },
+                  "name": "group",
+                  "stroke": {
+                    "paint": "transparent"
+                  },
+                  "transform": "translate(0.000000,226.000000) scale(0.100000,-0.100000)",
+                  "type": "group"
+                }
+              ],
+              "style": {
+                "filter": "drop-shadow(2px 2px 2px #000000)"
+              },
+              "viewBox": "0 0 242.000000 226.000000"
+            },
+            "type": "ia.shapes.svg"
+          },
+          {
+            "children": [
+              {
+                "meta": {
+                  "contextMenu": {
+                    "enabled": true,
+                    "items": [
+                      {
+                        "children": [],
+                        "icon": {
+                          "color": "",
+                          "path": "",
+                          "style": {}
+                        },
+                        "link": {
+                          "target": "self",
+                          "url": ""
+                        },
+                        "message": {
+                          "payload": {},
+                          "scope": "page",
+                          "type": ""
+                        },
+                        "method": {
+                          "name": "gatewayConfig",
+                          "params": {}
+                        },
+                        "style": {
+                          "classes": ""
+                        },
+                        "text": "Gateway Config",
+                        "type": "method"
+                      },
+                      {
+                        "children": [],
+                        "icon": {
+                          "color": "",
+                          "path": "",
+                          "style": {}
+                        },
+                        "link": {
+                          "target": "self",
+                          "url": ""
+                        },
+                        "message": {
+                          "payload": {},
+                          "scope": "page",
+                          "type": ""
+                        },
+                        "method": {
+                          "name": "moduleConfig",
+                          "params": {}
+                        },
+                        "style": {
+                          "classes": ""
+                        },
+                        "text": "Module Config",
+                        "type": "method"
+                      }
+                    ]
+                  },
+                  "name": "Icon"
+                },
+                "position": {
+                  "shrink": 0
+                },
+                "propConfig": {
+                  "meta.contextMenu.items[0].method.params.presets": {
+                    "binding": {
+                      "config": {
+                        "path": "view.params.config"
+                      },
+                      "type": "property"
+                    }
+                  },
+                  "meta.contextMenu.items[0].method.params.uuid": {
+                    "binding": {
+                      "config": {
+                        "path": "view.params.uuid"
+                      },
+                      "type": "property"
+                    }
+                  },
+                  "meta.contextMenu.items[1].method.params.gatewayUUID": {
+                    "binding": {
+                      "config": {
+                        "path": "view.params.uuid"
+                      },
+                      "type": "property"
+                    }
+                  },
+                  "meta.contextMenu.items[1].method.params.preselected": {
+                    "binding": {
+                      "config": {
+                        "path": "view.params.config.modules"
+                      },
+                      "type": "property"
+                    }
+                  }
+                },
+                "props": {
+                  "color": "white",
+                  "path": "material/settings",
+                  "style": {
+                    "classes": "iconRotate",
+                    "cursor": "pointer"
+                  }
+                },
+                "type": "ia.display.icon"
+              },
+              {
+                "meta": {
+                  "name": "HeaderText"
+                },
+                "propConfig": {
+                  "props.text": {
+                    "binding": {
+                      "config": {
+                        "path": "view.params.name"
+                      },
+                      "type": "property"
+                    }
+                  }
+                },
+                "props": {
+                  "alignVertical": "top",
+                  "style": {
+                    "filter": "drop-shadow(2px 2px 2px #000000)"
+                  },
+                  "textStyle": {
+                    "fontSize": "0.6em",
+                    "whiteSpace": "pre-wrap"
+                  }
+                },
+                "type": "ia.display.label"
+              }
+            ],
+            "events": {
+              "dom": {
+                "onClick": {
+                  "config": {
+                    "script": "\tself.openConfig()"
+                  },
+                  "scope": "G",
+                  "type": "script"
+                }
+              }
+            },
+            "meta": {
+              "name": "Header"
+            },
+            "position": {
+              "height": 0.15,
+              "width": 0.9,
+              "x": 0.0025,
+              "y": 0.0025
+            },
+            "props": {
+              "style": {
+                "cursor": "pointer",
+                "overflow": "visible"
+              }
+            },
+            "scripts": {
+              "customMethods": [
+                {
+                  "name": "openConfig",
+                  "params": [],
+                  "script": "\tuuid\u003dself.view.params.uuid\n\tpath\u003d\u0027Exchange/ArchitectureBuilder/Components/ReverseProxy/Config\u0027\n\tparams\u003d{\u0027uuid\u0027:uuid}\n\ttitle\u003d\u0027Reverse Proxy Configuration\u0027\n\tsystem.perspective.sendMessage(\u0027openPopup\u0027, {\u0027uuid\u0027:uuid, \u0027path\u0027:path,\u0027params\u0027:params,\u0027title\u0027:title},scope\u003d\u0027session\u0027)"
+                }
+              ],
+              "extensionFunctions": null,
+              "messageHandlers": []
+            },
+            "type": "ia.container.flex"
+          },
+          {
+            "meta": {
+              "name": "Label"
+            },
+            "position": {
+              "height": 0.1,
+              "width": 0.5,
+              "x": 0.25,
+              "y": 0.9
+            },
+            "propConfig": {
+              "meta.visible": {
+                "binding": {
+                  "config": {
+                    "path": "session.custom.showUUID"
+                  },
+                  "type": "property"
+                }
+              },
+              "props.text": {
+                "binding": {
+                  "config": {
+                    "path": "view.params.uuid"
+                  },
+                  "type": "property"
+                }
+              }
+            },
+            "props": {
+              "style": {
+                "filter": "drop-shadow(2px 2px 2px #000000)"
+              },
+              "textStyle": {
+                "fontSize": "0.5em",
+                "textAlign": "center"
+              }
+            },
+            "type": "ia.display.label"
+          }
+        ],
+        "meta": {
+          "name": "CoordinateContainer"
+        },
+        "position": {
+          "basis": "200px",
+          "grow": 1
+        },
+        "props": {
+          "mode": "percent",
+          "style": {
+            "height": "100%",
+            "padding": "4px"
+          }
+        },
+        "type": "ia.container.coord"
+      }
+    ],
+    "meta": {
+      "name": "root"
+    },
+    "props": {
+      "direction": "column",
+      "style": {
+        "borderStyle": "none",
+        "classes": "Exchange/ArchitectureBuilder/componentBackground",
+        "overflow": "hidden"
+      }
+    },
+    "type": "ia.container.flex"
+  }
+}

@@ -1,0 +1,53 @@
+{
+  "custom": {},
+  "params": {},
+  "propConfig": {
+    "props.defaultSize.width": {
+      "binding": {
+        "config": {
+          "path": "page.props.dimensions.primaryView.width"
+        },
+        "type": "property"
+      }
+    }
+  },
+  "props": {
+    "defaultSize": {
+      "height": 1080
+    }
+  },
+  "root": {
+    "children": [
+      {
+        "meta": {
+          "name": "EmbeddedView"
+        },
+        "position": {
+          "height": "auto"
+        },
+        "propConfig": {
+          "position.width": {
+            "binding": {
+              "config": {
+                "path": "page.props.dimensions.primaryView.width"
+              },
+              "type": "property"
+            }
+          }
+        },
+        "props": {
+          "path": "Screens/WTF/Anita Smith/Mobile/Overview-Embed"
+        },
+        "type": "ia.display.view"
+      }
+    ],
+    "meta": {
+      "name": "root"
+    },
+    "position": {
+      "x": 0,
+      "y": 0
+    },
+    "type": "ia.container.coord"
+  }
+}

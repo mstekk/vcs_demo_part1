@@ -1,0 +1,20 @@
+{
+  "scope": "A",
+  "version": 1,
+  "restricted": false,
+  "overridable": true,
+  "files": [
+    "edit-all-caps.png"
+  ],
+  "attributes": {
+    "width": 16,
+    "format": "PNG",
+    "lastModification": {
+      "actor": "8.3-migration",
+      "timestamp": "2026-01-07T14:49:07Z"
+    },
+    "size": 250,
+    "lastModificationSignature": "49b97c49b21b12a3860dfe8198763ca68c716ccc7b4fb580af948143d686088b",
+    "height": 16
+  }
+}

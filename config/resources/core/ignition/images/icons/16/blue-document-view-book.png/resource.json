@@ -1,0 +1,20 @@
+{
+  "scope": "A",
+  "version": 1,
+  "restricted": false,
+  "overridable": true,
+  "files": [
+    "blue-document-view-book.png"
+  ],
+  "attributes": {
+    "width": 16,
+    "format": "PNG",
+    "lastModification": {
+      "actor": "8.3-migration",
+      "timestamp": "2026-01-07T14:49:07Z"
+    },
+    "size": 621,
+    "lastModificationSignature": "1454e292cdc96682fa2ad09d40cac560c9eec7c4d58a394392487b42cbbcb834",
+    "height": 16
+  }
+}

@@ -1,0 +1,444 @@
+{
+  "custom": {},
+  "params": {},
+  "propConfig": {
+    "custom.key": {
+      "persistent": true
+    },
+    "custom.key_1": {
+      "persistent": true
+    },
+    "params.feature": {
+      "paramDirection": "input"
+    },
+    "params.key": {
+      "paramDirection": "input"
+    },
+    "params.tier1": {
+      "paramDirection": "input"
+    },
+    "params.tier2": {
+      "paramDirection": "input"
+    }
+  },
+  "props": {
+    "defaultSize": {
+      "height": 467,
+      "width": 367
+    }
+  },
+  "root": {
+    "children": [
+      {
+        "meta": {
+          "name": "Title"
+        },
+        "position": {
+          "basis": "56px",
+          "shrink": 0
+        },
+        "props": {
+          "params": {
+            "icon": "settings",
+            "text": "Settings"
+          },
+          "path": "Embedded/Title",
+          "style": {
+            "backgroundColor": ""
+          }
+        },
+        "type": "ia.display.view"
+      },
+      {
+        "meta": {
+          "name": "lbl_OWApi"
+        },
+        "position": {
+          "basis": "32px"
+        },
+        "props": {
+          "style": {
+            "fontWeight": "bolder",
+            "marginLeft": "5px",
+            "marginRight": "5px",
+            "textAlign": "center",
+            "textDecoration": "underline"
+          },
+          "text": "Open Weather API"
+        },
+        "type": "ia.display.label"
+      },
+      {
+        "children": [
+          {
+            "meta": {
+              "name": "lbl_ApiKey"
+            },
+            "position": {
+              "basis": "32px",
+              "grow": 1
+            },
+            "props": {
+              "text": "API Key"
+            },
+            "type": "ia.display.label"
+          },
+          {
+            "meta": {
+              "name": "tfl_ApiKey"
+            },
+            "position": {
+              "basis": "200px",
+              "grow": 1
+            },
+            "propConfig": {
+              "props.text": {
+                "binding": {
+                  "config": {
+                    "bidirectional": true,
+                    "fallbackDelay": 2.5,
+                    "mode": "direct",
+                    "tagPath": "[default]HomeAutomation/Weather/Config/ApiKey"
+                  },
+                  "type": "tag"
+                }
+              }
+            },
+            "props": {
+              "placeholder": "Enter here Open Weather API key"
+            },
+            "type": "ia.input.text-field"
+          }
+        ],
+        "meta": {
+          "name": "flx_ApiKey_OW"
+        },
+        "position": {
+          "basis": "40px"
+        },
+        "props": {
+          "style": {
+            "marginLeft": "5px",
+            "marginRight": "5px",
+            "marginTop": "5px"
+          }
+        },
+        "type": "ia.container.flex"
+      },
+      {
+        "children": [
+          {
+            "meta": {
+              "name": "lbl_Unit"
+            },
+            "position": {
+              "basis": "32px",
+              "grow": 1
+            },
+            "props": {
+              "text": "Unit"
+            },
+            "type": "ia.display.label"
+          },
+          {
+            "meta": {
+              "name": "dpd_Unit"
+            },
+            "position": {
+              "basis": "200px",
+              "grow": 1
+            },
+            "propConfig": {
+              "props.value": {
+                "binding": {
+                  "config": {
+                    "bidirectional": true,
+                    "fallbackDelay": 2.5,
+                    "mode": "direct",
+                    "tagPath": "[default]HomeAutomation/Weather/Config/Units"
+                  },
+                  "type": "tag"
+                }
+              }
+            },
+            "props": {
+              "options": [
+                {
+                  "label": "Metric",
+                  "value": "metric"
+                },
+                {
+                  "label": "Imperial",
+                  "value": "imperial"
+                }
+              ]
+            },
+            "type": "ia.input.dropdown"
+          }
+        ],
+        "meta": {
+          "name": "flx_Units"
+        },
+        "position": {
+          "basis": "40px"
+        },
+        "props": {
+          "style": {
+            "marginLeft": "5px",
+            "marginRight": "5px",
+            "marginTop": "5px"
+          }
+        },
+        "type": "ia.container.flex"
+      },
+      {
+        "children": [
+          {
+            "meta": {
+              "name": "lbl_Refresh"
+            },
+            "position": {
+              "basis": "32px",
+              "grow": 1
+            },
+            "props": {
+              "text": "Refresh Rate (Min)"
+            },
+            "type": "ia.display.label"
+          },
+          {
+            "meta": {
+              "name": "nef_Refresh"
+            },
+            "position": {
+              "basis": "200px",
+              "grow": 1
+            },
+            "propConfig": {
+              "props.value": {
+                "binding": {
+                  "config": {
+                    "bidirectional": true,
+                    "fallbackDelay": 2.5,
+                    "mode": "direct",
+                    "tagPath": "[default]HomeAutomation/Weather/Config/RefreshRate"
+                  },
+                  "type": "tag"
+                }
+              }
+            },
+            "props": {
+              "inputBounds": {
+                "minimum": 1
+              }
+            },
+            "type": "ia.input.numeric-entry-field"
+          }
+        ],
+        "meta": {
+          "name": "flx_Refresh"
+        },
+        "position": {
+          "basis": "40px"
+        },
+        "props": {
+          "style": {
+            "marginLeft": "5px",
+            "marginRight": "5px",
+            "marginTop": "5px",
+            "overflow": "hidden"
+          }
+        },
+        "type": "ia.container.flex"
+      },
+      {
+        "meta": {
+          "name": "lbl_PosStack"
+        },
+        "position": {
+          "basis": "32px"
+        },
+        "props": {
+          "style": {
+            "fontWeight": "bolder",
+            "marginLeft": "5px",
+            "marginRight": "5px",
+            "marginTop": "5px",
+            "textAlign": "center",
+            "textDecoration": "underline"
+          },
+          "text": "Position Stack API"
+        },
+        "type": "ia.display.label"
+      },
+      {
+        "children": [
+          {
+            "meta": {
+              "name": "lbl_ApiKey"
+            },
+            "position": {
+              "basis": "32px",
+              "grow": 1
+            },
+            "props": {
+              "text": "API Key"
+            },
+            "type": "ia.display.label"
+          },
+          {
+            "meta": {
+              "name": "tfl_ApiKey"
+            },
+            "position": {
+              "basis": "200px",
+              "grow": 1
+            },
+            "propConfig": {
+              "props.text": {
+                "binding": {
+                  "config": {
+                    "bidirectional": true,
+                    "fallbackDelay": 2.5,
+                    "mode": "direct",
+                    "tagPath": "[default]HomeAutomation/Weather/Locations/ApiKey"
+                  },
+                  "type": "tag"
+                }
+              }
+            },
+            "props": {
+              "placeholder": "Enter here Position Stack API key"
+            },
+            "type": "ia.input.text-field"
+          }
+        ],
+        "meta": {
+          "name": "flx_ApiKey_Pos"
+        },
+        "position": {
+          "basis": "40px"
+        },
+        "props": {
+          "style": {
+            "marginLeft": "5px",
+            "marginRight": "5px",
+            "marginTop": "5px"
+          }
+        },
+        "type": "ia.container.flex"
+      },
+      {
+        "meta": {
+          "name": "lbl_General"
+        },
+        "position": {
+          "basis": "32px"
+        },
+        "props": {
+          "style": {
+            "fontWeight": "bolder",
+            "marginLeft": "5px",
+            "marginRight": "5px",
+            "marginTop": "5px",
+            "textAlign": "center",
+            "textDecoration": "underline"
+          },
+          "text": "Application"
+        },
+        "type": "ia.display.label"
+      },
+      {
+        "children": [
+          {
+            "meta": {
+              "name": "lbl_Theme"
+            },
+            "position": {
+              "basis": "32px",
+              "grow": 1
+            },
+            "props": {
+              "text": "Theme"
+            },
+            "type": "ia.display.label"
+          },
+          {
+            "meta": {
+              "name": "drp_Theme"
+            },
+            "position": {
+              "basis": "200px",
+              "grow": 1
+            },
+            "propConfig": {
+              "props.value": {
+                "binding": {
+                  "config": {
+                    "bidirectional": true,
+                    "path": "session.props.theme"
+                  },
+                  "type": "property"
+                }
+              }
+            },
+            "props": {
+              "options": [
+                {
+                  "label": "Light",
+                  "value": "light"
+                },
+                {
+                  "label": "Dark",
+                  "value": "dark"
+                },
+                {
+                  "label": "Light Cool",
+                  "value": "light-cool"
+                },
+                {
+                  "label": "Dark Cool",
+                  "value": "dark-cool"
+                },
+                {
+                  "label": "Light Warm",
+                  "value": "light-warm"
+                },
+                {
+                  "label": "Dark Warm",
+                  "value": "dark-warm"
+                }
+              ]
+            },
+            "type": "ia.input.dropdown"
+          }
+        ],
+        "meta": {
+          "name": "flx_Theme"
+        },
+        "position": {
+          "basis": "40px"
+        },
+        "props": {
+          "style": {
+            "marginLeft": "5px",
+            "marginRight": "5px",
+            "marginTop": "5px",
+            "overflow": "hidden"
+          }
+        },
+        "type": "ia.container.flex"
+      }
+    ],
+    "meta": {
+      "name": "root"
+    },
+    "props": {
+      "direction": "column",
+      "style": {
+        "classes": "Page/Page"
+      }
+    },
+    "type": "ia.container.flex"
+  }
+}

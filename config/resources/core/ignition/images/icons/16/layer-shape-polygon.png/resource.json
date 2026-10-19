@@ -1,0 +1,20 @@
+{
+  "scope": "A",
+  "version": 1,
+  "restricted": false,
+  "overridable": true,
+  "files": [
+    "layer-shape-polygon.png"
+  ],
+  "attributes": {
+    "width": 16,
+    "format": "PNG",
+    "lastModification": {
+      "actor": "8.3-migration",
+      "timestamp": "2026-01-07T14:49:07Z"
+    },
+    "size": 631,
+    "lastModificationSignature": "f1b98ba7c83b4628b3ef6afe0dc8347cb5c6159975df7109d59913a9e2b78fb0",
+    "height": 16
+  }
+}

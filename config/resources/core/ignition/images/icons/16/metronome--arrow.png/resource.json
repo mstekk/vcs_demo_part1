@@ -1,0 +1,20 @@
+{
+  "scope": "A",
+  "version": 1,
+  "restricted": false,
+  "overridable": true,
+  "files": [
+    "metronome--arrow.png"
+  ],
+  "attributes": {
+    "width": 16,
+    "format": "PNG",
+    "lastModification": {
+      "actor": "8.3-migration",
+      "timestamp": "2026-01-07T14:49:07Z"
+    },
+    "size": 845,
+    "lastModificationSignature": "fcd9352ff6c0815d6cb71df7572f603608a80bbbbb8d4a2c44125548085537d4",
+    "height": 16
+  }
+}

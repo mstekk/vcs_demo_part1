@@ -1,0 +1,20 @@
+{
+  "scope": "A",
+  "version": 1,
+  "restricted": false,
+  "overridable": true,
+  "files": [
+    "calendar-relation.png"
+  ],
+  "attributes": {
+    "width": 16,
+    "format": "PNG",
+    "lastModification": {
+      "actor": "8.3-migration",
+      "timestamp": "2026-01-07T14:49:07Z"
+    },
+    "size": 725,
+    "lastModificationSignature": "039e4a051a615f9fac02ebdbf0facfb3bfe97266c8f0f23f350ac0e84270fda4",
+    "height": 16
+  }
+}

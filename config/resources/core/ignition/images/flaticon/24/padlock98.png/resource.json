@@ -1,0 +1,20 @@
+{
+  "scope": "A",
+  "version": 1,
+  "restricted": false,
+  "overridable": true,
+  "files": [
+    "padlock98.png"
+  ],
+  "attributes": {
+    "width": 24,
+    "format": "PNG",
+    "lastModification": {
+      "actor": "8.3-migration",
+      "timestamp": "2026-01-07T14:49:07Z"
+    },
+    "size": 416,
+    "lastModificationSignature": "ad22f7b7e5c70ff90d81fe0be3523a3488b791cc721adfd730b205060915a788",
+    "height": 24
+  }
+}

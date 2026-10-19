@@ -1,0 +1,20 @@
+{
+  "scope": "A",
+  "version": 1,
+  "restricted": false,
+  "overridable": true,
+  "files": [
+    "hand.png"
+  ],
+  "attributes": {
+    "width": 16,
+    "format": "PNG",
+    "lastModification": {
+      "actor": "8.3-migration",
+      "timestamp": "2026-01-07T14:49:07Z"
+    },
+    "size": 626,
+    "lastModificationSignature": "52e08e044a12575ce040596a14a2af4024e6076b2a0b9e9a31c4e94baab60c02",
+    "height": 16
+  }
+}

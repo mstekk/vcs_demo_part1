@@ -1,0 +1,20 @@
+{
+  "scope": "A",
+  "version": 1,
+  "restricted": false,
+  "overridable": true,
+  "files": [
+    "ui-tab--plus.png"
+  ],
+  "attributes": {
+    "width": 16,
+    "format": "PNG",
+    "lastModification": {
+      "actor": "8.3-migration",
+      "timestamp": "2026-01-07T14:49:07Z"
+    },
+    "size": 480,
+    "lastModificationSignature": "4f0aefa6cb885b18932e23da4f906c53ee668e04ad9cb6d1f8b347b5f3125782",
+    "height": 16
+  }
+}

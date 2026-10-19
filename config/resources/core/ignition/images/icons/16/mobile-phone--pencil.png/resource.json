@@ -1,0 +1,20 @@
+{
+  "scope": "A",
+  "version": 1,
+  "restricted": false,
+  "overridable": true,
+  "files": [
+    "mobile-phone--pencil.png"
+  ],
+  "attributes": {
+    "width": 16,
+    "format": "PNG",
+    "lastModification": {
+      "actor": "8.3-migration",
+      "timestamp": "2026-01-07T14:49:07Z"
+    },
+    "size": 688,
+    "lastModificationSignature": "3054cbef905cf59d59fe5bc2f651f7ca79aaa936a2607b70312e79465a4c91a2",
+    "height": 16
+  }
+}

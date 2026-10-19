@@ -1,0 +1,20 @@
+{
+  "scope": "A",
+  "version": 1,
+  "restricted": false,
+  "overridable": true,
+  "files": [
+    "flashlight--minus.png"
+  ],
+  "attributes": {
+    "width": 16,
+    "format": "PNG",
+    "lastModification": {
+      "actor": "8.3-migration",
+      "timestamp": "2026-01-07T14:49:07Z"
+    },
+    "size": 591,
+    "lastModificationSignature": "094161823db9bcbf30d10c1d0f0b9252bd30e3fc4a338fd9b3ea3fbc05d468cc",
+    "height": 16
+  }
+}

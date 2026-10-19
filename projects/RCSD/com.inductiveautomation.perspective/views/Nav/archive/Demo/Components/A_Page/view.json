@@ -1,0 +1,93 @@
+{
+  "custom": {},
+  "params": {},
+  "props": {
+    "defaultSize": {
+      "height": 1030,
+      "width": 1920
+    }
+  },
+  "root": {
+    "children": [
+      {
+        "meta": {
+          "name": "Large"
+        },
+        "position": {
+          "size": "large"
+        },
+        "props": {
+          "loading": {
+            "order": "with-parent"
+          },
+          "params": {
+            "controls": {
+              "click": true,
+              "in": true,
+              "out": true,
+              "pan": true,
+              "reset": true,
+              "zoom": true
+            },
+            "panning": false,
+            "viewParams": {
+              "text": "Your Text Here"
+            },
+            "viewPath": "Pages/Demo/Components/Large"
+          },
+          "path": "Pages/Demo/Components/Large"
+        },
+        "type": "ia.display.view"
+      },
+      {
+        "children": [
+          {
+            "meta": {
+              "name": "Medium"
+            },
+            "position": {
+              "size": "large"
+            },
+            "props": {
+              "loading": {
+                "order": "with-parent"
+              },
+              "path": "Pages/Demo/Components/Medium"
+            },
+            "type": "ia.display.view"
+          },
+          {
+            "meta": {
+              "name": "Small"
+            },
+            "props": {
+              "loading": {
+                "order": "with-parent"
+              },
+              "path": "Pages/Demo/Components/Small",
+              "useDefaultViewHeight": true
+            },
+            "type": "ia.display.view"
+          }
+        ],
+        "meta": {
+          "name": "Medium"
+        },
+        "props": {
+          "breakpoint": 800
+        },
+        "type": "ia.container.breakpt"
+      }
+    ],
+    "meta": {
+      "name": "root"
+    },
+    "props": {
+      "breakpoint": 1650,
+      "style": {
+        "overflow": "auto"
+      }
+    },
+    "type": "ia.container.breakpt"
+  }
+}

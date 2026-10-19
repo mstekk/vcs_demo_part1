@@ -1,0 +1,568 @@
+{
+  "custom": {},
+  "params": {
+    "Weather": {
+      "clouds": 85,
+      "dew_point": 13.95,
+      "dt": 1659438000,
+      "feels_like": {
+        "day": 27.29,
+        "eve": 29.37,
+        "morn": 14.79,
+        "night": 19.63
+      },
+      "humidity": 44,
+      "moon_phase": 0.15,
+      "moonrise": 1659431400,
+      "moonset": 1659476220,
+      "pop": 0,
+      "pressure": 1017,
+      "sunrise": 1659413740,
+      "sunset": 1659468765,
+      "temp": {
+        "day": 27.27,
+        "eve": 28.42,
+        "max": 28.86,
+        "min": 14.83,
+        "morn": 14.92,
+        "night": 19.51
+      },
+      "uvi": 6.18,
+      "weather": [
+        {
+          "description": "overcast clouds",
+          "icon": "04d",
+          "id": 804,
+          "main": "Clouds"
+        }
+      ],
+      "wind_deg": 258,
+      "wind_gust": 7.07,
+      "wind_speed": 6.44
+    },
+    "day": 0
+  },
+  "propConfig": {
+    "params.Weather": {
+      "paramDirection": "input",
+      "persistent": true
+    },
+    "params.day": {
+      "paramDirection": "input",
+      "persistent": true
+    }
+  },
+  "props": {
+    "defaultSize": {
+      "height": 210,
+      "width": 200
+    }
+  },
+  "root": {
+    "children": [
+      {
+        "meta": {
+          "name": "lblDay"
+        },
+        "position": {
+          "basis": "30px",
+          "shrink": 0
+        },
+        "propConfig": {
+          "props.text": {
+            "binding": {
+              "config": {
+                "expression": "if({view.params.day} \u003d 0,0,getDayOfWeek(addDays(now(0),{view.params.day})))\r\n\r\n\r\n"
+              },
+              "transforms": [
+                {
+                  "fallback": null,
+                  "inputType": "scalar",
+                  "mappings": [
+                    {
+                      "input": 0,
+                      "output": "Today"
+                    },
+                    {
+                      "input": 1,
+                      "output": "Sunday"
+                    },
+                    {
+                      "input": 2,
+                      "output": "Monday"
+                    },
+                    {
+                      "input": 3,
+                      "output": "Tuesday"
+                    },
+                    {
+                      "input": 4,
+                      "output": "Wednesday"
+                    },
+                    {
+                      "input": 5,
+                      "output": "Thursday"
+                    },
+                    {
+                      "input": 6,
+                      "output": "Friday"
+                    },
+                    {
+                      "input": 7,
+                      "output": "Saturday"
+                    }
+                  ],
+                  "outputType": "scalar",
+                  "type": "map"
+                }
+              ],
+              "type": "expr"
+            }
+          }
+        },
+        "props": {
+          "style": {
+            "fontWeight": "bold",
+            "textAlign": "center"
+          }
+        },
+        "type": "ia.display.label"
+      },
+      {
+        "children": [
+          {
+            "meta": {
+              "name": "lblDescription"
+            },
+            "position": {
+              "basis": "85%"
+            },
+            "propConfig": {
+              "props.text": {
+                "binding": {
+                  "config": {
+                    "path": "view.params.Weather.weather[0].description"
+                  },
+                  "transforms": [
+                    {
+                      "code": "\treturn value.title()",
+                      "type": "script"
+                    }
+                  ],
+                  "type": "property"
+                }
+              }
+            },
+            "type": "ia.display.label"
+          },
+          {
+            "meta": {
+              "name": "icon"
+            },
+            "position": {
+              "basis": "30px",
+              "shrink": 0
+            },
+            "propConfig": {
+              "props.params.code": {
+                "binding": {
+                  "config": {
+                    "path": "view.params.Weather.weather[0].id"
+                  },
+                  "type": "property"
+                }
+              }
+            },
+            "props": {
+              "path": "Embedded/Weather/icon"
+            },
+            "type": "ia.display.view"
+          }
+        ],
+        "meta": {
+          "name": "flxWeather"
+        },
+        "position": {
+          "basis": "200px"
+        },
+        "props": {
+          "style": {
+            "paddingLeft": "5px",
+            "paddingRight": "5px"
+          }
+        },
+        "type": "ia.container.flex"
+      },
+      {
+        "children": [
+          {
+            "meta": {
+              "name": "lblHigh"
+            },
+            "position": {
+              "basis": "85%"
+            },
+            "props": {
+              "text": "High"
+            },
+            "type": "ia.display.label"
+          },
+          {
+            "meta": {
+              "name": "lblDailyHigh"
+            },
+            "position": {
+              "basis": "15%"
+            },
+            "propConfig": {
+              "props.text": {
+                "binding": {
+                  "config": {
+                    "path": "view.params.Weather.temp.max"
+                  },
+                  "transforms": [
+                    {
+                      "formatType": "numeric",
+                      "formatValue": "integer",
+                      "type": "format"
+                    }
+                  ],
+                  "type": "property"
+                }
+              }
+            },
+            "props": {
+              "style": {
+                "textAlign": "right"
+              }
+            },
+            "type": "ia.display.label"
+          },
+          {
+            "meta": {
+              "name": "lblDailyHigh_0"
+            },
+            "props": {
+              "style": {
+                "textAlign": "left"
+              },
+              "text": "°"
+            },
+            "type": "ia.display.label"
+          }
+        ],
+        "meta": {
+          "name": "FlexContainer"
+        },
+        "position": {
+          "basis": "200px"
+        },
+        "props": {
+          "style": {
+            "paddingLeft": "5px",
+            "paddingRight": "5px"
+          }
+        },
+        "type": "ia.container.flex"
+      },
+      {
+        "children": [
+          {
+            "meta": {
+              "name": "lblLow"
+            },
+            "position": {
+              "basis": "85%"
+            },
+            "props": {
+              "text": "Low"
+            },
+            "type": "ia.display.label"
+          },
+          {
+            "meta": {
+              "name": "lblDailyLow"
+            },
+            "position": {
+              "basis": "15%"
+            },
+            "propConfig": {
+              "props.text": {
+                "binding": {
+                  "config": {
+                    "path": "view.params.Weather.temp.min"
+                  },
+                  "transforms": [
+                    {
+                      "formatType": "numeric",
+                      "formatValue": "integer",
+                      "type": "format"
+                    }
+                  ],
+                  "type": "property"
+                }
+              }
+            },
+            "props": {
+              "style": {
+                "textAlign": "right"
+              }
+            },
+            "type": "ia.display.label"
+          },
+          {
+            "meta": {
+              "name": "lblDailyHigh_0"
+            },
+            "props": {
+              "style": {
+                "textAlign": "left"
+              },
+              "text": "°"
+            },
+            "type": "ia.display.label"
+          }
+        ],
+        "meta": {
+          "name": "flxLowTemp_0"
+        },
+        "position": {
+          "basis": "200px"
+        },
+        "props": {
+          "style": {
+            "borderBottomColor": "#D5D5D5",
+            "borderBottomStyle": "solid",
+            "borderBottomWidth": 1,
+            "paddingLeft": "5px",
+            "paddingRight": "5px"
+          }
+        },
+        "type": "ia.container.flex"
+      },
+      {
+        "children": [
+          {
+            "meta": {
+              "name": "lblMorning"
+            },
+            "position": {
+              "basis": "85%"
+            },
+            "props": {
+              "text": "Morning"
+            },
+            "type": "ia.display.label"
+          },
+          {
+            "meta": {
+              "name": "lblMorningTemp"
+            },
+            "position": {
+              "basis": "15%"
+            },
+            "propConfig": {
+              "props.text": {
+                "binding": {
+                  "config": {
+                    "path": "view.params.Weather.temp.morn"
+                  },
+                  "transforms": [
+                    {
+                      "formatType": "numeric",
+                      "formatValue": "integer",
+                      "type": "format"
+                    }
+                  ],
+                  "type": "property"
+                }
+              }
+            },
+            "props": {
+              "style": {
+                "textAlign": "right"
+              }
+            },
+            "type": "ia.display.label"
+          },
+          {
+            "meta": {
+              "name": "lblDailyHigh_0"
+            },
+            "props": {
+              "style": {
+                "textAlign": "left"
+              },
+              "text": "°"
+            },
+            "type": "ia.display.label"
+          }
+        ],
+        "meta": {
+          "name": "flxMorning"
+        },
+        "position": {
+          "basis": "200px"
+        },
+        "props": {
+          "style": {
+            "paddingLeft": "5px",
+            "paddingRight": "5px"
+          }
+        },
+        "type": "ia.container.flex"
+      },
+      {
+        "children": [
+          {
+            "meta": {
+              "name": "lblDay"
+            },
+            "position": {
+              "basis": "85%"
+            },
+            "props": {
+              "text": "Day"
+            },
+            "type": "ia.display.label"
+          },
+          {
+            "meta": {
+              "name": "lblDayTemp"
+            },
+            "position": {
+              "basis": "15%"
+            },
+            "propConfig": {
+              "props.text": {
+                "binding": {
+                  "config": {
+                    "path": "view.params.Weather.temp.day"
+                  },
+                  "transforms": [
+                    {
+                      "formatType": "numeric",
+                      "formatValue": "integer",
+                      "type": "format"
+                    }
+                  ],
+                  "type": "property"
+                }
+              }
+            },
+            "props": {
+              "style": {
+                "textAlign": "right"
+              }
+            },
+            "type": "ia.display.label"
+          },
+          {
+            "meta": {
+              "name": "lblDailyHigh_0"
+            },
+            "props": {
+              "style": {
+                "textAlign": "left"
+              },
+              "text": "°"
+            },
+            "type": "ia.display.label"
+          }
+        ],
+        "meta": {
+          "name": "flxDay"
+        },
+        "position": {
+          "basis": "200px"
+        },
+        "props": {
+          "style": {
+            "paddingLeft": "5px",
+            "paddingRight": "5px"
+          }
+        },
+        "type": "ia.container.flex"
+      },
+      {
+        "children": [
+          {
+            "meta": {
+              "name": "lblEve"
+            },
+            "position": {
+              "basis": "85%"
+            },
+            "props": {
+              "text": "Evening"
+            },
+            "type": "ia.display.label"
+          },
+          {
+            "meta": {
+              "name": "lblEveTemp"
+            },
+            "position": {
+              "basis": "15%"
+            },
+            "propConfig": {
+              "props.text": {
+                "binding": {
+                  "config": {
+                    "path": "view.params.Weather.temp.eve"
+                  },
+                  "transforms": [
+                    {
+                      "formatType": "numeric",
+                      "formatValue": "integer",
+                      "type": "format"
+                    }
+                  ],
+                  "type": "property"
+                }
+              }
+            },
+            "props": {
+              "style": {
+                "textAlign": "right"
+              }
+            },
+            "type": "ia.display.label"
+          },
+          {
+            "meta": {
+              "name": "lblDailyHigh_0"
+            },
+            "props": {
+              "style": {
+                "textAlign": "left"
+              },
+              "text": "°"
+            },
+            "type": "ia.display.label"
+          }
+        ],
+        "meta": {
+          "name": "flxEve"
+        },
+        "position": {
+          "basis": "200px"
+        },
+        "props": {
+          "style": {
+            "paddingLeft": "5px",
+            "paddingRight": "5px"
+          }
+        },
+        "type": "ia.container.flex"
+      }
+    ],
+    "meta": {
+      "name": "root"
+    },
+    "props": {
+      "direction": "column"
+    },
+    "type": "ia.container.flex"
+  }
+}

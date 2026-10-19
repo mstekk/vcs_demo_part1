@@ -1,0 +1,1776 @@
+[
+  {
+    "valueSource": "opc",
+    "opcItemPath": "[Power Monitor]Global.F116.F116[148]",
+    "historicalDeadband": 0.01,
+    "writePermissions": {
+      "type": "AllOf",
+      "securityLevels": []
+    },
+    "tagGroup": "Default",
+    "historyTagGroup": "Default Historical",
+    "tagType": "AtomicTag",
+    "enabled": true,
+    "readOnly": true,
+    "dataType": "Float4",
+    "historyProvider": "MySQL",
+    "name": "LU-PM-BLENDER-ACTIVE-POWER",
+    "historyEnabled": true,
+    "readPermissions": {
+      "type": "AllOf",
+      "securityLevels": []
+    },
+    "sampleMode": "TagGroup",
+    "opcServer": "Ignition OPC-UA Server"
+  },
+  {
+    "valueSource": "opc",
+    "opcItemPath": "[Power Monitor]Global.F116.F116[141]",
+    "writePermissions": {
+      "type": "AllOf",
+      "securityLevels": []
+    },
+    "tagGroup": "Default",
+    "historyTagGroup": "Default Historical",
+    "tagType": "AtomicTag",
+    "enabled": true,
+    "readOnly": true,
+    "dataType": "Float4",
+    "historyProvider": "MySQL",
+    "name": "LU-PM-BLENDER-L1-CURRENT-RMS",
+    "historyEnabled": true,
+    "readPermissions": {
+      "type": "AllOf",
+      "securityLevels": []
+    },
+    "sampleMode": "TagGroup",
+    "opcServer": "Ignition OPC-UA Server"
+  },
+  {
+    "valueSource": "opc",
+    "opcItemPath": "[Power Monitor]Global.F116.F116[142]",
+    "writePermissions": {
+      "type": "AllOf",
+      "securityLevels": []
+    },
+    "tagGroup": "Default",
+    "historyTagGroup": "Default Historical",
+    "tagType": "AtomicTag",
+    "enabled": true,
+    "readOnly": true,
+    "dataType": "Float4",
+    "historyProvider": "MySQL",
+    "name": "LU-PM-BLENDER-L2-CURRENT-RMS",
+    "historyEnabled": true,
+    "readPermissions": {
+      "type": "AllOf",
+      "securityLevels": []
+    },
+    "sampleMode": "TagGroup",
+    "opcServer": "Ignition OPC-UA Server"
+  },
+  {
+    "valueSource": "opc",
+    "opcItemPath": "[Power Monitor]Global.F116.F116[143]",
+    "writePermissions": {
+      "type": "AllOf",
+      "securityLevels": []
+    },
+    "tagGroup": "Default",
+    "historyTagGroup": "Default Historical",
+    "tagType": "AtomicTag",
+    "enabled": true,
+    "readOnly": true,
+    "dataType": "Float4",
+    "historyProvider": "MySQL",
+    "name": "LU-PM-BLENDER-L3-CURRENT-RMS",
+    "historyEnabled": true,
+    "readPermissions": {
+      "type": "AllOf",
+      "securityLevels": []
+    },
+    "sampleMode": "TagGroup",
+    "opcServer": "Ignition OPC-UA Server"
+  },
+  {
+    "valueSource": "opc",
+    "opcItemPath": "[Power Monitor]Global.F116.F116[144]",
+    "writePermissions": {
+      "type": "AllOf",
+      "securityLevels": []
+    },
+    "tagGroup": "Default",
+    "historyTagGroup": "Default Historical",
+    "tagType": "AtomicTag",
+    "enabled": true,
+    "readOnly": true,
+    "dataType": "Float4",
+    "historyProvider": "MySQL",
+    "name": "LU-PM-BLENDER-PHASE-VOLTAGE-A-B",
+    "historyEnabled": true,
+    "readPermissions": {
+      "type": "AllOf",
+      "securityLevels": []
+    },
+    "sampleMode": "TagGroup",
+    "opcServer": "Ignition OPC-UA Server"
+  },
+  {
+    "valueSource": "opc",
+    "opcItemPath": "[Power Monitor]Global.F116.F116[145]",
+    "writePermissions": {
+      "type": "AllOf",
+      "securityLevels": []
+    },
+    "tagGroup": "Default",
+    "historyTagGroup": "Default Historical",
+    "tagType": "AtomicTag",
+    "enabled": true,
+    "readOnly": true,
+    "dataType": "Float4",
+    "historyProvider": "MySQL",
+    "name": "LU-PM-BLENDER-PHASE-VOLTAGE-B-C",
+    "historyEnabled": true,
+    "readPermissions": {
+      "type": "AllOf",
+      "securityLevels": []
+    },
+    "sampleMode": "TagGroup",
+    "opcServer": "Ignition OPC-UA Server"
+  },
+  {
+    "valueSource": "opc",
+    "opcItemPath": "[Power Monitor]Global.F116.F116[146]",
+    "writePermissions": {
+      "type": "AllOf",
+      "securityLevels": []
+    },
+    "tagGroup": "Default",
+    "historyTagGroup": "Default Historical",
+    "tagType": "AtomicTag",
+    "enabled": true,
+    "readOnly": true,
+    "dataType": "Float4",
+    "historyProvider": "MySQL",
+    "name": "LU-PM-BLENDER-PHASE-VOLTAGE-C-A",
+    "historyEnabled": true,
+    "readPermissions": {
+      "type": "AllOf",
+      "securityLevels": []
+    },
+    "sampleMode": "TagGroup",
+    "opcServer": "Ignition OPC-UA Server"
+  },
+  {
+    "valueSource": "opc",
+    "opcItemPath": "[Power Monitor]Global.F116.F116[128]",
+    "writePermissions": {
+      "type": "AllOf",
+      "securityLevels": []
+    },
+    "formatString": "#,##0.##",
+    "tagGroup": "Default",
+    "historyTagGroup": "Default Historical",
+    "tagType": "AtomicTag",
+    "enabled": true,
+    "readOnly": true,
+    "dataType": "Float4",
+    "historyProvider": "MySQL",
+    "name": "LU-PM-CRUSHER-ACTIVE-POWER",
+    "historyEnabled": true,
+    "readPermissions": {
+      "type": "AllOf",
+      "securityLevels": []
+    },
+    "sampleMode": "TagGroup",
+    "opcServer": "Ignition OPC-UA Server"
+  },
+  {
+    "valueSource": "opc",
+    "opcItemPath": "[Power Monitor]Global.F116.F116[121]",
+    "writePermissions": {
+      "type": "AllOf",
+      "securityLevels": []
+    },
+    "tagGroup": "Default",
+    "historyTagGroup": "Default Historical",
+    "tagType": "AtomicTag",
+    "enabled": true,
+    "readOnly": true,
+    "dataType": "Float4",
+    "historyProvider": "MySQL",
+    "name": "LU-PM-CRUSHER-L1-CURRENT-RMS",
+    "historyEnabled": true,
+    "readPermissions": {
+      "type": "AllOf",
+      "securityLevels": []
+    },
+    "sampleMode": "TagGroup",
+    "opcServer": "Ignition OPC-UA Server"
+  },
+  {
+    "valueSource": "opc",
+    "opcItemPath": "[Power Monitor]Global.F116.F116[122]",
+    "writePermissions": {
+      "type": "AllOf",
+      "securityLevels": []
+    },
+    "tagGroup": "Default",
+    "historyTagGroup": "Default Historical",
+    "tagType": "AtomicTag",
+    "enabled": true,
+    "readOnly": true,
+    "dataType": "Float4",
+    "historyProvider": "MySQL",
+    "name": "LU-PM-CRUSHER-L2-CURRENT-RMS",
+    "historyEnabled": true,
+    "readPermissions": {
+      "type": "AllOf",
+      "securityLevels": []
+    },
+    "sampleMode": "TagGroup",
+    "opcServer": "Ignition OPC-UA Server"
+  },
+  {
+    "valueSource": "opc",
+    "opcItemPath": "[Power Monitor]Global.F116.F116[123]",
+    "writePermissions": {
+      "type": "AllOf",
+      "securityLevels": []
+    },
+    "tagGroup": "Default",
+    "historyTagGroup": "Default Historical",
+    "tagType": "AtomicTag",
+    "enabled": true,
+    "readOnly": true,
+    "dataType": "Float4",
+    "historyProvider": "MySQL",
+    "name": "LU-PM-CRUSHER-L3-CURRENT-RMS",
+    "historyEnabled": true,
+    "readPermissions": {
+      "type": "AllOf",
+      "securityLevels": []
+    },
+    "sampleMode": "TagGroup",
+    "opcServer": "Ignition OPC-UA Server"
+  },
+  {
+    "valueSource": "opc",
+    "opcItemPath": "[Power Monitor]Global.F116.F116[124]",
+    "writePermissions": {
+      "type": "AllOf",
+      "securityLevels": []
+    },
+    "tagGroup": "Default",
+    "historyTagGroup": "Default Historical",
+    "tagType": "AtomicTag",
+    "enabled": true,
+    "readOnly": true,
+    "dataType": "Float4",
+    "historyProvider": "MySQL",
+    "name": "LU-PM-CRUSHER-PHASE-VOLTAGE-A-B",
+    "historyEnabled": true,
+    "readPermissions": {
+      "type": "AllOf",
+      "securityLevels": []
+    },
+    "sampleMode": "TagGroup",
+    "opcServer": "Ignition OPC-UA Server"
+  },
+  {
+    "valueSource": "opc",
+    "opcItemPath": "[Power Monitor]Global.F116.F116[125]",
+    "writePermissions": {
+      "type": "AllOf",
+      "securityLevels": []
+    },
+    "tagGroup": "Default",
+    "historyTagGroup": "Default Historical",
+    "tagType": "AtomicTag",
+    "enabled": true,
+    "readOnly": true,
+    "dataType": "Float4",
+    "historyProvider": "MySQL",
+    "name": "LU-PM-CRUSHER-PHASE-VOLTAGE-B-C",
+    "historyEnabled": true,
+    "readPermissions": {
+      "type": "AllOf",
+      "securityLevels": []
+    },
+    "sampleMode": "TagGroup",
+    "opcServer": "Ignition OPC-UA Server"
+  },
+  {
+    "valueSource": "opc",
+    "opcItemPath": "[Power Monitor]Global.F116.F116[126]",
+    "writePermissions": {
+      "type": "AllOf",
+      "securityLevels": []
+    },
+    "tagGroup": "Default",
+    "historyTagGroup": "Default Historical",
+    "tagType": "AtomicTag",
+    "enabled": true,
+    "readOnly": true,
+    "dataType": "Float4",
+    "historyProvider": "MySQL",
+    "name": "LU-PM-CRUSHER-PHASE-VOLTAGE-C-A",
+    "historyEnabled": true,
+    "readPermissions": {
+      "type": "AllOf",
+      "securityLevels": []
+    },
+    "sampleMode": "TagGroup",
+    "opcServer": "Ignition OPC-UA Server"
+  },
+  {
+    "valueSource": "opc",
+    "opcItemPath": "[Power Monitor]Global.F116.F116[8]",
+    "writePermissions": {
+      "type": "AllOf",
+      "securityLevels": []
+    },
+    "tagGroup": "Default",
+    "historyTagGroup": "Default Historical",
+    "tagType": "AtomicTag",
+    "enabled": true,
+    "readOnly": true,
+    "dataType": "Float4",
+    "historyProvider": "MySQL",
+    "name": "LU-PM-DRIER-SIZER-ACTIVE-POWER",
+    "historyEnabled": true,
+    "readPermissions": {
+      "type": "AllOf",
+      "securityLevels": []
+    },
+    "sampleMode": "TagGroup",
+    "opcServer": "Ignition OPC-UA Server"
+  },
+  {
+    "valueSource": "opc",
+    "opcItemPath": "[Power Monitor]Global.F116.F116[1]",
+    "writePermissions": {
+      "type": "AllOf",
+      "securityLevels": []
+    },
+    "tagGroup": "Default",
+    "historyTagGroup": "Default Historical",
+    "tagType": "AtomicTag",
+    "enabled": true,
+    "readOnly": true,
+    "dataType": "Float4",
+    "historyProvider": "MySQL",
+    "name": "LU-PM-DRIER-SIZER-L1-CURRENT-RMS",
+    "historyEnabled": true,
+    "readPermissions": {
+      "type": "AllOf",
+      "securityLevels": []
+    },
+    "sampleMode": "TagGroup",
+    "opcServer": "Ignition OPC-UA Server"
+  },
+  {
+    "valueSource": "opc",
+    "opcItemPath": "[Power Monitor]Global.F116.F116[2]",
+    "writePermissions": {
+      "type": "AllOf",
+      "securityLevels": []
+    },
+    "tagGroup": "Default",
+    "historyTagGroup": "Default Historical",
+    "tagType": "AtomicTag",
+    "enabled": true,
+    "readOnly": true,
+    "dataType": "Float4",
+    "historyProvider": "MySQL",
+    "name": "LU-PM-DRIER-SIZER-L2-CURRENT-RMS",
+    "historyEnabled": true,
+    "readPermissions": {
+      "type": "AllOf",
+      "securityLevels": []
+    },
+    "sampleMode": "TagGroup",
+    "opcServer": "Ignition OPC-UA Server"
+  },
+  {
+    "valueSource": "opc",
+    "opcItemPath": "[Power Monitor]Global.F116.F116[3]",
+    "writePermissions": {
+      "type": "AllOf",
+      "securityLevels": []
+    },
+    "tagGroup": "Default",
+    "historyTagGroup": "Default Historical",
+    "tagType": "AtomicTag",
+    "enabled": true,
+    "readOnly": true,
+    "dataType": "Float4",
+    "historyProvider": "MySQL",
+    "name": "LU-PM-DRIER-SIZER-L3-CURRENT-RMS",
+    "historyEnabled": true,
+    "readPermissions": {
+      "type": "AllOf",
+      "securityLevels": []
+    },
+    "sampleMode": "TagGroup",
+    "opcServer": "Ignition OPC-UA Server"
+  },
+  {
+    "valueSource": "opc",
+    "opcItemPath": "[Power Monitor]Global.F116.F116[4]",
+    "writePermissions": {
+      "type": "AllOf",
+      "securityLevels": []
+    },
+    "tagGroup": "Default",
+    "historyTagGroup": "Default Historical",
+    "tagType": "AtomicTag",
+    "enabled": true,
+    "readOnly": true,
+    "dataType": "Float4",
+    "historyProvider": "MySQL",
+    "name": "LU-PM-DRIER-SIZER-PHASE-VOLTAGE-A-B",
+    "historyEnabled": true,
+    "readPermissions": {
+      "type": "AllOf",
+      "securityLevels": []
+    },
+    "sampleMode": "TagGroup",
+    "opcServer": "Ignition OPC-UA Server"
+  },
+  {
+    "valueSource": "opc",
+    "opcItemPath": "[Power Monitor]Global.F116.F116[5]",
+    "writePermissions": {
+      "type": "AllOf",
+      "securityLevels": []
+    },
+    "tagGroup": "Default",
+    "historyTagGroup": "Default Historical",
+    "tagType": "AtomicTag",
+    "enabled": true,
+    "readOnly": true,
+    "dataType": "Float4",
+    "historyProvider": "MySQL",
+    "name": "LU-PM-DRIER-SIZER-PHASE-VOLTAGE-B-C",
+    "historyEnabled": true,
+    "readPermissions": {
+      "type": "AllOf",
+      "securityLevels": []
+    },
+    "sampleMode": "TagGroup",
+    "opcServer": "Ignition OPC-UA Server"
+  },
+  {
+    "valueSource": "opc",
+    "opcItemPath": "[Power Monitor]Global.F116.F116[6]",
+    "writePermissions": {
+      "type": "AllOf",
+      "securityLevels": []
+    },
+    "tagGroup": "Default",
+    "historyTagGroup": "Default Historical",
+    "tagType": "AtomicTag",
+    "enabled": true,
+    "readOnly": true,
+    "dataType": "Float4",
+    "historyProvider": "MySQL",
+    "name": "LU-PM-DRIER-SIZER-PHASE-VOLTAGE-C-A",
+    "historyEnabled": true,
+    "readPermissions": {
+      "type": "AllOf",
+      "securityLevels": []
+    },
+    "sampleMode": "TagGroup",
+    "opcServer": "Ignition OPC-UA Server"
+  },
+  {
+    "valueSource": "opc",
+    "opcItemPath": "[Power Monitor]Global.F116.F116[168]",
+    "writePermissions": {
+      "type": "AllOf",
+      "securityLevels": []
+    },
+    "tagGroup": "Default",
+    "historyTagGroup": "Default Historical",
+    "tagType": "AtomicTag",
+    "enabled": true,
+    "readOnly": true,
+    "dataType": "Float4",
+    "historyProvider": "MySQL",
+    "name": "LU-PM-GLASS-SAND-ACTIVE-POWER",
+    "historyEnabled": true,
+    "readPermissions": {
+      "type": "AllOf",
+      "securityLevels": []
+    },
+    "sampleMode": "TagGroup",
+    "opcServer": "Ignition OPC-UA Server"
+  },
+  {
+    "valueSource": "opc",
+    "opcItemPath": "[Power Monitor]Global.F116.F116[161]",
+    "writePermissions": {
+      "type": "AllOf",
+      "securityLevels": []
+    },
+    "tagGroup": "Default",
+    "historyTagGroup": "Default Historical",
+    "tagType": "AtomicTag",
+    "enabled": true,
+    "readOnly": true,
+    "dataType": "Float4",
+    "historyProvider": "MySQL",
+    "name": "LU-PM-GLASS-SAND-L1-CURRENT-RMS",
+    "historyEnabled": true,
+    "readPermissions": {
+      "type": "AllOf",
+      "securityLevels": []
+    },
+    "sampleMode": "TagGroup",
+    "opcServer": "Ignition OPC-UA Server"
+  },
+  {
+    "valueSource": "opc",
+    "opcItemPath": "[Power Monitor]Global.F116.F116[162]",
+    "writePermissions": {
+      "type": "AllOf",
+      "securityLevels": []
+    },
+    "tagGroup": "Default",
+    "historyTagGroup": "Default Historical",
+    "tagType": "AtomicTag",
+    "enabled": true,
+    "readOnly": true,
+    "dataType": "Float4",
+    "historyProvider": "MySQL",
+    "name": "LU-PM-GLASS-SAND-L2-CURRENT-RMS",
+    "historyEnabled": true,
+    "readPermissions": {
+      "type": "AllOf",
+      "securityLevels": []
+    },
+    "sampleMode": "TagGroup",
+    "opcServer": "Ignition OPC-UA Server"
+  },
+  {
+    "valueSource": "opc",
+    "opcItemPath": "[Power Monitor]Global.F116.F116[163]",
+    "writePermissions": {
+      "type": "AllOf",
+      "securityLevels": []
+    },
+    "tagGroup": "Default",
+    "historyTagGroup": "Default Historical",
+    "tagType": "AtomicTag",
+    "enabled": true,
+    "readOnly": true,
+    "dataType": "Float4",
+    "historyProvider": "MySQL",
+    "name": "LU-PM-GLASS-SAND-L3-CURRENT-RMS",
+    "historyEnabled": true,
+    "readPermissions": {
+      "type": "AllOf",
+      "securityLevels": []
+    },
+    "sampleMode": "TagGroup",
+    "opcServer": "Ignition OPC-UA Server"
+  },
+  {
+    "valueSource": "opc",
+    "opcItemPath": "[Power Monitor]Global.F116.F116[164]",
+    "writePermissions": {
+      "type": "AllOf",
+      "securityLevels": []
+    },
+    "tagGroup": "Default",
+    "historyTagGroup": "Default Historical",
+    "tagType": "AtomicTag",
+    "enabled": true,
+    "readOnly": true,
+    "dataType": "Float4",
+    "historyProvider": "MySQL",
+    "name": "LU-PM-GLASS-SAND-PHASE-VOLTAGE-A-B",
+    "historyEnabled": true,
+    "readPermissions": {
+      "type": "AllOf",
+      "securityLevels": []
+    },
+    "sampleMode": "TagGroup",
+    "opcServer": "Ignition OPC-UA Server"
+  },
+  {
+    "valueSource": "opc",
+    "opcItemPath": "[Power Monitor]Global.F116.F116[165]",
+    "writePermissions": {
+      "type": "AllOf",
+      "securityLevels": []
+    },
+    "tagGroup": "Default",
+    "historyTagGroup": "Default Historical",
+    "tagType": "AtomicTag",
+    "enabled": true,
+    "readOnly": true,
+    "dataType": "Float4",
+    "historyProvider": "MySQL",
+    "name": "LU-PM-GLASS-SAND-PHASE-VOLTAGE-B-C",
+    "historyEnabled": true,
+    "readPermissions": {
+      "type": "AllOf",
+      "securityLevels": []
+    },
+    "sampleMode": "TagGroup",
+    "opcServer": "Ignition OPC-UA Server"
+  },
+  {
+    "valueSource": "opc",
+    "opcItemPath": "[Power Monitor]Global.F116.F116[166]",
+    "writePermissions": {
+      "type": "AllOf",
+      "securityLevels": []
+    },
+    "tagGroup": "Default",
+    "historyTagGroup": "Default Historical",
+    "tagType": "AtomicTag",
+    "enabled": true,
+    "readOnly": true,
+    "dataType": "Float4",
+    "historyProvider": "MySQL",
+    "name": "LU-PM-GLASS-SAND-PHASE-VOLTAGE-C-A",
+    "historyEnabled": true,
+    "readPermissions": {
+      "type": "AllOf",
+      "securityLevels": []
+    },
+    "sampleMode": "TagGroup",
+    "opcServer": "Ignition OPC-UA Server"
+  },
+  {
+    "valueSource": "opc",
+    "opcItemPath": "[Power Monitor]Global.F116.F116[188]",
+    "writePermissions": {
+      "type": "AllOf",
+      "securityLevels": []
+    },
+    "tagGroup": "Default",
+    "historyTagGroup": "Default Historical",
+    "tagType": "AtomicTag",
+    "enabled": true,
+    "readOnly": true,
+    "dataType": "Float4",
+    "historyProvider": "MySQL",
+    "name": "LU-PM-GRANULES-ACTIVE-POWER",
+    "historyEnabled": true,
+    "readPermissions": {
+      "type": "AllOf",
+      "securityLevels": []
+    },
+    "sampleMode": "TagGroup",
+    "opcServer": "Ignition OPC-UA Server"
+  },
+  {
+    "valueSource": "opc",
+    "opcItemPath": "[Power Monitor]Global.F116.F116[181]",
+    "writePermissions": {
+      "type": "AllOf",
+      "securityLevels": []
+    },
+    "tagGroup": "Default",
+    "historyTagGroup": "Default Historical",
+    "tagType": "AtomicTag",
+    "enabled": true,
+    "readOnly": true,
+    "dataType": "Float4",
+    "historyProvider": "MySQL",
+    "name": "LU-PM-GRANULES-L1-CURRENT-RMS",
+    "historyEnabled": true,
+    "readPermissions": {
+      "type": "AllOf",
+      "securityLevels": []
+    },
+    "sampleMode": "TagGroup",
+    "opcServer": "Ignition OPC-UA Server"
+  },
+  {
+    "valueSource": "opc",
+    "opcItemPath": "[Power Monitor]Global.F116.F116[182]",
+    "writePermissions": {
+      "type": "AllOf",
+      "securityLevels": []
+    },
+    "tagGroup": "Default",
+    "historyTagGroup": "Default Historical",
+    "tagType": "AtomicTag",
+    "enabled": true,
+    "readOnly": true,
+    "dataType": "Float4",
+    "historyProvider": "MySQL",
+    "name": "LU-PM-GRANULES-L2-CURRENT-RMS",
+    "historyEnabled": true,
+    "readPermissions": {
+      "type": "AllOf",
+      "securityLevels": []
+    },
+    "sampleMode": "TagGroup",
+    "opcServer": "Ignition OPC-UA Server"
+  },
+  {
+    "valueSource": "opc",
+    "opcItemPath": "[Power Monitor]Global.F116.F116[183]",
+    "writePermissions": {
+      "type": "AllOf",
+      "securityLevels": []
+    },
+    "tagGroup": "Default",
+    "historyTagGroup": "Default Historical",
+    "tagType": "AtomicTag",
+    "enabled": true,
+    "readOnly": true,
+    "dataType": "Float4",
+    "historyProvider": "MySQL",
+    "name": "LU-PM-GRANULES-L3-CURRENT-RMS",
+    "historyEnabled": true,
+    "readPermissions": {
+      "type": "AllOf",
+      "securityLevels": []
+    },
+    "sampleMode": "TagGroup",
+    "opcServer": "Ignition OPC-UA Server"
+  },
+  {
+    "valueSource": "opc",
+    "opcItemPath": "[Power Monitor]Global.F116.F116[184]",
+    "writePermissions": {
+      "type": "AllOf",
+      "securityLevels": []
+    },
+    "tagGroup": "Default",
+    "historyTagGroup": "Default Historical",
+    "tagType": "AtomicTag",
+    "enabled": true,
+    "readOnly": true,
+    "dataType": "Float4",
+    "historyProvider": "MySQL",
+    "name": "LU-PM-GRANULES-PHASE-VOLTAGE-A-B",
+    "historyEnabled": true,
+    "readPermissions": {
+      "type": "AllOf",
+      "securityLevels": []
+    },
+    "sampleMode": "TagGroup",
+    "opcServer": "Ignition OPC-UA Server"
+  },
+  {
+    "valueSource": "opc",
+    "opcItemPath": "[Power Monitor]Global.F116.F116[185]",
+    "writePermissions": {
+      "type": "AllOf",
+      "securityLevels": []
+    },
+    "tagGroup": "Default",
+    "historyTagGroup": "Default Historical",
+    "tagType": "AtomicTag",
+    "enabled": true,
+    "readOnly": true,
+    "dataType": "Float4",
+    "historyProvider": "MySQL",
+    "name": "LU-PM-GRANULES-PHASE-VOLTAGE-B-C",
+    "historyEnabled": true,
+    "readPermissions": {
+      "type": "AllOf",
+      "securityLevels": []
+    },
+    "sampleMode": "TagGroup",
+    "opcServer": "Ignition OPC-UA Server"
+  },
+  {
+    "valueSource": "opc",
+    "opcItemPath": "[Power Monitor]Global.F116.F116[186]",
+    "writePermissions": {
+      "type": "AllOf",
+      "securityLevels": []
+    },
+    "tagGroup": "Default",
+    "historyTagGroup": "Default Historical",
+    "tagType": "AtomicTag",
+    "enabled": true,
+    "readOnly": true,
+    "dataType": "Float4",
+    "historyProvider": "MySQL",
+    "name": "LU-PM-GRANULES-PHASE-VOLTAGE-C-A",
+    "historyEnabled": true,
+    "readPermissions": {
+      "type": "AllOf",
+      "securityLevels": []
+    },
+    "sampleMode": "TagGroup",
+    "opcServer": "Ignition OPC-UA Server"
+  },
+  {
+    "valueSource": "opc",
+    "opcItemPath": "[Power Monitor]Global.F115.F115[8]",
+    "writePermissions": {
+      "type": "AllOf",
+      "securityLevels": []
+    },
+    "formatString": "#,##0.##",
+    "tagGroup": "Default",
+    "historyTagGroup": "Default Historical",
+    "tagType": "AtomicTag",
+    "enabled": true,
+    "readOnly": true,
+    "dataType": "Float4",
+    "historyProvider": "MySQL",
+    "name": "LU-PM-MAIN-ACTIVE-POWER",
+    "historyEnabled": true,
+    "readPermissions": {
+      "type": "AllOf",
+      "securityLevels": []
+    },
+    "sampleMode": "TagGroup",
+    "opcServer": "Ignition OPC-UA Server"
+  },
+  {
+    "valueSource": "opc",
+    "opcItemPath": "[Power Monitor]Global.F115.F115[1]",
+    "writePermissions": {
+      "type": "AllOf",
+      "securityLevels": []
+    },
+    "tagGroup": "Default",
+    "historyTagGroup": "Default Historical",
+    "tagType": "AtomicTag",
+    "enabled": true,
+    "readOnly": true,
+    "dataType": "Float4",
+    "historyProvider": "MySQL",
+    "name": "LU-PM-MAIN-L1-CURRENT-RMS",
+    "historyEnabled": true,
+    "readPermissions": {
+      "type": "AllOf",
+      "securityLevels": []
+    },
+    "sampleMode": "TagGroup",
+    "opcServer": "Ignition OPC-UA Server"
+  },
+  {
+    "valueSource": "opc",
+    "opcItemPath": "[Power Monitor]Global.F115.F115[2]",
+    "writePermissions": {
+      "type": "AllOf",
+      "securityLevels": []
+    },
+    "tagGroup": "Default",
+    "historyTagGroup": "Default Historical",
+    "tagType": "AtomicTag",
+    "enabled": true,
+    "readOnly": true,
+    "dataType": "Float4",
+    "historyProvider": "MySQL",
+    "name": "LU-PM-MAIN-L2-CURRENT-RMS",
+    "historyEnabled": true,
+    "readPermissions": {
+      "type": "AllOf",
+      "securityLevels": []
+    },
+    "sampleMode": "TagGroup",
+    "opcServer": "Ignition OPC-UA Server"
+  },
+  {
+    "valueSource": "opc",
+    "opcItemPath": "[Power Monitor]Global.F115.F115[3]",
+    "writePermissions": {
+      "type": "AllOf",
+      "securityLevels": []
+    },
+    "tagGroup": "Default",
+    "historyTagGroup": "Default Historical",
+    "tagType": "AtomicTag",
+    "enabled": true,
+    "readOnly": true,
+    "dataType": "Float4",
+    "historyProvider": "MySQL",
+    "name": "LU-PM-MAIN-L3-CURRENT-RMS",
+    "historyEnabled": true,
+    "readPermissions": {
+      "type": "AllOf",
+      "securityLevels": []
+    },
+    "sampleMode": "TagGroup",
+    "opcServer": "Ignition OPC-UA Server"
+  },
+  {
+    "valueSource": "opc",
+    "opcItemPath": "[Power Monitor]Global.F115.F115[4]",
+    "writePermissions": {
+      "type": "AllOf",
+      "securityLevels": []
+    },
+    "tagGroup": "Default",
+    "historyTagGroup": "Default Historical",
+    "tagType": "AtomicTag",
+    "enabled": true,
+    "readOnly": true,
+    "dataType": "Float4",
+    "historyProvider": "MySQL",
+    "name": "LU-PM-MAIN-PHASE-VOLTAGE-A-B",
+    "historyEnabled": true,
+    "readPermissions": {
+      "type": "AllOf",
+      "securityLevels": []
+    },
+    "sampleMode": "TagGroup",
+    "opcServer": "Ignition OPC-UA Server"
+  },
+  {
+    "valueSource": "opc",
+    "opcItemPath": "[Power Monitor]Global.F115.F115[5]",
+    "writePermissions": {
+      "type": "AllOf",
+      "securityLevels": []
+    },
+    "tagGroup": "Default",
+    "historyTagGroup": "Default Historical",
+    "tagType": "AtomicTag",
+    "enabled": true,
+    "readOnly": true,
+    "dataType": "Float4",
+    "historyProvider": "MySQL",
+    "name": "LU-PM-MAIN-PHASE-VOLTAGE-B-C",
+    "historyEnabled": true,
+    "readPermissions": {
+      "type": "AllOf",
+      "securityLevels": []
+    },
+    "sampleMode": "TagGroup",
+    "opcServer": "Ignition OPC-UA Server"
+  },
+  {
+    "valueSource": "opc",
+    "opcItemPath": "[Power Monitor]Global.F115.F115[6]",
+    "writePermissions": {
+      "type": "AllOf",
+      "securityLevels": []
+    },
+    "tagGroup": "Default",
+    "historyTagGroup": "Default Historical",
+    "tagType": "AtomicTag",
+    "enabled": true,
+    "readOnly": true,
+    "dataType": "Float4",
+    "historyProvider": "MySQL",
+    "name": "LU-PM-MAIN-PHASE-VOLTAGE-C-A",
+    "historyEnabled": true,
+    "readPermissions": {
+      "type": "AllOf",
+      "securityLevels": []
+    },
+    "sampleMode": "TagGroup",
+    "opcServer": "Ignition OPC-UA Server"
+  },
+  {
+    "valueSource": "opc",
+    "opcItemPath": "[Power Monitor]Global.F116.F116[88]",
+    "writePermissions": {
+      "type": "AllOf",
+      "securityLevels": []
+    },
+    "tagGroup": "Default",
+    "historyTagGroup": "Default Historical",
+    "tagType": "AtomicTag",
+    "enabled": true,
+    "readOnly": true,
+    "dataType": "Float4",
+    "historyProvider": "MySQL",
+    "name": "LU-PM-MILL-ACTIVE-POWER",
+    "historyEnabled": true,
+    "readPermissions": {
+      "type": "AllOf",
+      "securityLevels": []
+    },
+    "sampleMode": "TagGroup",
+    "opcServer": "Ignition OPC-UA Server"
+  },
+  {
+    "valueSource": "opc",
+    "opcItemPath": "[Power Monitor]Global.F116.F116[81]",
+    "writePermissions": {
+      "type": "AllOf",
+      "securityLevels": []
+    },
+    "tagGroup": "Default",
+    "historyTagGroup": "Default Historical",
+    "tagType": "AtomicTag",
+    "enabled": true,
+    "readOnly": true,
+    "dataType": "Float4",
+    "historyProvider": "MySQL",
+    "name": "LU-PM-MILL-L1-CURRENT-RMS",
+    "historyEnabled": true,
+    "readPermissions": {
+      "type": "AllOf",
+      "securityLevels": []
+    },
+    "sampleMode": "TagGroup",
+    "opcServer": "Ignition OPC-UA Server"
+  },
+  {
+    "valueSource": "opc",
+    "opcItemPath": "[Power Monitor]Global.F116.F116[82]",
+    "writePermissions": {
+      "type": "AllOf",
+      "securityLevels": []
+    },
+    "tagGroup": "Default",
+    "historyTagGroup": "Default Historical",
+    "tagType": "AtomicTag",
+    "enabled": true,
+    "readOnly": true,
+    "dataType": "Float4",
+    "historyProvider": "MySQL",
+    "name": "LU-PM-MILL-L2-CURRENT-RMS",
+    "historyEnabled": true,
+    "readPermissions": {
+      "type": "AllOf",
+      "securityLevels": []
+    },
+    "sampleMode": "TagGroup",
+    "opcServer": "Ignition OPC-UA Server"
+  },
+  {
+    "valueSource": "opc",
+    "opcItemPath": "[Power Monitor]Global.F116.F116[83]",
+    "writePermissions": {
+      "type": "AllOf",
+      "securityLevels": []
+    },
+    "tagGroup": "Default",
+    "historyTagGroup": "Default Historical",
+    "tagType": "AtomicTag",
+    "enabled": true,
+    "readOnly": true,
+    "dataType": "Float4",
+    "historyProvider": "MySQL",
+    "name": "LU-PM-MILL-L3-CURRENT-RMS",
+    "historyEnabled": true,
+    "readPermissions": {
+      "type": "AllOf",
+      "securityLevels": []
+    },
+    "sampleMode": "TagGroup",
+    "opcServer": "Ignition OPC-UA Server"
+  },
+  {
+    "valueSource": "opc",
+    "opcItemPath": "[Power Monitor]Global.F116.F116[84]",
+    "writePermissions": {
+      "type": "AllOf",
+      "securityLevels": []
+    },
+    "tagGroup": "Default",
+    "historyTagGroup": "Default Historical",
+    "tagType": "AtomicTag",
+    "enabled": true,
+    "readOnly": true,
+    "dataType": "Float4",
+    "historyProvider": "MySQL",
+    "name": "LU-PM-MILL-PHASE-VOLTAGE-A-B",
+    "historyEnabled": true,
+    "readPermissions": {
+      "type": "AllOf",
+      "securityLevels": []
+    },
+    "sampleMode": "TagGroup",
+    "opcServer": "Ignition OPC-UA Server"
+  },
+  {
+    "valueSource": "opc",
+    "opcItemPath": "[Power Monitor]Global.F116.F116[85]",
+    "writePermissions": {
+      "type": "AllOf",
+      "securityLevels": []
+    },
+    "tagGroup": "Default",
+    "historyTagGroup": "Default Historical",
+    "tagType": "AtomicTag",
+    "enabled": true,
+    "readOnly": true,
+    "dataType": "Float4",
+    "historyProvider": "MySQL",
+    "name": "LU-PM-MILL-PHASE-VOLTAGE-B-C",
+    "historyEnabled": true,
+    "readPermissions": {
+      "type": "AllOf",
+      "securityLevels": []
+    },
+    "sampleMode": "TagGroup",
+    "opcServer": "Ignition OPC-UA Server"
+  },
+  {
+    "valueSource": "opc",
+    "opcItemPath": "[Power Monitor]Global.F116.F116[86]",
+    "writePermissions": {
+      "type": "AllOf",
+      "securityLevels": []
+    },
+    "tagGroup": "Default",
+    "historyTagGroup": "Default Historical",
+    "tagType": "AtomicTag",
+    "enabled": true,
+    "readOnly": true,
+    "dataType": "Float4",
+    "historyProvider": "MySQL",
+    "name": "LU-PM-MILL-PHASE-VOLTAGE-C-A",
+    "historyEnabled": true,
+    "readPermissions": {
+      "type": "AllOf",
+      "securityLevels": []
+    },
+    "sampleMode": "TagGroup",
+    "opcServer": "Ignition OPC-UA Server"
+  },
+  {
+    "valueSource": "opc",
+    "opcItemPath": "[Power Monitor]Global.F116.F116[28]",
+    "writePermissions": {
+      "type": "AllOf",
+      "securityLevels": []
+    },
+    "tagGroup": "Default",
+    "historyTagGroup": "Default Historical",
+    "tagType": "AtomicTag",
+    "enabled": true,
+    "readOnly": true,
+    "dataType": "Float4",
+    "historyProvider": "MySQL",
+    "name": "LU-PM-RM5-ACTIVE-POWER",
+    "historyEnabled": true,
+    "readPermissions": {
+      "type": "AllOf",
+      "securityLevels": []
+    },
+    "sampleMode": "TagGroup",
+    "opcServer": "Ignition OPC-UA Server"
+  },
+  {
+    "valueSource": "opc",
+    "opcItemPath": "[Power Monitor]Global.F116.F116[21]",
+    "writePermissions": {
+      "type": "AllOf",
+      "securityLevels": []
+    },
+    "tagGroup": "Default",
+    "historyTagGroup": "Default Historical",
+    "tagType": "AtomicTag",
+    "enabled": true,
+    "readOnly": true,
+    "dataType": "Float4",
+    "historyProvider": "MySQL",
+    "name": "LU-PM-RM5-L1-CURRENT-RMS",
+    "historyEnabled": true,
+    "readPermissions": {
+      "type": "AllOf",
+      "securityLevels": []
+    },
+    "sampleMode": "TagGroup",
+    "opcServer": "Ignition OPC-UA Server"
+  },
+  {
+    "valueSource": "opc",
+    "opcItemPath": "[Power Monitor]Global.F116.F116[22]",
+    "writePermissions": {
+      "type": "AllOf",
+      "securityLevels": []
+    },
+    "tagGroup": "Default",
+    "historyTagGroup": "Default Historical",
+    "tagType": "AtomicTag",
+    "enabled": true,
+    "readOnly": true,
+    "dataType": "Float4",
+    "historyProvider": "MySQL",
+    "name": "LU-PM-RM5-L2-CURRENT-RMS",
+    "historyEnabled": true,
+    "readPermissions": {
+      "type": "AllOf",
+      "securityLevels": []
+    },
+    "sampleMode": "TagGroup",
+    "opcServer": "Ignition OPC-UA Server"
+  },
+  {
+    "valueSource": "opc",
+    "opcItemPath": "[Power Monitor]Global.F116.F116[23]",
+    "writePermissions": {
+      "type": "AllOf",
+      "securityLevels": []
+    },
+    "tagGroup": "Default",
+    "historyTagGroup": "Default Historical",
+    "tagType": "AtomicTag",
+    "enabled": true,
+    "readOnly": true,
+    "dataType": "Float4",
+    "historyProvider": "MySQL",
+    "name": "LU-PM-RM5-L3-CURRENT-RMS",
+    "historyEnabled": true,
+    "readPermissions": {
+      "type": "AllOf",
+      "securityLevels": []
+    },
+    "sampleMode": "TagGroup",
+    "opcServer": "Ignition OPC-UA Server"
+  },
+  {
+    "valueSource": "opc",
+    "opcItemPath": "[Power Monitor]Global.F116.F116[24]",
+    "writePermissions": {
+      "type": "AllOf",
+      "securityLevels": []
+    },
+    "tagGroup": "Default",
+    "historyTagGroup": "Default Historical",
+    "tagType": "AtomicTag",
+    "enabled": true,
+    "readOnly": true,
+    "dataType": "Float4",
+    "historyProvider": "MySQL",
+    "name": "LU-PM-RM5-PHASE-VOLTAGE-A-B",
+    "historyEnabled": true,
+    "readPermissions": {
+      "type": "AllOf",
+      "securityLevels": []
+    },
+    "sampleMode": "TagGroup",
+    "opcServer": "Ignition OPC-UA Server"
+  },
+  {
+    "valueSource": "opc",
+    "opcItemPath": "[Power Monitor]Global.F116.F116[25]",
+    "writePermissions": {
+      "type": "AllOf",
+      "securityLevels": []
+    },
+    "tagGroup": "Default",
+    "historyTagGroup": "Default Historical",
+    "tagType": "AtomicTag",
+    "enabled": true,
+    "readOnly": true,
+    "dataType": "Float4",
+    "historyProvider": "MySQL",
+    "name": "LU-PM-RM5-PHASE-VOLTAGE-B-C",
+    "historyEnabled": true,
+    "readPermissions": {
+      "type": "AllOf",
+      "securityLevels": []
+    },
+    "sampleMode": "TagGroup",
+    "opcServer": "Ignition OPC-UA Server"
+  },
+  {
+    "valueSource": "opc",
+    "opcItemPath": "[Power Monitor]Global.F116.F116[26]",
+    "writePermissions": {
+      "type": "AllOf",
+      "securityLevels": []
+    },
+    "tagGroup": "Default",
+    "historyTagGroup": "Default Historical",
+    "tagType": "AtomicTag",
+    "enabled": true,
+    "readOnly": true,
+    "dataType": "Float4",
+    "historyProvider": "MySQL",
+    "name": "LU-PM-RM5-PHASE-VOLTAGE-C-A",
+    "historyEnabled": true,
+    "readPermissions": {
+      "type": "AllOf",
+      "securityLevels": []
+    },
+    "sampleMode": "TagGroup",
+    "opcServer": "Ignition OPC-UA Server"
+  },
+  {
+    "valueSource": "opc",
+    "opcItemPath": "[Power Monitor]Global.F116.F116[48]",
+    "writePermissions": {
+      "type": "AllOf",
+      "securityLevels": []
+    },
+    "tagGroup": "Default",
+    "historyTagGroup": "Default Historical",
+    "tagType": "AtomicTag",
+    "enabled": true,
+    "readOnly": true,
+    "dataType": "Float4",
+    "historyProvider": "MySQL",
+    "name": "LU-PM-RM6-ACTIVE-POWER",
+    "historyEnabled": true,
+    "readPermissions": {
+      "type": "AllOf",
+      "securityLevels": []
+    },
+    "sampleMode": "TagGroup",
+    "opcServer": "Ignition OPC-UA Server"
+  },
+  {
+    "valueSource": "opc",
+    "opcItemPath": "[Power Monitor]Global.F116.F116[41]",
+    "writePermissions": {
+      "type": "AllOf",
+      "securityLevels": []
+    },
+    "tagGroup": "Default",
+    "historyTagGroup": "Default Historical",
+    "tagType": "AtomicTag",
+    "enabled": true,
+    "readOnly": true,
+    "dataType": "Float4",
+    "historyProvider": "MySQL",
+    "name": "LU-PM-RM6-L1-CURRENT-RMS",
+    "historyEnabled": true,
+    "readPermissions": {
+      "type": "AllOf",
+      "securityLevels": []
+    },
+    "sampleMode": "TagGroup",
+    "opcServer": "Ignition OPC-UA Server"
+  },
+  {
+    "valueSource": "opc",
+    "opcItemPath": "[Power Monitor]Global.F116.F116[42]",
+    "writePermissions": {
+      "type": "AllOf",
+      "securityLevels": []
+    },
+    "tagGroup": "Default",
+    "historyTagGroup": "Default Historical",
+    "tagType": "AtomicTag",
+    "enabled": true,
+    "readOnly": true,
+    "dataType": "Float4",
+    "historyProvider": "MySQL",
+    "name": "LU-PM-RM6-L2-CURRENT-RMS",
+    "historyEnabled": true,
+    "readPermissions": {
+      "type": "AllOf",
+      "securityLevels": []
+    },
+    "sampleMode": "TagGroup",
+    "opcServer": "Ignition OPC-UA Server"
+  },
+  {
+    "valueSource": "opc",
+    "opcItemPath": "[Power Monitor]Global.F116.F116[43]",
+    "writePermissions": {
+      "type": "AllOf",
+      "securityLevels": []
+    },
+    "tagGroup": "Default",
+    "historyTagGroup": "Default Historical",
+    "tagType": "AtomicTag",
+    "enabled": true,
+    "readOnly": true,
+    "dataType": "Float4",
+    "historyProvider": "MySQL",
+    "name": "LU-PM-RM6-L3-CURRENT-RMS",
+    "historyEnabled": true,
+    "readPermissions": {
+      "type": "AllOf",
+      "securityLevels": []
+    },
+    "sampleMode": "TagGroup",
+    "opcServer": "Ignition OPC-UA Server"
+  },
+  {
+    "valueSource": "opc",
+    "opcItemPath": "[Power Monitor]Global.F116.F116[44]",
+    "writePermissions": {
+      "type": "AllOf",
+      "securityLevels": []
+    },
+    "tagGroup": "Default",
+    "historyTagGroup": "Default Historical",
+    "tagType": "AtomicTag",
+    "enabled": true,
+    "readOnly": true,
+    "dataType": "Float4",
+    "historyProvider": "MySQL",
+    "name": "LU-PM-RM6-PHASE-VOLTAGE-A-B",
+    "historyEnabled": true,
+    "readPermissions": {
+      "type": "AllOf",
+      "securityLevels": []
+    },
+    "sampleMode": "TagGroup",
+    "opcServer": "Ignition OPC-UA Server"
+  },
+  {
+    "valueSource": "opc",
+    "opcItemPath": "[Power Monitor]Global.F116.F116[45]",
+    "writePermissions": {
+      "type": "AllOf",
+      "securityLevels": []
+    },
+    "tagGroup": "Default",
+    "historyTagGroup": "Default Historical",
+    "tagType": "AtomicTag",
+    "enabled": true,
+    "readOnly": true,
+    "dataType": "Float4",
+    "historyProvider": "MySQL",
+    "name": "LU-PM-RM6-PHASE-VOLTAGE-B-C",
+    "historyEnabled": true,
+    "readPermissions": {
+      "type": "AllOf",
+      "securityLevels": []
+    },
+    "sampleMode": "TagGroup",
+    "opcServer": "Ignition OPC-UA Server"
+  },
+  {
+    "valueSource": "opc",
+    "opcItemPath": "[Power Monitor]Global.F116.F116[46]",
+    "writePermissions": {
+      "type": "AllOf",
+      "securityLevels": []
+    },
+    "tagGroup": "Default",
+    "historyTagGroup": "Default Historical",
+    "tagType": "AtomicTag",
+    "enabled": true,
+    "readOnly": true,
+    "dataType": "Float4",
+    "historyProvider": "MySQL",
+    "name": "LU-PM-RM6-PHASE-VOLTAGE-C-A",
+    "historyEnabled": true,
+    "readPermissions": {
+      "type": "AllOf",
+      "securityLevels": []
+    },
+    "sampleMode": "TagGroup",
+    "opcServer": "Ignition OPC-UA Server"
+  },
+  {
+    "valueSource": "opc",
+    "opcItemPath": "[Power Monitor]Global.F116.F116[68]",
+    "writePermissions": {
+      "type": "AllOf",
+      "securityLevels": []
+    },
+    "tagGroup": "Default",
+    "historyTagGroup": "Default Historical",
+    "tagType": "AtomicTag",
+    "enabled": true,
+    "readOnly": true,
+    "dataType": "Float4",
+    "historyProvider": "MySQL",
+    "name": "LU-PM-RM7-ACTIVE-POWER",
+    "historyEnabled": true,
+    "readPermissions": {
+      "type": "AllOf",
+      "securityLevels": []
+    },
+    "sampleMode": "TagGroup",
+    "opcServer": "Ignition OPC-UA Server"
+  },
+  {
+    "valueSource": "opc",
+    "opcItemPath": "[Power Monitor]Global.F116.F116[61]",
+    "writePermissions": {
+      "type": "AllOf",
+      "securityLevels": []
+    },
+    "tagGroup": "Default",
+    "historyTagGroup": "Default Historical",
+    "tagType": "AtomicTag",
+    "enabled": true,
+    "readOnly": true,
+    "dataType": "Float4",
+    "historyProvider": "MySQL",
+    "name": "LU-PM-RM7-L1-CURRENT-RMS",
+    "historyEnabled": true,
+    "readPermissions": {
+      "type": "AllOf",
+      "securityLevels": []
+    },
+    "sampleMode": "TagGroup",
+    "opcServer": "Ignition OPC-UA Server"
+  },
+  {
+    "valueSource": "opc",
+    "opcItemPath": "[Power Monitor]Global.F116.F116[62]",
+    "writePermissions": {
+      "type": "AllOf",
+      "securityLevels": []
+    },
+    "tagGroup": "Default",
+    "historyTagGroup": "Default Historical",
+    "tagType": "AtomicTag",
+    "enabled": true,
+    "readOnly": true,
+    "dataType": "Float4",
+    "historyProvider": "MySQL",
+    "name": "LU-PM-RM7-L2-CURRENT-RMS",
+    "historyEnabled": true,
+    "readPermissions": {
+      "type": "AllOf",
+      "securityLevels": []
+    },
+    "sampleMode": "TagGroup",
+    "opcServer": "Ignition OPC-UA Server"
+  },
+  {
+    "valueSource": "opc",
+    "opcItemPath": "[Power Monitor]Global.F116.F116[63]",
+    "writePermissions": {
+      "type": "AllOf",
+      "securityLevels": []
+    },
+    "tagGroup": "Default",
+    "historyTagGroup": "Default Historical",
+    "tagType": "AtomicTag",
+    "enabled": true,
+    "readOnly": true,
+    "dataType": "Float4",
+    "historyProvider": "MySQL",
+    "name": "LU-PM-RM7-L3-CURRENT-RMS",
+    "historyEnabled": true,
+    "readPermissions": {
+      "type": "AllOf",
+      "securityLevels": []
+    },
+    "sampleMode": "TagGroup",
+    "opcServer": "Ignition OPC-UA Server"
+  },
+  {
+    "valueSource": "opc",
+    "opcItemPath": "[Power Monitor]Global.F116.F116[64]",
+    "writePermissions": {
+      "type": "AllOf",
+      "securityLevels": []
+    },
+    "tagGroup": "Default",
+    "historyTagGroup": "Default Historical",
+    "tagType": "AtomicTag",
+    "enabled": true,
+    "readOnly": true,
+    "dataType": "Float4",
+    "historyProvider": "MySQL",
+    "name": "LU-PM-RM7-PHASE-VOLTAGE-A-B",
+    "historyEnabled": true,
+    "readPermissions": {
+      "type": "AllOf",
+      "securityLevels": []
+    },
+    "sampleMode": "TagGroup",
+    "opcServer": "Ignition OPC-UA Server"
+  },
+  {
+    "valueSource": "opc",
+    "opcItemPath": "[Power Monitor]Global.F116.F116[65]",
+    "writePermissions": {
+      "type": "AllOf",
+      "securityLevels": []
+    },
+    "tagGroup": "Default",
+    "historyTagGroup": "Default Historical",
+    "tagType": "AtomicTag",
+    "enabled": true,
+    "readOnly": true,
+    "dataType": "Float4",
+    "historyProvider": "MySQL",
+    "name": "LU-PM-RM7-PHASE-VOLTAGE-B-C",
+    "historyEnabled": true,
+    "readPermissions": {
+      "type": "AllOf",
+      "securityLevels": []
+    },
+    "sampleMode": "TagGroup",
+    "opcServer": "Ignition OPC-UA Server"
+  },
+  {
+    "valueSource": "opc",
+    "opcItemPath": "[Power Monitor]Global.F116.F116[66]",
+    "writePermissions": {
+      "type": "AllOf",
+      "securityLevels": []
+    },
+    "tagGroup": "Default",
+    "historyTagGroup": "Default Historical",
+    "tagType": "AtomicTag",
+    "enabled": true,
+    "readOnly": true,
+    "dataType": "Float4",
+    "historyProvider": "MySQL",
+    "name": "LU-PM-RM7-PHASE-VOLTAGE-C-A",
+    "historyEnabled": true,
+    "readPermissions": {
+      "type": "AllOf",
+      "securityLevels": []
+    },
+    "sampleMode": "TagGroup",
+    "opcServer": "Ignition OPC-UA Server"
+  },
+  {
+    "valueSource": "opc",
+    "opcItemPath": "[Power Monitor]Global.F116.F116[108]",
+    "writePermissions": {
+      "type": "AllOf",
+      "securityLevels": []
+    },
+    "tagGroup": "Default",
+    "historyTagGroup": "Default Historical",
+    "tagType": "AtomicTag",
+    "enabled": true,
+    "readOnly": true,
+    "dataType": "Float4",
+    "historyProvider": "MySQL",
+    "name": "LU-PM-SOUTH-MILL-ACTIVE-POWER",
+    "historyEnabled": true,
+    "readPermissions": {
+      "type": "AllOf",
+      "securityLevels": []
+    },
+    "sampleMode": "TagGroup",
+    "opcServer": "Ignition OPC-UA Server"
+  },
+  {
+    "valueSource": "opc",
+    "opcItemPath": "[Power Monitor]Global.F116.F116[101]",
+    "writePermissions": {
+      "type": "AllOf",
+      "securityLevels": []
+    },
+    "tagGroup": "Default",
+    "historyTagGroup": "Default Historical",
+    "tagType": "AtomicTag",
+    "enabled": true,
+    "readOnly": true,
+    "dataType": "Float4",
+    "historyProvider": "MySQL",
+    "name": "LU-PM-SOUTH-MILL-L1-CURRENT-RMS",
+    "historyEnabled": true,
+    "readPermissions": {
+      "type": "AllOf",
+      "securityLevels": []
+    },
+    "sampleMode": "TagGroup",
+    "opcServer": "Ignition OPC-UA Server"
+  },
+  {
+    "valueSource": "opc",
+    "opcItemPath": "[Power Monitor]Global.F116.F116[102]",
+    "writePermissions": {
+      "type": "AllOf",
+      "securityLevels": []
+    },
+    "tagGroup": "Default",
+    "historyTagGroup": "Default Historical",
+    "tagType": "AtomicTag",
+    "enabled": true,
+    "readOnly": true,
+    "dataType": "Float4",
+    "historyProvider": "MySQL",
+    "name": "LU-PM-SOUTH-MILL-L2-CURRENT-RMS",
+    "historyEnabled": true,
+    "readPermissions": {
+      "type": "AllOf",
+      "securityLevels": []
+    },
+    "sampleMode": "TagGroup",
+    "opcServer": "Ignition OPC-UA Server"
+  },
+  {
+    "valueSource": "opc",
+    "opcItemPath": "[Power Monitor]Global.F116.F116[103]",
+    "writePermissions": {
+      "type": "AllOf",
+      "securityLevels": []
+    },
+    "tagGroup": "Default",
+    "historyTagGroup": "Default Historical",
+    "tagType": "AtomicTag",
+    "enabled": true,
+    "readOnly": true,
+    "dataType": "Float4",
+    "historyProvider": "MySQL",
+    "name": "LU-PM-SOUTH-MILL-L3-CURRENT-RMS",
+    "historyEnabled": true,
+    "readPermissions": {
+      "type": "AllOf",
+      "securityLevels": []
+    },
+    "sampleMode": "TagGroup",
+    "opcServer": "Ignition OPC-UA Server"
+  },
+  {
+    "valueSource": "opc",
+    "opcItemPath": "[Power Monitor]Global.F116.F116[104]",
+    "writePermissions": {
+      "type": "AllOf",
+      "securityLevels": []
+    },
+    "tagGroup": "Default",
+    "historyTagGroup": "Default Historical",
+    "tagType": "AtomicTag",
+    "enabled": true,
+    "readOnly": true,
+    "dataType": "Float4",
+    "historyProvider": "MySQL",
+    "name": "LU-PM-SOUTH-MILL-PHASE-VOLTAGE-A-B",
+    "historyEnabled": true,
+    "readPermissions": {
+      "type": "AllOf",
+      "securityLevels": []
+    },
+    "sampleMode": "TagGroup",
+    "opcServer": "Ignition OPC-UA Server"
+  },
+  {
+    "valueSource": "opc",
+    "opcItemPath": "[Power Monitor]Global.F116.F116[105]",
+    "writePermissions": {
+      "type": "AllOf",
+      "securityLevels": []
+    },
+    "tagGroup": "Default",
+    "historyTagGroup": "Default Historical",
+    "tagType": "AtomicTag",
+    "enabled": true,
+    "readOnly": true,
+    "dataType": "Float4",
+    "historyProvider": "MySQL",
+    "name": "LU-PM-SOUTH-MILL-PHASE-VOLTAGE-B-C",
+    "historyEnabled": true,
+    "readPermissions": {
+      "type": "AllOf",
+      "securityLevels": []
+    },
+    "sampleMode": "TagGroup",
+    "opcServer": "Ignition OPC-UA Server"
+  },
+  {
+    "valueSource": "opc",
+    "opcItemPath": "[Power Monitor]Global.F116.F116[106]",
+    "writePermissions": {
+      "type": "AllOf",
+      "securityLevels": []
+    },
+    "tagGroup": "Default",
+    "historyTagGroup": "Default Historical",
+    "tagType": "AtomicTag",
+    "enabled": true,
+    "readOnly": true,
+    "dataType": "Float4",
+    "historyProvider": "MySQL",
+    "name": "LU-PM-SOUTH-MILL-PHASE-VOLTAGE-C-A",
+    "historyEnabled": true,
+    "readPermissions": {
+      "type": "AllOf",
+      "securityLevels": []
+    },
+    "sampleMode": "TagGroup",
+    "opcServer": "Ignition OPC-UA Server"
+  }
+]

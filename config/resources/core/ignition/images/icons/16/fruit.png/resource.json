@@ -1,0 +1,20 @@
+{
+  "scope": "A",
+  "version": 1,
+  "restricted": false,
+  "overridable": true,
+  "files": [
+    "fruit.png"
+  ],
+  "attributes": {
+    "width": 16,
+    "format": "PNG",
+    "lastModification": {
+      "actor": "8.3-migration",
+      "timestamp": "2026-01-07T14:49:07Z"
+    },
+    "size": 888,
+    "lastModificationSignature": "68f4b49e6630ba86755dc30fac0616ea5c55401eba456b9ab0040ed87cd4a262",
+    "height": 16
+  }
+}

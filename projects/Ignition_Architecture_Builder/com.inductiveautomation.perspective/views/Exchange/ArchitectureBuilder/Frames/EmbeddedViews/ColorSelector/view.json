@@ -1,0 +1,375 @@
+{
+  "custom": {
+    "preSelect": [
+      "#FFFFFF",
+      "#D5D5D5",
+      "#AAAAAA",
+      "#808080",
+      "#555555",
+      "#2B2B2B",
+      "#000000",
+      "#FFCCCC",
+      "#FF8A8A",
+      "#FF4747",
+      "#FF0000",
+      "#D90000",
+      "#AC0000",
+      "#800000",
+      "#FFE8CC",
+      "#FFCA8A",
+      "#FFAC47",
+      "#FF8C00",
+      "#D97700",
+      "#AC5F00",
+      "#804600",
+      "#FFFFCC",
+      "#FFFF8A",
+      "#FFFF47",
+      "#FFFF00",
+      "#D9D900",
+      "#ACAC00",
+      "#808000",
+      "#CCFFCC",
+      "#8AFF8A",
+      "#47FF47",
+      "#00FF00",
+      "#00D900",
+      "#00AC00",
+      "#008000",
+      "#CCFFFF",
+      "#8AFFFF",
+      "#47FFFF",
+      "#00FFFF",
+      "#00D9D9",
+      "#00ACAC",
+      "#008080",
+      "#CCCCFF",
+      "#8A8AFF",
+      "#4747FF",
+      "#0000FF",
+      "#0000D9",
+      "#0000AC",
+      "#000080",
+      "#FFCCFF",
+      "#FF8AFF",
+      "#FF47FF",
+      "#FF00FF",
+      "#D900D9",
+      "#AC00AC",
+      "#800080",
+      "--standard",
+      "--edge",
+      "--cloud",
+      "--cirrusLink",
+      "--sepasoft",
+      "--ia-darkgray",
+      "--ia-green",
+      "--ia-gray",
+      "--ignition-orange",
+      "--ignition-blue",
+      "--ignition-darkblue",
+      "--edge-gray",
+      "--edge-dark-gray",
+      "--edge-light-gray"
+    ]
+  },
+  "params": {
+    "adjustAlpha": true,
+    "color": "--cloud",
+    "transparency": 255,
+    "type": "back"
+  },
+  "propConfig": {
+    "custom.preSelect": {
+      "persistent": true
+    },
+    "custom.rgbToHex": {
+      "onChange": {
+        "enabled": null,
+        "script": "\tself.params.color\u003dcurrentValue.value"
+      },
+      "persistent": false
+    },
+    "params.adjustAlpha": {
+      "paramDirection": "input",
+      "persistent": true
+    },
+    "params.color": {
+      "paramDirection": "inout",
+      "persistent": true
+    },
+    "params.transparency": {
+      "paramDirection": "inout",
+      "persistent": true
+    },
+    "params.type": {
+      "paramDirection": "input",
+      "persistent": true
+    }
+  },
+  "props": {
+    "defaultSize": {
+      "height": 325,
+      "width": 325
+    }
+  },
+  "root": {
+    "children": [
+      {
+        "children": [
+          {
+            "meta": {
+              "name": "Label"
+            },
+            "props": {
+              "style": {
+                "marginLeft": "4px",
+                "marginRight": "4px"
+              },
+              "text": "Hex:"
+            },
+            "type": "ia.display.label"
+          },
+          {
+            "meta": {
+              "name": "TextField"
+            },
+            "position": {
+              "basis": "150px",
+              "grow": 1
+            },
+            "propConfig": {
+              "props.text": {
+                "binding": {
+                  "config": {
+                    "bidirectional": true,
+                    "path": "view.params.color"
+                  },
+                  "type": "property"
+                }
+              }
+            },
+            "type": "ia.input.text-field"
+          }
+        ],
+        "meta": {
+          "name": "HEX"
+        },
+        "position": {
+          "shrink": 0
+        },
+        "props": {
+          "style": {
+            "backgroundColor": "--neutral-50",
+            "margin": "4px",
+            "padding": "4px"
+          }
+        },
+        "type": "ia.container.flex"
+      },
+      {
+        "children": [
+          {
+            "meta": {
+              "name": "Label"
+            },
+            "props": {
+              "style": {
+                "marginLeft": "8px"
+              },
+              "text": "Alpha:"
+            },
+            "type": "ia.display.label"
+          },
+          {
+            "meta": {
+              "name": "Slider"
+            },
+            "position": {
+              "grow": 1
+            },
+            "propConfig": {
+              "props.value": {
+                "binding": {
+                  "config": {
+                    "bidirectional": true,
+                    "coalesce": true,
+                    "path": "view.params.transparency"
+                  },
+                  "overlayOptOut": true,
+                  "type": "property"
+                }
+              }
+            },
+            "props": {
+              "labels": {
+                "interval": 50,
+                "show": true
+              },
+              "max": 255,
+              "style": {
+                "marginRight": "10px",
+                "paddingLeft": "16px",
+                "paddingRight": "16px"
+              }
+            },
+            "type": "ia.input.slider"
+          },
+          {
+            "meta": {
+              "name": "NumericEntryField"
+            },
+            "position": {
+              "basis": "50px"
+            },
+            "propConfig": {
+              "props.value": {
+                "binding": {
+                  "config": {
+                    "bidirectional": true,
+                    "path": "../Slider.props.value"
+                  },
+                  "type": "property"
+                }
+              }
+            },
+            "props": {
+              "inputBounds": {
+                "maximum": 255,
+                "minimum": 0
+              }
+            },
+            "type": "ia.input.numeric-entry-field"
+          }
+        ],
+        "meta": {
+          "name": "Alpha"
+        },
+        "position": {
+          "basis": "38px",
+          "shrink": 0
+        },
+        "propConfig": {
+          "position.display": {
+            "binding": {
+              "config": {
+                "expression": "{view.params.adjustAlpha}\u0026\u0026left({view.params.color},2)!\u003d\"--\""
+              },
+              "type": "expr"
+            }
+          }
+        },
+        "props": {
+          "alignItems": "flex-start",
+          "style": {
+            "backgroundColor": "--neutral-50",
+            "margin": "4px",
+            "marginTop": 0,
+            "padding": "4px"
+          }
+        },
+        "type": "ia.container.flex"
+      },
+      {
+        "children": [
+          {
+            "meta": {
+              "name": "FlexRepeater"
+            },
+            "position": {
+              "shrink": 0
+            },
+            "propConfig": {
+              "props.instances": {
+                "binding": {
+                  "config": {
+                    "path": "view.custom.preSelect"
+                  },
+                  "transforms": [
+                    {
+                      "code": "\tinstances\u003d[]\n\tfor x in value:\n\t\tinstances.append({\n\t\t  \"color\": x,\n\t\t  \"type\": self.view.params.type\n\t\t})\n\treturn instances",
+                      "type": "script"
+                    }
+                  ],
+                  "type": "property"
+                }
+              }
+            },
+            "props": {
+              "alignContent": "flex-start",
+              "alignItems": "flex-start",
+              "elementPosition": {
+                "basis": "auto",
+                "grow": 0,
+                "shrink": 0
+              },
+              "elementStyle": {
+                "height": "18px",
+                "width": "18px"
+              },
+              "path": "Exchange/ArchitectureBuilder/Frames/EmbeddedViews/colorPallet",
+              "style": {
+                "alignSelf": "center",
+                "backgroundColor": "--neutral-50",
+                "marginBottom": "8px",
+                "padding": "4px",
+                "width": "148px"
+              },
+              "useDefaultViewHeight": false,
+              "useDefaultViewWidth": false,
+              "wrap": "wrap"
+            },
+            "type": "ia.display.flex-repeater"
+          }
+        ],
+        "meta": {
+          "name": "FlexContainer"
+        },
+        "props": {
+          "justify": "center"
+        },
+        "type": "ia.container.flex"
+      }
+    ],
+    "meta": {
+      "name": "root"
+    },
+    "propConfig": {
+      "props.style.backgroundColor": {
+        "binding": {
+          "config": {
+            "struct": {
+              "color": "{view.params.color}",
+              "transparency": "{view.params.transparency}"
+            },
+            "waitOnAll": true
+          },
+          "transforms": [
+            {
+              "code": "\tif value[\u0027color\u0027][:2]\u003d\u003d\u0027--\u0027:\n\t\treturn value[\u0027color\u0027]\n\telif value[\u0027transparency\u0027] is None:\n\t\talpha\u003d\u0027FF\u0027\n\telse:\n\t\talpha\u003d\u0027%02x\u0027 % value[\u0027transparency\u0027]\n\treturn value[\u0027color\u0027]+alpha",
+              "type": "script"
+            }
+          ],
+          "type": "expr-struct"
+        }
+      }
+    },
+    "props": {
+      "direction": "column"
+    },
+    "scripts": {
+      "customMethods": [],
+      "extensionFunctions": null,
+      "messageHandlers": [
+        {
+          "messageType": "colorPallet",
+          "pageScope": true,
+          "script": "\t#system.perspective.sendMessage(\u0027colorPallet\u0027, self.view.params.color)\n\tif payload[\u0027type\u0027]\u003d\u003dself.view.params.type:\n\t\tself.getChild(\"HEX\").getChild(\"TextField\").props.text\u003dpayload[\u0027color\u0027]",
+          "sessionScope": false,
+          "viewScope": false
+        }
+      ]
+    },
+    "type": "ia.container.flex"
+  }
+}

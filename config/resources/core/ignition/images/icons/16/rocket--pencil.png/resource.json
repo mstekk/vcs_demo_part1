@@ -1,0 +1,20 @@
+{
+  "scope": "A",
+  "version": 1,
+  "restricted": false,
+  "overridable": true,
+  "files": [
+    "rocket--pencil.png"
+  ],
+  "attributes": {
+    "width": 16,
+    "format": "PNG",
+    "lastModification": {
+      "actor": "8.3-migration",
+      "timestamp": "2026-01-07T14:49:07Z"
+    },
+    "size": 787,
+    "lastModificationSignature": "6de7c6351ab4c254c1f705544cc8f80bf19289c9af00b4cb955b59aab84a19d8",
+    "height": 16
+  }
+}

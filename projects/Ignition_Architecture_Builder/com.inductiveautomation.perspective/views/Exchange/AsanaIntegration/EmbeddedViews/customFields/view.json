@@ -1,0 +1,221 @@
+{
+  "custom": {},
+  "params": {
+    "canEdit": true,
+    "custom_field": {},
+    "edit": false,
+    "labelwidth": 100,
+    "selected": "",
+    "userEdit": true
+  },
+  "propConfig": {
+    "params.canEdit": {
+      "paramDirection": "input",
+      "persistent": true
+    },
+    "params.custom_field": {
+      "paramDirection": "input",
+      "persistent": true
+    },
+    "params.edit": {
+      "paramDirection": "inout",
+      "persistent": true
+    },
+    "params.labelwidth": {
+      "paramDirection": "input",
+      "persistent": true
+    },
+    "params.selected": {
+      "paramDirection": "inout",
+      "persistent": true
+    },
+    "params.userEdit": {
+      "paramDirection": "input",
+      "persistent": true
+    }
+  },
+  "props": {
+    "defaultSize": {
+      "height": 119,
+      "width": 792
+    }
+  },
+  "root": {
+    "children": [
+      {
+        "meta": {
+          "name": "Label"
+        },
+        "position": {
+          "shrink": 0
+        },
+        "propConfig": {
+          "position.basis": {
+            "binding": {
+              "config": {
+                "expression": "{view.params.labelwidth}+\"px\""
+              },
+              "type": "expr"
+            }
+          },
+          "props.text": {
+            "binding": {
+              "config": {
+                "expression": "{view.params.custom_field.name}+\":\""
+              },
+              "type": "expr"
+            }
+          }
+        },
+        "props": {
+          "style": {
+            "marginRight": "4px"
+          },
+          "textStyle": {
+            "textAlign": "right"
+          }
+        },
+        "type": "ia.display.label"
+      },
+      {
+        "meta": {
+          "name": "TextField"
+        },
+        "position": {
+          "basis": "32px",
+          "grow": 1
+        },
+        "propConfig": {
+          "position.display": {
+            "binding": {
+              "config": {
+                "expression": "{view.params.custom_field.type}\u003d\u0027text\u0027"
+              },
+              "type": "expr"
+            }
+          },
+          "props.enabled": {
+            "binding": {
+              "config": {
+                "expression": "{view.params.canEdit}"
+              },
+              "type": "expr"
+            }
+          },
+          "props.text": {
+            "binding": {
+              "config": {
+                "bidirectional": true,
+                "path": "view.params.selected"
+              },
+              "type": "property"
+            }
+          }
+        },
+        "type": "ia.input.text-field"
+      },
+      {
+        "meta": {
+          "name": "Dropdown"
+        },
+        "position": {
+          "basis": "36px",
+          "grow": 1
+        },
+        "propConfig": {
+          "position.display": {
+            "binding": {
+              "config": {
+                "expression": "{view.params.custom_field.type}\u003d\u0027enum\u0027 || {view.params.custom_field.type}\u003d\u0027multi_enum\u0027"
+              },
+              "type": "expr"
+            }
+          },
+          "props.enabled": {
+            "binding": {
+              "config": {
+                "expression": "{view.params.canEdit}"
+              },
+              "type": "expr"
+            }
+          },
+          "props.multiSelect": {
+            "binding": {
+              "config": {
+                "expression": "{view.params.custom_field.type}\u003d\"multi_enum\""
+              },
+              "type": "expr"
+            }
+          },
+          "props.options": {
+            "binding": {
+              "config": {
+                "path": "view.params.custom_field.enum_options"
+              },
+              "transforms": [
+                {
+                  "code": "\toptions\u003d[]\n\tfor x in value:\n\t\toptions.append({\n\t\t  \"value\": x[\u0027gid\u0027],\n\t\t  \"label\": x[\u0027name\u0027]\n\t\t})\n\treturn options",
+                  "type": "script"
+                }
+              ],
+              "type": "property"
+            }
+          },
+          "props.value": {
+            "binding": {
+              "config": {
+                "bidirectional": true,
+                "path": "view.params.selected"
+              },
+              "type": "property"
+            }
+          }
+        },
+        "props": {
+          "showClearIcon": true
+        },
+        "type": "ia.input.dropdown"
+      },
+      {
+        "meta": {
+          "name": "Checkbox"
+        },
+        "position": {
+          "shrink": 0
+        },
+        "propConfig": {
+          "position.display": {
+            "binding": {
+              "config": {
+                "path": "view.params.userEdit"
+              },
+              "type": "property"
+            }
+          },
+          "props.selected": {
+            "binding": {
+              "config": {
+                "bidirectional": true,
+                "path": "view.params.edit"
+              },
+              "type": "property"
+            }
+          }
+        },
+        "props": {
+          "text": "User Editable"
+        },
+        "type": "ia.input.checkbox"
+      }
+    ],
+    "meta": {
+      "name": "root"
+    },
+    "props": {
+      "style": {
+        "margin": "4px"
+      }
+    },
+    "type": "ia.container.flex"
+  }
+}

@@ -1,0 +1,20 @@
+{
+  "scope": "A",
+  "version": 1,
+  "restricted": false,
+  "overridable": true,
+  "files": [
+    "border-color.png"
+  ],
+  "attributes": {
+    "width": 16,
+    "format": "PNG",
+    "lastModification": {
+      "actor": "8.3-migration",
+      "timestamp": "2026-01-07T14:49:07Z"
+    },
+    "size": 657,
+    "lastModificationSignature": "9165ce557ae8fff82c217c45c9f45467d2e82aabd5e065a9289e95eb80498b13",
+    "height": 16
+  }
+}

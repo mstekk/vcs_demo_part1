@@ -1,0 +1,20 @@
+{
+  "scope": "A",
+  "version": 1,
+  "restricted": false,
+  "overridable": true,
+  "files": [
+    "guitar--exclamation.png"
+  ],
+  "attributes": {
+    "width": 16,
+    "format": "PNG",
+    "lastModification": {
+      "actor": "8.3-migration",
+      "timestamp": "2026-01-07T14:49:07Z"
+    },
+    "size": 885,
+    "lastModificationSignature": "3143ef9aed886ca46b53134ff7c783d8fff3928db5a2ac13bef4fcbe1382b200",
+    "height": 16
+  }
+}

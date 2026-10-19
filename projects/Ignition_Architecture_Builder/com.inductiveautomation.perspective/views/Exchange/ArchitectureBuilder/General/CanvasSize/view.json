@@ -1,0 +1,159 @@
+{
+  "custom": {},
+  "params": {},
+  "props": {
+    "defaultSize": {
+      "height": 156,
+      "width": 194
+    }
+  },
+  "root": {
+    "children": [
+      {
+        "children": [
+          {
+            "meta": {
+              "name": "Height"
+            },
+            "position": {
+              "shrink": 0
+            },
+            "propConfig": {
+              "props.params.value": {
+                "binding": {
+                  "config": {
+                    "path": "session.custom.canvasSize.height"
+                  },
+                  "type": "property"
+                }
+              }
+            },
+            "props": {
+              "params": {
+                "label": "Height: ",
+                "labelSize": "60px"
+              },
+              "path": "Exchange/ArchitectureBuilder/General/NumericInput",
+              "style": {
+                "marginTop": "4px"
+              }
+            },
+            "type": "ia.display.view"
+          },
+          {
+            "meta": {
+              "name": "Width"
+            },
+            "position": {
+              "shrink": 0
+            },
+            "propConfig": {
+              "props.params.value": {
+                "binding": {
+                  "config": {
+                    "path": "session.custom.canvasSize.width"
+                  },
+                  "type": "property"
+                }
+              }
+            },
+            "props": {
+              "params": {
+                "label": "Width:",
+                "labelSize": "60px"
+              },
+              "path": "Exchange/ArchitectureBuilder/General/NumericInput",
+              "style": {
+                "marginTop": "4px"
+              }
+            },
+            "type": "ia.display.view"
+          },
+          {
+            "events": {
+              "component": {
+                "onActionPerformed": {
+                  "config": {
+                    "script": "\tself.session.custom.canvasSize.height\u003dself.getSibling(\"Height\").props.params.value\n\tself.session.custom.canvasSize.width\u003dself.getSibling(\"Width\").props.params.value\n\tsystem.perspective.sendMessage(\u0027panInteract\u0027, {\u0027action\u0027:\u0027Pan\u0027},scope\u003d\u0027session\u0027)\n\tsystem.perspective.closePopup(\u0027canvasSize\u0027)\n\t"
+                  },
+                  "scope": "G",
+                  "type": "script"
+                }
+              }
+            },
+            "meta": {
+              "name": "Button"
+            },
+            "position": {
+              "shrink": 0
+            },
+            "props": {
+              "image": {
+                "icon": {
+                  "path": "material/photo_size_select_small"
+                }
+              },
+              "style": {
+                "margin": "4px"
+              },
+              "text": "Apply Canvas Size"
+            },
+            "type": "ia.input.button"
+          },
+          {
+            "events": {
+              "component": {
+                "onActionPerformed": {
+                  "config": {
+                    "script": "\n\tcomponents\u003dself.session.custom.components\n\tcontainers\u003dself.session.custom.containers\n\tbottom\u003d0\n\tright\u003d0\n\tfor component in components:\n\t\tbot\u003dcomponents[component][\u0027top\u0027]+components[component][\u0027height\u0027]\n\t\trig\u003dcomponents[component][\u0027left\u0027]+components[component][\u0027width\u0027]\n\t\tif bot \u003e bottom:\n\t\t\tbottom\u003dbot\n\t\tif rig \u003e right:\n\t\t\tright\u003drig\n\tfor container in containers:\n\t\tcont\u003dcontainer[container.keys()[0]]\n\t\tbot\u003dcont[\u0027top\u0027]+cont[\u0027height\u0027]+self.session.custom.snapPixels\n\t\trig\u003dcont[\u0027left\u0027]+cont[\u0027width\u0027]+self.session.custom.snapPixels\n\t\tif bot \u003e bottom:\n\t\t\tbottom\u003dbot\n\t\tif rig \u003e right:\n\t\t\tright\u003drig\n\tif bottom\u003d\u003d0:\n\t\tbottom\u003d500\n\tif right\u003d\u003d0:\n\t\tright\u003d500\n\tself.session.custom.canvasSize.height\u003dbottom\n\tself.session.custom.canvasSize.width\u003dright\n\tsystem.perspective.sendMessage(\u0027panInteract\u0027, {\u0027action\u0027:\u0027Pan\u0027},scope\u003d\u0027session\u0027)"
+                  },
+                  "scope": "G",
+                  "type": "script"
+                }
+              }
+            },
+            "meta": {
+              "name": "Button_0"
+            },
+            "position": {
+              "shrink": 0
+            },
+            "props": {
+              "image": {
+                "icon": {
+                  "path": "material/autorenew"
+                }
+              },
+              "style": {
+                "margin": "4px",
+                "marginTop": 0
+              },
+              "text": "Auto Size"
+            },
+            "type": "ia.input.button"
+          }
+        ],
+        "meta": {
+          "name": "FlexContainer"
+        },
+        "position": {
+          "basis": "100%",
+          "grow": 1
+        },
+        "props": {
+          "direction": "column"
+        },
+        "type": "ia.container.flex"
+      }
+    ],
+    "meta": {
+      "name": "root"
+    },
+    "props": {
+      "style": {
+        "margin": "4px"
+      }
+    },
+    "type": "ia.container.flex"
+  }
+}

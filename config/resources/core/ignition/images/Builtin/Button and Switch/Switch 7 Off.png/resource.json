@@ -1,0 +1,20 @@
+{
+  "scope": "A",
+  "version": 1,
+  "restricted": false,
+  "overridable": true,
+  "files": [
+    "Switch 7 Off.png"
+  ],
+  "attributes": {
+    "width": 70,
+    "format": "PNG",
+    "lastModification": {
+      "actor": "8.3-migration",
+      "timestamp": "2026-01-07T14:49:07Z"
+    },
+    "size": 1760,
+    "lastModificationSignature": "3d103b792de2f93d29b1ac9079544e507c16c26d793951d2043937fe843ba723",
+    "height": 134
+  }
+}

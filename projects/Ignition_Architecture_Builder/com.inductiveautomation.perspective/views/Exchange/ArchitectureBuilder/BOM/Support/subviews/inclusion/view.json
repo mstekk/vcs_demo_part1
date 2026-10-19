@@ -1,0 +1,96 @@
+{
+  "custom": {},
+  "params": {
+    "value": {
+      "enabled": false,
+      "type": "priority",
+      "value": true
+    }
+  },
+  "propConfig": {
+    "params.value": {
+      "paramDirection": "input",
+      "persistent": true
+    }
+  },
+  "props": {
+    "defaultSize": {
+      "height": 30,
+      "width": 150
+    }
+  },
+  "root": {
+    "children": [
+      {
+        "meta": {
+          "name": "Icon",
+          "tooltip": {}
+        },
+        "position": {
+          "basis": "24px",
+          "shrink": 0
+        },
+        "propConfig": {
+          "meta.contextMenu.style.cursor": {
+            "binding": {
+              "config": {
+                "expression": "if({view.params.value.enabled},\r\n\t\"help\",\r\n\t\"\")"
+              },
+              "type": "expr"
+            }
+          },
+          "meta.tooltip.enabled": {
+            "binding": {
+              "config": {
+                "path": "view.params.value.enabled"
+              },
+              "type": "property"
+            }
+          },
+          "meta.tooltip.text": {
+            "binding": {
+              "config": {
+                "expression": "case({view.params.value.type},\r\n\t\"email\", \"Unlimited email/web support\",\r\n\t\"phone\", \"Business hours phone support\",\r\n\t\"Highest priority treatment\")\r\n+ \u0027 \u0027 + \r\nif({view.params.value.value},\r\n\t\"included.\",\r\n\t\"not included.\")"
+              },
+              "type": "expr"
+            }
+          },
+          "props.color": {
+            "binding": {
+              "config": {
+                "expression": "if({view.params.value.value} \u0026\u0026 {view.params.value.enabled},\r\n\t\"--neutral-100\",\r\n\t\"--neutral-50\")"
+              },
+              "type": "expr"
+            }
+          },
+          "props.path": {
+            "binding": {
+              "config": {
+                "expression": "\"material/\" +\r\nif({view.params.value.value},\r\n\tcase({view.params.value.type},\r\n\t\t\"email\", \"email\",\r\n\t\t\"phone\", \"local_phone\",\r\n\t\t\"priority\", \"upgrade\",\r\n\t\t\"check\"),\r\n\"horizontal_rule\")"
+              },
+              "type": "expr"
+            }
+          }
+        },
+        "type": "ia.display.icon"
+      }
+    ],
+    "meta": {
+      "name": "root"
+    },
+    "propConfig": {
+      "props.style.cursor": {
+        "binding": {
+          "config": {
+            "expression": "if({view.params.value.enabled},\r\n\t\"help\",\r\n\t\"\")"
+          },
+          "type": "expr"
+        }
+      }
+    },
+    "props": {
+      "justify": "center"
+    },
+    "type": "ia.container.flex"
+  }
+}
